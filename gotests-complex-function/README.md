@@ -1,7 +1,7 @@
 
-# gotest-complex-function example
+# gotests-complex-function example
 
-`gotest-complex-function` _is an example of testing a function with
+`gotests-complex-function` _is an example of testing a function with
 complex inputs and outputs._
 
 Th function Check() is tested using TestCheck() in the
