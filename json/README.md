@@ -1,7 +1,8 @@
 
 # json example
 
-_An example that takes a struct and encodes to json and then decodes back to the struct._
+`json` _is an example os a struct encoded to json and decoded
+back to the struct._
 
 # ENCODE
 
