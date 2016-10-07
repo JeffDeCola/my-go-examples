@@ -6,9 +6,8 @@
 [![GoDoc](https://godoc.org/github.com/JeffDeCola/my-go-examples?status.svg)](https://godoc.org/github.com/JeffDeCola/my-go-examples)
 [![License](http://img.shields.io/:license-mit-blue.svg)](http://jeffdecola.mit-license.org)
 
-[Website](https://jeffdecola.github.io/my-go-examples/)
-
 `my-go-examples` _is a place to keep my go code snippets and examples._
 
+[Website](https://jeffdecola.github.io/my-go-examples/)
 
 
