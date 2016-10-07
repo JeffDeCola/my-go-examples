@@ -15,3 +15,9 @@ struct -> encode -> byte -> string
 Decodes json to a struct from a string.
 
 string -> byte -> decode -> struct
+
+# RUN
+
+```bash
+go run json.go
+```
