@@ -9,27 +9,28 @@ import (
 
 func main() {
 
-	creature := creatures.Jeff{TimeofDay: "day"}
-	fmt.Printf("Jeff is a %s\n", creature.Kind())
-	sound := laboratory.CreatureSound(creature)
+	Jeff := creatures.Warewolf{TimeofDay: "night"} // Get data
+	fmt.Printf("Jeff is a %s\n", Jeff.Kind())
+	sound := laboratory.Greet(Jeff)
 	fmt.Println(sound)
-	fly := laboratory.CreatureFly(creature)
+	fly := laboratory.FlyAway(Jeff)
 	fmt.Println(fly)
 	fmt.Println("")
 
-	var creature2 laboratory.Creatures = creatures.Steven{Age: 132, Height: 56} // Another way to write this.
-	fmt.Printf("Steven is a %s\n", creature2.Kind())
-	sound = laboratory.CreatureSound(creature2)
+	Jeff.TimeofDay = "day"
+	fmt.Printf("Jeff is a %s\n", Jeff.Kind())
+	sound = laboratory.Greet(Jeff)
 	fmt.Println(sound)
-	fly = laboratory.CreatureFly(creature2)
+	fly = laboratory.FlyAway(Jeff)
 	fmt.Println(fly)
 	fmt.Println("")
 
-	creature3 := creatures.Doris("hello")
-	fmt.Printf("Doris is a %s\n", creature3.Kind())
-	//sound = laboratory.CreatureSound(creature3)
-	fmt.Println(laboratory.CreatureSound(creature3))
-	fly = laboratory.CreatureFly(creature3)
+	var Clif laboratory.Creatures = creatures.Vampire{Age: 132} // Interface - Access to behavior.
+	fmt.Printf("Clif is a %s\n", Clif.Kind())
+	sound = laboratory.Greet(Clif)
+	fmt.Println(sound)
+	fly = laboratory.FlyAway(Clif)
 	fmt.Println(fly)
+	fmt.Println("")
 
 }
