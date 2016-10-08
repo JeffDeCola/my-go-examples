@@ -2,9 +2,9 @@ package laboratory
 
 import "testing"
 
-func TestSqeezeDuck(t *testing.T) {
+func TestCreatureSound(t *testing.T) {
 	type args struct {
-		ducktosqeeze Duck
+		scarysound Creatures
 	}
 	tests := []struct {
 		name string
@@ -14,15 +14,15 @@ func TestSqeezeDuck(t *testing.T) {
 	// TODO: Add test cases.
 	}
 	for _, tt := range tests {
-		if got := SqeezeDuck(tt.args.ducktosqeeze); got != tt.want {
-			t.Errorf("%q. SqeezeDuck() = %v, want %v", tt.name, got, tt.want)
+		if got := CreatureSound(tt.args.scarysound); got != tt.want {
+			t.Errorf("%q. CreatureSound() = %v, want %v", tt.name, got, tt.want)
 		}
 	}
 }
 
-func TestKillLivingThing(t *testing.T) {
+func TestCreatureFly(t *testing.T) {
 	type args struct {
-		thingtokill LivingThing
+		canfly Creatures
 	}
 	tests := []struct {
 		name string
@@ -32,8 +32,8 @@ func TestKillLivingThing(t *testing.T) {
 	// TODO: Add test cases.
 	}
 	for _, tt := range tests {
-		if got := KillLivingThing(tt.args.thingtokill); got != tt.want {
-			t.Errorf("%q. KillLivingThing() = %v, want %v", tt.name, got, tt.want)
+		if got := CreatureFly(tt.args.canfly); got != tt.want {
+			t.Errorf("%q. CreatureFly() = %v, want %v", tt.name, got, tt.want)
 		}
 	}
 }
