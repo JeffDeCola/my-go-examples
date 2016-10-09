@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Hank Quinlan, Horrible Cop
+title: JeffDeCola my-go-examples
 ---
 # my-go-examples
 
