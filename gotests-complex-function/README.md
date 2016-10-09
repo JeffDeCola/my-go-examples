@@ -9,13 +9,13 @@ Th function Check() is tested using TestCheck() in the
 complex_function_test to see see how to setup the
 test for such a complex function.
 
-# GENERATE TEST FILE
+## GENERATE TEST FILE
 
 ```bash
 gotests -w -all complex_function.go
 ```
 
-# RUN TEST
+## RUN TEST
 
 ```bash
 go test -v -cover .
