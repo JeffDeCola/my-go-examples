@@ -10,7 +10,7 @@
 
 [GitHub Webpage](https://jeffdecola.github.io/my-go-examples/)
 
-# EXAMPLES
+# EXAMPLES - hi jeff
 
 [json](https://github.com/JeffDeCola/my-go-examples/tree/master/json)
 _is an example of a struct encoded to json and decoded back to a struct._
