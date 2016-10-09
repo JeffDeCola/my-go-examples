@@ -5,6 +5,6 @@ projectname : my-go-examples
 summary: A place to keep my go code snippets and examples
 ---
 
-{% include ../README.md %}
+{% include README.md %}
 
 
