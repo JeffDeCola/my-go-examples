@@ -10,7 +10,7 @@ title: JeffDeCola my-go-examples
 [![GoDoc](https://godoc.org/github.com/JeffDeCola/my-go-examples?status.svg)](https://godoc.org/github.com/JeffDeCola/my-go-examples)
 [![License](http://img.shields.io/:license-mit-blue.svg)](http://jeffdecola.mit-license.org)
 
-`my-go-examples` _is a place to keep my go code snippets and examples._
+`my-go-examples` _is theddd place to keep my go code snippets and examples._
 
 [google](https://google.com/)
 
