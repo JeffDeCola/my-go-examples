@@ -1,7 +1,8 @@
 ---
 layout: default
 title: JeffDeCola my-go-examples
-project-name: asdfasdfasdfasf
+mytitle: asdfasdfasdf
+summary: asdfasdfasdfasf
 ---
 # my-go-examples
 
