@@ -1,9 +1,3 @@
----
-layout: default
-title: JeffDeCola/my-go-examples
-projectname : my-go-examples
-summary: A place to keep my go code snippets and examples
----
 
 [![Code Climate](https://codeclimate.com/github/JeffDeCola/my-go-examples/badges/gpa.svg)](https://codeclimate.com/github/JeffDeCola/my-go-examples)
 [![Issue Count](https://codeclimate.com/github/JeffDeCola/my-go-examples/badges/issue_count.svg)](https://codeclimate.com/github/JeffDeCola/my-go-examples/issues)
