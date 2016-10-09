@@ -12,5 +12,5 @@ title: Hank Quinlan, Horrible Cop
 
 `my-go-examples` _is a place to keep my go code snippets and examples._
 
-[Website](https://jeffdecola.github.io/my-go-examples/)
+[google](https://google.com/)
 
