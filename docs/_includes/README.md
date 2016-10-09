@@ -4,7 +4,7 @@
 [![GoDoc](https://godoc.org/github.com/JeffDeCola/my-go-examples?status.svg)](https://godoc.org/github.com/JeffDeCola/my-go-examples)
 [![License](http://img.shields.io/:license-mit-blue.svg)](http://jeffdecola.mit-license.org)
 
-# EXAMPLESssasdfasdfasdfasdasdf
+# EXAMPLES
 
 [json](https://github.com/JeffDeCola/my-go-examples/tree/master/json)
 _is an example of a struct encoded to json and decoded back to a struct._
