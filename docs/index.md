@@ -1,8 +1,8 @@
 ---
 layout: default
 title: JeffDeCola my-go-examples
-mytitle: asdfasdfasdf
-summary: asdfasdfasdfasf
+projectname : my-go-examples
+summary: A place to keep my go code snippets and examples
 ---
 # my-go-examples
 
