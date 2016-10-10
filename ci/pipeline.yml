@@ -38,7 +38,7 @@ jobs:
             From my-go-examples: PASSED job-unit-tests in concourse ci. 
             $TEXT_FILE_CONTENT
       - put: resource-repo-status
-        params: { state: "pending", description: "PASSED job-unit-tests in concourse ci", commit: "my-go-examples" }
+        params: { state: "success", description: "PASSED job-unit-tests in concourse ci", commit: "my-go-examples" }
     on_failure:
       do:
       - put: resource-slack-alert
