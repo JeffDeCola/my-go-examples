@@ -1,0 +1,18 @@
+# my-go-examples task-unit-tests.yml
+
+platform: linux
+
+image_resource:
+  type: docker-image
+  source:
+    repository: golang
+    tag: 1.7.1
+
+inputs:
+- name: my-go-examples
+
+outputs:
+- name: coverage-results
+
+run:
+  path: ./my-go-examples/ci/scripts/unit-tests.sh
