@@ -16,7 +16,6 @@ jobs:
   plan:
   - get: my-go-examples
     trigger: true
-    passed: [job-readme-github-pages]
   - put: resource-slack-alert
     params:
       channel: '#jeff-builds'
