@@ -12,7 +12,8 @@ func Test_getversions(t *testing.T) {
 		name string
 		want []string
 	}{
-		{"test1",
+		{
+			"test1",
 			[]string{"123", "3de", "456", "777"},
 		},
 	}
@@ -34,7 +35,8 @@ func TestCheck(t *testing.T) {
 		want    checkOutputJSON
 		wantErr bool
 	}{
-		{"test1",
+		{
+			"test1",
 			args{
 				input: InputJSON{
 					Params: map[string]string{"param1": "Hello Jeff", "param2": "How are you?"},
