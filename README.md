@@ -28,6 +28,6 @@
 
    _Reading a file a few different ways._
 
-   * [linked-list](https://github.com/JeffDeCola/my-go-examples/tree/master/linked-list)
+* [linked-list](https://github.com/JeffDeCola/my-go-examples/tree/master/linked-list)
 
    _Linked-List._
