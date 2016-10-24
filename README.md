@@ -27,3 +27,7 @@
 * [read-file](https://github.com/JeffDeCola/my-go-examples/tree/master/read-file)
 
    _Reading a file a few different ways._
+
+   * [linked-list](https://github.com/JeffDeCola/my-go-examples/tree/master/linked-list)
+
+   _Linked-List._
