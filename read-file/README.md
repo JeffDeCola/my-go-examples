@@ -9,11 +9,11 @@
 
 (ioutil.ReadFile) - Read entire file contents into memory.
 
-### METHOD 2
+### Method 2
 
 (os.Open) - Open the file and read what you want.
 
-### METHOD 3
+### Method 3
 
 (bufio.NewReader) - Buffered reading using bufio package.
 
