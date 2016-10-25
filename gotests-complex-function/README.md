@@ -1,4 +1,3 @@
-
 # gotests-complex-function example
 
 `gotests-complex-function` _is an example of testing a function with

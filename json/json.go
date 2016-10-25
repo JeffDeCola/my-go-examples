@@ -1,3 +1,5 @@
+// my-go-examples json.go
+
 package main
 
 import (
@@ -14,16 +16,18 @@ func encodejson(logger *log.Logger) (string, error) {
 	}
 
 	m := blah{"Alice", "Hello", 123}
-	logger.Println(m)
+	logger.Println("  struct:  ", m)
 
 	// ENCODE - CREATE JSON
+	logger.Println("  encode:   Marshal")
 	b, err := json.Marshal(m)
 	if err != nil {
 		jsondata := "poop"
 		return jsondata, err
 	}
+	logger.Println("  byte:    ", b)
 	jsondata := string(b)
-	logger.Println(jsondata)
+	logger.Println("  string:  ", jsondata)
 	return jsondata, err
 }
 
@@ -34,17 +38,20 @@ func decodejson(jsondata string, logger *log.Logger) error {
 		Time int64
 	}
 
-	logger.Println(jsondata)
+	logger.Println("  string:  ", jsondata)
 
 	// DECODE - CREATE JSON
 	b := []byte(jsondata)
+	logger.Println("  byte:    ", b)
 
-	foo := m{}
+	foo := m{} // empty struct
+	logger.Println("  decode:   Unmarshal")
 	err := json.Unmarshal(b, &foo)
 	if err != nil {
 		return err
 	}
-	logger.Println(foo)
+	logger.Println("  struct:  ", foo)
+
 	return nil
 }
 
@@ -58,7 +65,6 @@ func main() {
 	if err != nil {
 		logger.Fatalf("Failed to encode to stdout: %s", err)
 	}
-	logger.Println(jsondata)
 
 	logger.Print("DECODE .json")
 	if err := decodejson(jsondata, logger); err != nil {
