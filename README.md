@@ -30,4 +30,12 @@
 
 * [linked-list](https://github.com/JeffDeCola/my-go-examples/tree/master/linked-list)
 
-   _Linked-List._
+   _An example of Linked-List._
+
+* [recursion](https://github.com/JeffDeCola/my-go-examples/tree/master/resursion)
+
+   _A function calling itself to make a fibonacci series._
+
+* [logging-error-handling](https://github.com/JeffDeCola/my-go-examples/tree/master/logging-error-handling)
+
+   _????????._

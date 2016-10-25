@@ -3,6 +3,20 @@
 
 `read-file` _is an example of reading a file a few different ways._
 
+## METHODS
+
+### Method 1
+
+(ioutil.ReadFile) - Read entire file contents into memory.
+
+### METHOD 2
+
+(os.Open) - Open the file and read what you want.
+
+### METHOD 3
+
+(bufio.NewReader) - Buffered reading using bufio package.
+
 ## RUN
 
 ```bash
