@@ -32,7 +32,7 @@
 
    _An example of Linked-List._
 
-* [recursion](https://github.com/JeffDeCola/my-go-examples/tree/master/resursion)
+* [recursion](https://github.com/JeffDeCola/my-go-examples/tree/master/recursion)
 
    _A function calling itself to make a fibonacci series._
 
