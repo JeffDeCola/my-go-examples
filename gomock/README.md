@@ -7,27 +7,77 @@ for unit testing._
 
 ## METHODS - CREATURES
 
-Warewolf - TimeofDay string
-    Kind() - during day is a human, otherwise warewolf.
-    Fly()  - no
-    Sound() - during days says "holle" otherwise "howls"
+* Warewolf - TimeofDay string
+  * Kind() - during day is a human, otherwise warewolf.
+  * Fly()  - no
+  * Sound() - during days says "holle" otherwise "howls"
 
-Vampire - age int
-    Kind() - older than 100, he's a vampire.
-    Fly()  - yes
-    Sound() - "I want to drink your blood"
+* Vampire - age int
+  * Kind() - older than 100, he's a vampire.
+  * Fly()  - yes
+  * Sound() - "I want to drink your blood"
 
-## INTERFACE - LABORATORY
+## INTERFACE & FUNCTIONS - LABORATORY
 
 ```go
 type Creatures interface {
-	Kind() string
-	Fly() bool
-	Sound() string
+    Kind() string
+    Fly() bool
+    Sound() string
 }
 ```
 
-## RUN TEST
+Where I have two functions `Greet` and `FlyAway` using the interface.
+
+## GREET FUNCTION
+
+`func Greet(c Creatures) string {`
+
+Hence the test would be setup as
+
+```go
+func TestGreet(t *testing.T) {
+    var ctrl = gomock.NewController(t)
+    defer ctrl.Finish()
+    var mockcreature = NewMockCreatures(ctrl)
+    mockcreature.EXPECT().Sound().Times(1).Return("poo")
+    type args struct {
+        c Creatures
+    }
+    tests := []struct {
+        name string
+        args args
+        want string
+    }{
+```
+
+## FLYAWAY FUNCTION
+
+`func FlyAway(canfly Creatures) string {`
+
+Hence the test would be setup as,
+
+```go
+func TestFlyAway(t *testing.T) {
+    var ctrl = gomock.NewController(t)
+    defer ctrl.Finish()
+    var mockcreature = NewMockCreatures(ctrl)
+    gomock.InOrder(
+        mockcreature.EXPECT().Fly().Times(1).Return(true),
+        mockcreature.EXPECT().Fly().Times(1).Return(false),
+    )
+    mockcreature.EXPECT().Kind().AnyTimes().Return("Pig")
+    type args struct {
+        canfly Creatures
+    }
+    tests := []struct {
+        name string
+        args args
+        want string
+    }{
+```
+
+## RUN
 
 ```bash
 go run helloween.go
