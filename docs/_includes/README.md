@@ -11,7 +11,7 @@
 
 * [gomock](https://github.com/JeffDeCola/my-go-examples/tree/master/gomock)
 
-   _Using gomock on an interface for unit testing._
+   _A helloween theme is used for gomock on an interface for unit testing._
 
 * [read-file](https://github.com/JeffDeCola/my-go-examples/tree/master/read-file)
 
