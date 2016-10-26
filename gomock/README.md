@@ -1,8 +1,9 @@
-
 # gomock example
 
 `gomock` _is a example of using gomock on an interface
 for unit testing._
+
+[GitHub Webpage](https://jeffdecola.github.io/my-go-examples/)
 
 ## METHODS - CREATURES
 
