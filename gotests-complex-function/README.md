@@ -5,8 +5,7 @@ complex inputs and outputs._
 
 ## THE FUNCTION
 
-The function `Check()` is tested using `TestCheck()` in the
-`complex_function_test` file.
+The function `Check()` has the following input/ouputs.
 
 `func Check(input InputJSON, logger *log.Logger) (checkOutputJSON, error) {`
 
@@ -22,9 +21,12 @@ InputJSON struct {
 	Source  map[string]string `json:"source"`
 	Version version           `json:"version"`
 }
+
+checkOutputJSON []version
+
 ```
 
-Hence `TestCheck()` would be,
+`TestCheck()` would then contain,
 
 ```go
 {
