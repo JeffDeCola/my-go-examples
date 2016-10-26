@@ -10,7 +10,7 @@ for unit testing._
 * Warewolf - TimeofDay string
   * Kind() - during day is a human, otherwise warewolf.
   * Fly()  - no
-  * Sound() - during days says "holle" otherwise "howls"
+  * Sound() - during days says "holle" otherwise "howls".
 
 * Vampire - age int
   * Kind() - older than 100, he's a vampire.

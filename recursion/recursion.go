@@ -12,7 +12,7 @@ func fibonacci(n int) int {
 		fibn := fibonacci(n-1) + fibonacci(n-2)
 		return fibn
 	default:
-		return 9999
+		return 0
 	}
 }
 
