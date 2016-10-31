@@ -1,22 +1,22 @@
 # linked-list example
 
-`linked-list` _is a example of a singly linked list (i.e. With just a head pointer)._
+`linked-list` _is a example of a singly linked list (i.e. using just a head pointer)._
 
 [GitHub Webpage](https://jeffdecola.github.io/my-go-examples/)
 
-## LINKED-LIST
+## LINKED LIST
 
 Linked Lists function as an array that can grow and shrink as needed,
-from any point in the array.
+from any point in the list.
 
-Each Node containes a data value and a pointer to the next node in the list.
-If the pointer is null, you are at the end of the list.
+Each `Node` containes data `Value` and a pointer `NEXT` to the next
+Node in the list. If the pointer is null, you are at the end of the list.
 
-`head` -> `DATA|NEXT` -> `DATA|NEXT` -> `DATA|(null)`
+`head` -> `VALUE|NEXT` -> `VALUE|NEXT` -> `VALUE|(null)`
 
-A local head pointer variable points to the first item of a list.
+A local `head` pointer variable points to the first item of a list.
 
-A example of a item is created by a struct:
+A example of a item is created by a struct,
 
 ```go
 type Node struct {
