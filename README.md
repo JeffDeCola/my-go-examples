@@ -38,4 +38,4 @@
 
 * [logging-error-handling](https://github.com/JeffDeCola/my-go-examples/tree/master/logging-error-handling)
 
-   _????????._
+   _Logging and error handling._
