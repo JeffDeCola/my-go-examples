@@ -10,7 +10,7 @@
 
 [GitHub Webpage](https://jeffdecola.github.io/my-go-examples/)
 
-## EXAMPLES
+# EXAMPLES
 
 * [json](https://github.com/JeffDeCola/my-go-examples/tree/master/json)
 
@@ -30,7 +30,7 @@
 
 * [linked-list](https://github.com/JeffDeCola/my-go-examples/tree/master/linked-list)
 
-   _An example of Linked-List._
+   _An example of a Singly Linked List (i.e. using just a head pointer)._
 
 * [recursion](https://github.com/JeffDeCola/my-go-examples/tree/master/recursion)
 
