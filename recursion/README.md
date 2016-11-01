@@ -19,15 +19,3 @@ For this example given n, complete the fibonacci function so it returns `fibonac
 ```bash
 echo 6 | go run recursion.go
 ```
-
-## RUN TEST
-
-```bash
-go test -v -cover ./...
-```
-
-`recursion_test.go` file was created by running:
-
-```bash
-gotests -w -all recursion.go
-```
