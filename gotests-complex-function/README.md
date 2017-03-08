@@ -35,8 +35,10 @@ checkOutputJSON []version
     "test1",
     args{
         input: InputJSON{
-            Params: map[string]string{"param1": "Hello Jeff", "param2": "How are you?"},
-            Source: map[string]string{"source1": "sourcefoo1", "source2": "sourcefoo2"},
+            Params: map[string]string{"param1": "Hello Jeff", "param2":
+            "How are you?"},
+            Source: map[string]string{"source1": "sourcefoo1", "source2":
+            "sourcefoo2"},
             Version: version{
                 Ref: "456",
             },

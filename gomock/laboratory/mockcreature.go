@@ -18,19 +18,19 @@ type _MockCreaturesRecorder struct {
 	mock *MockCreatures
 }
 
-// NewMockCreatures
+// NewMockCreatures function
 func NewMockCreatures(ctrl *gomock.Controller) *MockCreatures {
 	mock := &MockCreatures{ctrl: ctrl}
 	mock.recorder = &_MockCreaturesRecorder{mock}
 	return mock
 }
 
-// MockCreatures Expect
+// EXPECT function
 func (_m *MockCreatures) EXPECT() *_MockCreaturesRecorder {
 	return _m.recorder
 }
 
-// MockCreatures Kind
+// Kind function
 func (_m *MockCreatures) Kind() string {
 	ret := _m.ctrl.Call(_m, "Kind")
 	ret0, _ := ret[0].(string)
@@ -42,7 +42,7 @@ func (_mr *_MockCreaturesRecorder) Kind() *gomock.Call {
 	return _mr.mock.ctrl.RecordCall(_mr.mock, "Kind")
 }
 
-// MockCreatures Fly
+// Fly function
 func (_m *MockCreatures) Fly() bool {
 	ret := _m.ctrl.Call(_m, "Fly")
 	ret0, _ := ret[0].(bool)
@@ -54,7 +54,7 @@ func (_mr *_MockCreaturesRecorder) Fly() *gomock.Call {
 	return _mr.mock.ctrl.RecordCall(_mr.mock, "Fly")
 }
 
-// MockCreatures Sound
+// Sound function
 func (_m *MockCreatures) Sound() string {
 	ret := _m.ctrl.Call(_m, "Sound")
 	ret0, _ := ret[0].(string)
