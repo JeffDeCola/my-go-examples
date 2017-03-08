@@ -1,5 +1,5 @@
 
-# EXAMPLES
+# GO EXAMPLES
 
 * [json](https://github.com/JeffDeCola/my-go-examples/tree/master/json)
 
