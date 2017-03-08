@@ -16,12 +16,14 @@ ls -lat
 
 # FOR GITHUB WEBPAGES
 # BASICALLY COPY README.md to /docs/_includes/README.md
-# Remove everything before the second hedading.
+# Remove everything before the second heading.
 sed '0,/GitHub Webpage/d' README.md > temp-README.md
+# Change the first heading ## to #
+sed -i '0,/##/{s/##/#/}' temp-README.md
 # update the image links (remove docs/)
 sed -i 's#IMAGE](docs/#IMAGE](#g' temp-README.md
 
-# CHECK IF THEERE IS A DIFF, IF THERE IS COMMIT, IF NOT DON'T
+# CHECK IF THERE IS A DIFF, IF THERE IS COMMIT, IF NOT DON'T
 if !(cmp -s temp-README.md docs/_includes/README.md)
 then
     cp temp-README.md docs/_includes/README.md

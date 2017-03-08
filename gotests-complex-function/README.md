@@ -15,13 +15,13 @@ where,
 
 ```go
 version struct {
-	Ref string `json:"ref"`
+    Ref string `json:"ref"`
 }
 
 InputJSON struct {
-	Params  map[string]string `json:"params"`
-	Source  map[string]string `json:"source"`
-	Version version           `json:"version"`
+    Params  map[string]string `json:"params"`
+    Source  map[string]string `json:"source"`
+    Version version           `json:"version"`
 }
 
 checkOutputJSON []version
@@ -32,24 +32,24 @@ checkOutputJSON []version
 
 ```go
 {
-	"test1",
-	args{
-		input: InputJSON{
-			Params: map[string]string{"param1": "Hello Jeff", "param2": "How are you?"},
-			Source: map[string]string{"source1": "sourcefoo1", "source2": "sourcefoo2"},
-			Version: version{
-				Ref: "456",
-			},
-		},
-		logger: log.New(os.Stderr, "resource:", log.Lshortfile),
-	},
-	checkOutputJSON{
-		version{Ref: "123"},
-		version{Ref: "3de"},
-		version{Ref: "456"},
-		version{Ref: "777"},
-	},
-	false,
+    "test1",
+    args{
+        input: InputJSON{
+            Params: map[string]string{"param1": "Hello Jeff", "param2": "How are you?"},
+            Source: map[string]string{"source1": "sourcefoo1", "source2": "sourcefoo2"},
+            Version: version{
+                Ref: "456",
+            },
+        },
+        logger: log.New(os.Stderr, "resource:", log.Lshortfile),
+    },
+    checkOutputJSON{
+        version{Ref: "123"},
+        version{Ref: "3de"},
+        version{Ref: "456"},
+        version{Ref: "777"},
+    },
+    false,
 },
 ```
 
