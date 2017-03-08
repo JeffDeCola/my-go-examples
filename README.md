@@ -10,7 +10,7 @@
 
 [GitHub Webpage](https://jeffdecola.github.io/my-go-examples/)
 
-# EXAMPLES
+## GO EXAMPLES
 
 * [json](https://github.com/JeffDeCola/my-go-examples/tree/master/json)
 

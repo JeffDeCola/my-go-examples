@@ -7,7 +7,7 @@ import (
 	gomock "github.com/golang/mock/gomock"
 )
 
-// Mock of Creatures interface
+// MockCreatures - Mock of Creatures interface
 type MockCreatures struct {
 	ctrl     *gomock.Controller
 	recorder *_MockCreaturesRecorder
@@ -18,36 +18,43 @@ type _MockCreaturesRecorder struct {
 	mock *MockCreatures
 }
 
+// NewMockCreatures
 func NewMockCreatures(ctrl *gomock.Controller) *MockCreatures {
 	mock := &MockCreatures{ctrl: ctrl}
 	mock.recorder = &_MockCreaturesRecorder{mock}
 	return mock
 }
 
+// MockCreatures Expect
 func (_m *MockCreatures) EXPECT() *_MockCreaturesRecorder {
 	return _m.recorder
 }
 
+// MockCreatures Kind
 func (_m *MockCreatures) Kind() string {
 	ret := _m.ctrl.Call(_m, "Kind")
 	ret0, _ := ret[0].(string)
 	return ret0
 }
 
+// MockCreaturesRecorder Kind
 func (_mr *_MockCreaturesRecorder) Kind() *gomock.Call {
 	return _mr.mock.ctrl.RecordCall(_mr.mock, "Kind")
 }
 
+// MockCreatures Fly
 func (_m *MockCreatures) Fly() bool {
 	ret := _m.ctrl.Call(_m, "Fly")
 	ret0, _ := ret[0].(bool)
 	return ret0
 }
 
+// MockCreaturesRecorder Fly
 func (_mr *_MockCreaturesRecorder) Fly() *gomock.Call {
 	return _mr.mock.ctrl.RecordCall(_mr.mock, "Fly")
 }
 
+// MockCreatures Sound
 func (_m *MockCreatures) Sound() string {
 	ret := _m.ctrl.Call(_m, "Sound")
 	ret0, _ := ret[0].(string)
