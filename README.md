@@ -41,7 +41,7 @@
 
 ## TESTED USING CONCOURSE
 
-A Concourse Pipeline will automate unit testing and update the GitHub WebPage.
+A Concourse CI Pipeline will automate unit testing and update the GitHub WebPage.
 
 ![IMAGE - my-go-examples concourse ci piepline - IMAGE](docs/pics/my-go-examples-pipeline.jpg)
 
