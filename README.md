@@ -39,6 +39,10 @@
 
    _Logging and error handling._
 
+* [simple-webserver](https://github.com/JeffDeCola/my-go-examples/tree/master/simple-webserver)
+
+   _Using the http package to build a simple webserver._
+
 ## TESTED USING CONCOURSE
 
 A Concourse CI Pipeline will automate unit testing and update the GitHub WebPage.
