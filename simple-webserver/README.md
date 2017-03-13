@@ -20,7 +20,7 @@ The http package lets us map request paths to functions.
     http.HandleFunc("/jeff", jeffHandler)
     ```
 
-1. Create your function jeffHandler
+1. Create your function jeffHandler()
 
     req is the request structure. res is your reponse.
 
