@@ -14,18 +14,18 @@ The http package lets us map request paths to functions.
 log.Fatal(http.ListenAndServe(":1234", nil))
 ```
 
-2. When a request is made for a particular URL kick off your function jeffHandler()
+1. When a request is made for a particular URL kick off your function jeffHandler()
 
 ```go
 http.HandleFunc("/jeff", jeffHandler)
 ```
 
-3. Create your function jeffHandler
+1. Create your function jeffHandler
 
 ```go
 func jeffHandler(res http.ResponseWriter, req *http.Request) {
-	fmt.Printf("req is %+v\n\n", req.URL)
-	io.WriteString(res, "hello, Jeff!\n")
+    fmt.Printf("req is %+v\n\n", req.URL)
+    io.WriteString(res, "hello, Jeff!\n")
 }
 ```
 
