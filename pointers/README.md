@@ -6,18 +6,19 @@
 
 ## POINTER
 
-Passing the address of a struct to a function.
+Passing the address of a struct to a function,
 
 ```go
-changeName(&UserID)
+b := person{"Larry", "male", 25}
+changeNamePtr(&b)
 ```
 
-So the function can now work on that struct.
+So the function can now work on that original struct,
 
 ```go
-func changeName(p *person) {
+func changeNamePtr(p *person) {
     p.name = "Fred"
 }
 ```
 
-In this case the userID name is changed from Larry to Fred.
+In this case the name is changed from Larry to Fred.
