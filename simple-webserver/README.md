@@ -8,20 +8,24 @@
 
 The http package lets us map request paths to functions.
 
+1. Setup which port you would like to listen on
+
 ```go
-//reponse is the server
-func response(w http.ResponseWriter, request *http.Request) {
-	io.WriteString(w, "hello, world!\n")
-}
+log.Fatal(http.ListenAndServe(":1234", nil))
+```
 
-func main() {
+2. When a request is made for a particular URL kick off your function jeffHandler()
 
-	// Call the response function when you get a http request
-	http.HandleFunc("/", response)
+```go
+	http.HandleFunc("/jeff", jeffHandler)
+```
 
-	// Starts listening on localhost (127.0.0.1:1234)
-	log.Fatal(http.ListenAndServe(":1234", nil))
+3. Create your function jeffHandler
 
+```go
+func jeffHandler(res http.ResponseWriter, req *http.Request) {
+	fmt.Printf("req is %+v\n\n", req.URL)
+	io.WriteString(res, "hello, Jeff!\n")
 }
 ```
 
