@@ -31,6 +31,14 @@
 
    _An example of a Singly Linked List (i.e. using just a head pointer)._
 
+* [pointers](https://github.com/JeffDeCola/my-go-examples/tree/master/pointers)
+
+   _An example of a pointer to a struct._*
+
+* [methods-and-interfaces](https://github.com/JeffDeCola/my-go-examples/tree/master/methods-and-interface)
+
+   _An example of methods and interfaces._
+
 * [recursion](https://github.com/JeffDeCola/my-go-examples/tree/master/recursion)
 
    _A function calling itself to make a fibonacci series._
@@ -42,6 +50,10 @@
 * [simple-webserver](https://github.com/JeffDeCola/my-go-examples/tree/master/simple-webserver)
 
    _Using the http package to build a simple webserver._
+
+* [simple-webserver-with-REST](https://github.com/JeffDeCola/my-go-examples/tree/master/simple-webserver-with-REST)
+
+   _Adding REST to the simple-webserver._
 
 ## TESTED USING CONCOURSE
 
