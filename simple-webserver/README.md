@@ -17,7 +17,7 @@ log.Fatal(http.ListenAndServe(":1234", nil))
 2. When a request is made for a particular URL kick off your function jeffHandler()
 
 ```go
-	http.HandleFunc("/jeff", jeffHandler)
+http.HandleFunc("/jeff", jeffHandler)
 ```
 
 3. Create your function jeffHandler
