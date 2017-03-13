@@ -25,7 +25,7 @@
 
    _An example of a pointer to a struct._*
 
-* [methods-and-interfaces](https://github.com/JeffDeCola/my-go-examples/tree/master/methods-and-interface)
+* [methods-and-interfaces](https://github.com/JeffDeCola/my-go-examples/tree/master/methods-and-interfaces)
 
    _An example of methods and interfaces._
 
