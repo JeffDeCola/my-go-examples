@@ -10,17 +10,18 @@ Consider a coordinate system with a rectangle  `rect1` and a circle `circ1`.
 
 `rect1` one lives at coordinates:
 
-  x1 = 1
-  x2 = 11
-  y1 = 1
-  y2 = 11
+* x1 = 1
+* x2 = 11
+* y1 = 1
+* y2 = 11
 
-`circ1` lives at coordinates
-x = 10
-y = 10
-r = 5
+`circ1` lives at coordinates:
 
-## WITHOUT STRCUTS
+* x = 10
+* y = 10
+* r = 5
+
+## WITHOUT STRUCTS
 
 Just using go datatypes will eventually become tedius.
 To describe rect 1 you need to keep track of its coordinates
@@ -32,7 +33,7 @@ var rx1, ry1 float64 = 1, 1
 var rx2, ry2 float64 = 11, 11
 ```
 
-And then pass this to the rectangleArea function
+And then pass this to the rectangleArea function,
 
 ```go
 rectangleArea(rx1, ry1, rx2, ry2))
@@ -40,7 +41,7 @@ rectangleArea(rx1, ry1, rx2, ry2))
 
 Just Ugly.
 
-Then your function looks like
+Then your function looks like,
 
 ```go
 func rectangleArea(x1, y1, x2, y2 float64) float64 {
@@ -52,7 +53,7 @@ func rectangleArea(x1, y1, x2, y2 float64) float64 {
 
 ## STRUCTS
 
-Strcts allow you to keep all the types about a rectangle r circle together
+Strcts allow you to keep all the types about a rectangle r circle together,
 
 ```go
 type Rectangle struct {
@@ -73,7 +74,7 @@ rect1 := Rectangle{x1: 1, x2: 11, y1: 1, y2: 11}
 And then pass this to the rectangleArea function,
 
 ```go
-rectangleArea(rect1))
+rectangleArea(rect1)
 ```
 
 Not Ugly.
@@ -110,18 +111,15 @@ to,
 func (r Rectangle) area() float64 {
 ```
 
-We can just call it area(), because its only assciated with its receiver.
+We can just call it area(), because its only associated with its receiver type.
 
-Therefor we can call the circle just area(),
+Therefor we can call the circleArea just area(),
 
 ```go
 func (c Circle) area() float64 {
 ```
 
-Rectangle is now a receiver type.  This function only can be used with
-type Rectangle.
-
-You can call this specialfunction using the `.` operator.
+You can call this specialfunction using the `.` operator,
 
 From
 
@@ -151,26 +149,45 @@ func areaPtr(r *Rectangle) float64 {
 
 I don't agree, but go knows how to sort this out when its called.
 
-I feel it should be explicit,
+I feel it should be explicit as follows,
 
 ```go
 (&rect1).area()
 ```
 
-So the function can change the original rect1 is was passed or not.
-
 ## INTERFACES
 
-We were able to name the Rectangle's area method the same thing as the Circle's area method.
+Note we were able to name the Rectangle's area method the same thing
+as the Circle's area method.
 
-Go has a way of making these accidental similarities explicit through a type known as an Interface.
+Go has a way of making these accidental similarities explicit
+through a type known as an Interface.
 
 Interfaces are named collections of method signatures or method sets.
 
-So lets make a shape one,
+So lets make a Shape interface,
 
 ```go
 type Shape interface {
   area() float64
 }
+```
+
+By itself this is not useful, but we can use interface types
+as arguments to functions,
+
+```go
+func totalArea(shapes ...Shape) float64 {
+  var area float64
+  for _, s := range shapes {
+    area += s.area()
+  }
+  return area
+}
+```
+
+And now we just call this function,
+
+```go
+totalArea(&c, &r)
 ```
