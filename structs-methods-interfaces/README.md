@@ -9,10 +9,11 @@
 Consider a coordinate system with a rectangle  `rect1` and a circle `circ1`.
 
 `rect1` one lives at coordinates:
-x1 = 1
-x2 = 11
-y1 = 1
-y2 = 11
+
+  x1 = 1
+  x2 = 11
+  y1 = 1
+  y2 = 11
 
 `circ1` lives at coordinates
 x = 10
