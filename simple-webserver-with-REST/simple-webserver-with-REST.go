@@ -9,19 +9,21 @@ import (
 
 // rootHandler
 func rootHandler(res http.ResponseWriter, req *http.Request) {
-	fmt.Printf("%+v\n", req)
+	// print out the req struct for fun
+	fmt.Printf("req is %+v\n\n", req.URL)
 	io.WriteString(res, "hello, world!\n")
 }
 
-// jeffHandler
+//jeff Handler
 func jeffHandler(res http.ResponseWriter, req *http.Request) {
-	fmt.Printf("%+v\n", req)
+	// print out the req struct for fun
+	fmt.Printf("req is %+v\n\n", req.URL)
 	io.WriteString(res, "hello, Jeff!\n")
 }
 
 func main() {
 
-	// Call the response function when you get a http request
+	// Call your function when you get a http request for "/" or "/jeff"
 	http.HandleFunc("/", rootHandler)
 	http.HandleFunc("/jeff", jeffHandler)
 

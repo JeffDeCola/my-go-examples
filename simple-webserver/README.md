@@ -14,7 +14,7 @@ The http package lets us map request paths to functions.
     log.Fatal(http.ListenAndServe(":1234", nil))
     ```
 
-1. When a request is made for a particular URL kick off your function jeffHandler()
+1. When a request is made for a particular URL/jeff kick off your function jeffHandler()
 
     ```go
     http.HandleFunc("/jeff", jeffHandler)
