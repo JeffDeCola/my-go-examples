@@ -177,17 +177,14 @@ By itself this is not useful, but we can use interface types
 as arguments to functions,
 
 ```go
-func totalArea(shapes ...Shape) float64 {
-  var area float64
-  for _, s := range shapes {
-    area += s.area()
-  }
-  return area
+func theArea(s Shape) float64 {
+  return s.area()
 }
 ```
 
 And now we just call this function,
 
 ```go
-totalArea(&c, &r)
+theArea(&circ1)
+theArea(&rect1)
 ```
