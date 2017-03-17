@@ -37,7 +37,7 @@
 
 * [structs-methods-interfaces](https://github.com/JeffDeCola/my-go-examples/tree/master/structs-methods-interfaces)
 
-   _An example of methods and interfaces._
+   _An example of structs, methods and interfaces._
 
 * [recursion](https://github.com/JeffDeCola/my-go-examples/tree/master/recursion)
 

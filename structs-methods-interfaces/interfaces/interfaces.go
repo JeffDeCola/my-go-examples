@@ -34,6 +34,7 @@ func distance(x1, y1, x2, y2 float64) float64 {
 	return math.Sqrt(a*a + b*b)
 }
 
+// theArea will call the appropriate function based on receiver type.
 func theArea(s Shape) float64 {
 	return s.area()
 }

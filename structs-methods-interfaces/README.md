@@ -1,6 +1,6 @@
-# methods-and-interfaces example
+# structs-methods-interfaces example
 
-`methods-and-interfaces` _is an example of methods and interfaces._
+`structs-methods-interfaces` _is an example of structs, methods and interfaces._
 
 [GitHub Webpage](https://jeffdecola.github.io/my-go-examples/)
 
@@ -8,7 +8,7 @@
 
 Consider a coordinate system with a rectangle  `rect1` and a circle `circ1`.
 
-`rect1` one lives at coordinates:
+`rect1` lives at coordinates:
 
 * x1 = 1
 * x2 = 11
@@ -24,7 +24,8 @@ Consider a coordinate system with a rectangle  `rect1` and a circle `circ1`.
 ## WITHOUT STRUCTS
 
 Just using go datatypes will eventually become tedius.
-To describe rect 1 you need to keep track of its coordinates
+
+To describe rect1 you need to keep track of its coordinates
 and pass them to functions.
 
 ```go
@@ -53,7 +54,7 @@ func rectangleArea(x1, y1, x2, y2 float64) float64 {
 
 ## STRUCTS
 
-Strcts allow you to keep all the types about a rectangle r circle together,
+Structs allow you to keep all the types about a rectangle or a circle together,
 
 ```go
 type Rectangle struct {
@@ -79,7 +80,7 @@ rectangleArea(rect1)
 
 Not Ugly.
 
-Then in your function you access the field by using `.`
+Then in your function you access the field by using `.`,
 
 ```go
 func rectangleArea(r Rectangle) float64 {
@@ -91,7 +92,7 @@ func rectangleArea(r Rectangle) float64 {
 
 ## FUNCTIONS
 
-As seen above Functions just use input and output
+As seen above Functions just use input and output.
 
 But we can do better using a method.
 
@@ -111,17 +112,18 @@ to,
 func (r Rectangle) area() float64 {
 ```
 
-We can just call it area(), because its only associated with its receiver type.
+We can just call it area() for both the Circle and Rectangle,
+because its only associated with its receiver type.
 
-Therefor we can call the circleArea just area(),
+Hence,
 
 ```go
 func (c Circle) area() float64 {
 ```
 
-You can call this specialfunction using the `.` operator,
+You can call this special function (i.e. method) using the `.` operator,
 
-From
+From,
 
 ```go
 rectangleArea(rect1))
@@ -133,7 +135,7 @@ to,
 rect1.area()
 ```
 
-Methods can use a pointer receiver type or a value receiver type.
+Furthermore methods can use a pointer receiver type or a value receiver type.
 
 Value Receiver,
 
@@ -141,14 +143,13 @@ Value Receiver,
 func area(r Rectangle) float64 {
 ```
 
-Pointer reciever,
+Pointer Receiver,
 
 ```go
 func areaPtr(r *Rectangle) float64 {
 ```
 
-I don't agree, but go knows how to sort this out when its called.
-
+Go knows how to sort this out when its called. I don;t agree.
 I feel it should be explicit as follows,
 
 ```go
@@ -157,15 +158,15 @@ I feel it should be explicit as follows,
 
 ## INTERFACES
 
-Note we were able to name the Rectangle's area method the same thing
-as the Circle's area method.
+Note we were able to name the Rectangle's area() method the same thing
+as the Circle's area() method.
 
 Go has a way of making these accidental similarities explicit
 through a type known as an Interface.
 
 Interfaces are named collections of method signatures or method sets.
 
-So lets make a Shape interface,
+So lets make a Shape interface that uses the area() method,
 
 ```go
 type Shape interface {
@@ -182,7 +183,9 @@ func theArea(s Shape) float64 {
 }
 ```
 
-And now we just call this function,
+And now we just call one fuction for getting the area.  As with methods,
+the function will figure out the receiver type and call the appropriate
+function.
 
 ```go
 theArea(&circ1)
