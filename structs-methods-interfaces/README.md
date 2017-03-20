@@ -34,10 +34,10 @@ var rx1, ry1 float64 = 1, 1
 var rx2, ry2 float64 = 11, 11
 ```
 
-And then pass this to the rectangleArea function,
+And then pass this to the rectangleArea Function,
 
 ```go
-rectangleArea(rx1, ry1, rx2, ry2))
+rectangleArea(rx1, ry1, rx2, ry2)
 ```
 
 Just Ugly.
@@ -72,7 +72,7 @@ Now rect1 is describes as,
 rect1 := Rectangle{x1: 1, x2: 11, y1: 1, y2: 11}
 ```
 
-And then pass this to the rectangleArea function,
+And then pass this to the rectangleArea Function,
 
 ```go
 rectangleArea(rect1)
@@ -94,11 +94,14 @@ func rectangleArea(r Rectangle) float64 {
 
 As seen above Functions just use input and output.
 
-But we can do better using a method.
+But we can do better using a Method.
 
 ## METHODS
 
-Methods are are a special type of function.
+Methods are are a special type of Function.
+Where Functions stand on their own, Methods
+are declaired with a receiver type, hence Methods
+are attached to data (type).
 
 From,
 
@@ -121,12 +124,12 @@ Hence,
 func (c Circle) area() float64 {
 ```
 
-You can call this special function (i.e. method) using the `.` operator,
+You can call this special function (i.e. Method) using the `.` operator,
 
 From,
 
 ```go
-rectangleArea(rect1))
+rectangleArea(rect1)
 ```
 
 to,
@@ -135,21 +138,21 @@ to,
 rect1.area()
 ```
 
-Furthermore methods can use a pointer receiver type or a value receiver type.
+Furthermore Methods can use a Pointer Receiver Type or a Value Receiver Type.
 
 Value Receiver,
 
 ```go
-func area(r Rectangle) float64 {
+func (r Rectangle) area() float64 {
 ```
 
 Pointer Receiver,
 
 ```go
-func areaPtr(r *Rectangle) float64 {
+func (r *Rectangle) areaPtr() float64 {
 ```
 
-Go knows how to sort this out when its called. I don;t agree.
+Go knows how to sort this out when its called. I don't agree.
 I feel it should be explicit as follows,
 
 ```go
