@@ -44,7 +44,7 @@ func main() {
 	// circ1 (no field names)
 	circ1 := Circle{x: 0, y: 0, r: 5}
 
-  	fmt.Println("Area of rect1 is: ", rectangleArea(rect1))
-  	fmt.Println("Area of circ1 is: ", circleArea(circ1))
+  	fmt.Println("Area of this rect1 is: ", rectangleArea(rect1))
+  	fmt.Println("Area of this circ1 is: ", circleArea(circ1))
 
 }
