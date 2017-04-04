@@ -8,7 +8,7 @@ import (
 type Hello struct {
 }
 
-// Say says something in miliseconds (ticktime)
+// Say says something in miliseconds (ticktime
 func (h Hello) Say(ch chan string, ticktime int) error {
 
 	ticker := time.Tick(time.Millisecond * time.Duration(ticktime))
