@@ -48,6 +48,6 @@ func main() {
 	ch1 <- "Jack"
 	ch2 <- "Jill"
 
-	time.Sleep(30 * time.Second)
+	time.Sleep(29 * time.Second)
 
 }
