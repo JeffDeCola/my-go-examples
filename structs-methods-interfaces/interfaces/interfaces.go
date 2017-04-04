@@ -62,7 +62,6 @@ func main() {
 	circ1 := Circle{x: 0, y: 0, r: 5}
 
 	fmt.Println("Area of rect1 is: ", theArea(&rect1))
-
 	fmt.Println("Area of circ1 is: ", theArea(&circ1))
 
 }
