@@ -1,6 +1,7 @@
 # goroutines-channels-select example
 
-`goroutines-channels-select` _is a example of concurrency in go._
+`goroutines-channels-select`  _is an example of concurrency and message passing 
+via channels in go._
 
 [GitHub Webpage](https://jeffdecola.github.io/my-go-examples/)
 
