@@ -55,6 +55,10 @@
 
    _Adding REST to the simple-webserver._
 
+* [goroutines-channels-select](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines-channels-select)
+
+   _An example of concurrency and message passing via channels in go._
+
 ## TESTED USING CONCOURSE
 
 A Concourse CI Pipeline will automate unit testing and update the GitHub WebPage.
