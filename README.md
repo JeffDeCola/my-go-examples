@@ -59,6 +59,10 @@
 
    _An example of concurrency and message passing via channels in go._
 
+* [goroutines-waitgroup](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines-waitgroup)
+
+   _An example of concurrency using a waitgroup._
+
 ## TESTED USING CONCOURSE
 
 A Concourse CI Pipeline will automate unit testing and update the GitHub WebPage.
