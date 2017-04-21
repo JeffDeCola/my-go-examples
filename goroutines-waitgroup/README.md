@@ -1,4 +1,4 @@
-# goroutines-channels-select example
+# goroutines-waitgroup example
 
 `goroutines-waitgroup`  _is an example of concurrency using a waitgroup._
 
