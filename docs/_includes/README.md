@@ -29,7 +29,6 @@
 
    _An example of structs, methods and interfaces._
 
-
 * [recursion](https://github.com/JeffDeCola/my-go-examples/tree/master/recursion)
 
    _A function calling itself to make a fibonacci series._
@@ -45,6 +44,14 @@
 * [simple-webserver-with-REST](https://github.com/JeffDeCola/my-go-examples/tree/master/simple-webserver-with-REST)
 
    _Adding REST to the simple-webserver._
+
+* [goroutines-channels-select](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines-channels-select)
+
+   _An example of concurrency and message passing via channels in go._
+
+* [goroutines-waitgroup](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines-waitgroup)
+
+   _An example of concurrency using a waitgroup._
 
 ## TESTED USING CONCOURSE
 
