@@ -63,6 +63,10 @@
 
    _An example of concurrency using a waitgroup._
 
+* [goroutines-worker-pools](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines-worker-pools)
+
+   _An example of concurrency using a worker pool with goroutines and channels._
+
 ## TESTED USING CONCOURSE
 
 A Concourse CI Pipeline will automate unit testing and update the GitHub WebPage.
