@@ -1,6 +1,7 @@
 package main
 
 import (
+	"context"
 	"fmt"
 
 	"time"
@@ -21,17 +22,26 @@ type request struct {
 	metric    string
 	callTime  time.Time
 	jobNumber int
+	done      bool
 }
 
-func doWorkers(id int, ch chan *request) {
+// doWorkers is the Worker
+func doWorkers(ctx context.Context, id int, ch chan *request) {
 
 	fmt.Printf("W%d - START Worker\n", id)
 
 	// Monitor channel for request struct
-	for r := range ch {
-		time.Sleep(jobTime * time.Second)
-		fmt.Printf("W%d - RESPONSE #%d - %s, %s - %s (TOOK %s)\n", id, r.jobNumber, r.instance, r.metric, time.Now().UTC().Format(time.ANSIC), time.Now().UTC().Sub(r.callTime))
-		completedJobs++
+	for {
+		select {
+		// receive
+		case r := <-ch:
+			time.Sleep(jobTime * time.Second)
+			fmt.Printf("W%d - RESPONSE #%d - %s, %s - %s (TOOK %s)\n", id, r.jobNumber, r.instance, r.metric, time.Now().UTC().Format(time.ANSIC), time.Now().UTC().Sub(r.callTime))
+			completedJobs++
+		// send
+		case <-ctx.Done():
+			return
+		}
 	}
 
 }
@@ -74,7 +84,10 @@ func doSomething(ch chan *request) {
 							metric:    metric,
 							callTime:  time.Now().UTC(),
 							jobNumber: jobNumber,
+							done:      false,
 						}
+						// Find out when a job is done
+
 						fmt.Printf("CALL #%d - %s %s %s\n", jobNumber, instance, metric, time.Now().UTC().Format(time.ANSIC))
 						jobNumber++
 					}
@@ -87,12 +100,16 @@ func doSomething(ch chan *request) {
 func main() {
 
 	ch := make(chan *request)
+	ctx, cancelFunc := context.WithCancel(context.Background())
 
 	// CREATE WORKERS
 	for i := 0; i < numWorkers; i++ {
-		go doWorkers(i, ch)
+		go doWorkers(ctx, i, ch)
 	}
 
 	doSomething(ch)
+
+	// Will never get to this
+	cancelFunc() //cleans up all wokers
 
 }
