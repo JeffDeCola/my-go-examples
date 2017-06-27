@@ -27,24 +27,16 @@ func doWorkers(id int, ch chan *request) {
 
 	fmt.Printf("W%d - START Worker\n", id)
 
+	// Monitor channel for request struct
 	for r := range ch {
 		time.Sleep(jobTime * time.Second)
 		fmt.Printf("W%d - RESPONSE #%d - %s, %s - %s (TOOK %s)\n", id, r.jobNumber, r.instance, r.metric, time.Now().UTC().Format(time.ANSIC), time.Now().UTC().Sub(r.callTime))
 		completedJobs++
 	}
 
-	// fmt.Printf("YOU WIL NEVER SEE THIS\n")
-
 }
 
-func main() {
-
-	ch := make(chan *request)
-
-	// CREATE WORKERS
-	for i := 0; i < numWorkers; i++ {
-		go doWorkers(i, ch)
-	}
+func doSomething(ch chan *request) {
 
 	endTime := time.Now().UTC()
 
@@ -76,6 +68,7 @@ func main() {
 
 					for _, metric := range metricList {
 
+						// BLOCKS - WAITS FOR WORKER
 						ch <- &request{
 							instance:  instance,
 							metric:    metric,
@@ -89,5 +82,17 @@ func main() {
 			}
 		}
 	}
-	// fmt.Println("YOU WILL NEVER SEE THIS - All done!")
+}
+
+func main() {
+
+	ch := make(chan *request)
+
+	// CREATE WORKERS
+	for i := 0; i < numWorkers; i++ {
+		go doWorkers(i, ch)
+	}
+
+	doSomething(ch)
+
 }
