@@ -7,4 +7,10 @@ worker pool with goroutines and channels._
 
 ## GOROUTINE (CONCURRENCY)
 
-TBD
+You set the number of workers.
+
+You can set the number of times you need to use the workers per tick via numbers of
+instances and metrics per instance.
+
+If the numbers of workers you need to use during a tick time is not complete, it will
+skip a tick time so the workers can catch up.

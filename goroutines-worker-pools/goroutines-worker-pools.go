@@ -6,11 +6,21 @@ import (
 	"time"
 )
 
+var instanceList = []string{"i1", "i2", "i3", "i4", "i5"}
+var metricList = []string{"m1", "m2", "m3", "m4", "m5"}
+var ticktimeSeconds = 10
+var sampletime = 11
+var numWorkers = 3
+var ticker = time.Tick(time.Duration(ticktimeSeconds) * time.Second)
+var jobNumber = 1
+var jobTime time.Duration = 7
+var completedJobs = 0
+
 type request struct {
-	instance string
-	metric   string
-	callTime time.Time
-	count    int
+	instance  string
+	metric    string
+	callTime  time.Time
+	jobNumber int
 }
 
 func doWorkers(id int, ch chan *request) {
@@ -18,8 +28,9 @@ func doWorkers(id int, ch chan *request) {
 	fmt.Printf("W%d - START Worker\n", id)
 
 	for r := range ch {
-		time.Sleep(18 * time.Second)
-		fmt.Printf("W%d - RESPONSE #%d - %s, %s - TOOK %s\n", id, r.count, r.instance, r.metric, time.Now().UTC().Sub(r.callTime))
+		time.Sleep(jobTime * time.Second)
+		fmt.Printf("W%d - RESPONSE #%d - %s, %s - %s (TOOK %s)\n", id, r.jobNumber, r.instance, r.metric, time.Now().UTC().Format(time.ANSIC), time.Now().UTC().Sub(r.callTime))
+		completedJobs++
 	}
 
 	// fmt.Printf("YOU WIL NEVER SEE THIS\n")
@@ -28,23 +39,13 @@ func doWorkers(id int, ch chan *request) {
 
 func main() {
 
-	var instanceList = []string{"a"}
-	var metricList = []string{"m1", "m2", "m3", "m4"}
-	var ticktimeSeconds = 10
-
-	ticker := time.Tick(time.Duration(ticktimeSeconds) * time.Second)
-	sampletime := 20
 	ch := make(chan *request)
-	count := 1
 
 	// CREATE WORKERS
-	for i := 0; i < 3; i++ {
+	for i := 0; i < numWorkers; i++ {
 		go doWorkers(i, ch)
 	}
 
-	time.Sleep(3 * time.Second)
-
-	ranThrough := false
 	endTime := time.Now().UTC()
 
 	// Loop forever - Long Running
@@ -55,39 +56,37 @@ func main() {
 			fmt.Printf("\n\n********************** TICK %s *****************************\n\n", now.UTC().Format(time.ANSIC))
 
 			oldendTime := endTime
-			endTime = now.UTC()
+			endTime = time.Now().UTC()
 			startTime := endTime.Add(-(time.Duration(sampletime) * time.Second))
 
 			// CHECK TICKER IF YOU MADE IT BACK IN TIME
-			if ranThrough {
 
-				diff := startTime.Sub(oldendTime)
-				fmt.Printf("DIFF: %s (oldendTime: %s - starttime %s)\n", diff, startTime.Format(time.ANSIC), oldendTime.Format(time.ANSIC))
-				if diff.Seconds() > 1 {
-					fmt.Printf("ERROR - YOU MISSED SOME TIME - Not enough time to process\n")
-				} else {
-					fmt.Printf("Perfect - You did not miss any time\n")
-				}
+			diff := startTime.Sub(oldendTime)
+			fmt.Printf("DIFF: %s (oldendTime: %s - starttime %s)\n", diff, startTime.Format(time.ANSIC), oldendTime.Format(time.ANSIC))
+			if diff.Seconds() > 1 {
+				fmt.Printf("\n\n\n************* ERROR - YOU MISSED SOME TIME - Not enough time to process *****************\n")
+				fmt.Printf("    JOBS NOT FINISHED: %d\n", (jobNumber-1)-completedJobs)
+				fmt.Printf("    SKIP A TICK TO CATCH UP\n\n")
+			} else {
+				fmt.Printf("Perfect - You did not miss any time\n")
+				fmt.Printf("JOBS NOT FINISHED YET: %d\n", (jobNumber-1)-completedJobs)
 
-			}
+				// Interate over
+				for _, instance := range instanceList {
 
-			// Interate over
-			for _, instance := range instanceList {
+					for _, metric := range metricList {
 
-				for _, metric := range metricList {
-
-					fmt.Printf("CALL #%d - %s %s %s\n", count, instance, metric, now.Format(time.ANSIC))
-
-					ch <- &request{
-						instance: instance,
-						metric:   metric,
-						callTime: time.Now().UTC(),
-						count:    count,
+						ch <- &request{
+							instance:  instance,
+							metric:    metric,
+							callTime:  time.Now().UTC(),
+							jobNumber: jobNumber,
+						}
+						fmt.Printf("CALL #%d - %s %s %s\n", jobNumber, instance, metric, time.Now().UTC().Format(time.ANSIC))
+						jobNumber++
 					}
-					count++
 				}
 			}
-			ranThrough = true
 		}
 	}
 	// fmt.Println("YOU WILL NEVER SEE THIS - All done!")
