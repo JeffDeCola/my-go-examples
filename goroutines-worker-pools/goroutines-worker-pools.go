@@ -9,14 +9,14 @@ import (
 // SET YOUR VARIABLES FOR THIS EXAMPLE
 var numWorkers = 2
 var instanceList = []string{"i1", "i2", "i3", "i4", "i5"}
-var metricList = []string{"m1"}
 var ticktimeSeconds = 10
-var ticker = time.Tick(time.Duration(ticktimeSeconds) * time.Second)
 var sampletime = 11
-var jobNumber = 1
 var jobTime time.Duration = 7
-var completedJobs = 0
-var reqChannelBuffer = 1
+var channelBufferSize = 2
+
+// Other Variables
+var ticker = time.Tick(time.Duration(ticktimeSeconds) * time.Second)
+var jobNumber = 1
 
 type request struct {
 	instance  string
@@ -46,7 +46,7 @@ func doSomething(requestch chan *request) {
 	for {
 		<-ticker
 
-		fmt.Printf("\n\n********************** TICK %s *****************************\n\n", time.Now().UTC().Format(time.ANSIC))
+		fmt.Printf("\n\n*** TICK %s ***\n\n\n", time.Now().UTC().Format(time.ANSIC))
 
 		oldendTime := endTime
 		endTime = time.Now().UTC()
@@ -56,8 +56,9 @@ func doSomething(requestch chan *request) {
 		diff := startTime.Sub(oldendTime)
 		fmt.Printf("DIFF: %s (oldendTime: %s - starttime %s)\n", diff, startTime.Format(time.ANSIC), oldendTime.Format(time.ANSIC))
 		if diff.Seconds() > 1 {
-			fmt.Printf("\n\n\n************* ERROR - YOU MISSED SOME TIME - Not enough time to process *****************\n")
-			fmt.Printf("************* Increase workers or reduce number of instances *****************\n\n\n")
+			fmt.Printf("*** ERROR - YOU MISSED SOME SAMPLE TIME *** \n")
+			fmt.Printf("*** Not enough time to process all instances within tick ***\n")
+			fmt.Printf("*** Increase workers or reduce number of instances ***\n\n")
 		} else {
 			fmt.Printf("Perfect - You did not miss any time\n")
 		}
@@ -65,20 +66,18 @@ func doSomething(requestch chan *request) {
 		// Interate over
 		for _, instance := range instanceList {
 
-			for _, metric := range metricList {
+			fmt.Printf("CALLING #%d - %s %s\n", jobNumber, instance, time.Now().UTC().Format(time.ANSIC))
 
-				// BLOCKS - WAITS FOR WORKER
-				requestch <- &request{
-					instance:  instance,
-					metric:    metric,
-					callTime:  time.Now().UTC(),
-					jobNumber: jobNumber,
-				}
-
-				fmt.Printf("CALL #%d - %s %s %s\n", jobNumber, instance, metric, time.Now().UTC().Format(time.ANSIC))
-				jobNumber++
-
+			// WAITS FOR WORKER
+			requestch <- &request{
+				instance:  instance,
+				callTime:  time.Now().UTC(),
+				jobNumber: jobNumber,
 			}
+
+			fmt.Printf("CALLED #%d - %s %s\n", jobNumber, instance, time.Now().UTC().Format(time.ANSIC))
+			jobNumber++
+
 		}
 	}
 }
@@ -86,13 +85,13 @@ func doSomething(requestch chan *request) {
 func main() {
 
 	// Make Request Channel with Buffer
-	requestch := make(chan *request, reqChannelBuffer)
+	reqch := make(chan *request, channelBufferSize)
 
 	// Create Workers
 	for i := 0; i < numWorkers; i++ {
-		go doWorkers(i, requestch)
+		go doWorkers(i, reqch)
 	}
 
-	doSomething(requestch)
+	doSomething(reqch)
 
 }

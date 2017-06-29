@@ -13,4 +13,6 @@ You can set the number of times you need to use the workers (per tick) via numbe
 instances and metrics.
 
 If the numbers of workers you need to use during a tick time does not finish,
-it will skip a tick time so the workers can catch up.
+it will skip some tick time so the workers can catch up.
+
+![IMAGE - goroutines-worker-pools - IMAGE](pics/my-go-examples-goroutines-worker-pools.jpg)
