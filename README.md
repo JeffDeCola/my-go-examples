@@ -67,6 +67,12 @@
 
    _An example of concurrency using a worker pool with goroutines and channels._
 
+* [async-channel-no-waiting](https://github.com/JeffDeCola/my-go-examples/tree/master/async-channel-no-waiting)
+
+   _is an example of a gorouting asynchronously sending data (via a channel) to a function that
+   uses the latest data (if available) and does not wait._
+
+
 ## TESTED USING CONCOURSE
 
 A Concourse CI Pipeline will automate unit testing and update the GitHub WebPage.
