@@ -17,6 +17,9 @@ The goal of the function `usingInstances()` is to:
     * Read the latest instances from the channel.
     * If there are no instances, just use the previous ones.
 
+The assumption is that the instances can constantly
+change so you always want the most recent list.
+
 ## MAGIC IN THE usingInstance() FUNCTION - NO WAITING
 
 The `usingInstances()' function asynchronously reads from the channel buffer.
