@@ -15,7 +15,6 @@ var jobTime time.Duration = 7
 var channelBufferSize = 2
 
 // Other Variables
-var ticker = time.Tick(time.Duration(ticktimeSeconds) * time.Second)
 var jobNumber = 1
 
 type request struct {
@@ -42,9 +41,8 @@ func doSomething(requestch chan *request) {
 
 	endTime := time.Now().UTC()
 
-	// Loop forever - Long Running
-	for {
-		<-ticker
+	// Loop forever - Long Running (Will start immediately then wait for tick)
+	for c := time.Tick(time.Duration(ticktimeSeconds) * time.Second); ; <-c {
 
 		fmt.Printf("\n\n*** TICK %s ***\n\n\n", time.Now().UTC().Format(time.ANSIC))
 
