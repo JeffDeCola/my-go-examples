@@ -13,12 +13,10 @@ var usingInstancesSpeedSeconds = 5
 func getInstances(chRes chan []string) {
 
 	var instanceList []string
-	ticker := time.Tick(time.Duration(getInstanceSpeedSeconds) * time.Second)
 	counter := 1
 
-	// Loop forever - Long Running
-	for {
-		<-ticker
+	// Loop forever - Long Running (Will start immediately then wait for tick)
+	for c := time.Tick(time.Duration(getInstanceSpeedSeconds) * time.Second); ; <-c {
 
 		// Get Instances
 		fmt.Printf("    #%d - Getting Instances\n", counter)
@@ -36,12 +34,10 @@ func getInstances(chRes chan []string) {
 func usingInstances(instanceListCh chan []string) {
 
 	var instanceList []string
-	ticker := time.Tick(time.Duration(usingInstancesSpeedSeconds) * time.Second)
 	counter := 1
 
-	// Loop forever - Long Running
-	for {
-		<-ticker
+	// Loop forever - Long Running (Will start immediately then wait for tick)
+	for c := time.Tick(time.Duration(usingInstancesSpeedSeconds) * time.Second); ; <-c {
 
 		fmt.Printf("*** #%d - START USING INSTANCES\n", counter)
 
