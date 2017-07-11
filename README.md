@@ -11,66 +11,88 @@
 
 ## GO EXAMPLES
 
-* [json](https://github.com/JeffDeCola/my-go-examples/tree/master/json)
+* GOROUTINES
 
-   _Encode a struct to json and decode back to a struct._
+  * [goroutines-channels-select](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines-channels-select)
 
-* [gotests-complex-function](https://github.com/JeffDeCola/my-go-examples/tree/master/gotests-complex-function)
+    _An example of concurrency and message passing via channels in go._
 
-   _Testing a function with complex inputs and outputs._
+  * [goroutines-waitgroup](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines-waitgroup)
 
-* [gomock](https://github.com/JeffDeCola/my-go-examples/tree/master/gomock)
+    _An example of concurrency using a waitgroup._
 
-   _A helloween theme is used for gomock on an interface for unit testing._
+  * [goroutines-worker-pools](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines-worker-pools)
 
-* [read-file](https://github.com/JeffDeCola/my-go-examples/tree/master/read-file)
+    _An example of concurrency using a worker pool with goroutines and channels._
 
-   _Reading a file a few different ways._
+  * [async-channel-no-waiting](https://github.com/JeffDeCola/my-go-examples/tree/master/async-channel-no-waiting)
 
-* [linked-list](https://github.com/JeffDeCola/my-go-examples/tree/master/linked-list)
+    _An example of a gorouting asynchronously sending data (via a channel) to a function that
+    uses the latest data (if available) and does not wait._
 
-   _An example of a Singly Linked List (i.e. using just a head pointer)._
+* MESSINGING
 
-* [pointers](https://github.com/JeffDeCola/my-go-examples/tree/master/pointers)
+  * [???-NATS](https://github.com/JeffDeCola/my-go-examples/tree/master/????-NATS)
 
-   _An example of a pointer to a struct._*
+    _???????????._
 
-* [structs-methods-interfaces](https://github.com/JeffDeCola/my-go-examples/tree/master/structs-methods-interfaces)
+* API
 
-   _An example of structs, methods and interfaces._
+  * [????-RESTful](https://github.com/JeffDeCola/my-go-examples/tree/master/????-RESTful)
 
-* [recursion](https://github.com/JeffDeCola/my-go-examples/tree/master/recursion)
+    _??????._
 
-   _A function calling itself to make a fibonacci series._
+  * [simple-webserver-with-REST](https://github.com/JeffDeCola/my-go-examples/tree/master/simple-webserver-with-REST)
 
-* [logging-error-handling](https://github.com/JeffDeCola/my-go-examples/tree/master/logging-error-handling)
+    _Adding REST to the simple-webserver._
 
-   _Logging and error handling._
+* DATABASE
 
-* [simple-webserver](https://github.com/JeffDeCola/my-go-examples/tree/master/simple-webserver)
+  * [????-postgreSQL](https://github.com/JeffDeCola/my-go-examples/tree/master/????-postgreSQL)
 
-   _Using the http package to build a simple webserver._
+    _??????._
 
-* [simple-webserver-with-REST](https://github.com/JeffDeCola/my-go-examples/tree/master/simple-webserver-with-REST)
+* BASIC PROGRAMMING
 
-   _Adding REST to the simple-webserver._
+  * [json](https://github.com/JeffDeCola/my-go-examples/tree/master/json)
 
-* [goroutines-channels-select](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines-channels-select)
+    _Encode a struct to json and decode back to a struct._
 
-   _An example of concurrency and message passing via channels in go._
+  * [gotests-complex-function](https://github.com/JeffDeCola/my-go-examples/tree/master/gotests-complex-function)
 
-* [goroutines-waitgroup](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines-waitgroup)
+    _Testing a function with complex inputs and outputs._
 
-   _An example of concurrency using a waitgroup._
+  * [gomock](https://github.com/JeffDeCola/my-go-examples/tree/master/gomock)
 
-* [goroutines-worker-pools](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines-worker-pools)
+    _A helloween theme is used for gomock on an interface for unit testing._
 
-   _An example of concurrency using a worker pool with goroutines and channels._
+  * [read-file](https://github.com/JeffDeCola/my-go-examples/tree/master/read-file)
 
-* [async-channel-no-waiting](https://github.com/JeffDeCola/my-go-examples/tree/master/async-channel-no-waiting)
+    _Reading a file a few different ways._
 
-   _An example of a gorouting asynchronously sending data (via a channel) to a function that
-   uses the latest data (if available) and does not wait._
+  * [linked-list](https://github.com/JeffDeCola/my-go-examples/tree/master/linked-list)
+
+    _An example of a Singly Linked List (i.e. using just a head pointer)._
+
+  * [pointers](https://github.com/JeffDeCola/my-go-examples/tree/master/pointers)
+
+    _An example of a pointer to a struct._*
+
+  * [structs-methods-interfaces](https://github.com/JeffDeCola/my-go-examples/tree/master/structs-methods-interfaces)
+
+    _An example of structs, methods and interfaces._
+
+  * [recursion](https://github.com/JeffDeCola/my-go-examples/tree/master/recursion)
+
+    _A function calling itself to make a fibonacci series._
+
+  * [logging-error-handling](https://github.com/JeffDeCola/my-go-examples/tree/master/logging-error-handling)
+
+    _Logging and error handling._
+
+  * [simple-webserver](https://github.com/JeffDeCola/my-go-examples/tree/master/simple-webserver)
+
+    _Using the http package to build a simple webserver._
 
 
 ## TESTED USING CONCOURSE
