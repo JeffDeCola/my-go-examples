@@ -38,7 +38,15 @@
 
 * API
 
-  * [something-youttube-content-id](https://github.com/JeffDeCola/my-go-examples/tree/master/something-youtube-content-id)
+  * [something-youttube-content-id-api](https://github.com/JeffDeCola/my-go-examples/tree/master/something-youtube-content-id-api)
+
+    _TBD_
+
+  * [something-youttube-data-api-v3](https://github.com/JeffDeCola/my-go-examples/tree/master/something-youtube-data-api-ve)
+
+    _TBD_
+
+  * [something-youttube-player-api](https://github.com/JeffDeCola/my-go-examples/tree/master/something-youtube-player-api)
 
     _TBD_
 
