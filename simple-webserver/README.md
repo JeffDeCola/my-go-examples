@@ -4,6 +4,8 @@
 
 [GitHub Webpage](https://jeffdecola.github.io/my-go-examples/)
 
+Also checkout [simple-webserver-with-REST](https://github.com/JeffDeCola/my-go-examples/tree/master/simple-webserver-with-REST).
+
 ## The HTTP PACKAGE /net/http
 
 The http package lets us map request paths to functions.
