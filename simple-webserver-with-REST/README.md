@@ -5,27 +5,21 @@
 
 [GitHub Webpage](https://jeffdecola.github.io/my-go-examples/)
 
-## ADDIN TYPES
+## MOCK DATABASE
 
-Lets add some typres to the simple webserver
+In this example a mock database will be used.
 
+## HIGH-LEVEL VIEW OF CODE
 
-
+![IMAGE - simple-webserver-with-REST - IMAGE](simple-webserver-with-REST.jpg)
 
 ## RUN
 
 ```bash
-go run simple-webserver.go
+go run simple-webserver-with-REST.go router.go routes.go handlers.go logger.go mockdatabase.go
 ```
 
-In another terminal, use a CLI http client like httpie and you can do the
-following commands:
-
-```bash
-http localhost:1234
-```
-
-or
+In a browser,
 
 ```bash
 http 127.0.0.1:1234
