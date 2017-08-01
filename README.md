@@ -56,7 +56,13 @@
 
   * [simple-webserver-with-REST](https://github.com/JeffDeCola/my-go-examples/tree/master/simple-webserver-with-REST)
 
-    _Adding REST to the simple-webserver._
+    _Adding REST to the [simple-webserver](https://github.com/JeffDeCola/my-go-examples/tree/master/simple-webserver)._
+
+* WEBSERVER
+
+  * [simple-webserver](https://github.com/JeffDeCola/my-go-examples/tree/master/simple-webserver)
+
+    _Using the http package to build a simple webserver._
 
 * DATABASE
 
@@ -101,10 +107,6 @@
   * [logging-error-handling](https://github.com/JeffDeCola/my-go-examples/tree/master/logging-error-handling)
 
     _Logging and error handling._
-
-  * [simple-webserver](https://github.com/JeffDeCola/my-go-examples/tree/master/simple-webserver)
-
-    _Using the http package to build a simple webserver._
 
 
 ## TESTED USING CONCOURSE

@@ -1,7 +1,7 @@
 # something-RESTful
 
-`something-RESTful` _???._
+`something-RESTful` _TBD._
 
 ## TBD
 
-tbd
+TBD
