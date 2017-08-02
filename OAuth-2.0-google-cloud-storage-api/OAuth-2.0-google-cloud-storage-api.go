@@ -1,6 +1,7 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
 	"io/ioutil"
 	"net/http"
@@ -12,11 +13,28 @@ import (
 	//"io/ioutil"
 )
 
+// ClientSecret is the client secrets .json file
+type ClientSecret struct {
+	Web WebType `json:"web"`
+}
+
+// WebType is the client secrets .json file
+type WebType struct {
+	ClientID          string   `json:"client_id"`
+	ProjectID         string   `json:"project_id"`
+	AuthURI           string   `json:"auth_uri"`
+	TokenURI          string   `json:"token_uri"`
+	CertURL           string   `json:"auth_provider_x509_cert_url"`
+	ClientSecret      string   `json:"client_secret"`
+	RedirectURIS      []string `json:"redirect_uris"`
+	JavascriptOrigins []string `json:"javascript_origins"`
+}
+
 var (
 	googleOauthConfig = &oauth2.Config{
 		RedirectURL:  "http://127.0.0.1:3000/GoogleCallback",
-		ClientID:     os.Getenv("googlekey"),
-		ClientSecret: os.Getenv("googlesecret"),
+		ClientID:     "",
+		ClientSecret: "",
 		Scopes:       []string{"https://www.googleapis.com/auth/devstorage.read_only"},
 		Endpoint:     google.Endpoint,
 	}
@@ -36,7 +54,9 @@ const htmlIndex = `
 <a href="/GoogleLogin">Jeff Test - Log in with Google /GoogleLogin</a>
 <br />
 <br />
-<a href="/useToken">Use the Token /useToken</a>
+<a href="/useToken?call=all">Use the Token to get a list of buckets /useToken?call=all</a>
+<br />
+<a href="/useToken?call=images-na">Use the Token to get metadata on a particular bucker /useToken?call=images-na</a>
 </body>
 </html>
 `
@@ -105,7 +125,23 @@ func handleUseToken(res http.ResponseWriter, req *http.Request) {
 	fmt.Printf("      - token.TokenType is %+v \n", token.TokenType)
 	fmt.Printf("      - token.Expiry is %+v \n", token.Expiry.Format(time.RFC3339))
 
-	response, err := http.Get("https://www.googleapis.com/storage/v1/b/images-na?access_token=" + token.AccessToken)
+	call := req.FormValue("call")
+
+	var err error
+	var response *http.Response
+
+	switch call {
+	case "all":
+		fmt.Printf("      Call is 'all' \n")
+		response, err = http.Get("https://www.googleapis.com/storage/v1/b?access_token=" + token.AccessToken + "&project=lofty-outcome-860")
+	case "images-na":
+		fmt.Printf("      Call is 'images-na' \n")
+		response, err = http.Get("https://www.googleapis.com/storage/v1/b/images-na?access_token=" + token.AccessToken)
+	default:
+		fmt.Printf("      Call is 'default' \n")
+		response, err = http.Get("https://www.googleapis.com/storage/v1/b/images-na?access_token=" + token.AccessToken)
+	}
+
 	if err != nil {
 		fmt.Printf("    Trying to use token '%s'\n", err)
 		http.Redirect(res, req, "/", http.StatusTemporaryRedirect)
@@ -114,10 +150,42 @@ func handleUseToken(res http.ResponseWriter, req *http.Request) {
 
 	defer response.Body.Close()
 	contents, err := ioutil.ReadAll(response.Body)
-	fmt.Fprintf(res, "Content: %s\n", contents)
+	fmt.Fprintf(res, "    Content: %s\n", contents)
+}
+
+func unmarshalJSONFile() {
+
+	// Read the secrets file from google
+	// Generate from https://console.developers.google.com/projectselector/apis/credentials
+	raw, err := ioutil.ReadFile(os.Getenv("HOME") + "/Downloads/client_secrets.json")
+	if err != nil {
+		fmt.Println(err.Error())
+		os.Exit(1)
+	}
+
+	fmt.Printf("    Raw json is %s\n\n", string(raw))
+
+	var cs ClientSecret
+	err = json.Unmarshal(raw, &cs)
+	if err != nil {
+		fmt.Println("There was an error:", err)
+	}
+	fmt.Printf("    ProjectID is: %s\n", cs.Web.ProjectID)
+	fmt.Printf("    ClientID is: %s\n", cs.Web.ClientID)
+
+	// Put the secrets in googleOauthConfig
+	googleOauthConfig.ClientSecret = cs.Web.ClientSecret
+	googleOauthConfig.ClientID = cs.Web.ClientID
+
+	fmt.Printf("    googleOauthConfig.ClientID is: %s\n", googleOauthConfig.ClientID)
+	fmt.Printf("    googleOauthConfig.ClientSecret is: %s\n", googleOauthConfig.ClientSecret)
+
 }
 
 func main() {
+
+	unmarshalJSONFile()
+
 	http.HandleFunc("/", handleMain)
 	http.HandleFunc("/GoogleLogin", handleGoogleLogin)
 	http.HandleFunc("/GoogleCallback", handleGoogleCallback)

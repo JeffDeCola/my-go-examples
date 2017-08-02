@@ -1,6 +1,6 @@
 # OAuth-2.0-google-cloud-storage-api
 
-`OAuth-2.0-google-cloud-storage-api` _uses OAuth 2.0 to access a users google-cloud-storage (based on scopes) via googles api._
+`OAuth-2.0-google-cloud-storage-api` _uses OAuth 2.0 to access a users google cloud storage (based on scopes) via googles api._
 
 ## AUTHORIZATION OAuth 2.0
 
@@ -32,6 +32,8 @@ You will now have a Client ID and a Secret.
 
 The user opens the website and clicks the login button.
 
+In the code is a great way to `unmarshalJSONFile()` the client secrets .json file.
+
 ### STEP 2 - APP LOGIN PAGE
 
 Create a link the user may click on to get redirected
@@ -58,6 +60,15 @@ https://accounts.google.com/o/oauth2/auth?
 
 The scopes for this example are:
 `https://www.googleapis.com/auth/devstorage.read_only`
+
+The scopes availible are:
+
+* `https://www.googleapis.com/auth/devstorage.full_control`
+  Read/write and ACL management access to Google Cloud Storage.
+* `https://www.googleapis.com/auth/devstorage.read_write`
+  Read/write access to Google Cloud Storage.
+* `https://www.googleapis.com/auth/devstorage.read_only`
+  Read-only access to Google Cloud Storage.
 
 ### STEP 4 - USER LOGS IN TO GOOGLE ACCOUNT AND IS DIRECTED BACK
 
@@ -89,10 +100,10 @@ You can use the `google/google-api-go-client` client libraries
 [here](https://github.com/google/google-api-go-client)
 to use APIs in your application.
 
-For example,
+For example, to get meta data on YOUR_BUCKET_NAME,
 
 ```go
-response, err := http.Get("https://www.googleapis.com/storage/v1/b/images-na?access_token=" + token.AccessToken)
+response, err := http.Get("https://www.googleapis.com/storage/v1/b/YOUR_BUCKET_NAME?access_token=" + token.AccessToken)
 ```
 
 ### REFRESH ACCESS TOKEN
