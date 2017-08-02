@@ -51,3 +51,7 @@ or
 ```bash
 http 127.0.0.1:1234
 ```
+
+## NO ROUTER
+
+Hence, you can do `http://127.0.0.1:1234/foo` and it will work.

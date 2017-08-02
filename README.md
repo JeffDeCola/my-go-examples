@@ -38,6 +38,10 @@
 
 * API
 
+  * [OAuth-2.0-google-cloud-storage-api](https://github.com/JeffDeCola/my-go-examples/tree/master/OAuth-2.0-google-cloud-storage-api)
+
+    _Using OAuth 2.0 to access a users google-cloud-storage (based on scopes) via googles api._
+
   * [something-youttube-content-id-api](https://github.com/JeffDeCola/my-go-examples/tree/master/something-youtube-content-id-api)
 
     _TBD_
