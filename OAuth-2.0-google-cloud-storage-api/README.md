@@ -1,14 +1,18 @@
-# something-youtube-content-id
+# OAuth-2.0-google-cloud-storage-api
 
-`something-youtube-content-id` _???????????? is an api for YouTube's Rights Management Systems._
+`OAuth-2.0-google-cloud-storage-api` _uses OAuth 2.0 to access a users google-cloud-storage (based on scopes) via googles api._
 
 ## AUTHORIZATION OAuth 2.0
 
 Refer to
 [Web Server-Side Flow](https://github.com/JeffDeCola/my-cheat-sheets/blob/master/OAuth-2.0-authorization-cheat-sheet/OAuth-2.0-authorization-web-server-app-flow.md)
-for more information about OAuth 2.0.
+for a high-level view about OAuth 2.0.
 
-## STEP 1 - CREATE OAuth 2.0 CLIENT ID & SECRET
+## GETTING A TOKEN
+
+The following steps allow you to get a token.
+
+### STEP 1 - CREATE OAuth 2.0 CLIENT ID & SECRET
 
 To create Create a `OAuth 2.0 Client ID` goto credentials page
 [here](https://console.developers.google.com/projectselector/apis/credentials)
@@ -28,7 +32,7 @@ You will now have a Client ID and a Secret.
 
 The user opens the website and clicks the login button.
 
-## STEP 2 - APP LOGIN PAGE
+### STEP 2 - APP LOGIN PAGE
 
 Create a link the user may click on to get redirected
 to the google login page.
@@ -39,7 +43,7 @@ The `golang/oauth2` client libraries
 [here](https://github.com/golang/oauth2)
 to implement OAuth 2.0 in your application.
 
-## STEP 3 - GOOGLE LOGIN PAGE
+### STEP 3 - GOOGLE LOGIN PAGE
 
 The user gets redirected to the google login handler page via a url similiar to:
 
@@ -52,7 +56,10 @@ https://accounts.google.com/o/oauth2/auth?
     state=jeffrandom
 ```
 
-## STEP 4 - USER LOGS IN TO GOOGLE ACCOUNT AND IS DIRECTED BACK
+The scopes for this example are:
+`https://www.googleapis.com/auth/devstorage.read_only`
+
+### STEP 4 - USER LOGS IN TO GOOGLE ACCOUNT AND IS DIRECTED BACK
 
 The call back has the state and an authorization code.
 
@@ -62,11 +69,11 @@ The call back has the state and an authorization code.
     code={SECRET AUTH CODE}
 ```
 
-## STEP 5 - VERIFY SAME STRING VIA STATE
+### STEP 5 - VERIFY SAME STRING VIA STATE
 
 We verify if it's the same state string.
 
-## STEP 6 EXCHANGE AUTH CODE FOR TOKEN
+### STEP 6 EXCHANGE AUTH CODE FOR TOKEN
 
 If it is then we use the `code` to ask google for a
 short-lived access `token`. We can save the code for future
@@ -76,7 +83,7 @@ use to get another token later.
 token, err = googleOauthConfig.Exchange(oauth2.NoContext, code)
 ```
 
-## PROFIT - USE ACCESS TOKEN FOR API
+## PROFIT - USING ACCESS TOKEN FOR API (BASED ON SCOPES)
 
 You can use the `google/google-api-go-client` client libraries
 [here](https://github.com/google/google-api-go-client)
@@ -84,8 +91,8 @@ to use APIs in your application.
 
 For example,
 
-```http
-http.Get("https://www.googleapis.com/oauth2/v2/userinfo?access_token=" + token.AccessToken)
+```go
+response, err := http.Get("https://www.googleapis.com/storage/v1/b/images-na?access_token=" + token.AccessToken)
 ```
 
 ### REFRESH ACCESS TOKEN
