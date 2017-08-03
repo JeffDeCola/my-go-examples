@@ -36,6 +36,10 @@
 
     _TBD_
 
+  * [protobuf](https://github.com/JeffDeCola/my-go-examples/tree/master/protobuf)
+
+    _Protocol buffers serialize structured data, useful for messaging._
+
 * API
 
   * [OAuth-2.0-google-cloud-storage-api](https://github.com/JeffDeCola/my-go-examples/tree/master/OAuth-2.0-google-cloud-storage-api)

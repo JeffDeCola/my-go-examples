@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+package main;
+
+message Token {
+	string AccessToken = 1;
+	string TokenType = 2;
+	string RefreshToken = 3;
+	int64 ExpiresAt = 4;
+}
