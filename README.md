@@ -32,13 +32,13 @@
 
 * MESSINGING
 
-  * [something-NATS](https://github.com/JeffDeCola/my-go-examples/tree/master/something-NATS)
-
-    _TBD_
-
   * [protobuf](https://github.com/JeffDeCola/my-go-examples/tree/master/protobuf)
 
     _Protocol buffers serialize structured data, useful for messaging._
+
+  * [protobuf-NATS](https://github.com/JeffDeCola/my-go-examples/tree/master/protobuf-NATS)
+
+    _Sends a protobuf msg over NATS from a client to a server._
 
 * API
 
