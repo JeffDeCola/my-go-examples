@@ -4,6 +4,14 @@
 
 [GitHub Webpage](https://jeffdecola.github.io/my-go-examples/)
 
+## STARTS NAT SERVER
+
+I run the NATS server using,
+
+```bash
+gnatsd -DV -addr localhost --port 4222
+```
+
 ## PROTOCOL .proto BUFFER FILE
 
 ```go
@@ -12,6 +20,7 @@ message Token {
     string TokenType = 2;
     string RefreshToken = 3;
     int64 ExpiresAt = 4;
+    int64 counter = 5;
 }
 ```
 
@@ -23,7 +32,7 @@ Compile the protcol buffer file to get the wrappers,
 protoc --go_out=. messages.proto
 ```
 
-## CLIENT.GO - MARSHAL - WRITE/SEND
+## CLIENT.GO: PROTOBUF - CLIENT - MARSHAL - WRITE/SEND
 
 Now lets create the message `msg` to send. Create a pointer
 to a type Token struct and fill it with data.
@@ -34,27 +43,58 @@ token := &Token{
     TokenType:    "this",
     RefreshToken: "and the refresh token",
     ExpiresAt:    5,
+    Counter:      5,
 }
 ```
-
-Then serialize it up,
 
 ```go
 msg, err := proto.Marshal(token)
 ```
 
-## SERVER.GO - RECEIVE - READ/UNMARSHAL
+## CLIENT.GO: NATS - PUBLISH on "foo"
 
-Now lets create an empty pointer to the
-proto stuct, receive the message and unmarshal it.
+Connect to a NATS server and publish msg on foo,
+
+```go
+nc, _ := nats.Connect("nats://127.0.0.1:4222)
+nc.Publish("foo", msg)
+```
+
+## SERVER.GO: NATS - SUBSCRIBE (synchronous way) on "foo"
+
+Connect to a NATS server and subscribe (synchronously)
+msg on foo,
+
+```go
+nc, _ := nats.Connect("nats://127.0.0.1:4222)
+sub, err := nc.SubscribeSync("foo")
+msg, err := sub.NextMsg(time.Duration(5) * time.Second)
+```
+
+## SERVER.GO: PROTOBUF - SERVER - RECEIVE - READ/UNMARSHAL
+
+Unmarshal and print,
 
 ```go
 rcvToken := &Token{}
-err = proto.Unmarshal(msg, rcvToken)
+err := proto.Unmarshal(msg.Data, rcvToken)
+log.Printf("Token received: %+v", rcvToken)
 ```
 
 ## RUN
 
+Run both the client and server.
+
 ```go
-go run read.go messages.pb.go
+cd client
+go run client.go messages.pb.go
 ```
+
+```go
+cd server
+go run server.go messages.pb.go
+```
+
+## HIGH-LEVEL-VIEW
+
+![IMAGE - protobuf-NATS - IMAGE](protobuf-NATS.jpg)
