@@ -1,6 +1,8 @@
 # OAuth-2.0-google-cloud-storage-api-over-NATS
 
-`OAuth-2.0-google-cloud-storage-api-over-NATS` _uses OAuth 2.0 (via frontend and backend) to access a users google cloud storage (based on scopes) via googles api._
+`OAuth-2.0-google-cloud-storage-api-over-NATS` _uses OAuth 2.0
+(frontend and backend via protobuf over NATS) to access a users
+google cloud storage (based on scopes) via googles api._
 
 [GitHub Webpage](https://jeffdecola.github.io/my-go-examples/)
 
