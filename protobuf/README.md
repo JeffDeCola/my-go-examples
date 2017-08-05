@@ -4,6 +4,9 @@
 
 [GitHub Webpage](https://jeffdecola.github.io/my-go-examples/)
 
+Also check out
+[protobuf over NATS](https://github.com/JeffDeCola/my-go-examples/tree/master/protobuf-NATS)
+
 ## USEFUL FOR RPC
 
 Protobuf serves as a basis for a custom remote procedure
