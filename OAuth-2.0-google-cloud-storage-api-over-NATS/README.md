@@ -10,7 +10,7 @@ google cloud storage (based on scopes) via googles api._
 
 This example expands on [OAuth-2.0-google-cloud-storage-api](https://github.com/JeffDeCola/my-go-examples/tree/master/OAuth-2.0-google-cloud-storage-api) and adds protobuf and NATS to pass auth code from `front-end` to -`back-end`.
 
-![IMAGE - OAuth-2.0-service-account-authorization-flow - IMAGE](https://github.com/JeffDeCola/my-cheat-sheets/blob/master/OAuth-2.0-authorization-cheat-sheet/OAuth-2.0-service-account-authorization-flow.jpg)
+![IMAGE - OAuth-2.0-web-server-app-authorization-flow - IMAGE](https://github.com/JeffDeCola/my-cheat-sheets/blob/master/OAuth-2.0-authorization-cheat-sheet/OAuth-2.0-web-server-app-authorization-flow.jpg)
 
 ## RUN
 
