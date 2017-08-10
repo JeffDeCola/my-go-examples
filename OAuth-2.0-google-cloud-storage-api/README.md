@@ -88,6 +88,8 @@ We verify if it's the same state string.
 
 ### STEP 6 EXCHANGE AUTH CODE FOR TOKEN
 
+IMPORTANT - Can only use the auth code once.
+
 If it is then we use the `code` to ask google for a
 short-lived access `token`. We can save the code for future
 use to get another token later.

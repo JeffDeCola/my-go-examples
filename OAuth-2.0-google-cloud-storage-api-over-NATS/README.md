@@ -6,6 +6,13 @@ google cloud storage (based on scopes) via googles api._
 
 [GitHub Webpage](https://jeffdecola.github.io/my-go-examples/)
 
+## REFRESH TOKEN
+
+You only get refresh token once.  So you must save it.
+User must revoke privlidges [here](https://myaccount.google.com/permissions)
+in order to get a new refresh token.
+
+
 ## HIGH-LEVEL VIEW
 
 This example expands on [OAuth-2.0-google-cloud-storage-api](https://github.com/JeffDeCola/my-go-examples/tree/master/OAuth-2.0-google-cloud-storage-api) and adds protobuf and NATS to pass auth code from `front-end` to -`back-end`.
