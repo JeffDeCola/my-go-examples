@@ -1,57 +1,116 @@
 
 # GO EXAMPLES
 
-* [json](https://github.com/JeffDeCola/my-go-examples/tree/master/json)
+* GOROUTINES
 
-   _Encode a struct to json and decode back to a struct._
+  * [goroutines-channels-select](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines-channels-select)
 
-* [gotests-complex-function](https://github.com/JeffDeCola/my-go-examples/tree/master/gotests-complex-function)
+    _An example of concurrency and message passing via channels in go._
 
-   _Testing a function with complex inputs and outputs._
+  * [goroutines-waitgroup](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines-waitgroup)
 
-* [gomock](https://github.com/JeffDeCola/my-go-examples/tree/master/gomock)
+    _An example of concurrency using a waitgroup._
 
-   _A helloween theme is used for gomock on an interface for unit testing._
+  * [goroutines-worker-pools](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines-worker-pools)
 
-* [read-file](https://github.com/JeffDeCola/my-go-examples/tree/master/read-file)
+    _An example of concurrency using a worker pool with goroutines and channels._
 
-   _Reading a file a few different ways._
+  * [async-channel-no-waiting](https://github.com/JeffDeCola/my-go-examples/tree/master/async-channel-no-waiting)
 
-* [linked-list](https://github.com/JeffDeCola/my-go-examples/tree/master/linked-list)
+    _An example of a gorouting asynchronously sending data (via a channel) to a function that
+    uses the latest data (if available) and does not wait._
 
-   _An example of a Singly Linked List (i.e. using just a head pointer)._
+* MESSINGING
 
-* [pointers](https://github.com/JeffDeCola/my-go-examples/tree/master/pointers)
+  * [protobuf](https://github.com/JeffDeCola/my-go-examples/tree/master/protobuf)
 
-   _An example of a pointer to a struct._*
+    _Protocol buffers serialize structured data, useful for messaging._
 
-* [structs-methods-interfaces](https://github.com/JeffDeCola/my-go-examples/tree/master/structs-methods-interfaces)
+  * [protobuf-NATS](https://github.com/JeffDeCola/my-go-examples/tree/master/protobuf-NATS)
 
-   _An example of structs, methods and interfaces._
+    _Sends a protobuf msg over NATS from a client to a server._
 
-* [recursion](https://github.com/JeffDeCola/my-go-examples/tree/master/recursion)
+* API
 
-   _A function calling itself to make a fibonacci series._
+  * [OAuth-2.0-google-cloud-storage-api](https://github.com/JeffDeCola/my-go-examples/tree/master/OAuth-2.0-google-cloud-storage-api)
 
-* [logging-error-handling](https://github.com/JeffDeCola/my-go-examples/tree/master/logging-error-handling)
+    _Using OAuth 2.0 to access a users google-cloud-storage (based on scopes) via googles api._
 
-   _Logging and error handling._
+  * [OAuth-2.0-google-cloud-storage-api-over-NATS](https://github.com/JeffDeCola/my-go-examples/tree/master/OAuth-2.0-google-cloud-storage-api-over-NATS)
 
-* [simple-webserver](https://github.com/JeffDeCola/my-go-examples/tree/master/simple-webserver)
+    _Using OAuth 2.0 (frontend and backend via protobuf over NATS) to
+    access a users google cloud storage (based on scopes) via googles api._
 
-   _Using the http package to build a simple webserver._
+  * [something-youttube-content-id-api](https://github.com/JeffDeCola/my-go-examples/tree/master/something-youtube-content-id-api)
 
-* [simple-webserver-with-REST](https://github.com/JeffDeCola/my-go-examples/tree/master/simple-webserver-with-REST)
+    _TBD_
 
-   _Adding REST to the simple-webserver._
+  * [something-youttube-data-api-v3](https://github.com/JeffDeCola/my-go-examples/tree/master/something-youtube-data-api-ve)
 
-* [goroutines-channels-select](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines-channels-select)
+    _TBD_
 
-   _An example of concurrency and message passing via channels in go._
+  * [something-youttube-player-api](https://github.com/JeffDeCola/my-go-examples/tree/master/something-youtube-player-api)
 
-* [goroutines-waitgroup](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines-waitgroup)
+    _TBD_
 
-   _An example of concurrency using a waitgroup._
+  * [something-RESTful](https://github.com/JeffDeCola/my-go-examples/tree/master/something-RESTful)
+
+    _TBD_
+
+  * [simple-webserver-with-REST](https://github.com/JeffDeCola/my-go-examples/tree/master/simple-webserver-with-REST)
+
+    _Adding REST to the [simple-webserver](https://github.com/JeffDeCola/my-go-examples/tree/master/simple-webserver)._
+
+* WEBSERVER
+
+  * [simple-webserver](https://github.com/JeffDeCola/my-go-examples/tree/master/simple-webserver)
+
+    _Using the http package to build a simple webserver._
+
+* DATABASE
+
+  * [something-postgreSQL](https://github.com/JeffDeCola/my-go-examples/tree/master/something-postgreSQL)
+
+    _TBD_
+
+* BASIC PROGRAMMING
+
+  * [json](https://github.com/JeffDeCola/my-go-examples/tree/master/json)
+
+    _Encode a struct to json and decode back to a struct._
+
+  * [gotests-complex-function](https://github.com/JeffDeCola/my-go-examples/tree/master/gotests-complex-function)
+
+    _Testing a function with complex inputs and outputs._
+
+  * [gomock](https://github.com/JeffDeCola/my-go-examples/tree/master/gomock)
+
+    _A helloween theme is used for gomock on an interface for unit testing._
+
+  * [read-file](https://github.com/JeffDeCola/my-go-examples/tree/master/read-file)
+
+    _Reading a file a few different ways._
+
+  * [linked-list](https://github.com/JeffDeCola/my-go-examples/tree/master/linked-list)
+
+    _An example of a Singly Linked List (i.e. using just a head pointer)._
+
+  * [pointers](https://github.com/JeffDeCola/my-go-examples/tree/master/pointers)
+
+    _An example of a pointer to a struct._*
+
+  * [structs-methods-interfaces](https://github.com/JeffDeCola/my-go-examples/tree/master/structs-methods-interfaces)
+
+    _An example of structs, methods and interfaces._
+
+  * [recursion](https://github.com/JeffDeCola/my-go-examples/tree/master/recursion)
+
+    _A function calling itself to make a fibonacci series._
+
+  * [logging-error-handling](https://github.com/JeffDeCola/my-go-examples/tree/master/logging-error-handling)
+
+    _Logging and error handling._
+
 
 ## TESTED USING CONCOURSE
 
