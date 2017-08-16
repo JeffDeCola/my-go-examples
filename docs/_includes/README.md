@@ -32,6 +32,10 @@
 
 * API
 
+  * [http-GET-POST](https://github.com/JeffDeCola/my-go-examples/tree/master/http-GET-POST)
+
+    _Using http package to GET or POST (update via json)._
+
   * [OAuth-2.0-google-cloud-storage-api](https://github.com/JeffDeCola/my-go-examples/tree/master/OAuth-2.0-google-cloud-storage-api)
 
     _Using OAuth 2.0 to access a users google-cloud-storage (based on scopes) via googles api._
@@ -41,15 +45,15 @@
     _Using OAuth 2.0 (frontend and backend via protobuf over NATS) to
     access a users google cloud storage (based on scopes) via googles api._
 
+  * [track-email-mailgun-api](https://github.com/JeffDeCola/my-go-examples/tree/master/track-email-mailgun-api)
+
+    _Send and track an email using mailgun over their go client api_
+
   * [something-youttube-content-id-api](https://github.com/JeffDeCola/my-go-examples/tree/master/something-youtube-content-id-api)
 
     _TBD_
 
   * [something-youttube-data-api-v3](https://github.com/JeffDeCola/my-go-examples/tree/master/something-youtube-data-api-ve)
-
-    _TBD_
-
-  * [something-youttube-player-api](https://github.com/JeffDeCola/my-go-examples/tree/master/something-youtube-player-api)
 
     _TBD_
 
