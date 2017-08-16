@@ -8,3 +8,7 @@ message Token {
 	string refresh_token = 3;
 	int64 expires_at = 4;
 }
+
+message Data {
+	string body = 1;
+}

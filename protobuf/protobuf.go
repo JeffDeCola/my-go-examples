@@ -1,12 +1,15 @@
 package main
 
 import (
+	"fmt"
+	"io/ioutil"
 	"log"
+	"os"
 
 	"github.com/golang/protobuf/proto"
 )
 
-func main() {
+func testToken() {
 
 	token := &Token{
 		AccessToken:  "the access token",
@@ -36,4 +39,45 @@ func main() {
 		log.Fatalf("data mismatch %q != %q", token, rcvToken)
 	}
 
+}
+
+// Read Large data file - Is there a limit
+func testData() {
+
+	// Read the secrets file from google
+	raw, err := ioutil.ReadFile("in.txt")
+	if err != nil {
+		fmt.Println(err.Error())
+		os.Exit(1)
+	}
+
+	data := &Data{
+		Body: string(raw),
+	}
+
+	// CLIENT - MARSHAL - WRITE/SEND
+	msg, err := proto.Marshal(data)
+	if err != nil {
+		log.Fatal("marshaling error: ", err)
+	}
+
+	// SERVER - RECEIVE - READ/UNMARSHAL
+	rcvData := &Data{}
+	err = proto.Unmarshal(msg, rcvData)
+	if err != nil {
+		log.Fatal("unmarshaling error: ", err)
+	}
+
+	// Write file
+	err = ioutil.WriteFile("out.txt", []byte(rcvData.Body), 0644)
+	if err != nil {
+		fmt.Println(err.Error())
+		os.Exit(1)
+	}
+
+}
+
+func main() {
+	testToken()
+	testData()
 }
