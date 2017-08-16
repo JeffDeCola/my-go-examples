@@ -5,5 +5,5 @@ import (
 )
 
 func main() {
-	fmt.Println("postgreSQL")
+	fmt.Println("hi")
 }

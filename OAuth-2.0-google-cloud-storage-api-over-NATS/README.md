@@ -12,10 +12,33 @@ You only get refresh token once.  So you must save it.
 User must revoke privlidges [here](https://myaccount.google.com/permissions)
 in order to get a new refresh token.
 
+```go
+config := &oauth2.Config{
+    ClientID:     cs.Web.ClientID,
+    ClientSecret: cs.Web.ClientSecret,
+    Endpoint: oauth2.Endpoint{
+    TokenURL: "https://accounts.google.com/o/oauth2/token",
+    },
+}
+
+restoredToken := &oauth2.Token{
+    AccessToken:  token.AccessToken,
+    RefreshToken: token.RefreshToken,
+    Expiry:       token.Expiry,
+    TokenType:    token.TokenType,
+}
+
+tokenSource := config.TokenSource(oauth2.NoContext, restoredToken)
+client := oauth2.NewClient(oauth2.NoContext, tokenSource)
+token, err = tokenSource.Token()
+
+// Now use it in the api call
+response, err "= client.Get("https://www.googleapis.com/storage/v1/b?project=PROJECT_NAME")
+```
 
 ## HIGH-LEVEL VIEW
 
-This example expands on [OAuth-2.0-google-cloud-storage-api](https://github.com/JeffDeCola/my-go-examples/tree/master/OAuth-2.0-google-cloud-storage-api) and adds protobuf and NATS to pass auth code from `front-end` to -`back-end`.
+This example expands on [OAuth-2.0-google-cloud-storage-api](https://github.com/JeffDeCola/my-go-examples/tree/master/OAuth-2.0-google-cloud-storage-api) and adds protobuf and NATS to pass auth code from `front-end` to `back-end`.
 
 ![IMAGE - OAuth-2.0-web-server-app-authorization-flow - IMAGE](https://github.com/JeffDeCola/my-cheat-sheets/blob/master/OAuth-2.0-authorization-cheat-sheet/OAuth-2.0-web-server-app-authorization-flow.jpg)
 

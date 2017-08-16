@@ -1,12 +1,12 @@
 package main
 
 import (
-	"bytes"
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
 	"log"
 	"net/http"
+	"net/url"
 
 	"os"
 	"time"
@@ -119,7 +119,7 @@ func getAuthCode() {
 	}
 }
 
-func tokenInfo() {
+func tokenInfo(token *oauth2.Token) {
 
 	fmt.Printf("\ntoken:\n")
 	fmt.Printf("      - token.AccessToken is %+v \n", token.AccessToken)
@@ -138,7 +138,8 @@ func getToken(rcvAuthCode *AuthCode) *oauth2.Token {
 
 	// Get the Token - Exchange Auth Code for Token.
 	token, err = googleOauthConfig.Exchange(oauth2.NoContext, rcvAuthCode.AuthCode)
-	tokenInfo()
+
+	tokenInfo(token)
 
 	if err != nil {
 		log.Fatal("Exchange Token Error: ", err)
@@ -218,46 +219,67 @@ func takeAction() {
 		log.Printf("Action received: %+v", rcvAction)
 		log.Printf("    Action: %+v", rcvAction.Action)
 
-		// CHECK IF YOU WANT TO REFRESH THE TOKEN -
 		if rcvAction.Action == "refresh" {
-			fmt.Printf("      Call is 'refresh' \n")
 			refreshToken()
-			return
-		}
-
-		currentTime = time.Now().UTC()
-		expireSeconds := token.Expiry.Sub(currentTime)
-		log.Printf("    ******************* Token expires in: %s", expireSeconds)
-		if !token.Valid() { // if user token is expired
-			fmt.Printf("Token has expired\n")
-			refreshToken()
+		} else if rcvAction.Action == "tokeninfo" {
+			tokenInfo(token)
 		} else {
-			fmt.Printf("Token is valid\n")
+
+			currentTime = time.Now().UTC()
+			expireSeconds := token.Expiry.Sub(currentTime)
+			log.Printf("    ******************* Token expires in: %s", expireSeconds)
+			if !token.Valid() { // if user token is expired
+				fmt.Printf("Token has expired\n")
+				// refreshToken()
+			} else {
+				fmt.Printf("Token is valid\n")
+			}
+
+			config := &oauth2.Config{
+				ClientID:     cs.Web.ClientID,
+				ClientSecret: cs.Web.ClientSecret,
+				Endpoint: oauth2.Endpoint{
+					TokenURL: "https://accounts.google.com/o/oauth2/token",
+				},
+			}
+			restoredToken := &oauth2.Token{
+				AccessToken:  token.AccessToken,
+				RefreshToken: token.RefreshToken,
+				Expiry:       token.Expiry,
+				TokenType:    token.TokenType,
+			}
+			tokenInfo(restoredToken)
+			tokenSource := config.TokenSource(oauth2.NoContext, restoredToken)
+			client := oauth2.NewClient(oauth2.NoContext, tokenSource)
+			token, err = tokenSource.Token()
+			if err != nil {
+				fmt.Printf("    Trying to use token %s on action '%s'\n", err, rcvAction.Action)
+			}
+
+			var response *http.Response
+
+			switch rcvAction.Action {
+			case "all":
+				fmt.Printf("      Call is 'all' \n")
+				response, err = client.Get("https://www.googleapis.com/storage/v1/b?project=lofty-outcome-860")
+			case "images-na":
+				fmt.Printf("      Call is 'images-na' \n")
+				response, err = client.Get("https://www.googleapis.com/storage/v1/b/images-na")
+			default:
+				fmt.Printf("      Call is 'default' \n")
+				response, err = client.Get("https://www.googleapis.com/storage/v1/b/images-na")
+			}
+
+			if err != nil {
+				fmt.Printf("    Trying to use token %s on action '%s'\n", err, rcvAction.Action)
+			}
+
+			// fmt.Printf("    Content: %v\n", response)
+
+			defer response.Body.Close()
+			contents, _ := ioutil.ReadAll(response.Body)
+			fmt.Printf("Content:\n %s\n", string(contents))
 		}
-
-		var response *http.Response
-
-		switch rcvAction.Action {
-		case "all":
-			fmt.Printf("      Call is 'all' \n")
-			response, err = http.Get("https://www.googleapis.com/storage/v1/b?access_token=" + token.AccessToken + "&project=lofty-outcome-860")
-		case "images-na":
-			fmt.Printf("      Call is 'images-na' \n")
-			response, err = http.Get("https://www.googleapis.com/storage/v1/b/images-na?access_token=" + token.AccessToken)
-		default:
-			fmt.Printf("      Call is 'default' \n")
-			response, err = http.Get("https://www.googleapis.com/storage/v1/b/images-na?access_token=" + token.AccessToken)
-		}
-
-		if err != nil {
-			fmt.Printf("    Trying to use token %s on action '%s'\n", err, rcvAction.Action)
-		}
-
-		// fmt.Printf("    Content: %v\n", response)
-
-		defer response.Body.Close()
-		contents, err := ioutil.ReadAll(response.Body)
-		fmt.Printf("    Content: %s\n", string(contents))
 	}
 
 }
@@ -266,31 +288,18 @@ func refreshToken() {
 
 	refreshToken := readRefreshToken()
 
-	url := "https://accounts.google.com/o/oauth2/token"
-	//	"https://accounts.google.com/o/oauth2/token" + "?" +
-	//		"client_id=" + cs.Web.ClientID + "&" +
-	//		"client_secret=" + cs.Web.ClientSecret + "&" +
-	//		"refresh_token=" + refreshToken + "&" +
-	//		"grant_type=" + "refresh_token"
+	url1 := "https://accounts.google.com/o/oauth2/token"
 
-	fmt.Printf("    URL for refresh token is %+v\n", url)
-	s := "postgres://user:pass@host.com:5432/path?k=v#f"
+	fmt.Printf("    URL for refresh token is %+v\n", url1)
 
-	u, err := url.Parse(s)
-
-	data := url.Values{}
-	data.Set("name", "foo")
-	values := url.Values{"para": {"asdf"}}
-
-	form := url.Values{
+	form := map[string][]string{
 		"client_id":     {cs.Web.ClientID},
 		"client_secret": {cs.Web.ClientSecret},
 		"refresh_token": {refreshToken},
 		"grant_type":    {"refresh_token"}}
 
-	body := bytes.NewBufferString(form.Encode())
-	response, err := http.Post(url, "application/x-www-form-urlencoded", body)
-
+	response, err := http.PostForm(url1,
+		url.Values(form))
 	if err != nil {
 		fmt.Printf("    Trying to get refresh token %s\n", err)
 	}
@@ -299,8 +308,8 @@ func refreshToken() {
 	contents, err := ioutil.ReadAll(response.Body)
 	fmt.Printf("    Content: %s\n", string(contents))
 
-	//	fmt.Printf("    Refresh Token AFTER\n")
-	//	tokenInfo()
+	//token.AccessToken = contents
+	tokenInfo(token)
 
 }
 

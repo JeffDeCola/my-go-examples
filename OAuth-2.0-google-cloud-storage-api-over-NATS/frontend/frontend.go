@@ -60,6 +60,8 @@ const htmlIndex = `
 <br />
 <a href="/SendAction?call=refresh">Refresh Token /SendAction?call=refresh</a>
 <br />
+<a href="/SendAction?call=tokeninfo">Token Info /SendAction?call=tokeninfo</a>
+<br />
 <br />
 <a href="/SendAction?call=all">Get a list of buckets /SendAction?call=all</a>
 <br />
