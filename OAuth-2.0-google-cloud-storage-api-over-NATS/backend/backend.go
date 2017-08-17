@@ -53,7 +53,7 @@ func unmarshalJSONFile() {
 
 	// Read the secrets file from google
 	// Generate from https://console.developers.google.com/projectselector/apis/credentials
-	raw, err := ioutil.ReadFile(os.Getenv("HOME") + "/Downloads/client_secrets.json")
+	raw, err := ioutil.ReadFile(os.Getenv("HOME") + "/secrets/client-secrets.json")
 	if err != nil {
 		fmt.Println(err.Error())
 		os.Exit(1)
