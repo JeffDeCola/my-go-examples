@@ -30,7 +30,7 @@
     _An example of a gorouting asynchronously sending data (via a channel) to a function that
     uses the latest data (if available) and does not wait._
 
-* MESSINGING
+* MESSAGING
 
   * [protobuf](https://github.com/JeffDeCola/my-go-examples/tree/master/protobuf)
 
@@ -39,6 +39,11 @@
   * [protobuf-NATS](https://github.com/JeffDeCola/my-go-examples/tree/master/protobuf-NATS)
 
     _Sends a protobuf msg over NATS from a client to a server._
+
+  * [protobuf-NATS-workers-response](https://github.com/JeffDeCola/my-go-examples/tree/master/protobuf-NATS-workers-response)
+
+    _Sends a protobuf msg over NATS from a client to a server/worker and
+    gets a response back._
 
 * API
 

@@ -4,6 +4,10 @@
 
 [GitHub Webpage](https://jeffdecola.github.io/my-go-examples/)
 
+The example
+[protobuf-NATS-workers-response](https://github.com/JeffDeCola/my-go-examples/tree/master/protobuf-NATS-workers-response)
+adds workers(servers) and a reponse back.
+
 ## STARTS NAT SERVER
 
 I run the NATS server using,
