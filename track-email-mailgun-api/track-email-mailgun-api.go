@@ -52,7 +52,7 @@ func sendMessage(domain, APIKey, publicAPIKey, fromEmail, sendtoEmail, subject, 
 	)
 	// message.AddCC("baz@example.com")
 	// message.AddBCC("bar@example.com")
-	//message.SetTracking(true)
+	// message.SetTracking(true)
 	resp, id, err := mg.Send(message)
 	if err != nil {
 		log.Fatal(err)
@@ -62,18 +62,33 @@ func sendMessage(domain, APIKey, publicAPIKey, fromEmail, sendtoEmail, subject, 
 
 // MESSAGE API
 func getStoredMessage(domain, APIKey, publicAPIKey, id string) mailgun.StoredMessage {
+
 	mg := mailgun.NewMailgun(domain, APIKey, publicAPIKey)
-	mg.SetAPIBase(replyAPIURL)
+	mg.SetAPIBase(replyAPIURL) // Must do this since mailgun has wrong url
 
 	resp, err := mg.GetStoredMessage(id)
 	if err != nil {
 		log.Fatal(err)
 	}
 
+	/*
+		fields := map[string]string{
+			"       From": resp.From,
+			"     Sender": resp.Sender,
+			"    Subject": resp.Subject,
+			"Attachments": fmt.Sprintf("%d", len(resp.Attachments)),
+			"    Headers": fmt.Sprintf("%d", len(resp.MessageHeaders)),
+			"  BodyPlain": resp.BodyPlain,
+		}
+		for k, v := range fields {
+			fmt.Printf("%13s: %s\n", k, v)
+		}
+	*/
 	return resp
 }
 
 func testGetStoredMessage(domain string, APIKey string, publicAPIKey string, id string) {
+
 	os.Setenv("MG_API_KEY", APIKey)
 	os.Setenv("MG_DOMAIN", domain)
 	os.Setenv("MG_PUBLIC_API_KEY", publicAPIKey)
@@ -94,16 +109,19 @@ func testGetStoredMessage(domain string, APIKey string, publicAPIKey string, id 
 	msg, err := mg.GetStoredMessage("asdf")
 	fmt.Printf("msg: %+v\n", msg)
 
-	fields := map[string]string{
-		"       From": msg.From,
-		"     Sender": msg.Sender,
-		"    Subject": msg.Subject,
-		"Attachments": fmt.Sprintf("%d", len(msg.Attachments)),
-		"    Headers": fmt.Sprintf("%d", len(msg.MessageHeaders)),
-	}
-	for k, v := range fields {
-		fmt.Printf("%13s: %s\n", k, v)
-	}
+	/*
+		fields := map[string]string{
+			"       From": msg.From,
+			"     Sender": msg.Sender,
+			"    Subject": msg.Subject,
+			"  BodyPlain": msg.BodyPlain,
+			"Attachments": fmt.Sprintf("%d", len(msg.Attachments)),
+			"    Headers": fmt.Sprintf("%d", len(msg.MessageHeaders)),
+		}
+		for k, v := range fields {
+			fmt.Printf("%13s: %s\n", k, v)
+		}
+	*/
 
 	// We're done with it; now delete it.
 	mg.DeleteStoredMessage(id)
@@ -135,20 +153,16 @@ func testGetStoredMessage(domain string, APIKey string, publicAPIKey string, id 
 }*/
 
 // EVENTS API
-func getMailLog(domain, apiKey, id string) ([]mailgun.Event, error) {
+func getMailLog(domain string, apiKey string, filter map[string]string) ([]mailgun.Event, error) {
 	mg := mailgun.NewMailgun(domain, apiKey, "")
 	ei := mg.NewEventIterator()
-	begin := time.Now().Add(-150 * time.Minute)
+	begin := time.Now().Add(-3600 * time.Minute)
 	err := ei.GetFirstPage(mailgun.GetEventsOptions{
 		Begin:          &begin,
 		ForceAscending: true,
-		Limit:          3,
-		Filter: map[string]string{
-			// "message-id": id,
-			// "event": "rejected OR failed",
-			"event": "stored",
-			//"recipient": "NAME@gmail.com",
-		}})
+		Limit:          1,
+		Filter:         filter,
+	})
 	if err != nil {
 		return nil, err
 	}
@@ -178,34 +192,54 @@ func main() {
 
 	APIKey, publicAPIKey, fromEmailSubDomain, sendtoEmail := getSecrets()
 	fmt.Printf("Secrets are %s, %s, %s %s\n", APIKey, publicAPIKey, fromEmailSubDomain, sendtoEmail)
-	uniqueID := "777"
+	// uniqueID := "777"
 
 	// SENDING EMAIL **********************************************************************************
-	fmt.Printf("Sending email to mailgun using unique ID %s\n", uniqueID)
-	subject := "Test with unique ID " + uniqueID
-	body := "How's it going, unique ID is: " + uniqueID
-	fromEmail := uniqueID + "@" + fromEmailSubDomain
-	id, resp := sendMessage(fromEmailSubDomain, APIKey, publicAPIKey, fromEmail, sendtoEmail, subject, body)
-	fmt.Printf("Response:\nID: %s\nRESP: %s\n", id, resp)
-
-	// CHECK LOG **************************************************************************************
 	/*
-		fmt.Printf("Check Log\n")
-		id := ""
-		respLog, err := getMailLog(fromEmailSubDomain, APIKey, id)
-		if err != nil {
-			log.Fatal(err)
-		}
-		b, err := json.MarshalIndent(respLog, "", "  ")
-		fmt.Printf("Response:\nRESP: %s\n", b)
-		os.Stdout.Write(b)
+		fmt.Printf("Sending email to mailgun using unique ID %s\n", uniqueID)
+		subject := "Test with unique ID " + uniqueID
+		body := "How's it going, unique ID is: " + uniqueID
+		fromEmail := uniqueID + "@" + fromEmailSubDomain
+		id, resp := sendMessage(fromEmailSubDomain, APIKey, publicAPIKey, fromEmail, sendtoEmail, subject, body)
+		fmt.Printf("Response:\nID: %s\nRESP: %s\n", id, resp)
 	*/
 
-	// GET STORED MESSAGE **************************************************************************************
-	// fmt.Printf("Get Stored Message\n")
+	// CHECK LOG **************************************************************************************
+
+	fmt.Printf("Check Log\n")
 	// id := ""
-	// respStored := getStoredMessage(fromEmailSubDomain, APIKey, publicAPIKey, id)
-	// fmt.Printf("Response:\nRESP: %v\n", respStored)
+	filter := map[string]string{
+		// "message-id": id,
+		// "event": "rejected OR failed",
+		"event": "stored",
+		//"recipient": "NAME@gmail.com",
+	}
+	respLog, err := getMailLog(fromEmailSubDomain, APIKey, filter)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	// fmt.Printf("Response:\n%+v\n", respLog)
+	// b, err := json.MarshalIndent(respLog, "", "  ")
+	// Put in a json serial string
+	b, err := json.Marshal(respLog)
+	// fmt.Printf("Response:\n%s\n", b)
+
+	// Take json and put in map
+	var data map[string]interface{}
+	_ = json.Unmarshal([]byte(b), &data)
+	fmt.Println(data)
+	fmt.Println(data["id"])
+
+	// Get the key to read from memory
+
+	//os.Stdout.Write(b)
+
+	// GET AND ERASE STORED MESSAGE BASED ON ID **************************************************************************************
+	//fmt.Printf("Get Stored Message\n")
+	//id = "eyJwIjpmYWxzZSwiayI6ImUwYzMyYTA1LTI0MGEtNDZiNS04YTExLWYyODcwNGViZWVkZiIsInMiOiJhZjllZGM3OWQwIiwiYyI6InRhbmtiIn0="
+	//respStored := getStoredMessage(fromEmailSubDomain, APIKey, publicAPIKey, id)
+	//fmt.Printf("Response Body:\n%v\n", respStored.BodyPlain)
 	//testGetStoredMessage(fromEmailSubDomain, APIKey, publicAPIKey, id)
 
 	// CREATE ROUTE **************************************************************************************
