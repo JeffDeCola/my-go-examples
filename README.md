@@ -36,14 +36,13 @@
 
     _Protocol buffers serialize structured data, useful for messaging._
 
-  * [protobuf-NATS](https://github.com/JeffDeCola/my-go-examples/tree/master/protobuf-NATS)
+  * [protobuf-NATS-publish-subscribe](https://github.com/JeffDeCola/my-go-examples/tree/master/protobuf-NATS-publish-subscribe)
 
-    _Sends a protobuf msg over NATS from a client to a server._
+    _Sends a protobuf msg over NATS from a client to a server using publish and subscribe._
 
-  * [protobuf-NATS-workers-response](https://github.com/JeffDeCola/my-go-examples/tree/master/protobuf-NATS-workers-response)
+  * [protobuf-NATS-request-response](https://github.com/JeffDeCola/my-go-examples/tree/master/protobuf-NATS-request-response)
 
-    _Sends a protobuf msg over NATS from a client to a server/worker and
-    gets a response back._
+    _Sends a protobuf msg over NATS from a client to a server using request and response._
 
 * API
 

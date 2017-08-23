@@ -1,12 +1,12 @@
-# protobuf-NATS example
+# protobuf-NATS-publish-subscribe example
 
-`protobuf-NATS`  _sends a protobuf msg over NATS from a client to a server._
+`protobuf-NATS-publish-subscribe`  _sends a protobuf msg over NATS from a client
+to a server using publish and subscribe._
 
 [GitHub Webpage](https://jeffdecola.github.io/my-go-examples/)
 
-The example
-[protobuf-NATS-workers-response](https://github.com/JeffDeCola/my-go-examples/tree/master/protobuf-NATS-workers-response)
-adds workers(servers) and a reponse back.
+Also check out
+[protobuf-NATS-workers-response](https://github.com/JeffDeCola/my-go-examples/tree/master/protobuf-NATS-workers-response).
 
 ## STARTS NAT SERVER
 
