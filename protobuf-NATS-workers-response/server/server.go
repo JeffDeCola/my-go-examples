@@ -1,54 +1,46 @@
 package main
 
 import (
+	"fmt"
 	"log"
-	"time"
 
 	nats "github.com/go-nats"
 	"github.com/protobuf/proto"
 )
 
-func workerServer(id int) {
+func workerServer(nc *nats.Conn, ch chan *nats.Msg, workerID int) {
 
-	// NATS - SUBSCRIBE ON "foo"
-	nc, _ := nats.Connect("nats://127.0.0.1:4222")
-	log.Println("Connected to " + nats.DefaultURL)
-	log.Printf("%d Subscribing to subject 'foo'\n", id)
+	// Pick off channel
+	for msg := range ch {
 
-	// Synchronous way - When i want to check for one msg at a time
-	sub, err := nc.SubscribeSync("foo")
-	if err != nil {
-		log.Fatal("SubscribeSync error: ", err)
-	}
-
-	// Loop forever - Long Running
-	for {
-
-		msg, err := sub.NextMsg(time.Duration(5) * time.Second)
-		if err != nil {
-			log.Fatal("next message error: ", err)
-		}
-		// fmt.Printf("Received a NAT message: %v\n", msg)
+		fmt.Printf("[%d] got request: %s\n", workerID, string(msg.Data))
 
 		// PROTOBUF - SERVER - RECEIVE - READ/UNMARSHAL
 		rcvToken := &Token{}
-		err = proto.Unmarshal(msg.Data, rcvToken)
+		err := proto.Unmarshal(msg.Data, rcvToken)
 		if err != nil {
 			log.Fatal("unmarshaling error: ", err)
 		}
 
-		log.Printf("%d - Token received: %+v", id, rcvToken)
-		log.Printf("    AccessToken: %+v", rcvToken.AccessToken)
-		log.Printf("    TokenType: %+v", rcvToken.TokenType)
-		log.Printf("    RefreshToken: %+v", rcvToken.RefreshToken)
-		log.Printf("    ExpiresAt: %+v", rcvToken.ExpiresAt)
-		log.Printf("    Counter: %+v", rcvToken.Counter)
+		log.Printf("%d - Count %d - Token received", workerID, rcvToken.Counter)
+		// log.Printf("    AccessToken: %+v", rcvToken.AccessToken)
+		//log.Printf("    TokenType: %+v", rcvToken.TokenType)
+		//log.Printf("    RefreshToken: %+v", rcvToken.RefreshToken)
+		//log.Printf("    ExpiresAt: %+v", rcvToken.ExpiresAt)
+		//log.Printf("    Counter: %+v", rcvToken.Counter)
 
-		// RESPOND BACK
-		// ????????????
+		tokenResponse := &TokenResponse{}
+		tokenResponse.MyReply = fmt.Sprintf("This is a response, workerID=%d from count %d", workerID, rcvToken.Counter)
 
-		// wait 20 seconds
-		time.Sleep(time.Second * 20)
+		// PROTOBUF - CLIENT - MARSHAL - WRITE/SEND
+		msgreply, err := proto.Marshal(tokenResponse)
+		if err != nil {
+			log.Fatal("marshaling error: ", err)
+		}
+
+		log.Printf("    tokenResponse sending : %+v", tokenResponse)
+
+		nc.Publish(msg.Reply, msgreply)
 
 	}
 
@@ -56,12 +48,25 @@ func workerServer(id int) {
 
 func main() {
 
+	// NATS - SUBSCRIBE ON "foo"
+	nc, _ := nats.Connect("nats://127.0.0.1:4222")
+	defer nc.Close()
+	log.Println("Connected to " + nats.DefaultURL)
+
+	// Create a Channel
+	ch := make(chan *nats.Msg)
+
 	// Create Workers
-	for i := 0; i < 5; i++ {
-		go workerServer(i)
-		time.Sleep(time.Second * 1)
+	for i := 0; i < 10; i++ {
+		go workerServer(nc, ch, i)
 	}
 
-	// wait
-	time.Sleep(time.Second * 2000000)
+	// Subscribe on NATS
+	nc.Subscribe("foo", func(m *nats.Msg) {
+		ch <- m
+	})
+
+	// wait - empty select
+	select {}
+
 }

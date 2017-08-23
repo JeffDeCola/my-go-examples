@@ -19,13 +19,14 @@ func main() {
 	}
 
 	nc, _ := nats.Connect("nats://127.0.0.1:4222")
+	defer nc.Close()
 	log.Println("Connected to " + nats.DefaultURL)
 
 	var counter int64
 	counter = 1
 
 	// Loop forever - Long Running
-	for c := time.Tick(time.Duration(2) * time.Second); ; <-c {
+	for c := time.Tick(time.Duration(10) * time.Second); ; <-c {
 
 		log.Printf("Count %d\n", counter)
 		token.Counter = counter
@@ -36,12 +37,23 @@ func main() {
 			log.Fatal("marshaling error: ", err)
 		}
 
-		log.Printf("   token sending :    %+v", token)
+		log.Printf("   token sending %s for count %d", token.AccessToken, token.Counter)
 
-		// NATS - PUBLISH on "foo"
-		log.Printf("   Publishing to subject 'foo'\n")
-		nc.Publish("foo", msg)
-		// nc.Publish("foo", []byte(strconv.Itoa(counter)))
+		// NATS - REQUEST AND REPONSE on "foo"
+		// log.Printf("   Publishing to subject 'foo'\n")
+		response, err := nc.Request("foo", msg, 50*time.Millisecond)
+		if err != nil {
+			panic(err)
+		}
+
+		// PROTOBUF - SERVER - RECEIVE - READ/UNMARSHAL
+		tokenResponse := &TokenResponse{}
+		err = proto.Unmarshal(response.Data, tokenResponse)
+		if err != nil {
+			log.Fatal("unmarshaling error: ", err)
+		}
+
+		log.Printf("- tokenResponse received: %+v", tokenResponse)
 
 		counter++
 	}
