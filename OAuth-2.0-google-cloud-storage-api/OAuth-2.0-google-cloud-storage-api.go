@@ -47,6 +47,7 @@ var (
 // "https://www.googleapis.com/auth/userinfo.email",
 
 var token *oauth2.Token
+var cs ClientSecret
 
 const htmlIndex = `
 <html>
@@ -73,7 +74,15 @@ func handleGoogleLogin(res http.ResponseWriter, req *http.Request) {
 	fmt.Printf("    oauthStateString is %+v\n", oauthStateString)
 	// fmt.Printf("    googleOauthConfig is %+v\n", googleOauthConfig)
 
-	url := googleOauthConfig.AuthCodeURL(oauthStateString)
+	// url := googleOauthConfig.AuthCodeURL(oauthStateString)
+	url :=
+		"https://accounts.google.com/o/oauth2/v2/auth" + "?" +
+			"client_id=" + cs.Web.ClientID + "&" +
+			"redirect_uri=" + "http://127.0.0.1:3000/GoogleCallback" + "&" +
+			"response_type=" + "code" + "&" +
+			"scope=" + "https://www.googleapis.com/auth/devstorage.read_only" + "&" +
+			"access_type=" + "offline" + "&" +
+			"state=" + oauthStateString
 	fmt.Printf("    url for goolge login is %+v\n", url)
 	http.Redirect(res, req, url, http.StatusTemporaryRedirect)
 }
@@ -157,7 +166,7 @@ func unmarshalJSONFile() {
 
 	// Read the secrets file from google
 	// Generate from https://console.developers.google.com/projectselector/apis/credentials
-	raw, err := ioutil.ReadFile(os.Getenv("HOME") + "/secrets/client-secrets.json")
+	raw, err := ioutil.ReadFile(os.Getenv("HOME") + "/secrets/client-secrets-stepan.json")
 	if err != nil {
 		fmt.Println(err.Error())
 		os.Exit(1)
@@ -165,7 +174,6 @@ func unmarshalJSONFile() {
 
 	fmt.Printf("    Raw json is %s\n\n", string(raw))
 
-	var cs ClientSecret
 	err = json.Unmarshal(raw, &cs)
 	if err != nil {
 		fmt.Println("There was an error:", err)
