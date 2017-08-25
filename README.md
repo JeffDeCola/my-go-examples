@@ -87,9 +87,9 @@
 
 * DATABASE
 
-  * [something-postgreSQL](https://github.com/JeffDeCola/my-go-examples/tree/master/something-postgreSQL)
+  * [postgreSQL](https://github.com/JeffDeCola/my-go-examples/tree/master/postgreSQL)
 
-    _TBD_
+    _read/write from/to a table._
 
 * BASIC PROGRAMMING
 
