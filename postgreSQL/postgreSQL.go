@@ -10,16 +10,15 @@ import (
 const (
 	host     = "localhost"
 	port     = 5432
-	user     = "postgres"
+	user     = "jeffdecola"
 	password = ""
 	dbname   = "rm"
 )
 
 func main() {
 
-	psqlInfo := fmt.Sprintf("host=%s port=%d user=%s "+
-		"password=%s dbname=%s sslmode=disable",
-		host, port, user, password, dbname)
+	psqlInfo := fmt.Sprintf("host=%s port=%d sslmode=disable dbname=%s user=%s password=%s",
+		host, port, dbname, user, password)
 	db, err := sql.Open("postgres", psqlInfo)
 	if err != nil {
 		fmt.Println("could not open sql")
@@ -27,41 +26,63 @@ func main() {
 	}
 	defer db.Close()
 
-	//err = db.Ping()
-	//if err != nil {
-	//		fmt.Println("no ping")
-	//		panic(err)
-	//	}
+	err = db.Ping()
+	if err != nil {
+		fmt.Println("no ping")
+		panic(err)
+	}
 
 	fmt.Println("Successfully connected to db!")
 
 	// WRITE (firstname and lastname) TO TABLE PEOPLE
-	_, err = db.Exec(`
-		insert into people (id, first_name, last_name)
-		values (1, 'Jeff', 'DeCola')
-	`)
+	/*
+		_, err = db.Exec(`
+			insert into people (id, first_name, last_name)
+			values (3, 'Jeff', 'DeCola')
+		`)
+		if err != nil {
+			fmt.Println("could not write")
+			panic(err)
+		}
 
-	_, err = db.Exec(`
-		insert into people (id, first_name, last_name)
-		values (2, 'John', 'Henry')
-	`)
+		_, err = db.Exec(`
+			insert into people (id, first_name, last_name)
+			values (4, 'John', 'Henry')
+		`)
+		if err != nil {
+			fmt.Println("could not write")
+			panic(err)
+		}
+	*/
 
-	// READ (lastname) FROM TABLE PEOPLE with id=2
+	// READ (last_name) FROM TABLE PEOPLE with id=3
 	var lastname string
+	id := 3
 	err = db.QueryRow(`
-		select lastname from people
-		where id = $2
-	`, 1).Scan(&lastname)
-	// sql.ErrNoRows
-	fmt.Printf("lastname is %s\n", lastname)
+		select last_name from people
+		where id = $1
+	`, id).Scan(&lastname)
+	if err != nil {
+		fmt.Println("could not write")
+		panic(err)
+	}
+	fmt.Printf("last_name is %s\n", lastname)
 
-	// READ ROWS TABLE PEOPLE
-	rows, err := db.Query(`select * from people`)
+	// READ (last_name) FROM ALL ROWS OF TABLE PEOPLE
+	rows, err := db.Query(`select last_name from people`)
+	if err != nil {
+		fmt.Println("could not write")
+		panic(err)
+	}
 	defer rows.Close()
 	lastnames := []string{}
 	for rows.Next() {
 		var lastname string
-		rows.Scan(&lastname)
+		err = rows.Scan(&lastname)
+		if err != nil {
+			fmt.Println("could scan write")
+			panic(err)
+		}
 		lastnames = append(lastnames, lastname)
 	}
 	fmt.Printf("lastnames are %s\n", lastnames)
