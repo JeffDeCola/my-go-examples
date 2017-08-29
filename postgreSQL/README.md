@@ -38,7 +38,7 @@ select * from people;
 select last_name from people;
 ```
 
-## WRITE TO TABLE FIRST TIME (CREATE A ROW)
+## CREATE A NEW ROW (id=3)
 
 As an example,
 
@@ -49,7 +49,7 @@ _, err = db.Exec(`
 `)
 ```
 
-## WRITE TO TABLE COLUMN (UPDATE A ROW)
+## UPDATE A COLUMN IN A ROW (id=66)
 
 ```go
 _, err = db.Exec(`
@@ -57,7 +57,7 @@ _, err = db.Exec(`
 `)
 ```
 
-## READ (last_name) FROM TABLE PEOPLE WITH id=3
+## READ A COLUMN (last_name) FROM ROW (id=3)
 
 ```go
 var lastname string
@@ -69,7 +69,7 @@ err = db.QueryRow(`
 fmt.Printf("last_name is %s\n", lastname)
 ```
 
-## READ (last_name) FROM ALL ROWS OF TABLE PEOPLE
+## READ AN ENTIRE COLUMN (last_name) FROM ALL ROWS
 
 ```go
 rows, err := db.Query(`select last_name from people`)
@@ -81,4 +81,15 @@ for rows.Next() {
     lastnames = append(lastnames, lastname)
 }
 fmt.Printf("lastnames are %s\n", lastnames)
+```
+
+## READ AN ENTIRE ROW (id=66)
+
+```go
+var theid int32
+var firstName, lastName string
+err = db.QueryRow(`
+    select * from people where id = 66
+    `).Scan(&theid, &firstName, &lastName)
+fmt.Printf("row %d is: %s, %s\n", theid, firstName, lastName)
 ```

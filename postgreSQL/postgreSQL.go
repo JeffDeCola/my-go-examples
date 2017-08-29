@@ -34,8 +34,9 @@ func main() {
 
 	fmt.Println("Successfully connected to db!")
 
-	// WRITE (firstname and lastname) TO TABLE PEOPLE
+	// CREATE A NEW ROW (id=3)
 	/*
+		fmt.Printf("CREATE A NEW ROW (id=3)\n")
 		_, err = db.Exec(`
 			insert into people (id, first_name, last_name)
 			values (3, 'Jeff', 'DeCola')
@@ -44,7 +45,11 @@ func main() {
 			fmt.Println("could not write")
 			panic(err)
 		}
+	*/
 
+	// CREATE A NEW ROW (id=4)
+	/*
+		fmt.Printf("CREATE A NEW ROW (id=4)\n")
 		_, err = db.Exec(`
 			insert into people (id, first_name, last_name)
 			values (4, 'John', 'Henry')
@@ -55,16 +60,18 @@ func main() {
 		}
 	*/
 
-	// WRITE TO TABLE COLUMN (UPDATE A ROW)
+	// UPDATE A COLUMN IN A ROW (id=66)
+	fmt.Printf("UPDATE A COLUMN IN A ROW (id=66)\n")
 	_, err = db.Exec(`
 			update people set first_name = 'fred' where id = 66
 		`)
 	if err != nil {
-		fmt.Println("could not write")
+		fmt.Println("Could not write")
 		panic(err)
 	}
 
-	// READ (last_name) FROM TABLE PEOPLE with id=3
+	// READ A COLUMN (last_name) FROM ROW (id=3)
+	fmt.Printf("READ A COLUMN (last_name) FROM ROW (id=3)\n")
 	var lastname string
 	id := 3
 	err = db.QueryRow(`
@@ -75,9 +82,10 @@ func main() {
 		fmt.Println("could not write")
 		panic(err)
 	}
-	fmt.Printf("last_name is %s\n", lastname)
+	fmt.Printf("    last_name is %s\n", lastname)
 
-	// READ (last_name) FROM ALL ROWS OF TABLE PEOPLE
+	// READ AN ENTIRE COLUMN (last_name) FROM ALL ROWS
+	fmt.Printf("READ AN ENTIRE COLUMN (last_name) FROM ALL ROWS\n")
 	rows, err := db.Query(`select last_name from people`)
 	if err != nil {
 		fmt.Println("could not write")
@@ -94,6 +102,19 @@ func main() {
 		}
 		lastnames = append(lastnames, lastname)
 	}
-	fmt.Printf("lastnames are %s\n", lastnames)
+	fmt.Printf("    lastnames are %s\n", lastnames)
+
+	// READ AN ENTIRE ROW (id=66)
+	fmt.Printf("READ AN ENTIRE ROW (id=66)\n")
+	var theid int32
+	var firstName, lastName string
+	err = db.QueryRow(`
+		select * from people where id = 66
+		`).Scan(&theid, &firstName, &lastName)
+	if err != nil {
+		fmt.Println("Could not read")
+		panic(err)
+	}
+	fmt.Printf("    row %d is: %s, %s\n", theid, firstName, lastName)
 
 }
