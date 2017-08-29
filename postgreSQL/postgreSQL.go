@@ -55,6 +55,15 @@ func main() {
 		}
 	*/
 
+	// WRITE TO TABLE COLUMN (UPDATE A ROW)
+	_, err = db.Exec(`
+			update people set first_name = 'fred' where id = 66
+		`)
+	if err != nil {
+		fmt.Println("could not write")
+		panic(err)
+	}
+
 	// READ (last_name) FROM TABLE PEOPLE with id=3
 	var lastname string
 	id := 3

@@ -4,7 +4,7 @@
 
 [GitHub Webpage](https://jeffdecola.github.io/my-go-examples/)
 
-A cheat cheet is
+A cheat sheet is
 [here](https://github.com/JeffDeCola/my-cheat-sheets/tree/master/postgreSQL-cheat-sheet)
 
 ## CREATE A TABLE
@@ -38,7 +38,7 @@ select * from people;
 select last_name from people;
 ```
 
-## WRITE TO TABLE
+## WRITE TO TABLE FIRST TIME (CREATE A ROW)
 
 As an example,
 
@@ -46,6 +46,14 @@ As an example,
 _, err = db.Exec(`
     insert into people (id, first_name, last_name)
     values (3, 'Jeff', 'DeCola')
+`)
+```
+
+## WRITE TO TABLE COLUMN (UPDATE A ROW)
+
+```go
+_, err = db.Exec(`
+    update people set first_name = 'fred' where id = 66
 `)
 ```
 
