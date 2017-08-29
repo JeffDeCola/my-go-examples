@@ -2,6 +2,7 @@ package main
 
 import (
 	"database/sql"
+	"errors"
 	"fmt"
 
 	_ "github.com/lib/pq"
@@ -62,11 +63,21 @@ func main() {
 
 	// UPDATE A COLUMN IN A ROW (id=66)
 	fmt.Printf("UPDATE A COLUMN IN A ROW (id=66)\n")
-	_, err = db.Exec(`
-			update people set first_name = 'fred' where id = 66
+	updateResult, err := db.Exec(`
+			update people set first_name = 'larry' where id = 66
 		`)
 	if err != nil {
 		fmt.Println("Could not write")
+		panic(err)
+	}
+	rowsresultResult, err := updateResult.RowsAffected()
+	if err != nil {
+		fmt.Printf("No Rows Updated %d\n", rowsresultResult)
+		panic(err)
+	}
+	if rowsresultResult == 0 {
+		fmt.Printf("No Rows Updated %d\n", rowsresultResult)
+		err = errors.New("Guess What - No Rows Updated")
 		panic(err)
 	}
 
