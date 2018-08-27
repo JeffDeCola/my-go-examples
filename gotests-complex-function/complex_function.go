@@ -29,7 +29,7 @@ func getversions() []string {
 
 }
 
-// Check will return the NEW versions of a resource.
+// Check will return a new versions of a resource.
 func Check(input InputJSON, logger *log.Logger) (checkOutputJSON, error) {
 
 	var output = checkOutputJSON{}
