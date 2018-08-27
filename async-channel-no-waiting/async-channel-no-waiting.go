@@ -43,7 +43,7 @@ func usingInstances(instanceListCh chan []string) {
 
 		// Get the current instance list (from channel)
 		// If there is nothing in channel:
-		//       - default and break out of loop
+		//       - default and break out of the loop
 		// If there is something in channel:
 		//       - read and continue until empty channel (hence, get latest)
 		//       - break out of loop like above
@@ -65,7 +65,7 @@ func usingInstances(instanceListCh chan []string) {
 func main() {
 	var ch = make(chan []string, 100)
 
-	// kick off gorountine
+	// Kick off gorountines
 	go getInstances(ch)
 
 	usingInstances(ch)
