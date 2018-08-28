@@ -153,4 +153,4 @@ fly -t ci set-pipeline -p my-go-examples -c ci/pipeline.yml --load-vars-from ci/
 * A resource (_resource-repo-status_) use a [docker image](https://hub.docker.com/r/dpb587/github-status-resource)
   that will update your git status for that particular commit.
 
-The above resources can be removed from the pipeline.
+Above resources can be removed from the pipeline.
