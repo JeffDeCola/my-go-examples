@@ -16,7 +16,6 @@ func fibonacci(n int) int {
 	}
 }
 
-# main func main
 func main() {
 	var n int
 	fmt.Scanf("%d\n", &n)
