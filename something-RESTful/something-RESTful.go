@@ -34,8 +34,6 @@ func main() {
 	fmt.Println("RESTful")
 }
 
-
-
 /* package main
 
 import "gopkg.in/mailgun/mailgun-go.v1"
