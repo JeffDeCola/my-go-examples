@@ -5,7 +5,7 @@
 [![Go Report Card](https://goreportcard.com/badge/jeffdecola/my-go-examples)](https://goreportcard.com/report/jeffdecola/my-go-examples)
 [![License](http://img.shields.io/:license-mit-blue.svg)](http://jeffdecola.mit-license.org)
 
-`my-go-examples` _is a place to keep my go code snippets and examples._
+`my-go-examples` _is my place to keep my go code snippets and examples._
 
 [GitHub Webpage](https://jeffdecola.github.io/my-go-examples/)
 
