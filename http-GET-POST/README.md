@@ -17,11 +17,8 @@ fmt.Printf("Content is:\n\n%s\n", string(contents))
 
 ## /get-struct
 
-Same as above but writes to struct.
+Same as above but it writes to struct.
 
 ## /post
 
 How to update over an api.
-
-
-
