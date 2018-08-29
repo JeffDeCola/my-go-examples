@@ -129,7 +129,6 @@
 
     _Logging and error handling._
 
-
 ## TESTED USING CONCOURSE
 
 A Concourse CI Pipeline will automate unit testing and update the GitHub WebPage.
