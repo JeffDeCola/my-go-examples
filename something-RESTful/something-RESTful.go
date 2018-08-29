@@ -35,7 +35,6 @@ func main() {
 }
 
 /* package main - edit this at some point
-
 import "gopkg.in/mailgun/mailgun-go.v1"
 
 message := mailgun.NewMessage(
