@@ -3,7 +3,7 @@
 
 set -e -x
 
-# The code is located in /my-go-examples
+# This code is located in /my-go-examples
 echo "pwd is: " $PWD
 echo "List whats in the current directory"
 ls -lat 
