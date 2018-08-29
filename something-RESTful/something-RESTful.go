@@ -34,8 +34,6 @@ func main() {
 	fmt.Println("RESTful")
 }
 
-
-
 /* package main
 
 import "gopkg.in/mailgun/mailgun-go.v1"
@@ -50,4 +48,5 @@ if err != nil {
     log.Fatal(err)
 }
 fmt.Printf("ID: %s Resp: %s\n", id, resp)
+
 */
