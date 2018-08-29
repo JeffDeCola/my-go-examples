@@ -23,4 +23,3 @@ Same as above but writes to struct.
 
 How to update over an api.
 
-
