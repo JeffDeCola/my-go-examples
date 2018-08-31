@@ -20,15 +20,19 @@
     _An example of a gorouting asynchronously sending data (via a channel) to a function that
     uses the latest data (if available) and does not wait._
 
-* MESSINGING
+* MESSAGING
 
   * [protobuf](https://github.com/JeffDeCola/my-go-examples/tree/master/protobuf)
 
     _Protocol buffers serialize structured data, useful for messaging._
 
-  * [protobuf-NATS](https://github.com/JeffDeCola/my-go-examples/tree/master/protobuf-NATS)
+  * [protobuf-NATS-publish-subscribe](https://github.com/JeffDeCola/my-go-examples/tree/master/protobuf-NATS-publish-subscribe)
 
-    _Sends a protobuf msg over NATS from a client to a server._
+    _Sends a protobuf msg over NATS from a client to a server using publish and subscribe._
+
+  * [protobuf-NATS-request-response](https://github.com/JeffDeCola/my-go-examples/tree/master/protobuf-NATS-request-response)
+
+    _Sends a protobuf msg over NATS from a client to a server using request and response._
 
 * API
 
@@ -73,9 +77,9 @@
 
 * DATABASE
 
-  * [something-postgreSQL](https://github.com/JeffDeCola/my-go-examples/tree/master/something-postgreSQL)
+  * [postgreSQL](https://github.com/JeffDeCola/my-go-examples/tree/master/postgreSQL)
 
-    _TBD_
+    _read/write from/to a table._
 
 * BASIC PROGRAMMING
 
@@ -115,7 +119,6 @@
 
     _Logging and error handling._
 
-
 ## TESTED USING CONCOURSE
 
 A Concourse CI Pipeline will automate unit testing and update the GitHub WebPage.
@@ -139,4 +142,4 @@ fly -t ci set-pipeline -p my-go-examples -c ci/pipeline.yml --load-vars-from ci/
 * A resource (_resource-repo-status_) use a [docker image](https://hub.docker.com/r/dpb587/github-status-resource)
   that will update your git status for that particular commit.
 
-The above resources can be removed from the pipeline.
+Above resources can be removed from the pipeline.
