@@ -7,42 +7,23 @@
 
 `my-go-examples` _is the place to keep my go code snippets and examples._
 
-[GitHub Webpage](https://jeffdecola.github.io/my-go-examples/)
+I organized everything into these main sections,
+
+* API
+* BASIC PROGRAMMING
+* DATABASE
+* GOROUTINES
+* MESSAGING
+* WEBSERVER
+
+These go examples also contain info I gathered from other sources.
+
+View my entire list of go examples on
+[my-go-examples GitHub Webpage](https://jeffdecola.github.io/my-go-examples/)
 
 ## GO EXAMPLES
 
-* GOROUTINES
-
-  * [goroutines-channels-select](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines-channels-select)
-
-    _An example of concurrency and message passing via channels in go._
-
-  * [goroutines-waitgroup](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines-waitgroup)
-
-    _An example of concurrency using a waitgroup._
-
-  * [goroutines-worker-pools](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines-worker-pools)
-
-    _An example of concurrency using a worker pool with goroutines and channels._
-
-  * [async-channel-no-waiting](https://github.com/JeffDeCola/my-go-examples/tree/master/async-channel-no-waiting)
-
-    _An example of a gorouting asynchronously sending data (via a channel) to a function that
-    uses the latest data (if available) and does not wait._
-
-* MESSAGING
-
-  * [protobuf](https://github.com/JeffDeCola/my-go-examples/tree/master/protobuf)
-
-    _Protocol buffers serialize structured data, useful for messaging._
-
-  * [protobuf-NATS-publish-subscribe](https://github.com/JeffDeCola/my-go-examples/tree/master/protobuf-NATS-publish-subscribe)
-
-    _Sends a protobuf msg over NATS from a client to a server using publish and subscribe._
-
-  * [protobuf-NATS-request-response](https://github.com/JeffDeCola/my-go-examples/tree/master/protobuf-NATS-request-response)
-
-    _Sends a protobuf msg over NATS from a client to a server using request and response._
+_All sections in alphabetical order._
 
 * API
 
@@ -78,18 +59,6 @@
   * [simple-webserver-with-REST](https://github.com/JeffDeCola/my-go-examples/tree/master/simple-webserver-with-REST)
 
     _Adding REST to the [simple-webserver](https://github.com/JeffDeCola/my-go-examples/tree/master/simple-webserver)._
-
-* WEBSERVER
-
-  * [simple-webserver](https://github.com/JeffDeCola/my-go-examples/tree/master/simple-webserver)
-
-    _Using the http package to build a simple webserver._
-
-* DATABASE
-
-  * [postgreSQL](https://github.com/JeffDeCola/my-go-examples/tree/master/postgreSQL)
-
-    _read/write from/to a table._
 
 * BASIC PROGRAMMING
 
@@ -129,27 +98,69 @@
 
     _Logging and error handling._
 
-## TESTED USING CONCOURSE
+* DATABASE
 
-A Concourse CI Pipeline will automate unit testing and update the GitHub WebPage.
+  * [postgreSQL](https://github.com/JeffDeCola/my-go-examples/tree/master/postgreSQL)
 
-![IMAGE - my-go-examples concourse ci piepline - IMAGE](docs/pics/my-go-examples-pipeline.jpg)
+    _read/write from/to a table._
 
-A _ci/.credentials.yml_ file needs to be created for your _slack_url_ and _repo_github_token_.
+* GOROUTINES
 
-Use fly to upload the the pipeline file _ci/pipline.yml_ to Concourse:
+  * [goroutines-channels-select](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines-channels-select)
 
-```bash
-fly -t ci set-pipeline -p my-go-examples -c ci/pipeline.yml --load-vars-from ci/.credentials.yml
-```
+    _An example of concurrency and message passing via channels in go._
 
-## CONCOURSE RESOURCES IN PIPELINE
+  * [goroutines-waitgroup](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines-waitgroup)
 
-`my-go-examples` also contains a few extra concourse resources:
+    _An example of concurrency using a waitgroup._
 
-* A resource (_resource-slack-alert_) uses a [docker image](https://hub.docker.com/r/cfcommunity/slack-notification-resource)
-  that will notify slack on your progress.
-* A resource (_resource-repo-status_) use a [docker image](https://hub.docker.com/r/dpb587/github-status-resource)
-  that will update your git status for that particular commit.
+  * [goroutines-worker-pools](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines-worker-pools)
 
-Above resources can be removed from the pipeline.
+    _An example of concurrency using a worker pool with goroutines and channels._
+
+  * [async-channel-no-waiting](https://github.com/JeffDeCola/my-go-examples/tree/master/async-channel-no-waiting)
+
+    _An example of a gorouting asynchronously sending data (via a channel) to a function that
+    uses the latest data (if available) and does not wait._
+
+* MESSAGING
+
+  * [protobuf](https://github.com/JeffDeCola/my-go-examples/tree/master/protobuf)
+
+    _Protocol buffers serialize structured data, useful for messaging._
+
+  * [protobuf-NATS-publish-subscribe](https://github.com/JeffDeCola/my-go-examples/tree/master/protobuf-NATS-publish-subscribe)
+
+    _Sends a protobuf msg over NATS from a client to a server using publish and subscribe._
+
+  * [protobuf-NATS-request-response](https://github.com/JeffDeCola/my-go-examples/tree/master/protobuf-NATS-request-response)
+
+    _Sends a protobuf msg over NATS from a client to a server using request and response._
+
+* WEBSERVER
+
+  * [simple-webserver](https://github.com/JeffDeCola/my-go-examples/tree/master/simple-webserver)
+
+    _Using the http package to build a simple webserver._
+
+## UNIT TESTING AND MY GITHUB WEBPAGE IS UPDATED USING CONCOURSE
+
+For fun, I use concourse to automate unit testing, update
+[my-go-examples GitHub Webpage](https://jeffdecola.github.io/my-go-examples/) and alert me of
+the changes via repo status and slack.
+
+The unit testing is accomplished by running this script this script
+[here](https://github.com/JeffDeCola/my-go-examples/tree/master/ci/scripts/readme-unit-tests.sh).
+
+The github webpage update is accomplished this by copying and editing
+this `README.md` file to `/docs/_includes/README.md`.
+You can see the concourse task (a shell script)
+[here](https://github.com/JeffDeCola/my-go-examples/tree/master/ci/scripts/readme-github-pages.sh).
+
+A pipeline file [pipeline.yml](https://github.com/JeffDeCola/my-go-examples/tree/master/ci/pipeline.yml)
+shows the entire ci flow. Visually, it looks like,
+
+![IMAGE - my-go-examples concourse ci pipeline - IMAGE](docs/pics/my-go-examples-pipeline.jpg)
+
+For more information on using concourse for continuous integration,
+refer to my cheat sheet on [concourse](https://github.com/JeffDeCola/my-cheat-sheets/tree/master/operations-tools/continuous-integration-continuous-deployment/concourse-cheat-sheet).
