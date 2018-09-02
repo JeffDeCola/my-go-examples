@@ -6,11 +6,33 @@ jobs:
   plan:
   - get: my-go-examples
     trigger: true
+  - put: resource-slack-alert
+    params:
+      channel: '#jeff-builds'
+      text: "From my-go-examples: STARTED job-readme-github-pages in concourse ci."
+  - put: resource-repo-status
+    params: { state: "pending", description: "STARTED job-readme-github-pages in concourse ci.", commit: "my-go-examples" }
   - task: task-readme-github-pages
     file: my-go-examples/ci/tasks/task-readme-github-pages.yml
-  - put: my-go-examples
-    params:
-      repository: my-go-examples-updated
+    on_success:
+      do:
+      - put: my-go-examples
+        params:
+          repository: my-go-examples-updated  
+      - put: resource-slack-alert
+        params:
+          channel: '#jeff-builds'
+          text: "From my-go-examples: PASSED job-readme-github-pages in concourse ci."
+      - put: resource-repo-status
+        params: { state: "success", description: "PASSED job-readme-github-pages in concourse ci", commit: "my-go-examples" }
+    on_failure:
+      do:
+      - put: resource-slack-alert
+        params:
+          channel: '#jeff-builds'
+          text: "From my-go-examples: FAILED job-readme-github-pages in concourse ci."
+      - put: resource-repo-status
+        params: { state: "failure", description: "FAILED job-readme-github-pages in concourse ci", commit: "my-go-examples" }
 
 - name: job-unit-tests
   plan:
