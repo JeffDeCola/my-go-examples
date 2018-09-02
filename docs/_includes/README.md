@@ -24,19 +24,19 @@ _All sections in alphabetical order._
 
   * [something-postgreSQL](https://github.com/JeffDeCola/my-go-examples/tree/master/api/something-postgreSQL)
 
-    _TBD_
+    _tbd_
 
   * [something-RESTful](https://github.com/JeffDeCola/my-go-examples/tree/master/api/something-RESTful)
 
-    _TBD_
+    _tbd_
   
   * [something-youtube-content-id-api](https://github.com/JeffDeCola/my-go-examples/tree/master/api/something-youtube-content-id-api)
 
-    _TBD_
+    _tbd_
 
   * [something-youtube-data-api-v3](https://github.com/JeffDeCola/my-go-examples/tree/master/api/something-youtube-data-api-ve)
 
-    _TBD_
+    _tbd_
 
   * [track-email-mailgun-api](https://github.com/JeffDeCola/my-go-examples/tree/master/api/track-email-mailgun-api)
 
@@ -136,7 +136,7 @@ For fun, I use concourse to automate unit testing, update
 the changes via repo status and slack.
 
 The unit testing is accomplished by running this script this script
-[here](https://github.com/JeffDeCola/my-go-examples/tree/master/ci/scripts/readme-unit-tests.sh).
+[here](https://github.com/JeffDeCola/my-go-examples/tree/master/ci/scripts/unit-tests.sh).
 
 The github webpage update is accomplished this by copying and editing
 this `README.md` file to `/docs/_includes/README.md`.
