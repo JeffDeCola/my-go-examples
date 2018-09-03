@@ -25,7 +25,7 @@ ls -lat
 # RUN unit_tests and it shows the percentage coverage
 # print to stdout and file using tee
 # go test -cover ./... | tee test_coverage.txt
-echo "Placeholder to run python tests for my-go-examples" | tee test_coverage.txt
+echo "Placeholder to run go tests for my-go-examples" | tee test_coverage.txt
 
 # Add some whitespace to the begining of each line
 sed -i -e 's/^/     /' test_coverage.txt
