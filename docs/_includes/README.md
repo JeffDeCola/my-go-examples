@@ -40,7 +40,7 @@ _All sections in alphabetical order._
 
   * [track-email-mailgun-api](https://github.com/JeffDeCola/my-go-examples/tree/master/api/track-email-mailgun-api)
 
-    _Send and track an email using mailgun over their go client api_
+    _Send and track an email using mailgun over their go client api._
 
 * BASIC PROGRAMMING
 
