@@ -66,6 +66,10 @@ _All sections in alphabetical order._
 
 * BASIC PROGRAMMING
 
+  * [callback](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-programming/callback)
+
+    _Passing a function (as an argument) to a function._
+
   * [gomock](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-programming/gomock)
 
     _A halloween theme is used for gomock on an interface for unit testing._
