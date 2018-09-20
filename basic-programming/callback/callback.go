@@ -19,8 +19,9 @@ func main() {
 
 	numbers := []int{4, 5, 6, 7}
 
-	// Get the total sum of the even numbers
-	// Pass the function a function that tests for an even number
+	// Get the total sum of the even numbers.
+	// Pass the function (as an argument) a function
+	// that tests for an even number.
 	sum := evenSum(numbers, func(n int) bool {
 		if n%2 == 0 {
 			return true
