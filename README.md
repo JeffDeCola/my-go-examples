@@ -102,6 +102,11 @@ _All sections in alphabetical order._
 
     _A function calling itself to make a fibonacci series._
 
+  * [slices-underlying-array](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-programming/slices-underlying-array)
+
+    _is an example of a slice being appended to, and shows the underlying array
+    being added to the slice._
+
   * [structs-methods-interfaces](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-programming/structs-methods-interfaces)
 
     _An example of structs, methods and interfaces._
