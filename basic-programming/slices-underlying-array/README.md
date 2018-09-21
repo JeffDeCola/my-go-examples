@@ -24,3 +24,24 @@ s := make([]int, 0, 5)
 
 The length of the slice is 0 and the capacity is 5, so when using
 append his will start filling the array at index 0.
+
+## MAKE A SLICE WITH AN ARRAY
+
+Since slices have an underlying array, we can make a slice from an array,
+
+```go
+s := make([]int, 10, 18)
+```
+
+same as,
+
+```go
+s := new([18]int)[0:10]
+```
+
+or,
+
+```go
+l := new([18]int)
+g := l[0:10]
+```
