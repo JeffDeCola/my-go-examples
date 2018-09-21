@@ -14,7 +14,7 @@ Since slices are build on arrays, the capacity shows what the underlying fixed l
 
 This example demonstrates that appending to a slice and showing how the underlying array changes.
 
-## MAKE AND APPEND
+## MAKE (LEN & CAP) AND APPEND
 
 When you make and array,
 
@@ -22,13 +22,5 @@ When you make and array,
 s := make([]int, 0, 5)
 ```
 
-This will start filling the array at index 0.
-Its probably good practice to do this is you are using append.
-
-If you did this,
-
-```go
-s := make([]int, 0, 5)
-```
-
-and used append, it will start appending at index 5.
+The length of the slice is 0 and the capacity is 5, so when using
+append his will start filling the array at index 0.

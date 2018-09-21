@@ -18,14 +18,14 @@ func main() {
 	}
 	fmt.Println(y, len(y), cap(y)) // [21 22 23 24 25 26 27 28 29 30] 10 16
 
-	// Lets make the slice with an exact size (cap for array is same)
+	// Lets make the slice with an exact size (capacity of array is 10)
 	z := make([]int, 10)
 	for i := 0; i < 10; i++ {
 		z[i] = i + 20
 	}
 	fmt.Println(z, len(z), cap(z)) // [21 22 23 24 25 26 27 28 29 30] 10 10
 
-	// Now lets demonstrate appending to a slice of len 5 and how the capacity changes
+	// Now lets demonstrate appending to a slice of length 0 and capacity 5
 	s := make([]int, 0, 5)
 	for i := 0; i < 30; i++ {
 		s = append(s, i+20)
