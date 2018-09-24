@@ -16,3 +16,7 @@ func (a DrugStoreATM) deposited(d int) int {
 func (a DrugStoreATM) withdrew(w int) int {
 	return 100 - w
 }
+
+func NewDrugStoreATM() DrugStoreATM {
+	return &DrugStoreATM{}
+}
