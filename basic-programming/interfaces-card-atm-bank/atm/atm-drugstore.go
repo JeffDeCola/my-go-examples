@@ -4,7 +4,6 @@ import (
 	"fmt"
 )
 
-// drugStoreATM atm
 type drugStoreATM struct {
 	Name     string
 	Location string

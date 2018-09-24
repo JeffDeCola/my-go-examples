@@ -4,7 +4,6 @@ import (
 	"fmt"
 )
 
-// barATM atm
 type barATM struct {
 	Name     string
 	Location string

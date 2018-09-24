@@ -1,33 +1,20 @@
 package card
 
-// BoACard is your BoA Card
-type BoACard struct {
-	Name          string
-	Bank          string
-	AccountNumber int
+import (
+	"fmt"
+)
+
+type boACard struct {
+	Bank string
 }
 
-func (c BoACard) inserted() {
-	fmt.Printf("   Screen - Hi %v, you inserted your %v card\n", c.Name, c.Bank)
+// GetBankInfo to get bank info from card
+func (c *boACard) GetBankInfo() string {
+	fmt.Printf("   Screen - Hi, you inserted your %v card\n", c.Bank)
+	return "hi"
 }
 
-func (c BoACard) getBalance(b bank.Bank) {
-	balance := bank.TheBalance(b)
-	fmt.Printf("   Screen - Your balance is %v\n", balance)
-}
-
-func (c BoACard) deposited(b bank.Bank, d int) int {
-	balance := bank.TheDeposit(b, d)
-	fmt.Printf("   Screen - Deposited %v. Your balance is %v\n", d, balance)
-	return d
-}
-
-func (c BoACard) withdrawn(b bank.Bank, w int) int {
-	balance := bank.TheWithdraw(b, w)
-	fmt.Printf("   Screen - Dispensing %v. Your balance is %v\n", w, balance)
-	return w
-}
-
-func (c BoACard) ejected() {
-	fmt.Printf("   Screen - Goodbye %v, you ejected your %v card\n", c.Name, c.Bank)
+// NewBoACard creates an ATM instance
+func NewBoACard() Card {
+	return &boACard{}
 }
