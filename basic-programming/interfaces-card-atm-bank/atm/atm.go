@@ -1,11 +1,11 @@
 package atm
 
 type atm interface {
-	insertCard()
-	showBalance() int
-	depositCash(int) int
-	withdrawnCash(int) int
-	ejectCard()
+	InsertCard()
+	ShowBalance() int
+	DepositCash(int) int
+	WithdrawnCash(int) int
+	EjectCard()
 }
 
 // The interface accepts ANYTHING as long as that

@@ -16,3 +16,7 @@ func (a BarATM) deposited(d int) int {
 func (a BarATM) withdrew(w int) int {
 	return 100 - w
 }
+
+func NewBarATM() BarATM {
+	return &BarATM{}
+}
