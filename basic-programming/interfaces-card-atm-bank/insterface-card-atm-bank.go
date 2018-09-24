@@ -21,7 +21,7 @@ func main() {
 
 	fmt.Println("Insert your Card")
 
-	// Every one of these function uses an interface for atm card, bank or both.
+	// Every one of these function uses an interface for card, atm or both.
 	atm.InsertCard(c)
 	atm.ShowBalance(c, a)
 	//fmt.Printf("You are deposited a total of %v in cash\n", atm.Deposit(c, a, 100))

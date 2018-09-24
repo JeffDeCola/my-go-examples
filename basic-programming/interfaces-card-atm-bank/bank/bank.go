@@ -7,22 +7,6 @@ type Bank interface {
 	withdrew(int) int
 }
 
-// MainStATM atn
-type MainStATM struct {
-	Name     string
-	Location string
-}
-
-// DrugStoreATM atm
-type DrugStoreATM struct {
-	Location string
-}
-
-// BarATM atm
-type BarATM struct {
-	ATMName string
-}
-
 func (a MainStATM) balance() int {
 	return 100
 }

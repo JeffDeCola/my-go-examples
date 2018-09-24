@@ -14,22 +14,20 @@ type atm interface {
 	ejected()
 }
 
-// BoACard is your BoA Card
-type BoACard struct {
-	Name          string
-	Bank          string
-	AccountNumber int
+// MainStATM atn
+type MainStATM struct {
+	Name     string
+	Location string
 }
 
-// ChaseCard is your Chase Card
-type ChaseCard struct {
-	NameOnCard string
-	Bank       string
+// DrugStoreATM atm
+type DrugStoreATM struct {
+	Location string
 }
 
-// WellsFargo is your WellsFargo Card
-type WellsFargo struct {
-	Bank string
+// BarATM atm
+type BarATM struct {
+	ATMName string
 }
 
 func (c BoACard) inserted() {
