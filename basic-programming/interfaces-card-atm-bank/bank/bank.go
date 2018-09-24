@@ -7,42 +7,6 @@ type Bank interface {
 	withdrew(int) int
 }
 
-func (a MainStATM) balance() int {
-	return 100
-}
-
-func (a MainStATM) deposited(d int) int {
-	return 100 + d
-}
-
-func (a MainStATM) withdrew(w int) int {
-	return 100 - w
-}
-
-func (a DrugStoreATM) balance() int {
-	return 100
-}
-
-func (a DrugStoreATM) deposited(d int) int {
-	return 100 + d
-}
-
-func (a DrugStoreATM) withdrew(w int) int {
-	return 100 - w
-}
-
-func (a BarATM) balance() int {
-	return 100
-}
-
-func (a BarATM) deposited(d int) int {
-	return 100 + d
-}
-
-func (a BarATM) withdrew(w int) int {
-	return 100 - w
-}
-
 // TheBalance from bank
 func TheBalance(b Bank) int {
 	return b.balance()

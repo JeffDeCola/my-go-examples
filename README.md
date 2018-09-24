@@ -78,6 +78,14 @@ _All sections in alphabetical order._
 
     _Testing a function with complex inputs and outputs._
 
+  * [interface](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-programming/interface)
+
+    _Accepting ANYTHING (as long as anything has a method attached to interface)._
+
+  * [interfaces-card-atm-bank](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-programming/interfaces-card-atm-bank)
+
+    _Uses interfaces to show how an atm card is used to interact with an atm and bank._
+
   * [json](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-programming/json)
 
     _Encode a struct to json and decode back to a struct._

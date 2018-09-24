@@ -1,6 +1,6 @@
 # interfaces-card-atm-bank example
 
-`interfaces-card-atm-bank` _uses interfaces to show how an  atm card is
+`interfaces-card-atm-bank` _uses interfaces to show how an atm card is
 used to interact with an atm and bank_.
 
 View my entire list of cheat sheets on
