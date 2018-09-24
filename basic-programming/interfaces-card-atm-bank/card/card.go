@@ -7,12 +7,13 @@ type BoACard struct {
 	AccountNumber int
 }
 
-//ChaseCard is your Chase Card
+// ChaseCard is your Chase Card
 type ChaseCard struct {
 	NameOnCard string
+	Bank       string
 }
 
-//WellsFargo is your WellsFargo Card
+// WellsFargo is your WellsFargo Card
 type WellsFargo struct {
 	Bank string
 }
