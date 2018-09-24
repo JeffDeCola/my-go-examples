@@ -1,7 +1,7 @@
 package card
 
 // BoACard is your BoA Card
-type BoFCard struct {
+type BoACard struct {
 	Name          string
 	Bank          string
 	AccountNumber int
@@ -9,7 +9,10 @@ type BoFCard struct {
 
 //ChaseCard is your Chase Card
 type ChaseCard struct {
-	Name          string
-	Bank          string
-	AccountNumber int
+	NameOnCard string
+}
+
+//WellsFargo is your WellsFargo Card
+type WellsFargo struct {
+	Bank string
 }
