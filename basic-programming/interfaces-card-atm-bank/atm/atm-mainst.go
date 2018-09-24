@@ -5,40 +5,40 @@ import (
 )
 
 // MainStATM atm
-type MainStATM struct {
+type mainStATM struct {
 	Name     string
 	Location string
 }
 
 // InsertCard card inserted
-func (a *MainStATM) InsertCard() {
+func (a *mainStATM) InsertCard() {
 	fmt.Println("hi")
 }
 
 // ShowBalance shows balance
-func (a *MainStATM) ShowBalance() int {
+func (a *mainStATM) ShowBalance() int {
 	fmt.Println("hi")
 	return 100
 }
 
 // DepositCash deposits cash
-func (a *MainStATM) DepositCash(w int) int {
+func (a *mainStATM) DepositCash(w int) int {
 	fmt.Println("hi")
 	return 100
 }
 
 // WithdrawCash withdraws cash
-func (a *MainStATM) WithdrawCash(w int) int {
+func (a *mainStATM) WithdrawCash(w int) int {
 	fmt.Println("hi")
 	return 100
 }
 
 // EjectCard ejects card
-func (a *MainStATM) EjectCard() {
+func (a *mainStATM) EjectCard() {
 	fmt.Println("hi")
 }
 
 // NewMainStATM creates an ATM instance
 func NewMainStATM() ATM {
-	return &MainStATM{}
+	return &mainStATM{}
 }
