@@ -4,41 +4,41 @@ import (
 	"fmt"
 )
 
-// BarATM atm
-type BarATM struct {
+// barATM atm
+type barATM struct {
 	Name     string
 	Location string
 }
 
 // InsertCard card inserted
-func (a *BarATM) InsertCard() {
+func (a *barATM) InsertCard() {
 	fmt.Println("hi")
 }
 
 // ShowBalance shows balance
-func (a *BarATM) ShowBalance() int {
+func (a *barATM) ShowBalance() int {
 	fmt.Println("hi")
 	return 100
 }
 
 // DepositCash deposits cash
-func (a *BarATM) DepositCash(w int) int {
+func (a *barATM) DepositCash(w int) int {
 	fmt.Println("hi")
 	return 100
 }
 
 // WithdrawCash withdraws cash
-func (a *BarATM) WithdrawCash(w int) int {
+func (a *barATM) WithdrawCash(w int) int {
 	fmt.Println("hi")
 	return 100
 }
 
 // EjectCard ejects card
-func (a *BarATM) EjectCard() {
+func (a *barATM) EjectCard() {
 	fmt.Println("hi")
 }
 
 // NewBarATM creates an ATM instance
 func NewBarATM() ATM {
-	return &BarATM{}
+	return &barATM{}
 }

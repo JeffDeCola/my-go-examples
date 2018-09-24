@@ -1,19 +1,7 @@
 package card
 
-// BoACard is your BoA Card
-type BoACard struct {
-	Name          string
-	Bank          string
-	AccountNumber int
-}
-
-// ChaseCard is your Chase Card
-type ChaseCard struct {
-	NameOnCard string
-	Bank       string
-}
-
-// WellsFargo is your WellsFargo Card
-type WellsFargo struct {
-	Bank string
+// Card interface
+type Card interface {
+	InsertCard()
+	EjectCard()
 }
