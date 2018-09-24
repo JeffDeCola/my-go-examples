@@ -3,54 +3,134 @@ package atm
 import (
 	"fmt"
 
-	"github.com/JeffDeCola/my-go-examples/basic-programming/interfaces-card-atm-bank/card"
+	"github.com/JeffDeCola/my-go-examples/basic-programming/interfaces-card-atm-bank/bank"
 )
 
-// ATM Machine interface
-type ATM interface {
-	InsertCard(card.ATMCard) bool
-	ShowBalance() int
-	Withdraw(int)
+type atm interface {
+	inserted()
+	getBalance(bank.Bank)
+	deposited(bank.Bank, int) int
+	withdrawn(bank.Bank, int) int
+	ejected()
 }
 
-// Machine is the data in the machine
-type Machine struct {
-	cardName          string
-	cardBank          string
-	cardAccountNumber int
-	cardBalance       int
+// BoACard is your BoA Card
+type BoACard struct {
+	Name          string
+	Bank          string
+	AccountNumber int
 }
 
-// ShowBalance will show your balance from ATMMachine
-func (a *Machine) ShowBalance() int {
-	if a.cardAccountNumber == 1001 {
-		a.cardBalance = 100
-		return a.cardBalance
-	}
-	return 0
+// ChaseCard is your Chase Card
+type ChaseCard struct {
+	NameOnCard string
+	Bank       string
 }
 
-// InsertCard will put card info into ATMMachine
-func (a *Machine) InsertCard(c card.ATMCard) bool {
-	p := 0
-	fmt.Printf("Enter your pin number: ")
-	fmt.Scan(&p)
-	// check Pin
-	if p != 11 {
-		// Bad pin
-		fmt.Println("Sorry, your pin has been rejected.")
-		return false
-	}
-	fmt.Printf("Welcome %v\n", c.Name)
-	a.cardName = c.Name
-	a.cardBank = c.Bank
-	a.cardAccountNumber = c.AccountNumber
-	return true
+// WellsFargo is your WellsFargo Card
+type WellsFargo struct {
+	Bank string
 }
 
-// Withdraw will withdraw from ATMMachine
-func (a *Machine) Withdraw(w int) {
-	fmt.Printf("Going to withdraw %v for you %v\n", w, a.cardName)
-	a.cardBalance = a.cardBalance - w
-	fmt.Printf("Your new balance is %v\n", a.cardBalance)
+func (c BoACard) inserted() {
+	fmt.Printf("   Screen - Hi %v, you inserted your %v card\n", c.Name, c.Bank)
+}
+
+func (c BoACard) getBalance(b bank.Bank) {
+	balance := bank.TheBalance(b)
+	fmt.Printf("   Screen - Your balance is %v\n", balance)
+}
+
+func (c BoACard) deposited(b bank.Bank, d int) int {
+	balance := bank.TheDeposit(b, d)
+	fmt.Printf("   Screen - Deposited %v. Your balance is %v\n", d, balance)
+	return d
+}
+
+func (c BoACard) withdrawn(b bank.Bank, w int) int {
+	balance := bank.TheWithdraw(b, w)
+	fmt.Printf("   Screen - Dispensing %v. Your balance is %v\n", w, balance)
+	return w
+}
+
+func (c BoACard) ejected() {
+	fmt.Printf("   Screen - Goodbye %v, you ejected your %v card\n", c.Name, c.Bank)
+}
+
+func (c ChaseCard) inserted() {
+	fmt.Printf("   Screen - Hi %v, you inserted your %v card\n", c.NameOnCard, c.Bank)
+}
+
+func (c ChaseCard) getBalance(b bank.Bank) {
+	balance := bank.TheBalance(b)
+	fmt.Printf("   Screen - Your balance is %v\n", balance)
+}
+
+func (c ChaseCard) deposited(b bank.Bank, d int) int {
+	balance := bank.TheDeposit(b, d)
+	fmt.Printf("   Screen - Deposited %v. Your balance is %v\n", d, balance)
+	return d
+}
+
+func (c ChaseCard) withdrawn(b bank.Bank, w int) int {
+	balance := bank.TheWithdraw(b, w)
+	fmt.Printf("   Screen - Dispensing %v. Your balance is %v\n", w, balance)
+	return w
+}
+
+func (c ChaseCard) ejected() {
+	fmt.Printf("   Screen - Goodbye %v, you ejected your %v card\n", c.NameOnCard, c.Bank)
+}
+
+func (c WellsFargo) inserted() {
+	fmt.Printf("   Screen - Hi, you inserted your %v card\n", c.Bank)
+}
+
+func (c WellsFargo) getBalance(b bank.Bank) {
+	balance := bank.TheBalance(b)
+	fmt.Printf("   Screen - Your balance is %v\n", balance)
+}
+
+func (c WellsFargo) deposited(b bank.Bank, d int) int {
+	balance := bank.TheDeposit(b, d)
+	fmt.Printf("   Screen - Deposited %v. Your balance is %v\n", d, balance)
+	return d
+}
+
+func (c WellsFargo) withdrawn(b bank.Bank, w int) int {
+	balance := bank.TheWithdraw(b, w)
+	fmt.Printf("   Screen - Dispensing %v. Your balance is %v\n", w, balance)
+	return w
+}
+
+func (c WellsFargo) ejected() {
+	fmt.Printf("   Screen - Goodbye, you ejected your %v card\n", c.Bank)
+}
+
+// The interface accepts ANYTHING as long as that
+// ANYTHING has a method attached to this interface
+
+// InsertCard into atm
+func InsertCard(a atm) {
+	a.inserted()
+}
+
+// ShowBalance from bank
+func ShowBalance(a atm, b bank.Bank) {
+	a.getBalance(b)
+}
+
+// Deposit into bank
+func Deposit(a atm, b bank.Bank, d int) int {
+	return a.deposited(b, d)
+}
+
+// Withdraw from bank
+func Withdraw(a atm, b bank.Bank, w int) int {
+	return a.withdrawn(b, w)
+}
+
+// EjectCard from atm
+func EjectCard(a atm) {
+	a.ejected()
 }
