@@ -4,7 +4,6 @@ import (
 	"fmt"
 )
 
-// MainStATM atm
 type mainStATM struct {
 	Name     string
 	Location string

@@ -1,12 +1,9 @@
 package bank
 
-package atm
-
 import (
 	"fmt"
 )
 
-// boABank atm
 type boABank struct {
 	Name     string
 	Location string
@@ -33,4 +30,3 @@ func (a *boABank) Withdraw(w int) int {
 func NewBoABank() Bank {
 	return &boABank{}
 }
-

@@ -1,4 +1,4 @@
-package BANK
+package bank
 
 // Bank interface
 type Bank interface {

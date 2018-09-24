@@ -1,12 +1,9 @@
 package bank
 
-package atm
-
 import (
 	"fmt"
 )
 
-// wellsFargoBank atm
 type wellsFargoBank struct {
 	Name     string
 	Location string
