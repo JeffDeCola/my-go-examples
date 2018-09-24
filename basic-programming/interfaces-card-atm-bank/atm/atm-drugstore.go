@@ -1,22 +1,44 @@
 package atm
 
-// DrugStoreATM atm
-type DrugStoreATM struct {
+import (
+	"fmt"
+)
+
+// MainStATM atm
+type MainStATM struct {
+	Name     string
 	Location string
 }
 
-func (a DrugStoreATM) balance() int {
+// InsertCard card inserted
+func (a *MainStATM) InsertCard() {
+	fmt.Println("hi")
+}
+
+// ShowBalance shows balance
+func (a *MainStATM) ShowBalance() int {
+	fmt.Println("hi")
 	return 100
 }
 
-func (a DrugStoreATM) deposited(d int) int {
-	return 100 + d
+// DepositCash deposits cash
+func (a *MainStATM) DepositCash(w int) int {
+	fmt.Println("hi")
+	return 100
 }
 
-func (a DrugStoreATM) withdrew(w int) int {
-	return 100 - w
+// WithdrawCash withdraws cash
+func (a *MainStATM) WithdrawCash(w int) int {
+	fmt.Println("hi")
+	return 100
 }
 
-func NewDrugStoreATM() DrugStoreATM {
-	return &DrugStoreATM{}
+// EjectCard ejects card
+func (a *MainStATM) EjectCard() {
+	fmt.Println("hi")
+}
+
+// NewMainStATM creates an ATM instance
+func NewMainStATM() ATM {
+	return &MainStATM{}
 }

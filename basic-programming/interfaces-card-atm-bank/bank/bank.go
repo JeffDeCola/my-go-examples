@@ -1,10 +1,10 @@
-package bank
+package BANK
 
 // Bank interface
 type Bank interface {
-	balance() int
-	deposited(int) int
-	withdrew(int) int
+	Balance() int
+	Deposit(int) int
+	Withdrew(int) int
 }
 
 // TheBalance from bank
