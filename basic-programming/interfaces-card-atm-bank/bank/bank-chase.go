@@ -26,6 +26,11 @@ func (a *chaseBank) Withdraw(w int) int {
 	return 100
 }
 
+// IssueCard makes new card
+func (a *chaseBank) IssueCard() Card {
+	return MakeNewCard()
+}
+
 // NewchaseBank creates an ATM instance
 func NewchaseBank() Bank {
 	return &chaseBank{}

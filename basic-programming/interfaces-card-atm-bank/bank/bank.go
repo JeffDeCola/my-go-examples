@@ -4,5 +4,6 @@ package bank
 type Bank interface {
 	Balance() int
 	Deposit(int) int
-	Withdrew(int) int
+    Withdrew(int) int
+    IssueATMCard() ??
 }
