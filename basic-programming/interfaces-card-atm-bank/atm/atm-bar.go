@@ -1,22 +1,44 @@
 package atm
 
+import (
+	"fmt"
+)
+
 // BarATM atm
 type BarATM struct {
-	ATMName string
+	Name     string
+	Location string
 }
 
-func (a BarATM) balance() int {
+// InsertCard card inserted
+func (a *BarATM) InsertCard() {
+	fmt.Println("hi")
+}
+
+// ShowBalance shows balance
+func (a *BarATM) ShowBalance() int {
+	fmt.Println("hi")
 	return 100
 }
 
-func (a BarATM) deposited(d int) int {
-	return 100 + d
+// DepositCash deposits cash
+func (a *BarATM) DepositCash(w int) int {
+	fmt.Println("hi")
+	return 100
 }
 
-func (a BarATM) withdrew(w int) int {
-	return 100 - w
+// WithdrawCash withdraws cash
+func (a *BarATM) WithdrawCash(w int) int {
+	fmt.Println("hi")
+	return 100
 }
 
-func NewBarATM() BarATM {
+// EjectCard ejects card
+func (a *BarATM) EjectCard() {
+	fmt.Println("hi")
+}
+
+// NewBarATM creates an ATM instance
+func NewBarATM() ATM {
 	return &BarATM{}
 }
