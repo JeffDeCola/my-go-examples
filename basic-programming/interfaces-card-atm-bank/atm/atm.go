@@ -14,7 +14,7 @@ type atm interface {
 	ejected()
 }
 
-// MainStATM atn
+// MainStATM atm
 type MainStATM struct {
 	Name     string
 	Location string
