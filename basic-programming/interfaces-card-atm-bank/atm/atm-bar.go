@@ -7,6 +7,7 @@ import (
 type barATM struct {
 	Name     string
 	Location string
+	thebar   string
 }
 
 // InsertCard card inserted
