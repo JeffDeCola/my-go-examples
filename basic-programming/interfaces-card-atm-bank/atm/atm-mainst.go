@@ -5,8 +5,8 @@ import (
 )
 
 type mainStATM struct {
-	Name     string
-	Location string
+	Name   string
+	mainst string
 }
 
 // InsertCard card inserted

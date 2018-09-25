@@ -1,39 +1,44 @@
 package main
 
 import (
-	"fmt"
-
 	"github.com/JeffDeCola/my-go-examples/basic-programming/interfaces-card-atm-bank/atm"
 	"github.com/JeffDeCola/my-go-examples/basic-programming/interfaces-card-atm-bank/bank"
+	"github.com/JeffDeCola/my-go-examples/basic-programming/interfaces-card-atm-bank/card"
 )
 
 func main() {
 
-	// Load banks into ATM
+	// 1. Load Banks Structs into the ATM (So the ATM knows about Banks)
+	// Create a Bank (return Bank Struct via interface BankNetworker)
 	b := bank.NewBoABank()
+	c := bank.NewChaseBank()
+	w := bank.NewWellsFargoBank()
+	// Send BankNetworker interface (the Bank Struct) to atm to put in map
 	atm.LoadBank("BoA", b)
-	b = bank.NewChaseBank()
-	atm.LoadBank("Chase", b)
-	b = bank.NewWellsFargoBank()
-	atm.LoadBank("WellsFargo", b)
+	atm.LoadBank("Chase", c)
+	atm.LoadBank("WellsFargo", w)
+	// Lets look at the map of Bank Structs
+	atm.ShowBanksMap("BoA")
+	atm.ShowBanksMap("Chase")
+	atm.ShowBanksMap("WellsFargo")
 
-	// WHAT ATM CARD ARE YOU USING
-	// var c = &atm.BoACard{Name: "jeff", Bank: "BoA", AccountNumber: 001}
-	// var c = &atm.ChaseCard{NameOnCard: "jeff", Bank: "Chase"}
-	//var c = &atm.WellsFargo{Bank: "BoA"}
+	// 2. Issue cards from Bank
+	// First create a Card (return Card Struct via interface Card)
+	x := card.NewBoACard()
+	y := card.NewChaseCard()
+	z := card.NewWellsFargoCard()
+	// Second, Send Card interface (Card Struct) to bank to???
+	// It returns ???
+	boaCard := bank.x.IssueCard()
+	chaseCard := bank.y.IssueCard()
+	wellsFargoCard := bank.z.IssueCard()
 
-	// WHAT ATM ARE YOU USING
-	// var a = &bank.MainStATM{Name: "MainSt", Location: "Los Angeles"}
-	// var a = &bank.DrugStoreATM{Location: "Elm Street"}
-	//var a = &bank.BarATM{ATMName: "BarATM"}
+	// 3. Create an ATM
 
-	fmt.Println("Insert your Card")
+	// 4. Put card in ATM
 
-	// Every one of these function uses an interface for card, atm or both.
-	//	atm.InsertCard(c)
-	//	atm.ShowBalance(c, a)
-	//fmt.Printf("You are deposited a total of %v in cash\n", atm.Deposit(c, a, 100))
-	//	fmt.Printf("You withdrew a total of %v in cash\n", atm.Withdraw(c, a, 50))
-	//	atm.EjectCard(c)
+	// 5. Make a Transaction
+
+	// 6. Eject Card
 
 }

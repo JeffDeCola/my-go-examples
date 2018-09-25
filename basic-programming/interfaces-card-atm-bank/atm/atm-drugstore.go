@@ -5,8 +5,9 @@ import (
 )
 
 type drugStoreATM struct {
-	Name     string
-	Location string
+	Name      string
+	Location  string
+	drugstore string
 }
 
 // InsertCard card inserted

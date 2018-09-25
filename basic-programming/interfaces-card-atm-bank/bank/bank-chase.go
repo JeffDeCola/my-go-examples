@@ -2,11 +2,14 @@ package bank
 
 import (
 	"fmt"
+
+	"github.com/JeffDeCola/my-go-examples/basic-programming/interfaces-card-atm-bank/card"
 )
 
 type chaseBank struct {
-	Name     string
-	Location string
+	Name            string
+	Location        string
+	ChaseBankStruct string
 }
 
 // Balance returns the balance
@@ -28,11 +31,11 @@ func (a *chaseBank) Withdraw(w int) int {
 }
 
 // IssueCard makes new card
-func (a *chaseBank) IssueCard() Card {
-	return MakeNewCard()
+func (a *chaseBank) IssueCard() card.Card {
+	return card.NewChaseCard()
 }
 
-// NewchaseBank creates an ATM instance
+// NewChaseBank creates an ATM instance
 func NewChaseBank() BankNetworker {
 	return &chaseBank{}
 }

@@ -5,7 +5,8 @@ import (
 )
 
 type boACard struct {
-	Bank string
+	Bank    string
+	boacard string
 }
 
 // GetBankInfo to get bank info from card
