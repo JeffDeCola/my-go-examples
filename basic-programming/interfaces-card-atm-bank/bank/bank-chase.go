@@ -10,12 +10,13 @@ type chaseBank struct {
 }
 
 // Balance returns the balance
-func (a *chaseBank) Balance() {
+func (a *chaseBank) Balance() int {
 	fmt.Println("hi")
+	return 100
 }
 
 // Deposit deposits int the Account
-func (a *chaseBank) Deposit() int {
+func (a *chaseBank) Deposit(d int) int {
 	fmt.Println("hi")
 	return 100
 }
@@ -32,6 +33,6 @@ func (a *chaseBank) IssueCard() Card {
 }
 
 // NewchaseBank creates an ATM instance
-func NewchaseBank() Bank {
+func NewChaseBank() BankNetworker {
 	return &chaseBank{}
 }
