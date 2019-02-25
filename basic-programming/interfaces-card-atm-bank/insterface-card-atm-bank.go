@@ -3,7 +3,6 @@ package main
 import (
 	"github.com/JeffDeCola/my-go-examples/basic-programming/interfaces-card-atm-bank/atm"
 	"github.com/JeffDeCola/my-go-examples/basic-programming/interfaces-card-atm-bank/bank"
-	"github.com/JeffDeCola/my-go-examples/basic-programming/interfaces-card-atm-bank/card"
 )
 
 func main() {
@@ -23,15 +22,10 @@ func main() {
 	atm.ShowBanksMap("WellsFargo")
 
 	// 2. Issue cards from Bank
-	// First create a Card (return Card Struct via interface Card)
-	x := card.NewBoACard()
-	y := card.NewChaseCard()
-	z := card.NewWellsFargoCard()
-	// Second, Send Card interface (Card Struct) to bank to???
-	// It returns ???
-	boaCard := bank.x.IssueCard()
-	chaseCard := bank.y.IssueCard()
-	wellsFargoCard := bank.z.IssueCard()
+	// Via the BankNetworker interface, get Card interface (the card struct)
+	boaCard := b.IssueCard()
+	chaseCard := c.IssueCard()
+	wellsFargoCard := w.IssueCard()
 
 	// 3. Create an ATM
 
