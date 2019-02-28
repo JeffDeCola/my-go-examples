@@ -1,8 +1,9 @@
 # my-go-examples
 
-[![Code Climate](https://codeclimate.com/github/JeffDeCola/my-go-examples/badges/gpa.svg)](https://codeclimate.com/github/JeffDeCola/my-go-examples)
+[![Go Report Card](https://goreportcard.com/badge/github.com/JeffDeCola/my-go-examples)](https://goreportcard.com/report/github.com/JeffDeCola/my-go-examples)
+[![GoDoc](https://godoc.org/github.com/JeffDeCola/my-go-examples?status.svg)](https://godoc.org/github.com/JeffDeCola/my-go-examples)
+[![Maintainability](https://api.codeclimate.com/v1/badges/3c5477c63d77a071fdff/maintainability)](https://codeclimate.com/github/JeffDeCola/my-go-examples/maintainability)
 [![Issue Count](https://codeclimate.com/github/JeffDeCola/my-go-examples/badges/issue_count.svg)](https://codeclimate.com/github/JeffDeCola/my-go-examples/issues)
-[![Go Report Card](https://goreportcard.com/badge/jeffdecola/my-go-examples)](https://goreportcard.com/report/jeffdecola/my-go-examples)
 [![License](http://img.shields.io/:license-mit-blue.svg)](http://jeffdecola.mit-license.org)
 
 `my-go-examples` _is a place to keep my go code snippets and examples._
@@ -33,7 +34,8 @@ _All sections in alphabetical order._
 
   * [OAuth-2.0-google-cloud-storage-api](https://github.com/JeffDeCola/my-go-examples/tree/master/api/OAuth-2.0-google-cloud-storage-api)
 
-    _Using OAuth 2.0 to access a users google-cloud-storage (based on scopes) via googles api._
+    _Using OAuth 2.0 to access a users google-cloud-storage (based on scopes)
+    via googles api._
 
   * [OAuth-2.0-google-cloud-storage-api-over-NATS](https://github.com/JeffDeCola/my-go-examples/tree/master/api/OAuth-2.0-google-cloud-storage-api-over-NATS)
 
@@ -84,7 +86,8 @@ _All sections in alphabetical order._
 
   * [interfaces-card-atm-bank](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-programming/interfaces-card-atm-bank)
 
-    _Uses interfaces to show how an atm card is used to interact with an atm and bank._
+    _Uses interfaces to show how an atm card is used to interact with an atm
+    and bank._
 
   * [json](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-programming/json)
 
@@ -133,8 +136,8 @@ _All sections in alphabetical order._
 
   * [async-channel-no-waiting](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/async-channel-no-waiting)
 
-    _An example of a goroutine asynchronously sending data (via a channel) to a function that
-    uses the latest data (if available) and does not wait._
+    _An example of a goroutine asynchronously sending data (via a channel)
+    to a function that uses the latest data (if available) and does not wait._
 
   * [goroutines-channels-select](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-channels-select)
 
@@ -171,8 +174,8 @@ _All sections in alphabetical order._
 ## UNIT TESTING AND MY GITHUB WEBPAGE IS UPDATED USING CONCOURSE
 
 For fun, I use concourse to automate unit testing, update
-[my-go-examples GitHub Webpage](https://jeffdecola.github.io/my-go-examples/) and alert me of
-the changes via repo status and slack.
+[my-go-examples GitHub Webpage](https://jeffdecola.github.io/my-go-examples/)
+and alert me of the changes via repo status and slack.
 
 The unit testing is accomplished by running this script this script
 [here](https://github.com/JeffDeCola/my-go-examples/tree/master/ci/scripts/unit-tests.sh).
