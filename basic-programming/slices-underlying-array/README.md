@@ -10,9 +10,11 @@ View my entire list of cheat sheets on
 
 The len of a slice is the current length.
 
-Since slices are build on arrays, the capacity shows what the underlying fixed length array is being used.
+Since slices are build on arrays, the capacity shows what the underlying fixed
+length array is being used.
 
-This example demonstrates that appending to a slice and showing how the underlying array changes.
+This example demonstrates that appending to a slice and showing how the
+underlying array changes.
 
 ## MAKE (LEN & CAP) AND APPEND
 
