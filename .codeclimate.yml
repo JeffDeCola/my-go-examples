@@ -19,13 +19,15 @@ version: "2"
 plugins:
   markdownlint:
     enabled: true
-  ShellCheck:
+  shellcheck:
     enabled: true
-  Gofmt:
+  gofmt:
     enabled: true
-  Golint:
+  golint:
     enabled: true
-  Govet:
+    config:
+      min_confidence: 0.9
+  govet:
     enabled: true
 
 # exclude_patterns: Exclude files and/or directories from analysis
