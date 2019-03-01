@@ -2,10 +2,16 @@ package main
 
 import (
 	"fmt"
-
-	"github.com/spf13/viper"
 )
 
+// Looping forever - For the testing Marathon and Mesos
+func main() {
+
+	fmt.Println("Hello everyone")
+
+}
+
+/*
 func init() {
 	config.New("./")
 }
@@ -29,7 +35,7 @@ func SendEmail(to string, subject string, text string, html string) {
 func main() {
 	fmt.Println("RESTful")
 }
-
+*/
 /* package main - edit this at some point
 import "gopkg.in/mailgun/mailgun-go.v1"
 
