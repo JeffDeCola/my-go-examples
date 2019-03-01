@@ -1,6 +1,7 @@
 # interface example
 
-`interface` _is accepting ANYTHING (as long as anything has a method attached to interface)_.
+`interface` _is accepting ANYTHING (as long as anything has a method attached
+to interface)_.
 
 View my entire list of cheat sheets on
 [my GitHub Webpage](https://jeffdecola.github.io/my-cheat-sheets/).
