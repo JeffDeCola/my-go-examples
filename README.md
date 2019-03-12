@@ -20,7 +20,7 @@ I organized everything into these sections,
 These go examples also contain info I gathered from other sources.
 
 View my entire list of go examples on
-[my-go-examples GitHub Webpage](https://jeffdecola.github.io/my-go-examples/)
+[my GitHub Webpage](https://jeffdecola.github.io/my-go-examples/)
 
 ## GO EXAMPLES
 
