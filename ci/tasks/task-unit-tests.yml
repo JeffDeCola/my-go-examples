@@ -16,3 +16,4 @@ outputs:
 
 run:
   path: ./my-go-examples/ci/scripts/unit-tests.sh
+  # args: [-debug]

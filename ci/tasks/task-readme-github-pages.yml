@@ -16,3 +16,4 @@ outputs:
 
 run:
   path: ./my-go-examples/ci/scripts/readme-github-pages.sh
+  # args: [-debug]
