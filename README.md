@@ -12,6 +12,7 @@ I organized everything into these sections,
 
 * API
 * BASIC PROGRAMMING
+* CLOUD SERVICES
 * DATABASE
 * GOROUTINES
 * MESSAGING
@@ -121,6 +122,16 @@ _All sections in alphabetical order._
   * [structs-methods-interfaces](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-programming/structs-methods-interfaces)
 
     _An example of structs, methods and interfaces._
+
+* CLOUD SERVICES
+
+  * [amazon-aws](https://github.com/JeffDeCola/my-go-examples/tree/master/cloud-services/amazon-aws)
+
+    _Interacting with amazon's `aws` using `aws-sdk-go` client libraries._
+
+  * [google-gcp](https://github.com/JeffDeCola/my-go-examples/tree/master/cloud-services/google-gcp)
+
+    _Interacting with google's `gcp` using `google-cloud-go` client libraries._
 
 * DATABASE
 
