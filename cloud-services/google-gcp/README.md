@@ -5,7 +5,7 @@
 Documentation and reference,
 
 * My `gcp` cheat sheet is
-  [here](https://github.com/JeffDeCola/my-cheat-sheets/tree/master/software/service-architectures/infrastructure-as-a-service/cloud-services/google-cloud-platform-cheat-sheet)
+  [here](https://github.com/JeffDeCola/my-cheat-sheets/tree/master/software/service-providers/google-cloud-platform-cheat-sheet)
 * [GCP Go Documentation](https://cloud.google.com/go/docs/)
 
 This [GitHub Webpage](https://jeffdecola.github.io/my-go-examples/)

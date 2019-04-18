@@ -5,7 +5,7 @@
 Documentation and reference,
 
 * My `aws` cheat sheet is
-  [here](https://github.com/JeffDeCola/my-cheat-sheets/tree/master/software/service-architectures/infrastructure-as-a-service/cloud-services/amazon-web-services-cheat-sheet)
+  [here](https://github.com/JeffDeCola/my-cheat-sheets/tree/master/software/service-providers/amazon-web-services-cheat-sheet)
 * [AWS Go Documentation](https://aws.amazon.com/sdk-for-go/)
 
 This [GitHub Webpage](https://jeffdecola.github.io/my-go-examples/)
