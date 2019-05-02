@@ -4,8 +4,9 @@
 *** UNDER CONSTRUCTION - CHECK BACK SOON ***
 ```
 
-`something-RESTful` _TBD._
+`something-RESTful` _is an example of
+tbd._
 
 ## TBD
 
-TBD
+tbd

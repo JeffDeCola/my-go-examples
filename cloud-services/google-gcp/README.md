@@ -1,6 +1,7 @@
 # google-gcp example
 
-`google-gcp` _interacting with google's `gcp` using `google-cloud-go` client libraries._
+`google-gcp` _is an example of
+interacting with google's `gcp` using `google-cloud-go` client libraries._
 
 Documentation and reference,
 
@@ -12,7 +13,7 @@ Documentation and reference,
 * [GoDoc Package for Compute Engine API](https://godoc.org/google.golang.org/api/compute/v1)
 * [GoDoc Package for google oath2](https://godoc.org/golang.org/x/oauth2/google)
 
-This [GitHub Webpage](https://jeffdecola.github.io/my-go-examples/)
+[GitHub Webpage](https://jeffdecola.github.io/my-go-examples/)
 
 ## OVERVIEW
 

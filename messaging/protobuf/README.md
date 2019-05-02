@@ -1,11 +1,14 @@
 # protobuf example
 
-`protobuf`  _protocol buffers serialize structured data, useful for messaging._
-
-[GitHub Webpage](https://jeffdecola.github.io/my-go-examples/)
+`protobuf`  _is an example of
+protocol buffers serialize structured data, useful for messaging._
 
 Also check out
-[protobuf over NATS](https://github.com/JeffDeCola/my-go-examples/tree/master/protobuf-NATS)
+[protobuf-NATS-request-response](https://github.com/JeffDeCola/my-go-examples/tree/master/messaging/protobuf-NATS-request-response)
+and
+[protobuf-NATS-publish-subscribe](https://github.com/JeffDeCola/my-go-examples/tree/master/messaging/protobuf-NATS-publish-subscribe)
+
+[GitHub Webpage](https://jeffdecola.github.io/my-go-examples/)
 
 ## USEFUL FOR RPC
 

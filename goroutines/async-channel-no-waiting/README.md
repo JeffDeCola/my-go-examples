@@ -1,8 +1,8 @@
 # async-channel-no-waiting example
 
-`async-channel-no-waiting`  _is an example of a goroutine asynchronously
-sending data (via a channel) to a function that uses the latest data
-(if available) and does not wait._
+`async-channel-no-waiting`  _is an example of
+a goroutine asynchronously sending data (via a channel)
+to a function that uses the latest data (if available) and does not wait._
 
 [GitHub Webpage](https://jeffdecola.github.io/my-go-examples/)
 

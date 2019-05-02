@@ -1,11 +1,14 @@
 # postgreSQL example
 
-`postgreSQL` _read/write from/to a table._
+`postgreSQL` _is an example of
+read/write from/to a table._
+
+Documentation and reference,
+
+* My
+  [postgreSQL-cheat-sheet](https://github.com/JeffDeCola/my-cheat-sheets/tree/master/software/development/software-architectures/database/postgreSQL-cheat-sheet).
 
 [GitHub Webpage](https://jeffdecola.github.io/my-go-examples/)
-
-A cheat sheet is
-[here](https://github.com/JeffDeCola/my-cheat-sheets/tree/master/postgreSQL-cheat-sheet)
 
 ## CREATE A TABLE
 

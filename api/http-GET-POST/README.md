@@ -1,6 +1,7 @@
 # http-GET-POST
 
-`http-GET-POST` _uses http package to GET or POST (update via json)._
+`http-GET-POST` _is an example of
+using a http package to GET or POST (update via json)._
 
 [GitHub Webpage](https://jeffdecola.github.io/my-go-examples/)
 
