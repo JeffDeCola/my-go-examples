@@ -1,6 +1,8 @@
 # OAuth-2.0-google-cloud-storage-api
 
-`OAuth-2.0-google-cloud-storage-api` _uses OAuth 2.0 to access a users google cloud storage (based on scopes) via googles api._
+`OAuth-2.0-google-cloud-storage-api` _is an example of
+using OAuth 2.0 to access a users google cloud storage
+(based on scopes) via googles api._
 
 [GitHub Webpage](https://jeffdecola.github.io/my-go-examples/)
 

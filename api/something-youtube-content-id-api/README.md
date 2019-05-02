@@ -4,7 +4,8 @@
 *** UNDER CONSTRUCTION - CHECK BACK SOON ***
 ```
 
-`something-youtube-content-id` _is an api for YouTube's Rights Management System._
+`something-youtube-content-id` _is an example of
+api for YouTube's Rights Management System._
 
 ## AUTHORIZATION OAuth 2.0
 

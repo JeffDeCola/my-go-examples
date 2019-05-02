@@ -1,6 +1,7 @@
 # protobuf-NATS-request-response example
 
-`protobuf-NATS-request-response` _sends a protobuf msg over NATS from a
+`protobuf-NATS-request-response` _is an example of
+sending a protobuf msg over NATS from a
 client to a server using request and response._
 
 [GitHub Webpage](https://jeffdecola.github.io/my-go-examples/)

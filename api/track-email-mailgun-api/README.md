@@ -1,7 +1,7 @@
 # track-email-mailgun-api
 
-`track-email-mailgun-api` _Send and track an email using mailgun over their
-go client api._
+`track-email-mailgun-api` _is an example of
+send and track an email using mailgun over their go client api._
 
 [GitHub Webpage](https://jeffdecola.github.io/my-go-examples/)
 

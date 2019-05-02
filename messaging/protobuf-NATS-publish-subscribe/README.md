@@ -1,6 +1,7 @@
 # protobuf-NATS-publish-subscribe example
 
-`protobuf-NATS-publish-subscribe`  _sends a protobuf msg over NATS from a client
+`protobuf-NATS-publish-subscribe` _is an example of
+sending a protobuf msg over NATS from a client
 to a server using publish and subscribe._
 
 [GitHub Webpage](https://jeffdecola.github.io/my-go-examples/)

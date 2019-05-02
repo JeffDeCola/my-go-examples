@@ -1,10 +1,11 @@
 # simple-webserver example
 
-`simple-webserver` _uses the http package to build a simple webserver._
-
-[GitHub Webpage](https://jeffdecola.github.io/my-go-examples/)
+`simple-webserver` _is an example of
+using the http package to build a simple webserver._
 
 Also checkout [simple-webserver-with-REST](https://github.com/JeffDeCola/my-go-examples/tree/master/simple-webserver-with-REST).
+
+[GitHub Webpage](https://jeffdecola.github.io/my-go-examples/)
 
 ## The HTTP PACKAGE /net/http
 

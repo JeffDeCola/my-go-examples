@@ -31,21 +31,22 @@ _All sections in alphabetical order._
 
   * [http-GET-POST](https://github.com/JeffDeCola/my-go-examples/tree/master/api/http-GET-POST)
 
-    _Using http package to GET or POST (update via json)._
+    _Using a http package to GET or POST (update via json)._
 
   * [OAuth-2.0-google-cloud-storage-api](https://github.com/JeffDeCola/my-go-examples/tree/master/api/OAuth-2.0-google-cloud-storage-api)
 
-    _Using OAuth 2.0 to access a users google-cloud-storage (based on scopes)
-    via googles api._
+    _Using OAuth 2.0 to access a users google cloud storage
+    (based on scopes) via googles api._
 
   * [OAuth-2.0-google-cloud-storage-api-over-NATS](https://github.com/JeffDeCola/my-go-examples/tree/master/api/OAuth-2.0-google-cloud-storage-api-over-NATS)
 
-    _Using OAuth 2.0 (frontend and backend via protobuf over NATS) to
-    access a users google cloud storage (based on scopes) via googles api._
+    _Using OAuth 2.0 (frontend and backend via protobuf over NATS)
+    to access a users google cloud storage (based on scopes) via googles api._
 
   * [simple-webserver-with-REST](https://github.com/JeffDeCola/my-go-examples/tree/master/api/simple-webserver-with-REST)
 
-    _Adding REST to the [simple-webserver](https://github.com/JeffDeCola/my-go-examples/tree/master/webserver/simple-webserver)._
+    _Adding REST to my
+    [simple-webserver](https://github.com/JeffDeCola/my-go-examples/tree/master/simple-webserver)._
 
   * [something-postgreSQL](https://github.com/JeffDeCola/my-go-examples/tree/master/api/something-postgreSQL)
 
@@ -87,13 +88,13 @@ _All sections in alphabetical order._
 
   * [interface](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-programming/interface)
 
-    _Accepting ANYTHING (as long as anything has a method attached to an
-    interface)._
+    _Accepting ANYTHING (as long as anything has a method attached
+    to an interface)._
 
   * [interfaces-card-atm-bank](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-programming/interfaces-card-atm-bank)
 
-    _Uses interfaces to show how an atm card is used to interact with an atm
-    and bank._
+    _Using interfaces to show how an atm card is
+    used to interact with an atm and bank._
 
   * [json](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-programming/json)
 
@@ -121,8 +122,8 @@ _All sections in alphabetical order._
 
   * [slices-underlying-array](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-programming/slices-underlying-array)
 
-    _A slice being appended to, and shows the underlying array being added
-    to the slice._
+    _A slice being appended to, and shows the underlying array
+    being added to the slice._
 
   * [structs-methods-interfaces](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-programming/structs-methods-interfaces)
 
@@ -142,30 +143,30 @@ _All sections in alphabetical order._
 
   * [google-cloud-spanner-table](https://github.com/JeffDeCola/my-go-examples/tree/master/database/google-cloud-spanner-table)
 
-    _read/write from/to a table._
+    _tbd._
 
   * [postgreSQL](https://github.com/JeffDeCola/my-go-examples/tree/master/database/postgreSQL)
 
-    _read/write from/to a table._
+    _Read/Write from/to a table._
 
 * GOROUTINES
 
   * [async-channel-no-waiting](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/async-channel-no-waiting)
 
-    _An example of a goroutine asynchronously sending data (via a channel)
+    _A goroutine asynchronously sending data (via a channel)
     to a function that uses the latest data (if available) and does not wait._
 
   * [goroutines-channels-select](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-channels-select)
 
-    _An example of concurrency and message passing via channels in go._
+    _Concurrency and message passing via channels in go._
 
   * [goroutines-waitgroup](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-waitgroup)
 
-    _An example of concurrency using a waitgroup._
+    _Concurrency using a waitgroup._
 
   * [goroutines-worker-pools](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-worker-pools)
 
-    _An example of concurrency using a worker pool with goroutines and channels._
+    _Concurrency using a worker pool with goroutines and channels._
 
 * MESSAGING
 
@@ -173,13 +174,15 @@ _All sections in alphabetical order._
 
     _Protocol buffers serialize structured data, useful for messaging._
 
-  * [protobuf-NATS-request-response](https://github.com/JeffDeCola/my-go-examples/tree/master/messaging/protobuf-NATS-request-response)
-
-    _Sends a protobuf msg over NATS from a client to a server using request and response._
-
   * [protobuf-NATS-publish-subscribe](https://github.com/JeffDeCola/my-go-examples/tree/master/messaging/protobuf-NATS-publish-subscribe)
 
-    _Sends a protobuf msg over NATS from a client to a server using publish and subscribe._
+    _Sending a protobuf msg over NATS from a client
+    to a server using publish and subscribe._
+
+  * [protobuf-NATS-request-response](https://github.com/JeffDeCola/my-go-examples/tree/master/messaging/protobuf-NATS-request-response)
+
+    _Sending a protobuf msg over NATS from a
+    client to a server using request and response._
 
 * WEBSERVER
 

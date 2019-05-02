@@ -4,7 +4,8 @@
 *** UNDER CONSTRUCTION - CHECK BACK SOON ***
 ```
 
-`something-postgreSQL` _tbd._
+`something-postgreSQL` _is an example of
+tbd._
 
 ## TBD
 

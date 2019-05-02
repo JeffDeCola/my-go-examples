@@ -1,6 +1,7 @@
 # amazon-aws example
 
-`amazon-aws` _interacting with amazon's `aws` using `aws-sdk-go` client libraries._
+`amazon-aws` _is an example of
+interacting with amazon's `aws` using `aws-sdk-go` client libraries._
 
 Documentation and reference,
 
@@ -8,7 +9,7 @@ Documentation and reference,
   [here](https://github.com/JeffDeCola/my-cheat-sheets/tree/master/software/service-providers/amazon-web-services-cheat-sheet)
 * [AWS Go Documentation](https://aws.amazon.com/sdk-for-go/)
 
-This [GitHub Webpage](https://jeffdecola.github.io/my-go-examples/)
+[GitHub Webpage](https://jeffdecola.github.io/my-go-examples/)
 
 ## OVERVIEW
 
