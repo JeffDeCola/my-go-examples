@@ -59,7 +59,7 @@ _All sections in alphabetical order._
 
     _tbd_
 
-  * [something-youtube-data-api-v3](https://github.com/JeffDeCola/my-go-examples/tree/master/api/something-youtube-data-api-ve)
+  * [something-youtube-data-api-v3](https://github.com/JeffDeCola/my-go-examples/tree/master/api/something-youtube-data-api-v3)
 
     _tbd_
 
@@ -72,6 +72,10 @@ _All sections in alphabetical order._
   * [callback](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-programming/callback)
 
     _Passing a function (as an argument) to a function._
+
+  * [closure](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-programming/closure)
+
+    _Assigning a variable to a function._
 
   * [gomock](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-programming/gomock)
 
