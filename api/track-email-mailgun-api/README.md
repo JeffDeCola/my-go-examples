@@ -11,7 +11,7 @@ A unique ID is used to keep track of who the email went to.
 
 ## HIGH LEVEL VIEW
 
-![IMAGE - mailgun-architecture-and-setup-with-go.jpg - IMAGE](https://github.com/JeffDeCola/my-go-examples/tree/master/docs/pics/mailgun-architecture-and-setup-with-go.jpg)
+![IMAGE - mailgun-architecture-and-setup-with-go.jpg - IMAGE](https://github.com/JeffDeCola/my-go-examples/blob/master/docs/pics/mailgun-architecture-and-setup-with-go.jpg)
 
 ## SETUP EMAIL SERVER MX RECORDS
 
