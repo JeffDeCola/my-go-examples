@@ -1,6 +1,10 @@
 # something-youtube-content-id
 
-`something-youtube-content-id` _???????????? is an api for YouTube's Rights Management Systems._
+```txt
+*** UNDER CONSTRUCTION - CHECK BACK SOON ***
+```
+
+`something-youtube-content-id` _is an api for YouTube's Rights Management System._
 
 ## AUTHORIZATION OAuth 2.0
 

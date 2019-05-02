@@ -7,7 +7,7 @@
 ## AUTHORIZATION OAuth 2.0
 
 Refer to
-[Web Server-Side Flow](https://github.com/JeffDeCola/my-cheat-sheets/blob/master/OAuth-2.0-authorization-cheat-sheet/OAuth-2.0-authorization-web-server-app-flow.md)
+[Web Server-Side Flow](https://github.com/JeffDeCola/my-cheat-sheets/blob/master/software/development/software-architectures/authorization/OAuth-2.0-authorization-cheat-sheet/OAuth-2.0-authorization-web-server-app-flow.md)
 for a high-level view about OAuth 2.0.
 
 ## GETTING A TOKEN

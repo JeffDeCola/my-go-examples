@@ -1,10 +1,10 @@
 # http-GET-POST
 
-`http-GET-POST` _uses http package to GET or POST (update via json).
+`http-GET-POST` _uses http package to GET or POST (update via json)._
 
 [GitHub Webpage](https://jeffdecola.github.io/my-go-examples/)
 
-## /get
+## get
 
 Uses `http.Get`  and `ioutil.ReadAll`:
 
@@ -15,10 +15,10 @@ contents, err := ioutil.ReadAll(response.Body)
 fmt.Printf("Content is:\n\n%s\n", string(contents))
 ```
 
-## /get-struct
+## get-struct
 
-Same as above bu,t it writes to struct.
+Same as above but it writes to struct.
 
-## /post
+## post
 
 How to update over an api.
