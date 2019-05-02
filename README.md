@@ -8,7 +8,7 @@
 
 `my-go-examples` _is a place to keep my go code snippets and examples._
 
-I organized everything into these sections,
+I organized everything (alphabetically) into these sections,
 
 * API
 * BASIC PROGRAMMING
@@ -20,8 +20,7 @@ I organized everything into these sections,
 
 These go examples also contain info I gathered from other sources.
 
-View my entire list of go examples on
-[my GitHub Webpage](https://jeffdecola.github.io/my-go-examples/)
+[GitHub Webpage](https://jeffdecola.github.io/my-go-examples/)
 
 ## GO EXAMPLES
 
@@ -133,11 +132,19 @@ _All sections in alphabetical order._
 
   * [amazon-aws](https://github.com/JeffDeCola/my-go-examples/tree/master/cloud-services/amazon-aws)
 
-    _Interacting with amazon's `aws` using `aws-sdk-go` client libraries._
-
+    _Interacting with amazon's
+    [aws](https://github.com/JeffDeCola/my-cheat-sheets/tree/master/software/service-providers/amazon-web-services-cheat-sheet)
+    using
+    `aws-sdk-go`
+    client libraries._
+ 
   * [google-gcp](https://github.com/JeffDeCola/my-go-examples/tree/master/cloud-services/google-gcp)
 
-    _Interacting with google's `gcp` using `google-cloud-go` client libraries._
+    _Interacting with google's
+    [gcp](https://github.com/JeffDeCola/my-cheat-sheets/tree/master/software/service-providers/google-cloud-platform-cheat-sheet)
+    using
+    [google-cloud-go](https://github.com/googleapis/google-api-go-client/tree/master)
+    client libraries._
 
 * DATABASE
 
