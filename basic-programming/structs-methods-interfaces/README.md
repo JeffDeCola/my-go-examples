@@ -1,6 +1,7 @@
 # structs-methods-interfaces example
 
-`structs-methods-interfaces` _is an example of structs, methods and interfaces._
+`structs-methods-interfaces` _is an example of
+structs, methods and interfaces._
 
 [GitHub Webpage](https://jeffdecola.github.io/my-go-examples/)
 

@@ -1,6 +1,7 @@
 # recursion example
 
-`recursion` _is a example of a function calling itself to make a fibonacci series._
+`recursion` _is a example of
+a function calling itself to make a fibonacci series._
 
 [GitHub Webpage](https://jeffdecola.github.io/my-go-examples/)
 

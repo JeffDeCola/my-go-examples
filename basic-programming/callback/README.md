@@ -1,9 +1,9 @@
 # callback example
 
-`callback` _is an example of passing a function (as an argument) to a function._
+`callback` _is an example of
+passing a function (as an argument) to a function._
 
-View my entire list of cheat sheets on
-[my GitHub Webpage](https://jeffdecola.github.io/my-cheat-sheets/).
+[GitHub Webpage](https://jeffdecola.github.io/my-go-examples/)
 
 ## CALLBACK
 

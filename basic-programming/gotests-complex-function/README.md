@@ -1,7 +1,7 @@
 # gotests-complex-function example
 
-`gotests-complex-function` _is an example of testing a function with
-complex inputs and outputs._
+`gotests-complex-function` _is an example of
+testing a function with complex inputs and outputs._
 
 [GitHub Webpage](https://jeffdecola.github.io/my-go-examples/)
 
