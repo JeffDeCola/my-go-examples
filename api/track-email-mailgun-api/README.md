@@ -1,9 +1,11 @@
 # track-email-mailgun-api
 
 `track-email-mailgun-api` _Send and track an email using mailgun over their
-go client api_
+go client api._
 
 [GitHub Webpage](https://jeffdecola.github.io/my-go-examples/)
+
+## OVERVIEW
 
 Mailgun is used to send emails to recipients and have them respond.
 

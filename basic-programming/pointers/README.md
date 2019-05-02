@@ -1,6 +1,7 @@
 # pointers example
 
-`pointers` _in an example of a pointer to a struct._
+`pointers` _in an example of
+a pointer to a struct._
 
 [GitHub Webpage](https://jeffdecola.github.io/my-go-examples/)
 

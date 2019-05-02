@@ -1,6 +1,7 @@
 # logging-error-handling example
 
-`logging-error-handling` _is an example of logging and error handling._
+`logging-error-handling` _is an example of
+logging and error handling._
 
 [GitHub Webpage](https://jeffdecola.github.io/my-go-examples/)
 

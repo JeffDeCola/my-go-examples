@@ -1,10 +1,9 @@
 # interfaces-card-atm-bank example
 
 `interfaces-card-atm-bank` _uses interfaces to show how an atm card is
-used to interact with an atm and bank_.
+used to interact with an atm and bank._
 
-View my entire list of cheat sheets on
-[my GitHub Webpage](https://jeffdecola.github.io/my-cheat-sheets/).
+[GitHub Webpage](https://jeffdecola.github.io/my-go-examples/)
 
 ## OVERVIEW
 

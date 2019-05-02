@@ -1,10 +1,10 @@
 # slices-underlying-array example
 
-`slices-underlying-array` _is an example of a slice being appended to, and shows
-the underlying array being added to the slice_.
+`slices-underlying-array` _is an example of
+a slice being appended to, and shows
+the underlying array being added to the slice._
 
-View my entire list of cheat sheets on
-[my GitHub Webpage](https://jeffdecola.github.io/my-cheat-sheets/).
+[GitHub Webpage](https://jeffdecola.github.io/my-go-examples/)
 
 ## LENGTH AND CAPACITY OF A SLICE
 

@@ -79,7 +79,7 @@ _All sections in alphabetical order._
 
   * [gomock](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-programming/gomock)
 
-    _A halloween theme is used for gomock on an interface for unit testing._
+    _Using gomock on an interface for unit testing._
 
   * [gotests-complex-function](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-programming/gotests-complex-function)
 
@@ -87,7 +87,8 @@ _All sections in alphabetical order._
 
   * [interface](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-programming/interface)
 
-    _Accepting ANYTHING (as long as anything has a method attached to interface)._
+    _Accepting ANYTHING (as long as anything has a method attached to an
+    interface)._
 
   * [interfaces-card-atm-bank](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-programming/interfaces-card-atm-bank)
 
@@ -100,7 +101,7 @@ _All sections in alphabetical order._
 
   * [linked-list](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-programming/linked-list)
 
-    _An example of a Singly Linked List (i.e. using just a head pointer)._
+    _A singly linked list (i.e. using just a head pointer)._
 
   * [logging-error-handling](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-programming/logging-error-handling)
 
@@ -108,7 +109,7 @@ _All sections in alphabetical order._
 
   * [pointers](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-programming/pointers)
 
-    _An example of a pointer to a struct._*
+    _A pointer to a struct._
 
   * [read-file](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-programming/read-file)
 
@@ -120,12 +121,12 @@ _All sections in alphabetical order._
 
   * [slices-underlying-array](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-programming/slices-underlying-array)
 
-    _is an example of a slice being appended to, and shows the underlying array
-    being added to the slice._
+    _A slice being appended to, and shows the underlying array being added
+    to the slice._
 
   * [structs-methods-interfaces](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-programming/structs-methods-interfaces)
 
-    _An example of structs, methods and interfaces._
+    _Structs, methods and interfaces._
 
 * CLOUD SERVICES
 
