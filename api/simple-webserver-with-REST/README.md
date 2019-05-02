@@ -11,7 +11,7 @@ In this example a mock database will be used.
 
 ## HIGH-LEVEL VIEW OF CODE
 
-![IMAGE - simple-webserver-with-REST - IMAGE](simple-webserver-with-REST.jpg)
+![IMAGE - simple-webserver-with-REST - IMAGE](https://github.com/JeffDeCola/my-go-examples/blob/master/docs/pics/simple-webserver-with-REST.jpg)
 
 ## RUN
 
