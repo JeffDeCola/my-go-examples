@@ -1,7 +1,11 @@
 # google-gcp example
 
 `google-gcp` _is an example of
-interacting with google's `gcp` using `google-cloud-go` client libraries._
+interacting with google's
+[gcp](https://github.com/JeffDeCola/my-cheat-sheets/tree/master/software/service-providers/google-cloud-platform-cheat-sheet)
+using
+[google-cloud-go](https://github.com/googleapis/google-api-go-client/tree/master)
+client libraries._
 
 Documentation and reference,
 
