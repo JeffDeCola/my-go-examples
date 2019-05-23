@@ -36,35 +36,31 @@ func main() {
 	fmt.Println("Successfully connected to db!")
 
 	// CREATE A NEW ROW (id=3)
-	/*
-		fmt.Printf("CREATE A NEW ROW (id=3)\n")
-		_, err = db.Exec(`
+	fmt.Printf("CREATE A NEW ROW (id=3)\n")
+	_, err = db.Exec(`
 			insert into people (id, first_name, last_name)
 			values (3, 'Jeff', 'DeCola')
 		`)
-		if err != nil {
-			fmt.Println("could not write")
-			panic(err)
-		}
-	*/
+	if err != nil {
+		fmt.Println("could not write")
+		panic(err)
+	}
 
 	// CREATE A NEW ROW (id=4)
-	/*
-		fmt.Printf("CREATE A NEW ROW (id=4)\n")
-		_, err = db.Exec(`
+	fmt.Printf("CREATE A NEW ROW (id=4)\n")
+	_, err = db.Exec(`
 			insert into people (id, first_name, last_name)
 			values (4, 'John', 'Henry')
 		`)
-		if err != nil {
-			fmt.Println("could not write")
-			panic(err)
-		}
-	*/
+	if err != nil {
+		fmt.Println("could not write")
+		panic(err)
+	}
 
-	// UPDATE A COLUMN IN A ROW (id=66)
-	fmt.Printf("UPDATE A COLUMN IN A ROW (id=66)\n")
+	// UPDATE A COLUMN IN A ROW (id=4)
+	fmt.Printf("UPDATE A COLUMN IN A ROW (id=4)\n")
 	updateResult, err := db.Exec(`
-			update people set first_name = 'larry' where id = 66
+			update people set first_name = 'larry' where id = 4
 		`)
 	if err != nil {
 		fmt.Println("Could not write")
@@ -115,12 +111,12 @@ func main() {
 	}
 	fmt.Printf("    lastnames are %s\n", lastnames)
 
-	// READ AN ENTIRE ROW (id=66)
-	fmt.Printf("READ AN ENTIRE ROW (id=66)\n")
+	// READ AN ENTIRE ROW (id=3)
+	fmt.Printf("READ AN ENTIRE ROW (id=3)\n")
 	var theid int32
 	var firstName, lastName string
 	err = db.QueryRow(`
-		select * from people where id = 66
+		select * from people where id = 3
 		`).Scan(&theid, &firstName, &lastName)
 	if err != nil {
 		fmt.Println("Could not read")
