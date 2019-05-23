@@ -6,17 +6,21 @@ read/write from/to a table._
 Documentation and reference,
 
 * My
-  [postgreSQL-cheat-sheet](https://github.com/JeffDeCola/my-cheat-sheets/tree/master/software/development/software-architectures/database/postgreSQL-cheat-sheet).
+  [postgreSQL-cheat-sheet](https://github.com/JeffDeCola/my-cheat-sheets/tree/master/software/development/software-architectures/database/postgreSQL-cheat-sheet)
+  on how to get postgreSQL running on your machine.
 
 [GitHub Webpage](https://jeffdecola.github.io/my-go-examples/)
 
 ## CREATE A POSTGRESQL DATABASE AND A TABLE (SCHEMA)
 
+Obviously you need postgreSQL server running.
+
 Create a database `jeff_db_example` and a table `people` using `psql`,
 
 ```bash
 sudo -u postgres psql
-CREATE DATABASE jeff_db_example;
+CREATE USER jeffd WITH ENCRYPTED PASSWORD 'mypass';
+CREATE DATABASE jeff_db_example3 OWNER jeffd;
 \c jeff_db_example
 CREATE TABLE people (id int primary key not null, first_name text, last_name text);
 ```
