@@ -13,7 +13,7 @@ const (
 	port     = 5432
 	user     = "jeffdecola"
 	password = ""
-	dbname   = "rm"
+	dbname   = "jeff_db_example"
 )
 
 func main() {
