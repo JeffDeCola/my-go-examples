@@ -23,6 +23,7 @@ CREATE USER jeffd WITH ENCRYPTED PASSWORD 'mypass';
 CREATE DATABASE jeff_db_example3 OWNER jeffd;
 \c jeff_db_example
 CREATE TABLE people (id int primary key not null, first_name text, last_name text);
+GRANT ALL PRIVILEGES ON TABLE people TO jeffd;
 ```
 
 ## CHECK TABLE
@@ -47,11 +48,11 @@ First, make sure you have the go library
 go get -u github.com/lib/pq
 ```
 
-Go run will
 
-* ???
-* ???
-* ???
+
+
+
+
 
 ## CREATE A NEW ROW (id=3)
 
