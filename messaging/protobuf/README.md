@@ -6,34 +6,25 @@ protocol buffers serialize structured data, useful for messaging._
 Also check out
 [protobuf-NATS-request-response](https://github.com/JeffDeCola/my-go-examples/tree/master/messaging/protobuf-NATS-request-response)
 and
-[protobuf-NATS-publish-subscribe](https://github.com/JeffDeCola/my-go-examples/tree/master/messaging/protobuf-NATS-publish-subscribe)
+[protobuf-NATS-publish-subscribe](https://github.com/JeffDeCola/my-go-examples/tree/master/messaging/protobuf-NATS-publish-subscribe).
 
 [GitHub Webpage](https://jeffdecola.github.io/my-go-examples/)
 
-## USEFUL FOR RPC
-
-Protobuf serves as a basis for a custom remote procedure
-call (RPC) system that can be used for
-inter-machine communication.
-
-The whole purpose of using protocol buffers is to serialize
-your data so that it can be parsed elsewhere.
-
-## PROTOCOL .proto BUFFER FILE
+## .proto FILE
 
 Define a protocol buffer file `messages.proto` that
 declares the messages that are going to be serialized.
 
-Strucure for this example is,
+Structure for this example is,
 
 A message is just an aggregate containing a set of typed fields.
 
-```go
-message Token {
-    string AccessToken = 1;
-    string TokenType = 2;
-    string RefreshToken = 3;
-    int64 ExpiresAt = 4;
+```txt
+message Person {
+    string name = 1;
+    int32 age = 2;
+    string email = 3;
+    string phone = 4;
 }
 ```
 
