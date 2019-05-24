@@ -3,14 +3,18 @@
 `protobuf`  _is an example of
 protocol buffers serialize structured data, useful for messaging._
 
-Also check out
-[protobuf-NATS-request-response](https://github.com/JeffDeCola/my-go-examples/tree/master/messaging/protobuf-NATS-request-response)
-and
-[protobuf-NATS-publish-subscribe](https://github.com/JeffDeCola/my-go-examples/tree/master/messaging/protobuf-NATS-publish-subscribe).
+Also check out these examples,
+
+* [protobuf-NATS-request-response](https://github.com/JeffDeCola/my-go-examples/tree/master/messaging/protobuf-NATS-request-response)
+* [protobuf-NATS-publish-subscribe](https://github.com/JeffDeCola/my-go-examples/tree/master/messaging/protobuf-NATS-publish-subscribe)
+
+Refer to my
+[protobuf cheat sheet](https://github.com/JeffDeCola/my-cheat-sheets/tree/master/software/development/software-architectures/messaging/protobuf-cheat-sheet)
+for information on installation.
 
 [GitHub Webpage](https://jeffdecola.github.io/my-go-examples/)
 
-## .proto FILE
+## STEP 1 - DEFINE .proto FILE
 
 Define a protocol buffer file `messages.proto` that
 declares the messages that are going to be serialized.
@@ -28,28 +32,33 @@ message Person {
 }
 ```
 
-## PROTOBUF COMPILER
+## STEP 2 - COMPILE .proto FILE
 
-In go, get the compiler,
-
-```bash
-brew install protobuf
-apt-get install protobuf-compiler
-protoc --version
-```
-
-Compile the protcol buffer file to get the wrappers,
+Compile the protocol buffer file to get the wrappers,
 
 ```bash
 protoc --go_out=. messages.proto
 ```
 
-`--go_out=.` is the directory you want to output go code to.
+Place this file in the same directory as protobuf.go.
 
 Results in `messages.pb.go` that
 implements all messages as go structs and types.
 
-## CLIENT - MARSHAL - WRITE/SEND
+## STEP 3 - IMPLEMENT
+
+Run the code,
+
+```bash
+go run protobuf.go messages.pb.go
+```
+
+## WHAT IT DOES
+
+Usually, you have two separate processes to show the message being passed, but I
+didn't want to have the pipes, so I kept everything inside one process.
+
+### CLIENT - MARSHAL - WRITE/SEND
 
 Now lets create the message `msg` to send. Create a pointer
 to a type Token struct and fill it with data.
@@ -69,7 +78,7 @@ Then serialize it up,
 msg, err := proto.Marshal(token)
 ```
 
-## SERVER - RECEIVE - READ/UNMARSHAL
+### SERVER - RECEIVE - READ/UNMARSHAL
 
 Now lets create an empty pointer to the
 proto stuct, receive the message and unmarshal it.
@@ -77,10 +86,4 @@ proto stuct, receive the message and unmarshal it.
 ```go
 rcvToken := &Token{}
 err = proto.Unmarshal(msg, rcvToken)
-```
-
-## RUN
-
-```go
-go run read.go messages.pb.go
 ```
