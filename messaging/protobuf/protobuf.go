@@ -9,34 +9,34 @@ import (
 	"github.com/golang/protobuf/proto"
 )
 
-func testToken() {
+func testSendReceive() {
 
-	token := &Token{
-		AccessToken:  "the access token",
-		TokenType:    "this",
-		RefreshToken: "and the refresh token",
-		ExpiresAt:    5,
+	person := &Person{
+		Name:  "Jeff",
+		Age:   20,
+		Email: "blah@blah.com",
+		Phone: "555-555-5555",
 	}
 
 	// CLIENT - MARSHAL - WRITE/SEND
-	msg, err := proto.Marshal(token)
+	msg, err := proto.Marshal(person)
 	if err != nil {
 		log.Fatal("marshaling error: ", err)
 	}
 
 	// SERVER - RECEIVE - READ/UNMARSHAL
-	rcvToken := &Token{}
-	err = proto.Unmarshal(msg, rcvToken)
+	rcvPerson := &Person{}
+	err = proto.Unmarshal(msg, rcvPerson)
 	if err != nil {
 		log.Fatal("unmarshaling error: ", err)
 	}
 
-	log.Printf("token sent :    %+v", token)
-	log.Printf("token received: %+v", rcvToken)
+	log.Printf("person sent :    %+v", person)
+	log.Printf("person received: %+v", rcvPerson)
 
 	// TEST SAME DATA
-	if token.AccessToken != rcvToken.AccessToken {
-		log.Fatalf("data mismatch %q != %q", token, rcvToken)
+	if person.Name != rcvPerson.Name {
+		log.Fatalf("data mismatch %q != %q", person, rcvPerson)
 	}
 
 }
@@ -78,6 +78,10 @@ func testData() {
 }
 
 func main() {
-	testToken()
-	testData()
+
+	println("Lets test sending a message and receiving a message")
+
+	testSendReceive()
+
+	// testData()
 }

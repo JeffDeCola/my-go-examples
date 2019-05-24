@@ -9,6 +9,6 @@ message Person {
     string phone = 4;
 }
 
-message AddressBook {
-  repeated Person people = 1;
+message Data {
+	string body = 1;
 }
