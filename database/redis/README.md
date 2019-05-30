@@ -12,7 +12,7 @@ Documentation and reference,
 
 [GitHub Webpage](https://jeffdecola.github.io/my-go-examples/)
 
-## CREATE A REDIS DATABASE
+## MAKE SURE YOU HAVE REDIS RUNNING
 
 Obviously you need a redis server running,
 
@@ -36,7 +36,11 @@ Then run,
 go run redis.go
 ```
 
-## CREATE A CONNECTION TO REDIS SERVER
+## SET/GET KEY/VALUES IN GO
+
+Lets dive into the code.
+
+### CREATE A CONNECTION TO REDIS SERVER
 
 ```go
 client := redis.NewClient(&redis.Options{
@@ -50,7 +54,7 @@ fmt.Println(pong, err)
 // Output: PONG <nil>
 ```
 
-## SET A KEY/VALUE
+### SET A KEY/VALUE
 
 ```go
 err = client.Set("jeff", "monkey", 0).Err()
@@ -59,7 +63,7 @@ if err != nil {
 }
 ```
 
-## GET A KEY/VALUE
+### GET A KEY/VALUE
 
 ```go
 val, err := client.Get("jeff").Result()
