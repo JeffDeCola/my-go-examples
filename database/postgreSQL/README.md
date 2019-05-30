@@ -1,7 +1,8 @@
 # postgreSQL example
 
 `postgreSQL` _is an example of
-read/write from/to a table._
+a relational database.
+Read/write from/to a table._
 
 Documentation and reference,
 
@@ -46,15 +47,14 @@ First, make sure you have the go library
 
 ```bash
 go get -u github.com/lib/pq
+go run postgreSQL.go
 ```
 
+## SOME COMMANDS
 
+Run will do the following.
 
-
-
-
-
-## CREATE A NEW ROW (id=3)
+### CREATE A NEW ROW (id=3)
 
 As an example,
 
@@ -65,7 +65,7 @@ _, err = db.Exec(`
 `)
 ```
 
-## UPDATE A COLUMN IN A ROW (id=66)
+### UPDATE A COLUMN IN A ROW (id=66)
 
 ```go
 _, err = db.Exec(`
@@ -73,7 +73,7 @@ _, err = db.Exec(`
 `)
 ```
 
-## READ A COLUMN (last_name) FROM ROW (id=3)
+### READ A COLUMN (last_name) FROM ROW (id=3)
 
 ```go
 var lastname string
@@ -85,7 +85,7 @@ err = db.QueryRow(`
 fmt.Printf("last_name is %s\n", lastname)
 ```
 
-## READ AN ENTIRE COLUMN (last_name) FROM ALL ROWS
+### READ AN ENTIRE COLUMN (last_name) FROM ALL ROWS
 
 ```go
 rows, err := db.Query(`select last_name from people`)
@@ -99,7 +99,7 @@ for rows.Next() {
 fmt.Printf("lastnames are %s\n", lastnames)
 ```
 
-## READ AN ENTIRE ROW (id=66)
+### READ AN ENTIRE ROW (id=66)
 
 ```go
 var theid int32

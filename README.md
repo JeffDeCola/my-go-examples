@@ -154,7 +154,11 @@ _All sections in alphabetical order._
 
   * [postgreSQL](https://github.com/JeffDeCola/my-go-examples/tree/master/database/postgreSQL)
 
-    _Read/Write from/to a table._
+    _A relational database - Read/Write from/to a table._
+
+  * [redis](https://github.com/JeffDeCola/my-go-examples/tree/master/database/redis)
+
+    _A non-relational (NoSQL) database - Read/Write from/to a key/value pair._
 
 * GOROUTINES
 

@@ -22,14 +22,14 @@ func main() {
 		host, port, dbname, user, password)
 	db, err := sql.Open("postgres", psqlInfo)
 	if err != nil {
-		fmt.Println("could not open sql")
+		fmt.Println("ERROR - Could not open sql")
 		panic(err)
 	}
 	defer db.Close()
 
 	err = db.Ping()
 	if err != nil {
-		fmt.Println("no ping")
+		fmt.Println("ERROR - No ping")
 		panic(err)
 	}
 
@@ -42,7 +42,7 @@ func main() {
 			values (3, 'Jeff', 'DeCola')
 		`)
 	if err != nil {
-		fmt.Println("could not write")
+		fmt.Println("ERROR - Could not write")
 		panic(err)
 	}
 
@@ -53,7 +53,7 @@ func main() {
 			values (4, 'John', 'Henry')
 		`)
 	if err != nil {
-		fmt.Println("could not write")
+		fmt.Println("ERROR - Could not write")
 		panic(err)
 	}
 
@@ -63,17 +63,17 @@ func main() {
 			update people set first_name = 'larry' where id = 4
 		`)
 	if err != nil {
-		fmt.Println("Could not write")
+		fmt.Println("ERROR - Could not write")
 		panic(err)
 	}
 	rowsresultResult, err := updateResult.RowsAffected()
 	if err != nil {
-		fmt.Printf("No Rows Updated %d\n", rowsresultResult)
+		fmt.Printf("ERROR - No Rows Updated %d\n", rowsresultResult)
 		panic(err)
 	}
 	if rowsresultResult == 0 {
 		fmt.Printf("No Rows Updated %d\n", rowsresultResult)
-		err = errors.New("Guess What - No Rows Updated")
+		err = errors.New("ERROR - Guess What - No Rows Updated")
 		panic(err)
 	}
 
@@ -86,7 +86,7 @@ func main() {
 		where id = $1
 	`, id).Scan(&lastname)
 	if err != nil {
-		fmt.Println("could not write")
+		fmt.Println("ERROR - Could not write")
 		panic(err)
 	}
 	fmt.Printf("    last_name is %s\n", lastname)
@@ -95,7 +95,7 @@ func main() {
 	fmt.Printf("READ AN ENTIRE COLUMN (last_name) FROM ALL ROWS\n")
 	rows, err := db.Query(`select last_name from people`)
 	if err != nil {
-		fmt.Println("could not write")
+		fmt.Println("ERROR - Could not write")
 		panic(err)
 	}
 	defer rows.Close()
@@ -104,7 +104,7 @@ func main() {
 		var lastname string
 		err = rows.Scan(&lastname)
 		if err != nil {
-			fmt.Println("could scan write")
+			fmt.Println("ERROR - Could not scan")
 			panic(err)
 		}
 		lastnames = append(lastnames, lastname)
@@ -119,7 +119,7 @@ func main() {
 		select * from people where id = 3
 		`).Scan(&theid, &firstName, &lastName)
 	if err != nil {
-		fmt.Println("Could not read")
+		fmt.Println("ERROR - Could not read")
 		panic(err)
 	}
 	fmt.Printf("    row %d is: %s, %s\n", theid, firstName, lastName)
