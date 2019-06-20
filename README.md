@@ -107,6 +107,11 @@ _All sections in alphabetical order._
 
     _Logging and error handling._
 
+  * [markdown-delimiter-doer](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-programming/markdown-delimter-doer)
+
+    _Take a markdown file and "do whatever you want" between the delimiters
+    and output new markdown file._
+
   * [pointers](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-programming/pointers)
 
     _A pointer to a struct._
