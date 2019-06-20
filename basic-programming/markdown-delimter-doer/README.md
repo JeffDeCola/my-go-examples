@@ -10,4 +10,4 @@ and output new markdown file._
 
 Here is an illustration,
 
-![IMAGE - markdown-delimiter-doer - IMAGE](docs/pics/markdown-delimiter-doer.jpg)
+![IMAGE - markdown-delimiter-doer - IMAGE](../../../docs/pics/markdown-delimiter-doer.jpg)
