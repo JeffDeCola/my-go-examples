@@ -7,7 +7,7 @@ Read/write from/to a table._
 Documentation and reference,
 
 * My
-  [postgreSQL-cheat-sheet](https://github.com/JeffDeCola/my-cheat-sheets/tree/master/software/development/software-architectures/database/postgreSQL-cheat-sheet)
+  [postgreSQL cheat sheet](https://github.com/JeffDeCola/my-cheat-sheets/tree/master/software/development/software-architectures/database/postgresql-cheat-sheet)
   on how to get postgreSQL running on your machine.
 
 [GitHub Webpage](https://jeffdecola.github.io/my-go-examples/)
