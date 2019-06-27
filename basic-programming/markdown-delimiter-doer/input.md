@@ -33,4 +33,21 @@ rowcol5: 10
 rowcol6: 02/23/25
 $$
 
+Here is another example,
+
+$$
+columns: 3
+columnW: 50,100,100
+columnA: left,center,center
+headers: ,TWO,THREE
+
+rowcol1: <b>A</b>
+rowcol2: <b>B</b>
+rowcol2: <i>Some notes</i>
+rowcol3: C
+rowcol1: <b>X</b>
+rowcol2: <b>Y</b>
+rowcol3: Z
+$$
+
 This is the end of the test.

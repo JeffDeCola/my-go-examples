@@ -73,4 +73,44 @@ Process whats between the delimiters,
   </tr>
 </table>
 
+Here is another example,
+
+<table style="font-size:.8em">
+  <!-- COLUMN WIDTHS -->
+  <col width="50">
+  <col width="100">
+  <col width="100">
+<!-- HEADING ROW -->
+  <tr>
+    <th></th>
+    <th>TWO</th>
+    <th>THREE</th>
+  </tr>
+  <!-- ROW -->
+  <tr>
+    <td  align="left" valign="top">
+      <b>A</b>
+    </td>
+    <td  align="center" valign="top">
+      <b>B</b><br>
+      <i>Some notes</i><br>
+    </td>
+    <td  align="center" valign="top">
+      C
+    </td>
+  </tr>
+  <!-- ROW -->
+  <tr>
+    <td  align="left" valign="top">
+      <b>X</b>
+    </td>
+    <td  align="center" valign="top">
+      <b>Y</b>
+    </td>
+    <td  align="center" valign="top">
+      Z
+    </td>
+  </tr>
+</table>
+
 This is the end of the test.

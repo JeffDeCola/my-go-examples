@@ -220,11 +220,12 @@ func main() {
 					break
 				}
 
-				// Place the line the line array
+				// Place the line in stuff
 				stuff = append(stuff, line)
 			}
 
 			// OK WE HAVE THE LINE ARRAY (Stuff between the delimeters)
+
 			// htmltable switch
 			if *htmlTableBoolPtr {
 
@@ -232,6 +233,8 @@ func main() {
 				makeHTMLTABLE(stuff, outputFile)
 				fmt.Println("END MAKE HTML TABLE")
 			}
+			// reset stuff to empty
+			stuff = []string{}
 
 			// Did not find a delimiter on this line
 		} else {
