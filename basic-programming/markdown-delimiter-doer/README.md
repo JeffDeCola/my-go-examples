@@ -29,3 +29,5 @@ You can make many different switches to do different things.
 Here is an illustration using the `-htmltable` switch,
 
 ![IMAGE - markdown-delimiter-doer - IMAGE](../../docs/pics/markdown-delimiter-doer.jpg)
+
+It will even check the dates and subscript them automatically.
