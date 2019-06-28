@@ -92,11 +92,11 @@ Here is another example,
       <b>A</b>
     </td>
     <td  align="center" valign="top">
-      <b>B</b><br>
+      B<br>
       <i>Some notes</i><br>
     </td>
     <td  align="center" valign="top">
-      C
+      <s>02/23/16</s>
     </td>
   </tr>
   <!-- ROW -->
@@ -105,10 +105,10 @@ Here is another example,
       <b>X</b>
     </td>
     <td  align="center" valign="top">
-      <b>Y</b>
+      Y
     </td>
     <td  align="center" valign="top">
-      Z
+      02/23/25
     </td>
   </tr>
 </table>

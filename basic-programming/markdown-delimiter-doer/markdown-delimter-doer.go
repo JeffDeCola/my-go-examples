@@ -8,17 +8,21 @@ import (
 	"os"
 	"strconv"
 	"strings"
+	"time"
 )
 
 type table struct {
 	columns       int
-	columnW       [20]string
-	columnA       [20]string
+	colWdth       [20]string
+	colAlgn       [20]string
+	colBold       [20]string
+	colDate       [20]string
 	headers       [20]string
 	rowColumnLine [40][20][10]string
 	rows          int
 }
 
+// Print to output file
 func printLine(line string, outputFile *os.File) {
 
 	fmt.Print(line)
@@ -31,6 +35,35 @@ func printLine(line string, outputFile *os.File) {
 
 }
 
+// Go through all dates and strikethrew expired ones
+func checkExpiredDates(t *table) {
+
+	const layoutISO = "01/02/06"
+	// GET CURRENT DATE
+	// Format is MM/DD/YY
+	currentTime := time.Now()
+	// currentDate := currentTime.Format("01/02/06")
+
+	// ROWS - ITERATE OVER
+	for r := 0; r < t.rows+1; r++ {
+		// COLUMNS - ITERATE OVER
+		for c := 1; c < t.columns+1; c++ {
+			// Do we check the date for this col
+			if t.colDate[c-1] == "yes" {
+				checkDate := t.rowColumnLine[r][c][0]
+				// Place in go time format
+				checkDateTime, _ := time.Parse(layoutISO, checkDate)
+				if currentTime.After(checkDateTime) {
+					t.rowColumnLine[r][c][0] = "<s>" + checkDate + "</s>"
+				}
+
+			}
+		}
+	}
+
+}
+
+// Place stuff in table struct
 func buildTableStruct(t *table, stuff []string) {
 
 	rowNumber := 0
@@ -53,18 +86,32 @@ func buildTableStruct(t *table, stuff []string) {
 			}
 			t.columns = i
 		}
-		if strings.Contains(line, "columnW") {
-			line = strings.Replace(line, "columnW: ", "", -1)
+		if strings.Contains(line, "colWdth") {
+			line = strings.Replace(line, "colWdth: ", "", -1)
 			foo := strings.Split(line, ",")
 			for i, v := range foo {
-				t.columnW[i] = v
+				t.colWdth[i] = v
 			}
 		}
-		if strings.Contains(line, "columnA") {
-			line = strings.Replace(line, "columnA: ", "", -1)
+		if strings.Contains(line, "colAlgn") {
+			line = strings.Replace(line, "colAlgn: ", "", -1)
 			foo := strings.Split(line, ",")
 			for i, v := range foo {
-				t.columnA[i] = v
+				t.colAlgn[i] = v
+			}
+		}
+		if strings.Contains(line, "colBold") {
+			line = strings.Replace(line, "colBold: ", "", -1)
+			foo := strings.Split(line, ",")
+			for i, v := range foo {
+				t.colBold[i] = v
+			}
+		}
+		if strings.Contains(line, "colDate") {
+			line = strings.Replace(line, "colDate: ", "", -1)
+			foo := strings.Split(line, ",")
+			for i, v := range foo {
+				t.colDate[i] = v
 			}
 		}
 		if strings.Contains(line, "headers") {
@@ -90,7 +137,7 @@ func buildTableStruct(t *table, stuff []string) {
 			columnNumber = tempcolumnNumber
 			replace := "rowcol" + tempcolumnNumberStr + ": "
 			line := strings.Replace(line, replace, "", -1)
-			fmt.Println(replace, "rowNumber:", rowNumber, "columnNumber:", columnNumber, "lineNumber:", lineNumber, "----", line)
+			//fmt.Println(replace, "rowNumber:", rowNumber, "columnNumber:", columnNumber, "lineNumber:", lineNumber, "----", line)
 			// Place in 3-D array
 			t.rowColumnLine[rowNumber][columnNumber][lineNumber] = line
 		}
@@ -106,6 +153,7 @@ func makeHTMLTABLE(stuff []string, outputFile *os.File) {
 	t := table{}
 
 	buildTableStruct(&t, stuff)
+	checkExpiredDates(&t)
 
 	// <table>
 	line := "<table style=\"font-size:.8em\">" + "\n"
@@ -115,7 +163,7 @@ func makeHTMLTABLE(stuff []string, outputFile *os.File) {
 	line = "  <!-- COLUMN WIDTHS -->" + "\n"
 	printLine(line, outputFile)
 	for i := 0; i < t.columns; i++ {
-		line := "  <col width=\"" + t.columnW[i] + "\">" + "\n"
+		line := "  <col width=\"" + t.colWdth[i] + "\">" + "\n"
 		printLine(line, outputFile)
 	}
 
@@ -140,21 +188,30 @@ func makeHTMLTABLE(stuff []string, outputFile *os.File) {
 		printLine(line, outputFile)
 		// COLUMNS - ITERATE OVER
 		for c := 1; c < t.columns+1; c++ {
-			alignment := t.columnA[c-1]
+			alignment := t.colAlgn[c-1]
+			bold := t.colBold[c-1]
 			line = "    <td  align=\"" + alignment + "\" valign=\"top\">" + "\n"
 			printLine(line, outputFile)
 			// LINES - ITERATE OVER
 			// Keep iterating until you get nothing
 			for l := 0; l < 100; l++ {
 				linebreak := ""
+				prefixbold := ""
+				suffixbold := ""
 				// fmt.Println("r=", r, "c=", c, "l=", l)
 				preline := t.rowColumnLine[r][c][l]
 				// If blank do not print
 				if preline != "" {
+					// Add linebreak for multi lines
 					if (l > 0) || (t.rowColumnLine[r][c][l+1] != "") {
 						linebreak = "<br>"
 					}
-					line = "      " + preline + linebreak + "\n"
+					// Add bold just on first line
+					if (bold == "bold") && (l < 1) {
+						prefixbold = "<b>"
+						suffixbold = "</b>"
+					}
+					line = "      " + prefixbold + preline + suffixbold + linebreak + "\n"
 					printLine(line, outputFile)
 				} else {
 					line = "    </td>" + "\n"
