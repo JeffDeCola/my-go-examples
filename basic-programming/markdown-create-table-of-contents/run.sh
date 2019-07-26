@@ -6,16 +6,15 @@ echo "************************************************************************"
 echo "******************************************************* run.sh (START) *"
 echo " "
 
-echo "Run markdown-delimiter-doer with htmltable switch"
-go run markdown-delimiter-doer.go -htmltable -delimeter \$\$ -i input.md -o output.md
-# markdown-delimiter-doer -htmltable -delimeter \$\$ -i input.md -o output.md 
+echo "Run markdown-create-table-of-contents"
+go run markdown-create-table-of-contents.go -i input.md -h3
 echo " "
 
 echo "Remember to install"
-echo "    go install markdown-delimiter-doer.go"
+echo "    go install markdown-create-table-of-contents.go"
 
 echo "For more information on markdown-delimter-html-table-generator, read my cheat sheet"
-echo "    https://github.com/JeffDeCola/my-go-examples/tree/master/basic-programming/markdown-delimiter-doer"
+echo "    https://github.com/JeffDeCola/my-go-examples/tree/master/basic-programming/markdown-create-table-of-contents"
 echo " "
 
 echo "********************************************************* run.sh (END) *"
