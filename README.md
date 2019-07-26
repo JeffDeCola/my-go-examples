@@ -10,20 +10,13 @@
 
 I organized everything (alphabetically) into these sections,
 
-* [GO EXAMPLES](https://github.com/JeffDeCola/my-go-examples#go-examples)
-  * [API](https://github.com/JeffDeCola/my-go-examples#api)
-  * [BASIC PROGRAMMING](https://github.com/JeffDeCola/my-go-examples#basic-programming)
-  * [CLOUD SERVICES](https://github.com/JeffDeCola/my-go-examples#cloud-services)
-* [UPDATE GITHUB WEBPAGE & UNIT TESTS USING CONCOURSE (OPTIONAL)](https://github.com/JeffDeCola/my-go-examples#update-github-webpage--unit-tests-using-concourse-optional)
-
-* API
-* BASIC PROGRAMMING
-* CLOUD SERVICES
-* DATABASE
-* GOROUTINES
-* MESSAGING
-* USEFUL TOOLS I USE
-* WEBSERVER
+* [API](https://github.com/JeffDeCola/my-go-examples#api)
+* [BASIC PROGRAMMING](https://github.com/JeffDeCola/my-go-examples#basic-programming)
+* [CLOUD SERVICES](https://github.com/JeffDeCola/my-go-examples#cloud-services)
+* [DATABASE](https://github.com/JeffDeCola/my-go-examples#database)
+* [GOROUTINES](https://github.com/JeffDeCola/my-go-examples#goroutines)
+* [USEFUL TOOLS I USE](https://github.com/JeffDeCola/my-go-examples#useful-tools-i-use)
+* [WEBSERVER](https://github.com/JeffDeCola/my-go-examples#webserver)
 
 These go examples also contain info I gathered from other sources.
 
@@ -35,7 +28,7 @@ _All sections in alphabetical order._
 
 ### API
 
-*[http-GET-POST](https://github.com/JeffDeCola/my-go-examples/tree/master/api/http-GET-POST)
+* [http-GET-POST](https://github.com/JeffDeCola/my-go-examples/tree/master/api/http-GET-POST)
 
   _Using a http package to GET or POST (update via json)._
 
@@ -137,88 +130,88 @@ _All sections in alphabetical order._
 
 ### CLOUD SERVICES
 
-  * [amazon-aws](https://github.com/JeffDeCola/my-go-examples/tree/master/cloud-services/amazon-aws)
+* [amazon-aws](https://github.com/JeffDeCola/my-go-examples/tree/master/cloud-services/amazon-aws)
 
-    _Interacting with amazon's
-    [aws](https://github.com/JeffDeCola/my-cheat-sheets/tree/master/software/service-providers/amazon-web-services-cheat-sheet)
-    using
-    `aws-sdk-go`
-    client libraries._
+  _Interacting with amazon's
+  [aws](https://github.com/JeffDeCola/my-cheat-sheets/tree/master/software/service-providers/amazon-web-services-cheat-sheet)
+  using
+  `aws-sdk-go`
+  client libraries._
 
-  * [google-gcp](https://github.com/JeffDeCola/my-go-examples/tree/master/cloud-services/google-gcp)
+* [google-gcp](https://github.com/JeffDeCola/my-go-examples/tree/master/cloud-services/google-gcp)
 
-    _Interacting with google's
-    [gcp](https://github.com/JeffDeCola/my-cheat-sheets/tree/master/software/service-providers/google-cloud-platform-cheat-sheet)
-    using
-    [google-cloud-go](https://github.com/googleapis/google-api-go-client/tree/master)
-    client libraries._
+  _Interacting with google's
+  [gcp](https://github.com/JeffDeCola/my-cheat-sheets/tree/master/software/service-providers/google-cloud-platform-cheat-sheet)
+  using
+  [google-cloud-go](https://github.com/googleapis/google-api-go-client/tree/master)
+  client libraries._
 
-* DATABASE
+### DATABASE
 
-  * [google-cloud-spanner-table](https://github.com/JeffDeCola/my-go-examples/tree/master/database/google-cloud-spanner-table)
+* [google-cloud-spanner-table](https://github.com/JeffDeCola/my-go-examples/tree/master/database/google-cloud-spanner-table)
 
-    _tbd._
+  _tbd._
 
-  * [postgreSQL](https://github.com/JeffDeCola/my-go-examples/tree/master/database/postgreSQL)
+* [postgreSQL](https://github.com/JeffDeCola/my-go-examples/tree/master/database/postgreSQL)
 
-    _A relational database - Read/Write from/to a table._
+  _A relational database - Read/Write from/to a table._
 
-  * [redis](https://github.com/JeffDeCola/my-go-examples/tree/master/database/redis)
+* [redis](https://github.com/JeffDeCola/my-go-examples/tree/master/database/redis)
 
-    _A non-relational (NoSQL) database - Set/Get from/to a key/value pair._
+  _A non-relational (NoSQL) database - Set/Get from/to a key/value pair._
 
-* GOROUTINES
+### GOROUTINES
 
-  * [async-channel-no-waiting](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/async-channel-no-waiting)
+* [async-channel-no-waiting](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/async-channel-no-waiting)
 
-    _A goroutine asynchronously sending data (via a channel)
-    to a function that uses the latest data (if available) and does not wait._
+  _A goroutine asynchronously sending data (via a channel)
+  to a function that uses the latest data (if available) and does not wait._
 
-  * [goroutines-channels-select](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-channels-select)
+* [goroutines-channels-select](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-channels-select)
 
-    _Concurrency and message passing via channels in go._
+  _Concurrency and message passing via channels in go._
 
-  * [goroutines-waitgroup](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-waitgroup)
+* [goroutines-waitgroup](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-waitgroup)
 
-    _Concurrency using a waitgroup._
+  _Concurrency using a waitgroup._
 
-  * [goroutines-worker-pools](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-worker-pools)
+* [goroutines-worker-pools](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-worker-pools)
 
-    _Concurrency using a worker pool with goroutines and channels._
+  _Concurrency using a worker pool with goroutines and channels._
 
 * MESSAGING
 
-  * [protobuf](https://github.com/JeffDeCola/my-go-examples/tree/master/messaging/protobuf)
+* [protobuf](https://github.com/JeffDeCola/my-go-examples/tree/master/messaging/protobuf)
 
-    _Protocol buffers serialize structured data, useful for messaging._
+  _Protocol buffers serialize structured data, useful for messaging._
 
-  * [protobuf-NATS-publish-subscribe](https://github.com/JeffDeCola/my-go-examples/tree/master/messaging/protobuf-NATS-publish-subscribe)
+* [protobuf-NATS-publish-subscribe](https://github.com/JeffDeCola/my-go-examples/tree/master/messaging/protobuf-NATS-publish-subscribe)
 
-    _Sending a protobuf msg over NATS from a client
-    to a server using publish and subscribe._
+  _Sending a protobuf msg over NATS from a client
+  to a server using publish and subscribe._
 
-  * [protobuf-NATS-request-response](https://github.com/JeffDeCola/my-go-examples/tree/master/messaging/protobuf-NATS-request-response)
+* [protobuf-NATS-request-response](https://github.com/JeffDeCola/my-go-examples/tree/master/messaging/protobuf-NATS-request-response)
 
-    _Sending a protobuf msg over NATS from a
-    client to a server using request and response._
+  _Sending a protobuf msg over NATS from a
+  client to a server using request and response._
 
-* USEFUL TOOLS I USE
+### USEFUL TOOLS I USE
 
-  * [markdown-create-table-of-contents](https://github.com/JeffDeCola/my-go-examples/tree/master/useful-tools-i-use/markdown-create-table-of-contents)
+* [markdown-create-table-of-contents](https://github.com/JeffDeCola/my-go-examples/tree/master/useful-tools-i-use/markdown-create-table-of-contents)
 
-    _Parse a markdown file to find ##, ### to create a table of contents (TOC)
-    for links at github.  I like to use a TOC it at the beginning of my readme files._
+  _Parse a markdown file to find ##, ### to create a table of contents (TOC)
+  for links at github.  I like to use a TOC it at the beginning of my readme files._
 
-  * [markdown-delimiter-doer](https://github.com/JeffDeCola/my-go-examples/tree/master/useful-tools-i-use/markdown-delimiter-doer)
+* [markdown-delimiter-doer](https://github.com/JeffDeCola/my-go-examples/tree/master/useful-tools-i-use/markdown-delimiter-doer)
 
-    _Take a markdown file and "do whatever you want" between the delimiters
-    and output new markdown file._
+  _Take a markdown file and "do whatever you want" between the delimiters
+  and output new markdown file._
 
-* WEBSERVER
+### WEBSERVER
 
-  * [simple-webserver](https://github.com/JeffDeCola/my-go-examples/tree/master/webserver/simple-webserver)
+* [simple-webserver](https://github.com/JeffDeCola/my-go-examples/tree/master/webserver/simple-webserver)
 
-    _Using the http package to build a simple webserver._
+  _Using the http package to build a simple webserver._
 
 ## UPDATE GITHUB WEBPAGE & UNIT TESTS USING CONCOURSE (OPTIONAL)
 
