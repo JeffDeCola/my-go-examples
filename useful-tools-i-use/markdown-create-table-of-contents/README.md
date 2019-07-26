@@ -1,9 +1,9 @@
 # markdown-create-table-of-contents example
 
 `markdown-create-table-of-contents` _is a example of
-parsing threw a markdown file to find the ## and create a table
-of contents for links of github.  I used it at the beginning of
-my readme files._
+parsing a markdown file to find ##, ### to create a table
+of contents (TOC) for links at github.  I like to use a
+TOC it at the beginning of my readme files._
 
 tl;dr,
 
@@ -14,7 +14,7 @@ markdown-create-table-of-contents -i input.md -h3
 
 [GitHub Webpage](https://jeffdecola.github.io/my-go-examples/)
 
-## RUN
+## RUN & INSTALL
 
 ```bash
 go run markdown-create-table-of-contents.go -i input.md
