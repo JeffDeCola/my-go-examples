@@ -200,7 +200,7 @@ _All sections in alphabetical order._
 
   * [markdown-create-table-of-contents](https://github.com/JeffDeCola/my-go-examples/tree/master/useful-tools-i-use/markdown-create-table-of-contents)
 
-   _ Parse a markdown file to find ##, ### to create a table of contents (TOC)
+   _Parse a markdown file to find ##, ### to create a table of contents (TOC)
    for links at github.  I like to use a TOC it at the beginning of my readme files._
 
   * [markdown-delimiter-doer](https://github.com/JeffDeCola/my-go-examples/tree/master/useful-tools-i-use/markdown-delimiter-doer)
