@@ -14,7 +14,7 @@ echo "Remember to install"
 echo "    go install markdown-create-table-of-contents.go"
 
 echo "For more information on markdown-delimter-html-table-generator, read my cheat sheet"
-echo "    https://github.com/JeffDeCola/my-go-examples/tree/master/basic-programming/markdown-create-table-of-contents"
+echo "    https://github.com/JeffDeCola/my-go-examples/tree/master/useful-tools-i-use/markdown-create-table-of-contents"
 echo " "
 
 echo "********************************************************* run.sh (END) *"

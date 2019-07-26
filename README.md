@@ -16,6 +16,7 @@ I organized everything (alphabetically) into these sections,
 * DATABASE
 * GOROUTINES
 * MESSAGING
+* USEFUL TOOLS I USE
 * WEBSERVER
 
 These go examples also contain info I gathered from other sources.
@@ -107,11 +108,6 @@ _All sections in alphabetical order._
 
     _Logging and error handling._
 
-  * [markdown-delimiter-doer](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-programming/markdown-delimiter-doer)
-
-    _Take a markdown file and "do whatever you want" between the delimiters
-    and output new markdown file._
-
   * [pointers](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-programming/pointers)
 
     _A pointer to a struct._
@@ -142,7 +138,7 @@ _All sections in alphabetical order._
     using
     `aws-sdk-go`
     client libraries._
- 
+
   * [google-gcp](https://github.com/JeffDeCola/my-go-examples/tree/master/cloud-services/google-gcp)
 
     _Interacting with google's
@@ -199,6 +195,18 @@ _All sections in alphabetical order._
 
     _Sending a protobuf msg over NATS from a
     client to a server using request and response._
+
+* USEFUL TOOLS I USE
+
+  * [markdown-create-table-of-contents](https://github.com/JeffDeCola/my-go-examples/tree/master/useful-tools-i-use/markdown-create-table-of-contents)
+
+   _ Parse a markdown file to find ##, ### to create a table of contents (TOC)
+   for links at github.  I like to use a TOC it at the beginning of my readme files._
+
+  * [markdown-delimiter-doer](https://github.com/JeffDeCola/my-go-examples/tree/master/useful-tools-i-use/markdown-delimiter-doer)
+
+    _Take a markdown file and "do whatever you want" between the delimiters
+    and output new markdown file._
 
 * WEBSERVER
 

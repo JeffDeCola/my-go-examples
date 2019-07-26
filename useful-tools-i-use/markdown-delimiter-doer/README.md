@@ -4,14 +4,20 @@
 taking a markdown file and "do whatever you want" between the delimiters
 and output new markdown file._
 
+tl;dr,
+
+```bash
+markdown-delimiter-doer.go -htmltable -delimiter \$\$ -i input.md -o output.md
+```
+
 [GitHub Webpage](https://jeffdecola.github.io/my-go-examples/)
 
-## RUN
+## RUN & INSTALL
 
 Run using delimiters `$$` and the `-htmltable` switch,
 
 ```bash
-go run markdown-delimiter-doer.go -htmltable -delimeter \$\$ -i input.md -o output.md
+go run markdown-delimiter-doer.go -htmltable -delimiter \$\$ -i input.md -o output.md
 ```
 
 To install (place an executable in your $GOPATH/bin),

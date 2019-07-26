@@ -232,13 +232,13 @@ func makeHTMLTABLE(stuff []string, outputFile *os.File) {
 func main() {
 
 	// Flags
-	delimeterPtr := flag.String("delimeter", "DELIMETER", "what is the delimeter")
+	delimiterPtr := flag.String("delimiter", "DELIMETER", "what is the delimiter")
 	inputFilenamePtr := flag.String("i", "INPUT", "input file")
 	outputFilenamePtr := flag.String("o", "OUTPUT", "output file")
 	htmlTableBoolPtr := flag.Bool("htmltable", false, "a bool")
 	flag.Parse()
 
-	// Temp storage for what you want to process between the delimeters
+	// Temp storage for what you want to process between the delimiters
 	var stuff []string
 
 	// Open input file
@@ -264,7 +264,7 @@ func main() {
 		// fmt.Println("Working on:", line)
 
 		// If you find a delimiter, get all the lines in between and place in a table.
-		if line == *delimeterPtr {
+		if line == *delimiterPtr {
 
 			// Stay in here until you find another delimiter
 			for scanner.Scan() {
@@ -273,7 +273,7 @@ func main() {
 				line := scanner.Text()
 
 				// Exit and build table when you find another delimiter
-				if line == *delimeterPtr {
+				if line == *delimiterPtr {
 					break
 				}
 
@@ -281,7 +281,7 @@ func main() {
 				stuff = append(stuff, line)
 			}
 
-			// OK WE HAVE THE LINE ARRAY (Stuff between the delimeters)
+			// OK WE HAVE THE LINE ARRAY (Stuff between the delimiters)
 
 			// htmltable switch
 			if *htmlTableBoolPtr {
