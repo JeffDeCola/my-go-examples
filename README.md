@@ -45,23 +45,23 @@ _All sections in alphabetical order._
 * [simple-webserver-with-REST](https://github.com/JeffDeCola/my-go-examples/tree/master/api/simple-webserver-with-REST)
 
   _Adding REST to my
-  [simple-webserver](https://github.com/JeffDeCola/my-go-examples/tree/master/simple-webserver)._
+  [simple-webserver](https://github.com/JeffDeCola/my-go-examples/tree/master/webserver/simple-webserver)._
 
 * [something-postgreSQL](https://github.com/JeffDeCola/my-go-examples/tree/master/api/something-postgreSQL)
 
-  _tbd_
+  _tbd._
 
 * [something-RESTful](https://github.com/JeffDeCola/my-go-examples/tree/master/api/something-RESTful)
 
-  _tbd_
+  _tbd._
   
 * [something-youtube-content-id-api](https://github.com/JeffDeCola/my-go-examples/tree/master/api/something-youtube-content-id-api)
 
-  _tbd_
+  _tbd._
 
 * [something-youtube-data-api-v3](https://github.com/JeffDeCola/my-go-examples/tree/master/api/something-youtube-data-api-v3)
 
-  _tbd_
+  _tbd._
 
 * [track-email-mailgun-api](https://github.com/JeffDeCola/my-go-examples/tree/master/api/track-email-mailgun-api)
 
@@ -199,7 +199,7 @@ _All sections in alphabetical order._
 
 * [markdown-create-table-of-contents](https://github.com/JeffDeCola/my-go-examples/tree/master/useful-tools-i-use/markdown-create-table-of-contents)
 
-  _Parse a markdown file to find ##, ### to create a table of contents (TOC)
+  _Parse a markdown file to find `##`, `###` to create a table of contents (TOC)
   for links at github.  I like to use a TOC it at the beginning of my readme files._
 
 * [markdown-delimiter-doer](https://github.com/JeffDeCola/my-go-examples/tree/master/useful-tools-i-use/markdown-delimiter-doer)
