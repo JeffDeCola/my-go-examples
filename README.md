@@ -10,6 +10,12 @@
 
 I organized everything (alphabetically) into these sections,
 
+* [GO EXAMPLES](https://github.com/JeffDeCola/my-go-examples#go-examples)
+  * [API](https://github.com/JeffDeCola/my-go-examples#api)
+  * [BASIC PROGRAMMING](https://github.com/JeffDeCola/my-go-examples#basic-programming)
+  * [CLOUD SERVICES](https://github.com/JeffDeCola/my-go-examples#cloud-services)
+* [UPDATE GITHUB WEBPAGE & UNIT TESTS USING CONCOURSE (OPTIONAL)](https://github.com/JeffDeCola/my-go-examples#update-github-webpage--unit-tests-using-concourse-optional)
+
 * API
 * BASIC PROGRAMMING
 * CLOUD SERVICES
@@ -27,109 +33,109 @@ These go examples also contain info I gathered from other sources.
 
 _All sections in alphabetical order._
 
-* API
+### API
 
-  * [http-GET-POST](https://github.com/JeffDeCola/my-go-examples/tree/master/api/http-GET-POST)
+*[http-GET-POST](https://github.com/JeffDeCola/my-go-examples/tree/master/api/http-GET-POST)
 
-    _Using a http package to GET or POST (update via json)._
+  _Using a http package to GET or POST (update via json)._
 
-  * [OAuth-2.0-google-cloud-storage-api](https://github.com/JeffDeCola/my-go-examples/tree/master/api/OAuth-2.0-google-cloud-storage-api)
+* [OAuth-2.0-google-cloud-storage-api](https://github.com/JeffDeCola/my-go-examples/tree/master/api/OAuth-2.0-google-cloud-storage-api)
 
-    _Using OAuth 2.0 to access a users google cloud storage
-    (based on scopes) via googles api._
+  _Using OAuth 2.0 to access a users google cloud storage
+  (based on scopes) via googles api._
 
-  * [OAuth-2.0-google-cloud-storage-api-over-NATS](https://github.com/JeffDeCola/my-go-examples/tree/master/api/OAuth-2.0-google-cloud-storage-api-over-NATS)
+* [OAuth-2.0-google-cloud-storage-api-over-NATS](https://github.com/JeffDeCola/my-go-examples/tree/master/api/OAuth-2.0-google-cloud-storage-api-over-NATS)
 
-    _Using OAuth 2.0 (frontend and backend via protobuf over NATS)
-    to access a users google cloud storage (based on scopes) via googles api._
+  _Using OAuth 2.0 (frontend and backend via protobuf over NATS)
+  to access a users google cloud storage (based on scopes) via googles api._
 
-  * [simple-webserver-with-REST](https://github.com/JeffDeCola/my-go-examples/tree/master/api/simple-webserver-with-REST)
+* [simple-webserver-with-REST](https://github.com/JeffDeCola/my-go-examples/tree/master/api/simple-webserver-with-REST)
 
-    _Adding REST to my
-    [simple-webserver](https://github.com/JeffDeCola/my-go-examples/tree/master/simple-webserver)._
+  _Adding REST to my
+  [simple-webserver](https://github.com/JeffDeCola/my-go-examples/tree/master/simple-webserver)._
 
-  * [something-postgreSQL](https://github.com/JeffDeCola/my-go-examples/tree/master/api/something-postgreSQL)
+* [something-postgreSQL](https://github.com/JeffDeCola/my-go-examples/tree/master/api/something-postgreSQL)
 
-    _tbd_
+  _tbd_
 
-  * [something-RESTful](https://github.com/JeffDeCola/my-go-examples/tree/master/api/something-RESTful)
+* [something-RESTful](https://github.com/JeffDeCola/my-go-examples/tree/master/api/something-RESTful)
 
-    _tbd_
+  _tbd_
   
-  * [something-youtube-content-id-api](https://github.com/JeffDeCola/my-go-examples/tree/master/api/something-youtube-content-id-api)
+* [something-youtube-content-id-api](https://github.com/JeffDeCola/my-go-examples/tree/master/api/something-youtube-content-id-api)
 
-    _tbd_
+  _tbd_
 
-  * [something-youtube-data-api-v3](https://github.com/JeffDeCola/my-go-examples/tree/master/api/something-youtube-data-api-v3)
+* [something-youtube-data-api-v3](https://github.com/JeffDeCola/my-go-examples/tree/master/api/something-youtube-data-api-v3)
 
-    _tbd_
+  _tbd_
 
-  * [track-email-mailgun-api](https://github.com/JeffDeCola/my-go-examples/tree/master/api/track-email-mailgun-api)
+* [track-email-mailgun-api](https://github.com/JeffDeCola/my-go-examples/tree/master/api/track-email-mailgun-api)
 
-    _Send and track an email using mailgun over their go client api._
+  _Send and track an email using mailgun over their go client api._
 
-* BASIC PROGRAMMING
+### BASIC PROGRAMMING
 
-  * [callback](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-programming/callback)
+* [callback](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-programming/callback)
 
-    _Passing a function (as an argument) to a function._
+  _Passing a function (as an argument) to a function._
 
-  * [closure](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-programming/closure)
+* [closure](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-programming/closure)
 
-    _Assigning a variable to a function._
+  _Assigning a variable to a function._
 
-  * [gomock](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-programming/gomock)
+* [gomock](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-programming/gomock)
 
-    _Using gomock on an interface for unit testing._
+  _Using gomock on an interface for unit testing._
 
-  * [gotests-complex-function](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-programming/gotests-complex-function)
+* [gotests-complex-function](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-programming/gotests-complex-function)
 
-    _Testing a function with complex inputs and outputs._
+  _Testing a function with complex inputs and outputs._
 
-  * [interface](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-programming/interface)
+* [interface](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-programming/interface)
 
-    _Accepting ANYTHING (as long as anything has a method attached
-    to an interface)._
+  _Accepting ANYTHING (as long as anything has a method attached
+  to an interface)._
 
-  * [interfaces-card-atm-bank](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-programming/interfaces-card-atm-bank)
+* [interfaces-card-atm-bank](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-programming/interfaces-card-atm-bank)
 
-    _Using interfaces to show how an atm card is
-    used to interact with an atm and bank._
+  _Using interfaces to show how an atm card is
+  used to interact with an atm and bank._
 
-  * [json](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-programming/json)
+* [json](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-programming/json)
 
-    _Encode a struct to json and decode back to a struct._
+  _Encode a struct to json and decode back to a struct._
 
-  * [linked-list](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-programming/linked-list)
+* [linked-list](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-programming/linked-list)
 
-    _A singly linked list (i.e. using just a head pointer)._
+  _A singly linked list (i.e. using just a head pointer)._
 
-  * [logging-error-handling](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-programming/logging-error-handling)
+* [logging-error-handling](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-programming/logging-error-handling)
 
-    _Logging and error handling._
+  _Logging and error handling._
 
-  * [pointers](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-programming/pointers)
+* [pointers](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-programming/pointers)
 
-    _A pointer to a struct._
+  _A pointer to a struct._
 
-  * [read-file](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-programming/read-file)
+* [read-file](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-programming/read-file)
 
-    _Reading a file a few different ways._
+  _Reading a file a few different ways._
 
-  * [recursion](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-programming/recursion)
+* [recursion](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-programming/recursion)
 
-    _A function calling itself to make a fibonacci series._
+  _A function calling itself to make a fibonacci series._
 
-  * [slices-underlying-array](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-programming/slices-underlying-array)
+* [slices-underlying-array](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-programming/slices-underlying-array)
 
-    _A slice being appended to, and shows the underlying array
-    being added to the slice._
+  _A slice being appended to, and shows the underlying array
+  being added to the slice._
 
-  * [structs-methods-interfaces](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-programming/structs-methods-interfaces)
+* [structs-methods-interfaces](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-programming/structs-methods-interfaces)
 
-    _Structs, methods and interfaces._
+  _Structs, methods and interfaces._
 
-* CLOUD SERVICES
+### CLOUD SERVICES
 
   * [amazon-aws](https://github.com/JeffDeCola/my-go-examples/tree/master/cloud-services/amazon-aws)
 
@@ -200,8 +206,8 @@ _All sections in alphabetical order._
 
   * [markdown-create-table-of-contents](https://github.com/JeffDeCola/my-go-examples/tree/master/useful-tools-i-use/markdown-create-table-of-contents)
 
-   _Parse a markdown file to find ##, ### to create a table of contents (TOC)
-   for links at github.  I like to use a TOC it at the beginning of my readme files._
+    _Parse a markdown file to find ##, ### to create a table of contents (TOC)
+    for links at github.  I like to use a TOC it at the beginning of my readme files._
 
   * [markdown-delimiter-doer](https://github.com/JeffDeCola/my-go-examples/tree/master/useful-tools-i-use/markdown-delimiter-doer)
 

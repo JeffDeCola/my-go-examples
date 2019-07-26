@@ -65,7 +65,13 @@ func makeTOC(heading string, headingNumber string) {
 	dir = parts[1]
 
 	// STEP 3 Build link
-	link := githubURL + repoName + "/tree/master" + dir + "#" + headingLower
+	// DO NOT add /tree/master if the dir string is empty
+	link := ""
+	if dir == "" {
+		link = githubURL + repoName + "#" + headingLower
+	} else {
+		link = githubURL + repoName + "/tree/master" + dir + "#" + headingLower
+	}
 
 	// OUTPUT
 	if headingNumber == "h2" {
