@@ -15,6 +15,7 @@ I organized everything (alphabetically) into these sections,
 * [CLOUD SERVICES](https://github.com/JeffDeCola/my-go-examples#cloud-services)
 * [DATABASE](https://github.com/JeffDeCola/my-go-examples#database)
 * [GOROUTINES](https://github.com/JeffDeCola/my-go-examples#goroutines)
+* [MESSAGING](https://github.com/JeffDeCola/my-go-examples#messaging)
 * [USEFUL TOOLS I USE](https://github.com/JeffDeCola/my-go-examples#useful-tools-i-use)
 * [WEBSERVER](https://github.com/JeffDeCola/my-go-examples#webserver)
 
@@ -179,7 +180,7 @@ _All sections in alphabetical order._
 
   _Concurrency using a worker pool with goroutines and channels._
 
-* MESSAGING
+### MESSAGING
 
 * [protobuf](https://github.com/JeffDeCola/my-go-examples/tree/master/messaging/protobuf)
 
@@ -200,7 +201,7 @@ _All sections in alphabetical order._
 * [markdown-create-table-of-contents](https://github.com/JeffDeCola/my-go-examples/tree/master/useful-tools-i-use/markdown-create-table-of-contents)
 
   _Parse a markdown file to find `##`, `###` to create a table of contents (TOC)
-  for links at github.  I like to use a TOC it at the beginning of my readme files._
+  for links at github.  I like to use a TOC at the beginning of my README.md files._
 
 * [markdown-delimiter-doer](https://github.com/JeffDeCola/my-go-examples/tree/master/useful-tools-i-use/markdown-delimiter-doer)
 
