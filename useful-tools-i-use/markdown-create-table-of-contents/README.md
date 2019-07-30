@@ -8,6 +8,7 @@ TOC it at the beginning of my readme files._
 tl;dr,
 
 ```bash
+markdown-create-table-of-contents
 markdown-create-table-of-contents -i input.md
 markdown-create-table-of-contents -i input.md -h3
 ```
@@ -16,13 +17,22 @@ markdown-create-table-of-contents -i input.md -h3
 
 ## RUN & INSTALL
 
+Will always assume README.md
+
+```bash
+markdown-create-table-of-contents
+```
+
+If if not README, it will add that filename `input` to the link,
+
 ```bash
 go run markdown-create-table-of-contents.go -i input.md
 ```
 
-You can also include headings 3 `###`,
+You can also include headings 3 switch `-h3`,
 
 ```bash
+go run markdown-create-table-of-contents.go -h3
 go run markdown-create-table-of-contents.go -i input.md -h3
 ```
 
