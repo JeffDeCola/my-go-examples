@@ -10,7 +10,7 @@ import (
 	"strings"
 )
 
-func makeTOC(heading string, headingNumber string) {
+func makeTOC(heading string, headingNumber string, inputFilename string) {
 	//fmt.Println("Working on heading", heading, line)
 
 	// STEP 1 ***************************
@@ -68,9 +68,9 @@ func makeTOC(heading string, headingNumber string) {
 	// DO NOT add /tree/master if the dir string is empty
 	link := ""
 	if dir == "" {
-		link = githubURL + repoName + "#" + headingLower
+		link = githubURL + repoName + inputFilename + "#" + headingLower
 	} else {
-		link = githubURL + repoName + "/tree/master" + dir + "#" + headingLower
+		link = githubURL + repoName + "/tree/master" + dir + inputFilename + "#" + headingLower
 	}
 
 	// OUTPUT
@@ -85,10 +85,18 @@ func makeTOC(heading string, headingNumber string) {
 
 func main() {
 
-	// Flags
-	inputFilenamePtr := flag.String("i", "INPUT", "input file")
+	// Flags - Will default to README.md if no input giving
+	inputFilenamePtr := flag.String("i", "README.md", "input file")
 	heading3Ptr := flag.Bool("h3", false, "a bool for heading2")
 	flag.Parse()
+
+	// Do we put this in the link?
+	inputFilename := *inputFilenamePtr
+	if inputFilename == "README.md" {
+		inputFilename = ""
+	} else {
+		inputFilename = "/" + inputFilename
+	}
 
 	heading2 := "## "
 	heading3 := "### "
@@ -116,7 +124,7 @@ func main() {
 			// Is it ## with a space
 			if string(line[0:3]) == heading2 {
 				line = line[3:]
-				makeTOC(line, "h2")
+				makeTOC(line, "h2", inputFilename)
 			}
 
 			// Find heading 3
@@ -125,7 +133,7 @@ func main() {
 				// Is it ### with a space
 				if string(line[0:4]) == heading3 {
 					line = line[4:]
-					makeTOC(line, "h3")
+					makeTOC(line, "h3", inputFilename)
 				}
 			}
 
