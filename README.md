@@ -14,6 +14,7 @@ I organized everything (alphabetically) into these sections,
 * [BASIC PROGRAMMING](https://github.com/JeffDeCola/my-go-examples#basic-programming)
 * [CLOUD SERVICES](https://github.com/JeffDeCola/my-go-examples#cloud-services)
 * [DATABASE](https://github.com/JeffDeCola/my-go-examples#database)
+* [GO PACKAGES](https://github.com/JeffDeCola/my-go-examples#go-packages)
 * [GOROUTINES](https://github.com/JeffDeCola/my-go-examples#goroutines)
 * [MESSAGING](https://github.com/JeffDeCola/my-go-examples#messaging)
 * [USEFUL TOOLS I USE](https://github.com/JeffDeCola/my-go-examples#useful-tools-i-use)
@@ -160,6 +161,16 @@ _All sections in alphabetical order._
 * [redis](https://github.com/JeffDeCola/my-go-examples/tree/master/database/redis)
 
   _A non-relational (NoSQL) database - Set/Get from/to a key/value pair._
+
+### GO PACKAGES
+
+* [crypto/md5](https://github.com/JeffDeCola/my-go-examples/tree/master/go-packages/crypto-md5)
+
+  _???._
+
+* [flag](https://github.com/JeffDeCola/my-go-examples/tree/master/go-packages/flag)
+
+  _???._
 
 ### GOROUTINES
 
