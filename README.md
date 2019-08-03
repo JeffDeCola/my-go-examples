@@ -166,11 +166,11 @@ _All sections in alphabetical order._
 
 * [crypto/md5](https://github.com/JeffDeCola/my-go-examples/tree/master/go-packages/crypto-md5)
 
-  _???._
+  _The crypto/md5 package is used for getting an md5 fingerprint from an ssh key._
 
 * [flag](https://github.com/JeffDeCola/my-go-examples/tree/master/go-packages/flag)
 
-  _???._
+  _The flag package makes it easy to implement command-line flag parsing._
 
 ### GOROUTINES
 
