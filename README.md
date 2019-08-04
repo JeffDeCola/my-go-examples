@@ -12,11 +12,18 @@ I organized everything (alphabetically) into these sections,
 
 * [API](https://github.com/JeffDeCola/my-go-examples#api)
 * [BASIC PROGRAMMING](https://github.com/JeffDeCola/my-go-examples#basic-programming)
+* [BASIC SYNTAX](https://github.com/JeffDeCola/my-go-examples#basic-syntax)
+  * [DATA TYPES](https://github.com/JeffDeCola/my-go-examples#data-types)
+  * [ERROR HANDLING & LOGGING](https://github.com/JeffDeCola/my-go-examples#error-handling--logging)
+  * [FUNCTIONS](https://github.com/JeffDeCola/my-go-examples#functions)
+  * [INTERFACES](https://github.com/JeffDeCola/my-go-examples#interfaces)
+  * [METHODS](https://github.com/JeffDeCola/my-go-examples#methods)
 * [CLOUD SERVICES](https://github.com/JeffDeCola/my-go-examples#cloud-services)
 * [DATABASE](https://github.com/JeffDeCola/my-go-examples#database)
 * [PACKAGES](https://github.com/JeffDeCola/my-go-examples#packages)
 * [GOROUTINES](https://github.com/JeffDeCola/my-go-examples#goroutines)
 * [MESSAGING](https://github.com/JeffDeCola/my-go-examples#messaging)
+* [TESTING](https://github.com/JeffDeCola/my-go-examples#testing)
 * [USEFUL TOOLS I CREATED](https://github.com/JeffDeCola/my-go-examples#useful-tools-i-created)
 * [WEBSERVER](https://github.com/JeffDeCola/my-go-examples#webserver)
 
@@ -71,32 +78,6 @@ _All sections in alphabetical order._
 
 ### BASIC PROGRAMMING
 
-* [callback](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-programming/callback)
-
-  _Passing a function (as an argument) to a function._
-
-* [closure](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-programming/closure)
-
-  _Assigning a variable to a function._
-
-* [gomock](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-programming/gomock)
-
-  _Using gomock on an interface for unit testing._
-
-* [gotests-complex-function](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-programming/gotests-complex-function)
-
-  _Testing a function with complex inputs and outputs._
-
-* [interface](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-programming/interface)
-
-  _Accepting ANYTHING (as long as anything has a method attached
-  to an interface)._
-
-* [interfaces-card-atm-bank](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-programming/interfaces-card-atm-bank)
-
-  _Using interfaces to show how an atm card is
-  used to interact with an atm and bank._
-
 * [json](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-programming/json)
 
   _Encode a struct to json and decode back to a struct._
@@ -105,30 +86,62 @@ _All sections in alphabetical order._
 
   _A singly linked list (i.e. using just a head pointer)._
 
-* [logging-error-handling](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-programming/logging-error-handling)
-
-  _Logging and error handling._
-
-* [pointers](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-programming/pointers)
-
-  _A pointer to a struct._
-
 * [read-file](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-programming/read-file)
 
   _Reading a file a few different ways._
 
-* [recursion](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-programming/recursion)
+### BASIC SYNTAX
 
-  _A function calling itself to make a fibonacci series._
+### DATA TYPES
 
-* [slices-underlying-array](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-programming/slices-underlying-array)
+* [closure](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/data-types/closure)
+
+  _Assigning a variable to a function._
+
+* [pointers](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/data-types/pointers)
+
+  _A pointer to a struct._
+
+* [slices-underlying-array](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/data-types/slices-underlying-array)
 
   _A slice being appended to, and shows the underlying array
   being added to the slice._
 
-* [structs-methods-interfaces](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-programming/structs-methods-interfaces)
+### ERROR HANDLING & LOGGING
+
+* [logging-error-handling](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/error-handling-and-logging/logging-error-handling)
+
+  _Logging and error handling._
+
+### FUNCTIONS
+
+* [callback](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/functions/callback)
+
+  _Passing a function (as an argument) to a function._
+
+* [recursion](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/functions/recursion)
+
+  _A function calling itself to make a fibonacci series._
+
+### INTERFACES
+
+* [interface](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/interfaces/interface)
+
+  _Accepting ANYTHING (as long as anything has a method attached
+  to an interface)._
+
+* [interfaces-card-atm-bank](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/interfaces/interfaces-card-atm-bank)
+
+  _Using interfaces to show how an atm card is
+  used to interact with an atm and bank._
+
+* [structs-methods-interfaces](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/interfaces/structs-methods-interfaces)
 
   _Structs, methods and interfaces._
+
+### METHODS
+
+* tbd
 
 ### CLOUD SERVICES
 
@@ -172,7 +185,7 @@ _All sections in alphabetical order._
 
   _The flag package makes it easy to implement command-line flag parsing._
 
-* [shapes](https://github.com/JeffDeCola/my-go-examples/tree/master/packages/shapes)
+* [jeff-shapes](https://github.com/JeffDeCola/my-go-examples/tree/master/packages/shapes)
 
   _I created this packed to show how to create and use a custom package.
 
@@ -210,6 +223,16 @@ _All sections in alphabetical order._
 
   _Sending a protobuf msg over NATS from a
   client to a server using request and response._
+
+### TESTING
+
+* [gomock](https://github.com/JeffDeCola/my-go-examples/tree/master/testing/gomock)
+
+  _Using gomock on an interface for unit testing._
+
+* [gotests-complex-function](https://github.com/JeffDeCola/my-go-examples/tree/master/testing/gotests-complex-function)
+
+  _Testing a function with complex inputs and outputs._
 
 ### USEFUL TOOLS I CREATED
 
