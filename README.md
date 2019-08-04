@@ -14,10 +14,10 @@ I organized everything (alphabetically) into these sections,
 * [BASIC PROGRAMMING](https://github.com/JeffDeCola/my-go-examples#basic-programming)
 * [CLOUD SERVICES](https://github.com/JeffDeCola/my-go-examples#cloud-services)
 * [DATABASE](https://github.com/JeffDeCola/my-go-examples#database)
-* [GO PACKAGES](https://github.com/JeffDeCola/my-go-examples#go-packages)
+* [PACKAGES](https://github.com/JeffDeCola/my-go-examples#packages)
 * [GOROUTINES](https://github.com/JeffDeCola/my-go-examples#goroutines)
 * [MESSAGING](https://github.com/JeffDeCola/my-go-examples#messaging)
-* [USEFUL TOOLS I USE](https://github.com/JeffDeCola/my-go-examples#useful-tools-i-use)
+* [USEFUL TOOLS I CREATED](https://github.com/JeffDeCola/my-go-examples#useful-tools-i-created)
 * [WEBSERVER](https://github.com/JeffDeCola/my-go-examples#webserver)
 
 These go examples also contain info I gathered from other sources.
@@ -162,15 +162,19 @@ _All sections in alphabetical order._
 
   _A non-relational (NoSQL) database - Set/Get from/to a key/value pair._
 
-### GO PACKAGES
+### PACKAGES
 
-* [crypto/md5](https://github.com/JeffDeCola/my-go-examples/tree/master/go-packages/crypto-md5)
+* [crypto/md5](https://github.com/JeffDeCola/my-go-examples/tree/master/packages/crypto-md5)
 
   _The crypto/md5 package is used for getting an md5 fingerprint from an ssh key._
 
-* [flag](https://github.com/JeffDeCola/my-go-examples/tree/master/go-packages/flag)
+* [flag](https://github.com/JeffDeCola/my-go-examples/tree/master/packages/flag)
 
   _The flag package makes it easy to implement command-line flag parsing._
+
+* [shapes](https://github.com/JeffDeCola/my-go-examples/tree/master/packages/shapes)
+
+  _I created this packed to show how to create and use a custom package.
 
 ### GOROUTINES
 
@@ -207,14 +211,14 @@ _All sections in alphabetical order._
   _Sending a protobuf msg over NATS from a
   client to a server using request and response._
 
-### USEFUL TOOLS I USE
+### USEFUL TOOLS I CREATED
 
-* [markdown-create-table-of-contents](https://github.com/JeffDeCola/my-go-examples/tree/master/useful-tools-i-use/markdown-create-table-of-contents)
+* [markdown-create-table-of-contents](https://github.com/JeffDeCola/my-go-examples/tree/master/useful-tools-i-created/markdown-create-table-of-contents)
 
   _Parse a markdown file to find `##`, `###` to create a table of contents (TOC)
   for links at github.  I like to use a TOC at the beginning of my README.md files._
 
-* [markdown-delimiter-doer](https://github.com/JeffDeCola/my-go-examples/tree/master/useful-tools-i-use/markdown-delimiter-doer)
+* [markdown-delimiter-doer](https://github.com/JeffDeCola/my-go-examples/tree/master/useful-tools-i-created/markdown-delimiter-doer)
 
   _Take a markdown file and "do whatever you want" between the delimiters
   and output new markdown file._
