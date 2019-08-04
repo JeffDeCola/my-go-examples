@@ -13,11 +13,11 @@ I organized everything (alphabetically) into these sections,
 * [API](https://github.com/JeffDeCola/my-go-examples#api)
 * [BASIC PROGRAMMING](https://github.com/JeffDeCola/my-go-examples#basic-programming)
 * [BASIC SYNTAX](https://github.com/JeffDeCola/my-go-examples#basic-syntax)
-  * [DATA TYPES](https://github.com/JeffDeCola/my-go-examples#data-types)
-  * [ERROR HANDLING & LOGGING](https://github.com/JeffDeCola/my-go-examples#error-handling--logging)
-  * [FUNCTIONS](https://github.com/JeffDeCola/my-go-examples#functions)
-  * [INTERFACES](https://github.com/JeffDeCola/my-go-examples#interfaces)
-  * [METHODS](https://github.com/JeffDeCola/my-go-examples#methods)
+  * Data Types
+  * Error Handling & Logging
+  * Functions
+  * Interfaces
+  * Methods
 * [CLOUD SERVICES](https://github.com/JeffDeCola/my-go-examples#cloud-services)
 * [DATABASE](https://github.com/JeffDeCola/my-go-examples#database)
 * [PACKAGES](https://github.com/JeffDeCola/my-go-examples#packages)
@@ -92,56 +92,56 @@ _All sections in alphabetical order._
 
 ### BASIC SYNTAX
 
-### DATA TYPES
+* DATA TYPES
 
-* [closure](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/data-types/closure)
+  * [closure](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/data-types/closure)
 
-  _Assigning a variable to a function._
+    _Assigning a variable to a function._
 
-* [pointers](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/data-types/pointers)
+  * [pointers](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/data-types/pointers)
 
-  _A pointer to a struct._
+    _A pointer to a struct._
 
-* [slices-underlying-array](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/data-types/slices-underlying-array)
+  * [slices-underlying-array](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/data-types/slices-underlying-array)
 
-  _A slice being appended to, and shows the underlying array
-  being added to the slice._
+    _A slice being appended to, and shows the underlying array
+    being added to the slice._
 
-### ERROR HANDLING & LOGGING
+* ERROR HANDLING & LOGGING
 
-* [logging-error-handling](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/error-handling-and-logging/logging-error-handling)
+  * [logging-error-handling](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/error-handling-and-logging/logging-error-handling)
 
-  _Logging and error handling._
+    _Logging and error handling._
 
-### FUNCTIONS
+* FUNCTIONS
 
-* [callback](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/functions/callback)
+  * [callback](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/functions/callback)
 
-  _Passing a function (as an argument) to a function._
+    _Passing a function (as an argument) to a function._
 
-* [recursion](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/functions/recursion)
+  * [recursion](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/functions/recursion)
 
-  _A function calling itself to make a fibonacci series._
+    _A function calling itself to make a fibonacci series._
 
-### INTERFACES
+* INTERFACES
 
-* [interface](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/interfaces/interface)
+  * [interface](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/interfaces/interface)
 
-  _Accepting ANYTHING (as long as anything has a method attached
-  to an interface)._
+    _Accepting ANYTHING (as long as anything has a method attached
+    to an interface)._
 
-* [interfaces-card-atm-bank](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/interfaces/interfaces-card-atm-bank)
+  * [interfaces-card-atm-bank](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/interfaces/interfaces-card-atm-bank)
 
-  _Using interfaces to show how an atm card is
-  used to interact with an atm and bank._
+    _Using interfaces to show how an atm card is
+    used to interact with an atm and bank._
 
-* [structs-methods-interfaces](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/interfaces/structs-methods-interfaces)
+  * [structs-methods-interfaces](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/interfaces/structs-methods-interfaces)
 
-  _Structs, methods and interfaces._
+    _Structs, methods and interfaces._
 
-### METHODS
+* METHODS
 
-* tbd
+  * tbd
 
 ### CLOUD SERVICES
 
