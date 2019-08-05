@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/JeffDeCola/my-go-examples/packages-i-created/jeffshapes"
+	"github.com/JeffDeCola/my-go-packages/jeffshapes"
 )
 
 func main() {
