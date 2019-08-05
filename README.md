@@ -20,9 +20,9 @@ I organized everything (alphabetically) into these sections,
   * Methods
 * [CLOUD SERVICES](https://github.com/JeffDeCola/my-go-examples#cloud-services)
 * [DATABASE](https://github.com/JeffDeCola/my-go-examples#database)
-* [PACKAGES](https://github.com/JeffDeCola/my-go-examples#packages)
 * [GOROUTINES](https://github.com/JeffDeCola/my-go-examples#goroutines)
 * [MESSAGING](https://github.com/JeffDeCola/my-go-examples#messaging)
+* [PACKAGES](https://github.com/JeffDeCola/my-go-examples#packages)
 * [TESTING](https://github.com/JeffDeCola/my-go-examples#testing)
 * [USEFUL TOOLS I CREATED](https://github.com/JeffDeCola/my-go-examples#useful-tools-i-created)
 * [WEBSERVER](https://github.com/JeffDeCola/my-go-examples#webserver)
@@ -175,20 +175,6 @@ _All sections in alphabetical order._
 
   _A non-relational (NoSQL) database - Set/Get from/to a key/value pair._
 
-### PACKAGES
-
-* [crypto/md5](https://github.com/JeffDeCola/my-go-examples/tree/master/packages/crypto-md5)
-
-  _The crypto/md5 package is used for getting an md5 fingerprint from an ssh key._
-
-* [flag](https://github.com/JeffDeCola/my-go-examples/tree/master/packages/flag)
-
-  _The flag package makes it easy to implement command-line flag parsing._
-
-* [jeff-shapes](https://github.com/JeffDeCola/my-go-examples/tree/master/packages/shapes)
-
-  _I created this packed to show how to create and use a custom package.
-
 ### GOROUTINES
 
 * [async-channel-no-waiting](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/async-channel-no-waiting)
@@ -223,6 +209,24 @@ _All sections in alphabetical order._
 
   _Sending a protobuf msg over NATS from a
   client to a server using request and response._
+
+### PACKAGES
+
+_Refer to my repo
+[my-go-packages](https://github.com/JeffDeCola/my-go-packages)
+for packages I created_
+
+* [crypto/md5](https://github.com/JeffDeCola/my-go-examples/tree/master/packages/crypto-md5)
+
+  _The crypto/md5 package is used for getting an md5 fingerprint from an ssh key._
+
+* [flag](https://github.com/JeffDeCola/my-go-examples/tree/master/packages/flag)
+
+  _The flag package makes it easy to implement command-line flag parsing._
+
+* [test-jeffshapes](https://github.com/JeffDeCola/my-go-examples/tree/master/packages/test-jeffshapes)
+  
+  _Testing the jeffshapes package (below)._
 
 ### TESTING
 
