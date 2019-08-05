@@ -1,2 +1,2 @@
-# my-go-examples cloud-services/amazon-aws
+// my-go-examples cloud-services/amazon-aws
 
