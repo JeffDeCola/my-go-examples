@@ -1,17 +1,19 @@
 # test-jeffshapes
 
-`test-jeffshapes` will test the jeffshapes package I created.
+`test-jeffshapes` will test the `jeffshapes` package I created.
 
 This package was created in my repo
- [my-go-packages](https://github.com/JeffDeCola/my-go-packages)
+ [my-go-packages](https://github.com/JeffDeCola/my-go-packages#jeffshapes).
 
 ## HOW TO USE THE PACKAGE
 
-Get the package,
+First get the package,
 
 ```bash
 go get -u -v github.com/JeffDeCola/my-go-packages/jeffshapes
 ```
+
+Note `-v` is verbose and `-u` is update.
 
 To use the package in go,
 

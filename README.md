@@ -214,7 +214,7 @@ _All sections in alphabetical order._
 
 _Refer to my repo
 [my-go-packages](https://github.com/JeffDeCola/my-go-packages)
-for packages I created_
+for packages I created._
 
 * [crypto/md5](https://github.com/JeffDeCola/my-go-examples/tree/master/packages/crypto-md5)
 
