@@ -3,150 +3,226 @@
 
 _All sections in alphabetical order._
 
-* API
+### API
 
-  * [http-GET-POST](https://github.com/JeffDeCola/my-go-examples/tree/master/api/http-GET-POST)
+* [http-GET-POST](https://github.com/JeffDeCola/my-go-examples/tree/master/api/http-GET-POST)
 
-    _Using http package to GET or POST (update via json)._
+  _Using a http package to GET or POST (update via json)._
 
-  * [OAuth-2.0-google-cloud-storage-api](https://github.com/JeffDeCola/my-go-examples/tree/master/api/OAuth-2.0-google-cloud-storage-api)
+* [OAuth-2.0-google-cloud-storage-api](https://github.com/JeffDeCola/my-go-examples/tree/master/api/OAuth-2.0-google-cloud-storage-api)
 
-    _Using OAuth 2.0 to access a users google-cloud-storage (based on scopes)
-    via googles api._
+  _Using OAuth 2.0 to access a users google cloud storage
+  (based on scopes) via googles api._
 
-  * [OAuth-2.0-google-cloud-storage-api-over-NATS](https://github.com/JeffDeCola/my-go-examples/tree/master/api/OAuth-2.0-google-cloud-storage-api-over-NATS)
+* [OAuth-2.0-google-cloud-storage-api-over-NATS](https://github.com/JeffDeCola/my-go-examples/tree/master/api/OAuth-2.0-google-cloud-storage-api-over-NATS)
 
-    _Using OAuth 2.0 (frontend and backend via protobuf over NATS) to
-    access a users google cloud storage (based on scopes) via googles api._
+  _Using OAuth 2.0 (frontend and backend via protobuf over NATS)
+  to access a users google cloud storage (based on scopes) via googles api._
 
-  * [simple-webserver-with-REST](https://github.com/JeffDeCola/my-go-examples/tree/master/api/simple-webserver-with-REST)
+* [simple-webserver-with-REST](https://github.com/JeffDeCola/my-go-examples/tree/master/api/simple-webserver-with-REST)
 
-    _Adding REST to the [simple-webserver](https://github.com/JeffDeCola/my-go-examples/tree/master/webserver/simple-webserver)._
+  _Adding REST to my
+  [simple-webserver](https://github.com/JeffDeCola/my-go-examples/tree/master/webserver/simple-webserver)._
 
-  * [something-postgreSQL](https://github.com/JeffDeCola/my-go-examples/tree/master/api/something-postgreSQL)
+* [something-postgreSQL](https://github.com/JeffDeCola/my-go-examples/tree/master/api/something-postgreSQL)
 
-    _tbd_
+  _tbd._
 
-  * [something-RESTful](https://github.com/JeffDeCola/my-go-examples/tree/master/api/something-RESTful)
+* [something-RESTful](https://github.com/JeffDeCola/my-go-examples/tree/master/api/something-RESTful)
 
-    _tbd_
+  _tbd._
   
-  * [something-youtube-content-id-api](https://github.com/JeffDeCola/my-go-examples/tree/master/api/something-youtube-content-id-api)
+* [something-youtube-content-id-api](https://github.com/JeffDeCola/my-go-examples/tree/master/api/something-youtube-content-id-api)
 
-    _tbd_
+  _tbd._
 
-  * [something-youtube-data-api-v3](https://github.com/JeffDeCola/my-go-examples/tree/master/api/something-youtube-data-api-ve)
+* [something-youtube-data-api-v3](https://github.com/JeffDeCola/my-go-examples/tree/master/api/something-youtube-data-api-v3)
 
-    _tbd_
+  _tbd._
 
-  * [track-email-mailgun-api](https://github.com/JeffDeCola/my-go-examples/tree/master/api/track-email-mailgun-api)
+* [track-email-mailgun-api](https://github.com/JeffDeCola/my-go-examples/tree/master/api/track-email-mailgun-api)
 
-    _Send and track an email using mailgun over their go client api._
+  _Send and track an email using mailgun over their go client api._
 
-* BASIC PROGRAMMING
+### BASIC PROGRAMMING
 
-  * [callback](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-programming/callback)
+* [json](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-programming/json)
 
-    _Passing a function (as an argument) to a function._
+  _Encode a struct to json and decode back to a struct._
 
-  * [gomock](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-programming/gomock)
+* [linked-list](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-programming/linked-list)
 
-    _A halloween theme is used for gomock on an interface for unit testing._
+  _A singly linked list (i.e. using just a head pointer)._
 
-  * [gotests-complex-function](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-programming/gotests-complex-function)
+* [read-file](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-programming/read-file)
 
-    _Testing a function with complex inputs and outputs._
+  _Reading a file a few different ways._
 
-  * [interface](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-programming/interface)
+### BASIC SYNTAX
 
-    _Accepting ANYTHING (as long as anything has a method attached to interface)._
+* DATA TYPES
 
-  * [interfaces-card-atm-bank](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-programming/interfaces-card-atm-bank)
+  * [closure](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/data-types/closure)
 
-    _Uses interfaces to show how an atm card is used to interact with an atm
-    and bank._
+    _Assigning a variable to a function._
 
-  * [json](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-programming/json)
+  * [pointers](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/data-types/pointers)
 
-    _Encode a struct to json and decode back to a struct._
+    _A pointer to a struct._
 
-  * [linked-list](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-programming/linked-list)
+  * [slices-underlying-array](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/data-types/slices-underlying-array)
 
-    _An example of a Singly Linked List (i.e. using just a head pointer)._
+    _A slice being appended to, and shows the underlying array
+    being added to the slice._
 
-  * [logging-error-handling](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-programming/logging-error-handling)
+* ERROR HANDLING & LOGGING
+
+  * [logging-error-handling](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/error-handling-and-logging/logging-error-handling)
 
     _Logging and error handling._
 
-  * [pointers](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-programming/pointers)
+* FUNCTIONS
 
-    _An example of a pointer to a struct._*
+  * [callback](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/functions/callback)
 
-  * [read-file](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-programming/read-file)
+    _Passing a function (as an argument) to a function._
 
-    _Reading a file a few different ways._
-
-  * [recursion](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-programming/recursion)
+  * [recursion](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/functions/recursion)
 
     _A function calling itself to make a fibonacci series._
 
-  * [slices-underlying-array](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-programming/slices-underlying-array)
+* INTERFACES
 
-    _is an example of a slice being appended to, and shows the underlying array
-    being added to the slice._
+  * [interface](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/interfaces/interface)
 
-  * [structs-methods-interfaces](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-programming/structs-methods-interfaces)
+    _Accepting ANYTHING (as long as anything has a method attached
+    to an interface)._
 
-    _An example of structs, methods and interfaces._
+  * [interfaces-card-atm-bank](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/interfaces/interfaces-card-atm-bank)
 
-* DATABASE
+    _Using interfaces to show how an atm card is
+    used to interact with an atm and bank._
 
-  * [google-cloud-spanner-table](https://github.com/JeffDeCola/my-go-examples/tree/master/database/google-cloud-spanner-table)
+  * [structs-methods-interfaces](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/interfaces/structs-methods-interfaces)
 
-    _read/write from/to a table._
+    _Structs, methods and interfaces._
 
-  * [postgreSQL](https://github.com/JeffDeCola/my-go-examples/tree/master/database/postgreSQL)
+* METHODS
 
-    _read/write from/to a table._
+  * tbd
 
-* GOROUTINES
+### CLOUD SERVICES
 
-  * [async-channel-no-waiting](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/async-channel-no-waiting)
+* [amazon-aws](https://github.com/JeffDeCola/my-go-examples/tree/master/cloud-services/amazon-aws)
 
-    _An example of a goroutine asynchronously sending data (via a channel)
-    to a function that uses the latest data (if available) and does not wait._
+  _Interacting with amazon's
+  [aws](https://github.com/JeffDeCola/my-cheat-sheets/tree/master/software/service-providers/amazon-web-services-cheat-sheet)
+  using
+  `aws-sdk-go`
+  client libraries._
 
-  * [goroutines-channels-select](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-channels-select)
+* [google-gcp](https://github.com/JeffDeCola/my-go-examples/tree/master/cloud-services/google-gcp)
 
-    _An example of concurrency and message passing via channels in go._
+  _Interacting with google's
+  [gcp](https://github.com/JeffDeCola/my-cheat-sheets/tree/master/software/service-providers/google-cloud-platform-cheat-sheet)
+  using
+  [google-cloud-go](https://github.com/googleapis/google-api-go-client/tree/master)
+  client libraries._
 
-  * [goroutines-waitgroup](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-waitgroup)
+### DATABASE
 
-    _An example of concurrency using a waitgroup._
+* [google-cloud-spanner-table](https://github.com/JeffDeCola/my-go-examples/tree/master/database/google-cloud-spanner-table)
 
-  * [goroutines-worker-pools](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-worker-pools)
+  _tbd._
 
-    _An example of concurrency using a worker pool with goroutines and channels._
+* [postgreSQL](https://github.com/JeffDeCola/my-go-examples/tree/master/database/postgreSQL)
 
-* MESSAGING
+  _A relational database - Read/Write from/to a table._
 
-  * [protobuf](https://github.com/JeffDeCola/my-go-examples/tree/master/messaging/protobuf)
+* [redis](https://github.com/JeffDeCola/my-go-examples/tree/master/database/redis)
 
-    _Protocol buffers serialize structured data, useful for messaging._
+  _A non-relational (NoSQL) database - Set/Get from/to a key/value pair._
 
-  * [protobuf-NATS-request-response](https://github.com/JeffDeCola/my-go-examples/tree/master/messaging/protobuf-NATS-request-response)
+### GOROUTINES
 
-    _Sends a protobuf msg over NATS from a client to a server using request and response._
+* [async-channel-no-waiting](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/async-channel-no-waiting)
 
-  * [protobuf-NATS-publish-subscribe](https://github.com/JeffDeCola/my-go-examples/tree/master/messaging/protobuf-NATS-publish-subscribe)
+  _A goroutine asynchronously sending data (via a channel)
+  to a function that uses the latest data (if available) and does not wait._
 
-    _Sends a protobuf msg over NATS from a client to a server using publish and subscribe._
+* [goroutines-channels-select](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-channels-select)
 
-* WEBSERVER
+  _Concurrency and message passing via channels in go._
 
-  * [simple-webserver](https://github.com/JeffDeCola/my-go-examples/tree/master/webserver/simple-webserver)
+* [goroutines-waitgroup](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-waitgroup)
 
-    _Using the http package to build a simple webserver._
+  _Concurrency using a waitgroup._
+
+* [goroutines-worker-pools](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-worker-pools)
+
+  _Concurrency using a worker pool with goroutines and channels._
+
+### MESSAGING
+
+* [protobuf](https://github.com/JeffDeCola/my-go-examples/tree/master/messaging/protobuf)
+
+  _Protocol buffers serialize structured data, useful for messaging._
+
+* [protobuf-NATS-publish-subscribe](https://github.com/JeffDeCola/my-go-examples/tree/master/messaging/protobuf-NATS-publish-subscribe)
+
+  _Sending a protobuf msg over NATS from a client
+  to a server using publish and subscribe._
+
+* [protobuf-NATS-request-response](https://github.com/JeffDeCola/my-go-examples/tree/master/messaging/protobuf-NATS-request-response)
+
+  _Sending a protobuf msg over NATS from a
+  client to a server using request and response._
+
+### PACKAGES
+
+_Refer to my repo
+[my-go-packages](https://github.com/JeffDeCola/my-go-packages)
+for packages I created._
+
+* [crypto/md5](https://github.com/JeffDeCola/my-go-examples/tree/master/packages/crypto-md5)
+
+  _The crypto/md5 package is used for getting an md5 fingerprint from an ssh key._
+
+* [flag](https://github.com/JeffDeCola/my-go-examples/tree/master/packages/flag)
+
+  _The flag package makes it easy to implement command-line flag parsing._
+
+* [test-jeffshapes](https://github.com/JeffDeCola/my-go-examples/tree/master/packages/test-jeffshapes)
+  
+  _Testing the jeffshapes package (below)._
+
+### TESTING
+
+* [gomock](https://github.com/JeffDeCola/my-go-examples/tree/master/testing/gomock)
+
+  _Using gomock on an interface for unit testing._
+
+* [gotests-complex-function](https://github.com/JeffDeCola/my-go-examples/tree/master/testing/gotests-complex-function)
+
+  _Testing a function with complex inputs and outputs._
+
+### USEFUL TOOLS I CREATED
+
+* [markdown-create-table-of-contents](https://github.com/JeffDeCola/my-go-examples/tree/master/useful-tools-i-created/markdown-create-table-of-contents)
+
+  _Parse a markdown file to find `##`, `###` to create a table of contents (TOC)
+  for links at github.  I like to use a TOC at the beginning of my README.md files._
+
+* [markdown-delimiter-doer](https://github.com/JeffDeCola/my-go-examples/tree/master/useful-tools-i-created/markdown-delimiter-doer)
+
+  _Take a markdown file and "do whatever you want" between the delimiters
+  and output new markdown file._
+
+### WEBSERVER
+
+* [simple-webserver](https://github.com/JeffDeCola/my-go-examples/tree/master/webserver/simple-webserver)
+
+  _Using the http package to build a simple webserver._
 
 ## UPDATE GITHUB WEBPAGE & UNIT TESTS USING CONCOURSE (OPTIONAL)
 
