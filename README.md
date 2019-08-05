@@ -21,6 +21,7 @@ I organized everything (alphabetically) into these sections,
 * [CLOUD SERVICES](https://github.com/JeffDeCola/my-go-examples#cloud-services)
 * [DATABASE](https://github.com/JeffDeCola/my-go-examples#database)
 * [PACKAGES](https://github.com/JeffDeCola/my-go-examples#packages)
+* [PACKAGES I CREATED](https://github.com/JeffDeCola/my-go-examples#packages-I-created)
 * [GOROUTINES](https://github.com/JeffDeCola/my-go-examples#goroutines)
 * [MESSAGING](https://github.com/JeffDeCola/my-go-examples#messaging)
 * [TESTING](https://github.com/JeffDeCola/my-go-examples#testing)
@@ -185,9 +186,16 @@ _All sections in alphabetical order._
 
   _The flag package makes it easy to implement command-line flag parsing._
 
-* [jeff-shapes](https://github.com/JeffDeCola/my-go-examples/tree/master/packages/shapes)
+* [test-jeffshapes](https://github.com/JeffDeCola/my-go-examples/tree/master/packages/test-jeffshapes)
+  
+  _Testing the jeffshapes package (below)._
 
-  _I created this packed to show how to create and use a custom package.
+### PACKAGE I CREATED
+
+* [jeffshapes](https://github.com/JeffDeCola/my-go-examples/tree/master/packages-i-created/jeffshapes)
+
+  _jeffshapes package (below) makes it easy to compute area and circumference
+  of a circle._
 
 ### GOROUTINES
 
