@@ -3,6 +3,10 @@
 `crypto/md5` _package. An example of
 getting an md5 fingerprint from an ssh key._
 
+Refer to the
+[crypto/md5](https://golang.org/pkg/crypto/md5/)
+package for more info.
+
 [GitHub Webpage](https://jeffdecola.github.io/my-go-examples/)
 
 ## RUN

@@ -5,6 +5,8 @@
 This package was created in my repo
  [my-go-packages](https://github.com/JeffDeCola/my-go-packages#jeffshapes).
 
+[GitHub Webpage](https://jeffdecola.github.io/my-go-examples/)
+
 ## HOW TO USE THE PACKAGE
 
 First get the package,
