@@ -214,7 +214,9 @@ _All sections in alphabetical order._
 
 _Refer to my repo
 [my-go-packages](https://github.com/JeffDeCola/my-go-packages)
-for packages I created._
+for packages I created. Refer to
+[golang.org/pkg](https://golang.org/pkg/)
+for go packages_
 
 * [crypto/md5](https://github.com/JeffDeCola/my-go-examples/tree/master/packages/crypto-md5)
 
@@ -223,6 +225,10 @@ for packages I created._
 * [flag](https://github.com/JeffDeCola/my-go-examples/tree/master/packages/flag)
 
   _The flag package makes it easy to implement command-line flag parsing._
+
+* [fmt-scan](https://github.com/JeffDeCola/my-go-examples/tree/master/packages/fmt-scan)
+
+  _The fmt package makes it easy to scan user input using fmt.Scan() by reading os.Stdin._
 
 * [test-jeffshapes](https://github.com/JeffDeCola/my-go-examples/tree/master/packages/test-jeffshapes)
   

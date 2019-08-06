@@ -2,6 +2,10 @@
 
 `flag` _package makes it easy to implement command-line flag parsing._
 
+Refer to the
+[flag](https://golang.org/pkg/flag/)
+package for more info.
+
 [GitHub Webpage](https://jeffdecola.github.io/my-go-examples/)
 
 ## RUN
