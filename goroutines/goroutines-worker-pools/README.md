@@ -15,4 +15,4 @@ instances and metrics.
 If the numbers of workers you need to use during a tick time does not finish,
 it will skip some tick time so the workers can catch up.
 
-![IMAGE - goroutines-worker-pools - IMAGE](../../docs/pics/my-go-examples-goroutines-worker-pools.jpg)
+![IMAGE - goroutines-worker-pools - IMAGE](../../docs/pics/goroutines-worker-pools.jpg)
