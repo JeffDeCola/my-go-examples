@@ -182,9 +182,10 @@ _All sections in alphabetical order._
   _A goroutine asynchronously sending data (via a channel buffer) and a goroutine
   receiving that data, using the latest (if available) and does not wait._
 
-* [goroutines-channels-select](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-channels-select)
+* [goroutines-async-channel-send-receive-waiting](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-channels-select)
 
-  _Concurrency and message passing via channels in go._
+  _ Sending data to a goroutine via an async channel.
+  Both SEND and RCV will block/wait for data._
 
 * [goroutines-waitgroup](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-waitgroup)
 
