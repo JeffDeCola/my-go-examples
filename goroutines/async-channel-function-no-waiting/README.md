@@ -1,47 +1,46 @@
-# async-channel-no-waiting example
+# goroutines-async-channel-receive-no-waiting
 
-`async-channel-no-waiting`  _is an example of
-a goroutine asynchronously sending data (via a channel)
-to a function that uses the latest data (if available) and does not wait._
+`goroutines-async-channel-receive-no-waiting`  _is an example of
+A goroutine asynchronously sending data (via a channel buffer) and a goroutine
+receiving that data, using the latest (if available) and does not wait._
 
 [GitHub Webpage](https://jeffdecola.github.io/my-go-examples/)
 
 ## ASYNCHRONOUS CHANNEL
 
-The goal of the goroutine `getInstances()` is to:
+`sendData()` will,
 
-    * Get `instances`.
-    * Send to the channel buffer.
+* Send data every x seconds to the channel buffer
 
-The goal of the function `usingInstances()` is to:
+`rcvData()` will,
 
-    * Read the latest instances from the channel.
-    * If there are no instances, just use the previous ones.
+* Read the latest data from the channel buffer (if available)
+* If there are no data, just use the previous data
 
-The assumption is that the instances can constantly
-change so you always want the most recent list.
+![IMAGE - goroutines-async-channel-receive-no-waiting - IMAGE](../../docs/pics/goroutines-async-channel-receive-no-waiting.jpg)
 
-## MAGIC IN THE usingInstance() FUNCTION - NO WAITING
+## rcvData() FUNCTION - NO WAITING
 
-The `usingInstances()' function asynchronously reads from the channel buffer.
+The `rcvData()' function asynchronously reads from the channel buffer.
 
 Since the channel is asynchronous, the channel buffer could be empty or full
-depending on how much faster or slower the `getInstances()` goroutine is.
-Hence, we don't want the `usingInstances()' function to wait.
+depending on how much faster or slower the `sendData()` goroutine is.
+Hence, we don't want the `rvcData()` function to wait.
 
-To solve the problem of the `usingInstances()' function waiting around:
+To solve the problem of the `rvcData()' function waiting around,
 
-* If there is nothing in channel:
-  * default and break out of loop
-* If there is something in channel:
-  * read and continue until empty channel (hence, get latest)
+* If there is something in channel
+  * Read and continue reading until empty channel (hence, get latest one)
   * break out of loop like above
+* If there is nothing in channel
+  * default and break out of the loop
 
 ```go
 for {
     select {
-    case newVal := <-instanceListCh:
-        instanceList = newVal
+    case newVal := <-rcvCh:
+        data = newVal
+        fmt.Printf("%40d - Received data %v\n", counter, data)
         continue
     default:
     }
@@ -49,14 +48,15 @@ for {
 }
 ```
 
-![IMAGE - async-channel-function-no-waiting - IMAGE](../../docs/pics/my-go-examples-async-channel-function-no-waiting.jpg)
+## RUN
 
-## TRY SLOWING OR SPEDDING UP GOROUTINE
+```bash
+go run goroutines-async-channel-receive-no-waiting.go
+```
 
-Try slowing down or speeding up the goroutine or fuction
-to see if everything works as explained above.
+Try slowing down or speeding up the goroutines,
 
 ```go
-var getInstanceSpeedSeconds = xx
-var usingInstancesSpeedSeconds = xx
+sendSpeedSeconds = X
+rcvSpeedSeconds = X
 ```

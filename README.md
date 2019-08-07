@@ -177,10 +177,10 @@ _All sections in alphabetical order._
 
 ### GOROUTINES
 
-* [async-channel-function-no-waiting](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/async-channel-function-no-waiting)
+* [goroutines-async-channel-receive-no-waiting](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-async-channel-receive-no-waiting)
 
-  _A goroutine asynchronously sending data (via a channel)
-  to a function that uses the latest data (if available) and does not wait._
+  _A goroutine asynchronously sending data (via a channel buffer) and a goroutine
+  receiving that data, using the latest (if available) and does not wait._
 
 * [goroutines-channels-select](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-channels-select)
 
