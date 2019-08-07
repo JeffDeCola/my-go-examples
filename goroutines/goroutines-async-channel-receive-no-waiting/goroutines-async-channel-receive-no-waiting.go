@@ -6,7 +6,7 @@ import (
 	"time"
 )
 
-var sendSpeedSeconds = 10
+var sendSpeedSeconds = 5
 var rcvSpeedSeconds = 2
 
 // sendData - Sends data every X seconds
