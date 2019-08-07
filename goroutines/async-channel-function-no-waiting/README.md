@@ -49,7 +49,7 @@ for {
 }
 ```
 
-![IMAGE - async-channel-function-no-waiting - IMAGE](../../pics/my-go-examples-async-channel-function-no-waiting.jpg)
+![IMAGE - async-channel-function-no-waiting - IMAGE](../../docs/pics/my-go-examples-async-channel-function-no-waiting.jpg)
 
 ## TRY SLOWING OR SPEDDING UP GOROUTINE
 

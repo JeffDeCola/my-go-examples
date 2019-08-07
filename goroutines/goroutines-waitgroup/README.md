@@ -9,4 +9,4 @@ concurrency using a waitgroup._
 
 TBD
 
-![IMAGE - goroutines-waitgroup - IMAGE](../../pics/goroutines-waitgroup.jpg)
+![IMAGE - goroutines-waitgroup - IMAGE](../../docs/pics/goroutines-waitgroup.jpg)
