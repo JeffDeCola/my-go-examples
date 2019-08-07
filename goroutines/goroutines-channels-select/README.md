@@ -42,3 +42,5 @@ for {
     }
 }
 ```
+
+![IMAGE - goroutines-channel-select - IMAGE](../../pics/goroutines-channel-select.jpg)

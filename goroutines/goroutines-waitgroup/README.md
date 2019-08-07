@@ -8,3 +8,5 @@ concurrency using a waitgroup._
 ## GOROUTINE (CONCURRENCY)
 
 TBD
+
+![IMAGE - goroutines-waitgroup - IMAGE](../../pics/goroutines-waitgroup.jpg)
