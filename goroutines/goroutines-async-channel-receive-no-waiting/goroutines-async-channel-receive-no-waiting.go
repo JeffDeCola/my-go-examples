@@ -6,8 +6,8 @@ import (
 	"time"
 )
 
-var sendSpeedSeconds = 5
-var rcvSpeedSeconds = 2
+const sendSpeedSeconds = 5
+const rcvSpeedSeconds = 2
 
 // sendData - Sends data every X seconds
 func sendData(sendCh chan string) {

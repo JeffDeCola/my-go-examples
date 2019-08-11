@@ -81,6 +81,6 @@ rcvData() will receive data every 2 seconds
 Try slowing down or speeding up the goroutines by changing,
 
 ```go
-sendSpeedSeconds = X
-rcvSpeedSeconds = X
+const sendSpeedSeconds = X
+const rcvSpeedSeconds = X
 ```

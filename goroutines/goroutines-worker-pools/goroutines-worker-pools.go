@@ -6,74 +6,82 @@ import (
 	"time"
 )
 
-// SET YOUR VARIABLES FOR THIS EXAMPLE
-var numWorkers = 2
-var instanceList = []string{"i1", "i2", "i3", "i4", "i5"}
-var ticktimeSeconds = 10
-var sampletime = 11
-var jobTime time.Duration = 7
-var channelBufferSize = 2
+// SET CONSTANTS FOR WORKER doWork()
+const numberWorkers = 2 // How many workers you want
+const workerTime = 7    // How long it takes a worker to work
 
-// Other Variables
-var jobNumber = 1
+// SET CONTANT FOR doSomething()
+var jobList = []string{"jobA", "jobB", "jobC", "jobD", "jobE"} // 5 jobs with jobNames
+var ticktimeSeconds = 10                                       // Tick time to send a bunch of jobs workers
+var jobNumber = 1                                              // The job number
+
+// OTHER
+var channelBufferSize = 1 // How many channel buffers
 
 type request struct {
-	instance  string
-	metric    string
-	callTime  time.Time
-	jobNumber int
+	jobNumber   int
+	jobName     string
+	requestTime time.Time
 }
 
-// doWorkers is the goroutine Worker
-func doWorkers(id int, reqch chan *request) {
+// doWork grabs jobs from the channel
+func doWork(id int, msgCh chan *request) {
 
-	fmt.Printf("W%d - START Worker\n", id)
+	fmt.Printf("                                    WORKER%3d  - STARTED\n", id)
 
-	// Monitor channel for request channel
-	for r := range reqch {
-		time.Sleep(jobTime * time.Second)
-		fmt.Printf("W%d - RESPONSE #%d - %s, %s - %s (TOOK %s)\n", id, r.jobNumber, r.instance, r.metric, time.Now().UTC().Format(time.ANSIC), time.Now().UTC().Sub(r.callTime))
+	// Monitor channel for job
+	for r := range msgCh {
+		fmt.Printf("                                    WORKER%3d - STARTED  %4d - %s (%s)\n", id, r.jobNumber, r.jobName, time.Now().UTC().Format("03:04:05.000"))
+		time.Sleep(workerTime * time.Second)
+		diff := time.Now().UTC().Sub(r.requestTime)
+		fmt.Printf("                                    WORKER%3d - FINISHED %4d - %s (TOOK %s)", id, r.jobNumber, r.jobName, diff)
+		if diff.Seconds() > workerTime+1 {
+			fmt.Printf(" Taking a bit longer (pulled from buffer)")
+		}
+		fmt.Printf("\n")
 	}
 
 }
 
-func doSomething(requestch chan *request) {
+func doSomething(msgCh chan *request) {
 
-	endTime := time.Now().UTC()
+	endTime := time.Now().UTC().Add(-(time.Duration(ticktimeSeconds) * time.Second)) // Substract (ticktimeSeconds) from endTime
 
 	// Loop forever - Long Running (Will start immediately then wait for tick)
 	for c := time.Tick(time.Duration(ticktimeSeconds) * time.Second); ; <-c {
 
-		fmt.Printf("\n\n*** TICK %s ***\n\n\n", time.Now().UTC().Format(time.ANSIC))
+		fmt.Printf("\n\n*** TICK (%s) ***\n", time.Now().UTC().Format("03:04:05.000"))
 
 		oldendTime := endTime
 		endTime = time.Now().UTC()
-		startTime := endTime.Add(-(time.Duration(sampletime) * time.Second))
+		startTime := endTime.Add(-(time.Duration(ticktimeSeconds) * time.Second)) // Substract (ticktimeSeconds) from endTime
 
-		// CHECK TICKER IF YOU MADE IT BACK IN TIME
+		// CHECK TICKER IF YOU MADE IT BACK IN TIME (WITHIN A SECOND)
 		diff := startTime.Sub(oldendTime)
-		fmt.Printf("DIFF: %s (oldendTime: %s - starttime %s)\n", diff, startTime.Format(time.ANSIC), oldendTime.Format(time.ANSIC))
+		fmt.Printf("DIFF: %s\n", diff)
+		// fmt.Printf("DIFF: %s (starttime: %s - oldendTime %s)\n", diff, startTime.Format("03:04:05.000000"), oldendTime.Format("03:04:05.000000"))
 		if diff.Seconds() > 1 {
-			fmt.Printf("*** ERROR - YOU MISSED SOME SAMPLE TIME *** \n")
-			fmt.Printf("*** Not enough time to process all instances within tick ***\n")
-			fmt.Printf("*** Increase workers or reduce number of instances ***\n\n")
+			fmt.Printf("*** ERROR - YOU MISSED SOME TICK TIME *** \n")
+			fmt.Printf("*** Not enough time to process all jobs within tick ***\n")
+			fmt.Printf("*** Increase workers, reduce number of jobs ***\n\n")
 		} else {
-			fmt.Printf("Perfect - You did not miss any time\n")
+			fmt.Printf("PERFECT - You did not miss a tick\n\n")
 		}
 
-		// Interate over
-		for _, instance := range instanceList {
+		// Interate over jobList and send to worker
+		for _, jobName := range jobList {
 
-			fmt.Printf("CALLING #%d - %s %s\n", jobNumber, instance, time.Now().UTC().Format(time.ANSIC))
+			t := time.Now().UTC()
+			fmt.Printf("SENDING %4d - %s (%s)\n", jobNumber, jobName, t.Format("03:04:05.000"))
 
 			// WAITS FOR WORKER
-			requestch <- &request{
-				instance:  instance,
-				callTime:  time.Now().UTC(),
-				jobNumber: jobNumber,
+			msgCh <- &request{
+				jobNumber:   jobNumber,
+				jobName:     jobName,
+				requestTime: t,
 			}
 
-			fmt.Printf("CALLED #%d - %s %s\n", jobNumber, instance, time.Now().UTC().Format(time.ANSIC))
+			fmt.Printf("SENT    %4d - %s (%s)\n", jobNumber, jobName, time.Now().UTC().Format("03:04:05.000"))
 			jobNumber++
 
 		}
@@ -82,14 +90,20 @@ func doSomething(requestch chan *request) {
 
 func main() {
 
-	// Make Request Channel with Buffer
-	reqch := make(chan *request, channelBufferSize)
+	// Make Channel Buffer
+	msgCh := make(chan *request, channelBufferSize)
+
+	fmt.Println(" ")
 
 	// Create Workers
-	for i := 0; i < numWorkers; i++ {
-		go doWorkers(i, reqch)
+	for id := 1; id < numberWorkers+1; id++ {
+		go doWork(id, msgCh)
 	}
 
-	doSomething(reqch)
+	// Will loop forever
+	go doSomething(msgCh)
 
+	// Press return to exit
+	fmt.Scanln()
+	fmt.Println("done")
 }
