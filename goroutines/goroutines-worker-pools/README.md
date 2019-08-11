@@ -19,9 +19,10 @@ Meaning, asking the workers to do a bunch of stuff in period of time
 (a tick).
 In this example the default is to have the workers complete
 5 jobs in 10 seconds.
-And if we only have 2 workers that take 7 seconds to complete its task.
+And we only have 2 workers that take 7 seconds to complete its task.
+So you can see this will break.
 
-So you will have to fix this,
+So you will have to fix this by,
 
 * Increase the number of workers
 * Reduce the number of jobs per tick
@@ -35,7 +36,7 @@ go run goroutines-worker-pools.go
 
 Simply press return to stop.
 
-These are the defaults,
+These are the defaults (and again, it will break),
 
 ```go
 // SET CONSTANTS FOR WORKER doWork()
