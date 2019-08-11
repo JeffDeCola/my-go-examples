@@ -27,7 +27,7 @@ say = <-msgCh                               // ALSO WAITS/BLOCKS
 ## RUN
 
 ```bash
-go run goroutines-async-channel-send-receive-waiting
+go run goroutines-async-channel-send-receive-waiting.go
 ```
 
 Output is always,
