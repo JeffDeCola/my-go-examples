@@ -67,7 +67,7 @@ func main() {
 	fmt.Println("Main start time", time.Since(start))
 
 	// How many core amd i using
-	fmt.Println("I have this many cores to use: ", runtime.NumCPU())
+	fmt.Println("I have this many cores on this machine: ", runtime.NumCPU())
 
 	// Make Channel Buffer
 	msgCh := make(chan *workerStats, channelBufferSize)
