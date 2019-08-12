@@ -32,7 +32,7 @@ var channelBufferSize = numberWorkers + 1 // How many channel buffers
 type workerStats struct {
 	id       int
 	timeTook time.Duration
-	cpuID    _Ctype_int
+	cpuID    C.int
 	pid      int
 	tid      int
 }
