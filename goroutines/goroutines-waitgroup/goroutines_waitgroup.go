@@ -7,32 +7,32 @@ import (
 	"time"
 )
 
-func doWork(i int) {
+const numberWorkers = 20
+
+func doWork(wg *sync.WaitGroup, id int) {
+	// Call Done when finished
+	//defer wg.Done()
+	fmt.Println(id, "Started")
 	time.Sleep(3 * time.Second)
-	fmt.Println(i, "done")
+	fmt.Println(id, "Done")
+	wg.Done()
 }
 
 func main() {
 
-	// Step 1 - create new instance of wait group
+	// Create wait group
 	var wg sync.WaitGroup
 
-	for i := 0; i < 20; i++ {
-		// Step 2 - The number of  goroutines to wait for
+	for i := 0; i < numberWorkers; i++ {
+		// Add goroutines to wait for
 		wg.Add(1)
-		go func(i int) {
-
-			// Step 3 - Execute in the goroutine to indicate that the function finsihed
-			defer wg.Done()
-			time.Sleep(3 * time.Second)
-
-			doWork(i)
-
-		}(i)
+		fmt.Println("Starting worker", i)
+		go doWork(&wg, i)
 
 	}
 
-	// Step 4 Call wait when we want to block
+	// Waits for all the goroutines to finish
+	fmt.Println("Waiting for all the workers to finish")
 	wg.Wait()
-	fmt.Println("All done!")
+	fmt.Println("All workers done!!!!!!!!!!!!!!!!!!")
 }

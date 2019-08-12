@@ -187,9 +187,13 @@ _All sections in alphabetical order._
   _Sending data to a goroutine via an async channel.
   Both SEND and RCV will block/wait for data._
 
+* [goroutines-multi-core](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-multi-core)
+
+  _Concurrency across multi-cores._
+
 * [goroutines-waitgroup](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-waitgroup)
 
-  _Concurrency using a waitgroup._
+  _Concurrency using a waitgroup (waiting for a collection of goroutines to finish)._
 
 * [goroutines-worker-pools](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-worker-pools)
 
