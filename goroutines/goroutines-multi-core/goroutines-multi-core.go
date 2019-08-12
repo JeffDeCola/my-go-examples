@@ -1,11 +1,9 @@
 package main
 
 import (
-	"bytes"
 	"fmt"
 	"os"
 	"runtime"
-	"strconv"
 	"sync"
 	"syscall"
 
@@ -18,57 +16,58 @@ import (
 */
 import "C"
 
-//CORES
-const numberCores = 10
+// GO RUNTIME
+const numberCores = 5    // Number of CPU you want to use
+const lockthreads = true // locked the goroutine to a thread
 
 // WORKERS
-const useGoroutine = true
-const numberWorkers = 50
-const timeWork = 1
+const useGoroutine = true // Do you want to use goroutines
+const numberWorkers = 3   // Number of workers
+const timeWork = 5        // Amount of time it takes a worker to finish
 
-// OTHER
+// BUFFER CHANNEL
 var channelBufferSize = numberWorkers + 1 // How many channel buffers
 
 // struct to pass in channel
 type workerStats struct {
-	id        int
-	timeTook  time.Duration
-	pid1      int
-    pid2      int
-    cpu1      int
-	threadID1 uint64
-	threadID2 int
-}
-
-func getGID() uint64 {
-	b := make([]byte, 64)
-	b = b[:runtime.Stack(b, false)]
-	b = bytes.TrimPrefix(b, []byte("goroutine "))
-	b = b[:bytes.IndexByte(b, ' ')]
-	n, _ := strconv.ParseUint(string(b), 10, 64)
-	return n
+	id       int
+	timeTook time.Duration
+	cpuID    _Ctype_int
+	pid      int
+	tid      int
 }
 
 func doWork(msgCh chan *workerStats, wg *sync.WaitGroup, id int) {
 
-	// Lock this goroutine to a particular thread
-	// runtime.LockOSThread()
-	//defer runtime.UnlockOSThread()
+	// Lock this goroutine to a particular thread (go runtime won't change threads)
+	if lockthreads {
+		runtime.LockOSThread()
+		defer runtime.UnlockOSThread()
+	}
+
+	// Get the start thread id
+	startTID := syscall.Gettid()
+
+	// Print out stats
+	fmt.Printf("    Worker: %v, cpuID: %v, pid: %v, tid: %v\n", id, C.sched_getcpu(), os.Getpid(), syscall.Gettid())
 
 	timeStart := time.Now().UTC()
 	time.Sleep(timeWork * time.Second)
 	timeEnd := time.Now().UTC()
 	timeTook := timeEnd.Sub(timeStart)
 
-	fmt.Printf("worker: %d, CPU: %d\n", id, C.sched_getcpu())
+	// Check if the go runtime moved onto a different thread
+	endTID := syscall.Gettid()
+	if startTID != endTID {
+		fmt.Printf("    *** The go runtime moved Worker: %v onto a different thread\n", id)
+	}
 
 	msgCh <- &workerStats{
-		id:        id,
-		timeTook:  timeTook,
-		pid1:      os.Getpid(),
-		pid2:      syscall.Getpid(),
-		threadID1: getGID(),
-		threadID2: syscall.Gettid(),
+		id:       id,
+		timeTook: timeTook,
+		cpuID:    C.sched_getcpu(),
+		pid:      os.Getpid(),
+		tid:      syscall.Gettid(),
 	}
 	wg.Done()
 
@@ -77,14 +76,14 @@ func doWork(msgCh chan *workerStats, wg *sync.WaitGroup, id int) {
 func getStats(msgCh chan *workerStats, wg *sync.WaitGroup, numberWorkers int) {
 
 	// WAIT FOR ALL WORKERS TO FINISH
-	fmt.Println("Waiting for all the workers to finish")
-	fmt.Println("There are currently this many goroutines", runtime.NumGoroutine())
+	fmt.Println("getStats - Waiting for all the workers to finish")
+	fmt.Println("getStats - There are currently this many goroutines", runtime.NumGoroutine())
 	wg.Wait()
 
 	// Print out stats from each worker
 	for i := 0; i < numberWorkers; i++ {
 		r := <-msgCh
-		fmt.Printf("From Worker %v, Took %v on pid %v or pid %v and tid %v or tid %v\n", r.id, r.timeTook, r.pid2, r.pid2, r.threadID1, r.threadID2)
+		fmt.Printf("getStats - From Worker %v, Took: %v, cpuID: %v, pid: %v, tid: %v\n", r.id, r.timeTook, r.cpuID, r.pid, r.tid)
 	}
 
 }
@@ -93,16 +92,27 @@ func main() {
 
 	// START
 	start := time.Now()
+	fmt.Println("")
 
 	// Create wait group
 	var wg sync.WaitGroup
 
-	fmt.Printf("Main start time %f seconds\n", time.Since(start).Seconds())
-
+	// PRINT SOME STATS
+	fmt.Printf("Main start time: %f seconds\n", time.Since(start).Seconds())
+	// Print constants
+	fmt.Printf("Your settings are:\n")
+	fmt.Printf("    const numberCores = %v\n", numberCores)
+	fmt.Printf("    const lockthreads = %v\n", lockthreads)
+	fmt.Printf("    const useGoroutine = %v\n", useGoroutine)
+	fmt.Printf("    const numberWorkers = %v\n", numberWorkers)
+	fmt.Printf("    const timeWork = %v\n", timeWork)
+	fmt.Printf("    const channelBufferSize = %v\n", channelBufferSize)
 	// How many cores can i use?
 	fmt.Println("Total number of cores on this machine: ", runtime.NumCPU())
+	// Limit number of cores to numberCores
 	runtime.GOMAXPROCS(numberCores)
-	fmt.Println("Number of Cores that can be used here: ", runtime.GOMAXPROCS(-1))
+	fmt.Println("Number of Cores you set ", runtime.GOMAXPROCS(-1))
+	fmt.Println("")
 
 	// Make Channel Buffer
 	msgCh := make(chan *workerStats, channelBufferSize)
@@ -123,6 +133,6 @@ func main() {
 	getStats(msgCh, &wg, numberWorkers)
 
 	// END
-	fmt.Printf("Main end time in %f seconds\n", time.Since(start).Seconds())
+	fmt.Printf("Main end time: %f seconds\n", time.Since(start).Seconds())
 
 }
