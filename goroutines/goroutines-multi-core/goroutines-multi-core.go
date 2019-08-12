@@ -13,16 +13,28 @@ import (
 /*
 #define _GNU_SOURCE
 #include <sched.h>
+#include <pthread.h>
+
+void lock_thread(int cpuid) {
+        pthread_t tid;
+        cpu_set_t cpuset;
+
+        tid = pthread_self();
+        CPU_ZERO(&cpuset);
+        CPU_SET(cpuid, &cpuset);
+    pthread_setaffinity_np(tid, sizeof(cpu_set_t), &cpuset);
+}
 */
 import "C"
 
 // GO RUNTIME
-const numberCores = 5    // Number of CPU you want to use
-const lockthreads = true // locked the goroutine to a thread
+const numberCores = 5   // Number of CPU you want to use
+const lockThread = true // locked the goroutine to a thread (Done in go runtime)
+const lockCore = true   // locked the thread to a core (Done in C)
 
 // WORKERS
 const useGoroutine = true // Do you want to use goroutines
-const numberWorkers = 3   // Number of workers
+const numberWorkers = 10  // Number of workers
 const timeWork = 5        // Amount of time it takes a worker to finish
 
 // BUFFER CHANNEL
@@ -39,35 +51,59 @@ type workerStats struct {
 
 func doWork(msgCh chan *workerStats, wg *sync.WaitGroup, id int) {
 
+	timeStart := time.Now().UTC()
+
 	// Lock this goroutine to a particular thread (go runtime won't change threads)
-	if lockthreads {
+	if lockThread {
 		runtime.LockOSThread()
 		defer runtime.UnlockOSThread()
 	}
 
-	// Get the start thread id
-	startTID := syscall.Gettid()
+	// Now lock this thread to CPU (This is outside of go)
+	if lockCore {
+		// Get the cpu your are on
+		cpuID := C.sched_getcpu()
+		// lock the thread to a cpu
+		C.lock_thread(C.int(cpuID))
+	}
 
-	// Print out stats
-	fmt.Printf("    Worker: %v, cpuID: %v, pid: %v, tid: %v\n", id, C.sched_getcpu(), os.Getpid(), syscall.Gettid())
+	// Get the start specs
+	startcpuID := C.sched_getcpu()
+	startpid := os.Getpid()
+	starttid := syscall.Gettid()
 
-	timeStart := time.Now().UTC()
+	// Print out some stats
+	fmt.Printf("    Worker: %v, cpuID: %v, pid: %v, tid: %v\n", id, startcpuID, startpid, starttid)
+
+	// Do something
 	time.Sleep(timeWork * time.Second)
 	timeEnd := time.Now().UTC()
+	time.Sleep(timeWork * time.Second)
+	time.Sleep(timeWork * time.Second)
 	timeTook := timeEnd.Sub(timeStart)
 
-	// Check if the go runtime moved onto a different thread
-	endTID := syscall.Gettid()
-	if startTID != endTID {
-		fmt.Printf("    *** The go runtime moved Worker: %v onto a different thread\n", id)
+	// Get the end specs
+	endcpuID := C.sched_getcpu()
+	endpid := os.Getpid()
+	endtid := syscall.Gettid()
+
+	// Check if anything changed
+	if startcpuID != endcpuID {
+		fmt.Printf("    ***WARNING*** Worker: %v used different cpuID\n", id)
+	}
+	if startpid != endpid {
+		fmt.Printf("    ***WARNING*** Worker: %v used different pid\n", id)
+	}
+	if starttid != endtid {
+		fmt.Printf("    ***WARNING*** Worker: %v used different tid\n", id)
 	}
 
 	msgCh <- &workerStats{
 		id:       id,
 		timeTook: timeTook,
-		cpuID:    C.sched_getcpu(),
-		pid:      os.Getpid(),
-		tid:      syscall.Gettid(),
+		cpuID:    endcpuID,
+		pid:      endpid,
+		tid:      endtid,
 	}
 	wg.Done()
 
@@ -102,7 +138,8 @@ func main() {
 	// Print constants
 	fmt.Printf("Your settings are:\n")
 	fmt.Printf("    const numberCores = %v\n", numberCores)
-	fmt.Printf("    const lockthreads = %v\n", lockthreads)
+	fmt.Printf("    const lockThread = %v\n", lockThread)
+	fmt.Printf("    const lockCore = %v\n", lockCore)
 	fmt.Printf("    const useGoroutine = %v\n", useGoroutine)
 	fmt.Printf("    const numberWorkers = %v\n", numberWorkers)
 	fmt.Printf("    const timeWork = %v\n", timeWork)
