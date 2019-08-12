@@ -16,6 +16,8 @@ const numberWorkers = 20
 const numberCores = 3
 ```
 
+![IMAGE - goroutines-multi-core - IMAGE](../../docs/pics/goroutines-multi-core.jpg)
+
 ## RUN
 
 ```go
