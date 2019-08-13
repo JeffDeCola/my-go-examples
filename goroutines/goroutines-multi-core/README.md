@@ -72,3 +72,7 @@ if lockCore {
 ```go
 go run goroutines-multi-core.go
 ```
+
+Check a pid
+
+
