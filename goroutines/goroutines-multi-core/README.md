@@ -5,64 +5,67 @@ concurrency across multi-cores._
 
 [GitHub Webpage](https://jeffdecola.github.io/my-go-examples/)
 
+## OVERVIEW
+
+Your go executable has a go runtime environment that schedules
+where the goroutines run (which CPU and which thread).
+This is constantly changing.
+
+This example will show you how to `lock the goroutine` to a particular
+CPU and particular thread.
+
+This diagram will help explain what we are trying to do,
+
+![IMAGE - executable-your-code-and-go-runtime - IMAGE](../../docs/pics/executable-your-code-and-go-runtime.jpg)
+
 ## SETUP
 
 This program will allow you to set the numbers of workers per core and check the
 statistics of each process and core.
 
 ```go
-// GO RUNTIME
-const numberCores = 5                       // Number of CPU you want to use
-const lockThread = true                     // locked the goroutine to a thread (Done in go runtime)
-const lockCore = true                       // locked the thread to a core (Done in C)
-
-// WORKERS
-const useGoroutine = true                   // Do you want to use goroutines
-const numberWorkers = 3                     // Number of workers
-const timeWork = 5                          // Amount of time it takes a worker to finish
-
-// BUFFER CHANNEL
-var channelBufferSize = numberWorkers + 1   // How many channel buffers
+??????? UPDATE
 ```
 
-This diagram will help explain what we are trying to do,
-
-![IMAGE - goroutines-multi-core - IMAGE](../../docs/pics/goroutines-multi-core.jpg)
-
-## SOME THINGS TO NOTE
+## LOCK YOUR GOROUTINE
 
 The `go runtime` will schedule goroutines to cores and threads.  And this
-can change a lot.  No goroutine is locked to a thread or a core.
+can change a lot.  No goroutine is locked to a particular thread or a
+particular core.
 
-### LOCK GOROUTINE TO A THREAD
-
-```go
-runtime.LockOSThread()
-defer runtime.UnlockOSThread()
-```
-
-### LOCK THREAD TO A CPU/CORE
-
-This is outside go and uses c.  So since we now have a locked thread,
-lets lock that thread to a CPU.
+### LOCK A GOROUTINE TO A THREAD
 
 ```go
-// Get the cpu your are on
-cpuID:= C.sched_getcpu()
-// lock the thread to a cpu
-C.lock_thread(C.int(cpuID))
+// Lock this goroutine to a particular thread (go runtime won't change threads)
+if lockThread {
+    runtime.LockOSThread()
+    defer runtime.UnlockOSThread()
+}
 ```
 
-### GOMAXPROCS
+### PIN A GOROUTINE TO A CPU (set affinity)
 
-The GOMAXPROCS variable limits the number of threads that can
-execute user-level Go code simultaneously.
+This is a little more tricky and needs a bit of C code.
 
-### PIN A GOROUTINE TO A CPU
+```go
+// Set goroutine to a particular Core/CPU - Set affinity()
+C.set_affinity(useCPU)
+```
 
-This is tricky and needs a bit of C code.
+### LOCK A THREAD TO A CPU/CORE
 
+This is also outside go and uses C.  So since we now have a locked thread,
+and we are on a particular CPU, lets lock that thread to a CPU.
 
+```go
+// Now lock this thread to the Core/CPU you are on 
+if lockCore {
+    // Get the cpu your are on
+    cpuID := C.sched_getcpu()
+    // lock the thread to a cpu
+    C.lock_thread(C.int(cpuID))
+}
+```
 
 ## RUN
 
