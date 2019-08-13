@@ -84,7 +84,8 @@ func doWork(msgCh chan *workerStats, wg *sync.WaitGroup, id int, useCPU int) {
 	startcpuID := C.sched_getcpu()
 	startpid := syscall.Getpid()
 	starttid := syscall.Gettid()
-	startthreadPriority, _ := syscall.Getpriority(syscall.PRIO_PROCESS, 0)
+	//startthreadPriority, _ := syscall.Getpriority(syscall.PRIO_PROCESS, 0)
+	startthreadPriority, _, _ := syscall.Syscall(syscall.SYS_GETPRIORITY, 0, 0, 0)
 
 	// Set the priority of the thread using system call
 	err := syscall.Setpriority(syscall.PRIO_PROCESS, 0, setPriorityThread)
@@ -107,7 +108,8 @@ func doWork(msgCh chan *workerStats, wg *sync.WaitGroup, id int, useCPU int) {
 	endcpuID := C.sched_getcpu()
 	endpid := syscall.Getpid()
 	endtid := syscall.Gettid()
-	endthreadPriority, _ := syscall.Getpriority(syscall.PRIO_PROCESS, 0)
+	//endthreadPriority, _ := syscall.Getpriority(syscall.PRIO_PROCESS, 0)
+	endthreadPriority, _, _ := syscall.Syscall(syscall.SYS_GETPRIORITY, 0, 0, 0)
 
 	// Check if anything changed
 	if startcpuID != endcpuID {
@@ -129,7 +131,7 @@ func doWork(msgCh chan *workerStats, wg *sync.WaitGroup, id int, useCPU int) {
 		cpuID:          endcpuID,
 		pid:            endpid,
 		tid:            endtid,
-		threadPriority: endthreadPriority,
+		threadPriority: int(endthreadPriority),
 	}
 	wg.Done()
 
