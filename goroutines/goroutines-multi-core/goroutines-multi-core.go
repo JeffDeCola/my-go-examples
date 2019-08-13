@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"os"
 	"runtime"
 	"sync"
 	"syscall"
@@ -24,17 +23,25 @@ void lock_thread(int cpuid) {
         CPU_SET(cpuid, &cpuset);
     pthread_setaffinity_np(tid, sizeof(cpu_set_t), &cpuset);
 }
+void set_affinity(int cpuid) {
+        cpu_set_t my_set;        // Define your cpu_set bit mask
+        CPU_ZERO(&my_set);       // Initialize it all to 0, i.e. no CPUs selected
+        CPU_SET(cpuid, &my_set);     // Set the bit that represents core
+        sched_setaffinity(0, sizeof(cpu_set_t), &my_set); // Set affinity of this process to
+}
 */
 import "C"
 
-// GO RUNTIME
-const numberCores = 5   // Number of CPU you want to use
-const lockThread = true // locked the goroutine to a thread (Done in go runtime)
-const lockCore = true   // locked the thread to a core (Done in C)
+// GO RUNTIME & OS
+const lockThread = true              // locked the goroutine to a thread (Done in go runtime)
+const useParticularCPUs = true       // Do you want to use particular CPUs?
+var usetheseCPUs = []int{3, 4, 5, 6} // Which CPU/Cores to use. These will rotate
+const lockCore = true                // locked the thread to a core (Done in C)
+const setPriorityThread = -5         // Set the thread priority the goroutine is on (-19 to 20 with -91 highest)
 
 // WORKERS
 const useGoroutine = true // Do you want to use goroutines
-const numberWorkers = 10  // Number of workers
+const numberWorkers = 5   // Number of workers
 const timeWork = 5        // Amount of time it takes a worker to finish
 
 // BUFFER CHANNEL
@@ -42,14 +49,15 @@ var channelBufferSize = numberWorkers + 1 // How many channel buffers
 
 // struct to pass in channel
 type workerStats struct {
-	id       int
-	timeTook time.Duration
-	cpuID    C.int
-	pid      int
-	tid      int
+	id             int
+	timeTook       time.Duration
+	cpuID          C.int
+	pid            int
+	tid            int
+	threadPriority int
 }
 
-func doWork(msgCh chan *workerStats, wg *sync.WaitGroup, id int) {
+func doWork(msgCh chan *workerStats, wg *sync.WaitGroup, id int, useCPU int) {
 
 	timeStart := time.Now().UTC()
 
@@ -59,7 +67,12 @@ func doWork(msgCh chan *workerStats, wg *sync.WaitGroup, id int) {
 		defer runtime.UnlockOSThread()
 	}
 
-	// Now lock this thread to CPU (This is outside of go)
+	// Set goroutine to a particular Core/CPU - Set affinity()
+	if useParticularCPUs {
+		C.set_affinity(C.int(useCPU))
+	}
+
+	// Now lock this thread to the Core/CPU you are on
 	if lockCore {
 		// Get the cpu your are on
 		cpuID := C.sched_getcpu()
@@ -69,23 +82,32 @@ func doWork(msgCh chan *workerStats, wg *sync.WaitGroup, id int) {
 
 	// Get the start specs
 	startcpuID := C.sched_getcpu()
-	startpid := os.Getpid()
+	startpid := syscall.Getpid()
 	starttid := syscall.Gettid()
+	startthreadPriority, _ := syscall.Getpriority(syscall.PRIO_PROCESS, startpid)
+
+	// Set the priority of the thread using system call
+	err := syscall.Setpriority(syscall.PRIO_PROCESS, syscall.Getpid(), setPriorityThread)
+	if err != nil {
+		println("Setpriority failed")
+		return
+	}
+	// Put it back to what it was (I can't get this to work correctly)
+	//defer syscall.Setpriority(syscall.PRIO_PROCESS, syscall.Getpid(), startthreadPriority)
 
 	// Print out some stats
-	fmt.Printf("    Worker: %v, cpuID: %v, pid: %v, tid: %v\n", id, startcpuID, startpid, starttid)
+	fmt.Printf("    Worker: %v, cpuID: %v, pid: %v, tid: %v, threadPriority: %v\n", id, startcpuID, startpid, starttid, startthreadPriority)
 
 	// Do something
 	time.Sleep(timeWork * time.Second)
 	timeEnd := time.Now().UTC()
-	time.Sleep(timeWork * time.Second)
-	time.Sleep(timeWork * time.Second)
 	timeTook := timeEnd.Sub(timeStart)
 
 	// Get the end specs
 	endcpuID := C.sched_getcpu()
-	endpid := os.Getpid()
+	endpid := syscall.Getpid()
 	endtid := syscall.Gettid()
+	endthreadPriority, _ := syscall.Getpriority(syscall.PRIO_PROCESS, endpid)
 
 	// Check if anything changed
 	if startcpuID != endcpuID {
@@ -97,13 +119,17 @@ func doWork(msgCh chan *workerStats, wg *sync.WaitGroup, id int) {
 	if starttid != endtid {
 		fmt.Printf("    ***WARNING*** Worker: %v used different tid\n", id)
 	}
+	if startthreadPriority != endthreadPriority {
+		fmt.Printf("    ***WARNING*** Worker: %v used different threadPriority\n", id)
+	}
 
 	msgCh <- &workerStats{
-		id:       id,
-		timeTook: timeTook,
-		cpuID:    endcpuID,
-		pid:      endpid,
-		tid:      endtid,
+		id:             id,
+		timeTook:       timeTook,
+		cpuID:          endcpuID,
+		pid:            endpid,
+		tid:            endtid,
+		threadPriority: endthreadPriority,
 	}
 	wg.Done()
 
@@ -119,7 +145,7 @@ func getStats(msgCh chan *workerStats, wg *sync.WaitGroup, numberWorkers int) {
 	// Print out stats from each worker
 	for i := 0; i < numberWorkers; i++ {
 		r := <-msgCh
-		fmt.Printf("getStats - From Worker %v, Took: %v, cpuID: %v, pid: %v, tid: %v\n", r.id, r.timeTook, r.cpuID, r.pid, r.tid)
+		fmt.Printf("getStats - From Worker %v, Took: %v, cpuID: %v, pid: %v, tid: %v, threadPriority: %v\n", r.id, r.timeTook, r.cpuID, r.pid, r.tid, r.threadPriority)
 	}
 
 }
@@ -137,8 +163,9 @@ func main() {
 	fmt.Printf("Main start time: %f seconds\n", time.Since(start).Seconds())
 	// Print constants
 	fmt.Printf("Your settings are:\n")
-	fmt.Printf("    const numberCores = %v\n", numberCores)
 	fmt.Printf("    const lockThread = %v\n", lockThread)
+	fmt.Printf("    const useParticularCPUs = %v\n", useParticularCPUs)
+	fmt.Printf("    usetheseCPUs = %v\n", usetheseCPUs)
 	fmt.Printf("    const lockCore = %v\n", lockCore)
 	fmt.Printf("    const useGoroutine = %v\n", useGoroutine)
 	fmt.Printf("    const numberWorkers = %v\n", numberWorkers)
@@ -147,24 +174,30 @@ func main() {
 	// How many cores can i use?
 	fmt.Println("Total number of cores on this machine: ", runtime.NumCPU())
 	// Limit number of cores to numberCores
-	runtime.GOMAXPROCS(numberCores)
+	// runtime.GOMAXPROCS(numberCores)
 	fmt.Println("Number of Cores you set ", runtime.GOMAXPROCS(-1))
 	fmt.Println("")
 
 	// Make Channel Buffer
 	msgCh := make(chan *workerStats, channelBufferSize)
 
-	// Create Workers on Core
+	// Create Workers
+	c := 0
 	for id := 1; id < numberWorkers+1; id++ {
 		wg.Add(1)
-		fmt.Println("Starting worker", id)
+		if c == len(usetheseCPUs) {
+			c = 0
+		}
+		useCPU := usetheseCPUs[c]
+		c++
+		fmt.Printf("Starting worker %v using CPU %v\n", id, useCPU)
 		if useGoroutine {
-			go doWork(msgCh, &wg, id)
+			go doWork(msgCh, &wg, id, useCPU)
 		} else {
-			doWork(msgCh, &wg, id)
+			doWork(msgCh, &wg, id, useCPU)
 		}
 	}
-	fmt.Printf("Kicked off all goroutines in %f seconds\n", time.Since(start).Seconds())
+	fmt.Printf("Finished Kicking off all goroutines in %f seconds\n", time.Since(start).Seconds())
 
 	// Gather Stats from workers
 	getStats(msgCh, &wg, numberWorkers)
