@@ -33,16 +33,16 @@ void set_affinity(int cpuid) {
 import "C"
 
 // GO RUNTIME & OS
-const lockThread = true              // locked the goroutine to a thread (Done in go runtime)
-const useParticularCPUs = true       // Do you want to use particular CPUs?
-var usetheseCPUs = []int{3, 4, 5, 6} // Which CPU/Cores to use. These will rotate
-const lockCore = true                // locked the thread to a core (Done in C)
-const setPriorityThread = -5         // Set the thread priority the goroutine is on (-19 to 20 with -91 highest)
+const lockThread = true        // locked the goroutine to a thread (Done in go runtime)
+const useParticularCPUs = true // Do you want to use particular CPUs?
+var usetheseCPUs = []int{5}    // Which CPU/Cores to use. These will rotate
+const lockCore = true          // locked the thread to a core (Done in C)
+const setPriorityThread = 5    // Set the thread priority the goroutine is on (-19 to 20 with -91 highest)
 
 // WORKERS
 const useGoroutine = true // Do you want to use goroutines
 const numberWorkers = 5   // Number of workers
-const timeWork = 5        // Amount of time it takes a worker to finish
+const timeWork = 500      // Amount of time it takes a worker to finish
 
 // BUFFER CHANNEL
 var channelBufferSize = numberWorkers + 1 // How many channel buffers
@@ -87,11 +87,11 @@ func doWork(msgCh chan *workerStats, wg *sync.WaitGroup, id int, useCPU int) {
 	startthreadPriority, _ := syscall.Getpriority(syscall.PRIO_PROCESS, startpid)
 
 	// Set the priority of the thread using system call
-	err := syscall.Setpriority(syscall.PRIO_PROCESS, syscall.Getpid(), setPriorityThread)
-	if err != nil {
-		println("Setpriority failed")
-		return
-	}
+	//err := syscall.Setpriority(syscall.PRIO_PROCESS, syscall.Getpid(), setPriorityThread)
+	//if err != nil {
+	//	println("Setpriority failed")
+	//	return
+	//}
 	// Put it back to what it was (I can't get this to work correctly)
 	//defer syscall.Setpriority(syscall.PRIO_PROCESS, syscall.Getpid(), startthreadPriority)
 
@@ -135,11 +135,12 @@ func doWork(msgCh chan *workerStats, wg *sync.WaitGroup, id int, useCPU int) {
 
 }
 
-func getStats(msgCh chan *workerStats, wg *sync.WaitGroup, numberWorkers int) {
+func getStats(msgCh chan *workerStats, wg *sync.WaitGroup, numberWorkers int, start time.Time) {
 
 	// WAIT FOR ALL WORKERS TO FINISH
 	fmt.Println("getStats - Waiting for all the workers to finish")
 	fmt.Println("getStats - There are currently this many goroutines", runtime.NumGoroutine())
+
 	wg.Wait()
 
 	// Print out stats from each worker
@@ -147,6 +148,9 @@ func getStats(msgCh chan *workerStats, wg *sync.WaitGroup, numberWorkers int) {
 		r := <-msgCh
 		fmt.Printf("getStats - From Worker %v, Took: %v, cpuID: %v, pid: %v, tid: %v, threadPriority: %v\n", r.id, r.timeTook, r.cpuID, r.pid, r.tid, r.threadPriority)
 	}
+
+	fmt.Printf("End time: %f seconds\n", time.Since(start).Seconds())
+	fmt.Println("Press Return to exit")
 
 }
 
@@ -200,9 +204,9 @@ func main() {
 	fmt.Printf("Finished Kicking off all goroutines in %f seconds\n", time.Since(start).Seconds())
 
 	// Gather Stats from workers
-	getStats(msgCh, &wg, numberWorkers)
+	go getStats(msgCh, &wg, numberWorkers, start)
 
-	// END
-	fmt.Printf("Main end time: %f seconds\n", time.Since(start).Seconds())
-
+	// Press return to exit
+	fmt.Scanln()
+	fmt.Println("EOF...")
 }
