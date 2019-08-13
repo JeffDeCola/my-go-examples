@@ -37,12 +37,12 @@ const lockThread = true        // locked the goroutine to a thread (Done in go r
 const useParticularCPUs = true // Do you want to use particular CPUs?
 var usetheseCPUs = []int{5}    // Which CPU/Cores to use. These will rotate
 const lockCore = true          // locked the thread to a core (Done in C)
-const setPriorityThread = 5    // Set the thread priority the goroutine is on (-19 to 20 with -91 highest)
+const setPriorityThread = 7    // Set the thread priority the goroutine is on (0 to 39 with 0 highest)
 
 // WORKERS
 const useGoroutine = true // Do you want to use goroutines
 const numberWorkers = 5   // Number of workers
-const timeWork = 500      // Amount of time it takes a worker to finish
+const timeWork = 30       // Amount of time it takes a worker to finish
 
 // BUFFER CHANNEL
 var channelBufferSize = numberWorkers + 1 // How many channel buffers
@@ -84,14 +84,14 @@ func doWork(msgCh chan *workerStats, wg *sync.WaitGroup, id int, useCPU int) {
 	startcpuID := C.sched_getcpu()
 	startpid := syscall.Getpid()
 	starttid := syscall.Gettid()
-	startthreadPriority, _ := syscall.Getpriority(syscall.PRIO_PROCESS, startpid)
+	startthreadPriority, _ := syscall.Getpriority(syscall.PRIO_PROCESS, 0)
 
 	// Set the priority of the thread using system call
-	//err := syscall.Setpriority(syscall.PRIO_PROCESS, syscall.Getpid(), setPriorityThread)
-	//if err != nil {
-	//	println("Setpriority failed")
-	//	return
-	//}
+	err := syscall.Setpriority(syscall.PRIO_PROCESS, 0, setPriorityThread)
+	if err != nil {
+		println("Setpriority failed")
+		return
+	}
 	// Put it back to what it was (I can't get this to work correctly)
 	//defer syscall.Setpriority(syscall.PRIO_PROCESS, syscall.Getpid(), startthreadPriority)
 
@@ -107,7 +107,7 @@ func doWork(msgCh chan *workerStats, wg *sync.WaitGroup, id int, useCPU int) {
 	endcpuID := C.sched_getcpu()
 	endpid := syscall.Getpid()
 	endtid := syscall.Gettid()
-	endthreadPriority, _ := syscall.Getpriority(syscall.PRIO_PROCESS, endpid)
+	endthreadPriority, _ := syscall.Getpriority(syscall.PRIO_PROCESS, 0)
 
 	// Check if anything changed
 	if startcpuID != endcpuID {

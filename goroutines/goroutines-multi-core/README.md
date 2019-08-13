@@ -73,6 +73,8 @@ if lockCore {
 go run goroutines-multi-core.go
 ```
 
-Check a pid
+Check a pid, nice levels and show threads,
 
-
+```bash
+ps -lTp <pid>
+```
