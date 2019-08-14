@@ -222,7 +222,7 @@ for go packages_
 
 * [errors](https://github.com/JeffDeCola/my-go-examples/tree/master/packages/errors)
 
-  _Error Handling._
+  _Error Handling using non-standard github.com/pkg/errors package._
 
 * [flag](https://github.com/JeffDeCola/my-go-examples/tree/master/packages/flag)
 
@@ -234,7 +234,7 @@ for go packages_
 
 * [logrus](https://github.com/JeffDeCola/my-go-examples/tree/master/packages/logrus)
 
-  _Logging._
+  _Logging using non-standard logrus package._
 
 * [test-jeffshapes](https://github.com/JeffDeCola/my-go-examples/tree/master/packages/test-jeffshapes)
   

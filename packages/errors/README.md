@@ -1,7 +1,7 @@
 # errors example
 
 `errors` _package. An example of
-error handling._
+error handling using non-standard `github.com/pkg/errors` package._
 
 Refer to the
 [github.com/pkg/errors](https://github.com/pkg/errors)
