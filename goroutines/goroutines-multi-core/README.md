@@ -2,12 +2,12 @@
 
 `goroutines-multi-core`  _is an example of
 concurrency across multi-cores. It will find the total amount of prime numbers
-under a number.  The data will show that lightweight goroutines are amazing._
+up to a number.  The data will show that lightweight goroutines are amazing._
 
 * [OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-multi-core#overview)
 * [SETUP](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-multi-core#setup)
 * [FEATURES](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-multi-core#features)
-  * [FEATURE 1 - LOCK A GOROUTINE TO A THREAD](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-multi-core#feature-1---lock-a-goroutine-to-a-thread)      
+  * [FEATURE 1 - LOCK A GOROUTINE TO A THREAD](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-multi-core#feature-1---lock-a-goroutine-to-a-thread)
   * [FEATURE 2 - PIN A GOROUTINE TO A CPU (set affinity)](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-multi-core#feature-2---pin-a-goroutine-to-a-cpu-set-affinity)
   * [FEATURE 3 - LOCK A THREAD TO A CPU/CORE](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-multi-core#feature-3---lock-a-thread-to-a-cpucore)
   * [FEATURE 4 - SET PRIORITY ON THREAD](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-multi-core#feature-4---set-priority-on-thread)
@@ -23,12 +23,12 @@ where the goroutines run (which CPU and which thread).
 This is constantly changing.
 
 This example will show you how to `lock the goroutine` to a particular
-CPU and particular thread.
+CPU and a particular thread.
 
 This example will also allow you to change variables (like how many workers) to
 see if you can improve performance.
 
-This diagram will help explain what we are trying to do,
+This diagram will help explain what we're trying to do,
 
 ![IMAGE - executable-your-code-and-go-runtime - IMAGE](../../docs/pics/executable-your-code-and-go-runtime.jpg)
 
@@ -69,7 +69,7 @@ worker 1 will get numbers 1-200, worker 2, 201-400 and so on.
 
 ## FEATURES
 
-I added some features you can play around to see what gives you the better results.
+I added some features you can play around to see what gives you the better performance.
 
 ### FEATURE 1 - LOCK A GOROUTINE TO A THREAD
 
