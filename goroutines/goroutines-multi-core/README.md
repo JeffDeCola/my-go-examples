@@ -4,6 +4,16 @@
 concurrency across multi-cores. It will find the total amount of prime numbers
 under a number.  The data will show that lightweight goroutines are amazing._
 
+* [OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-multi-core#overview)
+* [SETUP](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-multi-core#setup)
+* [FEATURES](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-multi-core#features)
+  * [FEATURE 1 - LOCK A GOROUTINE TO A THREAD](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-multi-core#feature-1---lock-a-goroutine-to-a-thread)      
+  * [FEATURE 2 - PIN A GOROUTINE TO A CPU (set affinity)](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-multi-core#feature-2---pin-a-goroutine-to-a-cpu-set-affinity)
+  * [FEATURE 3 - LOCK A THREAD TO A CPU/CORE](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-multi-core#feature-3---lock-a-thread-to-a-cpucore)
+  * [FEATURE 4 - SET PRIORITY ON THREAD](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-multi-core#feature-4---set-priority-on-thread)
+* [RUN](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-multi-core#run)
+* [SOME BENCHMARKS](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-multi-core#some-benchmarks)
+
 [GitHub Webpage](https://jeffdecola.github.io/my-go-examples/)
 
 ## OVERVIEW
