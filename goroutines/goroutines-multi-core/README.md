@@ -2,7 +2,7 @@
 
 `goroutines-multi-core`  _is an example of
 concurrency across multi-cores. It will find the total amount of prime numbers
-under a number._
+under a number.  The data will show that lightweight goroutines are amazing._
 
 [GitHub Webpage](https://jeffdecola.github.io/my-go-examples/)
 
@@ -124,3 +124,47 @@ Check a pid, nice levels and show threads,
 ```bash
 ps -lTp <pid>
 ```
+
+## SOME BENCHMARKS
+
+OK, after all that work, here is the gravy.
+For calculating all primes up to 200,000 (17,984 primes)
+
+Running on my rig,
+
+| Focus     | LOCK goroutine | NUM CPUs | LOCK Thread | Priority | Workers |          Time |
+|:----------|---------------:|--------:|------------:|---------:|---------:|--------------:|
+|   Workers |              N |       1 |           N |  default |       50 |     25.532367 |
+|           |              N |       1 |           N |  default |      500 |     22.465188 |
+|           |              N |       1 |           N |  default |     2000 |     22.259715 |
+|           |              N |       1 |           N |  default |    20000 |     20.062055 |
+|   Lock GR |              Y |       1 |           N |  default |       50 |     24.042777 |
+|           |              Y |       1 |           N |  default |      500 |     22.255453 |
+|           |              Y |       1 |           N |  default |     2000 |     21.577278 |
+|           |              Y |       1 |           N |  default |    20000 |     19.667587 |
+|     CPU 8 |              N |       8 |           N |  default |       50 |     24.942142 |
+|           |              N |       8 |           N |  default |      500 |     21.898585 |
+|           |              N |       8 |           N |  default |     2000 |     21.253711 |
+|           |              N |       8 |           N |  default |    20000 |     19.375311 |
+|    CPU 16 |              N |      16 |           N |  default |       50 |     22.748823 |
+|           |              N |      16 |           N |  default |      500 |     21.665127 |
+|           |              N |      16 |           N |  default |     2000 |     21.284461 |
+|           |              N |      16 |           N |  default |    20000 |     19.730614 |
+|  Lock Thd |              N |       1 |           Y |  default |       50 |     23.949443 |
+|           |              N |       1 |           Y |  default |      500 |     21.841208 |
+|           |              N |       1 |           Y |  default |     2000 |     22.090544 |
+|           |              N |       1 |           Y |  default |    20000 |     19.762526 |
+|     Pri O |              N |       1 |           N |        0 |       50 |     23.553114 |
+|           |              N |       1 |           N |        0 |      500 |     21.522687 |
+|           |              N |       1 |           N |        0 |     2000 |     21.230785 |
+|           |              N |       1 |           N |        0 |    20000 |     19.401425 |
+
+From the above I tried to find the sweet spot,
+
+| Focus     | LOCK goroutine | NUM CPUs | LOCK Thread | Priority | Workers |          Time |
+|:----------|---------------:|--------:|------------:|---------:|---------:|--------------:|
+|           |              Y |      16 |           Y |        0 |    20000 |     18.912954 |
+|           |              Y |      16 |           Y |        0 |    50000 |     15.456460 |
+
+You can see the **more routines doing a small calculations** is the key.
+Lightweight goroutines are amazing.
