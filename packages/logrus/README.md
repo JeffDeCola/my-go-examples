@@ -1,6 +1,7 @@
 # logrus example
 
-`logrus` _package. An example of logging._
+`logrus` _package. An example of logging using non-standard
+logrus package._
 
 Refer to the
 [logrus](https://github.com/sirupsen/logrus)
