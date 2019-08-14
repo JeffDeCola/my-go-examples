@@ -1,7 +1,8 @@
 # goroutines-multi-core example
 
 `goroutines-multi-core`  _is an example of
-concurrency across multi-cores._
+concurrency across multi-cores. It will find the total amount of prime numbers
+under a number._
 
 [GitHub Webpage](https://jeffdecola.github.io/my-go-examples/)
 
@@ -14,6 +15,9 @@ This is constantly changing.
 This example will show you how to `lock the goroutine` to a particular
 CPU and particular thread.
 
+This example will also allow you to change variables (like how many workers) to
+see if you can improve performance.
+
 This diagram will help explain what we are trying to do,
 
 ![IMAGE - executable-your-code-and-go-runtime - IMAGE](../../docs/pics/executable-your-code-and-go-runtime.jpg)
@@ -24,16 +28,44 @@ This program will allow you to set the numbers of workers per core and check the
 statistics of each process and core.
 
 ```go
-??????? UPDATE
+// FEATURE 1 - LOCK A GOROUTINE TO A THREAD
+    const lockThread = true                 // locked the goroutine to a thread (Done in go runtime)
+
+// FEATURE 2 - PIN A GOROUTINE TO A CPU (set affinity)
+    const useParticularCPUs = true          // Do you want to use particular CPUs?
+    var usetheseCPUs = []int{0,1}           // Which CPU/Cores to use. These will rotate
+
+// FEATURE 3 - LOCK A THREAD TO A CPU/CORE
+    const lockCore = true                   // locked the thread to a core (Done in C)
+
+// FEATURE 4 - SET PRIORITY ON THREAD
+    const setPriority = true                // Set the thread priority the goroutine
+    const setPriorityLevel = 7              // (0 to 39 with 0 highest)
+
+// WORKERS
+    const useGoroutine = true               // Do you want to use goroutines
+    const numberWorkers = 5                 // Number of workers
+    const testforPrimes = 20000             // Find all prime numbers up to this number (brute force way)
+                                            // This must be divisible by the numberWorkers
+
+// BUFFER CHANNEL
+    var channelBufferSize = numberWorkers + 1 // How many channel buffers```
 ```
 
-## LOCK YOUR GOROUTINE
+The workload will simple split the workload (finding a prime number)
+over the number of workers.  For example if you have
+5 workers and you are trying to find out how many numbers are prime under 1000,
+worker 1 will get numbers 1-200, worker 2, 201-400 and so on.
+
+## FEATURES
+
+I added some features you can play around to see what gives you the better results.
+
+### FEATURE 1 - LOCK A GOROUTINE TO A THREAD
 
 The `go runtime` will schedule goroutines to cores and threads.  And this
 can change a lot.  No goroutine is locked to a particular thread or a
 particular core.
-
-### LOCK A GOROUTINE TO A THREAD
 
 ```go
 // Lock this goroutine to a particular thread (go runtime won't change threads)
@@ -43,7 +75,7 @@ if lockThread {
 }
 ```
 
-### PIN A GOROUTINE TO A CPU (set affinity)
+### FEATURE 2 - PIN A GOROUTINE TO A CPU (set affinity)
 
 This is a little more tricky and needs a bit of C code.
 
@@ -52,7 +84,7 @@ This is a little more tricky and needs a bit of C code.
 C.set_affinity(useCPU)
 ```
 
-### LOCK A THREAD TO A CPU/CORE
+### FEATURE 3 - LOCK A THREAD TO A CPU/CORE
 
 This is also outside go and uses C.  So since we now have a locked thread,
 and we are on a particular CPU, lets lock that thread to a CPU.
@@ -64,6 +96,20 @@ if lockCore {
     cpuID := C.sched_getcpu()
     // lock the thread to a cpu
     C.lock_thread(C.int(cpuID))
+}
+```
+
+### FEATURE 4 - SET PRIORITY ON THREAD
+
+I believe setting it works, but getting the value and printing it out is
+always off a little. So take my nice code with a grain of salt.
+I will have to revisit this at some point.
+
+```go
+startthreadPriority, _ := syscall.Getpriority(syscall.PRIO_PROCESS, 0)
+if setPriority {
+    err := syscall.Setpriority(syscall.PRIO_PROCESS, 0, setPriorityLevel)
+    ...
 }
 ```
 
