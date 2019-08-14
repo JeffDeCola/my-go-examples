@@ -2,10 +2,11 @@ package main
 
 import (
 	"fmt"
-	"os"
 	"runtime"
 	"sync"
 	"syscall"
+
+	log "github.com/sirupsen/logrus"
 
 	"time"
 )
@@ -33,14 +34,12 @@ void set_affinity(int cpuid) {
 */
 import "C"
 
-const debug = false
-
 // GO RUNTIME & OS FEATURES
 // FEATURE 1 - LOCK A GOROUTINE TO A THREAD
 const lockThread = true // locked the goroutine to a thread (Done in go runtime)
 // FEATURE 2 - PIN A GOROUTINE TO A CPU (set affinity)
-const useParticularCPUs = true                                                 // Do you want to use particular CPUs?
-var usetheseCPUs = []int{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15} // Which CPU/Cores to use. These will rotate
+const useParticularCPUs = true       // Do you want to use particular CPUs?
+var usetheseCPUs = []int{0, 1, 2, 3} // Which CPU/Cores to use. These will rotate
 // FEATURE 3 - LOCK A THREAD TO A CPU/CORE
 const lockCore = true // locked the thread to a core (Done in C)
 // FEATURE 4 - SET PRIORITY ON THREAD
@@ -48,9 +47,9 @@ const setPriority = true   // Set the thread priority the goroutine
 const setPriorityLevel = 0 // (0 to 39 with 0 highest)
 
 // WORKERS
-const useGoroutine = true    // Do you want to use goroutines
-const numberWorkers = 50000  // Number of workers
-const testforPrimes = 200000 // Find all prime numbers up to this number (brute force way)
+const useGoroutine = true  // Do you want to use goroutines
+const numberWorkers = 5    // Number of workers
+const testforPrimes = 1000 // Find all prime numbers up to this number (brute force way)
 // This must be divisible by the numberWorkers
 
 // BUFFER CHANNEL
@@ -108,9 +107,8 @@ func doWork(msgCh chan *workerStats, wg *sync.WaitGroup, id int, useCPU int, sta
 	startthreadPriority, _ := syscall.Getpriority(syscall.PRIO_PROCESS, 0)
 
 	// Print out some stats
-	if debug {
-		fmt.Printf("    Worker: %v, cpuID: %v, pid: %v, tid: %v, threadPriority: %v, startNumber: %v, endNumber: %v\n", id, startcpuID, startpid, starttid, startthreadPriority, startNumber, endNumber)
-	}
+	s := fmt.Sprintf("    Worker: %v, cpuID: %v, pid: %v, tid: %v, threadPriority: %v, startNumber: %v, endNumber: %v\n", id, startcpuID, startpid, starttid, startthreadPriority, startNumber, endNumber)
+	log.Debug(s)
 	// DO SOMETHING (DON'T SLEEP) TAX THE PROCESSOR A BIT
 	// Find prime number the brute force way, by dividing.
 	// Find all Prime numbers up to n
@@ -145,19 +143,21 @@ func doWork(msgCh chan *workerStats, wg *sync.WaitGroup, id int, useCPU int, sta
 	endthreadPriority, _ := syscall.Getpriority(syscall.PRIO_PROCESS, 0)
 
 	// Check if anything changed
-	if debug {
-		if startcpuID != endcpuID {
-			fmt.Printf("    ***WARNING*** Worker: %v used different cpuID\n", id)
-		}
-		if startpid != endpid {
-			fmt.Printf("    ***WARNING*** Worker: %v used different pid\n", id)
-		}
-		if starttid != endtid {
-			fmt.Printf("    ***WARNING*** Worker: %v used different tid\n", id)
-		}
-		if startthreadPriority != endthreadPriority {
-			fmt.Printf("    ***WARNING*** Worker: %v used different threadPriority\n", id)
-		}
+	if startcpuID != endcpuID {
+		s := fmt.Sprintf("    ***WARNING*** Worker: %v used different cpuID\n", id)
+		log.Warn(s)
+	}
+	if startpid != endpid {
+		s := fmt.Sprintf("    ***WARNING*** Worker: %v used different pid\n", id)
+		log.Warn(s)
+	}
+	if starttid != endtid {
+		s := fmt.Sprintf("    ***WARNING*** Worker: %v used different tid\n", id)
+		log.Warn(s)
+	}
+	if startthreadPriority != endthreadPriority {
+		s := fmt.Sprintf("    ***WARNING*** Worker: %v used different threadPriority\n", id)
+		log.Warn(s)
 	}
 
 	msgCh <- &workerStats{
@@ -191,10 +191,8 @@ func getStats(msgCh chan *workerStats, wg *sync.WaitGroup, numberWorkers int, st
 
 	for i := 0; i < numberWorkers; i++ {
 		r := <-msgCh
-		if debug {
-			fmt.Printf("getStats - From Worker %v, Took: %v, cpuID: %v, pid: %v, tid: %v, threadPriority: %v foundPrimes: %v\n", r.id, r.timeTook, r.cpuID, r.pid, r.tid, r.threadPriority, r.foundPrimes)
-		}
-
+		s := fmt.Sprintf("getStats - From Worker %v, Took: %v, cpuID: %v, pid: %v, tid: %v, threadPriority: %v foundPrimes: %v\n", r.id, r.timeTook, r.cpuID, r.pid, r.tid, r.threadPriority, r.foundPrimes)
+		log.Debug(s)
 		// totalCPUUsed - check if you have CPU in your slice
 		newCPUFound := true
 		for _, element := range cpuSet {
@@ -247,6 +245,12 @@ func main() {
 	start := time.Now()
 	fmt.Println("")
 
+	// SET LOG LEVEL
+	log.SetLevel(log.InfoLevel)
+	//log.SetLevel(log.TraceLevel)
+	// SET FORMAT
+	log.SetFormatter(&log.TextFormatter{})
+
 	// Create wait group
 	var wg sync.WaitGroup
 
@@ -282,8 +286,7 @@ func main() {
 
 	// Divide the workload
 	if testforPrimes%numberWorkers != 0 {
-		fmt.Println("Can't split workload evenly - change testforPrimes or numberWorkers")
-		os.Exit(3)
+		log.Fatal("Can't split workload evenly - change testforPrimes or numberWorkers")
 	}
 	splitWorkload := testforPrimes / numberWorkers
 	startNumber := 1
@@ -298,9 +301,8 @@ func main() {
 		}
 		useCPU := usetheseCPUs[c]
 		c++
-		if debug {
-			fmt.Printf("Starting worker %v using CPU %v\n", id, useCPU)
-		}
+		s := fmt.Sprintf("Starting worker %v using CPU %v\n", id, useCPU)
+		log.Debug(s)
 		if useGoroutine {
 			go doWork(msgCh, &wg, id, useCPU, startNumber, endNumber)
 		} else {

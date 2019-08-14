@@ -14,7 +14,6 @@ I organized everything (alphabetically) into these sections,
 * [BASIC PROGRAMMING](https://github.com/JeffDeCola/my-go-examples#basic-programming)
 * [BASIC SYNTAX](https://github.com/JeffDeCola/my-go-examples#basic-syntax)
   * Data Types
-  * Error Handling & Logging
   * Functions
   * Interfaces
   * Methods
@@ -106,12 +105,6 @@ _All sections in alphabetical order._
 
     _A slice being appended to, and shows the underlying array
     being added to the slice._
-
-* ERROR HANDLING & LOGGING
-
-  * [logging-error-handling](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/error-handling-and-logging/logging-error-handling)
-
-    _Logging and error handling._
 
 * FUNCTIONS
 
@@ -227,6 +220,10 @@ for go packages_
 
   _The crypto/md5 package is used for getting an md5 fingerprint from an ssh key._
 
+* [errors](https://github.com/JeffDeCola/my-go-examples/tree/master/packages/errors)
+
+  _Error Handling._
+
 * [flag](https://github.com/JeffDeCola/my-go-examples/tree/master/packages/flag)
 
   _The flag package makes it easy to implement command-line flag parsing._
@@ -234,6 +231,10 @@ for go packages_
 * [fmt-scan](https://github.com/JeffDeCola/my-go-examples/tree/master/packages/fmt-scan)
 
   _The fmt package makes it easy to scan user input using fmt.Scan() by reading os.Stdin._
+
+* [logrus](https://github.com/JeffDeCola/my-go-examples/tree/master/packages/logrus)
+
+  _Logging._
 
 * [test-jeffshapes](https://github.com/JeffDeCola/my-go-examples/tree/master/packages/test-jeffshapes)
   
