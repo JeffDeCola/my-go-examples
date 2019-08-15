@@ -2,9 +2,9 @@ package main
 
 import (
 	"fmt"
-	"log"
 
-	"github.com/pkg/errors"
+	errors "github.com/pkg/errors"
+	log "github.com/sirupsen/logrus"
 )
 
 func a(x int) (int, error) {
