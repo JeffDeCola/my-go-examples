@@ -11,12 +11,13 @@ package for more info.
 
 ## RUN
 
-Unless you use the -i flag, it will default to `~/.ssh/id_rsa.pub`,
+Unless you use the -i flag, it will default to `$HOME/.ssh/id_rsa.pub`,
 This is the ssh keyfile you probably use for github.
 
-These commands will do the same thing,
+All these commands will do the same thing,
 
 ```bash
 go run crypto-md5.go
-go run crypto-md5.go -i ~/.ssh/id_ras.pub
+go run crypto-md5.go -i ~/.ssh/id_rsa.pub
+go run crypto-md5.go -i $HOME/.ssh/id_rsa.pub
 ```
