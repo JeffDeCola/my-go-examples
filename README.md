@@ -20,6 +20,7 @@ I organized everything (alphabetically) into these sections,
 * [CLOUD SERVICES](https://github.com/JeffDeCola/my-go-examples#cloud-services)
 * [DATABASE](https://github.com/JeffDeCola/my-go-examples#database)
 * [GOROUTINES](https://github.com/JeffDeCola/my-go-examples#goroutines)
+* [JEFFS GO TEMPLATES](https://github.com/JeffDeCola/my-go-examples#jeffs-go-templates)
 * [MESSAGING](https://github.com/JeffDeCola/my-go-examples#messaging)
 * [PACKAGES](https://github.com/JeffDeCola/my-go-examples#packages)
 * [TESTING](https://github.com/JeffDeCola/my-go-examples#testing)
@@ -194,6 +195,14 @@ goroutines on threads which the OS schedules these threads on cpu/cores)_
 * [goroutines-worker-pools](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-worker-pools)
 
   _Concurrency using worker pools._
+
+### JEFFS GO TEMPLATES
+
+_A starting point for all my go projects._
+
+* [jeffs-basic-go-template](https://github.com/JeffDeCola/my-go-examples/tree/master/jeffs-go-template/jeffs-basic-go-template)
+
+  _A simple go template with flags, logging & error handling._
 
 ### MESSAGING
 
