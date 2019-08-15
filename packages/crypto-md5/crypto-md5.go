@@ -16,9 +16,11 @@ func main() {
 
 	// Flags - Will default to /home/jeff/.ssh/id_rsa.pub if no input giving
 	inputFilenamePathPtr := flag.String("i", "/home/jeff/.ssh/id_rsa.pub", "input file")
+	// Parse the flags
+	flag.Parse()
 
 	// Read key
-	fmt.Printf("Reading the key file...")
+	fmt.Printf("Reading the key file %s\n", *inputFilenamePathPtr)
 	key, err := ioutil.ReadFile(*inputFilenamePathPtr)
 	if err != nil {
 		log.Fatal(err)
