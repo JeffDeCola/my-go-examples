@@ -1,6 +1,6 @@
-# crypto/md5 example
+# crypto/md5 (standard) example
 
-`crypto/md5` _package. An example of
+`crypto/md5` _standard package. An example of
 getting an md5 fingerprint from an ssh key._
 
 Refer to the
