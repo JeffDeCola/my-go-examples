@@ -1,6 +1,6 @@
-# errors example
+# errors (github.com/pkg/errors) example
 
-`errors` _package. An example of
+`errors` _non-standard package. An example of
 error handling using non-standard `github.com/pkg/errors` package._
 
 Refer to the

@@ -170,6 +170,9 @@ _All sections in alphabetical order._
 
 ### GOROUTINES
 
+_go is written for concurrency (the go runtime scheduling
+goroutines on threads which the OS schedules these threads on cpu/cores)_
+
 * [goroutines-async-channel-receive-no-waiting](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-async-channel-receive-no-waiting)
 
   _A goroutine asynchronously sending data (via a channel buffer) and a goroutine
@@ -214,29 +217,35 @@ _Refer to my repo
 [my-go-packages](https://github.com/JeffDeCola/my-go-packages)
 for packages I created. Refer to
 [golang.org/pkg](https://golang.org/pkg/)
-for go packages_
+for the standard go packages_
 
 * [crypto/md5](https://github.com/JeffDeCola/my-go-examples/tree/master/packages/crypto-md5)
+  (standard)
 
   _The crypto/md5 package is used for getting an md5 fingerprint from an ssh key._
 
 * [errors](https://github.com/JeffDeCola/my-go-examples/tree/master/packages/errors)
+  (github.com/pkg/errors)
 
   _Error Handling using non-standard github.com/pkg/errors package._
 
 * [flag](https://github.com/JeffDeCola/my-go-examples/tree/master/packages/flag)
+  (standard)
 
   _The flag package makes it easy to implement command-line flag parsing._
 
 * [fmt-scan](https://github.com/JeffDeCola/my-go-examples/tree/master/packages/fmt-scan)
+  (standard)
 
   _The fmt package makes it easy to scan user input using fmt.Scan() by reading os.Stdin._
 
 * [logrus](https://github.com/JeffDeCola/my-go-examples/tree/master/packages/logrus)
+  (github.com/sirupsen/logrus)
 
   _Logging using non-standard logrus package._
 
 * [test-jeffshapes](https://github.com/JeffDeCola/my-go-examples/tree/master/packages/test-jeffshapes)
+  (github.com/JeffDeCola/my-go-packages/jeffshapes)
   
   _Testing the jeffshapes package (below)._
 

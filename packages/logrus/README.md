@@ -1,10 +1,10 @@
-# logrus example
+# logrus (github.com/sirupsen/logrus) example
 
-`logrus` _package. An example of logging using non-standard
+`logrus` _non-standard package. An example of logging using non-standard
 logrus package._
 
 Refer to the
-[logrus](https://github.com/sirupsen/logrus)
+[github.com/sirupsen/logrus](https://github.com/sirupsen/logrus)
 package for more info.  This is not a standard package.
 
 * [RUN](https://github.com/JeffDeCola/my-go-examples/tree/master/packages/logrus#run)

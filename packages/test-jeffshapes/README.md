@@ -1,9 +1,9 @@
-# test-jeffshapes
+# test-jeffshapes (github.com/JeffDeCola/my-go-packages/jeffshapes) example
 
-`test-jeffshapes` will test the `jeffshapes` package I created.
+`test-jeffshapes` non-standard package will test the `jeffshapes` package I created.
 
 This package was created in my repo
- [my-go-packages](https://github.com/JeffDeCola/my-go-packages#jeffshapes).
+[my-go-packages](https://github.com/JeffDeCola/my-go-packages#jeffshapes).
 
 [GitHub Webpage](https://jeffdecola.github.io/my-go-examples/)
 
