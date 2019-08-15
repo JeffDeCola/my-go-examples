@@ -200,7 +200,7 @@ goroutines on threads which the OS schedules these threads on cpu/cores)_
 
 _A starting point for all my go projects._
 
-* [jeffs-basic-go-template](https://github.com/JeffDeCola/my-go-examples/tree/master/jeffs-go-template/jeffs-basic-go-template)
+* [jeffs-basic-go-template](https://github.com/JeffDeCola/my-go-examples/tree/master/jeffs-go-templates/jeffs-basic-go-template)
 
   _A simple go template with flags, logging & error handling._
 
