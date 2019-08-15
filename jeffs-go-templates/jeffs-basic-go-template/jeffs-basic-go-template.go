@@ -1,6 +1,7 @@
 package main
 
 import (
+	"flag"
 	"fmt"
 	"os"
 
@@ -9,12 +10,12 @@ import (
 )
 
 // A Function that also returns an error
-func jeffFunc(x int) (int, error) {
+func jeffFunc(x int) (string, error) {
 	if x == 42 {
 		// Make your error
-		return -1, errors.New("can't work with 42")
+		return "error", errors.New("can't work with 42")
 	}
-	return x + 3, nil
+	return "Everything worked great", nil
 }
 
 // Check your error
@@ -37,12 +38,18 @@ func init() {
 
 	// SET OUTPUT (DEFAULT stderr)
 	log.SetOutput(os.Stdout)
+
 }
 
 func main() {
 
+	// INTEGER FLAG
+	integerPtr := flag.Int("i", 42, "This is the flag for an integer")
+	// Parse the flags
+	flag.Parse()
+
 	log.Trace("Calling jeffFunc to get result")
-	r, err := jeffFunc(43)
+	r, err := jeffFunc(*integerPtr)
 	checkErr(err)
 	fmt.Println("Returned", r)
 
