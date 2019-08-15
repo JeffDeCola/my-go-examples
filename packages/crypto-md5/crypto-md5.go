@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"log"
+	"os"
 	"strings"
 )
 
@@ -14,8 +15,8 @@ func main() {
 
 	fmt.Println(" ")
 
-	// Flags - Will default to /home/jeff/.ssh/id_rsa.pub if no input giving
-	inputFilenamePathPtr := flag.String("i", "~/.ssh/id_rsa.pub", "input file")
+	// Flags - Will default to $HOME/.ssh/id_rsa.pub if no input giving
+	inputFilenamePathPtr := flag.String("i", os.Getenv("HOME")+"/.ssh/id_rsa.pub", "input file")
 	// Parse the flags
 	flag.Parse()
 
