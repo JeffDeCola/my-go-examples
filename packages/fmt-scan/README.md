@@ -1,6 +1,6 @@
-# fmt-scan example
+# fmt-scan (standard) example
 
-`fmt` _package makes it easy to scan user input
+`fmt` _standard package makes it easy to scan user input
 using fmt.Scan() by reading os.Stdin._
 
 Refer to the
