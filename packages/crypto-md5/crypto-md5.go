@@ -15,24 +15,24 @@ func main() {
 	fmt.Println(" ")
 
 	// Flags - Will default to /home/jeff/.ssh/id_rsa.pub if no input giving
-	inputFilenamePathPtr := flag.String("i", "/home/jeff/.ssh/id_rsa.pub", "input file")
+	inputFilenamePathPtr := flag.String("i", "~/.ssh/id_rsa.pub", "input file")
 	// Parse the flags
 	flag.Parse()
 
-	// Read key
-	fmt.Printf("Reading the key file %s\n", *inputFilenamePathPtr)
-	key, err := ioutil.ReadFile(*inputFilenamePathPtr)
+	// Read key file
+	fmt.Printf("Reading the keyfile %s\n\n", *inputFilenamePathPtr)
+	keyfile, err := ioutil.ReadFile(*inputFilenamePathPtr)
 	if err != nil {
 		log.Fatal(err)
 	}
-	fmt.Printf("The key file contains: \n%s \n", key)
+	fmt.Printf("The keyfile contains: \n%s \n", keyfile)
 
 	// Parse the file because the file looks like `ssh-rsa AAA...ABC comments`
 	// Hence parts[1] is the key
-	fmt.Printf("Parsing the key file...")
-	parts := strings.Fields(string(key))
+	fmt.Printf("Parsing the keyfile...")
+	parts := strings.Fields(string(keyfile))
 	if len(parts) < 2 {
-		log.Fatal("bad key")
+		log.Fatal("bad parse")
 	}
 	fmt.Printf("The key is: \n%s \n\n", parts[1])
 
