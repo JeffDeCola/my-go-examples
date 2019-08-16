@@ -140,7 +140,7 @@ _All sections in alphabetical order._
 
 ### CGO
 
-* [simple-c-code](https://github.com/JeffDeCola/my-go-examples/tree/master/cloud-services/simple-c-code)
+* [simple-c-code](https://github.com/JeffDeCola/my-go-examples/tree/master/cgo/simple-c-code)
 
   _A very simple example to show you how to use c code in go._
 
