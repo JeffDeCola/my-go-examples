@@ -10,13 +10,22 @@ package for more info.
 
 ## RUN
 
-Define flags using flag.String(), Bool(), Int(), etc.
+Define flags using,
+
+```go
+// STRING
+stringPtr := flag.String("s", "default", "This is the flag for a string")
+// INTEGER
+integerPtr := flag.Int("i", 1, "This is the flag for an integer")
+// BOOLEAN
+boolPtr := flag.Bool("b", false, "This is the flag for a boolean")
+```
 
 The following formats are permitted,
 
-* -flag
-* -flag=x
-* -flag x  // non-boolean flags only
+* -flagname
+* -flagname=x
+* -flagname x
 
 String,
 

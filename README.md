@@ -17,6 +17,7 @@ I organized everything (alphabetically) into these sections,
   * Functions
   * Interfaces
   * Methods
+* [CGO](https://github.com/JeffDeCola/my-go-examples#cgo)
 * [CLOUD SERVICES](https://github.com/JeffDeCola/my-go-examples#cloud-services)
 * [DATABASE](https://github.com/JeffDeCola/my-go-examples#database)
 * [GOROUTINES](https://github.com/JeffDeCola/my-go-examples#goroutines)
@@ -137,6 +138,12 @@ _All sections in alphabetical order._
 
   * tbd
 
+### CGO
+
+* [simple-c-code](https://github.com/JeffDeCola/my-go-examples/tree/master/cloud-services/simple-c-code)
+
+  _A very simple example to show you how to use c code in go._
+
 ### CLOUD SERVICES
 
 * [amazon-aws](https://github.com/JeffDeCola/my-go-examples/tree/master/cloud-services/amazon-aws)
@@ -171,8 +178,9 @@ _All sections in alphabetical order._
 
 ### GOROUTINES
 
-_go is written for concurrency (the go runtime scheduling
-goroutines on threads which the OS schedules these threads on cpu/cores)_
+_Go is written for concurrency.
+The go runtime schedules goroutines on threads.
+The OS schedules these threads on cpus/cores._
 
 * [goroutines-async-channel-receive-no-waiting](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-async-channel-receive-no-waiting)
 
@@ -186,7 +194,9 @@ goroutines on threads which the OS schedules these threads on cpu/cores)_
 
 * [goroutines-multi-core](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-multi-core)
 
-  _Concurrency across multi-cores._
+  _Concurrency across multiples cores.  You can play around with workers,
+  threads, cpus/cores and nice to find the fastest performance.
+  It will find the total amount of prime numbers up to a number._
 
 * [goroutines-waitgroup](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-waitgroup)
 
@@ -229,32 +239,32 @@ for packages I created. Refer to
 for the standard go packages_
 
 * [crypto/md5](https://github.com/JeffDeCola/my-go-examples/tree/master/packages/crypto-md5)
-  (standard)
+  _(standard)_
 
   _The crypto/md5 package is used for getting an md5 fingerprint from an ssh key._
 
 * [errors](https://github.com/JeffDeCola/my-go-examples/tree/master/packages/errors)
-  (github.com/pkg/errors)
+  _(github.com/pkg/errors)_
 
   _Error Handling using non-standard github.com/pkg/errors package._
 
 * [flag](https://github.com/JeffDeCola/my-go-examples/tree/master/packages/flag)
-  (standard)
+  _(standard)_
 
   _The flag package makes it easy to implement command-line flag parsing._
 
 * [fmt-scan](https://github.com/JeffDeCola/my-go-examples/tree/master/packages/fmt-scan)
-  (standard)
+  _(standard)_
 
   _The fmt package makes it easy to scan user input using fmt.Scan() by reading os.Stdin._
 
 * [logrus](https://github.com/JeffDeCola/my-go-examples/tree/master/packages/logrus)
-  (github.com/sirupsen/logrus)
+  _(github.com/sirupsen/logrus)_
 
   _Logging using non-standard logrus package._
 
 * [test-jeffshapes](https://github.com/JeffDeCola/my-go-examples/tree/master/packages/test-jeffshapes)
-  (github.com/JeffDeCola/my-go-packages/jeffshapes)
+  _(github.com/JeffDeCola/my-go-packages/jeffshapes)_
   
   _Testing the jeffshapes package (below)._
 

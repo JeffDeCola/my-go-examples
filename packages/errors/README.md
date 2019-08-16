@@ -44,7 +44,7 @@ The beauty of the `github.com/pkg/errors` package is that it
 traces the error back to the source. That's why we use
 `fmt.Printf("Error is %+v\n", err)`.
 
-Since you check errors a lot, make an error checker,
+Since you check errors a lot, make an error checker function,
 
 ```go
 func checkErr(err error) {
@@ -64,6 +64,16 @@ func main() {
 
 ## RUN
 
+To get,
+
+```bash
+go get -u -v github.com/pkg/errors
+```
+
+Run,
+
 ```go
 go run errors.go
 ```
+
+Notice how it traces the error back to your original function.

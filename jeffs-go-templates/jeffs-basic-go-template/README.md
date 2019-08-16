@@ -22,10 +22,11 @@ go get -u -v github.com/sirupsen/logrus
 go get -u -v github.com/pkg/errors
 ```
 
-The default flag i=43 which will be an error. Hence set the flag i to
+The default flag i=42 which will be an error. Hence set the flag i to
 any other integer,
 
 ```bash
 go run jeffs-basic-go-template.go
+go run jeffs-basic-go-template.go -i 42
 go run jeffs-basic-go-template.go -i 10
 ```
