@@ -23,6 +23,14 @@ package for more info.  This is not a standard package.
 
 ## RUN
 
+To get,
+
+```bash
+go get -u -v github.com/sirupsen/logrus
+```
+
+Run,
+
 ```go
 go run logrus.go
 ```

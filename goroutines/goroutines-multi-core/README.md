@@ -1,14 +1,18 @@
 # goroutines-multi-core example
 
 `goroutines-multi-core`  _is an example of
-concurrency across multi-cores. It will find the total amount of prime numbers
-up to a number.  The data will show that lightweight goroutines are amazing._
+concurrency across multi-cores. You can play around with workers,
+threads, cpus/cores and nice to find the fastest performance.
+It will find the total amount of prime numbers up to a number._
+
+This program will show that **lightweight goroutines are amazing**.
 
 * [OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-multi-core#overview)
 * [SETUP](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-multi-core#setup)
-* [FEATURES](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-multi-core#features)
+* [GO RUNTIME FEATURES](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-multi-core#go-runtime-features)
   * [FEATURE 1 - LOCK A GOROUTINE TO A THREAD](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-multi-core#feature-1---lock-a-goroutine-to-a-thread)
-  * [FEATURE 2 - PIN A GOROUTINE TO A CPU (set affinity)](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-multi-core#feature-2---pin-a-goroutine-to-a-cpu-set-affinity)
+* [OS KERNAL FEATURES](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-multi-core#os-kernal-features)
+  * [FEATURE 2 - PIN A THREAD TO A CPU (set affinity)](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-multi-core#feature-2---pin-a-thread-to-a-cpu-set-affinity)
   * [FEATURE 3 - LOCK A THREAD TO A CPU/CORE](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-multi-core#feature-3---lock-a-thread-to-a-cpucore)
   * [FEATURE 4 - SET PRIORITY ON THREAD](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-multi-core#feature-4---set-priority-on-thread)
 * [RUN](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-multi-core#run)
@@ -43,7 +47,7 @@ statistics of each process and core.
 
 // FEATURE 2 - PIN A GOROUTINE TO A CPU (set affinity)
     const useParticularCPUs = true          // Do you want to use particular CPUs?
-    var usetheseCPUs = []int{0,1}           // Which CPU/Cores to use. These will rotate
+    var usetheseCPUs = []int{0,1,2,3}       // Which CPU/Cores to use. These will rotate
 
 // FEATURE 3 - LOCK A THREAD TO A CPU/CORE
     const lockCore = true                   // locked the thread to a core (Done in C)
@@ -59,7 +63,7 @@ statistics of each process and core.
                                             // This must be divisible by the numberWorkers
 
 // BUFFER CHANNEL
-    var channelBufferSize = numberWorkers + 1 // How many channel buffers```
+    var channelBufferSize = numberWorkers + 1 // How many channel buffers
 ```
 
 The workload will simple split the workload (finding a prime number)
@@ -67,7 +71,7 @@ over the number of workers.  For example if you have
 5 workers and you are trying to find out how many numbers are prime under 1000,
 worker 1 will get numbers 1-200, worker 2, 201-400 and so on.
 
-## FEATURES
+## GO RUNTIME FEATURES
 
 I added some features you can play around to see what gives you the better performance.
 
@@ -85,9 +89,14 @@ if lockThread {
 }
 ```
 
-### FEATURE 2 - PIN A GOROUTINE TO A CPU (set affinity)
+## OS KERNAL FEATURES
+
+These require c code or system calls to the kernal.
+
+### FEATURE 2 - PIN A THREAD TO A CPU (set affinity)
 
 This is a little more tricky and needs a bit of C code.
+What its really doing is pinning a thread to a cpu.
 
 ```go
 // Set goroutine to a particular Core/CPU - Set affinity()
@@ -128,6 +137,8 @@ if setPriority {
 ```go
 go run goroutines-multi-core.go
 ```
+
+Simply press return to exit.
 
 Check a pid, nice levels and show threads,
 

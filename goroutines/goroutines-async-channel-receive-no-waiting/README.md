@@ -52,6 +52,8 @@ for {
 go run goroutines-async-channel-receive-no-waiting.go
 ```
 
+Simply press return to exit.
+
 Example output when receiver faster than sender,
 
 ```txt

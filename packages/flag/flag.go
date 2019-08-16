@@ -23,6 +23,6 @@ func main() {
 	fmt.Printf("\n")
 	fmt.Printf("String flag is %s\n", *stringPtr)
 	fmt.Printf("Integer flag is %d\n", *integerPtr)
-	fmt.Printf("Integer flag is %t\n", *boolPtr)
+	fmt.Printf("Integer flag is %t\n\n", *boolPtr)
 
 }

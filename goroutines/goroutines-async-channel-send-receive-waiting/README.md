@@ -30,6 +30,8 @@ say = <-msgCh                               // ALSO WAITS/BLOCKS
 go run goroutines-async-channel-send-receive-waiting.go
 ```
 
+Simply press return to exit.
+
 Output is always,
 
 ```txt
