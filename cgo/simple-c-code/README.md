@@ -1,7 +1,7 @@
 # simple-c-code example
 
 `simple-c-code` _is an example of
-of how to use c code in go._
+how to write a c function in go._
 
 [GitHub Webpage](https://jeffdecola.github.io/my-go-examples/)
 

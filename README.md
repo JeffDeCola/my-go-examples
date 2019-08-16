@@ -140,9 +140,15 @@ _All sections in alphabetical order._
 
 ### CGO
 
+_Using c with go._
+
 * [simple-c-code](https://github.com/JeffDeCola/my-go-examples/tree/master/cgo/simple-c-code)
 
-  _A very simple example to show you how to use c code in go._
+  _A very simple example to show you how to write a c function in go._
+
+* [simple-c-code-using-stdio](https://github.com/JeffDeCola/my-go-examples/tree/master/cgo/simple-c-code-using-stdio)
+
+  _Same code from above, but using stdio.h for printf._
 
 ### CLOUD SERVICES
 
