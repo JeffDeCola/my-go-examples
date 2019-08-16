@@ -1,3 +1,5 @@
+// my-go-examples fmt-scan.go
+
 package main
 
 import "fmt"

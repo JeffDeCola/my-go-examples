@@ -1,3 +1,5 @@
+// my-go-examples simple-c-code-using-stdio.go
+
 package main
 
 /*

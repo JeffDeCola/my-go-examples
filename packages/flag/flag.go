@@ -1,3 +1,5 @@
+// my-go-examples flag.go
+
 package main
 
 import (

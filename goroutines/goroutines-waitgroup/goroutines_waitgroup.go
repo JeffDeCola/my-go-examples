@@ -1,3 +1,5 @@
+// my-go-examples goroutines-waitgroup.go
+
 package main
 
 import (

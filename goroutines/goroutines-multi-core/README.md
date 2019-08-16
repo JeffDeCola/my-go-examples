@@ -20,6 +20,11 @@ This program will show that **lightweight goroutines are amazing**.
 
 [GitHub Webpage](https://jeffdecola.github.io/my-go-examples/)
 
+## MACOS DOES NOT WORK
+
+I could not get the c code to run on macOS and did not spend the time to
+figure it out. But if someone figures this out, please let me know.
+
 ## OVERVIEW
 
 Your go executable has a go runtime environment that schedules

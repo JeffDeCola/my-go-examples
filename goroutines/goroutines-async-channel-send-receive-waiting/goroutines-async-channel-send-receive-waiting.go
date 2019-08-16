@@ -1,3 +1,5 @@
+// my-go-examples goroutines-async-channel-send-receive-waiting.go
+
 package main
 
 import (

@@ -9,7 +9,7 @@ back to a struct._
 
 Encodes json to a string from a struct.
 
-struct -> encode -> byte -> string
+* struct -> encode -> byte -> string
 
 `json.Marshal` encodes a struct to json data.
 
@@ -17,7 +17,7 @@ struct -> encode -> byte -> string
 
 Decodes json to a struct from a string.
 
-string -> byte -> decode -> struct
+* string -> byte -> decode -> struct
 
 `json.Unmarshal` decodes json data to a struct.
 

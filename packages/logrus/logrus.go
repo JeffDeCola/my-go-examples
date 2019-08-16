@@ -1,3 +1,5 @@
+// my-go-examples logrus.go
+
 package main
 
 import (
