@@ -4,71 +4,76 @@ package main
 
 import (
 	"encoding/json"
-	"log"
-	"os"
+
+	log "github.com/sirupsen/logrus"
 )
 
-func encodejson(logger *log.Logger) (string, error) {
-	type blah struct {
-		Name string
-		Body string
-		Time int64
-	}
+type myData struct {
+	Name string
+	Body string
+	Time int64
+}
 
-	m := blah{"Alice", "Hello", 123}
-	logger.Println("  struct:  ", m)
+func encodeJSON() (string, error) {
 
-	// ENCODE - CREATE JSON
-	logger.Println("  encode:   Marshal")
+	m := myData{"Alice", "Hello", 123}
+	log.Info("  struct:  ", m)
+
+	// ENCODE - STRUCT TO JSON
+	log.Info("  encode:   Marshal")
 	b, err := json.Marshal(m)
 	if err != nil {
 		jsondata := "poop"
 		return jsondata, err
 	}
-	logger.Println("  byte:    ", b)
+	log.Info("  byte:    ", b)
 	jsondata := string(b)
-	logger.Println("  string:  ", jsondata)
+	log.Info("  string:  ", jsondata)
 	return jsondata, err
 }
 
-func decodejson(jsondata string, logger *log.Logger) error {
-	type m struct {
-		Name string
-		Body string
-		Time int64
-	}
+func decodeJSON(jsondata string) error {
 
-	logger.Println("  string:  ", jsondata)
+	log.Info("  string:  ", jsondata)
 
-	// DECODE - CREATE JSON
+	// DECODE - JSON TO STRUCT
 	b := []byte(jsondata)
-	logger.Println("  byte:    ", b)
+	log.Info("  byte:    ", b)
 
-	foo := m{} // empty struct
-	logger.Println("  decode:   Unmarshal")
+	foo := myData{} // empty struct
+	log.Info("  decode:   Unmarshal")
 	err := json.Unmarshal(b, &foo)
 	if err != nil {
 		return err
 	}
-	logger.Println("  struct:  ", foo)
+	log.Info("  struct:  ", foo)
 
 	return nil
 }
 
 func main() {
 
-	var logger = log.New(os.Stderr, "jeffmain:", log.Lshortfile)
+	// SET LOG LEVEL
+	// log.SetLevel(log.InfoLevel)
+	log.SetLevel(log.TraceLevel)
+
+	// SET FORMAT
+	log.SetFormatter(&log.TextFormatter{})
+
+	// SET OUTPUT (DEFAULT stderr)
+	// log.SetOutput(os.Stdout)
+
 	var jsondata string
 
-	logger.Print("ENCODE .json")
-	jsondata, err := encodejson(logger)
+	log.Info("ENCODE - STRUCT TO JSON")
+	jsondata, err := encodeJSON()
 	if err != nil {
-		logger.Fatalf("Failed to encode to stdout: %s", err)
+		log.Fatal("Failed to encode to stdout: %s", err)
 	}
 
-	logger.Print("DECODE .json")
-	if err := decodejson(jsondata, logger); err != nil {
-		logger.Fatalf("Failed to decode to stdout: %s", err)
+	log.Info("DECODE - JSON TO STRUCT")
+	if err := decodeJSON(jsondata); err != nil {
+		log.Fatal("Failed to decode to stdout: %s", err)
 	}
 
 }

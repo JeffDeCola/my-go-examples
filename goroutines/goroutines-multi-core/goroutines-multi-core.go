@@ -1,3 +1,5 @@
+// my-go-examples goroutines-multi-core.go
+
 package main
 
 import (

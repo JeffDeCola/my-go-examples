@@ -10,8 +10,13 @@ how to write a c function in go and using stdio.h._
 Here is a very simple c code example,
 
 ```c
-int Add(int a, int b){
-    return a+b;
+int Add(int a, int b, char * name){
+    int s;
+    s = a+b;
+    printf("Hi %s. ", name);
+    printf("Print the sum from C: %d\n", s);
+    return s;
+}
 ```
 
 ## IMPLEMENT WITH GO

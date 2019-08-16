@@ -1,3 +1,5 @@
+// my-go-examples test-jeffshapes.go
+
 package main
 
 import (

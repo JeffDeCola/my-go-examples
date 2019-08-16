@@ -1,3 +1,5 @@
+// my-go-examples errors.go
+
 package main
 
 import (
