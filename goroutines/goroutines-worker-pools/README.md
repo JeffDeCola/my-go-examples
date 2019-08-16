@@ -14,7 +14,7 @@ Usually they will pull from a channel buffer to get data on what to do.
 
 ## TICK TIME
 
-In this example, doSomething is using tick time.  
+In this example, doSomething is using tick time.
 Meaning, asking the workers to do a bunch of stuff in period of time
 (a tick).
 In this example the default is to have the workers complete
@@ -22,11 +22,11 @@ In this example the default is to have the workers complete
 And we only have 2 workers that take 7 seconds to complete its task.
 So you can see this will break.
 
-So you will have to fix this by,
+So you will have to fix this by doing one of the following,
 
 * Increase the number of workers
 * Reduce the number of jobs per tick
-* Speed up the worker
+* Speed up the workers
 
 ## RUN
 
@@ -34,16 +34,17 @@ So you will have to fix this by,
 go run goroutines-worker-pools.go
 ```
 
-Simply press return to stop.
+**Simply press return to stop.**
 
-These are the defaults (and again, it will break),
+These are the defaults, play around with them.  Right now it will break,
+so you need to adjust this.
 
 ```go
 // SET CONSTANTS FOR WORKER doWork()
 const numberWorkers = 2                                             // How many workers you want
 const workerTime = 7                                                // How long it takes a worker to work
 
-// SET CONTANT FOR doSomething()
+// SET CONSTANTS FOR doSomething()
 var jobList = []string{"jobA", "jobB", "jobC", "jobD", "jobE"}      // 5 jobs with jobNames
 var ticktimeSeconds = 10                                            // Tick time to send a bunch of jobs workers
 

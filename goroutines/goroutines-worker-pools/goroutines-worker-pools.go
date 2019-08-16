@@ -10,7 +10,7 @@ import (
 const numberWorkers = 2 // How many workers you want
 const workerTime = 7    // How long it takes a worker to work
 
-// SET CONTANT FOR doSomething()
+// SET CONSTANTS FOR doSomething()
 var jobList = []string{"jobA", "jobB", "jobC", "jobD", "jobE"} // 5 jobs with jobNames
 var ticktimeSeconds = 10                                       // Tick time to send a bunch of jobs workers
 var jobNumber = 1                                              // The job number

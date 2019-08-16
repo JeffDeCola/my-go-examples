@@ -1,6 +1,6 @@
 # goroutines-waitgroup example
 
-`goroutines-waitgroup`  _is an example of
+`goroutines-waitgroup` _is an example of
 concurrency using a waitgroup (waiting for a collection of goroutines to finish)._
 
 [GitHub Webpage](https://jeffdecola.github.io/my-go-examples/)
@@ -15,9 +15,9 @@ First make a waitgroup,
 var wg sync.WaitGroup
 ```
 
-* wg.Add(1) - Add the goroutines to the wg
+* wg.Add(1) - Add the goroutines to the waitgroup
 * wg.Done() - Call done when goroutine finished
-* wg.Wait() - Wait to all the wg are done
+* wg.Wait() - Wait for all the the waitgroups are done
 
 ![IMAGE - goroutines-waitgroup - IMAGE](../../docs/pics/goroutines-waitgroup.jpg)
 
