@@ -12,25 +12,28 @@ type person struct {
 	age    int
 }
 
+// Pass by value
 func changeName(p person) {
 	p.name = "Fred"
 }
 
+// Pass by reference
 func changeNamePtr(p *person) {
-	p.name = "Fred"
+	p.name = "Lisa"
 }
 
 func main() {
 	a := person{"Larry", "male", 25}
-	b := person{"Bob", "male", 27}
+	b := person{"Jill", "female", 27}
 
-	fmt.Println("Pass struct to function - Makes Copy")
-	fmt.Println(a.name, a.gender, a.age)
+	fmt.Println("Pass struct to function by Value - Makes Copy")
+	fmt.Println(a)
 	changeName(a)
-	fmt.Println(a.name, a.gender, a.age)
+	fmt.Println(a)
 
-	fmt.Println("Pass struct Address to function - Original")
-	fmt.Println(b.name, b.gender, b.age)
+	fmt.Println("Pass struct Address to function by reference - Uses Original")
+	fmt.Println(b)
 	changeNamePtr(&b)
-	fmt.Println(b.name, b.gender, b.age)
+	fmt.Println(b)
+
 }
