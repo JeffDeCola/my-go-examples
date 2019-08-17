@@ -1,4 +1,4 @@
-// pointers
+// my-go-examples pointers1.go
 
 package main
 

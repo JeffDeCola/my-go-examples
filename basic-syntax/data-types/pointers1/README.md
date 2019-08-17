@@ -1,7 +1,7 @@
-# pointers example
+# pointers1 example
 
-`pointers` _in an example of
-a pointer to a struct (pass by value, pass by reference)._
+`pointers1` _in an example of
+a struct passed to function by value (copy) and by address (reference)._
 
 [GitHub Webpage](https://jeffdecola.github.io/my-go-examples/)
 
@@ -26,12 +26,12 @@ In this case the name is changed from Jill to Lisa.
 
 This diagram may help,
 
-![IMAGE - pointers-pass-by-value-and-reference - IMAGE](../../docs/pics/pointers-pass-by-value-and-reference.jpg)
+![IMAGE - pointers1 - IMAGE](../../../docs/pics/pointers1.jpg)
 
 ## RUN
 
 Run,
 
 ```go
-go run pointers.go
+go run pointers1.go
 ```

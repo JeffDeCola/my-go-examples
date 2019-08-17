@@ -102,9 +102,13 @@ other cool programs._
 
     _Assigning a variable to a function._
 
-  * [pointers](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/data-types/pointers)
+  * [pointers1](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/data-types/pointers1)
 
-    _A pointer to a struct (pass by value, pass by reference)._
+    _A struct passed to function by value (copy) and by address (reference)._
+
+  * [pointers2](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/data-types/pointers2)
+
+    _An int passed to function by address (reference) and by int pointer (reference)._
 
   * [slices-underlying-array](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/data-types/slices-underlying-array)
 
