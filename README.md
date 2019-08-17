@@ -79,17 +79,20 @@ _All sections in alphabetical order._
 
 ### BASIC PROGRAMMING
 
+_Just cool programs that are very useful and can be used as building blocks for
+other cool programs._
+
 * [json](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-programming/json)
 
   _Encode a struct to json and decode back to a struct._
 
-* [linked-list](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-programming/linked-list)
-
-  _A singly linked list (i.e. using just a head pointer)._
-
 * [read-file](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-programming/read-file)
 
   _Reading a file a few different ways._
+
+* [singly-linked-list](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-programming/singly-linked-list)
+
+  _A singly linked list (i.e. using just a head pointer)._
 
 ### BASIC SYNTAX
 
@@ -101,7 +104,7 @@ _All sections in alphabetical order._
 
   * [pointers](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/data-types/pointers)
 
-    _A pointer to a struct._
+    _A pointer to a struct (pass by value, pass by reference)._
 
   * [slices-underlying-array](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/data-types/slices-underlying-array)
 

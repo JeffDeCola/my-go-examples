@@ -13,10 +13,10 @@ type Value struct {
 	gender string
 }
 
-// Node is just a node of a Linked List
+// Node is the node of a Linked List
 type Node struct {
-	Value // embedded struct
-	next  *Node
+	Value
+	next *Node
 }
 
 // SinglyList is the List itself
@@ -52,11 +52,17 @@ func (l *SinglyList) Push(v Value) {
 
 func main() {
 
+	// Declair a pointer and assign
 	myList := new(SinglyList)
 
+	fmt.Println("- myList: %T", myList)
+	fmt.Println("- myList: %v", *myList)
+
 	// PUSH Create another node
-	fmt.Println("Pushing 4 Nodes onto a myList")
+	fmt.Println("Pushing 4 Nodes onto myList")
 	myList.Push(Value{name: "Jeff", age: 48, gender: "male"})
+	fmt.Println("- myList: %v", myList)
+	fmt.Println("- myList: %v", *myList)
 	myList.Push(Value{name: "Clif", age: 32, gender: "male"})
 	myList.Push(Value{name: "Julie", age: 22, gender: "female"})
 	myList.Push(Value{name: "Larry", age: 25, gender: "male"})

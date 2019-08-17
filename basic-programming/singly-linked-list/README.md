@@ -10,7 +10,7 @@ a singly linked list (i.e. using just a head pointer)._
 Linked Lists function as an array that can grow and shrink as needed,
 from any point in the list.
 
-Each `Node` containes data `Value` and a pointer `NEXT` to the next
+Each `Node` contains data `Value` and a pointer `NEXT` to the next
 Node in the list. If the pointer is null, you are at the end of the list.
 
 `head` -> `VALUE|NEXT` -> `VALUE|NEXT` -> `VALUE|(null)`
@@ -36,16 +36,20 @@ type Value struct {
 }
 ```
 
+This illustration may help,
+
+![IMAGE - singly-linked-list - IMAGE](../../docs/pics/singly-linked-list.jpg)
+
 ### Advantages over arrays
 
-* Nodes can be added or removed from middle of list.
-* There is no need to define size.
+* Nodes can be added or removed from middle of list
+* There is no need to define size
 
 ### Disadvantages over arrays
 
-* You must iterate over the list until you get to the node you want.
-* Dynamic pointers required.
-* larger overhead.
+* You must iterate over the list until you get to the node you want
+* Dynamic pointers required
+* larger overhead
 
 ## RUN
 
