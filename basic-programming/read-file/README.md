@@ -7,17 +7,17 @@ reading a file a few different ways._
 
 ## METHODS
 
-### Method 1
+Method 1
 
-(ioutil.ReadFile) - Read entire file contents into memory.
+* `ioutil.ReadFile` - Read entire file contents into memory
 
-### Method 2
+Method 2
 
-(os.Open) - Open the file and read what you want.
+* `os.Open` - Open the file and read what you want
 
-### Method 3
+Method 3
 
-(bufio.NewReader) - Buffered reading using bufio package.
+* `bufio.NewReader` - Buffered reading using bufio package.
 
 ## RUN
 
