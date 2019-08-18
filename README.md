@@ -276,6 +276,12 @@ for the standard go packages_
 
   _Logging using non-standard logrus package._
 
+* `net/http`
+
+  _See above example
+  [http-GET-POST](https://github.com/JeffDeCola/my-go-examples#api)
+  _
+
 * [test-jeffshapes](https://github.com/JeffDeCola/my-go-examples/tree/master/packages/test-jeffshapes)
   _(github.com/JeffDeCola/my-go-packages/jeffshapes)_
   
