@@ -1,11 +1,11 @@
-# linked-list example
+# singly-linked-list example
 
-`linked-list` _is a example of
+`singly-linked-list` _is a example of
 a singly linked list (i.e. using just a head pointer)._
 
 [GitHub Webpage](https://jeffdecola.github.io/my-go-examples/)
 
-## LINKED LIST
+## SINGLY LINKED LIST
 
 Linked Lists function as an array that can grow and shrink as needed,
 from any point in the list.
@@ -17,7 +17,7 @@ Node in the list. If the pointer is null, you are at the end of the list.
 
 A local `head` pointer variable points to the first item of a list.
 
-A example of a item is created by a struct,
+A example of a Node is created by a struct,
 
 ```go
 type Node struct {
