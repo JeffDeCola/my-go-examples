@@ -1,7 +1,7 @@
 # interface example
 
 `interface` _is an example of
-accepting ANYTHING (as long as anything has a method attached
+accepting anything (as long as anything has a method attached
 to an interface)._
 
 [GitHub Webpage](https://jeffdecola.github.io/my-go-examples/)
@@ -10,7 +10,7 @@ to an interface)._
 
 The code is actually quite easy.
 
-1; Just define the interface. Attach methods to it.
+Step 1: Just define the interface. Attach methods to it.
 
 ```go
 type theInterface interface {
@@ -18,7 +18,7 @@ type theInterface interface {
 }
 ```
 
-1; Create a function that has the interface as a parameter.
+Step 2: Create a function that has the interface as a parameter.
 
 Therefor anything can be sent to it as long as it has
 a method doThis().
@@ -29,9 +29,12 @@ func magic(i theInterface, n int) {
 }
 ```
 
-1; Call the function
+Step 3: Call the function
 
 ```go
 var a1 = who cares as long as can use method doThis()
 magic(a1, 44)
 ```
+
+## RUN
+

@@ -72,7 +72,7 @@ func main() {
 	t1Area := triangleArea(t1)
 	t1Perimeter := trianglePerimeter(t1)
 
-	fmt.Printf("The area of a circle with radius %v is                          %.3f\n", c1.radius, c1Area)
+	fmt.Printf("\nThe area of a circle with radius %v is                          %.3f\n", c1.radius, c1Area)
 	fmt.Printf("The perimeter of a circle with radius %v is                     %.3f\n", c1.radius, c1Perimeter)
 	fmt.Printf("The area of a rectangle with width %v and heigh %v is            %.3f\n", r1.width, r1.height, r1Area)
 	fmt.Printf("The perimeter of a rectangle with with width %v and heigh %v is  %.3f\n", r1.width, r1.height, r1Perimeter)

@@ -129,14 +129,14 @@ other cool programs._
 
     _Calculating the area and perimeter of
     circles, rectangles and triangles using functions.
-    also refer to method and interface implementations below._
+    also refer to **method** and **interface** implementations below._
 
 * INTERFACES
 
   * [interface](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/interfaces/interface)
 
-    _Accepting ANYTHING (as long as anything has a method attached
-    to an interface)._
+    _Accepting anything (as long as anything has a method attached
+    to the interface)._
 
   * [interfaces-card-atm-bank](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/interfaces/interfaces-card-atm-bank)
 
@@ -147,11 +147,7 @@ other cool programs._
 
     _Calculating the area and perimeter of
     circles, rectangles and triangles using interfaces.
-    Also refer to function and method implementations._
-
-  * [structs-methods-interfaces](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/interfaces/structs-methods-interfaces)
-
-    _Structs, methods and interfaces._
+    Also refer to **function** and **method** implementations._
 
 * METHODS
 
@@ -159,7 +155,7 @@ other cool programs._
 
     _Calculating the area and perimeter of
     circles, rectangles and triangles using methods.
-    Also refer to function and interface implementations above._
+    Also refer to **function** and **interface** implementations above._
 
 ### CGO
 
