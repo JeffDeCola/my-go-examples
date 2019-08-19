@@ -143,7 +143,7 @@ other cool programs._
     _Using interfaces to show how an atm card is
     used to interact with an atm and bank._
 
-  * [shapes-using-interfaces](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/functions/shapes-using-interfaces)
+  * [shapes-using-interfaces](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/interfaces/shapes-using-interfaces)
 
     _Calculating the area and perimeter of
     circles, rectangles and triangles using interfaces.
@@ -151,7 +151,7 @@ other cool programs._
 
 * METHODS
 
-  * [shapes-using-methods](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/functions/shapes-using-methods)
+  * [shapes-using-methods](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/methods/shapes-using-methods)
 
     _Calculating the area and perimeter of
     circles, rectangles and triangles using methods.
