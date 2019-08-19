@@ -125,6 +125,12 @@ other cool programs._
 
     _A function calling itself to make a fibonacci series._
 
+  * [shapes-using-functions](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/functions/shapes-using-functions)
+
+    _Calculating the area and perimeter of
+    circles, rectangles and triangles using functions.
+    also refer to method and interface implementations below._
+
 * INTERFACES
 
   * [interface](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/interfaces/interface)
@@ -137,13 +143,23 @@ other cool programs._
     _Using interfaces to show how an atm card is
     used to interact with an atm and bank._
 
+  * [shapes-using-interfaces](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/functions/shapes-using-interfaces)
+
+    _Calculating the area and perimeter of
+    circles, rectangles and triangles using interfaces.
+    Also refer to function and method implementations._
+
   * [structs-methods-interfaces](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/interfaces/structs-methods-interfaces)
 
     _Structs, methods and interfaces._
 
 * METHODS
 
-  * tbd
+  * [shapes-using-methods](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/functions/shapes-using-methods)
+
+    _Calculating the area and perimeter of
+    circles, rectangles and triangles using methods.
+    Also refer to function and interface implementations above._
 
 ### CGO
 
@@ -277,10 +293,10 @@ for the standard go packages_
   _Logging using non-standard logrus package._
 
 * `net/http`
+  _(standard)_
 
   _See above example
-  [http-GET-POST](https://github.com/JeffDeCola/my-go-examples#api)
-  _
+  [http-GET-POST](https://github.com/JeffDeCola/my-go-examples#api)_
 
 * [test-jeffshapes](https://github.com/JeffDeCola/my-go-examples/tree/master/packages/test-jeffshapes)
   _(github.com/JeffDeCola/my-go-packages/jeffshapes)_
