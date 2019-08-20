@@ -23,6 +23,6 @@ var wg sync.WaitGroup
 
 ## RUN
 
-```go
+```bash
 go run goroutines_waitgroup.go
 ```

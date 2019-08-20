@@ -28,6 +28,6 @@ import github.com/JeffDeCola/my-go-packages/jeffshapes
 
 ## RUN
 
-```go
+```bash
 go run test-jeffshapes.go
 ```

@@ -72,7 +72,7 @@ go get -u -v github.com/pkg/errors
 
 Run,
 
-```go
+```bash
 go run errors.go
 ```
 

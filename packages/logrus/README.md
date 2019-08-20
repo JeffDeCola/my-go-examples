@@ -31,7 +31,7 @@ go get -u -v github.com/sirupsen/logrus
 
 Run,
 
-```go
+```bash
 go run logrus.go
 ```
 

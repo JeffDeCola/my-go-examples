@@ -15,6 +15,6 @@ This diagram may help,
 
 Run,
 
-```go
+```bash
 go run pointers2.go
 ```

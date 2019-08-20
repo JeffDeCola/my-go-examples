@@ -32,6 +32,6 @@ This diagram may help,
 
 Run,
 
-```go
+```bash
 go run pointers1.go
 ```

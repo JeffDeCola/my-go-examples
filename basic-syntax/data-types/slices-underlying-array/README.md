@@ -1,49 +1,23 @@
 # slices-underlying-array example
 
 `slices-underlying-array` _is an example of
-a slice being appended to, and shows the underlying array
+a slice being appended to showing the underlying array
 being added to the slice._
 
 [GitHub Webpage](https://jeffdecola.github.io/my-go-examples/)
 
 ## LENGTH AND CAPACITY OF A SLICE
 
-The len of a slice is the current length.
+Slices are build on arrays,
 
-Since slices are build on arrays, the capacity shows what the underlying fixed
-length array is being used.
+* The `length` of the slice is just the length of the slice.
+* The `capacity` shows what the underlying fixed length array is being used.
 
-This example demonstrates that appending to a slice and showing how the
-underlying array changes.
+This example demonstrates this by appending to a slice and showing how the
+underlying array changes (the capacity).
 
-## MAKE (LEN & CAP) AND APPEND
+## RUN
 
-When you make and array,
-
-```go
-s := make([]int, 0, 5)
-```
-
-The length of the slice is 0 and the capacity is 5, so when using
-append his will start filling the array at index 0.
-
-## MAKE A SLICE WITH AN ARRAY
-
-Since slices have an underlying array, we can make a slice from an array,
-
-```go
-s := make([]int, 10, 18)
-```
-
-same as,
-
-```go
-s := new([18]int)[0:10]
-```
-
-or,
-
-```go
-l := new([18]int)
-g := l[0:10]
+```bash
+go run slices-underlying-array.go
 ```
