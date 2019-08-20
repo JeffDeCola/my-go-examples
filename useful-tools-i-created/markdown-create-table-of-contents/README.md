@@ -15,28 +15,27 @@ markdown-create-table-of-contents -i input.md -h3
 
 [GitHub Webpage](https://jeffdecola.github.io/my-go-examples/)
 
-## RUN & INSTALL
+## RUN
 
-Will always assume README.md
+Default is README.md,
 
 ```bash
 markdown-create-table-of-contents
 ```
 
-If if not README, it will add that filename `input` to the link,
+Use filename `input.md`,
 
 ```bash
 go run markdown-create-table-of-contents.go -i input.md
 ```
 
-You can also include headings 3 switch `-h3`,
+Include headings 3 `###` switch `-h3`,
 
 ```bash
-go run markdown-create-table-of-contents.go -h3
 go run markdown-create-table-of-contents.go -i input.md -h3
 ```
 
-To install (place an executable in your $GOPATH/bin),
+## INSTALL
 
 ```bash
 go install markdown-create-table-of-contents.go
