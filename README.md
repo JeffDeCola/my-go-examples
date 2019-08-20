@@ -40,7 +40,7 @@ _All sections in alphabetical order._
 
 * [http-GET-POST](https://github.com/JeffDeCola/my-go-examples/tree/master/api/http-GET-POST)
 
-  _Using a http package to GET or POST (update via json)._
+  _Using the standard `net/http` package to `http.Get` and `http.PostForm`._
 
 * [OAuth-2.0-google-cloud-storage-api](https://github.com/JeffDeCola/my-go-examples/tree/master/api/OAuth-2.0-google-cloud-storage-api)
 

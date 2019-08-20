@@ -42,8 +42,33 @@ t1Area := area(t1)
 t1Perimeter := perimeter(t1)
 ```
 
+## TWO INTERFACES VS ONE INTERFACE
+
+The first example `shapes-using-interfaces1.go` uses 2 interfaces,
+
+```go
+type areaer interface {
+    area() float64
+}
+
+type perimeterer interface {
+    perimeter() float64
+}
+```
+
+The second `shapes-using-interfaces2.go` uses more traditional 1 interface,
+
+```go
+type shapes interface {
+    area() float64
+    perimeter() float64
+```
+
+The end result is the same.
+
 ## RUN
 
 ```go
-go run shapes-using-interfaces.go
+go run shapes-using-interfaces1.go
+go run shapes-using-interfaces2.go
 ```

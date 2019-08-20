@@ -1,25 +1,46 @@
 # http-GET-POST
 
 `http-GET-POST` _is an example of
-using the standard net/http package to GET or POST (update via json)._
+using the standard `net/http` package to `http.Get` and `http.PostForm`._
 
 [GitHub Webpage](https://jeffdecola.github.io/my-go-examples/)
 
-## get
+## http.Get
 
-Uses `http.Get`  and `ioutil.ReadAll`:
+Uses `http.Get` and `ioutil.ReadAll`,
 
 ```go
-response, err := http.Get("http://www.jeffdecola.com/robots.txt")
+url := "https://httpbin.org/post"
+
+response, err := http.Get(url)
+
 defer response.Body.Close()
 contents, err := ioutil.ReadAll(response.Body)
-fmt.Printf("Content is:\n\n%s\n", string(contents))
+
+fmt.Printf("\nContent is:\n\n%s\n", string(contents))
 ```
 
-## get-struct
+## http.PostForm
 
-Same as above but it writes to struct.
+How to update over an http api using `http.PostForm`,
 
-## post
+```go
+formData := url.Values{
+    "name": {"jeff"},
+}
+url := "https://httpbin.org/post"
 
-How to update over an api.
+response, err := http.PostForm(url, formData)
+
+defer response.Body.Close()
+contents, err := ioutil.ReadAll(response.Body)
+
+fmt.Printf("\nPOST is:\n\n%s\n", string(contents))
+```
+
+## RUN
+
+```go
+go run get.go
+go run post.go
+```

@@ -6,18 +6,23 @@ import (
 	"net/http"
 )
 
-func main() {
-
-	// url := "http://www.jeffdecola.com/robots.txt"
-	url := "https://www.googleapis.com/storage/v1/b"
-
-	response, err := http.Get(url)
+func checkErr(err error) {
 	if err != nil {
 		panic(err)
 	}
+}
+
+func main() {
+
+	url := "https://httpbin.org/get"
+
+	response, err := http.Get(url)
+	checkErr(err)
 
 	defer response.Body.Close()
 	contents, err := ioutil.ReadAll(response.Body)
-	fmt.Printf("Content is:\n\n%s\n", string(contents))
+	checkErr(err)
+
+	fmt.Printf("\nGET is:\n\n%s\n", string(contents))
 
 }
