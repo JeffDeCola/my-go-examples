@@ -100,7 +100,8 @@ other cool programs._
 
   * [closure](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/data-types/closure)
 
-    _Assigning a variable to a function._
+    _is an example of closure (a function that references variables from outside
+    its body)._
 
   * [pointers1](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/data-types/pointers1)
 
@@ -112,7 +113,7 @@ other cool programs._
 
   * [slices-underlying-array](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/data-types/slices-underlying-array)
 
-    _A slice being appended to, and shows the underlying array
+    _A slice being appended to showing the underlying array
     being added to the slice._
 
 * FUNCTIONS

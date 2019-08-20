@@ -37,6 +37,6 @@ func main() {
 
 ## RUN
 
-```go
+```bash
 go run simple-c-code.go
 ```

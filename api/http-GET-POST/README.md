@@ -40,7 +40,7 @@ fmt.Printf("\nPOST is:\n\n%s\n", string(contents))
 
 ## RUN
 
-```go
+```bash
 go run get.go
 go run postform.go
 ```

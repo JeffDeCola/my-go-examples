@@ -68,7 +68,7 @@ The end result is the same.
 
 ## RUN
 
-```go
+```bash
 go run shapes-using-interfaces1.go
 go run shapes-using-interfaces2.go
 ```

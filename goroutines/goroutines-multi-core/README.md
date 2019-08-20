@@ -139,7 +139,7 @@ if setPriority {
 
 ## RUN
 
-```go
+```bash
 go run goroutines-multi-core.go
 ```
 

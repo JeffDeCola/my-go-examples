@@ -29,6 +29,6 @@ We will see, we can simplify this using an interface.
 
 ## RUN
 
-```go
+```bash
 go run shapes-using-functions.go
 ```

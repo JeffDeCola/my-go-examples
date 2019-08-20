@@ -7,7 +7,7 @@ and output new markdown file._
 tl;dr,
 
 ```bash
-markdown-delimiter-doer.go -htmltable -delimiter \$\$ -i input.md -o output.md
+markdown-delimiter-doer -htmltable -delimiter \$\$ -i input.md -o output.md
 ```
 
 [GitHub Webpage](https://jeffdecola.github.io/my-go-examples/)

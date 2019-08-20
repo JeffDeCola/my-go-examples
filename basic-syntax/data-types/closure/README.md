@@ -1,7 +1,8 @@
 # closure example
 
 `closure` _is an example of
-assigning a variable to a function._
+closure (a function that references variables from outside
+its body)._
 
 [GitHub Webpage](https://jeffdecola.github.io/my-go-examples/)
 
@@ -27,13 +28,16 @@ the surrounding environment and can use it.
 
 Same program as above, but with function outside main.
 
-But this acts like a variable where once `increment2` or `increment3`
+But this acts like a variable where once `increment`
 is declared and assigned, x is set in that scope.
-
-```go
-increment := inc(x)
-```
 
 Just think/treat the function as a variable and closure makes sense.
 People try to make this too complicated, like I did above but its just
-treating the function `ince(x)` as a variable `increment2`.  Simple.
+treating the function `inc(x)` as a variable `increment`.  Simple.
+
+## RUN
+
+```bash
+go run anonymous-function.go
+go run return-function-to-function.go
+```

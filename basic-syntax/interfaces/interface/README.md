@@ -93,7 +93,7 @@ func makemyStructB(x, y int) myInterfacer {
 
 ## RUN
 
-```go
+```bash
 go run interface-as-a-parameter.go
 go run interface-as-a-return.go
 ```
