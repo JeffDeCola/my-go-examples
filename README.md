@@ -135,8 +135,7 @@ other cool programs._
 
   * [interface](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/interfaces/interface)
 
-    _Accepting anything (as long as anything has a method attached
-    to the interface)._
+    _A simple example of an interface as parameter and an interface as a return._
 
   * [interfaces-card-atm-bank](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/interfaces/interfaces-card-atm-bank)
 
