@@ -120,7 +120,7 @@ other cool programs._
 
   * [callback](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/functions/callback)
 
-    _Passing a function (as an argument) to a function._
+    _Passing a function (as an argument) to a function. Not really used that often._
 
   * [recursion](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/functions/recursion)
 
