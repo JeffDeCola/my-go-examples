@@ -14,14 +14,18 @@ Documentation and reference,
 
 ## CREATE A POSTGRESQL DATABASE AND A TABLE (SCHEMA)
 
-Obviously you need postgreSQL server running.
+Obviously you need postgreSQL server running. Check,
+
+```go
+ps aux | grep -i postgres
+```
 
 Create a database `jeff_db_example` and a table `people` using `psql`,
 
 ```bash
 sudo -u postgres psql
 CREATE USER jeffd WITH ENCRYPTED PASSWORD 'mypass';
-CREATE DATABASE jeff_db_example3 OWNER jeffd;
+CREATE DATABASE jeff_db_example OWNER jeffd;
 \c jeff_db_example
 CREATE TABLE people (id int primary key not null, first_name text, last_name text);
 GRANT ALL PRIVILEGES ON TABLE people TO jeffd;
@@ -59,8 +63,6 @@ go run postgreSQL.go
 
 ### CREATE A NEW ROW (id=3)
 
-As an example,
-
 ```go
 _, err = db.Exec(`
     insert into people (id, first_name, last_name)
@@ -68,11 +70,22 @@ _, err = db.Exec(`
 `)
 ```
 
-### UPDATE A COLUMN IN A ROW (id=66)
+### CREATE A NEW ROW (id=4)
+
+```go
+fmt.Printf("CREATE A NEW ROW (id=4)\n")
+_, err = db.Exec(`
+        insert into people (id, first_name, last_name)
+        values (4, 'John', 'Henry')
+    `)
+checkErr(err)
+```
+
+### UPDATE A COLUMN IN A ROW (id=4)
 
 ```go
 _, err = db.Exec(`
-    update people set first_name = 'fred' where id = 66
+    update people set first_name = 'fred' where id = 4
 `)
 ```
 
@@ -102,13 +115,28 @@ for rows.Next() {
 fmt.Printf("lastnames are %s\n", lastnames)
 ```
 
-### READ AN ENTIRE ROW (id=66)
+### READ AN ENTIRE ROW (id=3)
 
 ```go
 var theid int32
 var firstName, lastName string
 err = db.QueryRow(`
-    select * from people where id = 66
+    select * from people where id = 3
     `).Scan(&theid, &firstName, &lastName)
 fmt.Printf("row %d is: %s, %s\n", theid, firstName, lastName)
+```
+
+## YOUR OUTPUT SHOULD LOOK LIKE
+
+```bash
+Successfully connected to db!
+CREATE A NEW ROW (id=3)
+CREATE A NEW ROW (id=4)
+UPDATE A COLUMN IN A ROW (id=4)
+READ A COLUMN (last_name) FROM ROW (id=3)
+    last_name is DeCola
+READ AN ENTIRE COLUMN (last_name) FROM ALL ROWS
+    lastnames are [DeCola Henry]
+READ AN ENTIRE ROW (id=3)
+    row 3 is: Jeff, DeCola
 ```
