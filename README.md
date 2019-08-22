@@ -55,7 +55,8 @@ _All sections in alphabetical order._
 * [simple-webserver-with-REST](https://github.com/JeffDeCola/my-go-examples/tree/master/api/simple-webserver-with-REST)
 
   _Adding REST to my
-  [simple-webserver](https://github.com/JeffDeCola/my-go-examples/tree/master/webserver/simple-webserver)._
+  [simple-webserver](https://github.com/JeffDeCola/my-go-examples#webserver)
+  example below._
 
 * [something-postgreSQL](https://github.com/JeffDeCola/my-go-examples/tree/master/api/something-postgreSQL)
 
@@ -291,8 +292,11 @@ for the standard go packages_
 * `net/http`
   _(standard)_
 
-  _See above example
-  [http-GET-POST](https://github.com/JeffDeCola/my-go-examples#api)_
+  _See above
+  [http-GET-POST](https://github.com/JeffDeCola/my-go-examples#api)
+  and below
+  [simple-webserver](https://github.com/JeffDeCola/my-go-examples#webserver)
+  examples._
 
 * [test-jeffshapes](https://github.com/JeffDeCola/my-go-examples/tree/master/packages/test-jeffshapes)
   _(github.com/JeffDeCola/my-go-packages/jeffshapes)_
@@ -325,7 +329,9 @@ for the standard go packages_
 
 * [simple-webserver](https://github.com/JeffDeCola/my-go-examples/tree/master/webserver/simple-webserver)
 
-  _Using the http package to build a simple webserver._
+  _Using the standard `net/http` package to build a simple webserver. I added
+  an API to this example above
+  [simple-webserver-with-REST](https://github.com/JeffDeCola/my-go-examples#api)._
 
 ## UPDATE GITHUB WEBPAGE & UNIT TESTS USING CONCOURSE (OPTIONAL)
 

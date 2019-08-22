@@ -1,31 +1,30 @@
 # simple-webserver example
 
 `simple-webserver` _is an example of
-using the http package to build a simple webserver._
+using the standard `net/http` package to build a simple webserver.
 
-Also checkout [simple-webserver-with-REST](https://github.com/JeffDeCola/my-go-examples/tree/master/simple-webserver-with-REST).
+Also checkout my example
+[simple-webserver-with-REST](https://github.com/JeffDeCola/my-go-examples/tree/master/api/simple-webserver-with-REST).
 
 [GitHub Webpage](https://jeffdecola.github.io/my-go-examples/)
 
 ## The HTTP PACKAGE /net/http
 
-The http package lets us map request paths to functions.
+The `/net/http` package lets us map request paths to functions.
 
-1. Setup which port you would like to listen on
+1. Set which port you would like to listen on,
 
     ```go
     log.Fatal(http.ListenAndServe(":1234", nil))
     ```
 
-1. When a request is made for a particular URL/jeff kick off your function jeffHandler()
+1. When a request is made for a particular URL/jeff kick off your function `jeffHandler()`,
 
     ```go
     http.HandleFunc("/jeff", jeffHandler)
     ```
 
-1. Create your function jeffHandler()
-
-    req is the request structure. res is your reponse.
+1. Create your function `jeffHandler()`,
 
     ```go
     func jeffHandler(res http.ResponseWriter, req *http.Request) {
@@ -40,19 +39,27 @@ The http package lets us map request paths to functions.
 go run simple-webserver.go
 ```
 
-In another terminal, use a CLI http client like httpie and you can do the
-following commands:
+In another terminal, use a CLI http client like
+httpie and you can do the following commands:
 
 ```bash
 http localhost:1234
+http localhost:1234/jeff
+http localhost:1234/monkey
 ```
 
 or
 
 ```bash
 http 127.0.0.1:1234
+http 127.0.0.1:1234/jeff
+http 127.0.0.1:1234/monkey
 ```
 
-## NO ROUTER
+Or you can use a browser,
 
-Hence, you can do `http://127.0.0.1:1234/foo` and it will work.
+```go
+[http://127.0.0.1:1234/](http://127.0.0.1:1234/)
+[http://127.0.0.1:1234/jeff](http://127.0.0.1:1234/jeff)
+[http://127.0.0.1:1234/monkey](http://127.0.0.1:1234/monkey)
+```
