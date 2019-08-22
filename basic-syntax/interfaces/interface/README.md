@@ -5,6 +5,12 @@ an interface as parameter and an interface as a return._
 
 [GitHub Webpage](https://jeffdecola.github.io/my-go-examples/)
 
+## OVERVIEW
+
+This diagram illustrates what we are doing,
+
+![IMAGE - pointers1 - IMAGE](../../../docs/pics/interface-example.jpg)
+
 ## INTERFACE AS A PARAMETER
 
 The code is actually quite easy.
