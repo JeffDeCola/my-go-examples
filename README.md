@@ -173,7 +173,8 @@ _Using c with go._
 ### CLOUD SERVICES
 
 * [amazon-aws](https://github.com/JeffDeCola/my-go-examples/tree/master/cloud-services/amazon-aws)
-
+  **UNDER CONSTRUCTION**
+  
   _Interacting with amazon's
   [aws](https://github.com/JeffDeCola/my-cheat-sheets/tree/master/software/service-providers/amazon-web-services-cheat-sheet)
   using
