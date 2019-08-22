@@ -60,26 +60,6 @@ _All sections in alphabetical order._
   [simple-webserver](https://github.com/JeffDeCola/my-go-examples#webserver)
   example below._
 
-* [something-postgreSQL](https://github.com/JeffDeCola/my-go-examples/tree/master/api/something-postgreSQL)
-
-  _tbd._
-
-* [something-RESTful](https://github.com/JeffDeCola/my-go-examples/tree/master/api/something-RESTful)
-
-  _tbd._
-  
-* [something-youtube-content-id-api](https://github.com/JeffDeCola/my-go-examples/tree/master/api/something-youtube-content-id-api)
-
-  _tbd._
-
-* [something-youtube-data-api-v3](https://github.com/JeffDeCola/my-go-examples/tree/master/api/something-youtube-data-api-v3)
-
-  _tbd._
-
-* [track-email-mailgun-api](https://github.com/JeffDeCola/my-go-examples/tree/master/api/track-email-mailgun-api)
-
-  _Send and track an email using mailgun over their go client api._
-
 ### BASIC PROGRAMMING
 
 _Just cool programs that are very useful and can be used as building blocks for
