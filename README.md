@@ -43,11 +43,13 @@ _All sections in alphabetical order._
   _Using the standard `net/http` package to `http.Get` and `http.PostForm`._
 
 * [OAuth-2.0-google-cloud-storage-api](https://github.com/JeffDeCola/my-go-examples/tree/master/api/OAuth-2.0-google-cloud-storage-api)
+  _(Under construction - check back soon)_
 
   _Using OAuth 2.0 to access a users google cloud storage
   (based on scopes) via googles api._
 
 * [OAuth-2.0-google-cloud-storage-api-over-NATS](https://github.com/JeffDeCola/my-go-examples/tree/master/api/OAuth-2.0-google-cloud-storage-api-over-NATS)
+  _(Under construction - check back soon)_
 
   _Using OAuth 2.0 (frontend and backend via protobuf over NATS)
   to access a users google cloud storage (based on scopes) via googles api._
