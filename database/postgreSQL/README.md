@@ -47,12 +47,15 @@ First, make sure you have the go library
 
 ```bash
 go get -u github.com/lib/pq
+```
+
+Run,
+
+```bash
 go run postgreSQL.go
 ```
 
-## SOME COMMANDS
-
-Run will do the following.
+## RUN WILL DO THE FOLLOWING
 
 ### CREATE A NEW ROW (id=3)
 

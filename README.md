@@ -173,10 +173,6 @@ _Using c with go._
 
 ### DATABASE
 
-* [google-cloud-spanner-table](https://github.com/JeffDeCola/my-go-examples/tree/master/database/google-cloud-spanner-table)
-
-  _tbd._
-
 * [postgreSQL](https://github.com/JeffDeCola/my-go-examples/tree/master/database/postgreSQL)
 
   _A relational database - Read/Write from/to a table._
