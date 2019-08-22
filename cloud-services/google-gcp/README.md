@@ -9,8 +9,8 @@ client libraries._
 
 Documentation and reference,
 
-* My `gcp` cheat sheet is
-  [here](https://github.com/JeffDeCola/my-cheat-sheets/tree/master/software/service-providers/google-cloud-platform-cheat-sheet)
+* My
+  [gcp cheat sheet](https://github.com/JeffDeCola/my-cheat-sheets/tree/master/software/service-providers/google-cloud-platform-cheat-sheet)
 * [GCP Go Documentation](https://cloud.google.com/go/docs/)
 * [Getting Started with the Google APIs for Go](https://github.com/googleapis/google-api-go-client/blob/master/GettingStarted.md)
 * [Complete list of packages](https://github.com/googleapis/google-api-go-client/tree/master)
@@ -36,7 +36,7 @@ go get -u google.golang.org/api/compute/v1
 go get -u golang.org/x/oauth2/google
 ```
 
-And import them as,
+And import them in your go code,
 
 ```go
 import "google.golang.org/api/compute/v1"
@@ -75,18 +75,26 @@ if err != nil {
 }
 ```
 
+Where `jsonPath` is your google service account file.
+
 ## LETS USE THE SERVICE
 
 Now that we have the service, lets use it.
 
-Use the service to get Image list,
+Use the service to get your gce image list,
 
 ```go
 req := computeService.Images.List(project)
 ```
 
-Or use the service to get a instance list,
+Or use the service to get your gce instance list,
 
 ```go
 req := computeService.Instances.List(project, zone)
+```
+
+## RUN
+
+```bash
+go run gcp.go
 ```
