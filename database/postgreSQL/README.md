@@ -61,6 +61,8 @@ go run postgreSQL.go
 
 ## RUN WILL DO THE FOLLOWING
 
+Lets dive into the code.
+
 ### CREATE A NEW ROW (id=3)
 
 ```go
