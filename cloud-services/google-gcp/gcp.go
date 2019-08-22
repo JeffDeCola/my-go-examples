@@ -17,7 +17,7 @@ func main() {
 
 	project := "jeffs-project-174816"
 	jsonPath := "/home/jeff/.config/gcloud/jeffs-service-account.json"
-	zone := "us-west1-b"
+	zone := "us-west1-a"
 
 	ctx := context.Background()
 
@@ -27,7 +27,8 @@ func main() {
 		log.Fatal(err)
 	}
 
-	// Use the Service to get Image list
+	// Use the Service to get gce image list
+	fmt.Printf("\n\n**** Use the Service to get gce image list *****************************\n\n")
 	req := computeService.Images.List(project)
 
 	if err := req.Pages(ctx, func(page *compute.ImageList) error {
@@ -46,7 +47,8 @@ func main() {
 
 	fmt.Println("----------------")
 
-	// Use the service to get instances list
+	// Use the service to get gce instances list
+	fmt.Printf("\n\n**** Use the service to get gce instances list *****************************\n\n")
 	req2 := computeService.Instances.List(project, zone)
 
 	if err := req2.Pages(ctx, func(page *compute.InstanceList) error {
