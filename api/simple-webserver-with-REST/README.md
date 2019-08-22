@@ -30,6 +30,4 @@ go run simple-webserver-with-REST.go router.go routes.go handlers.go logger.go m
 
 In a browser,
 
-```bash
 [http://127.0.0.1:1234/](http://127.0.0.1:1234/)
-```
