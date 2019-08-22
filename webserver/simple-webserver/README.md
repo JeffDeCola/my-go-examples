@@ -59,5 +59,7 @@ http 127.0.0.1:1234/monkey
 Or you can use a browser,
 
 [http://127.0.0.1:1234/](http://127.0.0.1:1234/)
+
 [http://127.0.0.1:1234/jeff](http://127.0.0.1:1234/jeff)
+
 [http://127.0.0.1:1234/monkey](http://127.0.0.1:1234/monkey)
