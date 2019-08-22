@@ -9,7 +9,7 @@ a function calling itself to make a fibonacci series._
 
 Each Fibonacci number is the sum of the two preceding numbers.
 
-Hence, the simplest series is 1,1,2,3,5,8, etc.
+Hence, the simplest series is `1, 1, 2, 3, 5, 8, etc...`
 
 ### METHOD 1
 
@@ -21,12 +21,12 @@ fibN := fibonacci(n - 2) + fibonacci(n - 1)
 ```
 
 The problem is the it always calculates backwards and does the same
-thing over and over.
+thing over and over.  There is a lot of processing here.
 
 ### METHOD 2
 
 This is more of a bottom up approach that I like better.
-It  more flows what I would do with a pen and piece of paper.
+It more flows what I would do with a pen and piece of paper.
 
 ## RUN
 
