@@ -2,13 +2,22 @@ package main
 
 import (
 	"fmt"
+	"log"
 
 	redis "github.com/go-redis/redis"
 )
 
+// Check your error
+func checkErr(err error) {
+	if err != nil {
+		fmt.Printf("Error is %+v\n", err)
+		log.Fatal("ERROR:", err)
+	}
+}
+
 func main() {
 
-    // CREATE A CONNECTION
+	// CREATE A CONNECTION
 	client := redis.NewClient(&redis.Options{
 		Addr:     "localhost:6379",
 		Password: "", // no password set
@@ -19,21 +28,17 @@ func main() {
 	fmt.Println(pong, err)
 	// Output: PONG <nil>
 
-    // SET key value
+	// SET key value
 	err = client.Set("jeff", "monkey", 0).Err()
-	if err != nil {
-		panic(err)
-	}
+	checkErr(err)
 
-    // GET key value
+	// GET key value
 	val, err := client.Get("jeff").Result()
-	if err != nil {
-		panic(err)
-	}
+	checkErr(err)
 	fmt.Println("jeff", val)
 	// Output: jeff monkey
 
-    // Get key value with bad key - Does not exist
+	// Get key value with bad key - Does not exist
 	val2, err := client.Get("key2").Result()
 	if err == redis.Nil {
 		fmt.Println("key2 does not exist")

@@ -36,6 +36,23 @@ Then run,
 go run redis.go
 ```
 
+Your output should be,
+
+```bash
+PONG <nil>
+jeff monkey
+key2 does not exist
+```
+
+## CHECK KEY/VALUE USING REDIS-CLI
+
+Check your key value using command line,
+
+```bash
+redis-cli
+get jeff
+```
+
 ## SET/GET KEY/VALUES IN GO
 
 Lets dive into the code.
@@ -58,27 +75,12 @@ fmt.Println(pong, err)
 
 ```go
 err = client.Set("jeff", "monkey", 0).Err()
-if err != nil {
-    panic(err)
-}
 ```
 
 ### GET A KEY/VALUE
 
 ```go
 val, err := client.Get("jeff").Result()
-if err != nil {
-    panic(err)
-}
 fmt.Println("jeff", val)
 // Output: jeff monkey
-```
-
-## CHECK KEY/VALUE USING REDIS-CLI
-
-Check your key value using command line,
-
-```bash
-redis-cli
-get jeff
 ```
