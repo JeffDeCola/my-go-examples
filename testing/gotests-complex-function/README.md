@@ -5,9 +5,21 @@ testing a function with complex inputs and outputs._
 
 [GitHub Webpage](https://jeffdecola.github.io/my-go-examples/)
 
+## WHAT IS GOTESTS
+
+`gotests` makes writing Go tests easy. It's a Golang cli that generates
+table driven tests based on its target source files' function
+and method signatures.
+
+Install,
+
+```bash
+go get -u github.com/cweill/gotests/...
+```
+
 ## THE FUNCTION
 
-The function `Check()` has the following input/ouputs.
+The function `Check()` has the following input/outputs.
 
 `func Check(input InputJSON, logger *log.Logger) (checkOutputJSON, error) {`
 
@@ -58,7 +70,7 @@ checkOutputJSON []version
 ## GENERATE TEST FILE
 
 ```bash
-gotests -w -all complex_function.go
+gotests -w -all complex-function.go
 ```
 
 ## RUN TEST
