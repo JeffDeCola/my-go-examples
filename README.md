@@ -290,11 +290,11 @@ for the standard go packages_
 
 * [gotests](https://github.com/JeffDeCola/my-go-examples/tree/master/testing/gotests)
 
-  _Using the go tool gotests to test a very simple function and method._
+  _Using the go tool `gotests` to test a very simple function and method._
 
 * [gotests-complex-function](https://github.com/JeffDeCola/my-go-examples/tree/master/testing/gotests-complex-function)
 
-  _Using the go tool gotests to test a function with complex inputs and outputs._
+  _Using the go tool `gotests` to test a function with complex inputs and outputs._
 
 ### USEFUL TOOLS I CREATED
 

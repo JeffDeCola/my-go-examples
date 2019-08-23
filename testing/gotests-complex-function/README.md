@@ -7,7 +7,7 @@ testing a function with complex inputs and outputs._
 
 ## WHAT IS GOTESTS
 
-`gotests` makes writing Go tests easy. It's a Golang cli that generates
+`gotests` makes writing go tests easy. It's a golang cli that generates
 table driven tests based on its target source files' function
 and method signatures.
 
@@ -17,7 +17,7 @@ Install,
 go get -u github.com/cweill/gotests/...
 ```
 
-## THE FUNCTION
+## THE FUNCTION TO TEST
 
 The function `Check()` has the following input/outputs.
 
@@ -37,44 +37,20 @@ InputJSON struct {
 }
 
 checkOutputJSON []version
-
 ```
 
-`TestCheck()` would then contain,
-
-```go
-{
-    "test1",
-    args{
-        input: InputJSON{
-            Params: map[string]string{"param1": "Hello Jeff", "param2":
-            "How are you?"},
-            Source: map[string]string{"source1": "sourcefoo1", "source2":
-            "sourcefoo2"},
-            Version: version{
-                Ref: "456",
-            },
-        },
-        logger: log.New(os.Stderr, "resource:", log.Lshortfile),
-    },
-    checkOutputJSON{
-        version{Ref: "123"},
-        version{Ref: "3de"},
-        version{Ref: "456"},
-        version{Ref: "777"},
-    },
-    false,
-},
-```
-
-## GENERATE TEST FILE
+## HOW I GENERATED THE TEST FILE
 
 ```bash
 gotests -w -all complex-function.go
 ```
 
-## RUN TEST
+Refer to this file to see how I added tests.
+
+## RUN TEST & COVERAGE
 
 ```bash
 go test -v -cover .
+go test -coverprofile coverage.out
+go tool cover -html=coverage.out -o coverage.html
 ```
