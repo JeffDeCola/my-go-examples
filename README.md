@@ -286,7 +286,7 @@ for the standard go packages_
 
 * [gomock](https://github.com/JeffDeCola/my-go-examples/tree/master/testing/gomock)
 
-  _Using gomock on an interface for unit testing._
+  _Using `gomock` on an interface for unit testing._
 
 * [gotests](https://github.com/JeffDeCola/my-go-examples/tree/master/testing/gotests)
 
