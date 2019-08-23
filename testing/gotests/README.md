@@ -17,9 +17,11 @@ Install,
 go get -u github.com/cweill/gotests/...
 ```
 
-## UNIT TEST A FUNCTION & METHOD
+## UNIT TEST ON A FUNCTION & METHOD
 
-I create a package rectangle that calculated the area of a rectangle
+I created a package
+[rectangle.go](https://github.com/JeffDeCola/my-go-examples/blob/master/testing/gotests/rectangle/rectangle.go)
+that calculates the area of a rectangle
 using either a function or a method,
 
 ```go
@@ -52,7 +54,7 @@ cd rectangle
 gotests -w -all rectangle.go
 ```
 
-## RUN YOUR TEST (0% COVERED)
+## RUN YOUR TEST & COVERAGE (0% COVERED)
 
 Now if you run `go test`,
 
