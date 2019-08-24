@@ -1,52 +1,50 @@
 package creatures
 
-// Warewolf impliments creature
-type Warewolf struct {
+// Werewolf implements creature
+type Werewolf struct {
 	TimeofDay string
 }
 
-// Kind is a method - Receiver Type is Warewolf
-func (w Warewolf) Kind() string {
+// Kind - Changes into a werewolf at night
+func (w Werewolf) Kind() string {
 	if w.TimeofDay == "day" {
 		return "human"
 	}
 	return "warewolf"
 }
 
-// Fly is a method  - Receiver Type is Warewolf
-// Exists to satify creature interface
-func (w Warewolf) Fly() bool {
+// Fly - Nope
+func (w Werewolf) Fly() bool {
 	return false
 }
 
-// Sound is a method - Receiver Type is Warewolf
-func (w Warewolf) Sound() string {
+// Sound depends on TimeofDay
+func (w Werewolf) Sound() string {
 	if w.TimeofDay == "day" {
 		return "hello"
 	}
 	return "howl"
 }
 
-// Vampire impliments creature
+// Vampire implements creature
 type Vampire struct {
 	Age int
 }
 
-// Kind is a method - Receiver Type is Vampire
+// Kind - after 100 becomes a vampire
 func (z Vampire) Kind() string {
 	if z.Age > 100 {
 		return "Vampire"
-		//return fmt.Sprintf("Vampire that is %d years old\n", s.Age)
 	}
 	return "human"
 }
 
-// Fly is a method - Receiver Type is Vampire
+// Fly - Yes
 func (z Vampire) Fly() bool {
 	return true
 }
 
-// Sound is a method - Receiver Type is Vampire
+// Sound - he talks funny
 func (z Vampire) Sound() string {
 	return "I want to drink your blood"
 }

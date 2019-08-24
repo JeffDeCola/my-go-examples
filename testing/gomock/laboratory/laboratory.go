@@ -2,7 +2,7 @@ package laboratory
 
 import "fmt"
 
-// Creatures describe Behaivior of creatures
+// Creatures describe Behavior of creatures
 type Creatures interface {
 	Kind() string
 	Fly() bool

@@ -83,7 +83,7 @@ other cool programs._
 
   * [closure](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/data-types/closure)
 
-    _is an example of closure (a function that references variables from outside
+    _An example of closure (a function that references variables from outside
     its body)._
 
   * [pointers1](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/data-types/pointers1)
@@ -157,7 +157,7 @@ _Using c with go._
 * [amazon-aws](https://github.com/JeffDeCola/my-go-examples/tree/master/cloud-services/amazon-aws)
   _(Under construction - check back soon)_
 
-  Interacting with amazon's
+  _Interacting with amazon's
   [aws](https://github.com/JeffDeCola/my-cheat-sheets/tree/master/software/service-providers/amazon-web-services-cheat-sheet)
   using
   `aws-sdk-go`
