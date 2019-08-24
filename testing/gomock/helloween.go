@@ -5,13 +5,19 @@ package main
 import (
 	"fmt"
 
-	"./creatures"
-	"./laboratory"
+	"github.com/JeffDeCola/my-go-examples/testing/gomock/creatures"
+	"github.com/JeffDeCola/my-go-examples/testing/gomock/laboratory"
 )
+
+// INTERFACE AS A RETURN
+func makeVampire(age int) laboratory.Creatures {
+	return creatures.Vampire{Age: age}
+}
 
 func main() {
 
-	// CREATE A WEREWOLF
+	// CREATE A WEREWOLF STRUCT
+	// Pass struct in Greet/Flyaway
 	Jeff := creatures.Werewolf{TimeofDay: "night"}
 
 	// PRINT WEREWOLF INFO
@@ -26,8 +32,10 @@ func main() {
 	fmt.Println(laboratory.FlyAway(Jeff))
 	fmt.Println("")
 
-	// CREATE A VAMPIRE
-	var Clif laboratory.Creatures = creatures.Vampire{Age: 132}
+	// CREATE AN INTERFACE VAMPIRE
+	// Pass interface to Greet/Flyway
+	// var Clif laboratory.Creatures = creatures.Vampire{Age: 132}
+	Clif := makeVampire(132)
 
 	// PRINT VAMPIRE INFO
 	fmt.Printf("Clif is a %s\n", Clif.Kind())
