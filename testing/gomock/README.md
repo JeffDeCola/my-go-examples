@@ -17,7 +17,7 @@ Install,
 
 ```bash
 go get -u -v github.com/golang/mock/gomock
-go get -u -v github.com/golang/mock/mockgen
+go install github.com/golang/mock/mockgen
 ```
 
 Verify you have it,
@@ -195,6 +195,8 @@ Where you test is,
             "poo",
         },
 ```
+
+Do the same to the other function.  Now run your tests,
 
 ```bash
 cd laboratory
