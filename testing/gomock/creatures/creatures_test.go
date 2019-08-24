@@ -2,7 +2,7 @@ package creatures
 
 import "testing"
 
-func TestWarewolf_Kind(t *testing.T) {
+func TestWerewolf_Kind(t *testing.T) {
 	type fields struct {
 		TimeofDay string
 	}
@@ -11,6 +11,7 @@ func TestWarewolf_Kind(t *testing.T) {
 		fields fields
 		want   string
 	}{
+		// TODO: Add test cases.
 		{
 			"Test1",
 			fields{
@@ -23,20 +24,22 @@ func TestWarewolf_Kind(t *testing.T) {
 			fields{
 				TimeofDay: "night",
 			},
-			"warewolf",
+			"werewolf",
 		},
 	}
 	for _, tt := range tests {
-		w := Warewolf{
-			TimeofDay: tt.fields.TimeofDay,
-		}
-		if got := w.Kind(); got != tt.want {
-			t.Errorf("%q. Warewolf.Kind() = %v, want %v", tt.name, got, tt.want)
-		}
+		t.Run(tt.name, func(t *testing.T) {
+			w := Werewolf{
+				TimeofDay: tt.fields.TimeofDay,
+			}
+			if got := w.Kind(); got != tt.want {
+				t.Errorf("Werewolf.Kind() = %v, want %v", got, tt.want)
+			}
+		})
 	}
 }
 
-func TestWarewolf_Fly(t *testing.T) {
+func TestWerewolf_Fly(t *testing.T) {
 	type fields struct {
 		TimeofDay string
 	}
@@ -45,6 +48,7 @@ func TestWarewolf_Fly(t *testing.T) {
 		fields fields
 		want   bool
 	}{
+		// TODO: Add test cases.
 		{
 			"Test1",
 			fields{
@@ -61,16 +65,18 @@ func TestWarewolf_Fly(t *testing.T) {
 		},
 	}
 	for _, tt := range tests {
-		w := Warewolf{
-			TimeofDay: tt.fields.TimeofDay,
-		}
-		if got := w.Fly(); got != tt.want {
-			t.Errorf("%q. Warewolf.Fly() = %v, want %v", tt.name, got, tt.want)
-		}
+		t.Run(tt.name, func(t *testing.T) {
+			w := Werewolf{
+				TimeofDay: tt.fields.TimeofDay,
+			}
+			if got := w.Fly(); got != tt.want {
+				t.Errorf("Werewolf.Fly() = %v, want %v", got, tt.want)
+			}
+		})
 	}
 }
 
-func TestWarewolf_Sound(t *testing.T) {
+func TestWerewolf_Sound(t *testing.T) {
 	type fields struct {
 		TimeofDay string
 	}
@@ -79,15 +85,16 @@ func TestWarewolf_Sound(t *testing.T) {
 		fields fields
 		want   string
 	}{
+		// TODO: Add test cases.
 		{
-			"Warewolf is human during day",
+			"Test1",
 			fields{
 				TimeofDay: "day",
 			},
 			"hello",
 		},
 		{
-			"Warewolf is amonster at night",
+			"Test2",
 			fields{
 				TimeofDay: "night",
 			},
@@ -95,12 +102,14 @@ func TestWarewolf_Sound(t *testing.T) {
 		},
 	}
 	for _, tt := range tests {
-		w := Warewolf{
-			TimeofDay: tt.fields.TimeofDay,
-		}
-		if got := w.Sound(); got != tt.want {
-			t.Errorf("%q. Warewolf.Sound() = %v, want %v", tt.name, got, tt.want)
-		}
+		t.Run(tt.name, func(t *testing.T) {
+			w := Werewolf{
+				TimeofDay: tt.fields.TimeofDay,
+			}
+			if got := w.Sound(); got != tt.want {
+				t.Errorf("Werewolf.Sound() = %v, want %v", got, tt.want)
+			}
+		})
 	}
 }
 
@@ -113,6 +122,7 @@ func TestVampire_Kind(t *testing.T) {
 		fields fields
 		want   string
 	}{
+		// TODO: Add test cases.
 		{
 			"Over 100 he's a vampire",
 			fields{
@@ -126,15 +136,16 @@ func TestVampire_Kind(t *testing.T) {
 				Age: 34,
 			},
 			"human",
-		},
-	}
+		}}
 	for _, tt := range tests {
-		z := Vampire{
-			Age: tt.fields.Age,
-		}
-		if got := z.Kind(); got != tt.want {
-			t.Errorf("%q. Vampire.Kind() = %v, want %v", tt.name, got, tt.want)
-		}
+		t.Run(tt.name, func(t *testing.T) {
+			z := Vampire{
+				Age: tt.fields.Age,
+			}
+			if got := z.Kind(); got != tt.want {
+				t.Errorf("Vampire.Kind() = %v, want %v", got, tt.want)
+			}
+		})
 	}
 }
 
@@ -147,6 +158,7 @@ func TestVampire_Fly(t *testing.T) {
 		fields fields
 		want   bool
 	}{
+		// TODO: Add test cases.
 		{
 			"Over 100 he can fly",
 			fields{
@@ -163,12 +175,14 @@ func TestVampire_Fly(t *testing.T) {
 		},
 	}
 	for _, tt := range tests {
-		z := Vampire{
-			Age: tt.fields.Age,
-		}
-		if got := z.Fly(); got != tt.want {
-			t.Errorf("%q. Vampire.Fly() = %v, want %v", tt.name, got, tt.want)
-		}
+		t.Run(tt.name, func(t *testing.T) {
+			z := Vampire{
+				Age: tt.fields.Age,
+			}
+			if got := z.Fly(); got != tt.want {
+				t.Errorf("Vampire.Fly() = %v, want %v", got, tt.want)
+			}
+		})
 	}
 }
 
@@ -181,6 +195,7 @@ func TestVampire_Sound(t *testing.T) {
 		fields fields
 		want   string
 	}{
+		// TODO: Add test cases.
 		{
 			"Over 100",
 			fields{
@@ -197,11 +212,13 @@ func TestVampire_Sound(t *testing.T) {
 		},
 	}
 	for _, tt := range tests {
-		z := Vampire{
-			Age: tt.fields.Age,
-		}
-		if got := z.Sound(); got != tt.want {
-			t.Errorf("%q. Vampire.Sound() = %v, want %v", tt.name, got, tt.want)
-		}
+		t.Run(tt.name, func(t *testing.T) {
+			z := Vampire{
+				Age: tt.fields.Age,
+			}
+			if got := z.Sound(); got != tt.want {
+				t.Errorf("Vampire.Sound() = %v, want %v", got, tt.want)
+			}
+		})
 	}
 }

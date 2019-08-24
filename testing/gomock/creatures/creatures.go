@@ -10,7 +10,7 @@ func (w Werewolf) Kind() string {
 	if w.TimeofDay == "day" {
 		return "human"
 	}
-	return "warewolf"
+	return "werewolf"
 }
 
 // Fly - Nope

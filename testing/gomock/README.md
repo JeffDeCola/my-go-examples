@@ -1,14 +1,17 @@
 # gomock example
 
 `gomock` _is a example of
-using gomock on an interface for unit testing._
+using gomock on an interface and using the go tool `gotests` for unit testing._
 
 [GitHub Webpage](https://jeffdecola.github.io/my-go-examples/)
 
 ## WHAT IS GOMOCK
 
-GoMock is a mock framework for Go. It enjoys a somewhat official status as
-part of the github.com/golang organization. `mockgen` is the code generation tool.
+GoMock is a mock framework for Go.
+**Its useful for mocking an interface**
+It enjoys a somewhat official status as
+part of the github.com/golang organization.
+`mockgen` is the code generation tool.
 
 Install,
 
@@ -32,6 +35,8 @@ Four basic steps:
   to your mock object’s constructor to obtain a mock object
 * Call EXPECT() on your mocks to set up their expectations and return values
 * Call Finish() on the mock controller to assert the mock’s expectations
+
+More on this in a bit. First lets look at the packages.
 
 ## CREATURES PACKAGE
 
@@ -61,8 +66,7 @@ And vampire has the following methods,
 
 ## LABORATORY PACKAGE
 
-I'll keep my creature int he laboratory. Lets create an interface
-that describes creatures,
+I created another package laboratory where I keep my creatures.
 
 ```go
 type Creatures interface {
@@ -80,11 +84,96 @@ Where I have two functions `Greet` and `FlyAway` using the interface.
 go run helloween.go
 ```
 
-## GREET FUNCTION
+## GENERATE TEST FILE USING GOTESTS
 
-`func Greet(c Creatures) string {`
+The following command will generate a test file with the hooks
+in place to perform unit testing,
 
-Hence the test would be setup as
+```bash
+cd laboratory
+gotests -w -all .
+cd creatures
+gotests -w -all .
+```
+
+## RUN YOUR TEST & COVERAGE (0% COVERED)
+
+Now if you run go test,
+
+```bash
+cd ..
+go test -v -cover laboratory/*
+go test -v -cover creatures/*
+```
+
+Optional commands,
+
+```bash
+go test -coverprofile coverage.out
+go tool cover -html=coverage.out -o coverage.html
+```
+
+You should get 0% covered,
+
+```bash
+PASS
+coverage: 0.0% of statements
+```
+
+## ADD TESTS TO CREATURES PACKAGE (100% COVERED)
+
+There are 6 methods in the creatures package.
+
+As an example lets add tests to the function `TestWerewolf_Kind(t *testing.T)`,
+
+```go
+        // TODO: Add test cases.
+        {
+            "Test1",
+            fields{
+                TimeofDay: "day",
+            },
+            "human",
+        },
+        {
+            "Test2",
+            fields{
+                TimeofDay: "night",
+            },
+            "werewolf",
+        },
+```
+
+Do this for all six methods in the creatures package. Now when you run your test,
+
+```bash
+cd creatures
+go test -v -cover .
+go test -coverprofile coverage.out
+go tool cover -html=coverage.out -o coverage.html
+```
+
+Your coverage shall now be,
+
+```bash
+PASS
+coverage: 100% of statements
+```
+
+## ADD TESTS TO LABORATORY PACKAGE (100% COVERED)
+
+We have two functions to test; `Greet()` and `FlyAway()` that each use an interface.
+So lets mock that interface.
+
+Using mockgen, we create a file `mockcreature.go`,
+
+```bash
+cd laboratory
+mockgen -source=laboratory.go -package=laboratory -destination=mockcreature.go
+```
+
+To use add the following lines to the top of your test function
+`func TestGreet(t *testing.T) {`
 
 ```go
 func TestGreet(t *testing.T) {
@@ -92,61 +181,24 @@ func TestGreet(t *testing.T) {
     defer ctrl.Finish()
     var mockcreature = NewMockCreatures(ctrl)
     mockcreature.EXPECT().Sound().Times(1).Return("poo")
-    type args struct {
-        c Creatures
-    }
-    tests := []struct {
-        name string
-        args args
-        want string
-    }{
 ```
 
-## FLYAWAY FUNCTION
-
-`func FlyAway(canfly Creatures) string {`
-
-Hence the test would be setup as,
+Where you test is,
 
 ```go
-func TestFlyAway(t *testing.T) {
-    var ctrl = gomock.NewController(t)
-    defer ctrl.Finish()
-    var mockcreature = NewMockCreatures(ctrl)
-    gomock.InOrder(
-        mockcreature.EXPECT().Fly().Times(1).Return(true),
-        mockcreature.EXPECT().Fly().Times(1).Return(false),
-    )
-    mockcreature.EXPECT().Kind().AnyTimes().Return("Pig")
-    type args struct {
-        canfly Creatures
-    }
-    tests := []struct {
-        name string
-        args args
-        want string
-    }{
+        // TODO: Add test cases.
+        {
+            "Test1",
+            args{
+                c: mockcreature,
+            },
+            "poo",
+        },
 ```
 
-## RUN
-
-
-## RUN TEST
-
 ```bash
-go test -v -cover ./...
-```
-
-## MOCKGEN
-
-`mockgen` file was created by running:
-
-```bash
-mockgen -source=laboratory.go -package=laboratory -destination=mockcreature.go
-```
-
-`laboratory_test.go` file was created by running:
-
-```bash
-gotests -w -all laboratory.go
+cd laboratory
+go test -v -cover .
+go test -coverprofile coverage.out
+go tool cover -html=coverage.out -o coverage.html
 ```
