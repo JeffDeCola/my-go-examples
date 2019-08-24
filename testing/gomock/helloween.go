@@ -5,34 +5,34 @@ package main
 import (
 	"fmt"
 
-	"github.com/JeffDeCola/my-go-examples/gomock/creatures"
-	"github.com/JeffDeCola/my-go-examples/gomock/laboratory"
+	"./creatures"
+	"./laboratory"
 )
 
 func main() {
 
-	Jeff := creatures.Warewolf{TimeofDay: "night"} // Get data
-	fmt.Printf("Jeff is a %s\n", Jeff.Kind())
-	sound := laboratory.Greet(Jeff)
-	fmt.Println(sound)
-	fly := laboratory.FlyAway(Jeff)
-	fmt.Println(fly)
-	fmt.Println("")
+	// CREATE A WEREWOLF
+	Jeff := creatures.Werewolf{TimeofDay: "night"}
 
+	// PRINT WEREWOLF INFO
+	fmt.Printf("Jeff is a %s\n", Jeff.Kind())
+	fmt.Println(laboratory.Greet(Jeff))
+	fmt.Println(laboratory.FlyAway(Jeff))
+	fmt.Println("")
+	// Change the time of day
 	Jeff.TimeofDay = "day"
 	fmt.Printf("Jeff is a %s\n", Jeff.Kind())
-	sound = laboratory.Greet(Jeff)
-	fmt.Println(sound)
-	fly = laboratory.FlyAway(Jeff)
-	fmt.Println(fly)
+	fmt.Println(laboratory.Greet(Jeff))
+	fmt.Println(laboratory.FlyAway(Jeff))
 	fmt.Println("")
 
-	var Clif laboratory.Creatures = creatures.Vampire{Age: 132} // Interface - Access to behavior.
+	// CREATE A VAMPIRE
+	var Clif laboratory.Creatures = creatures.Vampire{Age: 132}
+
+	// PRINT VAMPIRE INFO
 	fmt.Printf("Clif is a %s\n", Clif.Kind())
-	sound = laboratory.Greet(Clif)
-	fmt.Println(sound)
-	fly = laboratory.FlyAway(Clif)
-	fmt.Println(fly)
+	fmt.Println(laboratory.Greet(Clif))
+	fmt.Println(laboratory.FlyAway(Clif))
 	fmt.Println("")
 
 }
