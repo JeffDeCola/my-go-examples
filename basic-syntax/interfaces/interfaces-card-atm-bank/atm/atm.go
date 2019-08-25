@@ -3,14 +3,14 @@ package atm
 import (
 	"fmt"
 
-	"github.com/JeffDeCola/my-go-examples/basic-programming/interfaces-card-atm-bank/bank"
+	"github.com/JeffDeCola/my-go-examples/basic-syntax/interfaces/interfaces-card-atm-bank/bank"
 )
 
-var banks map[string]bank.BankNetworker
+var banks map[string]bank.Networker
 
 func init() {
 
-	banks = map[string]bank.BankNetworker{}
+	banks = map[string]bank.Networker{}
 
 }
 
@@ -24,7 +24,7 @@ type ATM interface {
 }
 
 //LoadBank loads a bank interface to a package level map
-func LoadBank(name string, b bank.BankNetworker) {
+func LoadBank(name string, b bank.Networker) {
 
 	banks[name] = b
 

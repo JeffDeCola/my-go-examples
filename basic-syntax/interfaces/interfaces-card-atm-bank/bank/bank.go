@@ -2,18 +2,19 @@ package bank
 
 // Bank interface
 type Bank interface {
-	BankNetworker
-	BankCustomerServicer
+	Networker
+	CustomerServicer
 }
 
-// BankNetworker interface
-type BankNetworker interface {
-	Balance() int
+// Networker interface
+type Networker interface {
+	Balance(string) int
 	Deposit(int) int
 	Withdraw(int) int
 }
 
-// BankCustomerServicer interface
-type BankCustomerServicer interface {
+// CustomerServicer interface
+type CustomerServicer interface {
 	IssueCard()
+	AddAccount()
 }

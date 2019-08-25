@@ -19,11 +19,11 @@ type myStructB struct {
 	y int
 }
 
-func (i myStructA) doThis() {
+func (i *myStructA) doThis() {
 	fmt.Printf("I'm in doThis() method with receiver myStructA - %v\n", i.name)
 }
 
-func (i myStructB) doThis() {
+func (i *myStructB) doThis() {
 	fmt.Printf("I'm in doThis() method with receiver myStructB - %v %v\n", i.x, i.y)
 }
 
@@ -35,8 +35,8 @@ func magic(i myInterfacer) {
 func main() {
 
 	// Declare and assign the struct pointers
-	var a = myStructA{"jeff"}
-	var b = myStructB{222, 333}
+	var a = &myStructA{"jeff"}
+	var b = &myStructB{222, 333}
 
 	// INTERFACE AS A FUNCTION PARAMETER
 	// The interface figures out what method to use based on data type
