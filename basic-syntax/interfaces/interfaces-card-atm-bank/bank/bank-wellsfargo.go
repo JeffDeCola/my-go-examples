@@ -3,17 +3,16 @@ package bank
 import (
 	"fmt"
 
-	"github.com/JeffDeCola/my-go-examples/basic-programming/interfaces-card-atm-bank/card"
+	"github.com/JeffDeCola/my-go-examples/basic-syntax/interfaces/interfaces-card-atm-bank/card"
 )
 
 type wellsFargoBank struct {
-	Name        string
-	Location    string
-	wellsstruct string
+	BranchName string
+	Location   string
 }
 
 // Balance returns the balance
-func (a *wellsFargoBank) Balance() int {
+func (a *wellsFargoBank) Balance(name string) int {
 	fmt.Println("hi")
 	return 100
 }
@@ -35,7 +34,7 @@ func (a *wellsFargoBank) IssueCard() card.Card {
 	return card.NewWellsFargoCard()
 }
 
-// NewwellsFargoBank creates an ATM instance
-func NewWellsFargoBank() BankNetworker {
+// NewWellsFargoBank creates an ATM instance
+func NewWellsFargoBank() Networker {
 	return &wellsFargoBank{}
 }

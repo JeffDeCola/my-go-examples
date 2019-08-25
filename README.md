@@ -119,11 +119,16 @@ other cool programs._
 
   * [interface](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/interfaces/interface)
 
-    _A simple example of an interface as parameter and an interface as a return._
+    _A simple example of an interface as parameter and an interface as a return.
+    Also see the next example that uses this in a package._
+
+  * [interface-package](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/interfaces/interface-package)
+
+    _The same example as above but the interface and methods placed in a package._
 
   * [interfaces-card-atm-bank](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/interfaces/interfaces-card-atm-bank)
 
-    _Using interfaces to show how an atm card is
+    _Using interfaces to show how a bank card is
     used to interact with an atm and bank._
 
   * [shapes-using-interfaces](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/interfaces/shapes-using-interfaces)

@@ -19,22 +19,22 @@ type myStructB struct {
 	y int
 }
 
-func (i myStructA) doThis() {
+func (i *myStructA) doThis() {
 	fmt.Printf("I'm in doThis() method with receiver myStructA - %v\n", i.name)
 }
 
-func (i myStructB) doThis() {
+func (i *myStructB) doThis() {
 	fmt.Printf("I'm in doThis() method with receiver myStructB - %v %v\n", i.x, i.y)
 }
 
 // INTERFACE AS A RETURN
 func makemyStructA(name string) myInterfacer {
-	return myStructA{name}
+	return &myStructA{name}
 }
 
 // INTERFACE AS A RETURN
 func makemyStructB(x, y int) myInterfacer {
-	return myStructB{x, y}
+	return &myStructB{x, y}
 }
 
 // INTERFACE AS A FUNCTION PARAMETER
