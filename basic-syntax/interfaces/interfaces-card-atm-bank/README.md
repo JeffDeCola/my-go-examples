@@ -11,4 +11,4 @@ used to interact with an atm and bank._
 This is the bare bones minimum to really highlight interfaces.
 For example, you could add pins, account numbers and a database.
 
-![IMAGE - interfaces-card-atm-bank - IMAGE](../../../pics/interfaces-card-atm-bank.jpg)
+![IMAGE - interfaces-card-atm-bank - IMAGE](../../pics/interfaces-card-atm-bank.jpg)
