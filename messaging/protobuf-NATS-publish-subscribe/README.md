@@ -4,10 +4,17 @@
 sending a protobuf msg over NATS from a client
 to a server using publish and subscribe._
 
-[GitHub Webpage](https://jeffdecola.github.io/my-go-examples/)
+These are my 3 main example of using protobuf,
 
-Also check out
-[protobuf-NATS-workers-response](https://github.com/JeffDeCola/my-go-examples/tree/master/protobuf-NATS-workers-response).
+* [protobuf](https://github.com/JeffDeCola/my-go-examples/tree/master/messaging/protobuf)
+* `protobuf-NATS-publish-subscribe` You are here
+* [protobuf-NATS-request-response](https://github.com/JeffDeCola/my-go-examples/tree/master/messaging/protobuf-NATS-request-response)
+
+Refer to my
+[protobuf cheat sheet](https://github.com/JeffDeCola/my-cheat-sheets/tree/master/software/development/software-architectures/messaging/protobuf-cheat-sheet)
+for information on installation and use.
+
+[GitHub Webpage](https://jeffdecola.github.io/my-go-examples/)
 
 ## STARTS NAT SERVER
 
@@ -102,4 +109,4 @@ go run server.go messages.pb.go
 
 ## HIGH-LEVEL-VIEW
 
-![IMAGE - protobuf-NATS - IMAGE](protobuf-NATS.jpg)
+![IMAGE - protobuf-NATS-publish-subscribe - IMAGE](../../docs/pics/protobuf-NATS-publish-subscribe.jpg)

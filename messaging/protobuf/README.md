@@ -3,14 +3,15 @@
 `protobuf`  _is an example of
 protocol buffers serialize structured data, useful for messaging._
 
-Also check out these examples,
+These are my 3 main example of using protobuf,
 
-* [protobuf-NATS-request-response](https://github.com/JeffDeCola/my-go-examples/tree/master/messaging/protobuf-NATS-request-response)
+* `protobuf` You are here
 * [protobuf-NATS-publish-subscribe](https://github.com/JeffDeCola/my-go-examples/tree/master/messaging/protobuf-NATS-publish-subscribe)
+* [protobuf-NATS-request-response](https://github.com/JeffDeCola/my-go-examples/tree/master/messaging/protobuf-NATS-request-response)
 
 Refer to my
 [protobuf cheat sheet](https://github.com/JeffDeCola/my-cheat-sheets/tree/master/software/development/software-architectures/messaging/protobuf-cheat-sheet)
-for information on installation.
+for information on installation and use.
 
 [GitHub Webpage](https://jeffdecola.github.io/my-go-examples/)
 
