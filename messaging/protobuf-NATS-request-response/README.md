@@ -10,11 +10,26 @@ These are my 3 main example of using protobuf,
 * [protobuf-NATS-publish-subscribe](https://github.com/JeffDeCola/my-go-examples/tree/master/messaging/protobuf-NATS-publish-subscribe)
 * **protobuf-NATS-request-response** You are here
 
-Refer to my
-[protobuf cheat sheet](https://github.com/JeffDeCola/my-cheat-sheets/tree/master/software/development/software-architectures/messaging/protobuf-cheat-sheet)
-for information on installation and use.
+Documentation and reference,
+
+* My [protobuf cheat sheet](https://github.com/JeffDeCola/my-cheat-sheets/tree/master/software/development/software-architectures/messaging/protobuf-cheat-sheet)
+* My [NATS cheat sheet](https://github.com/JeffDeCola/my-cheat-sheets/tree/master/software/development/software-architectures/messaging/NATS-cheat-sheet)
+* Official [NATS go client library](https://github.com/nats-io/nats.go)
+  at github
 
 [GitHub Webpage](https://jeffdecola.github.io/my-go-examples/)
+
+## START YOUR NATS SERVER
+
+I run the NATS server using,
+
+```bash
+nats-server -v
+nats-server -DV -p 4222 -a 127.0.0.1
+```
+
+
+
 
 ## BASED ON PREVIOUS EXAMPLE protobuf-NATS
 

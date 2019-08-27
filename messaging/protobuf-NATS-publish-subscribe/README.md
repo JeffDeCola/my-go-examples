@@ -10,19 +10,28 @@ These are my 3 main example of using protobuf,
 * **protobuf-NATS-publish-subscribe** You are here
 * [protobuf-NATS-request-response](https://github.com/JeffDeCola/my-go-examples/tree/master/messaging/protobuf-NATS-request-response)
 
-Refer to my
-[protobuf cheat sheet](https://github.com/JeffDeCola/my-cheat-sheets/tree/master/software/development/software-architectures/messaging/protobuf-cheat-sheet)
-for information on installation and use.
+Documentation and reference,
+
+* My [protobuf cheat sheet](https://github.com/JeffDeCola/my-cheat-sheets/tree/master/software/development/software-architectures/messaging/protobuf-cheat-sheet)
+* My [NATS cheat sheet](https://github.com/JeffDeCola/my-cheat-sheets/tree/master/software/development/software-architectures/messaging/NATS-cheat-sheet)
+* Official [NATS go client library](https://github.com/nats-io/nats.go)
+  at github
 
 [GitHub Webpage](https://jeffdecola.github.io/my-go-examples/)
 
-## STARTS NAT SERVER
+## START YOUR NATS SERVER
 
 I run the NATS server using,
 
 ```bash
-gnatsd -DV -addr localhost --port 4222
+nats-server -v
+nats-server -DV -p 4222 -a 127.0.0.1
 ```
+
+
+
+
+
 
 ## PROTOCOL .proto BUFFER FILE
 
@@ -38,7 +47,7 @@ message Token {
 
 ## PROTOBUF COMPILER
 
-Compile the protcol buffer file to get the wrappers,
+Compile the protocol buffer file to get the wrappers,
 
 ```bash
 protoc --go_out=. messages.proto
