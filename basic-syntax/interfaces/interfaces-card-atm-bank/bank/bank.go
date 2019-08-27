@@ -1,20 +1,13 @@
 package bank
 
-// Bank interface
-type Bank interface {
-	Networker
-	CustomerServicer
-}
+import "github.com/JeffDeCola/my-go-examples/basic-syntax/interfaces/interfaces-card-atm-bank/card"
 
-// Networker interface
-type Networker interface {
-	Balance(string) int
-	Deposit(int) int
-	Withdraw(int) int
-}
-
-// CustomerServicer interface
-type CustomerServicer interface {
-	IssueCard()
-	AddAccount()
+// Banker interface
+type Banker interface {
+	addAccount(string, int)
+	issueCard(string) card.Carder
+	getBankInfo() string
+	balance(string) int
+	deposit(string, int) int
+	withdraw(string, int) int
 }

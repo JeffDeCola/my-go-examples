@@ -9,6 +9,16 @@ used to interact with an atm and bank._
 ## OVERVIEW
 
 This is the bare bones minimum to really highlight interfaces.
-For example, you could add pins, account numbers and a database.
+For example, you could add pins, account numbers, a database. etc...
+
+This image shows the various functions and methods I made in my packages.
 
 ![IMAGE - interfaces-card-atm-bank - IMAGE](../../../docs/pics/interfaces-card-atm-bank.jpg)
+
+## RUN
+
+Run,
+
+```bash
+go run insterfaces-card-atm-bank.go
+```

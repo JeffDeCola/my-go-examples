@@ -1,36 +1,27 @@
 package atm
 
 import (
-	"fmt"
-
 	"github.com/JeffDeCola/my-go-examples/basic-syntax/interfaces/interfaces-card-atm-bank/bank"
+	"github.com/JeffDeCola/my-go-examples/basic-syntax/interfaces/interfaces-card-atm-bank/card"
 )
 
-var banks map[string]bank.Networker
+var banks map[string]bank.Banker
 
 func init() {
 
-	banks = map[string]bank.Networker{}
+	banks = map[string]bank.Banker{}
 
 }
 
-// ATM interface
-type ATM interface {
-	InsertCard()
-	ShowBalance() int
-	DepositCash(int) int
-	WithdrawCash(int) int
-	EjectCard()
+// ATMer interface
+type ATMer interface {
+	showBalance(card.Carder) int
+	depositCash(card.Carder, int) int
+	withdrawCash(card.Carder, int) int
 }
 
 //LoadBank loads a bank interface to a package level map
-func LoadBank(name string, b bank.Networker) {
-
-	banks[name] = b
-
-}
-
-// ShowBanksMap will show the banks Map in ATM
-func ShowBanksMap(name string) {
-	fmt.Printf("%+v\n", banks[name])
+func LoadBank(b bank.Banker) {
+	BranchName := bank.GetBankInfo(b)
+	banks[BranchName] = b
 }

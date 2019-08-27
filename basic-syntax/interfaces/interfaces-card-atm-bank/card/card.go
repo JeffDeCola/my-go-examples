@@ -1,6 +1,6 @@
 package card
 
-// Card interface
-type Card interface {
-	GetBankInfo() string
+// Carder interface
+type Carder interface {
+	getBankInfo() (string, string)
 }
