@@ -18,7 +18,7 @@ You can see the function and methods are basically the same thing.  But when
 we use interfaces we can give a function the type (struct) and the interface
 will figure it out.
 
-Ao we go from,
+As we go from,
 
 ```go
 // Get the shape properties
@@ -41,6 +41,10 @@ r1Perimeter := perimeter(r1)
 t1Area := area(t1)
 t1Perimeter := perimeter(t1)
 ```
+
+We can clearly see the goal is to have an interface that has can have
+different data (e.g. c1, r1, t1), where you can then use that interface
+as a argument in a function and do something (e.g. area(), perimeter()).
 
 ## TWO INTERFACES VS ONE INTERFACE
 
