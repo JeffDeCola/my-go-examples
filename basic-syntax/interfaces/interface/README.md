@@ -5,7 +5,25 @@ an interface as parameter and an interface as a return._
 
 [GitHub Webpage](https://jeffdecola.github.io/my-go-examples/)
 
-## OVERVIEW
+## THE GOAL
+
+The goal is to have an interface that has can have
+different data (e.g. a, b), where you can then use that interface
+as a argument in a function and do something,
+
+So if I make an interface with some data,
+
+a := makemyStructA("jeff")
+b := makemyStructB(222, 333)
+
+I can use it in the same function to do something,
+
+```go
+magic(a)
+magic(b)
+```
+
+## AN ILLUSTRATION ON HOW WE ACCOMPLISH THIS
 
 This diagram illustrates what we are doing,
 
