@@ -1,21 +1,27 @@
 package card
 
-import (
-	"fmt"
-)
-
-type boACard struct {
-	Bank    string
-	boacard string
+// BoaCard Data
+type boaCard struct {
+	Name       string
+	BranchName string
 }
+
+//***************************************************************************************************
 
 // GetBankInfo to get bank info from card
-func (c *boACard) GetBankInfo() string {
-	fmt.Printf("   Screen - Hi, you inserted your %v card\n", c.Bank)
-	return "hi"
+func (c *boaCard) getBankInfo() (string, string) {
+	return c.Name, c.BranchName
 }
 
-// NewBoACard creates an ATM instance
-func NewBoACard() Card {
-	return &boACard{}
+//***************************************************************************************************
+
+// NewBoaCard creates a Card
+func NewBoaCard(name string, BranchName string) Carder {
+	// Notice how we have to init the map because we can use it
+	return &boaCard{Name: name, BranchName: BranchName}
+}
+
+// GetBankInfo gets bank info
+func GetBankInfo(c Carder) (string, string) {
+	return c.getBankInfo()
 }
