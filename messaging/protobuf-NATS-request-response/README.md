@@ -8,7 +8,7 @@ These are my 3 main example of using protobuf,
 
 * [protobuf](https://github.com/JeffDeCola/my-go-examples/tree/master/messaging/protobuf)
 * [protobuf-NATS-publish-subscribe](https://github.com/JeffDeCola/my-go-examples/tree/master/messaging/protobuf-NATS-publish-subscribe)
-* `protobuf-NATS-request-response` You are here
+* **protobuf-NATS-request-response** You are here
 
 Refer to my
 [protobuf cheat sheet](https://github.com/JeffDeCola/my-cheat-sheets/tree/master/software/development/software-architectures/messaging/protobuf-cheat-sheet)

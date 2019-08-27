@@ -7,7 +7,7 @@ to a server using publish and subscribe._
 These are my 3 main example of using protobuf,
 
 * [protobuf](https://github.com/JeffDeCola/my-go-examples/tree/master/messaging/protobuf)
-* `protobuf-NATS-publish-subscribe` You are here
+* **protobuf-NATS-publish-subscribe** You are here
 * [protobuf-NATS-request-response](https://github.com/JeffDeCola/my-go-examples/tree/master/messaging/protobuf-NATS-request-response)
 
 Refer to my
