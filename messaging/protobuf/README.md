@@ -5,7 +5,7 @@ protocol buffers serialize structured data, useful for messaging._
 
 These are my 3 main example of using protobuf,
 
-* `protobuf` You are here
+* **protobuf** You are here
 * [protobuf-NATS-publish-subscribe](https://github.com/JeffDeCola/my-go-examples/tree/master/messaging/protobuf-NATS-publish-subscribe)
 * [protobuf-NATS-request-response](https://github.com/JeffDeCola/my-go-examples/tree/master/messaging/protobuf-NATS-request-response)
 
@@ -19,10 +19,9 @@ for information on installation and use.
 
 Define a protocol buffer file `messages.proto` that
 declares the messages that are going to be serialized.
+A message is just an aggregate containing a set of typed fields.
 
 Structure for this example is,
-
-A message is just an aggregate containing a set of typed fields.
 
 ```txt
 message Person {
@@ -35,18 +34,19 @@ message Person {
 
 ## STEP 2 - COMPILE .proto FILE
 
-Compile the protocol buffer file to get the wrappers,
+Compile the protocol buffer file to get the wrappers and
+place this file in the same directory as protobuf.go.
 
 ```bash
+cd protoc
 protoc --go_out=. messages.proto
+cp messages.pb.go ..
 ```
-
-Place this file in the same directory as protobuf.go.
 
 Results in `messages.pb.go` that
 implements all messages as go structs and types.
 
-## STEP 3 - IMPLEMENT
+## STEP 3 - IMPLEMENT (RUN)
 
 Run the code,
 
@@ -54,37 +54,32 @@ Run the code,
 go run protobuf.go messages.pb.go
 ```
 
-## WHAT IT DOES
+## SEND & RECEIVE
 
 Usually, you have two separate processes to show the message being passed, but I
 didn't want to have the pipes, so I kept everything inside one process.
 
-### CLIENT - MARSHAL - WRITE/SEND
+### SEND - MARSHAL
 
 Now lets create the message `msg` to send. Create a pointer
-to a type Token struct and fill it with data.
+to a type Person struct, fill it with data and serialize it (marshal).
 
 ```go
-token := &Token{
-    AccessToken:  "the access token",
-    TokenType:    "this",
-    RefreshToken: "and the refresh token",
-    ExpiresAt:    5,
+sndPerson := &Person{
+    Name:  "Jeff",
+    Age:   20,
+    Email: "blah@blah.com",
+    Phone: "555-555-5555",
 }
+msg, err := proto.Marshal(sndPerson)
 ```
 
-Then serialize it up,
-
-```go
-msg, err := proto.Marshal(token)
-```
-
-### SERVER - RECEIVE - READ/UNMARSHAL
+### RECEIVE - UNMARSHAL
 
 Now lets create an empty pointer to the
-proto stuct, receive the message and unmarshal it.
+same struct, receive msg and unmarshal it.
 
 ```go
-rcvToken := &Token{}
-err = proto.Unmarshal(msg, rcvToken)
+rcvPerson := &Person{}
+err = proto.Unmarshal(msg, rcvPerson)
 ```
