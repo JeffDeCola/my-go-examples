@@ -1,16 +1,17 @@
 # protobuf-NATS-publish-subscribe example
 
 `protobuf-NATS-publish-subscribe` _is an example of
-using NATS (pub/sub) as a pipe to send a protobuf message._
+using NATS (publish/subscribe) as a pipe to send protobuf messages.
+This is a model for one-to-many communication._
 
 These are my 4 main example of using protobuf,
 
 * [protobuf](https://github.com/JeffDeCola/my-go-examples/tree/master/messaging/protobuf)
-* [protobuf-NATS-publish-subscribe](https://github.com/JeffDeCola/my-go-examples/tree/master/messaging/protobuf-NATS-publish-subscribe)
-* [protobuf-NATS-request-reply](https://github.com/JeffDeCola/my-go-examples/tree/master/messaging/protobuf-NATS-request-reply)
+* **protobuf-NATS-publish-subscribe** Your are here
 * [protobuf-NATS-queue-groups](https://github.com/JeffDeCola/my-go-examples/tree/master/messaging/protobuf-NATS-queue-groups)
+* [protobuf-NATS-request-reply](https://github.com/JeffDeCola/my-go-examples/tree/master/messaging/protobuf-NATS-request-reply)
 
-Table of Contents,
+Table of contents,
 
 * [OVERVIEW OF NATS ARCHITECTURES](https://github.com/JeffDeCola/my-go-examples/tree/master/messaging/protobuf-NATS-publish-subscribe#overview-of-nats-architectures)
 * [START YOUR NATS SERVER](https://github.com/JeffDeCola/my-go-examples/tree/master/messaging/protobuf-NATS-publish-subscribe#start-your-nats-server)
@@ -104,19 +105,6 @@ First you need to connect to the NATS server in go,
 nc, err := nats.Connect("nats://127.0.0.1:4222")
 ```
 
-And then you simply publish and subscribe,
-
-```go
-nc.Publish("foo", msg)
-sub, err := nc.SubscribeSync("foo")
-```
-
-Then I read the message by,
-
-```go
-msg, err := sub.NextMsg(<TIME>)
-```
-
 Lets look at the entire flow `data -> marshal -> snd -> rcv -> unmarshal -> data`.
 
 ### DATA
@@ -146,7 +134,8 @@ nc.Publish("foo", msg)
 ### RECEIVE (SUBSCRIBE)
 
 ```go
-msg, err := sub.NextMsg(time.Duration(tickTime) * time.Second)
+sub, err := nc.SubscribeSync("foo")
+msg, err := sub.NextMsg(time.Duration(5) * time.Second)
 ```
 
 ### UNMARSHAL -> DATA
