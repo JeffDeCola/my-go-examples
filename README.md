@@ -228,17 +228,15 @@ _A starting point for all my go projects._
 
 * [protobuf](https://github.com/JeffDeCola/my-go-examples/tree/master/messaging/protobuf)
 
-  _Protocol buffers serialize structured data, useful for messaging._
-
+  _Using protobuf to show `data -> marshal -> snd -> rcv -> unmarshal -> data`._
+  
 * [protobuf-NATS-publish-subscribe](https://github.com/JeffDeCola/my-go-examples/tree/master/messaging/protobuf-NATS-publish-subscribe)
 
-  _Sending a protobuf msg over NATS from a client
-  to a server using publish and subscribe._
+  _Using NATS (pub/sub) as a pipe to send a protobuf message._
 
 * [protobuf-NATS-request-response](https://github.com/JeffDeCola/my-go-examples/tree/master/messaging/protobuf-NATS-request-response)
 
-  _Sending a protobuf msg over NATS from a
-  client to a server using request and response._
+  _Using NATS (request/response) as a pipe to send a protobuf message._
 
 ### PACKAGES
 

@@ -21,31 +21,36 @@ Documentation and reference,
 
 ## START YOUR NATS SERVER
 
-I run the NATS server using,
+Time to use NATS as a pipe.  First, lets start your NATS server,
 
 ```bash
 nats-server -v
 nats-server -DV -p 4222 -a 127.0.0.1
 ```
 
+Where -DV is both debug and trace log.
 
+## GET NATS GO CLIENT LIBRARY
 
+You must have this library to use go,
 
-
+```go
+go get -v -u github.com/nats-io/nats.go/
+```
 
 ## PROTOCOL .proto BUFFER FILE
 
+Lets use the same protobuf file in all three examples.
+
 ```go
-message Token {
-    string AccessToken = 1;
-    string TokenType = 2;
-    string RefreshToken = 3;
-    int64 ExpiresAt = 4;
-    int64 counter = 5;
+message Person {
+    string name = 1;
+    int32 age = 2;
+    string email = 3;
+    string phone = 4;
+    uint32 count = 5;
 }
 ```
-
-## PROTOBUF COMPILER
 
 Compile the protocol buffer file to get the wrappers,
 
@@ -53,26 +58,30 @@ Compile the protocol buffer file to get the wrappers,
 protoc --go_out=. messages.proto
 ```
 
+And place in the client and server directories.
+
 ## CLIENT.GO: PROTOBUF - CLIENT - MARSHAL - WRITE/SEND
 
 Now lets create the message `msg` to send. Create a pointer
 to a type Token struct and fill it with data.
 
 ```go
-token := &Token{
-    AccessToken:  "the access token",
-    TokenType:    "this",
-    RefreshToken: "and the refresh token",
-    ExpiresAt:    5,
-    Counter:      5,
+sndPerson := &Person{
+    Name:  "Jeff",
+    Age:   20,
+    Email: "blah@blah.com",
+    Phone: "555-555-5555",
+    Count: count,
 }
 ```
 
 ```go
-msg, err := proto.Marshal(token)
+msg, err := proto.Marshal(sndPerson)
 ```
 
-## CLIENT.GO: NATS - PUBLISH on "foo"
+## SEND - NATS - PUBLISH on "foo" (THE PIPE)
+
+`SEND - NATS - PUBLISH on "foo" (THE PIPE)`
 
 Connect to a NATS server and publish msg on foo,
 
@@ -81,7 +90,9 @@ nc, _ := nats.Connect("nats://127.0.0.1:4222)
 nc.Publish("foo", msg)
 ```
 
-## SERVER.GO: NATS - SUBSCRIBE (synchronous way) on "foo"
+## RECEIVE SIDE
+
+: NATS - SUBSCRIBE (synchronous way) on "foo"
 
 Connect to a NATS server and subscribe (synchronously)
 msg on foo,

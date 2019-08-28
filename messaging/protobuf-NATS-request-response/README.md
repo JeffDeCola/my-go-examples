@@ -21,13 +21,22 @@ Documentation and reference,
 
 ## START YOUR NATS SERVER
 
-I run the NATS server using,
+Time to use NATS as a pipe.  First, lets start your NATS server,
 
 ```bash
 nats-server -v
 nats-server -DV -p 4222 -a 127.0.0.1
 ```
 
+Where -DV is both debug and trace log.
+
+## GET NATS GO CLIENT LIBRARY
+
+You must have this library to use go,
+
+```go
+go get -v -u github.com/nats-io/nats.go/
+```
 
 
 
