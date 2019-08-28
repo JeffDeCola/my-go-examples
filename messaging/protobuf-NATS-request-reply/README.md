@@ -1,14 +1,14 @@
-# protobuf-NATS-request-response example
+# protobuf-NATS-publish-subscribe example
 
-`protobuf-NATS-request-response` _is an example of
-sending a protobuf msg over NATS from a
-client to a server using request and response._
+`protobuf-NATS-publish-subscribe` _is an example of
+using NATS (pub/sub) as a pipe to send a protobuf message._
 
-These are my 3 main example of using protobuf,
+These are my 4 main example of using protobuf,
 
 * [protobuf](https://github.com/JeffDeCola/my-go-examples/tree/master/messaging/protobuf)
 * [protobuf-NATS-publish-subscribe](https://github.com/JeffDeCola/my-go-examples/tree/master/messaging/protobuf-NATS-publish-subscribe)
-* **protobuf-NATS-request-response** You are here
+* [protobuf-NATS-request-reply](https://github.com/JeffDeCola/my-go-examples/tree/master/messaging/protobuf-NATS-request-reply)
+* [protobuf-NATS-queue-groups](https://github.com/JeffDeCola/my-go-examples/tree/master/messaging/protobuf-NATS-queue-groups)
 
 Documentation and reference,
 
@@ -21,7 +21,7 @@ Documentation and reference,
 
 ## START YOUR NATS SERVER
 
-Time to use NATS as a pipe.  First, lets start your NATS server,
+Using NATS as a pipe.  First, lets start your NATS server,
 
 ```bash
 nats-server -v
@@ -37,6 +37,51 @@ You must have this library to use go,
 ```go
 go get -v -u github.com/nats-io/nats.go/
 ```
+
+## PROTOCOL .proto BUFFER FILE
+
+Lets use the same protobuf file `messages.proto` in all four examples,
+
+```go
+message Person {
+    string name = 1;
+    int32 age = 2;
+    string email = 3;
+    string phone = 4;
+    uint32 count = 5;
+}
+```
+
+Compile the protocol buffer file to get the wrappers,
+
+```bash
+protoc --go_out=. messages.proto
+```
+
+Place wrapper file `messages.pb.go` in both the client and server directories.
+
+## RUN
+
+This example will publish a message every second to NATS and
+whoever is subscribed will get the message. This is referred to as
+one-to-many.
+
+In separate windows run,
+
+```go
+cd client
+go run client.go messages.pb.go
+```
+
+```go
+cd server
+go run server.go messages.pb.go
+```
+
+You can run as many servers as you want and
+you will see they all get the same message.
+
+## FLOW - HOW DOES IT WORK
 
 
 

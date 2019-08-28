@@ -10,15 +10,6 @@ These are my 4 main example of using protobuf,
 * [protobuf-NATS-request-reply](https://github.com/JeffDeCola/my-go-examples/tree/master/messaging/protobuf-NATS-request-reply)
 * [protobuf-NATS-queue-groups](https://github.com/JeffDeCola/my-go-examples/tree/master/messaging/protobuf-NATS-queue-groups)
 
-Table of Contents,
-
-* [OVERVIEW OF NATS ARCHITECTURES](https://github.com/JeffDeCola/my-go-examples/tree/master/messaging/protobuf-NATS-publish-subscribe#overview-of-nats-architectures)
-* [START YOUR NATS SERVER](https://github.com/JeffDeCola/my-go-examples/tree/master/messaging/protobuf-NATS-publish-subscribe#start-your-nats-server)
-* [GET NATS GO CLIENT LIBRARY](https://github.com/JeffDeCola/my-go-examples/tree/master/messaging/protobuf-NATS-publish-subscribe#get-nats-go-client-library)
-* [PROTOCOL .proto BUFFER FILE](https://github.com/JeffDeCola/my-go-examples/tree/master/messaging/protobuf-NATS-publish-subscribe#protocol-proto-buffer-file)
-* [RUN](https://github.com/JeffDeCola/my-go-examples/tree/master/messaging/protobuf-NATS-publish-subscribe#run)
-* [FLOW - HOW DOES IT WORK](https://github.com/JeffDeCola/my-go-examples/tree/master/messaging/protobuf-NATS-publish-subscribe#flow---how-does-it-work)
-
 Documentation and reference,
 
 * My [protobuf cheat sheet](https://github.com/JeffDeCola/my-cheat-sheets/tree/master/software/development/software-architectures/messaging/protobuf-cheat-sheet)
@@ -27,12 +18,6 @@ Documentation and reference,
   at github
 
 [GitHub Webpage](https://jeffdecola.github.io/my-go-examples/)
-
-## OVERVIEW OF NATS ARCHITECTURES
-
-We have 3 examples using NATS as a pipe. This diagram may help,
-
-![IMAGE - NATS-architectures - IMAGE](../../docs/pics/NATS-architectures.jpg)
 
 ## START YOUR NATS SERVER
 
@@ -97,61 +82,3 @@ You can run as many servers as you want and
 you will see they all get the same message.
 
 ## FLOW - HOW DOES IT WORK
-
-First you need to connect to the NATS server in go,
-
-```go
-nc, err := nats.Connect("nats://127.0.0.1:4222")
-```
-
-And then you simply publish and subscribe,
-
-```go
-nc.Publish("foo", msg)
-sub, err := nc.SubscribeSync("foo")
-```
-
-Then I read the message by,
-
-```go
-msg, err := sub.NextMsg(<TIME>)
-```
-
-Lets look at the entire flow `data -> marshal -> snd -> rcv -> unmarshal -> data`.
-
-### DATA
-
-```go
-sndPerson := &Person{
-    Name:  "Jeff",
-    Age:   20,
-    Email: "blah@blah.com",
-    Phone: "555-555-5555",
-    Count: count,
-}
-```
-
-### MARSHAL
-
-```go
-msg, err := proto.Marshal(sndPerson)
-```
-
-### SEND (PUBLISH)
-
-```go
-nc.Publish("foo", msg)
-```
-
-### RECEIVE (SUBSCRIBE)
-
-```go
-msg, err := sub.NextMsg(time.Duration(tickTime) * time.Second)
-```
-
-### UNMARSHAL -> DATA
-
-```go
-rcvPerson := &Person{}
-err = proto.Unmarshal(msg.Data, rcvPerson)
-```
