@@ -1,13 +1,14 @@
 # protobuf example
 
 `protobuf` _is an example of
-protocol buffers serialize structured data, useful for messaging._
+using protobuf to show `data -> marshal -> snd -> rcv -> unmarshal -> data`._
 
-These are my 3 main example of using protobuf,
+These are my 4 main example of using protobuf,
 
-* **protobuf** You are here
+* [protobuf](https://github.com/JeffDeCola/my-go-examples/tree/master/messaging/protobuf)
 * [protobuf-NATS-publish-subscribe](https://github.com/JeffDeCola/my-go-examples/tree/master/messaging/protobuf-NATS-publish-subscribe)
-* [protobuf-NATS-request-response](https://github.com/JeffDeCola/my-go-examples/tree/master/messaging/protobuf-NATS-request-response)
+* [protobuf-NATS-request-reply](https://github.com/JeffDeCola/my-go-examples/tree/master/messaging/protobuf-NATS-request-reply)
+* [protobuf-NATS-queue-groups](https://github.com/JeffDeCola/my-go-examples/tree/master/messaging/protobuf-NATS-queue-groups)
 
 Documentation and reference,
 
