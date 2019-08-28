@@ -80,7 +80,7 @@ Place wrapper file `messages.pb.go` in both the client and server directories.
 
 This example will publish a message every second to NATS and
 whoever is subscribed will get the message. This is referred to as
-one-to-many.
+**one-to-many**.
 
 In separate windows run,
 
