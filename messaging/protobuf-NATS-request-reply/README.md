@@ -1,14 +1,24 @@
-# protobuf-NATS-publish-subscribe example
+# protobuf-NATS-request-reply example
 
-`protobuf-NATS-publish-subscribe` _is an example of
-using NATS (pub/sub) as a pipe to send a protobuf message._
+`protobuf-NATS-request-reply` _is an example of
+using NATS (request/reply) as a pipe to send protobuf messages.
+This is a model for ??????????????_
 
 These are my 4 main example of using protobuf,
 
 * [protobuf](https://github.com/JeffDeCola/my-go-examples/tree/master/messaging/protobuf)
 * [protobuf-NATS-publish-subscribe](https://github.com/JeffDeCola/my-go-examples/tree/master/messaging/protobuf-NATS-publish-subscribe)
-* [protobuf-NATS-request-reply](https://github.com/JeffDeCola/my-go-examples/tree/master/messaging/protobuf-NATS-request-reply)
 * [protobuf-NATS-queue-groups](https://github.com/JeffDeCola/my-go-examples/tree/master/messaging/protobuf-NATS-queue-groups)
+* **protobuf-NATS-request-reply** Your are here
+
+Table of contents,
+
+* [OVERVIEW OF NATS ARCHITECTURES](https://github.com/JeffDeCola/my-go-examples/tree/master/messaging/protobuf-NATS-publish-subscribe#overview-of-nats-architectures)
+* [START YOUR NATS SERVER](https://github.com/JeffDeCola/my-go-examples/tree/master/messaging/protobuf-NATS-publish-subscribe#start-your-nats-server)
+* [GET NATS GO CLIENT LIBRARY](https://github.com/JeffDeCola/my-go-examples/tree/master/messaging/protobuf-NATS-publish-subscribe#get-nats-go-client-library)
+* [PROTOCOL .proto BUFFER FILE](https://github.com/JeffDeCola/my-go-examples/tree/master/messaging/protobuf-NATS-publish-subscribe#protocol-proto-buffer-file)
+* [RUN](https://github.com/JeffDeCola/my-go-examples/tree/master/messaging/protobuf-NATS-publish-subscribe#run)
+* [FLOW - HOW DOES IT WORK](https://github.com/JeffDeCola/my-go-examples/tree/master/messaging/protobuf-NATS-publish-subscribe#flow---how-does-it-work)
 
 Documentation and reference,
 
@@ -18,6 +28,12 @@ Documentation and reference,
   at github
 
 [GitHub Webpage](https://jeffdecola.github.io/my-go-examples/)
+
+## OVERVIEW OF NATS ARCHITECTURES
+
+We have 3 examples using NATS as a pipe. This diagram may help,
+
+![IMAGE - NATS-architectures - IMAGE](../../docs/pics/NATS-architectures.jpg)
 
 ## START YOUR NATS SERVER
 
@@ -64,7 +80,7 @@ Place wrapper file `messages.pb.go` in both the client and server directories.
 
 This example will publish a message every second to NATS and
 whoever is subscribed will get the message. This is referred to as
-one-to-many.
+????????????????????????????????.
 
 In separate windows run,
 
@@ -78,21 +94,51 @@ cd server
 go run server.go messages.pb.go
 ```
 
-You can run as many servers as you want and
-you will see they all get the same message.
+??????????????????????
 
 ## FLOW - HOW DOES IT WORK
 
+First you need to connect to the NATS server in go,
 
+```go
+nc, err := nats.Connect("nats://127.0.0.1:4222")
+```
 
-## BASED ON PREVIOUS EXAMPLE protobuf-NATS
+Lets look at the entire flow `data -> marshal -> snd -> rcv -> unmarshal -> data`.
 
-This example will add workers(servers) and the client will request
-and get a response back.
+### DATA
 
-Refer to
-[protobuf-NATS-publish-subscribe](https://github.com/JeffDeCola/my-go-examples/tree/master/protobuf-NATS-publish-subscribe).
+```go
+sndPerson := &Person{
+    Name:  "Jeff",
+    Age:   20,
+    Email: "blah@blah.com",
+    Phone: "555-555-5555",
+    Count: count,
+}
+```
 
-## HIGH-LEVEL-VIEW
+### MARSHAL
 
-![IMAGE - protobuf-NATS-request-response - IMAGE](../../docs/pics/protobuf-NATS-request-response.jpg)
+```go
+msg, err := proto.Marshal(sndPerson)
+```
+
+### SEND (PUBLISH)
+
+```go
+????????????
+```
+
+### RECEIVE (SUBSCRIBE)
+
+```go
+????????????????
+```
+
+### UNMARSHAL -> DATA
+
+```go
+rcvPerson := &Person{}
+err = proto.Unmarshal(msg.Data, rcvPerson)
+```
