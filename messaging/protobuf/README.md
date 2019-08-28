@@ -1,6 +1,6 @@
 # protobuf example
 
-`protobuf`  _is an example of
+`protobuf` _is an example of
 protocol buffers serialize structured data, useful for messaging._
 
 These are my 3 main example of using protobuf,
@@ -25,12 +25,13 @@ A message is just an aggregate containing a set of typed fields.
 
 Structure for this example is,
 
-```txt
+```go
 message Person {
     string name = 1;
     int32 age = 2;
     string email = 3;
     string phone = 4;
+    uint32 count = 5;
 }
 ```
 
@@ -56,15 +57,24 @@ Run the code,
 go run protobuf.go messages.pb.go
 ```
 
-## SEND & RECEIVE
+## THE FLOW
 
-Usually, you have two separate processes to show the message being passed, but I
-didn't want to have the pipes, so I kept everything inside one process.
+The flow to send data over a pipe is,
 
-### SEND - MARSHAL
+* DATA
+* MARSHALL
+* SEND
+* RECEIVE
+* UNMARSHAL
+* DATA
 
-Now lets create the message `msg` to send. Create a pointer
-to a type Person struct, fill it with data and serialize it (marshal).
+Usually, you have two separate processes but I kept everything
+inside one process to keep it simple.
+
+### DATA
+
+Now lets create the message to send. Create a pointer
+to a type Person struct.
 
 ```go
 sndPerson := &Person{
@@ -72,16 +82,36 @@ sndPerson := &Person{
     Age:   20,
     Email: "blah@blah.com",
     Phone: "555-555-5555",
+    Count: 1,
 }
-msg, err := proto.Marshal(sndPerson)
 ```
 
-### RECEIVE - UNMARSHAL
+### MARSHAL
+
+```go
+sndMsg, err := proto.Marshal(sndPerson)
+```
+
+### SEND
+
+Now lets pretend we're sending the message sndMsg over a pipe.
+
+```go
+pipe := sndMsg
+```
+
+### RECEIVE
+
+```go
+rcvMsg := pipe
+```
+
+### UNMARSHAL -> DATA
 
 Now lets create an empty pointer to the
-same struct, receive msg and unmarshal it.
+same struct from our protobuf file and unmarshal it.
 
 ```go
 rcvPerson := &Person{}
-err = proto.Unmarshal(msg, rcvPerson)
+err = proto.Unmarshal(rcvMsg, rcvPerson)
 ```

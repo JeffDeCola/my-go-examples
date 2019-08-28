@@ -14,19 +14,28 @@ func checkErr(err error) {
 
 func main() {
 
-	// SEND - MARSHAL
+	// DATA
 	sndPerson := &Person{
 		Name:  "Jeff",
 		Age:   20,
 		Email: "blah@blah.com",
 		Phone: "555-555-5555",
+		Count: 1,
 	}
-	msg, err := proto.Marshal(sndPerson)
+
+	// MARSHAL
+	sndMsg, err := proto.Marshal(sndPerson)
 	checkErr(err)
 
-	// RECEIVE - UNMARSHAL
+	// SEND
+	pipe := sndMsg
+
+	// RECEIVE
+	rcvMsg := pipe
+
+	// UNMARSHAL -> DATA
 	rcvPerson := &Person{}
-	err = proto.Unmarshal(msg, rcvPerson)
+	err = proto.Unmarshal(rcvMsg, rcvPerson)
 	checkErr(err)
 
 	// CHECK EVERYTHING WORKED

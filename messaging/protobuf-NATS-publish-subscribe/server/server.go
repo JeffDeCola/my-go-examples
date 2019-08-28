@@ -1,12 +1,22 @@
 package main
 
 import (
-	"log"
+	"fmt"
 	"time"
 
-	nats "github.com/go-nats"
-	"github.com/protobuf/proto"
+	log "github.com/sirupsen/logrus"
+
+	"github.com/golang/protobuf/proto"
+	"github.com/nats-io/nats.go"
 )
+
+// Check your error
+func checkErr(err error) {
+	if err != nil {
+		fmt.Printf("Error is %+v\n", err)
+		log.Fatal("ERROR:", err)
+	}
+}
 
 func main() {
 
@@ -16,32 +26,25 @@ func main() {
 	log.Printf("Subscribing to subject 'foo'\n")
 	// Synchronous way - When i want to check for one msg at a time
 	sub, err := nc.SubscribeSync("foo")
-	if err != nil {
-		log.Fatal("SubscribeSync error: ", err)
-	}
+	checkErr(err)
 
 	// Loop forever - Long Running
 	for {
 
 		msg, err := sub.NextMsg(time.Duration(5) * time.Second)
-		if err != nil {
-			log.Fatal("next message error: ", err)
-		}
-		// fmt.Printf("Received a NAT message: %v\n", msg)
+		checkErr(err)
 
 		// PROTOBUF - SERVER - RECEIVE - READ/UNMARSHAL
-		rcvToken := &Token{}
+		rcvToken := &Person{}
 		err = proto.Unmarshal(msg.Data, rcvToken)
-		if err != nil {
-			log.Fatal("unmarshaling error: ", err)
-		}
+		checkErr(err)
 
-		log.Printf("Token received: %+v", rcvToken)
-		log.Printf("    AccessToken: %+v", rcvToken.AccessToken)
-		log.Printf("    TokenType: %+v", rcvToken.TokenType)
-		log.Printf("    RefreshToken: %+v", rcvToken.RefreshToken)
-		log.Printf("    ExpiresAt: %+v", rcvToken.ExpiresAt)
-		log.Printf("    Counter: %+v", rcvToken.Counter)
+		log.Printf("Person received: %+v", rcvToken)
+		//log.Printf("    AccessToken: %+v", rcvToken.AccessToken)
+		//log.Printf("    TokenType: %+v", rcvToken.TokenType)
+		//log.Printf("    RefreshToken: %+v", rcvToken.RefreshToken)
+		//log.Printf("    ExpiresAt: %+v", rcvToken.ExpiresAt)
+		//log.Printf("    Counter: %+v", rcvToken.Counter)
 
 	}
 }
