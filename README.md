@@ -233,17 +233,17 @@ _A starting point for all my go projects._
 * [protobuf-NATS-publish-subscribe](https://github.com/JeffDeCola/my-go-examples/tree/master/messaging/protobuf-NATS-publish-subscribe)
 
   _Using NATS (publish/subscribe) as a pipe to send protobuf messages.
-  This is a model for one-to-many communication._
+  This is a model for **one-to-many** communication._
 
 * [protobuf-NATS-queue-groups](https://github.com/JeffDeCola/my-go-examples/tree/master/messaging/protobuf-NATS-queue-groups)
 
-  _Using NATS (queue groups) as a pipe to send protobuf messages._
-  This is a model for one-to-one communication._
+  _Using NATS (queue groups) as a pipe to send protobuf messages.
+  This is a model for **one-to-one** communication._
 
 * [protobuf-NATS-request-reply](https://github.com/JeffDeCola/my-go-examples/tree/master/messaging/protobuf-NATS-request-reply)
 
   _Using NATS (request/reply) as a pipe to send protobuf messages.
-  This is a model for ??????????????_
+  This is a model for ??????????????._
 
 ### PACKAGES
 

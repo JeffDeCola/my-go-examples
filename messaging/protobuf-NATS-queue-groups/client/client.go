@@ -23,6 +23,7 @@ func main() {
 	// CONNECT TO NATS (nats-server)
 	nc, err := nats.Connect("nats://127.0.0.1:4222")
 	checkErr(err)
+	defer nc.Close()
 	log.Println("Connected to " + nats.DefaultURL)
 
 	// DATA
@@ -50,7 +51,8 @@ func main() {
 		// SEND
 		// NATS - PUBLISH on "foo" (THE PIPE)
 		log.Printf("   Publishing msg to subject 'foo'\n")
-		nc.Publish("foo", msg)
+		err = nc.Publish("foo", msg)
+		checkErr(err)
 
 		counter++
 	}

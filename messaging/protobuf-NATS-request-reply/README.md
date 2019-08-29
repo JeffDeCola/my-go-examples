@@ -102,6 +102,7 @@ First you need to connect to the NATS server in go,
 
 ```go
 nc, err := nats.Connect("nats://127.0.0.1:4222")
+defer nc.Close()
 ```
 
 Lets look at the entire flow `data -> marshal -> snd -> rcv -> unmarshal -> data`.

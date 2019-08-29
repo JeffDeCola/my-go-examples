@@ -1,7 +1,7 @@
 package main
 
 import (
-	"time"
+	"sync"
 
 	log "github.com/sirupsen/logrus"
 
@@ -18,29 +18,31 @@ func checkErr(err error) {
 
 func main() {
 
+	wg := sync.WaitGroup{}
+
 	// CONNECT TO NATS (nats-server)
 	nc, err := nats.Connect("nats://127.0.0.1:4222")
 	checkErr(err)
+	defer nc.Close()
 	log.Println("Connected to " + nats.DefaultURL)
-
-	// SUBSCRIBE TO "foo"
-	sub, err := nc.SubscribeSync("foo")
-	checkErr(err)
 
 	// Loop forever - Long Running
 	for {
 
 		// RECEIVE
-		log.Printf("   Receiving msg from subject 'foo'\n")
-		msg, err := sub.NextMsg(time.Duration(5) * time.Second)
-		checkErr(err)
+		nc.QueueSubscribe("foo", "jeffsQueue", func(msg *nats.Msg) {
 
-		// UNMARSHAL -> DATA
-		rcvPerson := &Person{}
-		err = proto.Unmarshal(msg.Data, rcvPerson)
-		checkErr(err)
+			// UNMARSHAL -> DATA
+			rcvPerson := &Person{}
+			err = proto.Unmarshal(msg.Data, rcvPerson)
+			checkErr(err)
 
-		log.Printf("Person received: %+v", rcvPerson)
+			log.Printf("Person received: %+v", rcvPerson)
+		})
+		nc.Flush()
+
+		wg.Add(1)
+		wg.Wait()
 
 	}
 }

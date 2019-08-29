@@ -78,9 +78,12 @@ Place wrapper file `messages.pb.go` in both the client and server directories.
 
 ## RUN
 
-This example will publish a message every second to NATS and
-whoever is subscribed will get the message. This is referred to as
-**one-to-many**.
+This example will have a client publish a message every
+second to NATS and whoever (server) is subscribed will
+get the message. This is referred to as **one-to-many**.
+
+I use the term client/server for lack of a better term.
+I could of used publisher/subscriber.
 
 In separate windows run,
 
@@ -103,6 +106,7 @@ First you need to connect to the NATS server in go,
 
 ```go
 nc, err := nats.Connect("nats://127.0.0.1:4222")
+defer nc.Close()
 ```
 
 Lets look at the entire flow `data -> marshal -> snd -> rcv -> unmarshal -> data`.
@@ -133,8 +137,12 @@ nc.Publish("foo", msg)
 
 ### RECEIVE (SUBSCRIBE)
 
+`NextMsg` will block/wait for the next msg with a timeout of
+5 seconds.
+
 ```go
 sub, err := nc.SubscribeSync("foo")
+...
 msg, err := sub.NextMsg(time.Duration(5) * time.Second)
 ```
 
