@@ -1,0 +1,46 @@
+# protobuf-NATS-request-reply-goroutines example
+
+`protobuf-NATS-request-reply-goroutines` _Same as `protobuf-NATS-request-reply` but using
+goroutines for subscribers._
+
+These are my 5 main example of using protobuf,
+
+* [protobuf](https://github.com/JeffDeCola/my-go-examples/tree/master/messaging/protobuf)
+* [protobuf-NATS-publish-subscribe](https://github.com/JeffDeCola/my-go-examples/tree/master/messaging/protobuf-NATS-publish-subscribe)
+* [protobuf-NATS-queue-groups](https://github.com/JeffDeCola/my-go-examples/tree/master/messaging/protobuf-NATS-queue-groups)
+* [protobuf-NATS-request-reply](https://github.com/JeffDeCola/my-go-examples/tree/master/messaging/protobuf-NATS-request-reply)
+* **protobuf-NATS-request-reply-goroutines** <- Your are here
+
+Documentation and reference,
+
+* My [protobuf cheat sheet](https://github.com/JeffDeCola/my-cheat-sheets/tree/master/software/development/software-architectures/messaging/protobuf-cheat-sheet)
+* My [NATS cheat sheet](https://github.com/JeffDeCola/my-cheat-sheets/tree/master/software/development/software-architectures/messaging/NATS-cheat-sheet)
+* Official [NATS go client library](https://github.com/nats-io/nats.go)
+  at github
+
+[GitHub Webpage](https://jeffdecola.github.io/my-go-examples/)
+
+## REFER TO PREVIOUS EXAMPLE
+
+This example is exactly the same as the previous example, but uses goroutines
+for subscribers (server).  Refer to that example for all information.
+
+## RUN
+
+Start nats-server,
+
+```bash
+nats-server
+```
+
+In separate windows run,
+
+```go
+cd client
+go run client.go messages.pb.go
+```
+
+```go
+cd server
+go run server.go messages.pb.go
+```

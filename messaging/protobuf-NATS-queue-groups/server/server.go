@@ -1,8 +1,6 @@
 package main
 
 import (
-	"sync"
-
 	log "github.com/sirupsen/logrus"
 
 	"github.com/golang/protobuf/proto"
@@ -17,8 +15,6 @@ func checkErr(err error) {
 }
 
 func main() {
-
-	wg := sync.WaitGroup{}
 
 	// CONNECT TO NATS (nats-server)
 	nc, err := nats.Connect("nats://127.0.0.1:4222")
@@ -39,10 +35,9 @@ func main() {
 
 			log.Printf("Person received: %+v", rcvPerson)
 		})
-		nc.Flush()
 
-		wg.Add(1)
-		wg.Wait()
+		// wait - empty select
+		select {}
 
 	}
 }

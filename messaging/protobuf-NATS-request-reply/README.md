@@ -2,14 +2,16 @@
 
 `protobuf-NATS-request-reply` _is an example of
 using NATS (request/reply) as a pipe to send protobuf messages.
-This is a model for ??????????????_
+This is a model for a subscriber sending a msg with a request and
+getting a reply back from a subscriber._
 
-These are my 4 main example of using protobuf,
+These are my 5 main example of using protobuf,
 
 * [protobuf](https://github.com/JeffDeCola/my-go-examples/tree/master/messaging/protobuf)
 * [protobuf-NATS-publish-subscribe](https://github.com/JeffDeCola/my-go-examples/tree/master/messaging/protobuf-NATS-publish-subscribe)
 * [protobuf-NATS-queue-groups](https://github.com/JeffDeCola/my-go-examples/tree/master/messaging/protobuf-NATS-queue-groups)
-* **protobuf-NATS-request-reply** Your are here
+* **protobuf-NATS-request-reply** <- Your are here
+* [protobuf-NATS-request-reply-goroutines](https://github.com/JeffDeCola/my-go-examples/tree/master/messaging/protobuf-NATS-request-reply-goroutines)
 
 Table of contents,
 
@@ -79,8 +81,9 @@ Place wrapper file `messages.pb.go` in both the client and server directories.
 ## RUN
 
 This example will publish a message every second to NATS and
-whoever is subscribed will get the message. This is referred to as
-????????????????????????????????.
+whoever is subscribed will get the message.  The subscriber will also
+send a reply back that it got hte message. The first reply is utilized
+and the system efficiently discards the additional ones.
 
 In separate windows run,
 
@@ -94,7 +97,8 @@ cd server
 go run server.go messages.pb.go
 ```
 
-??????????????????????
+It you add multiple servers they all get the message and send a reply back,
+but the publisher only accepts one reply and discards the rest.
 
 ## FLOW - HOW DOES IT WORK
 
@@ -125,21 +129,37 @@ sndPerson := &Person{
 msg, err := proto.Marshal(sndPerson)
 ```
 
-### SEND (PUBLISH)
+### SEND (PUBLISH) & WAIT FOR REPLY
 
 ```go
-????????????
+reply, err := nc.Request("foo", msg, 50*time.Millisecond)
+myReply := &MyReply{}
+err = proto.Unmarshal(reply.Data, MyReply)
 ```
 
 ### RECEIVE (SUBSCRIBE)
 
 ```go
-????????????????
+// RECEIVE
+nc.Subscribe("foo", func(msg *nats.Msg) {
+
+    // UNMARSHAL -> DATA
+    <SEE BELOW>
+})
 ```
 
-### UNMARSHAL -> DATA
+### UNMARSHAL -> DATA & SEND REPLY
 
 ```go
 rcvPerson := &Person{}
 err = proto.Unmarshal(msg.Data, rcvPerson)
+```
+
+The reply (MARSHALL & SEND),
+
+```go
+myReply := &MyReply{}
+myReply.Thereply = fmt.Sprintf("This is a response #2, from count %d", rcvPerson.Count)
+replymsg, err := proto.Marshal(myReply)
+err = nc.Publish(msg.Reply, replymsg)
 ```
