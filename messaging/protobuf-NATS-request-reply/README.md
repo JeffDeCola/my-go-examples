@@ -3,7 +3,8 @@
 `protobuf-NATS-request-reply` _is an example of
 using NATS (request/reply) as a pipe to send protobuf messages.
 This is a model for a subscriber sending a msg with a request and
-getting a reply back from a subscriber._
+getting a reply back from a subscriber.
+This is also a model for **one-to-many communication**._
 
 These are my 5 main example of using protobuf,
 

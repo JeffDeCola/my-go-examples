@@ -244,11 +244,12 @@ _A starting point for all my go projects._
 
   _Using NATS (request/reply) as a pipe to send protobuf messages.
   This is a model for a subscriber sending a msg with a request and
-  getting a reply back from a subscriber._
+  getting a reply back from a subscriber.
+  This is also a model for **one-to-many** communication._
 
 * [protobuf-NATS-request-reply-goroutines](https://github.com/JeffDeCola/my-go-examples/tree/master/messaging/protobuf-NATS-request-reply-goroutines)
 
-  _Same as above `protobuf-NATS-request-reply` but using goroutines for subscribers._
+  _Same as above `protobuf-NATS-request-reply` but using goroutines for subscribers.
   This is also a model for **one-to-one** communication._
 
 ### PACKAGES
