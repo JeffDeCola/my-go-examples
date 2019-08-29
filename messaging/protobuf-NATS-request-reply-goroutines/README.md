@@ -33,7 +33,7 @@ This example is exactly the same as the previous example
 [protobuf-NATS-request-reply](https://github.com/JeffDeCola/my-go-examples/tree/master/messaging/protobuf-NATS-request-reply),
 but uses goroutines for subscribers (server).
 Because of the goroutine channel it will mimic
-**one-to-one communication**.
+**one-to-one** communication.
 Refer to that example for all information.
 
 ## RUN
