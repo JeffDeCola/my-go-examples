@@ -41,7 +41,8 @@ Refer to that example for all information.
 Start nats-server,
 
 ```bash
-nats-server
+nats-server -v
+nats-server -DV -p 4222 -a 127.0.0.1
 ```
 
 In separate windows run,
