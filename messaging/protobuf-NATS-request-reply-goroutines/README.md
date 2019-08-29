@@ -12,6 +12,12 @@ These are my 5 main example of using protobuf,
 * [protobuf-NATS-request-reply](https://github.com/JeffDeCola/my-go-examples/tree/master/messaging/protobuf-NATS-request-reply)
 * **protobuf-NATS-request-reply-goroutines** <- Your are here
 
+Table of contents,
+
+* [REFER TO PREVIOUS EXAMPLE](https://github.com/JeffDeCola/my-go-examples/tree/master/messaging/protobuf-NATS-request-reply-goroutines#refer-to-previous-example)
+* [RUN](https://github.com/JeffDeCola/my-go-examples/tree/master/messaging/protobuf-NATS-request-reply-goroutines#run)
+* [HIGH-LEVEL ILLUSTRATION](https://github.com/JeffDeCola/my-go-examples/tree/master/messaging/protobuf-NATS-request-reply-goroutines#high-level-illustration)
+
 Documentation and reference,
 
 * My [protobuf cheat sheet](https://github.com/JeffDeCola/my-cheat-sheets/tree/master/software/development/software-architectures/messaging/protobuf-cheat-sheet)
@@ -49,3 +55,9 @@ go run client.go messages.pb.go
 cd server
 go run server.go messages.pb.go
 ```
+
+## HIGH-LEVEL ILLUSTRATION
+
+This illustration may help show what we did,
+
+![IMAGE - protobuf-NATS-request-reply-goroutines - IMAGE](../../docs/pics/protobuf-NATS-request-reply-goroutines.jpg)

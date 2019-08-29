@@ -21,6 +21,7 @@ Table of contents,
 * [PROTOCOL .proto BUFFER FILE](https://github.com/JeffDeCola/my-go-examples/tree/master/messaging/protobuf-NATS-publish-subscribe#protocol-proto-buffer-file)
 * [RUN](https://github.com/JeffDeCola/my-go-examples/tree/master/messaging/protobuf-NATS-publish-subscribe#run)
 * [FLOW - HOW DOES IT WORK](https://github.com/JeffDeCola/my-go-examples/tree/master/messaging/protobuf-NATS-publish-subscribe#flow---how-does-it-work)
+* [HIGH-LEVEL ILLUSTRATION](https://github.com/JeffDeCola/my-go-examples/tree/master/messaging/protobuf-NATS-publish-subscribe#high-level-illustration)
 
 Documentation and reference,
 
@@ -163,3 +164,9 @@ myReply.Thereply = fmt.Sprintf("This is a response #2, from count %d", rcvPerson
 replymsg, err := proto.Marshal(myReply)
 err = nc.Publish(msg.Reply, replymsg)
 ```
+
+## HIGH-LEVEL ILLUSTRATION
+
+This illustration may help show what we did,
+
+![IMAGE - protobuf-NATS-request-reply - IMAGE](../../docs/pics/protobuf-NATS-request-reply.jpg)
