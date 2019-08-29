@@ -1,7 +1,8 @@
 # protobuf-NATS-request-reply-goroutines example
 
-`protobuf-NATS-request-reply-goroutines` _Same as `protobuf-NATS-request-reply` but using
-goroutines for subscribers._
+`protobuf-NATS-request-reply-goroutines` _Same as `protobuf-NATS-request-reply`
+but using goroutines for subscribers.
+This is also a model for **one-to-one** communication._
 
 These are my 5 main example of using protobuf,
 
@@ -22,8 +23,12 @@ Documentation and reference,
 
 ## REFER TO PREVIOUS EXAMPLE
 
-This example is exactly the same as the previous example, but uses goroutines
-for subscribers (server).  Refer to that example for all information.
+This example is exactly the same as the previous example
+[protobuf-NATS-request-reply](https://github.com/JeffDeCola/my-go-examples/tree/master/messaging/protobuf-NATS-request-reply),
+but uses goroutines for subscribers (server).
+Because of the goroutine channel it will mimic
+**one-to-one communication**.
+Refer to that example for all information.
 
 ## RUN
 

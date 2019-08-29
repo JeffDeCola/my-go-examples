@@ -249,6 +249,7 @@ _A starting point for all my go projects._
 * [protobuf-NATS-request-reply-goroutines](https://github.com/JeffDeCola/my-go-examples/tree/master/messaging/protobuf-NATS-request-reply-goroutines)
 
   _Same as above `protobuf-NATS-request-reply` but using goroutines for subscribers._
+  This is also a model for **one-to-one** communication._
 
 ### PACKAGES
 

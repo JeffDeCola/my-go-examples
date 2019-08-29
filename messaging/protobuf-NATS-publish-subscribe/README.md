@@ -153,3 +153,9 @@ msg, err := sub.NextMsg(time.Duration(5) * time.Second)
 rcvPerson := &Person{}
 err = proto.Unmarshal(msg.Data, rcvPerson)
 ```
+
+## HIGH-LEVEL ILLUSTRATION
+
+This illustration may help explain what we did,
+
+![IMAGE - protobuf-NATS-publish-subscribe - IMAGE](../../docs/pics/protobuf-NATS-publish-subscribe.jpg)
