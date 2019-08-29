@@ -20,7 +20,7 @@ func checkErr(err error) {
 
 func subscriber(nc *nats.Conn, ch chan *nats.Msg, workerID int) {
 
-	// Pick off channel
+	// Pick off channel (Only one subscriber will grab the msg off the channel. This is 1-1 communication)
 	for msg := range ch {
 
 		// UNMARSHAL -> DATA
