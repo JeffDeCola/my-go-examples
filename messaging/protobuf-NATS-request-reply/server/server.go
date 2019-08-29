@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"time"
 
 	log "github.com/sirupsen/logrus"
 
@@ -17,6 +18,11 @@ func checkErr(err error) {
 }
 
 func main() {
+
+	// CREATE UNIQUE ID BASED ON TIME
+	timeStart := time.Now().UTC()
+	uniqueID := timeStart.Format("05")
+	fmt.Println(uniqueID)
 
 	// CONNECT TO NATS (nats-server)
 	nc, err := nats.Connect("nats://127.0.0.1:4222")
@@ -36,7 +42,7 @@ func main() {
 
 		// REPLY
 		myReply := &MyReply{}
-		myReply.Thereply = fmt.Sprintf("This is a response #2, from count %d", rcvPerson.Count)
+		myReply.Thereply = fmt.Sprintf("This is a response %v, from count %d", uniqueID, rcvPerson.Count)
 
 		// MARSHAL
 		replymsg, err := proto.Marshal(myReply)
