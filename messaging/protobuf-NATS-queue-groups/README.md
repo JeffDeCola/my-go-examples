@@ -82,6 +82,10 @@ This example will publish a message every second to NATS and
 whoever is subscribed will get the message. This is referred to as
 **one-to-one**.
 
+Using queue subscribers will balance message delivery across a group
+of subscribers which can be used to provide application fault tolerance
+and scale workload processing.
+
 In separate windows run,
 
 ```go
@@ -94,7 +98,8 @@ cd server
 go run server.go messages.pb.go
 ```
 
-???????????????????
+You can run as many servers as you want, each
+will get a unique message.
 
 ## FLOW - HOW DOES IT WORK
 
@@ -102,6 +107,7 @@ First you need to connect to the NATS server in go,
 
 ```go
 nc, err := nats.Connect("nats://127.0.0.1:4222")
+defer nc.Close()
 ```
 
 Lets look at the entire flow `data -> marshal -> snd -> rcv -> unmarshal -> data`.
@@ -127,13 +133,21 @@ msg, err := proto.Marshal(sndPerson)
 ### SEND (PUBLISH)
 
 ```go
-??????????????????????
+nc.Publish("foo", msg)
 ```
 
 ### RECEIVE (SUBSCRIBE)
 
+To create a queue subscription, subscribers register a queue name.
+All subscribers with the same queue name form the queue group.
+
 ```go
-?????????????????????????????????
+// RECEIVE
+nc.QueueSubscribe("foo", "jeffsQueue", func(msg *nats.Msg) {
+
+    // UNMARSHAL -> DATA
+    <SEE BELOW>
+})
 ```
 
 ### UNMARSHAL -> DATA

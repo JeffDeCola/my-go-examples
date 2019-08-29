@@ -21,6 +21,7 @@ func main() {
 	// CONNECT TO NATS (nats-server)
 	nc, err := nats.Connect("nats://127.0.0.1:4222")
 	checkErr(err)
+	defer nc.Close()
 	log.Println("Connected to " + nats.DefaultURL)
 
 	// SUBSCRIBE TO "foo"
