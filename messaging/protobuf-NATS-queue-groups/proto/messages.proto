@@ -9,7 +9,3 @@ message Person {
     string phone = 4;
     uint32 count = 5;
 }
-
-message Data {
-    string body = 1;
-}

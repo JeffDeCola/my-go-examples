@@ -4,12 +4,13 @@
 using NATS (publish/subscribe) as a pipe to send protobuf messages.
 This is a model for one-to-many communication._
 
-These are my 4 main example of using protobuf,
+These are my 5 main example of using protobuf,
 
 * [protobuf](https://github.com/JeffDeCola/my-go-examples/tree/master/messaging/protobuf)
-* **protobuf-NATS-publish-subscribe** Your are here
+* **protobuf-NATS-publish-subscribe** <- Your are here
 * [protobuf-NATS-queue-groups](https://github.com/JeffDeCola/my-go-examples/tree/master/messaging/protobuf-NATS-queue-groups)
 * [protobuf-NATS-request-reply](https://github.com/JeffDeCola/my-go-examples/tree/master/messaging/protobuf-NATS-request-reply)
+* [protobuf-NATS-request-reply-goroutines](https://github.com/JeffDeCola/my-go-examples/tree/master/messaging/protobuf-NATS-request-reply-goroutines)
 
 Table of contents,
 

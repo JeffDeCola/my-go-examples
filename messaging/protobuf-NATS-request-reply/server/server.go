@@ -2,68 +2,52 @@ package main
 
 import (
 	"fmt"
-	"log"
 
-	nats "github.com/go-nats"
-	"github.com/protobuf/proto"
+	log "github.com/sirupsen/logrus"
+
+	"github.com/golang/protobuf/proto"
+	"github.com/nats-io/nats.go"
 )
 
-func workerServer(nc *nats.Conn, ch chan *nats.Msg, workerID int) {
-
-	// Pick off channel
-	for msg := range ch {
-
-		fmt.Printf("[%d] got request: %s\n", workerID, string(msg.Data))
-
-		// PROTOBUF - SERVER - RECEIVE - READ/UNMARSHAL
-		rcvToken := &Token{}
-		err := proto.Unmarshal(msg.Data, rcvToken)
-		if err != nil {
-			log.Fatal("unmarshaling error: ", err)
-		}
-
-		log.Printf("%d - Count %d - Token received", workerID, rcvToken.Counter)
-		// log.Printf("    AccessToken: %+v", rcvToken.AccessToken)
-		//log.Printf("    TokenType: %+v", rcvToken.TokenType)
-		//log.Printf("    RefreshToken: %+v", rcvToken.RefreshToken)
-		//log.Printf("    ExpiresAt: %+v", rcvToken.ExpiresAt)
-		//log.Printf("    Counter: %+v", rcvToken.Counter)
-
-		tokenResponse := &TokenResponse{}
-		tokenResponse.MyReply = fmt.Sprintf("This is a response, workerID=%d from count %d", workerID, rcvToken.Counter)
-
-		// PROTOBUF - CLIENT - MARSHAL - WRITE/SEND
-		msgreply, err := proto.Marshal(tokenResponse)
-		if err != nil {
-			log.Fatal("marshaling error: ", err)
-		}
-
-		log.Printf("    tokenResponse sending : %+v", tokenResponse)
-
-		nc.Publish(msg.Reply, msgreply)
-
+// Check your error
+func checkErr(err error) {
+	if err != nil {
+		log.Fatal("ERROR:", err)
 	}
-
 }
 
 func main() {
 
-	// NATS - SUBSCRIBE ON "foo"
-	nc, _ := nats.Connect("nats://127.0.0.1:4222")
+	// CONNECT TO NATS (nats-server)
+	nc, err := nats.Connect("nats://127.0.0.1:4222")
+	checkErr(err)
 	defer nc.Close()
 	log.Println("Connected to " + nats.DefaultURL)
 
-	// Create a Channel
-	ch := make(chan *nats.Msg)
+	// SUBSCRIBE TO "foo"
+	nc.Subscribe("foo", func(msg *nats.Msg) {
 
-	// Create Workers
-	for i := 0; i < 10; i++ {
-		go workerServer(nc, ch, i)
-	}
+		// UNMARSHAL -> DATA
+		rcvPerson := &Person{}
+		err = proto.Unmarshal(msg.Data, rcvPerson)
+		checkErr(err)
 
-	// Subscribe on NATS
-	nc.Subscribe("foo", func(m *nats.Msg) {
-		ch <- m
+		log.Printf("Person received: %+v\n", rcvPerson)
+
+		// REPLY
+		myReply := &MyReply{}
+		myReply.Thereply = fmt.Sprintf("This is a response #2, from count %d", rcvPerson.Count)
+
+		// MARSHAL
+		replymsg, err := proto.Marshal(myReply)
+		checkErr(err)
+
+		// SEND
+		// NATS - PUBLISH on "foo" (THE PIPE)
+		log.Printf("- Publishing replymsg (%v) to subject 'foo'\n", myReply.Thereply)
+		err = nc.Publish(msg.Reply, replymsg)
+		checkErr(err)
+
 	})
 
 	// wait - empty select
