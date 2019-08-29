@@ -22,22 +22,18 @@ func main() {
 	defer nc.Close()
 	log.Println("Connected to " + nats.DefaultURL)
 
-	// Loop forever - Long Running
-	for {
+	// RECEIVE
+	nc.QueueSubscribe("foo", "jeffsQueue", func(msg *nats.Msg) {
 
-		// RECEIVE
-		nc.QueueSubscribe("foo", "jeffsQueue", func(msg *nats.Msg) {
+		// UNMARSHAL -> DATA
+		rcvPerson := &Person{}
+		err = proto.Unmarshal(msg.Data, rcvPerson)
+		checkErr(err)
 
-			// UNMARSHAL -> DATA
-			rcvPerson := &Person{}
-			err = proto.Unmarshal(msg.Data, rcvPerson)
-			checkErr(err)
+		log.Printf("Person received: %+v", rcvPerson)
+	})
 
-			log.Printf("Person received: %+v", rcvPerson)
-		})
+	// wait - empty select
+	select {}
 
-		// wait - empty select
-		select {}
-
-	}
 }

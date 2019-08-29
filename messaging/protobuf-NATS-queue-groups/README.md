@@ -20,6 +20,7 @@ Table of contents,
 * [PROTOCOL .proto BUFFER FILE](https://github.com/JeffDeCola/my-go-examples/tree/master/messaging/protobuf-NATS-publish-subscribe#protocol-proto-buffer-file)
 * [RUN](https://github.com/JeffDeCola/my-go-examples/tree/master/messaging/protobuf-NATS-publish-subscribe#run)
 * [FLOW - HOW DOES IT WORK](https://github.com/JeffDeCola/my-go-examples/tree/master/messaging/protobuf-NATS-publish-subscribe#flow---how-does-it-work)
+* [HIGH-LEVEL ILLUSTRATION](https://github.com/JeffDeCola/my-go-examples/tree/master/messaging/protobuf-NATS-publish-subscribe#high-level-illustration)
 
 Documentation and reference,
 
@@ -157,3 +158,9 @@ nc.QueueSubscribe("foo", "jeffsQueue", func(msg *nats.Msg) {
 rcvPerson := &Person{}
 err = proto.Unmarshal(msg.Data, rcvPerson)
 ```
+
+## HIGH-LEVEL ILLUSTRATION
+
+This illustration may help show what we did,
+
+![IMAGE - protobuf-NATS-queue-groups - IMAGE](../../docs/pics/protobuf-NATS-queue-groups.jpg)
