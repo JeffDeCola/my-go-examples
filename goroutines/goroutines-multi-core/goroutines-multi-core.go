@@ -39,7 +39,7 @@ import "C"
 // GO RUNTIME & OS FEATURES
 // FEATURE 1 - LOCK A GOROUTINE TO A THREAD
 const lockThread = true // locked the goroutine to a thread (Done in go runtime)
-// FEATURE 2 - PIN A GOROUTINE TO A CPU (set affinity)
+// FEATURE 2 - PIN A THREAD TO A CPU (set affinity)
 const useParticularCPUs = true       // Do you want to use particular CPUs?
 var usetheseCPUs = []int{0, 1, 2, 3} // Which CPU/Cores to use. These will rotate
 // FEATURE 3 - LOCK A THREAD TO A CPU/CORE
@@ -78,7 +78,7 @@ func doWork(msgCh chan *workerStats, wg *sync.WaitGroup, id int, useCPU int, sta
 		defer runtime.UnlockOSThread()
 	}
 
-	// FEATURE 2 - PIN A GOROUTINE TO A CPU (set affinity)
+	// FEATURE 2 - PIN A THREAD TO A CPU (set affinity)
 	if useParticularCPUs {
 		C.set_affinity(C.int(useCPU))
 	}
