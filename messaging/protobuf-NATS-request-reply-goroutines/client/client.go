@@ -9,7 +9,8 @@ import (
 	"github.com/nats-io/nats.go"
 )
 
-const tickTime = 1 // In seconds
+const tickTime = 1       // In seconds
+const replyWaitTime = 20 // In seconds
 
 // Check your error
 func checkErr(err error) {
@@ -51,7 +52,7 @@ func main() {
 		// SEND
 		// NATS - REQUEST & REPLY on "foo" (THE PIPE)
 		log.Printf("   Send request msg to subject 'foo'\n")
-		reply, err := nc.Request("foo", msg, 20*time.Second)
+		reply, err := nc.Request("foo", msg, replyWaitTime*time.Second)
 		checkErr(err)
 
 		// UNMARSHAL -> DATA
