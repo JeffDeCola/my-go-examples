@@ -11,7 +11,7 @@ These are my 5 main example of using protobuf,
 * [protobuf](https://github.com/JeffDeCola/my-go-examples/tree/master/messaging/protobuf)
 * [protobuf-NATS-publish-subscribe](https://github.com/JeffDeCola/my-go-examples/tree/master/messaging/protobuf-NATS-publish-subscribe)
 * [protobuf-NATS-queue-groups](https://github.com/JeffDeCola/my-go-examples/tree/master/messaging/protobuf-NATS-queue-groups)
-* **protobuf-NATS-request-reply** <- Your are here
+* **protobuf-NATS-request-reply** <- You are here
 * [protobuf-NATS-request-reply-goroutines](https://github.com/JeffDeCola/my-go-examples/tree/master/messaging/protobuf-NATS-request-reply-goroutines)
 
 Table of contents,

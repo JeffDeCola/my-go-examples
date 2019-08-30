@@ -10,7 +10,7 @@ These are my 5 main example of using protobuf,
 * [protobuf-NATS-publish-subscribe](https://github.com/JeffDeCola/my-go-examples/tree/master/messaging/protobuf-NATS-publish-subscribe)
 * [protobuf-NATS-queue-groups](https://github.com/JeffDeCola/my-go-examples/tree/master/messaging/protobuf-NATS-queue-groups)
 * [protobuf-NATS-request-reply](https://github.com/JeffDeCola/my-go-examples/tree/master/messaging/protobuf-NATS-request-reply)
-* **protobuf-NATS-request-reply-goroutines** <- Your are here
+* **protobuf-NATS-request-reply-goroutines** <- You are here
 
 Table of contents,
 
