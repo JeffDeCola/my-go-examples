@@ -3,6 +3,14 @@
 `goroutines-waitgroup` _is an example of
 concurrency using a waitgroup (waiting for a collection of goroutines to finish)._
 
+These are my 5 main example of using goroutines,
+
+* [goroutines-async-channel-receive-no-waiting](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-async-channel-receive-no-waiting)
+* [goroutines-async-channel-send-receive-waiting](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-async-channel-send-receive-waiting)
+* [goroutines-multi-core](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-multi-core)
+* **goroutines-waitgroup** <- You are here
+* [goroutines-worker-pools](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-worker-pools)
+
 [GitHub Webpage](https://jeffdecola.github.io/my-go-examples/)
 
 ## WAITGROUP
