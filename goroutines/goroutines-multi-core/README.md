@@ -7,6 +7,16 @@ It will find the total amount of prime numbers up to a number._
 
 This program will show that **lightweight goroutines are amazing**.
 
+These are my 5 main example of using goroutines,
+
+* [goroutines-async-channel-receive-no-waiting](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-async-channel-receive-no-waiting)
+* [goroutines-async-channel-send-receive-waiting](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-async-channel-send-receive-waiting)
+* **goroutines-multi-core** <- You are here
+* [goroutines-waitgroup](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-waitgroup)
+* [goroutines-worker-pools](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-worker-pools)
+
+Table of contents,
+
 * [OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-multi-core#overview)
 * [SETUP](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-multi-core#setup)
 * [GO RUNTIME FEATURES](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-multi-core#go-runtime-features)

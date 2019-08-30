@@ -3,6 +3,14 @@
 `goroutines-worker-pools` _is an example of concurrency using
 worker pools._
 
+These are my 5 main example of using goroutines,
+
+* [goroutines-async-channel-receive-no-waiting](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-async-channel-receive-no-waiting)
+* [goroutines-async-channel-send-receive-waiting](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-async-channel-send-receive-waiting)
+* [goroutines-multi-core](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-multi-core)
+* [goroutines-waitgroup](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-waitgroup)
+* **goroutines-worker-pools** <- You are here
+
 [GitHub Webpage](https://jeffdecola.github.io/my-go-examples/)
 
 ## WORKER POOLS
