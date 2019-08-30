@@ -49,7 +49,7 @@ see if you can improve performance.
 
 This diagram will help explain what we're trying to do,
 
-![IMAGE - executable-your-code-and-go-runtime - IMAGE](../../docs/pics/executable-your-code-and-go-runtime.jpg)
+![IMAGE - goroutines-multi-core - IMAGE](../../docs/pics/goroutines-multi-core.jpg)
 
 ## SETUP
 
@@ -60,7 +60,7 @@ statistics of each process and core.
 // FEATURE 1 - LOCK A GOROUTINE TO A THREAD
     const lockThread = true                 // locked the goroutine to a thread (Done in go runtime)
 
-// FEATURE 2 - PIN A GOROUTINE TO A CPU (set affinity)
+// FEATURE 2 - PIN A THREAD TO A CPU (set affinity)
     const useParticularCPUs = true          // Do you want to use particular CPUs?
     var usetheseCPUs = []int{0,1,2,3}       // Which CPU/Cores to use. These will rotate
 
@@ -114,7 +114,7 @@ This is a little more tricky and needs a bit of C code.
 What its really doing is pinning a thread to a cpu.
 
 ```go
-// Set goroutine to a particular Core/CPU - Set affinity()
+// Set thread to a particular Core/CPU - Set affinity()
 C.set_affinity(useCPU)
 ```
 
