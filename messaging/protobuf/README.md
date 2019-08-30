@@ -11,6 +11,14 @@ These are my 5 main example of using protobuf,
 * [protobuf-NATS-request-reply](https://github.com/JeffDeCola/my-go-examples/tree/master/messaging/protobuf-NATS-request-reply)
 * [protobuf-NATS-request-reply-goroutines](https://github.com/JeffDeCola/my-go-examples/tree/master/messaging/protobuf-NATS-request-reply-goroutines)
 
+Table of contents,
+
+* [STEP 1 - DEFINE .proto FILE](https://github.com/JeffDeCola/my-go-examples/tree/master/messaging/protobuf#step-1---define-proto-file)
+* [STEP 2 - COMPILE .proto FILE](https://github.com/JeffDeCola/my-go-examples/tree/master/messaging/protobuf#step-2---compile-proto-file)
+* [STEP 3 - IMPLEMENT (RUN)](https://github.com/JeffDeCola/my-go-examples/tree/master/messaging/protobuf#step-3---implement-run)
+* [THE FLOW](https://github.com/JeffDeCola/my-go-examples/tree/master/messaging/protobuf#the-flow)
+* [HIGH-LEVEL ILLUSTRATION](https://github.com/JeffDeCola/my-go-examples/tree/master/messaging/protobuf#high-level-illustration)
+
 Documentation and reference,
 
 * Refer to my
@@ -117,3 +125,9 @@ same struct from our protobuf file and unmarshal it.
 rcvPerson := &Person{}
 err = proto.Unmarshal(rcvMsg, rcvPerson)
 ```
+
+## HIGH-LEVEL ILLUSTRATION
+
+This illustration may help show what we did,
+
+![IMAGE - protobuf - IMAGE](../../docs/pics/protobuf.jpg)
