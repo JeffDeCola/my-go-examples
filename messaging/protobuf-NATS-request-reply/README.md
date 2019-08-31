@@ -6,11 +6,13 @@ This is a model for a subscriber sending a msg with a request and
 getting a reply back from a subscriber.
 This is also a model for **one-to-many** communication._
 
-These are my 5 main example of using protobuf,
+These are my 6 main example of using protobuf,
 
 * [protobuf](https://github.com/JeffDeCola/my-go-examples/tree/master/messaging/protobuf)
 * [protobuf-NATS-publish-subscribe](https://github.com/JeffDeCola/my-go-examples/tree/master/messaging/protobuf-NATS-publish-subscribe)
 * [protobuf-NATS-queue-groups](https://github.com/JeffDeCola/my-go-examples/tree/master/messaging/protobuf-NATS-queue-groups)
+* [protobuf-NATS-queue-groups-request-reply](https://github.com/JeffDeCola/my-go-examples/tree/master/messaging/protobuf-NATS-queue-groups-request-reply)
+  (I like this one)
 * **protobuf-NATS-request-reply** <- You are here
 * [protobuf-NATS-request-reply-goroutines](https://github.com/JeffDeCola/my-go-examples/tree/master/messaging/protobuf-NATS-request-reply-goroutines)
 
@@ -161,7 +163,7 @@ The reply (MARSHALL & SEND),
 
 ```go
 myReply := &MyReply{}
-myReply.Thereply = fmt.Sprintf("This is a response #2, from count %d", rcvPerson.Count)
+myReply.Thereply = fmt.Sprintf("This is a response %v, from count %d", uniqueID, rcvPerson.Count)
 replymsg, err := proto.Marshal(myReply)
 err = nc.Publish(msg.Reply, replymsg)
 ```

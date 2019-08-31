@@ -1,6 +1,6 @@
-# protobuf-NATS-queue-groups example
+# protobuf-NATS-queue-groups-request-reply example
 
-`protobuf-NATS-queue-groups` _is an example of
+`protobuf-NATS-queue-groups-request-reply` _is an example of
   _Using NATS (queue groups) as a pipe to send protobuf messages.
   This is a model for **one-to-one communication**._
 
@@ -8,9 +8,8 @@ These are my 6 main example of using protobuf,
 
 * [protobuf](https://github.com/JeffDeCola/my-go-examples/tree/master/messaging/protobuf)
 * [protobuf-NATS-publish-subscribe](https://github.com/JeffDeCola/my-go-examples/tree/master/messaging/protobuf-NATS-publish-subscribe)
-* **protobuf-NATS-queue-groups** <- You are here
-* [protobuf-NATS-queue-groups-request-reply](https://github.com/JeffDeCola/my-go-examples/tree/master/messaging/protobuf-NATS-queue-groups-request-reply)
-  (I like this one)
+* [protobuf-NATS-queue-groups](https://github.com/JeffDeCola/my-go-examples/tree/master/messaging/protobuf-NATS-queue-groups)
+* **protobuf-NATS-queue-groups-request-reply** <- You are here (I like this one)
 * [protobuf-NATS-request-reply](https://github.com/JeffDeCola/my-go-examples/tree/master/messaging/protobuf-NATS-request-reply)
 * [protobuf-NATS-request-reply-goroutines](https://github.com/JeffDeCola/my-go-examples/tree/master/messaging/protobuf-NATS-request-reply-goroutines)
 
@@ -134,10 +133,12 @@ sndPerson := &Person{
 msg, err := proto.Marshal(sndPerson)
 ```
 
-### SEND (PUBLISH)
+### SEND (PUBLISH) & WAIT FOR REPLY
 
 ```go
-nc.Publish("foo", msg)
+reply, err := nc.Request("foo", msg, 50*time.Millisecond)
+myReply := &MyReply{}
+err = proto.Unmarshal(reply.Data, MyReply)
 ```
 
 ### RECEIVE (SUBSCRIBE)
@@ -154,15 +155,24 @@ nc.QueueSubscribe("foo", "jeffsQueue", func(msg *nats.Msg) {
 })
 ```
 
-### UNMARSHAL -> DATA
+### UNMARSHAL -> DATA & SEND REPLY
 
 ```go
 rcvPerson := &Person{}
 err = proto.Unmarshal(msg.Data, rcvPerson)
 ```
 
+The reply (MARSHAL & SEND),
+
+```go
+myReply := &MyReply{}
+myReply.Thereply = fmt.Sprintf("This is a response %v, from count %d", uniqueID, rcvPerson.Count)
+replymsg, err := proto.Marshal(myReply)
+err = nc.Publish(msg.Reply, replymsg)
+```
+
 ## HIGH-LEVEL ILLUSTRATION
 
 This illustration may help show what we did,
 
-![IMAGE - protobuf-NATS-queue-groups - IMAGE](../../docs/pics/protobuf-NATS-queue-groups.jpg)
+![IMAGE - protobuf-NATS-queue-groups-request-reply - IMAGE](../../docs/pics/protobuf-NATS-queue-groups-request-reply.jpg)

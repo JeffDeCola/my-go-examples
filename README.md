@@ -240,6 +240,12 @@ _A starting point for all my go projects._
   _Using NATS (queue groups) as a pipe to send protobuf messages.
   This is a model for **one-to-one** communication._
 
+* [protobuf-NATS-queue-groups-request-reply](https://github.com/JeffDeCola/my-go-examples/tree/master/messaging/protobuf-NATS-queue-groups-request-reply)
+  (I like this one)
+  _Using NATS (queue groups) as a pipe to send protobuf messages with a
+  request and getting a reply back from the subscriber.
+  This is a model for **one-to-one** communication._
+
 * [protobuf-NATS-request-reply](https://github.com/JeffDeCola/my-go-examples/tree/master/messaging/protobuf-NATS-request-reply)
 
   _Using NATS (request/reply) as a pipe to send protobuf messages.
