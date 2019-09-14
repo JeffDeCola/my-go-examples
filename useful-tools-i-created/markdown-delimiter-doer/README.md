@@ -1,6 +1,6 @@
-# markdown-delimiter-doer example
+# markdown-delimiter-doer tool
 
-`markdown-delimiter-doer` _is a example of
+`markdown-delimiter-doer` _is a useful tool for
 taking a markdown file and "do whatever you want" between the delimiters
 and output new markdown file._
 

@@ -1,7 +1,7 @@
 # crypto/md5 (standard) example
 
 `crypto/md5` _standard package. An example of
-getting an md5 fingerprint from an ssh key._
+getting an md5 fingerprint (hash) from an ssh key._
 
 Refer to the
 [crypto/md5](https://golang.org/pkg/crypto/md5/)

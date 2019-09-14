@@ -1,6 +1,6 @@
-# markdown-create-table-of-contents example
+# markdown-create-table-of-contents tool
 
-`markdown-create-table-of-contents` _is a example of
+`markdown-create-table-of-contents` _is a useful tool for
 parsing a markdown file to find ##, ### to create a table
 of contents (TOC) for links at github.  I like to use a
 TOC it at the beginning of my readme files._
