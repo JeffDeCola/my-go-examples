@@ -3,7 +3,7 @@
 `decryptfile` _is a useful tool for
 decrypting a file using the crypto package._
 
-Use
+Use my other tool
 [encryptfile](https://github.com/JeffDeCola/my-go-examples/tree/master/useful-tools-i-created/encryptfile)
 to encrypt.
 
@@ -12,7 +12,7 @@ to encrypt.
 ## RUN
 
 ```bash
-decryptfile <FILE>
+go run decryptfile <FILE>
 ```
 
 ## INSTALL
