@@ -17,6 +17,7 @@ I organized everything (alphabetically) into these sections,
   * Functions
   * Interfaces
   * Methods
+* [BLOCKCHAIN](https://github.com/JeffDeCola/my-go-examples#blockchain)
 * [CGO](https://github.com/JeffDeCola/my-go-examples#cgo)
 * [CLOUD SERVICES](https://github.com/JeffDeCola/my-go-examples#cloud-services)
 * [DATABASE](https://github.com/JeffDeCola/my-go-examples#database)
@@ -144,6 +145,12 @@ other cool programs._
     _Calculating the area and perimeter of
     circles, rectangles and triangles using methods.
     Also refer to **function** and **interface** implementations above._
+
+### BLOCKCHAIN
+
+* [simple-blockchain](https://github.com/JeffDeCola/my-go-examples/tree/master/blockchain/simple-blockchain)
+
+  _A simple blockchain that can be used to build bigger and better things._
 
 ### CGO
 
@@ -325,11 +332,13 @@ for the standard go packages_
 
 * [decryptfile](https://github.com/JeffDeCola/my-go-examples/tree/master/useful-tools-i-created/decryptfile)
 
-  _Decrypt a file using the crypto package_
+  _Decrypt a file using the crypto package. Works with
+   [encryptfile](https://github.com/JeffDeCola/my-go-examples/tree/master/useful-tools-i-created/encryptfile)._
 
 * [encryptfile](https://github.com/JeffDeCola/my-go-examples/tree/master/useful-tools-i-created/encryptfile)
 
-  _Encrypt a file using the crypto package_
+  _Encrypt a file using the crypto package. Works with
+   [decryptfile](https://github.com/JeffDeCola/my-go-examples/tree/master/useful-tools-i-created/decryptfile)._
 
 * [markdown-create-table-of-contents](https://github.com/JeffDeCola/my-go-examples/tree/master/useful-tools-i-created/markdown-create-table-of-contents)
 
