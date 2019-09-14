@@ -270,7 +270,8 @@ for the standard go packages_
 * [crypto/md5](https://github.com/JeffDeCola/my-go-examples/tree/master/packages/crypto-md5)
   _(standard)_
 
-  _The crypto/md5 package is used for getting an md5 fingerprint from an ssh key._
+  _The crypto/md5 package is used for getting an md5 fingerprint (hash)
+  from an ssh key._
 
 * [errors](https://github.com/JeffDeCola/my-go-examples/tree/master/packages/errors)
   _(github.com/pkg/errors)_
@@ -321,6 +322,14 @@ for the standard go packages_
   _Using the go tool `gotests` to test a function with complex inputs and outputs._
 
 ### USEFUL TOOLS I CREATED
+
+* [decryptfile](https://github.com/JeffDeCola/my-go-examples/tree/master/useful-tools-i-created/decryptfile)
+
+  _Decrypt a file using the crypto package_
+
+* [encryptfile](https://github.com/JeffDeCola/my-go-examples/tree/master/useful-tools-i-created/encryptfile)
+
+  _Encrypt a file using the crypto package_
 
 * [markdown-create-table-of-contents](https://github.com/JeffDeCola/my-go-examples/tree/master/useful-tools-i-created/markdown-create-table-of-contents)
 
