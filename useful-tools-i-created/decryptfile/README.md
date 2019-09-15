@@ -61,8 +61,8 @@ func decrypt(data []byte, hashKey string) []byte {
     checkErr(err)
 
     nonceSize := gcm.NonceSize()
-    nonce, ciphertext := data[:nonceSize], data[nonceSize:]
-    plaintext, err := gcm.Open(nil, nonce, ciphertext, nil)
+    nonce, cipherText := data[:nonceSize], data[nonceSize:]
+    plaintext, err := gcm.Open(nil, nonce, cipherText, nil)
     checkErr(err)
 
     return plaintext

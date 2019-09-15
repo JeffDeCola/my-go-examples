@@ -12,6 +12,7 @@ import (
 	"io"
 	"io/ioutil"
 	"os"
+	"time"
 
 	log "github.com/sirupsen/logrus"
 )
@@ -46,6 +47,49 @@ func encrypt(data []byte, hashKey string) []byte {
 	// Encrypt our text using the Seal function
 	cipherText := gcm.Seal(nonce, nonce, data, nil)
 	return cipherText
+}
+
+func writeCipherTextHex(cipherTextHex string, outputFile *os.File) {
+
+	_, err := outputFile.WriteString("\nThis secret file was created by Jeff DeCola\n")
+	checkErr(err)
+	t := time.Now()
+	_, err = outputFile.WriteString(t.Format(time.ANSIC) + "\n")
+	checkErr(err)
+	_, err = outputFile.WriteString("\n--------------------------------------------------------------------------------\n")
+	checkErr(err)
+
+	// Chop up the cipherTextHex into lines of 80 characters into a slice.
+	a := []rune(cipherTextHex)
+	line := ""
+	numberLines := 0
+	numberCharacters := 0
+
+	for i, r := range a {
+		line = line + string(r)
+		if i > 0 && (i+1)%80 == 0 {
+			line = line + "\n"
+			_, err = outputFile.WriteString(line)
+			checkErr(err)
+			// Reset line
+			line = ""
+			numberLines++
+		}
+		numberCharacters++
+	}
+
+	if line != "" {
+		// The remaining line
+		numberLines++
+		line = line + "\n"
+		_, err = outputFile.WriteString(line)
+		checkErr(err)
+	}
+
+	fmt.Printf("There were %v characters and %v lines created\n", numberCharacters, numberLines)
+
+	_, err = outputFile.WriteString("--------------------------------------------------------------------------------\n\n")
+	checkErr(err)
 }
 
 // Check your error
@@ -89,10 +133,10 @@ func main() {
 	checkErr(err)
 	// fmt.Printf("Data/File to encrypt\n--------------------\n%s\n--------------------\n", fileDataToEncrypt)
 
-	// GET THE PARAPHRASE
+	// GET THE PARAPHRASE - ASK USER
 	log.Trace("Get the paraphrase")
 	paraphrase := ""
-	fmt.Printf("What is your secret paraphrase? ")
+	fmt.Printf("\nWhat is your secret paraphrase? ")
 	_, err = fmt.Scan(&paraphrase)
 	checkErr(err)
 
@@ -105,20 +149,19 @@ func main() {
 	log.Trace("Encrypt file with key")
 	fmt.Println("Encrypting input file")
 	cipherText := encrypt(fileDataToEncrypt, hashKey)
-	s := string(cipherText[:])
-	fmt.Printf("Encrypted Data\n--------------------\n%s\n--------------------\n", s)
+	cipherTextHex := hex.EncodeToString(cipherText)
 	//You will get back a slice of bytes
-	fmt.Printf("Encrypted Data\n--------------------\n%x\n--------------------\n", cipherText)
-	fmt.Printf("Encrypted Data\n--------------------\n%v\n--------------------\n", cipherText)
-	fmt.Printf("Encrypted Data\n--------------------\n%s\n--------------------\n", cipherText)
+	//fmt.Printf("Encrypted Data\n--------------------\n%x\n--------------------\n", cipherText)
+	//fmt.Printf("Encrypted Data\n--------------------\n%v\n--------------------\n", cipherText)
+	//fmt.Printf("Encrypted Data\n--------------------\n%s\n--------------------\n", cipherText)
 
-	// WRITE TO A FILE
+	// WRITE cipherTextHex TO A FILE
 	log.Trace("Write cipherText to a file")
-	f, err := os.Create(filenameout)
+	// Create file
+	outputFile, err := os.Create(filenameout)
 	checkErr(err)
-	defer f.Close()
-	f.Write(cipherText)
-	fmt.Println("Wrote output file")
+	defer outputFile.Close()
+	writeCipherTextHex(cipherTextHex, outputFile)
+	fmt.Printf("Wrote output file\n\n")
 
-	ioutil.WriteFile("myfile.data", cipherText, 0777)
 }

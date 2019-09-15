@@ -53,16 +53,21 @@ Noe we use that hash key with the data to encrypt the file,
 ```go
 func encrypt(data []byte, hashKey string) []byte {
 
+    // generate a new aes cipher using our 32 byte long key
     block, err := aes.NewCipher([]byte(hashKey))
     checkErr(err)
     gcm, err := cipher.NewGCM(block)
     checkErr(err)
 
+    // Creates a new byte array the size of the nonce
     nonce := make([]byte, gcm.NonceSize())
+
+    // Populates our nonce with a cryptographically secure random sequence
     if _, err = io.ReadFull(rand.Reader, nonce); err != nil {
         panic(err.Error())
     }
 
+    // Encrypt our text using the Seal function
     cipherText := gcm.Seal(nonce, nonce, data, nil)
     return cipherText
 }
