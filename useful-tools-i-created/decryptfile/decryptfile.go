@@ -1,6 +1,7 @@
 package main
 
 import (
+	"bufio"
 	"crypto/aes"
 	"crypto/cipher"
 	"crypto/md5"
@@ -8,7 +9,6 @@ import (
 	"errors"
 	"flag"
 	"fmt"
-	"io/ioutil"
 	"os"
 
 	log "github.com/sirupsen/logrus"
@@ -35,11 +35,47 @@ func decrypt(data []byte, hashKey string) []byte {
 	checkErr(err)
 
 	nonceSize := gcm.NonceSize()
-	nonce, ciphertext := data[:nonceSize], data[nonceSize:]
-	plaintext, err := gcm.Open(nil, nonce, ciphertext, nil)
+	nonce, cipherText := data[:nonceSize], data[nonceSize:]
+	plaintext, err := gcm.Open(nil, nonce, cipherText, nil)
 	checkErr(err)
 
 	return plaintext
+}
+
+func getCipherText(inputFile *os.File) []byte {
+
+	cipherTextHex := ""
+
+	// Start scanning the input file line by line
+	scanner := bufio.NewScanner(inputFile) // Increment the token
+
+	for scanner.Scan() {
+
+		// Read a line in file
+		line := scanner.Text()
+
+		// If you find a delimiter, get all the lines in between and place in a table.
+		if line == "--------------------------------------------------------------------------------" {
+
+			// Stay in here until you find another delimiter
+			for scanner.Scan() {
+
+				// Read next line nad Start Building the long long string
+				line = scanner.Text()
+
+				// Exit and build table when you find another delimiter
+				if line == "--------------------------------------------------------------------------------" {
+					break
+				}
+				cipherTextHex = cipherTextHex + line
+			}
+		}
+	}
+
+	cipherText, err := hex.DecodeString(cipherTextHex)
+	checkErr(err)
+	return cipherText
+
 }
 
 // Check your error
@@ -79,14 +115,19 @@ func main() {
 
 	// READ THE FILE- Will be a slice of bytes
 	log.Trace("Read the file to decrypt")
-	fileDataToDecrypt, err := ioutil.ReadFile(filename)
+	// Open input file
+	inputFile, err := os.Open(filename)
 	checkErr(err)
-	// fmt.Printf("Data/File to decrypt\n--------------------\n%x\n--------------------\n", fileDataToDecrypt)
+	defer inputFile.Close()
 
-	// GET THE PARAPHRASE
+	// GET CIPHERTEXT (in bytes) FROM INPUT FILE
+	cipherText := getCipherText(inputFile)
+	// fmt.Printf("Data/File to decrypt\n--------------------\n%x\n--------------------\n", cipherText)
+
+	// GET THE PARAPHRASE - ASK USER
 	log.Trace("Get the paraphrase")
 	paraphrase := ""
-	fmt.Printf("What is your secret paraphrase? ")
+	fmt.Printf("\nWhat is your secret paraphrase? ")
 	_, err = fmt.Scan(&paraphrase)
 	checkErr(err)
 
@@ -96,9 +137,9 @@ func main() {
 	checkErr(err)
 
 	// DECRYPT
-	log.Trace("Decrypt fileDataToDecrypt with key")
+	log.Trace("Decrypt cipherText with key")
 	fmt.Println("Decrypting input file")
-	plainText := decrypt(fileDataToDecrypt, hashKey)
+	plainText := decrypt(cipherText, hashKey)
 	// fmt.Printf("Decrypted Data\n--------------------\n%s\n--------------------\n", plainText)
 
 	// WRITE TO A FILE (ADD DATE)
@@ -107,6 +148,6 @@ func main() {
 	checkErr(err)
 	defer f.Close()
 	f.Write(plainText)
-	fmt.Println("Wrote output file")
+	fmt.Printf("Wrote output file\n\n")
 
 }
