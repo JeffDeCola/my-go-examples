@@ -27,10 +27,13 @@ func createKey(paraphrase string) (string, error) {
 // DECRYPT DATA WITH 32 BYTE KEY AND RETURN PLAINTEXT
 func decrypt(data []byte, hashKey string) []byte {
 
+	// Generate a new aes cipher using our 32 byte long key
 	key := []byte(hashKey)
 	block, err := aes.NewCipher(key)
 	checkErr(err)
 
+	// gcm or Galois/Counter Mode, is a mode of operation
+	// for symmetric key cryptographic block ciphers
 	gcm, err := cipher.NewGCM(block)
 	checkErr(err)
 
