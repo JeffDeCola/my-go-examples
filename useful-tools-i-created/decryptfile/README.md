@@ -68,3 +68,7 @@ func decrypt(data []byte, hashKey string) []byte {
     return plaintext
 }
 ```
+
+Refer to some examples of AES in my
+[ENCRYPTION/DECRYPTION](https://github.com/JeffDeCola/my-go-examples#encryption--decryption)
+section.
