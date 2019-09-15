@@ -21,12 +21,29 @@ I have the following AES examples,
 run aes.go
 ```
 
-You output should be,
+Your output should be,
 
 ```txt
-
+Original Text:   Hello Jeff, only 16 Bytes of this will be encrypted
+Encrypted Text:  1d3288a55c1b74826395bd823d7cf0a2
+Decrypted Text:  Hello Jeff, only
 ```
 
 ## HOW IT WORKS
 
-This example is simple.
+This example is simple and very limiting.
+It will only encrypt 16 bytes of data.
+
+Encryption,
+
+```go
+// ENCRYPT DATA - PLACE IN cipherTextByte
+block.Encrypt(cipherTextByte, plaintextByte)
+```
+
+Decryption,
+
+```go
+// DeCRYPT DATA - PLACE IN plainTextByte
+block.Decrypt(plainTextByte, cipherTextByte)
+```
