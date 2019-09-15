@@ -332,12 +332,12 @@ for the standard go packages_
 
 * [decryptfile](https://github.com/JeffDeCola/my-go-examples/tree/master/useful-tools-i-created/decryptfile)
 
-  _Decrypt a file using the crypto package. Works with
+  _Decrypt a file with 32 byte hash key using the `crypto/aes` package. Works with
    [encryptfile](https://github.com/JeffDeCola/my-go-examples/tree/master/useful-tools-i-created/encryptfile)._
 
 * [encryptfile](https://github.com/JeffDeCola/my-go-examples/tree/master/useful-tools-i-created/encryptfile)
 
-  _Encrypt a file using the crypto package. Works with
+  _Encrypt a file with 32 byte hash key using the `crypto/aes` package. Works with
    [decryptfile](https://github.com/JeffDeCola/my-go-examples/tree/master/useful-tools-i-created/decryptfile)._
 
 * [markdown-create-table-of-contents](https://github.com/JeffDeCola/my-go-examples/tree/master/useful-tools-i-created/markdown-create-table-of-contents)
