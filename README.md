@@ -21,7 +21,7 @@ I organized everything (alphabetically) into these sections,
 * [CGO](https://github.com/JeffDeCola/my-go-examples#cgo)
 * [CLOUD SERVICES](https://github.com/JeffDeCola/my-go-examples#cloud-services)
 * [DATABASE](https://github.com/JeffDeCola/my-go-examples#database)
-* [ENCRYPTION/DECRYPTION](https://github.com/JeffDeCola/my-go-examples#encryption-decryption)
+* [ENCRYPTION/DECRYPTION](https://github.com/JeffDeCola/my-go-examples#encryption--decryption)
 * [GOROUTINES](https://github.com/JeffDeCola/my-go-examples#goroutines)
 * [JEFFS GO TEMPLATES](https://github.com/JeffDeCola/my-go-examples#jeffs-go-templates)
 * [MESSAGING](https://github.com/JeffDeCola/my-go-examples#messaging)
@@ -200,25 +200,25 @@ _Using c with go._
 
   _Simple aes._
 
-* [aes-gcm](https://github.com/JeffDeCola/my-go-examples/tree/master/encryption-decryption/aes)
+* [aes-gcm](https://github.com/JeffDeCola/my-go-examples/tree/master/encryption-decryption/aes-gcm)
 
   _GCM (galois/counter mode)._
 
-* [aes-cbc](https://github.com/JeffDeCola/my-go-examples/tree/master/encryption-decryption/aes)
+* [aes-cbc](https://github.com/JeffDeCola/my-go-examples/tree/master/encryption-decryption/aes-cbc)
 
   _CBC () where block of plaintext is XORed with the previous cipherText block
   before being encrypted._
 
-* [aes-cfb](https://github.com/JeffDeCola/my-go-examples/tree/master/encryption-decryption/aes)
+* [aes-cfb](https://github.com/JeffDeCola/my-go-examples/tree/master/encryption-decryption/aes-cfb)
 
   _CFB (??) decryption is almost identical to CBC encryption performed in reverse._
 
-* [aes-ctr](https://github.com/JeffDeCola/my-go-examples/tree/master/encryption-decryption/aes)
+* [aes-ctr](https://github.com/JeffDeCola/my-go-examples/tree/master/encryption-decryption/aes-ctr)
 
   _CTR ()?? mode has similar characteristics to OFB, but also allows a random
   access property during decryption._
 
-* [aes-ofb](https://github.com/JeffDeCola/my-go-examples/tree/master/encryption-decryption/aes)
+* [aes-ofb](https://github.com/JeffDeCola/my-go-examples/tree/master/encryption-decryption/aes-ofb)
 
   _OFB (Output Feedback) makes a block cipher into a synchronous stream cipher._
 

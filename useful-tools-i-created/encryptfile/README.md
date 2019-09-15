@@ -71,3 +71,7 @@ func encrypt(data []byte, hashKey string) []byte {
     return cipherText
 }
 ```
+
+Refer to some examples of AES in my
+[ENCRYPTION/DECRYPTION](https://github.com/JeffDeCola/my-go-examples#encryption--decryption)
+section.
