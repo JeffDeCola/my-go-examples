@@ -33,6 +33,9 @@ func encrypt(data []byte, hashKey string) []byte {
 	// generate a new aes cipher using our 32 byte long key
 	block, err := aes.NewCipher([]byte(hashKey))
 	checkErr(err)
+
+	// gcm or Galois/Counter Mode, is a mode of operation
+	// for symmetric key cryptographic block ciphers
 	gcm, err := cipher.NewGCM(block)
 	checkErr(err)
 
@@ -127,7 +130,7 @@ func main() {
 	filename := filenameSlice[0]    // Make it a string
 	filenameout := filenameSlice[1] // Make it a string
 
-	// READ THE FILE- Will be a slice of bytes
+	// READ THE FILE - Will be a slice of bytes
 	log.Trace("Read the file to encrypt")
 	fileDataToEncrypt, err := ioutil.ReadFile(filename)
 	checkErr(err)
@@ -145,15 +148,12 @@ func main() {
 	hashKey, err := createKey(paraphrase)
 	checkErr(err)
 
-	// ENCRYPT DATA WITH KEY
+	// ENCRYPT DATA WITH KEY - cipherText is a slice of bytes
 	log.Trace("Encrypt file with key")
 	fmt.Println("Encrypting input file")
 	cipherText := encrypt(fileDataToEncrypt, hashKey)
 	cipherTextHex := hex.EncodeToString(cipherText)
-	//You will get back a slice of bytes
-	//fmt.Printf("Encrypted Data\n--------------------\n%x\n--------------------\n", cipherText)
-	//fmt.Printf("Encrypted Data\n--------------------\n%v\n--------------------\n", cipherText)
-	//fmt.Printf("Encrypted Data\n--------------------\n%s\n--------------------\n", cipherText)
+	//fmt.Printf("Encrypted Data\n--------------------\n%v\n--------------------\n", cipherTextHex)
 
 	// WRITE cipherTextHex TO A FILE
 	log.Trace("Write cipherText to a file")
@@ -161,6 +161,7 @@ func main() {
 	outputFile, err := os.Create(filenameout)
 	checkErr(err)
 	defer outputFile.Close()
+	// This just makes it nice and pretty
 	writeCipherTextHex(cipherTextHex, outputFile)
 	fmt.Printf("Wrote output file\n\n")
 

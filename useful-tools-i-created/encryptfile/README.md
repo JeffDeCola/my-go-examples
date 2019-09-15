@@ -1,7 +1,7 @@
 # encryptfile tool
 
 `encryptfile` _is a useful tool for
-encrypting a file with 32 byte hash key using the `crypto/aes` package._
+encryptfile a file with AES-256 (a 32-byte hash key) using the `crypto/aes` package.
 
 Use my other tool
 [decryptfile](https://github.com/JeffDeCola/my-go-examples/tree/master/useful-tools-i-created/decryptfile)
@@ -34,7 +34,7 @@ package.
 
 ### STEP 1 - LETS CREATE A HASH KEY
 
-First you need a 32 byte key.  Instead of typing a 32
+First you need a 32 byte key (AES-256).  Instead of typing a 32
 character in, lets make it simple by turning a simple paraphrase into a key.
 We will use the standard go
 [crypto/md5](https://golang.org/pkg/crypto/md5/)
@@ -53,19 +53,18 @@ Noe we use that hash key with the data to encrypt the file,
 ```go
 func encrypt(data []byte, hashKey string) []byte {
 
-    // generate a new aes cipher using our 32 byte long key
-    block, err := aes.NewCipher([]byte(hashKey))
-    checkErr(err)
-    gcm, err := cipher.NewGCM(block)
-    checkErr(err)
+    // Generate a new aes cipher using our 32 byte long key
+    block, _ := aes.NewCipher([]byte(hashKey))
+
+    // gcm or Galois/Counter Mode, is a mode of operation
+    // for symmetric key cryptographic block ciphers
+    gcm, _ := cipher.NewGCM(block)
 
     // Creates a new byte array the size of the nonce
     nonce := make([]byte, gcm.NonceSize())
 
     // Populates our nonce with a cryptographically secure random sequence
-    if _, err = io.ReadFull(rand.Reader, nonce); err != nil {
-        panic(err.Error())
-    }
+    _, _ = io.ReadFull(rand.Reader, nonce)
 
     // Encrypt our text using the Seal function
     cipherText := gcm.Seal(nonce, nonce, data, nil)

@@ -1,7 +1,7 @@
 # decryptfile tool
 
 `decryptfile` _is a useful tool for
-decrypting a file with 32 byte hash key using the crypto package._
+decryptfile a file with AES-256 (a 32-byte hash key) using the `crypto/aes` package.
 
 Use my other tool
 [encryptfile](https://github.com/JeffDeCola/my-go-examples/tree/master/useful-tools-i-created/encryptfile)
@@ -34,7 +34,7 @@ package.
 
 ### STEP 1 - LETS CREATE A HASH KEY
 
-First you need a 32 byte key.  Instead of typing a 32
+First you need a 32 byte key (AES-256).  Instead of typing a 32
 character in, lets make it simple by turning a simple paraphrase into a key.
 We will use the standard go
 [crypto/md5](https://golang.org/pkg/crypto/md5/)
@@ -53,17 +53,17 @@ Noe we use that hash key with the data to decrypt the file,
 ```go
 func decrypt(data []byte, hashKey string) []byte {
 
+    // Generate a new aes cipher using our 32 byte long key
     key := []byte(hashKey)
-    block, err := aes.NewCipher(key)
-    checkErr(err)
+    block, _ := aes.NewCipher(key)
 
-    gcm, err := cipher.NewGCM(block)
-    checkErr(err)
+    // gcm or Galois/Counter Mode, is a mode of operation
+    // for symmetric key cryptographic block ciphers
+    gcm, _ := cipher.NewGCM(block)
 
     nonceSize := gcm.NonceSize()
     nonce, cipherText := data[:nonceSize], data[nonceSize:]
-    plaintext, err := gcm.Open(nil, nonce, cipherText, nil)
-    checkErr(err)
+    plaintext, _ := gcm.Open(nil, nonce, cipherText, nil)
 
     return plaintext
 }

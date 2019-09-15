@@ -21,6 +21,7 @@ I organized everything (alphabetically) into these sections,
 * [CGO](https://github.com/JeffDeCola/my-go-examples#cgo)
 * [CLOUD SERVICES](https://github.com/JeffDeCola/my-go-examples#cloud-services)
 * [DATABASE](https://github.com/JeffDeCola/my-go-examples#database)
+* [ENCRYPTION/DECRYPTION](https://github.com/JeffDeCola/my-go-examples#encryption-decryption)
 * [GOROUTINES](https://github.com/JeffDeCola/my-go-examples#goroutines)
 * [JEFFS GO TEMPLATES](https://github.com/JeffDeCola/my-go-examples#jeffs-go-templates)
 * [MESSAGING](https://github.com/JeffDeCola/my-go-examples#messaging)
@@ -193,6 +194,34 @@ _Using c with go._
 
   _A non-relational (NoSQL) database - Set/Get from/to a key/value pair._
 
+### ENCRYPTION / DECRYPTION
+
+* [aes](https://github.com/JeffDeCola/my-go-examples/tree/master/encryption-decryption/aes)
+
+  _Simple aes._
+
+* [aes-gcm](https://github.com/JeffDeCola/my-go-examples/tree/master/encryption-decryption/aes)
+
+  _GCM (galois/counter mode)._
+
+* [aes-cbc](https://github.com/JeffDeCola/my-go-examples/tree/master/encryption-decryption/aes)
+
+  _CBC () where block of plaintext is XORed with the previous cipherText block
+  before being encrypted._
+
+* [aes-cfb](https://github.com/JeffDeCola/my-go-examples/tree/master/encryption-decryption/aes)
+
+  _CFB (??) decryption is almost identical to CBC encryption performed in reverse._
+
+* [aes-ctr](https://github.com/JeffDeCola/my-go-examples/tree/master/encryption-decryption/aes)
+
+  _CTR ()?? mode has similar characteristics to OFB, but also allows a random
+  access property during decryption._
+
+* [aes-ofb](https://github.com/JeffDeCola/my-go-examples/tree/master/encryption-decryption/aes)
+
+  _OFB (Output Feedback) makes a block cipher into a synchronous stream cipher._
+
 ### GOROUTINES
 
 _Go is written for concurrency.
@@ -225,7 +254,7 @@ The OS schedules these threads on cpus/cores._
 
 ### JEFFS GO TEMPLATES
 
-_A starting point for all my go projects._
+_My starting point for all my go projects._
 
 * [jeffs-basic-go-template](https://github.com/JeffDeCola/my-go-examples/tree/master/jeffs-go-templates/jeffs-basic-go-template)
 
@@ -332,13 +361,15 @@ for the standard go packages_
 
 * [decryptfile](https://github.com/JeffDeCola/my-go-examples/tree/master/useful-tools-i-created/decryptfile)
 
-  _Decrypt a file with 32 byte hash key using the `crypto/aes` package. Works with
-   [encryptfile](https://github.com/JeffDeCola/my-go-examples/tree/master/useful-tools-i-created/encryptfile)._
+  _Decrypt a file with AES-256 (a 32-byte hash key) using the `crypto/aes` package.
+  Works with
+  [encryptfile](https://github.com/JeffDeCola/my-go-examples/tree/master/useful-tools-i-created/encryptfile)._
 
 * [encryptfile](https://github.com/JeffDeCola/my-go-examples/tree/master/useful-tools-i-created/encryptfile)
 
-  _Encrypt a file with 32 byte hash key using the `crypto/aes` package. Works with
-   [decryptfile](https://github.com/JeffDeCola/my-go-examples/tree/master/useful-tools-i-created/decryptfile)._
+  _Encrypt a file with AES-256 (a 32-byte hash key) using the `crypto/aes` package.
+  Works with
+  [decryptfile](https://github.com/JeffDeCola/my-go-examples/tree/master/useful-tools-i-created/decryptfile)._
 
 * [markdown-create-table-of-contents](https://github.com/JeffDeCola/my-go-examples/tree/master/useful-tools-i-created/markdown-create-table-of-contents)
 
