@@ -1,17 +1,22 @@
 # aes example
 
 `aes` is an example of
-tbd._
+a simple AES-256 that can only encrypt 16 bytes of data._
 
-I have the following AES examples,
+I have the following AES mode examples,
 
 * [aes](https://github.com/JeffDeCola/my-go-examples/tree/master/encryption-decryption/aes)
-  (You are here)
+  No Mode **(You are here)**
 * [aes-gcm](https://github.com/JeffDeCola/my-go-examples/tree/master/encryption-decryption/aes-gcm)
+  Galois/Counter Mode
 * [aes-cbc](https://github.com/JeffDeCola/my-go-examples/tree/master/encryption-decryption/aes-cbc)
+  Cipher Block Chaining
 * [aes-cfb](https://github.com/JeffDeCola/my-go-examples/tree/master/encryption-decryption/aes-cfb)
+  Cipher FeedBack Mode
 * [aes-ctr](https://github.com/JeffDeCola/my-go-examples/tree/master/encryption-decryption/aes-ctr)
+  Counter Mode
 * [aes-ofb](https://github.com/JeffDeCola/my-go-examples/tree/master/encryption-decryption/aes-ofb)
+  Output FeedBack Mode
 
 [GitHub Webpage](https://jeffdecola.github.io/my-go-examples/)
 
@@ -31,7 +36,7 @@ Decrypted Text:  Hello Jeff, only
 
 ## HOW IT WORKS
 
-This example is simple and very limiting.
+This example is simple and very limiting and has `no mode`.
 It will only encrypt 16 bytes of data.
 
 Encryption,
