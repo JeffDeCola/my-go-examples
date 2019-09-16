@@ -7,7 +7,6 @@ import (
 	"log"
 )
 
-// Check your error
 func checkErr(err error) {
 	if err != nil {
 		fmt.Printf("Error is %+v\n", err)
@@ -46,7 +45,7 @@ func decrypt(key []byte, cipherText string) string {
 	// DECRYPT DATA - PLACE IN plainTextByte
 	block.Decrypt(plainTextByte, cipherTextByte)
 
-	// RETRUN STRING
+	// RETURN STRING
 	plainText := string(plainTextByte[:])
 	return plainText
 }
@@ -58,8 +57,8 @@ func main() {
 	key := []byte(keyText)
 
 	// DATA
-	// Must be at least 16 BYTES
-	plainText := "Hello Jeff, only 16 Bytes of this will be encrypted"
+	// Must be at least 16 bytes
+	plainText := "Hello Jeff, only 16 Bytes of this will be encrypted."
 	fmt.Printf("Original Text:   %s\n", plainText)
 
 	// ENCRYPT

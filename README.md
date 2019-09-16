@@ -198,29 +198,31 @@ _Using c with go._
 
 * [aes](https://github.com/JeffDeCola/my-go-examples/tree/master/encryption-decryption/aes)
 
-  _Simple aes._
+  _AES-256 **No mode** encryption that can only encrypt 16 bytes of data._
 
 * [aes-gcm](https://github.com/JeffDeCola/my-go-examples/tree/master/encryption-decryption/aes-gcm)
 
-  _GCM (galois/counter mode)._
+  _AES-256 **GCM** (**Galois/Counter Mode**) mode encryption ???._
 
 * [aes-cbc](https://github.com/JeffDeCola/my-go-examples/tree/master/encryption-decryption/aes-cbc)
 
-  _CBC () where block of plaintext is XORed with the previous cipherText block
-  before being encrypted._
+  _AES-256 **CBC** (**Cipher Block Chaining**) mode encryption where a block of
+  plaintext is XORed with the previous cipherText block before being encrypted._
 
 * [aes-cfb](https://github.com/JeffDeCola/my-go-examples/tree/master/encryption-decryption/aes-cfb)
 
-  _CFB (??) decryption is almost identical to CBC encryption performed in reverse._
+  _AES-256 **CFB** (**Cipher Feedback**) mode is almost identical to CBC encryption
+  performed in reverse._
 
 * [aes-ctr](https://github.com/JeffDeCola/my-go-examples/tree/master/encryption-decryption/aes-ctr)
 
-  _CTR ()?? mode has similar characteristics to OFB, but also allows a random
-  access property during decryption._
+  _AES-256 **CTR** (**Counter**) mode has similar characteristics to OFB, but also
+  allows a random access property during decryption._
 
 * [aes-ofb](https://github.com/JeffDeCola/my-go-examples/tree/master/encryption-decryption/aes-ofb)
 
-  _OFB (Output Feedback) makes a block cipher into a synchronous stream cipher._
+  _AES-256 **OFB** (**Output Feedback**) mode encryption makes a block cipher
+  into a synchronous stream cipher._
 
 ### GOROUTINES
 
