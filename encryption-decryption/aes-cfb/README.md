@@ -1,7 +1,7 @@
 # aes-cfb example
 
-`aes-cfb` is an example of
-AES-256 **CFB** (**Cipher Feedback**) mode
+`aes-cfb` _is an example of
+AES-256 **CFB** (**Cipher FeedBack**) mode
 is almost identical to CBC mode but performed in reverse._
 
 I have the following AES mode examples,
@@ -13,11 +13,11 @@ I have the following AES mode examples,
 * [aes-cbc](https://github.com/JeffDeCola/my-go-examples/tree/master/encryption-decryption/aes-cbc)
   Cipher Block Chaining
 * [aes-cfb](https://github.com/JeffDeCola/my-go-examples/tree/master/encryption-decryption/aes-cfb)
-  Cipher Feedback Mode **(You are here)**
+  Cipher FeedBack Mode **(You are here)**
 * [aes-ctr](https://github.com/JeffDeCola/my-go-examples/tree/master/encryption-decryption/aes-ctr)
   Counter Mode
 * [aes-ofb](https://github.com/JeffDeCola/my-go-examples/tree/master/encryption-decryption/aes-ofb)
-  Output Feedback Mode
+  Output FeedBack Mode
 
 [GitHub Webpage](https://jeffdecola.github.io/my-go-examples/)
 

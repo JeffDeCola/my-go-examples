@@ -19,10 +19,10 @@ func checkErr(err error) {
 	}
 }
 
-func encrypt(keyByte []byte, nonce []byte, plaintext string) string {
+func encrypt(keyByte []byte, nonce []byte, plainText string) string {
 
-	plaintextByte := []byte(plaintext)
-	cipherTextByte := make([]byte, len(plaintext))
+	plainTextByte := []byte(plainText)
+	cipherTextByte := make([]byte, len(plainText))
 
 	// GET CIPHER BLOCK USING KEY
 	block, err := aes.NewCipher(keyByte)
@@ -32,7 +32,7 @@ func encrypt(keyByte []byte, nonce []byte, plaintext string) string {
 	cbc := cipher.NewCBCEncrypter(block, nonce)
 
 	// ENCRYPT DATA
-	cbc.CryptBlocks(cipherTextByte, plaintextByte)
+	cbc.CryptBlocks(cipherTextByte, plainTextByte)
 
 	// RETURN HEX
 	cipherText := hex.EncodeToString(cipherTextByte)
@@ -71,7 +71,7 @@ func main() {
 	// IN CBC Must be Block Size of AES (Multiple of 16)
 	plainText := "This is AES-256 CBC (32 Bytes)!!"
 	if len(plainText)%aes.BlockSize != 0 {
-		panic("Plaintext is not a multiple of the block size")
+		panic("plainText is not a multiple of the block size")
 	}
 	fmt.Printf("\nOriginal Text:           %s\n\n", plainText)
 
