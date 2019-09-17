@@ -14,17 +14,17 @@ func checkErr(err error) {
 	}
 }
 
-func encrypt(key []byte, plaintext string) string {
+func encrypt(keyByte []byte, plaintext string) string {
 
 	// WILL ONLY ENCRYPT 16 BYTES (128 bits)
 	plaintextByte := []byte(plaintext)
 	cipherTextByte := make([]byte, 16)
 
 	// GET CIPHER BLOCK USING KEY
-	block, err := aes.NewCipher(key)
+	block, err := aes.NewCipher(keyByte)
 	checkErr(err)
 
-	// ENCRYPT DATA - PLACE IN cipherTextByte
+	// ENCRYPT DATA
 	block.Encrypt(cipherTextByte, plaintextByte)
 
 	// RETURN HEX
@@ -32,17 +32,17 @@ func encrypt(key []byte, plaintext string) string {
 	return cipherText
 }
 
-func decrypt(key []byte, cipherText string) string {
+func decrypt(keyByte []byte, cipherText string) string {
 
 	// IT IS 16 BYTES (128 bits)
 	cipherTextByte, _ := hex.DecodeString(cipherText)
 	plainTextByte := make([]byte, 16)
 
 	// GET CIPHER BLOCK USING KEY
-	block, err := aes.NewCipher(key)
+	block, err := aes.NewCipher(keyByte)
 	checkErr(err)
 
-	// DECRYPT DATA - PLACE IN plainTextByte
+	// DECRYPT DATA
 	block.Decrypt(plainTextByte, cipherTextByte)
 
 	// RETURN STRING
@@ -52,21 +52,22 @@ func decrypt(key []byte, cipherText string) string {
 
 func main() {
 
-	// KEY
-	keyText := "myverystrongpasswordo32bitlength"
-	key := []byte(keyText)
-
 	// DATA
 	// Must be at least 16 bytes
 	plainText := "Hello Jeff, only 16 Bytes of this will be encrypted."
-	fmt.Printf("Original Text:   %s\n", plainText)
+	fmt.Printf("\nOriginal Text:           %s\n\n", plainText)
+
+	// KEY
+	keyText := "myverystrongpasswordo32bitlength"
+	keyByte := []byte(keyText)
+	fmt.Printf("The 32-byte Key:         %s\n\n", keyText)
 
 	// ENCRYPT
-	cipherText := encrypt(key, plainText)
-	fmt.Printf("Encrypted Text:  %s\n", cipherText)
+	cipherText := encrypt(keyByte, plainText)
+	fmt.Printf("Encrypted Text:          %s\n", cipherText)
 
 	// DECRYPT
-	plainText = decrypt(key, cipherText)
-	fmt.Printf("Decrypted Text:  %s\n", plainText)
+	plainText = decrypt(keyByte, cipherText)
+	fmt.Printf("Decrypted Text:          %s\n\n", plainText)
 
 }

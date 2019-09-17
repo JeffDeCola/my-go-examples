@@ -1,7 +1,9 @@
 # aes-cbc example
 
-`aes-cbc` is an example of
-tbd._
+`aes-cbc` _is an example of
+AES-256 **CBC** (**Cipher Block Chaining**) mode encryption
+where a block of plaintext is XORed with the previous cipherText
+block before being encrypted._
 
 I have the following AES mode examples,
 
@@ -34,4 +36,16 @@ You output should be,
 
 ## HOW IT WORKS
 
-This example is simple.
+????
+
+Encryption using your gc??m block,
+
+```go
+// ENCRYPT DATA - PLACE IN cipherTextByte
+```
+
+Decryption using your ??? block,
+
+```go
+// DECRYPT DATA - PLACE IN plainTextByte
+```
