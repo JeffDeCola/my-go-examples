@@ -41,11 +41,12 @@ Decrypted Text:          This is AES-256 CFB!!
 
 ## HOW IT WORKS
 
-The Cipher Feedback (CFB) mode, a close relative of CBC,
-makes a block cipher into a self-synchronizing stream cipher.
-CFB decryption is almost identical to CBC encryption performed in reverse.
+* Makes a block cipher into a self-synchronizing stream cipher
+* CFB decryption is almost identical to CBC encryption performed in reverse
+* The IV value should be equal to AES block size
+* A different nonce is needed for every message
+* Encryption but not message integrity
 
-The IV value should be equal to AES block size.
 For simplicity I did not include the nonce in the cipherText.
 
 Encryption,

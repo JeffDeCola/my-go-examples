@@ -42,14 +42,14 @@ Decrypted Text:          This is AES-256 CTR (32 Bytes)!!
 
 ## HOW IT WORKS
 
-The Counter (CTR) mode has similar characteristics to OFB,
-but also allows a random access property during decryption.
-CTR mode is well suited to operate on a multi-processor
-machine where blocks can be encrypted in parallel.
-Like CBC, In CTR Mode the given plaintext should be multiple of AES block size,
-hence padding would have to be added when encrypting (Not in this example).
-Because of the symmetry of the XOR operation, encryption and decryption
-are exactly the same.
+* The Counter (CTR) mode has similar characteristics to OFB
+* Allows a random access property during decryption
+* Well suited to operate on a multi-processor
+  machine where blocks can be encrypted in parallel
+* plaintext should be multiple of AES block size,
+  hence padding would have to be added when encrypting (Not in this example)
+* Because of the symmetry of the XOR operation, encryption and decryption
+  are exactly the same.
 
 For simplicity I did not include the nonce in the cipherText.
 
