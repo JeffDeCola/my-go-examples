@@ -42,11 +42,11 @@ Decrypted Text:          This is AES-256 CBC (32 Bytes)!!
 
 ## HOW IT WORKS
 
-In CBC Mode the given plaintext should be multiple of AES block size.
-If the original plaintext lengths are not a multiple of the block size,
-padding would have to be added when encrypting (Not in this example).
+* plainText should be multiple of AES block size,
+  else padding may be used.
+* The IV value should be equal to AES block size.
+* Encryption but not message integrity
 
-The IV value should be equal to AES block size.
 For simplicity I did not include the nonce in the cipherText.
 
 Encryption,
