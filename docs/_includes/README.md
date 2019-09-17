@@ -112,6 +112,12 @@ other cool programs._
     circles, rectangles and triangles using methods.
     Also refer to **function** and **interface** implementations above._
 
+### BLOCKCHAIN
+
+* [simple-blockchain](https://github.com/JeffDeCola/my-go-examples/tree/master/blockchain/simple-blockchain)
+
+  _A simple blockchain that can be used to build bigger and better things._
+
 ### CGO
 
 _Using c with go._
@@ -153,6 +159,42 @@ _Using c with go._
 
   _A non-relational (NoSQL) database - Set/Get from/to a key/value pair._
 
+### ENCRYPTION / DECRYPTION
+
+* [aes](https://github.com/JeffDeCola/my-go-examples/tree/master/encryption-decryption/aes)
+
+  _AES-256 **No Mode**
+  can only encrypt/decrypt 16 bytes of data._
+
+* [aes-gcm](https://github.com/JeffDeCola/my-go-examples/tree/master/encryption-decryption/aes-gcm)
+
+  _AES-256 **GCM** (**Galois/Counter Mode**)
+  is a block cipher counter mode with authentication._
+
+* [aes-cbc](https://github.com/JeffDeCola/my-go-examples/tree/master/encryption-decryption/aes-cbc)
+
+  _AES-256 **CBC** (**Cipher Block Chaining**) mode
+  where a block of plaintext is XORed with the previous cipherText block before
+  being encrypted._
+
+* [aes-cfb](https://github.com/JeffDeCola/my-go-examples/tree/master/encryption-decryption/aes-cfb)
+
+  _AES-256 **CFB** (**Cipher FeedBack**) mode
+  is almost identical to CBC mode but performed in reverse._
+
+* [aes-ctr](https://github.com/JeffDeCola/my-go-examples/tree/master/encryption-decryption/aes-ctr)
+
+  _AES-256 **CTR** (**Counter**) mode
+  has similar characteristics to OFB, but also
+  allows a random access property during decryption._
+
+* [aes-ofb](https://github.com/JeffDeCola/my-go-examples/tree/master/encryption-decryption/aes-ofb)
+
+  _AES-256 **OFB** (**Output FeedBack**) mode
+  makes a block cipher into a synchronous stream cipher.
+  It generates keystream blocks, which are XORed with the plaintext blocks
+  to get the cipherText._
+
 ### GOROUTINES
 
 _Go is written for concurrency.
@@ -185,7 +227,7 @@ The OS schedules these threads on cpus/cores._
 
 ### JEFFS GO TEMPLATES
 
-_A starting point for all my go projects._
+_My starting point for all my go projects._
 
 * [jeffs-basic-go-template](https://github.com/JeffDeCola/my-go-examples/tree/master/jeffs-go-templates/jeffs-basic-go-template)
 
@@ -237,7 +279,8 @@ for the standard go packages_
 * [crypto/md5](https://github.com/JeffDeCola/my-go-examples/tree/master/packages/crypto-md5)
   _(standard)_
 
-  _The crypto/md5 package is used for getting an md5 fingerprint from an ssh key._
+  _The crypto/md5 package is used for getting an md5 fingerprint (hash)
+  from an ssh key._
 
 * [errors](https://github.com/JeffDeCola/my-go-examples/tree/master/packages/errors)
   _(github.com/pkg/errors)_
@@ -286,18 +329,6 @@ for the standard go packages_
 * [gotests-complex-function](https://github.com/JeffDeCola/my-go-examples/tree/master/testing/gotests-complex-function)
 
   _Using the go tool `gotests` to test a function with complex inputs and outputs._
-
-### USEFUL TOOLS I CREATED
-
-* [markdown-create-table-of-contents](https://github.com/JeffDeCola/my-go-examples/tree/master/useful-tools-i-created/markdown-create-table-of-contents)
-
-  _Parse a markdown file to find `##`, `###` to create a table of contents (TOC)
-  for links at github.  I like to use a TOC at the beginning of my README.md files._
-
-* [markdown-delimiter-doer](https://github.com/JeffDeCola/my-go-examples/tree/master/useful-tools-i-created/markdown-delimiter-doer)
-
-  _Take a markdown file and "do whatever you want" between the delimiters
-  and output new markdown file._
 
 ### WEBSERVER
 
