@@ -19,40 +19,43 @@ import (
 
 // HASH THE PARAPHRASE TO GET 32 BYTE KEY
 func createKey(paraphrase string) (string, error) {
-	log.Trace("hashing the paraphrase")
+	log.Trace("Hashing the paraphrase")
 	hasher := md5.New()
 	hasher.Write([]byte(paraphrase))
 	hash := hex.EncodeToString(hasher.Sum(nil))
-	log.Trace("hash is ", hash)
+	log.Trace("Hash is ", hash)
 	return hash, nil
 }
 
 // ENCRYPT DATA WITH 32 BYTE KEY AND RETURN CIPHERTEXT
-func encrypt(data []byte, hashKey string) []byte {
+func encrypt(keyByte []byte, plainTextByte []byte) string {
 
-	// generate a new aes cipher using our 32 byte long key
-	block, err := aes.NewCipher([]byte(hashKey))
+	// GET CIPHER BLOCK USING KEY
+	block, err := aes.NewCipher(keyByte)
 	checkErr(err)
 
-	// gcm or Galois/Counter Mode, is a mode of operation
-	// for symmetric key cryptographic block ciphers
+	// GET GCM INSTANCE THAT USES THE AES CIPHER
 	gcm, err := cipher.NewGCM(block)
 	checkErr(err)
 
-	// Creates a new byte array the size of the nonce
+	// CREATE A NONCE
 	nonce := make([]byte, gcm.NonceSize())
-
 	// Populates our nonce with a cryptographically secure random sequence
 	if _, err = io.ReadFull(rand.Reader, nonce); err != nil {
 		panic(err.Error())
 	}
 
-	// Encrypt our text using the Seal function
-	cipherText := gcm.Seal(nonce, nonce, data, nil)
+	// ENCRYPT DATA
+	// Note how we put the Nonce in the beginging,
+	// So we can rip it out when we decrypt
+	cipherTextByte := gcm.Seal(nonce, nonce, plainTextByte, nil)
+
+	// RETURN HEX
+	cipherText := hex.EncodeToString(cipherTextByte)
 	return cipherText
 }
 
-func writeCipherTextHex(cipherTextHex string, outputFile *os.File) {
+func writeCipherText(cipherText string, outputFile *os.File) {
 
 	_, err := outputFile.WriteString("\nThis secret file was created by Jeff DeCola\n")
 	checkErr(err)
@@ -62,8 +65,8 @@ func writeCipherTextHex(cipherTextHex string, outputFile *os.File) {
 	_, err = outputFile.WriteString("\n--------------------------------------------------------------------------------\n")
 	checkErr(err)
 
-	// Chop up the cipherTextHex into lines of 80 characters into a slice.
-	a := []rune(cipherTextHex)
+	// Chop up the cipherText into lines of 80 characters into a slice.
+	a := []rune(cipherText)
 	line := ""
 	numberLines := 0
 	numberCharacters := 0
@@ -95,7 +98,6 @@ func writeCipherTextHex(cipherTextHex string, outputFile *os.File) {
 	checkErr(err)
 }
 
-// Check your error
 func checkErr(err error) {
 	if err != nil {
 		fmt.Printf("Error is %+v\n", err)
@@ -120,7 +122,7 @@ func init() {
 
 func main() {
 
-	// GET FILE NAME
+	// GET FILE NAME FROM ARGS
 	flag.Parse()
 	filenameSlice := flag.Args()
 	if len(filenameSlice) != 2 {
@@ -130,39 +132,43 @@ func main() {
 	filename := filenameSlice[0]    // Make it a string
 	filenameout := filenameSlice[1] // Make it a string
 
-	// READ THE FILE - Will be a slice of bytes
+	// DATA
+	// Read the file - Will be a slice of bytes
 	log.Trace("Read the file to encrypt")
 	fileDataToEncrypt, err := ioutil.ReadFile(filename)
 	checkErr(err)
 	// fmt.Printf("Data/File to encrypt\n--------------------\n%s\n--------------------\n", fileDataToEncrypt)
 
-	// GET THE PARAPHRASE - ASK USER
+	// PARAPHRASE
+	// Ask the User
 	log.Trace("Get the paraphrase")
 	paraphrase := ""
 	fmt.Printf("\nWhat is your secret paraphrase? ")
 	_, err = fmt.Scan(&paraphrase)
 	checkErr(err)
 
-	// HASH THE PARAPHRASE TO GET 32 BYTE KEY STRING
+	// KEY
+	// Has the paraphrase to get 32 Byte Key
 	log.Trace("hash the paraphrase to get 32 byte key")
-	hashKey, err := createKey(paraphrase)
+	keyText, err := createKey(paraphrase)
+	keyByte := []byte(keyText)
 	checkErr(err)
 
-	// ENCRYPT DATA WITH KEY - cipherText is a slice of bytes
+	// ENCRYPT
 	log.Trace("Encrypt file with key")
 	fmt.Println("Encrypting input file")
-	cipherText := encrypt(fileDataToEncrypt, hashKey)
-	cipherTextHex := hex.EncodeToString(cipherText)
-	//fmt.Printf("Encrypted Data\n--------------------\n%v\n--------------------\n", cipherTextHex)
+	cipherText := encrypt(keyByte, fileDataToEncrypt)
+	//fmt.Printf("Encrypted Data\n--------------------\n%s\n--------------------\n", cipherText)
 
-	// WRITE cipherTextHex TO A FILE
+	// WRITE TO FILE
+	// Write cipherTex TO A FILE
 	log.Trace("Write cipherText to a file")
 	// Create file
 	outputFile, err := os.Create(filenameout)
 	checkErr(err)
 	defer outputFile.Close()
 	// This just makes it nice and pretty
-	writeCipherTextHex(cipherTextHex, outputFile)
+	writeCipherText(cipherText, outputFile)
 	fmt.Printf("Wrote output file\n\n")
 
 }

@@ -25,29 +25,34 @@ func createKey(paraphrase string) (string, error) {
 }
 
 // DECRYPT DATA WITH 32 BYTE KEY AND RETURN PLAINTEXT
-func decrypt(data []byte, hashKey string) []byte {
+func decrypt(keyByte []byte, cipherText string) []byte {
 
-	// Generate a new aes cipher using our 32 byte long key
-	key := []byte(hashKey)
-	block, err := aes.NewCipher(key)
+	cipherTextByte, _ := hex.DecodeString(cipherText)
+
+	// GET CIPHER BLOCK USING KEY
+	block, err := aes.NewCipher(keyByte)
 	checkErr(err)
 
-	// gcm or Galois/Counter Mode, is a mode of operation
-	// for symmetric key cryptographic block ciphers
+	// GET GCM BLOCK
 	gcm, err := cipher.NewGCM(block)
 	checkErr(err)
 
+	// EXTRACT NONCE FROM cipherTextByte
+	// Because I put it there
 	nonceSize := gcm.NonceSize()
-	nonce, cipherText := data[:nonceSize], data[nonceSize:]
-	plaintext, err := gcm.Open(nil, nonce, cipherText, nil)
+	nonce, cipherTextByte := cipherTextByte[:nonceSize], cipherTextByte[nonceSize:]
+
+	// DECRYPT DATA
+	plainTextByte, err := gcm.Open(nil, nonce, cipherTextByte, nil)
 	checkErr(err)
 
-	return plaintext
+	// RETURN STRING
+	return plainTextByte
 }
 
-func getCipherText(inputFile *os.File) []byte {
+func getCipherText(inputFile *os.File) string {
 
-	cipherTextHex := ""
+	cipherText := ""
 
 	// Start scanning the input file line by line
 	scanner := bufio.NewScanner(inputFile) // Increment the token
@@ -70,13 +75,11 @@ func getCipherText(inputFile *os.File) []byte {
 				if line == "--------------------------------------------------------------------------------" {
 					break
 				}
-				cipherTextHex = cipherTextHex + line
+				cipherText = cipherText + line
 			}
 		}
 	}
 
-	cipherText, err := hex.DecodeString(cipherTextHex)
-	checkErr(err)
 	return cipherText
 
 }
@@ -106,7 +109,7 @@ func init() {
 
 func main() {
 
-	// GET FILE NAME
+	// GET FILE NAME FROM ARGS
 	flag.Parse()
 	filenameSlice := flag.Args()
 	if len(filenameSlice) != 2 {
@@ -116,41 +119,47 @@ func main() {
 	filename := filenameSlice[0]    // Make it a string
 	filenameout := filenameSlice[1] // Make it a string
 
-	// READ THE FILE- Will be a slice of bytes
+	// DATA
+	// Read the file - Will be a slice of bytes
 	log.Trace("Read the file to decrypt")
 	// Open input file
 	inputFile, err := os.Open(filename)
 	checkErr(err)
 	defer inputFile.Close()
 
-	// GET CIPHERTEXT (in bytes) FROM INPUT FILE
+	// GET CIPHERTEXT
+	// (in bytes) FROM INPUT FILE
 	cipherText := getCipherText(inputFile)
 	// fmt.Printf("Data/File to decrypt\n--------------------\n%x\n--------------------\n", cipherText)
 
-	// GET THE PARAPHRASE - ASK USER
+	// PARAPHRASE
+	// Ask the User
 	log.Trace("Get the paraphrase")
 	paraphrase := ""
 	fmt.Printf("\nWhat is your secret paraphrase? ")
 	_, err = fmt.Scan(&paraphrase)
 	checkErr(err)
 
-	// HASH THE PARAPHRASE TO GET 32 BYTE KEY STRING
+	// KEY
+	// Has the paraphrase to get 32 Byte Key
 	log.Trace("hash the paraphrase to get 32 byte key")
-	hashKey, err := createKey(paraphrase)
+	keyText, err := createKey(paraphrase)
+	keyByte := []byte(keyText)
 	checkErr(err)
 
 	// DECRYPT
 	log.Trace("Decrypt cipherText with key")
 	fmt.Println("Decrypting input file")
-	plainText := decrypt(cipherText, hashKey)
+	plainTextByte := decrypt(keyByte, cipherText)
 	// fmt.Printf("Decrypted Data\n--------------------\n%s\n--------------------\n", plainText)
 
-	// WRITE TO A FILE (ADD DATE)
-	log.Trace("Write plainText to a file")
+	// WRITE TO FILE
+	// Write plainText TO A FILE
+	log.Trace("Write plainTextByte to a file")
 	f, err := os.Create(filenameout)
 	checkErr(err)
 	defer f.Close()
-	f.Write(plainText)
+	f.Write(plainTextByte)
 	fmt.Printf("Wrote output file\n\n")
 
 }

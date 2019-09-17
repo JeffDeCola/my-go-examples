@@ -1,7 +1,7 @@
 # aes-gcm example
 
 `aes-gcm` _is an example of
-_AES-256 **GCM** (**Galois/Counter Mode**) mode encryption,
+_AES-256 **GCM** (**Galois/Counter Mode**) mode,
 a block cipher counter mode with authentication._
 
 I have the following AES mode examples,
@@ -48,6 +48,7 @@ Its because I put it there so I can extract it during decrypt.
 A Counter mode effectively turns a block cipher into a stream cipher,
 and therefore many of the rules for stream ciphers still apply.
 GCM uses an IV (Initialization Vector) or Nonce.
+I also used some Additional Data for authentication.
 
 Encryption using your gcm block,
 

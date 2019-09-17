@@ -1,11 +1,11 @@
 # decryptfile tool
 
 `decryptfile` _is a useful tool for
-decryptfile a file with AES-256 (a 32-byte hash key) using the `crypto/aes` package.
+decryptfile a file with AES-256 GCM (a 32-byte hash key) using the `crypto/aes` package.
 
 Use my other tool
-[encryptfile](https://github.com/JeffDeCola/my-go-examples/tree/master/useful-tools-i-created/encryptfile)
-to encrypt.
+[encryptfile](https://github.com/JeffDeCola/my-go-examples/tree/master/useful-tools-i-created/decryptfile)
+to decrypt.
 
 [GitHub Webpage](https://jeffdecola.github.io/my-go-examples/)
 
@@ -28,7 +28,7 @@ block cipher chosen by the U.S. government to protect classified
 information and is implemented in software and hardware throughout
 the world to encrypt sensitive data.
 
-We're going to use AES encryption from the standard go
+We're going to use AES-256 GCM encryption from the standard go
 [crypto/aes](https://golang.org/pkg/crypto/aes/)
 package.
 
@@ -48,27 +48,11 @@ hash := hex.EncodeToString(hasher.Sum(nil))
 
 ### STEP 2 - DECRYPT FILE WITH 32 BYTE HASH KEY
 
-Noe we use that hash key with the data to decrypt the file,
+The encryption was done using AES-256 GCM from my example
+[aes-gcm](https://github.com/JeffDeCola/my-go-examples/tree/master/encryption-decryption/aes-gcm).
 
-```go
-func decrypt(data []byte, hashKey string) []byte {
+Refer to that example for a complete description.
 
-    // Generate a new aes cipher using our 32 byte long key
-    key := []byte(hashKey)
-    block, _ := aes.NewCipher(key)
+This illustration may help,
 
-    // gcm or Galois/Counter Mode, is a mode of operation
-    // for symmetric key cryptographic block ciphers
-    gcm, _ := cipher.NewGCM(block)
-
-    nonceSize := gcm.NonceSize()
-    nonce, cipherText := data[:nonceSize], data[nonceSize:]
-    plaintext, _ := gcm.Open(nil, nonce, cipherText, nil)
-
-    return plaintext
-}
-```
-
-Refer to some examples of AES in my
-[ENCRYPTION/DECRYPTION](https://github.com/JeffDeCola/my-go-examples#encryption--decryption)
-section.
+![IMAGE - decryptfile - IMAGE](../../docs/pics/decryptfile.jpg)

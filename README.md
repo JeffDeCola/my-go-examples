@@ -198,33 +198,35 @@ _Using c with go._
 
 * [aes](https://github.com/JeffDeCola/my-go-examples/tree/master/encryption-decryption/aes)
 
-  _AES-256 **No mode** encryption/decryption that can only encrypt/decrypt
-  16 bytes of data._
+  _AES-256 **No Mode**
+  can only encrypt/decrypt 16 bytes of data._
 
 * [aes-gcm](https://github.com/JeffDeCola/my-go-examples/tree/master/encryption-decryption/aes-gcm)
 
-  _AES-256 **GCM** (**Galois/Counter Mode**) mode encryption is a block cipher
-  counter mode with authentication._
+  _AES-256 **GCM** (**Galois/Counter Mode**)
+  is a block cipher counter mode with authentication._
 
 * [aes-cbc](https://github.com/JeffDeCola/my-go-examples/tree/master/encryption-decryption/aes-cbc)
 
-  _AES-256 **CBC** (**Cipher Block Chaining**) mode encryption where a block of
-  plaintext is XORed with the previous cipherText block before being encrypted._
+  _AES-256 **CBC** (**Cipher Block Chaining**) mode
+  where a block of plaintext is XORed with the previous cipherText block before
+  being encrypted._
 
 * [aes-cfb](https://github.com/JeffDeCola/my-go-examples/tree/master/encryption-decryption/aes-cfb)
 
-  _AES-256 **CFB** (**Cipher Feedback**) mode is almost identical to CBC encryption
-  performed in reverse._
+  _AES-256 **CFB** (**Cipher Feedback**) mode
+  is almost identical to CBC encryption performed in reverse._
 
 * [aes-ctr](https://github.com/JeffDeCola/my-go-examples/tree/master/encryption-decryption/aes-ctr)
 
-  _AES-256 **CTR** (**Counter**) mode has similar characteristics to OFB, but also
+  _AES-256 **CTR** (**Counter**) mode
+  has similar characteristics to OFB, but also
   allows a random access property during decryption._
 
 * [aes-ofb](https://github.com/JeffDeCola/my-go-examples/tree/master/encryption-decryption/aes-ofb)
 
-  _AES-256 **OFB** (**Output Feedback**) mode encryption makes a block cipher
-  into a synchronous stream cipher._
+  _AES-256 **OFB** (**Output Feedback**) mode
+  makes a block cipher into a synchronous stream cipher._
 
 ### GOROUTINES
 
@@ -365,13 +367,13 @@ for the standard go packages_
 
 * [decryptfile](https://github.com/JeffDeCola/my-go-examples/tree/master/useful-tools-i-created/decryptfile)
 
-  _Decrypt a file with AES-256 (a 32-byte hash key) using the `crypto/aes` package.
+  _Decrypt a file with AES-256 GCM (a 32-byte hash key) using the `crypto/aes` package.
   Works with
   [encryptfile](https://github.com/JeffDeCola/my-go-examples/tree/master/useful-tools-i-created/encryptfile)._
 
 * [encryptfile](https://github.com/JeffDeCola/my-go-examples/tree/master/useful-tools-i-created/encryptfile)
 
-  _Encrypt a file with AES-256 (a 32-byte hash key) using the `crypto/aes` package.
+  _Encrypt a file with AES-256 GCM (a 32-byte hash key) using the `crypto/aes` package.
   Works with
   [decryptfile](https://github.com/JeffDeCola/my-go-examples/tree/master/useful-tools-i-created/decryptfile)._
 
