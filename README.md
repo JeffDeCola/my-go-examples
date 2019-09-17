@@ -215,7 +215,7 @@ _Using c with go._
 * [aes-cfb](https://github.com/JeffDeCola/my-go-examples/tree/master/encryption-decryption/aes-cfb)
 
   _AES-256 **CFB** (**Cipher Feedback**) mode
-  is almost identical to CBC encryption performed in reverse._
+  is almost identical to CBC mode but performed in reverse._
 
 * [aes-ctr](https://github.com/JeffDeCola/my-go-examples/tree/master/encryption-decryption/aes-ctr)
 
