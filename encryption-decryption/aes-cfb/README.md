@@ -1,7 +1,8 @@
 # aes-cfb example
 
 `aes-cfb` is an example of
-tbd._
+AES-256 **CFB** (**Cipher Feedback**) mode
+is almost identical to CBC mode but performed in reverse._
 
 I have the following AES mode examples,
 
@@ -29,9 +30,56 @@ run aes-cfb.go
 You output should be,
 
 ```txt
+Original Text:           This is AES-256 CFB!!
 
+The 32-byte Key:         myverystrongpasswordo32bitlength
+The Nonce:               3f267a60bf96b424fa144da8fc4869d4
+
+Encrypted Text:          6a2544cec434601d000afd43d7a1d9edd18f68320a
+Decrypted Text:          This is AES-256 CFB!!
 ```
 
 ## HOW IT WORKS
 
-This example is simple.
+The Cipher Feedback (CFB) mode, a close relative of CBC,
+makes a block cipher into a self-synchronizing stream cipher.
+CFB decryption is almost identical to CBC encryption performed in reverse.
+
+The IV value should be equal to AES block size.
+For simplicity I did not include the nonce in the cipherText.
+
+Encryption,
+
+```go
+// GET CIPHER BLOCK USING KEY
+block, err := aes.NewCipher(keyByte)
+
+// GET CFB ENCRYPTER
+cfb := cipher.NewCFBEncrypter(block, nonce)
+
+// ENCRYPT DATA
+cfb.XORKeyStream(cipherTextByte, plaintextByte)
+
+// RETURN HEX
+cipherText := hex.EncodeToString(cipherTextByte)
+```
+
+Decryption,
+
+```go
+// GET CIPHER BLOCK USING KEY
+block, err := aes.NewCipher(keyByte)
+
+// GET CFB DECRYPTER
+cfb := cipher.NewCFBDecrypter(block, nonce)
+
+// DECRYPT DATA
+cfb.XORKeyStream(plainTextByte, cipherTextByte)
+
+// RETURN STRING
+plainText := string(plainTextByte[:])
+```
+
+This illustration may help,
+
+![IMAGE - aes-cfb - IMAGE](../../docs/pics/aes-cfb.jpg)

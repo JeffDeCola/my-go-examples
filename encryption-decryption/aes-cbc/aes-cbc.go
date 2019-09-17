@@ -1,3 +1,5 @@
+// my-go-examples aes-cbc.go
+
 package main
 
 import (
@@ -7,73 +9,92 @@ import (
 	"encoding/hex"
 	"fmt"
 	"io"
+	"log"
 )
+
+func checkErr(err error) {
+	if err != nil {
+		fmt.Printf("Error is %+v\n", err)
+		log.Fatal("ERROR:", err)
+	}
+}
+
+func encrypt(keyByte []byte, nonce []byte, plaintext string) string {
+
+	plaintextByte := []byte(plaintext)
+	cipherTextByte := make([]byte, len(plaintext))
+
+	// GET CIPHER BLOCK USING KEY
+	block, err := aes.NewCipher(keyByte)
+	checkErr(err)
+
+	// GET CBC ENCRYPTER
+	cbc := cipher.NewCBCEncrypter(block, nonce)
+
+	// ENCRYPT DATA
+	cbc.CryptBlocks(cipherTextByte, plaintextByte)
+
+	// RETURN HEX
+	cipherText := hex.EncodeToString(cipherTextByte)
+	return cipherText
+}
+
+func decrypt(keyByte []byte, nonce []byte, cipherText string) string {
+
+	cipherTextByte, _ := hex.DecodeString(cipherText)
+	plainTextByte := make([]byte, len(cipherTextByte))
+
+	// CHECK cipherTextByte
+	// CBC mode always works in whole blocks.
+	if len(cipherTextByte)%aes.BlockSize != 0 {
+		panic("cipherTextByte is not a multiple of the block size")
+	}
+
+	// GET CIPHER BLOCK USING KEY
+	block, err := aes.NewCipher(keyByte)
+	checkErr(err)
+
+	// GET CBC DECRYPTER
+	cbc := cipher.NewCBCDecrypter(block, nonce)
+
+	// DECRYPT DATA
+	cbc.CryptBlocks(plainTextByte, cipherTextByte)
+
+	// RETURN STRING
+	plainText := string(plainTextByte[:])
+	return plainText
+}
 
 func main() {
 
-	// Must Kept Secret No Hardcoding , This is for Demo purpose.
-	key := "myverystrongpasswordo32bitlength"
-	plainText := "Hello 8gwifi.org"
-	fmt.Printf("Original Text:  %s\n", plainText)
-	fmt.Println()
-	fmt.Println("====GCM Encryption/ Decryption Without AAD====")
+	// DATA
+	// IN CBC Must be Block Size of AES (Multiple of 16)
+	plainText := "This is AES-256 CBC (32 Bytes)!!"
+	if len(plainText)%aes.BlockSize != 0 {
+		panic("Plaintext is not a multiple of the block size")
+	}
+	fmt.Printf("\nOriginal Text:           %s\n\n", plainText)
 
-	// Never use more than 2^32 random nonces with a given key because of the risk of a repeat.
-	iv := make([]byte, 12)
-	if _, err := io.ReadFull(rand.Reader, iv); err != nil {
+	// KEY
+	keyText := "myverystrongpasswordo32bitlength"
+	keyByte := []byte(keyText)
+	fmt.Printf("The 32-byte Key:         %s\n", keyText)
+
+	// CREATE A NONCE
+	// For this example I'm not including in the cipherText
+	nonce := make([]byte, aes.BlockSize)
+	// Populates the nonce with a cryptographically secure random sequence
+	if _, err := io.ReadFull(rand.Reader, nonce); err != nil {
 		panic(err.Error())
 	}
-	ciphertext := GCM_encrypt(key, plainText, iv, nil)
-	fmt.Printf("GCM Encrypted Text:  %s\n", ciphertext)
-	ret := GCM_decrypt(key, ciphertext, iv, nil)
-	fmt.Printf("GCM Decrypted Text:  %s\n", ret)
-	fmt.Println()
+	fmt.Printf("The Nonce:               %x\n\n", nonce)
 
-	fmt.Println("====GCM Encryption/ Decryption Using AAD====")
+	// ENCRYPT
+	cipherText := encrypt(keyByte, nonce, plainText)
+	fmt.Printf("Encrypted Text:          %s\n", cipherText)
 
-	// Never Use Same IV or Nonce
-	iv = make([]byte, 12)
-	if _, err := io.ReadFull(rand.Reader, iv); err != nil {
-		panic(err.Error())
-	}
-	additionalData := "Not Secret AAD Value"
-	additionalData2 := "Not Shecret AAD Value"
-	ciphertext = GCM_encrypt(key, plainText, iv, []byte(additionalData))
-	fmt.Printf("GCM Encrypted Text:  %s\n", ciphertext)
-	ret = GCM_decrypt(key, ciphertext, iv, []byte(additionalData2))
+	// DECRYPT
+	plainText = decrypt(keyByte, nonce, cipherText)
+	fmt.Printf("Decrypted Text:          %s\n\n", plainText)
 
-	fmt.Printf("GCM Decrypted Text:  %s\n", ret)
-
-}
-
-func GCM_encrypt(key string, plaintext string, iv []byte, additionalData []byte) string {
-	block, err := aes.NewCipher([]byte(key))
-	if err != nil {
-		panic(err.Error())
-	}
-	aesgcm, err := cipher.NewGCM(block)
-	if err != nil {
-		panic(err.Error())
-	}
-	ciphertext := aesgcm.Seal(nil, iv, []byte(plaintext), additionalData)
-	fmt.Printf("%x\n", ciphertext)
-	return hex.EncodeToString(ciphertext)
-}
-
-func GCM_decrypt(key string, ct string, iv []byte, additionalData []byte) string {
-	ciphertext, _ := hex.DecodeString(ct)
-	block, err := aes.NewCipher([]byte(key))
-	if err != nil {
-		panic(err.Error())
-	}
-	aesgcm, err := cipher.NewGCM(block)
-	if err != nil {
-		panic(err.Error())
-	}
-	plaintext, err := aesgcm.Open(nil, iv, ciphertext, additionalData)
-	if err != nil {
-		panic(err.Error())
-	}
-	s := string(plaintext[:])
-	return s
 }
