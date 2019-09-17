@@ -198,11 +198,13 @@ _Using c with go._
 
 * [aes](https://github.com/JeffDeCola/my-go-examples/tree/master/encryption-decryption/aes)
 
-  _AES-256 **No mode** encryption that can only encrypt 16 bytes of data._
+  _AES-256 **No mode** encryption/decryption that can only encrypt/decrypt
+  16 bytes of data._
 
 * [aes-gcm](https://github.com/JeffDeCola/my-go-examples/tree/master/encryption-decryption/aes-gcm)
 
-  _AES-256 **GCM** (**Galois/Counter Mode**) mode encryption ???._
+  _AES-256 **GCM** (**Galois/Counter Mode**) mode encryption is a block cipher
+  counter mode with authentication._
 
 * [aes-cbc](https://github.com/JeffDeCola/my-go-examples/tree/master/encryption-decryption/aes-cbc)
 

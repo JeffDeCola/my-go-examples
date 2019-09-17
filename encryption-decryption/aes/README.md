@@ -1,7 +1,8 @@
 # aes example
 
-`aes` is an example of
-a simple AES-256 that can only encrypt 16 bytes of data._
+`aes` _is an example of
+AES-256 **No mode** encryption/decryption
+that can only encrypt/decrypt 16 bytes of data._
 
 I have the following AES mode examples,
 
@@ -29,9 +30,12 @@ run aes.go
 Your output should be,
 
 ```txt
-Original Text:   Hello Jeff, only 16 Bytes of this will be encrypted
-Encrypted Text:  1d3288a55c1b74826395bd823d7cf0a2
-Decrypted Text:  Hello Jeff, only
+Original Text:           Hello Jeff, only 16 Bytes of this will be encrypted.
+
+The 32-byte Key:         myverystrongpasswordo32bitlength
+
+Encrypted Text:          1d3288a55c1b74826395bd823d7cf0a2
+Decrypted Text:          Hello Jeff, only
 ```
 
 ## HOW IT WORKS
@@ -42,14 +46,14 @@ It will only encrypt 16 bytes of data.
 Encryption,
 
 ```go
-// ENCRYPT DATA - PLACE IN cipherTextByte
+// ENCRYPT DATA
 block.Encrypt(cipherTextByte, plaintextByte)
 ```
 
 Decryption,
 
 ```go
-// DeCRYPT DATA - PLACE IN plainTextByte
+// DeCRYPT DATA
 block.Decrypt(plainTextByte, cipherTextByte)
 ```
 
