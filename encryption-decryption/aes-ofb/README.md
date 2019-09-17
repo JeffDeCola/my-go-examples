@@ -43,9 +43,9 @@ Decrypted Text:          This is AES-256 OFB (32 Bytes)!!
 
 ## HOW IT WORKS
 
-* plainText must be multiple of AES block size, you can add padding.
-* Nonce should be equal to AES block size.
-* OFB is block ciphers modes, encryption but not message integrity.
+* plainText must be multiple of AES block size, you can add padding
+* Nonce should be equal to AES block size
+* OFB is block ciphers modes, encryption but not message integrity
 * Because of the symmetry of the XOR operation, encryption and
   decryption are exactly the same
 

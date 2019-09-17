@@ -27,7 +27,6 @@ I organized everything (alphabetically) into these sections,
 * [MESSAGING](https://github.com/JeffDeCola/my-go-examples#messaging)
 * [PACKAGES](https://github.com/JeffDeCola/my-go-examples#packages)
 * [TESTING](https://github.com/JeffDeCola/my-go-examples#testing)
-* [USEFUL TOOLS I CREATED](https://github.com/JeffDeCola/my-go-examples#useful-tools-i-created)
 * [WEBSERVER](https://github.com/JeffDeCola/my-go-examples#webserver)
 
 These go examples also contain info I gathered from other sources.
@@ -364,30 +363,6 @@ for the standard go packages_
 * [gotests-complex-function](https://github.com/JeffDeCola/my-go-examples/tree/master/testing/gotests-complex-function)
 
   _Using the go tool `gotests` to test a function with complex inputs and outputs._
-
-### USEFUL TOOLS I CREATED
-
-* [decryptfile](https://github.com/JeffDeCola/my-go-examples/tree/master/useful-tools-i-created/decryptfile)
-
-  _Decrypt a file with AES-256 GCM (a 32-byte hash key) using the `crypto/aes` package.
-  Works with
-  [encryptfile](https://github.com/JeffDeCola/my-go-examples/tree/master/useful-tools-i-created/encryptfile)._
-
-* [encryptfile](https://github.com/JeffDeCola/my-go-examples/tree/master/useful-tools-i-created/encryptfile)
-
-  _Encrypt a file with AES-256 GCM (a 32-byte hash key) using the `crypto/aes` package.
-  Works with
-  [decryptfile](https://github.com/JeffDeCola/my-go-examples/tree/master/useful-tools-i-created/decryptfile)._
-
-* [markdown-create-table-of-contents](https://github.com/JeffDeCola/my-go-examples/tree/master/useful-tools-i-created/markdown-create-table-of-contents)
-
-  _Parse a markdown file to find `##`, `###` to create a table of contents (TOC)
-  for links at github.  I like to use a TOC at the beginning of my README.md files._
-
-* [markdown-delimiter-doer](https://github.com/JeffDeCola/my-go-examples/tree/master/useful-tools-i-created/markdown-delimiter-doer)
-
-  _Take a markdown file and "do whatever you want" between the delimiters
-  and output new markdown file._
 
 ### WEBSERVER
 
