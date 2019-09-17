@@ -43,8 +43,8 @@ Decrypted Text:          This is AES-256 CBC (32 Bytes)!!
 ## HOW IT WORKS
 
 * plainText should be multiple of AES block size,
-  else padding may be used.
-* The IV value should be equal to AES block size.
+  else padding may be used
+* The IV value should be equal to AES block size
 * Encryption but not message integrity
 
 For simplicity I did not include the nonce in the cipherText.

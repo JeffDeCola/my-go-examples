@@ -46,8 +46,8 @@ Its because I put it there so I can extract it during decrypt.
 ## HOW IT WORKS
 
 * A Counter mode effectively turns a block cipher into a stream cipher,
-* GCM uses an IV (Initialization Vector) or Nonce.
-* I also used some Additional Data for authentication.
+* GCM uses an IV (Initialization Vector) or Nonce
+* I also used some Additional Data for authentication
 
 Encryption using your gcm block,
 
