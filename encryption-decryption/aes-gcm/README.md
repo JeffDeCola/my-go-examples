@@ -1,7 +1,7 @@
 # aes-gcm example
 
 `aes-gcm` _is an example of
-_AES-256 **GCM** (**Galois/Counter Mode**) mode
+AES-256 **GCM** (**Galois/Counter Mode**) mode
 is a block cipher counter mode with authentication._
 
 I have the following AES mode examples,
@@ -13,11 +13,11 @@ I have the following AES mode examples,
 * [aes-cbc](https://github.com/JeffDeCola/my-go-examples/tree/master/encryption-decryption/aes-cbc)
   Cipher Block Chaining
 * [aes-cfb](https://github.com/JeffDeCola/my-go-examples/tree/master/encryption-decryption/aes-cfb)
-  Cipher Feedback Mode
+  Cipher FeedBack Mode
 * [aes-ctr](https://github.com/JeffDeCola/my-go-examples/tree/master/encryption-decryption/aes-ctr)
   Counter Mode
 * [aes-ofb](https://github.com/JeffDeCola/my-go-examples/tree/master/encryption-decryption/aes-ofb)
-  Output Feedback Mode
+  Output FeedBack Mode
 
 [GitHub Webpage](https://jeffdecola.github.io/my-go-examples/)
 

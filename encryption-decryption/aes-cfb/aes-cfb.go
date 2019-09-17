@@ -1,4 +1,4 @@
-// my-go-examples aes-cbc.go
+// my-go-examples aes-cfb.go
 
 package main
 
@@ -62,7 +62,6 @@ func decrypt(keyByte []byte, nonce []byte, cipherText string) string {
 func main() {
 
 	// DATA
-	// IN CBC Must be Block Size of AES (Multiple of 16)
 	plainText := "This is AES-256 CFB!!"
 	fmt.Printf("\nOriginal Text:           %s\n\n", plainText)
 

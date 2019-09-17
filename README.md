@@ -214,7 +214,7 @@ _Using c with go._
 
 * [aes-cfb](https://github.com/JeffDeCola/my-go-examples/tree/master/encryption-decryption/aes-cfb)
 
-  _AES-256 **CFB** (**Cipher Feedback**) mode
+  _AES-256 **CFB** (**Cipher FeedBack**) mode
   is almost identical to CBC mode but performed in reverse._
 
 * [aes-ctr](https://github.com/JeffDeCola/my-go-examples/tree/master/encryption-decryption/aes-ctr)
@@ -225,8 +225,10 @@ _Using c with go._
 
 * [aes-ofb](https://github.com/JeffDeCola/my-go-examples/tree/master/encryption-decryption/aes-ofb)
 
-  _AES-256 **OFB** (**Output Feedback**) mode
-  makes a block cipher into a synchronous stream cipher._
+  _AES-256 **OFB** (**Output FeedBack**) mode
+  makes a block cipher into a synchronous stream cipher.
+  It generates keystream blocks, which are XORed with the plaintext blocks
+  to get the cipherText._
 
 ### GOROUTINES
 

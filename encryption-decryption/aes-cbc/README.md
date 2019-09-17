@@ -1,7 +1,7 @@
 # aes-cbc example
 
 `aes-cbc` _is an example of
-_AES-256 **CBC** (**Cipher Block Chaining**) mode
+AES-256 **CBC** (**Cipher Block Chaining**) mode
 where a block of plaintext is XORed with the previous cipherText block before
 being encrypted._
 
@@ -14,11 +14,11 @@ I have the following AES mode examples,
 * [aes-cbc](https://github.com/JeffDeCola/my-go-examples/tree/master/encryption-decryption/aes-cbc)
   Cipher Block Chaining **(You are here)**
 * [aes-cfb](https://github.com/JeffDeCola/my-go-examples/tree/master/encryption-decryption/aes-cfb)
-  Cipher Feedback Mode
+  Cipher FeedBack Mode
 * [aes-ctr](https://github.com/JeffDeCola/my-go-examples/tree/master/encryption-decryption/aes-ctr)
   Counter Mode
 * [aes-ofb](https://github.com/JeffDeCola/my-go-examples/tree/master/encryption-decryption/aes-ofb)
-  Output Feedback Mode
+  Output FeedBack Mode
 
 [GitHub Webpage](https://jeffdecola.github.io/my-go-examples/)
 
@@ -44,7 +44,7 @@ Decrypted Text:          This is AES-256 CBC (32 Bytes)!!
 
 In CBC Mode the given plaintext should be multiple of AES block size.
 If the original plaintext lengths are not a multiple of the block size,
-padding would have to be added when encrypting.
+padding would have to be added when encrypting (Not in this example).
 
 The IV value should be equal to AES block size.
 For simplicity I did not include the nonce in the cipherText.
