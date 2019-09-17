@@ -74,3 +74,7 @@ gcm, err := cipher.NewGCM(block)
 // DECRYPT DATA
 plainTextByte, err := gcm.Open(nil, nonce, cipherTextByte, additionalDataByte)
 ```
+
+This illustration may help,
+
+![IMAGE - aes-gcm - IMAGE](../../docs/pics/aes-gcm.jpg)
