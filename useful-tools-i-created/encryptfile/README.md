@@ -1,7 +1,7 @@
 # encryptfile tool
 
 `encryptfile` _is a useful tool for
-encryptfile a file with AES-256 (a 32-byte hash key) using the `crypto/aes` package.
+encryptfile a file with AES-256 GCM (a 32-byte hash key) using the `crypto/aes` package.
 
 Use my other tool
 [decryptfile](https://github.com/JeffDeCola/my-go-examples/tree/master/useful-tools-i-created/decryptfile)
@@ -28,7 +28,7 @@ block cipher chosen by the U.S. government to protect classified
 information and is implemented in software and hardware throughout
 the world to encrypt sensitive data.
 
-We're going to use AES encryption from the standard go
+We're going to use AES-256 GCM encryption from the standard go
 [crypto/aes](https://golang.org/pkg/crypto/aes/)
 package.
 
@@ -48,30 +48,11 @@ hash := hex.EncodeToString(hasher.Sum(nil))
 
 ### STEP 2 - ENCRYPT FILE WITH 32 BYTE HASH KEY
 
-Noe we use that hash key with the data to encrypt the file,
+The encryption was done using AES-256 GCM from my example
+[aes-gcm](https://github.com/JeffDeCola/my-go-examples/tree/master/encryption-decryption/aes-gcm).
 
-```go
-func encrypt(data []byte, hashKey string) []byte {
+Refer to that example for a complete description.
 
-    // Generate a new aes cipher using our 32 byte long key
-    block, _ := aes.NewCipher([]byte(hashKey))
+This illustration may help,
 
-    // gcm or Galois/Counter Mode, is a mode of operation
-    // for symmetric key cryptographic block ciphers
-    gcm, _ := cipher.NewGCM(block)
-
-    // Creates a new byte array the size of the nonce
-    nonce := make([]byte, gcm.NonceSize())
-
-    // Populates our nonce with a cryptographically secure random sequence
-    _, _ = io.ReadFull(rand.Reader, nonce)
-
-    // Encrypt our text using the Seal function
-    cipherText := gcm.Seal(nonce, nonce, data, nil)
-    return cipherText
-}
-```
-
-Refer to some examples of AES in my
-[ENCRYPTION/DECRYPTION](https://github.com/JeffDeCola/my-go-examples#encryption--decryption)
-section.
+![IMAGE - encryptfile - IMAGE](../../docs/pics/encryptfile.jpg)

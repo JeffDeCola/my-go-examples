@@ -1,8 +1,8 @@
 # aes example
 
 `aes` _is an example of
-AES-256 **No mode** encryption/decryption
-that can only encrypt/decrypt 16 bytes of data._
+AES-256 **No Mode**
+can only encrypt/decrypt 16 bytes of data._
 
 I have the following AES mode examples,
 
