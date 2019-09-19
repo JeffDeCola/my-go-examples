@@ -9,6 +9,10 @@ import (
 	log "github.com/sirupsen/logrus"
 )
 
+const toolVersion = "1.0.1"
+
+var integerPtr *int
+
 // A Function that also returns an error
 func jeffFunc(x int) (string, error) {
 	if x == 42 {
@@ -39,14 +43,22 @@ func init() {
 	// SET OUTPUT (DEFAULT stderr)
 	log.SetOutput(os.Stdout)
 
+	// VERSION FLAG
+	version := flag.Bool("v", false, "prints current version")
+	// INTEGER FLAG
+	integerPtr = flag.Int("i", 42, "This is the flag for an integer")
+	// Parse the flags
+	flag.Parse()
+
+	// CHECK VERSION
+	if *version {
+		fmt.Println(toolVersion)
+		os.Exit(0)
+	}
+
 }
 
 func main() {
-
-	// INTEGER FLAG
-	integerPtr := flag.Int("i", 42, "This is the flag for an integer")
-	// Parse the flags
-	flag.Parse()
 
 	log.Trace("Calling jeffFunc to get result")
 	r, err := jeffFunc(*integerPtr)
