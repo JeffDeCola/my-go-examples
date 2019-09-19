@@ -9,14 +9,14 @@ I have the following AES mode examples,
 
 * [aes](https://github.com/JeffDeCola/my-go-examples/tree/master/encryption-decryption/aes)
   No Mode
-* [aes-gcm](https://github.com/JeffDeCola/my-go-examples/tree/master/encryption-decryption/aes-gcm)
-  Galois/Counter Mode
 * [aes-cbc](https://github.com/JeffDeCola/my-go-examples/tree/master/encryption-decryption/aes-cbc)
   Cipher Block Chaining
 * [aes-cfb](https://github.com/JeffDeCola/my-go-examples/tree/master/encryption-decryption/aes-cfb)
   Cipher FeedBack Mode
 * [aes-ctr](https://github.com/JeffDeCola/my-go-examples/tree/master/encryption-decryption/aes-ctr)
   Counter Mode **(You are here)**
+* [aes-gcm](https://github.com/JeffDeCola/my-go-examples/tree/master/encryption-decryption/aes-gcm)
+  Galois/Counter Mode **(I like this one)**
 * [aes-ofb](https://github.com/JeffDeCola/my-go-examples/tree/master/encryption-decryption/aes-ofb)
   Output FeedBack Mode
 
