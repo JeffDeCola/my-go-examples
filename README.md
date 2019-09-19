@@ -200,11 +200,6 @@ _Using c with go._
   _AES-256 **No Mode**
   can only encrypt/decrypt 16 bytes of data._
 
-* [aes-gcm](https://github.com/JeffDeCola/my-go-examples/tree/master/encryption-decryption/aes-gcm)
-
-  _AES-256 **GCM** (**Galois/Counter Mode**)
-  is a block cipher counter mode with authentication._
-
 * [aes-cbc](https://github.com/JeffDeCola/my-go-examples/tree/master/encryption-decryption/aes-cbc)
 
   _AES-256 **CBC** (**Cipher Block Chaining**) mode
@@ -222,6 +217,12 @@ _Using c with go._
   has similar characteristics to OFB, but also
   allows a random access property during decryption._
 
+* [aes-gcm](https://github.com/JeffDeCola/my-go-examples/tree/master/encryption-decryption/aes-gcm)
+  **I like this one**
+
+  _AES-256 **GCM** (**Galois/Counter Mode**)
+  is a block cipher counter mode with authentication._
+  
 * [aes-ofb](https://github.com/JeffDeCola/my-go-examples/tree/master/encryption-decryption/aes-ofb)
 
   _AES-256 **OFB** (**Output FeedBack**) mode
