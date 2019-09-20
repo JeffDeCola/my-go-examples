@@ -41,6 +41,10 @@ func monkeyHandler(res http.ResponseWriter, req *http.Request) {
 	fmt.Fprintf(res, htmlMonkeyIndex)
 }
 
+func startServer() {
+	log.Fatal(http.ListenAndServe(":1234", nil))
+}
+
 func main() {
 
 	// Call your function when you get a http request for "/" or "/jeff"
@@ -49,6 +53,10 @@ func main() {
 	http.HandleFunc("/monkey", monkeyHandler)
 
 	// Starts listening on localhost (127.0.0.1:1234)
-	log.Fatal(http.ListenAndServe(":1234", nil))
+	go startServer()
+
+	// Press retrun to exit
+	fmt.Scanln()
+	fmt.Println("done")
 
 }
