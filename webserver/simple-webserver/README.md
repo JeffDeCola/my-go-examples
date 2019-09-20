@@ -39,8 +39,14 @@ The `/net/http` package lets us map request paths to functions.
 go run simple-webserver.go
 ```
 
+Press return to exit.
+
+You can interact with the web server many different ways.
+
+### USING HTTPIE
+
 In another terminal, use a CLI http client like
-httpie and you can do the following commands:
+httpie and you can do the following,
 
 ```bash
 http localhost:1234
@@ -48,7 +54,7 @@ http localhost:1234/jeff
 http localhost:1234/monkey
 ```
 
-or
+Or you can use the IP Address,
 
 ```bash
 http 127.0.0.1:1234
@@ -56,7 +62,17 @@ http 127.0.0.1:1234/jeff
 http 127.0.0.1:1234/monkey
 ```
 
-Or you can use a browser,
+### USING CURL
+
+Or you can use curl,
+
+```bash
+curl 127.0.0.1:1234
+curl 127.0.0.1:1234/jeff
+curl 127.0.0.1:1234/monkey
+```
+
+### USING A BROWSER
 
 [http://127.0.0.1:1234/](http://127.0.0.1:1234/)
 
