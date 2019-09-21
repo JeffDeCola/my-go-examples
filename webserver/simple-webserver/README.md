@@ -1,30 +1,30 @@
 # simple-webserver example
 
 `simple-webserver` _is an example of
-using the standard `net/http` package to build a simple webserver.
+using the standard `net/http` package to build a simple webserver._
 
 Also checkout my example
 [simple-webserver-with-REST](https://github.com/JeffDeCola/my-go-examples/tree/master/api/simple-webserver-with-REST).
 
 [GitHub Webpage](https://jeffdecola.github.io/my-go-examples/)
 
-## The HTTP PACKAGE /net/http
+## HOW IT WORKS
 
 The `/net/http` package lets us map request paths to functions.
 
-1. Set which port you would like to listen on,
+1. Set which IP and port you would like to listen on,
 
     ```go
-    log.Fatal(http.ListenAndServe(":1234", nil))
+    log.Fatal(http.ListenAndServe("127.0.0.1:1234", nil))
     ```
 
-1. When a request is made for a particular URL/jeff kick off your function `jeffHandler()`,
+1. When a request is made for a particular URL kick off your function,
 
     ```go
     http.HandleFunc("/jeff", jeffHandler)
     ```
 
-1. Create your function `jeffHandler()`,
+1. Create your handler function `jeffHandler`,
 
     ```go
     func jeffHandler(res http.ResponseWriter, req *http.Request) {
@@ -32,6 +32,10 @@ The `/net/http` package lets us map request paths to functions.
         io.WriteString(res, "hello, Jeff!\n")
     }
     ```
+
+This illustration may help,
+
+![IMAGE - simple-webserver - IMAGE](../../docs/pics/simple-webserver.jpg)
 
 ## RUN
 

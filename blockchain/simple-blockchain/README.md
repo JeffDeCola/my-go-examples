@@ -14,11 +14,9 @@ I got a lot of code and inspiration from mycoralhealth
 ## PREREQUISITES
 
 * `go get -v -u github.com/davecgh/go-spew/spew`
-  This will print out the structs and slices very pretty
+  Rather the use fmt.Print, this will print out the structs and slices very pretty
 * `go get -v -u github.com/gorilla/mux`
   Gorilla/mux is a popular package for writing web handlers
-* `go get -v -u github.com/joho/godotenv`
-  Deals with ports. It will use the`.env` file with `PORT=8080` in it
 
 ## RUN
 
@@ -30,7 +28,7 @@ Then you can goto the webpage to see your first block,
 
 [http://localhost:8080/](http://localhost:8080/)
 
-You could also use curl fromt he command line,
+You could also use curl from the command line,
 
 ```go
 curl localhost:8080

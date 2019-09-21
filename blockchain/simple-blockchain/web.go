@@ -17,8 +17,6 @@ import (
 func startWebServer() error {
 
 	mux := makeMuxRouter()
-	//httpPort := os.Getenv("PORT")
-	httpPort := "8080"
 
 	log.Println("HTTP Server Listening on port :", httpPort)
 
