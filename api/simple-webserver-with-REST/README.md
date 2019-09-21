@@ -2,21 +2,20 @@
 
 `simple-webserver-with-REST` _is an example of
 adding REST to my
-[simple-webserver](https://github.com/JeffDeCola/my-go-examples/tree/master/simple-webserver)._
+[simple-webserver](https://github.com/JeffDeCola/my-go-examples/tree/master/webserver/simple-webserver)._
 
 [GitHub Webpage](https://jeffdecola.github.io/my-go-examples/)
-
-## MOCK DATABASE
-
-In this example a mock database will be used.
 
 ## HIGH-LEVEL VIEW OF CODE
 
 ![IMAGE - simple-webserver-with-REST - IMAGE](https://github.com/JeffDeCola/my-go-examples/blob/master/docs/pics/simple-webserver-with-REST.jpg)
 
-## SETUP
+Notice that a mock database is used.  Just to keep it simple.
 
-You will need to get `github.com/gorilla/mux`
+## PREREQUISITES
+
+You will need to get `github.com/gorilla/mux` which is
+a popular package for writing web handlers.
 
 ```bash
 go get -u -v github.com/gorilla/mux

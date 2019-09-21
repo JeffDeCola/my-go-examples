@@ -9,6 +9,11 @@ import (
 	"net/http"
 )
 
+const (
+	ip   = "127.0.0.1"
+	port = "1234"
+)
+
 const htmlMonkeyIndex = `
 <html>
 <body>
@@ -42,7 +47,7 @@ func monkeyHandler(res http.ResponseWriter, req *http.Request) {
 }
 
 func startServer() {
-	log.Fatal(http.ListenAndServe(":1234", nil))
+	log.Fatal(http.ListenAndServe(ip+":"+port, nil))
 }
 
 func main() {

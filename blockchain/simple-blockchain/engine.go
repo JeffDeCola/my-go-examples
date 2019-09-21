@@ -4,10 +4,13 @@ package main
 
 import (
 	"fmt"
+	"sync"
 	"time"
 
 	"github.com/davecgh/go-spew/spew"
 )
+
+var mutex = &sync.Mutex{}
 
 // Create a blockchain
 func createBlockchain() {
@@ -30,6 +33,3 @@ func createBlockchain() {
 	Blockchain = append(Blockchain, firstBlock)
 	mutex.Unlock()
 }
-
-// Create a blockchain
-func createBlockchain() {

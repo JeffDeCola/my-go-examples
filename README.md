@@ -25,6 +25,7 @@ I organized everything (alphabetically) into these sections,
 * [GOROUTINES](https://github.com/JeffDeCola/my-go-examples#goroutines)
 * [JEFFS GO TEMPLATES](https://github.com/JeffDeCola/my-go-examples#jeffs-go-templates)
 * [MESSAGING](https://github.com/JeffDeCola/my-go-examples#messaging)
+* [NETWORKING](https://github.com/JeffDeCola/my-go-examples#networking)
 * [PACKAGES](https://github.com/JeffDeCola/my-go-examples#packages)
 * [TESTING](https://github.com/JeffDeCola/my-go-examples#testing)
 * [WEBSERVER](https://github.com/JeffDeCola/my-go-examples#webserver)
@@ -302,6 +303,14 @@ _My starting point for all my go projects._
 
   _Same as above `protobuf-NATS-request-reply` but using goroutines for subscribers.
   This is also a model for **one-to-one** communication._
+
+### NETWORKING
+
+* [simple-tcp-server](https://github.com/JeffDeCola/my-go-examples/tree/master/networking/simple-tcp-server)
+
+  _Using the standard `net` package to build a simple tcp server. I added
+  an API to this example above
+  [????](https://github.com/JeffDeCola/my-go-examples#api)._
 
 ### PACKAGES
 
