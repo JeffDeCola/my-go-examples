@@ -6,19 +6,19 @@ which makes a block cipher into a synchronous stream cipher.
 It generates keystream blocks, which are XORed with the plaintext blocks
 to get the cipherText._
 
-I have the following AES mode examples,
+I have the following AES-256 mode examples,
 
-* [aes](https://github.com/JeffDeCola/my-go-examples/tree/master/encryption-decryption/aes)
+* [aes-256](https://github.com/JeffDeCola/my-go-examples/tree/master/cryptography/symmetric-cryptography/aes-256)
   No Mode
-* [aes-cbc](https://github.com/JeffDeCola/my-go-examples/tree/master/encryption-decryption/aes-cbc)
+* [aes-256-cbc](https://github.com/JeffDeCola/my-go-examples/tree/master/cryptography/symmetric-cryptography/aes-256-cbc)
   Cipher Block Chaining
-* [aes-cfb](https://github.com/JeffDeCola/my-go-examples/tree/master/encryption-decryption/aes-cfb)
+* [aes-256-cfb](https://github.com/JeffDeCola/my-go-examples/tree/master/cryptography/symmetric-cryptography/aes-256-cfb)
   Cipher FeedBack Mode
-* [aes-ctr](https://github.com/JeffDeCola/my-go-examples/tree/master/encryption-decryption/aes-ctr)
+* [aes-256-ctr](https://github.com/JeffDeCola/my-go-examples/tree/master/cryptography/symmetric-cryptography/aes-256-ctr)
   Counter Mode
-* [aes-gcm](https://github.com/JeffDeCola/my-go-examples/tree/master/encryption-decryption/aes-gcm)
+* [aes-256-gcm](https://github.com/JeffDeCola/my-go-examples/tree/master/cryptography/symmetric-cryptography/aes-256-gcm)
   Galois/Counter Mode **(I like this one)**
-* [aes-ofb](https://github.com/JeffDeCola/my-go-examples/tree/master/encryption-decryption/aes-ofb)
+* [aes-256-ofb](https://github.com/JeffDeCola/my-go-examples/tree/master/cryptography/symmetric-cryptography/aes-256-ofb)
   Output FeedBack Mode **(You are here)**
 
 [GitHub Webpage](https://jeffdecola.github.io/my-go-examples/)
@@ -85,4 +85,4 @@ plainText := string(plainTextByte[:])
 
 This illustration may help,
 
-![IMAGE - aes-ofb - IMAGE](../../docs/pics/aes-ofb.jpg)
+![IMAGE - aes-ofb - IMAGE](../../../docs/pics/aes-ofb.jpg)
