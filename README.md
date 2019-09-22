@@ -59,7 +59,7 @@ _All sections in alphabetical order._
   _Using OAuth 2.0 (frontend and backend via protobuf over NATS)
   to access a users google cloud storage (based on scopes) via googles api._
 
-* [simple-tcp-server-with-???](https://github.com/JeffDeCola/my-go-examples/tree/master/api/simple-webserver-with-REST)
+* [simple-tcp-server-with-???](https://github.com/JeffDeCola/my-go-examples/tree/master/api/simple-tcp-server-with-???)
 
   _Adding ??? to my
   [simple-tcp-server](https://github.com/JeffDeCola/my-go-examples#webserver)
@@ -207,14 +207,14 @@ _Using c with go._
     _(standard)_
 
     _Get an md5 hash (fingerprint) from an input file using the standard
-    `"crypto/md5` package.
+    `crypto/md5` package.
     I also added a flag to read in your `.ssh/id_rsa.pub` key to get your ssh fingerprint.
     Your github uses this for verification._
 
   * [sha256-hash-from-file](https://github.com/JeffDeCola/my-go-examples/tree/master/cryptography/hashing/sha256-hash-from-file)
 
     _Get an sha256 hash (fingerprint) from an input file using the standard
-    `"crypto/sha256` package_.
+    `crypto/sha256` package_.
 
 * SYMMETRIC CRYPTOGRAPHY
 

@@ -4,19 +4,19 @@
 AES-256 **GCM** (**Galois/Counter Mode**) mode
 is a block cipher counter mode with authentication._
 
-I have the following AES mode examples,
+I have the following AES-256 mode examples,
 
-* [aes](https://github.com/JeffDeCola/my-go-examples/tree/master/encryption-decryption/aes)
+* [aes-256](https://github.com/JeffDeCola/my-go-examples/tree/master/cryptography/symmetric-cryptography/aes-256)
   No Mode
-* [aes-cbc](https://github.com/JeffDeCola/my-go-examples/tree/master/encryption-decryption/aes-cbc)
+* [aes-256-cbc](https://github.com/JeffDeCola/my-go-examples/tree/master/cryptography/symmetric-cryptography/aes-256-cbc)
   Cipher Block Chaining
-* [aes-cfb](https://github.com/JeffDeCola/my-go-examples/tree/master/encryption-decryption/aes-cfb)
+* [aes-256-cfb](https://github.com/JeffDeCola/my-go-examples/tree/master/cryptography/symmetric-cryptography/aes-256-cfb)
   Cipher FeedBack Mode
-* [aes-ctr](https://github.com/JeffDeCola/my-go-examples/tree/master/encryption-decryption/aes-ctr)
+* [aes-256-ctr](https://github.com/JeffDeCola/my-go-examples/tree/master/cryptography/symmetric-cryptography/aes-256-ctr)
   Counter Mode
-* [aes-gcm](https://github.com/JeffDeCola/my-go-examples/tree/master/encryption-decryption/aes-gcm)
-  Galois/Counter Mode **(I like this one)** **(You are here)**
-* [aes-ofb](https://github.com/JeffDeCola/my-go-examples/tree/master/encryption-decryption/aes-ofb)
+* [aes-256-gcm](https://github.com/JeffDeCola/my-go-examples/tree/master/cryptography/symmetric-cryptography/aes-256-gcm)
+  Galois/Counter Mode  **(You are here)** **(I like this one)**
+* [aes-256-ofb](https://github.com/JeffDeCola/my-go-examples/tree/master/cryptography/symmetric-cryptography/aes-256-ofb)
   Output FeedBack Mode
 
 [GitHub Webpage](https://jeffdecola.github.io/my-go-examples/)
@@ -77,4 +77,4 @@ plainTextByte, err := gcm.Open(nil, nonce, cipherTextByte, additionalDataByte)
 
 This illustration may help,
 
-![IMAGE - aes-gcm - IMAGE](../../docs/pics/aes-gcm.jpg)
+![IMAGE - aes-gcm - IMAGE](../../../docs/pics/aes-gcm.jpg)
