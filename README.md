@@ -20,8 +20,11 @@ I organized everything (alphabetically) into these sections,
 * [BLOCKCHAIN](https://github.com/JeffDeCola/my-go-examples#blockchain)
 * [CGO](https://github.com/JeffDeCola/my-go-examples#cgo)
 * [CLOUD SERVICES](https://github.com/JeffDeCola/my-go-examples#cloud-services)
+* [CRYPTOGRAPHY](https://github.com/JeffDeCola/my-go-examples#cryptography)
+  * ASYMMETRIC CRYPTOGRAPHY
+  * HASHING
+  * SYMMETRIC CRYPTOGRAPHY
 * [DATABASE](https://github.com/JeffDeCola/my-go-examples#database)
-* [ENCRYPTION/DECRYPTION](https://github.com/JeffDeCola/my-go-examples#encryption--decryption)
 * [GOROUTINES](https://github.com/JeffDeCola/my-go-examples#goroutines)
 * [JEFFS GO TEMPLATES](https://github.com/JeffDeCola/my-go-examples#jeffs-go-templates)
 * [MESSAGING](https://github.com/JeffDeCola/my-go-examples#messaging)
@@ -55,6 +58,12 @@ _All sections in alphabetical order._
 
   _Using OAuth 2.0 (frontend and backend via protobuf over NATS)
   to access a users google cloud storage (based on scopes) via googles api._
+
+* [simple-tcp-server-with-???](https://github.com/JeffDeCola/my-go-examples/tree/master/api/simple-webserver-with-REST)
+
+  _Adding ??? to my
+  [simple-tcp-server](https://github.com/JeffDeCola/my-go-examples#webserver)
+  example below._
 
 * [simple-webserver-with-REST](https://github.com/JeffDeCola/my-go-examples/tree/master/api/simple-webserver-with-REST)
 
@@ -184,6 +193,68 @@ _Using c with go._
   [google-cloud-go](https://github.com/googleapis/google-api-go-client/tree/master)
   client libraries._
 
+### CRYPTOGRAPHY
+
+* ASYMMETRIC CRYPTOGRAPHY
+
+  _Using a public key to encrypt and a private key to decrypt_
+
+  * tbd
+
+* HASHING
+
+  * [md5-hash-from-file](https://github.com/JeffDeCola/my-go-examples/tree/master/cryptography/hashing/md5-hash-from-file)
+    _(standard)_
+
+    _Get an md5 hash (fingerprint) from an input file using the standard
+    `"crypto/md5` package.
+    I also added a flag to read in your `.ssh/id_rsa.pub` key to get your ssh fingerprint.
+    Your github uses this for verification._
+
+  * [sha256-hash-from-file](https://github.com/JeffDeCola/my-go-examples/tree/master/cryptography/hashing/sha256-hash-from-file)
+
+    _Get an sha256 hash (fingerprint) from an input file using the standard
+    `"crypto/sha256` package_.
+
+* SYMMETRIC CRYPTOGRAPHY
+
+  _Using the same key to encrypt and decrypt_
+
+  * [aes-256](https://github.com/JeffDeCola/my-go-examples/tree/master/cryptography/symmetric-cryptography/aes-256)
+
+    _AES-256 **No Mode**
+    can only encrypt/decrypt 16 bytes of data._
+
+  * [aes-256-cbc](https://github.com/JeffDeCola/my-go-examples/tree/master/cryptography/symmetric-cryptography/aes-256-cbc)
+
+    _AES-256 **CBC** (**Cipher Block Chaining**) mode
+    where a block of plaintext is XORed with the previous cipherText block before
+    being encrypted._
+
+  * [aes-256-cfb](https://github.com/JeffDeCola/my-go-examples/tree/master/cryptography/symmetric-cryptography/aes-256-cfb)
+
+    _AES-256 **CFB** (**Cipher FeedBack**) mode
+    is almost identical to CBC mode but performed in reverse._
+
+  * [aes-256-ctr](https://github.com/JeffDeCola/my-go-examples/tree/master/cryptography/symmetric-cryptography/aes-256-ctr)
+
+    _AES-256 **CTR** (**Counter**) mode
+    has similar characteristics to OFB, but also
+    allows a random access property during decryption._
+
+  * [aes-256-gcm](https://github.com/JeffDeCola/my-go-examples/tree/master/cryptography/symmetric-cryptography/aes-256-gcm)
+    **I like this one**
+
+    _AES-256 **GCM** (**Galois/Counter Mode**)
+    is a block cipher counter mode with authentication._
+  
+  * [aes-256-ofb](https://github.com/JeffDeCola/my-go-examples/tree/master/cryptography/symmetric-cryptography/aes-256-ofb)
+
+    _AES-256 **OFB** (**Output FeedBack**) mode
+    makes a block cipher into a synchronous stream cipher.
+    It generates keystream blocks, which are XORed with the plaintext blocks
+    to get the cipherText._
+
 ### DATABASE
 
 * [postgreSQL](https://github.com/JeffDeCola/my-go-examples/tree/master/database/postgreSQL)
@@ -193,43 +264,6 @@ _Using c with go._
 * [redis](https://github.com/JeffDeCola/my-go-examples/tree/master/database/redis)
 
   _A non-relational (NoSQL) database - Set/Get from/to a key/value pair._
-
-### ENCRYPTION / DECRYPTION
-
-* [aes](https://github.com/JeffDeCola/my-go-examples/tree/master/encryption-decryption/aes)
-
-  _AES-256 **No Mode**
-  can only encrypt/decrypt 16 bytes of data._
-
-* [aes-cbc](https://github.com/JeffDeCola/my-go-examples/tree/master/encryption-decryption/aes-cbc)
-
-  _AES-256 **CBC** (**Cipher Block Chaining**) mode
-  where a block of plaintext is XORed with the previous cipherText block before
-  being encrypted._
-
-* [aes-cfb](https://github.com/JeffDeCola/my-go-examples/tree/master/encryption-decryption/aes-cfb)
-
-  _AES-256 **CFB** (**Cipher FeedBack**) mode
-  is almost identical to CBC mode but performed in reverse._
-
-* [aes-ctr](https://github.com/JeffDeCola/my-go-examples/tree/master/encryption-decryption/aes-ctr)
-
-  _AES-256 **CTR** (**Counter**) mode
-  has similar characteristics to OFB, but also
-  allows a random access property during decryption._
-
-* [aes-gcm](https://github.com/JeffDeCola/my-go-examples/tree/master/encryption-decryption/aes-gcm)
-  **I like this one**
-
-  _AES-256 **GCM** (**Galois/Counter Mode**)
-  is a block cipher counter mode with authentication._
-  
-* [aes-ofb](https://github.com/JeffDeCola/my-go-examples/tree/master/encryption-decryption/aes-ofb)
-
-  _AES-256 **OFB** (**Output FeedBack**) mode
-  makes a block cipher into a synchronous stream cipher.
-  It generates keystream blocks, which are XORed with the plaintext blocks
-  to get the cipherText._
 
 ### GOROUTINES
 
@@ -308,9 +342,9 @@ _My starting point for all my go projects._
 
 * [simple-tcp-server](https://github.com/JeffDeCola/my-go-examples/tree/master/networking/simple-tcp-server)
 
-  _Using the standard `net` package to build a simple tcp server. I added
-  an API to this example above
-  [????](https://github.com/JeffDeCola/my-go-examples#api)._
+  _Using the standard `net` package to build a simple tcp server.
+  I added an API to this example in the above example
+  [simple-tcp-server-with-???](https://github.com/JeffDeCola/my-go-examples#api)._
 
 ### PACKAGES
 
@@ -319,12 +353,6 @@ _Refer to my repo
 for packages I created. Refer to
 [golang.org/pkg](https://golang.org/pkg/)
 for the standard go packages_
-
-* [crypto/md5](https://github.com/JeffDeCola/my-go-examples/tree/master/packages/crypto-md5)
-  _(standard)_
-
-  _The crypto/md5 package is used for getting an md5 fingerprint (hash)
-  from an ssh key._
 
 * [errors](https://github.com/JeffDeCola/my-go-examples/tree/master/packages/errors)
   _(github.com/pkg/errors)_
@@ -378,8 +406,8 @@ for the standard go packages_
 
 * [simple-webserver](https://github.com/JeffDeCola/my-go-examples/tree/master/webserver/simple-webserver)
 
-  _Using the standard `net/http` package to build a simple webserver. I added
-  an API to this example above
+  _Using the standard `net/http` package to build a simple webserver.
+  I added an API to this example in the above example
   [simple-webserver-with-REST](https://github.com/JeffDeCola/my-go-examples#api)._
 
 ## UPDATE GITHUB WEBPAGE & UNIT TESTS USING CONCOURSE (OPTIONAL)
