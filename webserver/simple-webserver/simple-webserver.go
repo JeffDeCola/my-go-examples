@@ -47,6 +47,8 @@ func monkeyHandler(res http.ResponseWriter, req *http.Request) {
 }
 
 func startServer() {
+	// LISTEN ON IP AND PORT
+	fmt.Printf("\nListening on %s:%s\n\n", ip, port)
 	log.Fatal(http.ListenAndServe(ip+":"+port, nil))
 }
 
@@ -57,10 +59,10 @@ func main() {
 	http.HandleFunc("/jeff", jeffHandler)
 	http.HandleFunc("/monkey", monkeyHandler)
 
-	// Starts listening on localhost (127.0.0.1:1234)
+	// START WEBSERVER
 	go startServer()
 
-	// Press retrun to exit
+	// PRESS RETURN TO EXIT
 	fmt.Scanln()
 	fmt.Println("done")
 

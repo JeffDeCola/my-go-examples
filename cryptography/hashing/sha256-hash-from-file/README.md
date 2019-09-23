@@ -25,7 +25,7 @@ If you run on test.txt you should get,
 
 ## HOW IT WORKS
 
-Take string `plainText` and turn into a sha256 hash,
+Take a string `plainText` and turn into a sha256 hash,
 
 ```go
 plainTextBytes := []byte(plainText)

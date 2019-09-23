@@ -204,7 +204,6 @@ _Using c with go._
 * HASHING
 
   * [md5-hash-from-file](https://github.com/JeffDeCola/my-go-examples/tree/master/cryptography/hashing/md5-hash-from-file)
-    _(standard)_
 
     _Get an md5 hash (fingerprint) from an input file using the standard
     `crypto/md5` package.
@@ -342,7 +341,8 @@ _My starting point for all my go projects._
 
 * [simple-tcp-server](https://github.com/JeffDeCola/my-go-examples/tree/master/networking/simple-tcp-server)
 
-  _Using the standard `net` package to build a simple tcp server.
+  _Using the standard `net` package to build a simple tcp server
+  to handle requests concurrently.
   I added an API to this example in the above example
   [simple-tcp-server-with-???](https://github.com/JeffDeCola/my-go-examples#api)._
 
