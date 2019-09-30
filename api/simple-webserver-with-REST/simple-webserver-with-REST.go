@@ -6,18 +6,24 @@ import (
 	"net/http"
 )
 
+const (
+	ip   = "127.0.0.1"
+	port = "1234"
+)
+
 func startServer() {
 
 	// Create a router
 	myRouter := jeffsRouter()
 
-	// Start listening on localhost (127.0.0.1:1234)
-	log.Fatal(http.ListenAndServe(":1234", myRouter))
+	// LISTEN ON IP AND PORT
+	fmt.Printf("\nListening on %s:%s\n\n", ip, port)
+	log.Fatal(http.ListenAndServe(ip+":"+port, myRouter))
+
 }
 
 func main() {
 
-	// Starts listening on localhost (127.0.0.1:1234)
 	go startServer()
 
 	// Press retrun to exit

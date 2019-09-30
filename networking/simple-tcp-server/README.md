@@ -60,6 +60,7 @@ a utility for sending raw data over a network connection.
 
 ```bash
 netcat -q -1 localhost 1234
+nc -q -1 localhost 1234
 ```
 
 Now you can issue commands such as,
