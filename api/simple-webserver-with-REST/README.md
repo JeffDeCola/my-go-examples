@@ -6,6 +6,10 @@ adding REST to my
 
 [GitHub Webpage](https://jeffdecola.github.io/my-go-examples/)
 
+## REST
+
+REST ()
+
 ## HIGH-LEVEL VIEW OF CODE
 
 ![IMAGE - simple-webserver-with-REST - IMAGE](https://github.com/JeffDeCola/my-go-examples/blob/master/docs/pics/simple-webserver-with-REST.jpg)
