@@ -1,8 +1,7 @@
 # shapes-using-interfaces example
 
-`shapes-using-interfaces` is an example of
-calculating the area and perimeter of
-circles, rectangles and triangles using interfaces.
+_Calculating the area and perimeter of circles, rectangles and
+triangles using functions.
 
 This example is done using,
 

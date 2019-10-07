@@ -1,8 +1,6 @@
 # interfaces-card-atm-bank example
 
-`interfaces-card-atm-bank` _is an example of
-using interfaces to show how a bank card is
-used to interact with an atm and bank._
+_Using interfaces to show how a bank card is used to interact with an atm and bank._
 
 [GitHub Webpage](https://jeffdecola.github.io/my-go-examples/)
 

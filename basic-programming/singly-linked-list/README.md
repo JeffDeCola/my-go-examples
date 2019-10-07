@@ -1,7 +1,6 @@
 # singly-linked-list example
 
-`singly-linked-list` _is a example of
-a singly linked list (i.e. using just a head pointer)._
+_A singly linked list (i.e. using just a head pointer)._
 
 [GitHub Webpage](https://jeffdecola.github.io/my-go-examples/)
 

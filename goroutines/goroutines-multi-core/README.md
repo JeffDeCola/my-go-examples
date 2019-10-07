@@ -1,7 +1,6 @@
 # goroutines-multi-core example
 
-`goroutines-multi-core`  _is an example of
-concurrency across multi-cores. You can play around with workers,
+_Concurrency across multi-cores. You can play around with workers,
 threads, cpus/cores and nice to find the fastest performance.
 It will find the total amount of prime numbers up to a number._
 

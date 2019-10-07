@@ -1,7 +1,6 @@
 # aes-cfb example
 
-`aes-cfb` _is an example of
-AES-256 **CFB** (**Cipher FeedBack**) mode
+_AES-256 **CFB** (**Cipher FeedBack**) mode
 is almost identical to CBC mode but performed in reverse._
 
 I have the following AES-256 mode examples,

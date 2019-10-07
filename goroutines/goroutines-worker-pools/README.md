@@ -1,7 +1,6 @@
 # goroutines-worker-pools example
 
-`goroutines-worker-pools` _is an example of concurrency using
-worker pools._
+_Concurrency using worker pools._
 
 These are my 5 main example of using goroutines,
 

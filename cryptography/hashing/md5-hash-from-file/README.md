@@ -1,8 +1,9 @@
 # md5-hash-from-file example
 
-`md5-hash-from-file` _is an example of
-getting an md5 hash (fingerprint) from an input file using the standard
+_Getting an md5 hash (fingerprint) from an input file using the standard
 `crypto/md5` package.
+I also added a flag to read in your `.ssh/id_rsa.pub` key to get your ssh fingerprint.
+Your github uses this for verification._
 
 Refer to the
 [crypto/md5](https://golang.org/pkg/crypto/md5/)

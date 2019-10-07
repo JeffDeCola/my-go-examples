@@ -1,7 +1,6 @@
 # http-GET-POST
 
-`http-GET-POST` _is an example of
-using the standard `net/http` package to `http.Get` and `http.PostForm`._
+_Using the standard `net/http` package to `http.Get` and `http.PostForm`._
 
 [GitHub Webpage](https://jeffdecola.github.io/my-go-examples/)
 

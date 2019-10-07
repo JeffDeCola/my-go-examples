@@ -1,7 +1,6 @@
 # simple-c-code-using-stdio example
 
-`simple-c-code-using-stdio` _is an example of
-how to write a c function in go and using stdio.h._
+_Same code from previous example, but using stdio.h for printf._
 
 [GitHub Webpage](https://jeffdecola.github.io/my-go-examples/)
 

@@ -1,7 +1,6 @@
 # simple-webserver example
 
-`simple-webserver` _is an example of
-using the standard `net/http` package to build a simple webserver._
+_Using the standard `net/http` package to build a simple webserver._
 
 Also checkout my example
 [simple-webserver-with-REST](https://github.com/JeffDeCola/my-go-examples/tree/master/api/simple-webserver-with-REST).

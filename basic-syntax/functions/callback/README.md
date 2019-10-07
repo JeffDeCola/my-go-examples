@@ -1,7 +1,6 @@
 # callback example
 
-`callback` _is an example of
-passing a function (as an argument) to a function._
+_Passing a function (as an argument) to a function. Not really used that often._
 
 [GitHub Webpage](https://jeffdecola.github.io/my-go-examples/)
 

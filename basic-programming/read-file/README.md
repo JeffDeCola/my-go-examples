@@ -1,7 +1,6 @@
 # read-file example
 
-`read-file` _is an example of
-reading a file a few different ways._
+_Reading a file a few different ways._
 
 [GitHub Webpage](https://jeffdecola.github.io/my-go-examples/)
 

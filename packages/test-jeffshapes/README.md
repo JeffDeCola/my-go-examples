@@ -1,6 +1,6 @@
 # test-jeffshapes (github.com/JeffDeCola/my-go-packages/jeffshapes) example
 
-`test-jeffshapes` non-standard package will test the `jeffshapes` package I created.
+_Testing the `jeffshapes` package._
 
 This package was created in my repo
 [my-go-packages](https://github.com/JeffDeCola/my-go-packages#jeffshapes).

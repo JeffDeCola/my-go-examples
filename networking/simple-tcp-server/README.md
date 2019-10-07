@@ -1,7 +1,6 @@
 # simple-tcp-server example
 
-`simple-tcp-server` _is an example of
-using the standard `net` package to build a simple tcp-server
+_Using the standard `net` package to build a simple tcp-server
 to handle requests concurrently._
 
 Also checkout my example

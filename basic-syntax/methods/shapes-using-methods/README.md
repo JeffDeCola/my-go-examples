@@ -1,8 +1,7 @@
 # shapes-using-methods example
 
-`shapes-using-methods` is an example of
-calculating the area and perimeter of
-circles, rectangles and triangles using methods.
+_Calculating the area and perimeter of circles, rectangles and triangles
+using methods._
 
 This example is done using,
 

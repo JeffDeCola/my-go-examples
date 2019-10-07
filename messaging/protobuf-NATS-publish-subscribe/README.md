@@ -1,7 +1,6 @@
 # protobuf-NATS-publish-subscribe example
 
-`protobuf-NATS-publish-subscribe` _is an example of
-using NATS (publish/subscribe) as a pipe to send protobuf messages.
+_Using NATS (publish/subscribe) as a pipe to send protobuf messages.
 This is a model for **one-to-many** communication._
 
 These are my 6 main example of using protobuf,

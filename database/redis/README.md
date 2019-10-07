@@ -1,7 +1,6 @@
 # redis example
 
-`redis` _is an example of
-a non-relational (NoSQL) database.
+A non-relational (NoSQL) database.
 SET/GET a key/value pair._
 
 Documentation and reference,

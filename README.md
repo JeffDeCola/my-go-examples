@@ -67,7 +67,7 @@ _All sections in alphabetical order._
 
 * [simple-webserver-with-REST](https://github.com/JeffDeCola/my-go-examples/tree/master/api/simple-webserver-with-REST)
 
-  _Adding REST to my
+  _Adding REST to the
   [simple-webserver](https://github.com/JeffDeCola/my-go-examples#webserver)
   example below._
 
@@ -124,7 +124,7 @@ other cool programs._
 
     _Calculating the area and perimeter of
     circles, rectangles and triangles using functions.
-    also refer to **method** and **interface** implementations below._
+    Also refer to **method** and **interface** implementations below._
 
 * INTERFACES
 
@@ -160,7 +160,7 @@ other cool programs._
 
 * [simple-blockchain](https://github.com/JeffDeCola/my-go-examples/tree/master/blockchain/simple-blockchain)
 
-  _A simple blockchain that can be used to build bigger and better things._
+  _A simple blockchain with a web interface to view and add data (blocks)._
 
 ### CGO
 
@@ -346,6 +346,11 @@ _My starting point for all my go projects._
   I added an API to this example in the above example
   [simple-tcp-server-with-???](https://github.com/JeffDeCola/my-go-examples#api)._
 
+* [tcp-ip-server](https://github.com/JeffDeCola/my-go-examples/tree/master/networking/tcp-ip-server)
+
+  _Sending a message back-and-forth between two TCP servers using the
+  standard `net` package._
+
 ### PACKAGES
 
 _Refer to my repo
@@ -357,22 +362,22 @@ for the standard go packages_
 * [errors](https://github.com/JeffDeCola/my-go-examples/tree/master/packages/errors)
   _(github.com/pkg/errors)_
 
-  _Error Handling using non-standard github.com/pkg/errors package._
+  _Error Handling using non-standard `github.com/pkg/errors` package._
 
 * [flag](https://github.com/JeffDeCola/my-go-examples/tree/master/packages/flag)
   _(standard)_
 
-  _The flag package makes it easy to implement command-line flag parsing._
+  _The `flag` package makes it easy to implement command-line flag parsing._
 
 * [fmt-scan](https://github.com/JeffDeCola/my-go-examples/tree/master/packages/fmt-scan)
   _(standard)_
 
-  _The fmt package makes it easy to scan user input using fmt.Scan() by reading os.Stdin._
+  _The `fmt` package makes it easy to scan user input using fmt.Scan() by reading os.Stdin._
 
 * [logrus](https://github.com/JeffDeCola/my-go-examples/tree/master/packages/logrus)
   _(github.com/sirupsen/logrus)_
 
-  _Logging using non-standard logrus package._
+  _Logging using non-standard `logrus` package._
 
 * `net/http`
   _(standard)_

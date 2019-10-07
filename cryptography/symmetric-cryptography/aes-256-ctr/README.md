@@ -1,7 +1,6 @@
 # aes-ctr example
 
-`aes-ctr` _is an example of
-AES-256 **CTR** (**Counter**) mode,
+_AES-256 **CTR** (**Counter**) mode,
 which has similar characteristics to OFB, but also
 allows a random access property during decryption._
 

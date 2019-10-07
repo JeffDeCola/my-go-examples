@@ -1,7 +1,6 @@
 # postgreSQL example
 
-`postgreSQL` _is an example of
-a relational database.
+_A relational database.
 Read/write from/to a table._
 
 Documentation and reference,

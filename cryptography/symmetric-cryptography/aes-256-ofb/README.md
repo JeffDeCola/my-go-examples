@@ -1,7 +1,6 @@
 # aes-ofb example
 
-`aes-ofb` _is an example of
-AES-256 **OFB** (**Output FeedBack**) mode
+_AES-256 **OFB** (**Output FeedBack**) mode
 which makes a block cipher into a synchronous stream cipher.
 It generates keystream blocks, which are XORed with the plaintext blocks
 to get the cipherText._
