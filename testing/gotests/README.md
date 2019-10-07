@@ -1,7 +1,6 @@
 # gotests-complex-function example
 
-`gotests` _is an example of
-using the go tool gotests to test a function and a method._
+_Using the go tool `gotests` to test a very simple function and method._
 
 [GitHub Webpage](https://jeffdecola.github.io/my-go-examples/)
 

@@ -1,7 +1,6 @@
 # pointers2 example
 
-`pointers2` _in an example of
-an int passed to function by address (reference) and by int pointer (reference).._
+_An int passed to function by address (reference) and by int pointer (reference)._
 
 [GitHub Webpage](https://jeffdecola.github.io/my-go-examples/)
 

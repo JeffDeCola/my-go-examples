@@ -1,7 +1,6 @@
 # gomock example
 
-`gomock` _is a example of
-using gomock on an interface and using the go tool `gotests` for unit testing._
+_Using `gomock` on an interface and using the go tool `gotests` for unit testing._
 
 [GitHub Webpage](https://jeffdecola.github.io/my-go-examples/)
 

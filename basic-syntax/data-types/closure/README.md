@@ -1,8 +1,6 @@
 # closure example
 
-`closure` _is an example of
-closure (a function that references variables from outside
-its body)._
+_An example of closure (a function that references variables from outside its body)._
 
 [GitHub Webpage](https://jeffdecola.github.io/my-go-examples/)
 

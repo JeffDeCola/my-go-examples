@@ -1,6 +1,6 @@
 # flag (standard) example
 
-`flag` _standard package makes it easy to implement command-line flag parsing._
+_The 'flag` package makes it easy to implement command-line flag parsing._
 
 Refer to the
 [flag](https://golang.org/pkg/flag/)

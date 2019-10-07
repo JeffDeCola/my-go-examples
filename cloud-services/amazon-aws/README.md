@@ -4,8 +4,7 @@
 *** UNDER CONSTRUCTION - CHECK BACK SOON ***
 ```
 
-`amazon-aws` _is an example of
-interacting with amazon's
+_Interacting with amazon's
 [aws](https://github.com/JeffDeCola/my-cheat-sheets/tree/master/software/service-providers/amazon-web-services-cheat-sheet)
 using
 `aws-sdk-go`

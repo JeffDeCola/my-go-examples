@@ -1,7 +1,6 @@
 # goroutines-waitgroup example
 
-`goroutines-waitgroup` _is an example of
-concurrency using a waitgroup (waiting for a collection of goroutines to finish)._
+_Concurrency using a waitgroup (waiting for a collection of goroutines to finish)._
 
 These are my 5 main example of using goroutines,
 

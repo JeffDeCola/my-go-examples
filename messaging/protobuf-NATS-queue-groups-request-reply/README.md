@@ -1,8 +1,7 @@
 # protobuf-NATS-queue-groups-request-reply example
 
-`protobuf-NATS-queue-groups-request-reply` _is an example of
-  _Using NATS (queue groups) as a pipe to send protobuf messages.
-  This is a model for **one-to-one communication**._
+_Using NATS (queue groups) as a pipe to send protobuf messages.
+This is a model for **one-to-one communication**._
 
 These are my 6 main example of using protobuf,
 

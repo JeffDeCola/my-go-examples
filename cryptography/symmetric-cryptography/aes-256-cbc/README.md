@@ -1,7 +1,6 @@
 # aes-cbc example
 
-`aes-cbc` _is an example of
-AES-256 **CBC** (**Cipher Block Chaining**) mode
+_AES-256 **CBC** (**Cipher Block Chaining**) mode
 where a block of plaintext is XORed with the previous cipherText block before
 being encrypted._
 

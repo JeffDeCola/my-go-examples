@@ -1,7 +1,7 @@
 # interface example
 
-`interface` _is an example of
-an interface as parameter and an interface as a return._
+_A simple example of an interface as parameter and an interface as a return.
+Also see the next example that uses this in a package._
 
 [GitHub Webpage](https://jeffdecola.github.io/my-go-examples/)
 

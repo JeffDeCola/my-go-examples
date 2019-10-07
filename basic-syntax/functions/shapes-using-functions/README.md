@@ -1,8 +1,7 @@
 # shapes-using-functions example
 
-`shapes-using-functions` is an example of
-calculating the area and perimeter of
-circles, rectangles and triangles using functions.
+_Calculating the area and perimeter of circles, rectangles and triangles
+using functions._
 
 * shapes-using-functions (This example)
 * [shapes-using-methods](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/methods/shapes-using-methods)

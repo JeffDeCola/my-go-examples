@@ -1,7 +1,6 @@
 # fmt-scan (standard) example
 
-`fmt` _standard package makes it easy to scan user input
-using fmt.Scan() by reading os.Stdin._
+_The `fmt` package makes it easy to scan user input using fmt.Scan() by reading os.Stdin._
 
 Refer to the
 [fmt](https://golang.org/pkg/fmt)

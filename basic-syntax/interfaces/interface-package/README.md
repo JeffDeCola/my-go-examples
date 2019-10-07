@@ -1,7 +1,7 @@
 # interface-package example
 
-`interface-package` _is an example of
-an interface placed in a package `example`._
+_The same example as the previous example but the interface and methods
+placed in a package._
 
 This example is based on the previous example
 [interface](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/interfaces/interface).

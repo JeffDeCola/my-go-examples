@@ -1,7 +1,6 @@
 # goroutines-async-channel-send-receive-waiting example
 
-`goroutines-async-channel-send-receive-waiting`  _is an example of
-sending data to a goroutine via an async channel.
+_Sending data to a goroutine via an async channel.
 Both SEND and RCV will block/wait for data._
 
 These are my 5 main example of using goroutines,

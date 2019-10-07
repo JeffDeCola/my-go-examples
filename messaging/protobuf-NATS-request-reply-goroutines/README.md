@@ -1,6 +1,6 @@
 # protobuf-NATS-request-reply-goroutines example
 
-`protobuf-NATS-request-reply-goroutines` _Same as `protobuf-NATS-request-reply`
+_Same as `protobuf-NATS-request-reply`
 but using goroutines for subscribers.
 This is also a model for **one-to-one** communication._
 

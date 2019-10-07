@@ -1,7 +1,6 @@
 # simple-blockchain example
 
-`simple-blockchain` _is an example of
-a blockchain with a web interface to view and add data (blocks)._
+_A simple blockchain with a web interface to view and add data (blocks)._
 
 Refer to my
 [cheat sheet on blockchains](https://github.com/JeffDeCola/my-cheat-sheets/tree/master/software/development/software-architectures/blockchain/blockchain-cheat-sheet)

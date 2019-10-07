@@ -1,7 +1,6 @@
 # google-gcp example
 
-`google-gcp` _is an example of
-interacting with google's
+_Interacting with google's
 [gcp](https://github.com/JeffDeCola/my-cheat-sheets/tree/master/software/service-providers/google-cloud-platform-cheat-sheet)
 using
 [google-cloud-go](https://github.com/googleapis/google-api-go-client/tree/master)

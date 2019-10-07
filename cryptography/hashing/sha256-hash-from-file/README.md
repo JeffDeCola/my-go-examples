@@ -1,8 +1,7 @@
 # sha256-hash-from-file example
 
-`sha256-hash-from-file` _is an example of
-getting an sha256 hash (fingerprint) from an input file using the standard
-`crypto/sha256` package_.
+_Get an sha256 hash (fingerprint) from an input file using the standard
+`crypto/sha256` package._
 
 Refer to the
 [crypto/sha256](https://golang.org/pkg/crypto/sha256/)

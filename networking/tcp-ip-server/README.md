@@ -1,7 +1,6 @@
-# tcp-ip example
+# tcp-ip-server example
 
-`tcp-ip` _is an example of
-sending a message back-and-forth between two TCP servers using the
+_Sending a message back-and-forth between two TCP servers using the
 standard `net` package._
 
 [GitHub Webpage](https://jeffdecola.github.io/my-go-examples/)

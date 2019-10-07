@@ -1,7 +1,6 @@
 # pointers1 example
 
-`pointers1` _in an example of
-a struct passed to function by value (copy) and by address (reference)._
+_A struct passed to function by value (copy) and by address (reference)._
 
 [GitHub Webpage](https://jeffdecola.github.io/my-go-examples/)
 

@@ -1,7 +1,6 @@
 # protobuf example
 
-`protobuf` _is an example of
-using protobuf to show `data -> marshal -> snd -> rcv -> unmarshal -> data`._
+_Using protobuf to show `data -> marshal -> snd -> rcv -> unmarshal -> data`._
 
 These are my 6 main example of using protobuf,
 

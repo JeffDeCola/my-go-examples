@@ -1,7 +1,6 @@
 # jeffs-basic-go-template example
 
-`jeffs-basic-go-template` _is a simple go template with
-flags, logging & error handling._
+_A simple go template with flags, logging & error handling._
 
 Just copy/paste to use in your projects.
 

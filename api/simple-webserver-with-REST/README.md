@@ -1,7 +1,6 @@
 # simple-webserver-with-REST example
 
-`simple-webserver-with-REST` _is an example of
-adding REST to my
+_Adding REST to
 [simple-webserver](https://github.com/JeffDeCola/my-go-examples/tree/master/webserver/simple-webserver)._
 
 [GitHub Webpage](https://jeffdecola.github.io/my-go-examples/)
