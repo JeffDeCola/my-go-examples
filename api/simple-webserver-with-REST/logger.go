@@ -1,13 +1,15 @@
 package main
 
 import (
-	"log"
 	"net/http"
 	"time"
+
+	log "github.com/sirupsen/logrus"
 )
 
-// Logger passed handler and name
+// Logger passed handler and name, get more info
 func Logger(inner http.Handler, name string) http.Handler {
+
 	return http.HandlerFunc(func(res http.ResponseWriter, req *http.Request) {
 		start := time.Now()
 

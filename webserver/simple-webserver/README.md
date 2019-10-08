@@ -2,7 +2,7 @@
 
 _Using the standard `net/http` package to build a simple webserver._
 
-Also checkout my example
+Lets add REST to this example
 [simple-webserver-with-REST](https://github.com/JeffDeCola/my-go-examples/tree/master/api/simple-webserver-with-REST).
 
 [GitHub Webpage](https://jeffdecola.github.io/my-go-examples/)

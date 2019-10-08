@@ -13,20 +13,21 @@ const (
 
 func startServer() {
 
-	// Create a router
+	// CREATE ROUTER
 	myRouter := jeffsRouter()
 
 	// LISTEN ON IP AND PORT
 	fmt.Printf("\nListening on %s:%s\n\n", ip, port)
-	log.Fatal(http.ListenAndServe(ip+":"+port, myRouter))
-
+    log.Fatal(http.ListenAndServe(ip+":"+port, myRouter))
+    
 }
 
 func main() {
 
+	// START WEBSERVER
 	go startServer()
 
-	// Press retrun to exit
+	// PRESS RETURN TO EXIT
 	fmt.Scanln()
 	fmt.Println("done")
 

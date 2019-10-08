@@ -1,21 +1,38 @@
 # simple-webserver-with-REST example
 
-_Adding REST to
+_Adding REST (GET, POST, PUT, DELETE) JSON API to my
 [simple-webserver](https://github.com/JeffDeCola/my-go-examples/tree/master/webserver/simple-webserver)._
 
 [GitHub Webpage](https://jeffdecola.github.io/my-go-examples/)
 
-## REST
+## WHAT IS REST
 
-REST ()
+REST (REpresentational State Transfer) is just a standard way for
+computers to communicate over the web.
+It is stateless, meaning who cares what the computer is doing at the time.
+
+There are 4 basic `HTTP verbs` we use in requests to
+interact with resources in a REST system,
+
+* **GET** - Retrieve a specific resource by id or a collection of resources
+* **POST** - Create a new resource
+* **PUT** - Update a specific resource by id
+* **DELETE** - Remove a specific resource by id
 
 ## HIGH-LEVEL VIEW OF CODE
 
+For simplicity, the code is broken into,
+
+* **simple-webserver-with-REST.go** - Kicks off webserver
+* **router.go** - The gorilla router
+* **routers.go** - The list of the routes (e.g. /postdata)
+* **handlers** - The functions to handle the routes
+* **mockdatabase.go** - A slice of structs
+* **logger.go** - A log wrapper for better output
+
 ![IMAGE - simple-webserver-with-REST - IMAGE](https://github.com/JeffDeCola/my-go-examples/blob/master/docs/pics/simple-webserver-with-REST.jpg)
 
-Notice that a mock database is used.  Just to keep it simple.
-
-## PREREQUISITES
+## USING A ROUTER - GORILLA/MUX
 
 You will need to get `github.com/gorilla/mux` which is
 a popular package for writing web handlers.
@@ -24,12 +41,60 @@ a popular package for writing web handlers.
 go get -u -v github.com/gorilla/mux
 ```
 
+## MOCKDATABASE
+
+A simple mock database has been set up,
+
+```go
+TodoStruct{ID: "10", Name: "Write presentation", Completed: false},
+TodoStruct{ID: "20", Name: "Eat Lunch", Completed: false},
+TodoStruct{ID: "30", Name: "Pick up Milk", Completed: true},
+```
+
 ## RUN
 
 ```bash
-go run simple-webserver-with-REST.go router.go routes.go handlers.go logger.go mockdatabase.go
+go run simple-webserver-with-REST.go router.go routes.go handlers.go mockdatabase.go logger.go
 ```
+
+### NORMAL WEBPAGE
 
 In a browser,
 
-[http://127.0.0.1:1234/](http://127.0.0.1:1234/)
+[127.0.0.1:1234](http://127.0.0.1:1234/)
+
+Will also show entire database.
+
+### GET
+
+[127.0.0.1:1234/getdata/20](http://127.0.0.1:1234/getdata/20)
+
+```txt
+{"id":"20","name":"Eat Lunch","completed":false}
+```
+
+### POST (add)
+
+This will add data,
+
+```bash
+curl -X POST -H "Content-Type: application/json" -d '{"name":"Feed Cat", "Completed": false}' http://127.0.0.1:1234/postdata/40
+```
+
+Check it was added,
+
+[127.0.0.1:1234/getdata/40](http://127.0.0.1:1234/getdata/40)
+
+### PUT (replace/update)
+
+This will replace/update data,
+
+```bash
+curl -X PUT -H "Content-Type: application/json" -d '{"name":"Feed Cat", "Completed": true}' http://127.0.0.1:1234/putdata/40
+```
+
+### DELETE
+
+```bash
+curl -X DELETE -H "Content-Type: application/json" http://127.0.0.1:1234/deletedata/20
+```

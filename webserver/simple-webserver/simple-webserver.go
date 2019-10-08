@@ -54,7 +54,7 @@ func startServer() {
 
 func main() {
 
-	// Call your function when you get a http request for "/" or "/jeff"
+	// HANDLER
 	http.HandleFunc("/", rootHandler)
 	http.HandleFunc("/jeff", jeffHandler)
 	http.HandleFunc("/monkey", monkeyHandler)

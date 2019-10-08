@@ -67,9 +67,9 @@ _All sections in alphabetical order._
 
 * [simple-webserver-with-REST](https://github.com/JeffDeCola/my-go-examples/tree/master/api/simple-webserver-with-REST)
 
-  _Adding REST to the
-  [simple-webserver](https://github.com/JeffDeCola/my-go-examples#webserver)
-  example below._
+  _Adding REST (GET, POST, PUT, DELETE) JSON API to my
+  [simple-webserver](https://github.com/JeffDeCola/my-go-examples#webserver).
+  See example below._
 
 ### BASIC PROGRAMMING
 
