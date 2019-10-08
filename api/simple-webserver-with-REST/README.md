@@ -67,7 +67,8 @@ TodoStruct{ID: "30", Name: "Pick up Milk", Completed: true},
 ## RUN
 
 ```bash
-go run simple-webserver-with-REST.go router.go routes.go handlers.go mockdatabase.go logger.go
+go run simple-webserver-with-REST.go \
+       router.go routes.go handlers.go mockdatabase.go logger.go
 ```
 
 ### NORMAL WEBPAGE
@@ -91,7 +92,10 @@ Will also show entire database.
 This will add data,
 
 ```bash
-curl -X POST -H "Content-Type: application/json" -d '{"name":"Feed Cat", "Completed": false}' http://127.0.0.1:1234/postdata/40
+curl -X POST \
+     -H "Content-Type: application/json" \
+     -d '{"name":"Feed Cat", "Completed": false}' \
+     http://127.0.0.1:1234/postdata/40
 ```
 
 Check it was added,
@@ -103,11 +107,16 @@ Check it was added,
 This will replace/update data,
 
 ```bash
-curl -X PUT -H "Content-Type: application/json" -d '{"name":"Feed Cat", "Completed": true}' http://127.0.0.1:1234/putdata/40
+curl -X PUT \
+     -H "Content-Type: application/json" \
+     -d '{"name":"Feed Cat", "Completed": true}' \
+     http://127.0.0.1:1234/putdata/40
 ```
 
 ### DELETE
 
 ```bash
-curl -X DELETE -H "Content-Type: application/json" http://127.0.0.1:1234/deletedata/20
+curl -X DELETE \
+     -H "Content-Type: application/json" \
+     http://127.0.0.1:1234/deletedata/20
 ```

@@ -48,7 +48,9 @@ This illustration may help,
 ## RUN
 
 ```bash
-go run simple-blockchain.go guts.go blockchain.go blockchain-interface.go router.go routes.go handlers.go logger.go
+go run simple-blockchain.go \
+       guts.go blockchain.go blockchain-interface.go \
+       router.go routes.go handlers.go logger.go
 ```
 
 ### GET (View the entire Blockchain)
@@ -74,7 +76,10 @@ curl localhost:1234/showblock/0
 ### POST (Add a Block)
 
 ```bash
-curl -H "Content-Type: application/json" -X POST -d '{"data":"Add this data for new block"}' localhost:1234/addblock
+curl -H "Content-Type: application/json" \
+     -X POST \
+     -d '{"data":"Add this data for new block"}' \
+     localhost:1234/addblock
 ```
 
 Check,
