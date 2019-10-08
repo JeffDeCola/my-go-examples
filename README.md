@@ -160,7 +160,8 @@ other cool programs._
 
 * [simple-blockchain](https://github.com/JeffDeCola/my-go-examples/tree/master/blockchain/simple-blockchain)
 
-  _A simple blockchain with a web interface to view and add data (blocks)._
+  _A simple blockchain with a REST JSON API to view (GET) the blockchain
+  and add (POST) a block._
 
 ### CGO
 

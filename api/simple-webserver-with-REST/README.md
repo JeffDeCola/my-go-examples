@@ -3,6 +3,19 @@
 _Adding REST (GET, POST, PUT, DELETE) JSON API to my
 [simple-webserver](https://github.com/JeffDeCola/my-go-examples/tree/master/webserver/simple-webserver)._
 
+Table of Contents,
+
+* [WHAT IS REST](https://github.com/JeffDeCola/my-go-examples/tree/master/api/simple-webserver-with-REST#what-is-rest)
+* [HIGH-LEVEL VIEW OF CODE](https://github.com/JeffDeCola/my-go-examples/tree/master/api/simple-webserver-with-REST#high-level-view-of-code)
+* [USING A ROUTER - GORILLA/MUX](https://github.com/JeffDeCola/my-go-examples/tree/master/api/simple-webserver-with-REST#using-a-router---gorillamux)
+* [MOCKDATABASE](https://github.com/JeffDeCola/my-go-examples/tree/master/api/simple-webserver-with-REST#mockdatabase)
+* [RUN](https://github.com/JeffDeCola/my-go-examples/tree/master/api/simple-webserver-with-REST#run)
+  * [NORMAL WEBPAGE](https://github.com/JeffDeCola/my-go-examples/tree/master/api/simple-webserver-with-REST#normal-webpage)
+  * [GET](https://github.com/JeffDeCola/my-go-examples/tree/master/api/simple-webserver-with-REST#get)
+  * [POST (add)](https://github.com/JeffDeCola/my-go-examples/tree/master/api/simple-webserver-with-REST#post-add)
+  * [PUT (replace/update)](https://github.com/JeffDeCola/my-go-examples/tree/master/api/simple-webserver-with-REST#put-replaceupdate)
+  * [DELETE](https://github.com/JeffDeCola/my-go-examples/tree/master/api/simple-webserver-with-REST#delete)
+  
 [GitHub Webpage](https://jeffdecola.github.io/my-go-examples/)
 
 ## WHAT IS REST
