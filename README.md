@@ -31,7 +31,6 @@ Table of Contents,
 * [GOROUTINES](https://github.com/JeffDeCola/my-go-examples#goroutines)
 * [JEFFS GO TEMPLATES](https://github.com/JeffDeCola/my-go-examples#jeffs-go-templates)
 * [MESSAGING](https://github.com/JeffDeCola/my-go-examples#messaging)
-* [NETWORKING](https://github.com/JeffDeCola/my-go-examples#networking)
 * [PACKAGES](https://github.com/JeffDeCola/my-go-examples#packages)
 * [TESTING](https://github.com/JeffDeCola/my-go-examples#testing)
 * [WEBSERVER](https://github.com/JeffDeCola/my-go-examples#webserver)
@@ -60,11 +59,10 @@ _All sections in alphabetical order._
   _Using OAuth 2.0 (frontend and backend via protobuf over NATS)
   to access a users google cloud storage (based on scopes) via googles api._
 
-* [simple-tcp-server-with-???](https://github.com/JeffDeCola/my-go-examples/tree/master/api/simple-tcp-server-with-???)
+* [simple-tcp-ip-server](https://github.com/JeffDeCola/my-go-examples/tree/master/networking/simple-tcp-ip-server)
 
-  _Adding ??? to my
-  [simple-tcp-server](https://github.com/JeffDeCola/my-go-examples#webserver)
-  example below._
+  _Using the standard `net` package to build a simple tcp Server
+  to handle requests concurrently over ip (tcp/ip)._
 
 * [simple-webserver-with-REST](https://github.com/JeffDeCola/my-go-examples/tree/master/api/simple-webserver-with-REST)
 
@@ -338,20 +336,6 @@ _My starting point for all my go projects._
 
   _Same as above `protobuf-NATS-request-reply` but using goroutines for subscribers.
   This is also a model for **one-to-one** communication._
-
-### NETWORKING
-
-* [simple-tcp-server](https://github.com/JeffDeCola/my-go-examples/tree/master/networking/simple-tcp-server)
-
-  _Using the standard `net` package to build a simple tcp server
-  to handle requests concurrently.
-  I added an API to this example in the above example
-  [simple-tcp-server-with-???](https://github.com/JeffDeCola/my-go-examples#api)._
-
-* [simple-tcp-ip-server](https://github.com/JeffDeCola/my-go-examples/tree/master/networking/simple-tcp-ip-server)
-
-  _Sending a message back-and-forth between two TCP servers using the
-  standard `net` package._
 
 ### PACKAGES
 

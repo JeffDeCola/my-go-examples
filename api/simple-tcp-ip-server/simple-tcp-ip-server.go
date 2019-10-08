@@ -1,11 +1,12 @@
-// my-go-examples simple-tcp-server.go
+// my-go-examples simple-tcp-ip-server.go
 
 package main
 
 import (
 	"fmt"
-	"log"
 	"net"
+
+	log "github.com/sirupsen/logrus"
 )
 
 const (
@@ -45,11 +46,13 @@ func startTCPServer() {
 
 func main() {
 
+	fmt.Printf("\nSTARTING...\n")
+
 	// START TCP SERVER
 	go startTCPServer()
 
 	// PRESS RETURN TO EXIT
 	fmt.Scanln()
-	fmt.Println("done")
+	fmt.Println("\n...DONE\n")
 
 }

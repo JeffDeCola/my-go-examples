@@ -1,16 +1,26 @@
-# simple-tcp-server example
+# simple-tcp-ip-server example
 
 _Using the standard `net` package to build a simple tcp Server
-to handle requests concurrently._
+to handle requests concurrently over ip (tcp/ip)._
 
-Also checkout my example
-[simple-tcp-server-with-????](https://github.com/JeffDeCola/my-go-examples/tree/master/api/simple-tcp-server-with-????).
+Table of Contents,
 
+* [REST vs TCP/IP](https://github.com/JeffDeCola/my-go-examples/tree/master/api/simple-tcp-ip-server#rest-vs-tcpip)
+* [HOW IT WORKS](https://github.com/JeffDeCola/my-go-examples/tree/master/api/simple-tcp-ip-server#how-it-works)
+* [RUN](https://github.com/JeffDeCola/my-go-examples/tree/master/api/simple-tcp-ip-server#run)
+  * [USING NETCAT](https://github.com/JeffDeCola/my-go-examples/tree/master/api/simple-tcp-ip-server#using-netcat)
+  
 [GitHub Webpage](https://jeffdecola.github.io/my-go-examples/)
+
+## REST vs TCP/IP
+
+Rest does not have state, whereas tcp has an open connection and you
+can assume a lot about the server.
 
 ## HOW IT WORKS
 
-The `net` package lets us map ???? to functions.
+The `net` package lets us listen for tcp connections and
+handle those requests over that connection.
 
 1. Set which IP and port you would like to listen on,
 
@@ -18,7 +28,7 @@ The `net` package lets us map ???? to functions.
     server, err := net.Listen("tcp", "127.0.0.1:1234")
     ```
 
-1. Create connection for each request,
+1. Create a connection for each request (concurrently),
 
     ```go
     conn, err := server.Accept()
@@ -40,12 +50,12 @@ The `net` package lets us map ???? to functions.
 
 This illustration may help,
 
-![IMAGE - simple-tcp-server - IMAGE](../../docs/pics/simple-tcp-server.jpg)
+![IMAGE - simple-tcp-ip-server - IMAGE](../../docs/pics/simple-tcp-ip-server.jpg)
 
 ## RUN
 
 ```bash
-go run simple-tcp-server.go \
+go run simple-tcp-ip-server.go \
        requests.go handlers.go
 ```
 

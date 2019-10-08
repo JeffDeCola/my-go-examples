@@ -18,8 +18,8 @@ func startServer() {
 
 	// LISTEN ON IP AND PORT
 	fmt.Printf("\nListening on %s:%s\n\n", ip, port)
-    log.Fatal(http.ListenAndServe(ip+":"+port, myRouter))
-    
+	log.Fatal(http.ListenAndServe(ip+":"+port, myRouter))
+
 }
 
 func main() {

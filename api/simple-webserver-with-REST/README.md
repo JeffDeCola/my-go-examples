@@ -6,6 +6,7 @@ _Adding REST (GET, POST, PUT, DELETE) JSON API to my
 Table of Contents,
 
 * [WHAT IS REST](https://github.com/JeffDeCola/my-go-examples/tree/master/api/simple-webserver-with-REST#what-is-rest)
+* [REST vs TCP/IP](https://github.com/JeffDeCola/my-go-examples/tree/master/api/simple-webserver-with-REST#rest-vs-tcpip)
 * [HIGH-LEVEL VIEW OF CODE](https://github.com/JeffDeCola/my-go-examples/tree/master/api/simple-webserver-with-REST#high-level-view-of-code)
 * [USING A ROUTER - GORILLA/MUX](https://github.com/JeffDeCola/my-go-examples/tree/master/api/simple-webserver-with-REST#using-a-router---gorillamux)
 * [MOCKDATABASE](https://github.com/JeffDeCola/my-go-examples/tree/master/api/simple-webserver-with-REST#mockdatabase)
@@ -31,6 +32,11 @@ interact with resources in a REST system,
 * **POST** - Create a new resource
 * **PUT** - Update a specific resource by id
 * **DELETE** - Remove a specific resource by id
+
+## REST vs TCP/IP
+
+Rest does not have state, whereas tcp has an open connection and you
+can assume a lot about the server.
 
 ## HIGH-LEVEL VIEW OF CODE
 
