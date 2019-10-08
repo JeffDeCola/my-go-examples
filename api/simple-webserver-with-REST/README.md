@@ -11,7 +11,7 @@ Table of Contents,
 * [USING A ROUTER - GORILLA/MUX](https://github.com/JeffDeCola/my-go-examples/tree/master/api/simple-webserver-with-REST#using-a-router---gorillamux)
 * [MOCKDATABASE](https://github.com/JeffDeCola/my-go-examples/tree/master/api/simple-webserver-with-REST#mockdatabase)
 * [RUN](https://github.com/JeffDeCola/my-go-examples/tree/master/api/simple-webserver-with-REST#run)
-  * [NORMAL WEBPAGE](https://github.com/JeffDeCola/my-go-examples/tree/master/api/simple-webserver-with-REST#normal-webpage)
+  * [NORMAL WEBPAGE (GUI)](https://github.com/JeffDeCola/my-go-examples/tree/master/api/simple-webserver-with-REST#normal-webpage-gui)
   * [GET](https://github.com/JeffDeCola/my-go-examples/tree/master/api/simple-webserver-with-REST#get)
   * [POST (add)](https://github.com/JeffDeCola/my-go-examples/tree/master/api/simple-webserver-with-REST#post-add)
   * [PUT (replace/update)](https://github.com/JeffDeCola/my-go-examples/tree/master/api/simple-webserver-with-REST#put-replaceupdate)
@@ -35,7 +35,7 @@ interact with resources in a REST system,
 
 ## REST vs TCP/IP
 
-Rest does not have state, whereas tcp has an open connection and you
+REST does not have state, whereas tcp has an open connection and you
 can assume a lot about the server.
 
 ## HIGH-LEVEL VIEW OF CODE
@@ -77,7 +77,7 @@ go run simple-webserver-with-REST.go \
        router.go routes.go handlers.go mockdatabase.go logger.go
 ```
 
-### NORMAL WEBPAGE
+### NORMAL WEBPAGE (GUI)
 
 In a browser,
 

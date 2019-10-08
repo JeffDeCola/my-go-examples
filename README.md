@@ -59,9 +59,9 @@ _All sections in alphabetical order._
   _Using OAuth 2.0 (frontend and backend via protobuf over NATS)
   to access a users google cloud storage (based on scopes) via googles api._
 
-* [simple-tcp-ip-server](https://github.com/JeffDeCola/my-go-examples/tree/master/networking/simple-tcp-ip-server)
+* [simple-tcp-ip-server](https://github.com/JeffDeCola/my-go-examples/tree/master/api/simple-tcp-ip-server)
 
-  _Using the standard `net` package to build a simple tcp Server
+  _Using the standard `net` package to build a simple tcp server
   to handle requests concurrently over ip (tcp/ip)._
 
 * [simple-webserver-with-REST](https://github.com/JeffDeCola/my-go-examples/tree/master/api/simple-webserver-with-REST)
