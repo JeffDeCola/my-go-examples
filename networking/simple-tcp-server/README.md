@@ -1,6 +1,6 @@
 # simple-tcp-server example
 
-_Using the standard `net` package to build a simple tcp-server
+_Using the standard `net` package to build a simple tcp Server
 to handle requests concurrently._
 
 Also checkout my example
@@ -10,7 +10,7 @@ Also checkout my example
 
 ## HOW IT WORKS
 
-The `/net` package lets us map ???? to functions.
+The `net` package lets us map ???? to functions.
 
 1. Set which IP and port you would like to listen on,
 
@@ -32,7 +32,7 @@ The `/net` package lets us map ???? to functions.
     cmd, err := rw.ReadString('\n')
     ```
 
-1. Create your handler functions like `handletAdd()`,
+1. Create your handler functions like `handleAdd()`,
 
    ```go
     handleAdd(rw)
@@ -45,7 +45,8 @@ This illustration may help,
 ## RUN
 
 ```bash
-go run simple-tcp-server.go
+go run simple-tcp-server.go \
+       requests.go handlers.go
 ```
 
 Press return to exit.

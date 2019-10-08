@@ -348,7 +348,7 @@ _My starting point for all my go projects._
   I added an API to this example in the above example
   [simple-tcp-server-with-???](https://github.com/JeffDeCola/my-go-examples#api)._
 
-* [tcp-ip-server](https://github.com/JeffDeCola/my-go-examples/tree/master/networking/tcp-ip-server)
+* [simple-tcp-ip-server](https://github.com/JeffDeCola/my-go-examples/tree/master/networking/simple-tcp-ip-server)
 
   _Sending a message back-and-forth between two TCP servers using the
   standard `net` package._
