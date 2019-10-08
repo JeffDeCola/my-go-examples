@@ -1,4 +1,4 @@
-// my-go-examples simple-tcp-server requests.go
+// my-go-examples simple-tcp-ip-server requests.go
 
 package main
 
@@ -43,7 +43,8 @@ func handleRequest(conn net.Conn) {
 			return
 		}
 
-		// CALL HANDLER ADD OR SUBSTRACT
+		// CALL HANDLER
+		// ADD OR SUBSTRACT
 		// Otherwise close connection
 		switch {
 		case cmd == "ADD":
