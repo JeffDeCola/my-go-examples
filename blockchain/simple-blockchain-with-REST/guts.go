@@ -43,7 +43,7 @@ func isBlockValid(checkBlock, oldBlock BlockStruct) bool {
 }
 
 // CREATE NEW BLOCK
-func crateNewBlock(oldBlock BlockStruct, data string) BlockStruct {
+func createNewBlock(oldBlock BlockStruct, data string) BlockStruct {
 
 	var newBlock BlockStruct
 

@@ -11,5 +11,8 @@ type BlockStruct struct {
 	PrevHash  string `json:"prevhash"`
 }
 
-// Blockchain Slice
-type Blockchain []BlockStruct
+// BlockchainSlice is my type
+type BlockchainSlice []BlockStruct
+
+// Blockchain is the blockchain
+var Blockchain = BlockchainSlice{}
