@@ -1,7 +1,7 @@
 # shapes-using-interfaces example
 
 _Calculating the area and perimeter of circles, rectangles and
-triangles using functions.
+triangles using functions._
 
 This example is done using,
 

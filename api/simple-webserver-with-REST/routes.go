@@ -2,11 +2,11 @@ package main
 
 import "net/http"
 
-// Route - The struct for the routes/endpoints
+// Route - The struct for the route endpoints (e.g. /jeff)
 type Route struct {
 	RouteName        string
-	RouteMethod      string
-	RoutePattern     string
+	RouteHTTPVerb    string
+	RouteEndPoint    string
 	RouteHandlerFunc http.HandlerFunc
 }
 
@@ -15,51 +15,33 @@ type Routes []Route
 
 var routes = Routes{
 	Route{
-		"Index",
+		"GetIndex",
 		"GET",
 		"/",
-		Index,
+		rootHandler,
 	},
 	Route{
-		"TodosIndex",
+		"GetData",
 		"GET",
-		"/todos",
-		TodosIndex,
+		"/getdata/{todoID}",
+		getdataHandler,
 	},
 	Route{
-		"TodosCreate",
+		"PostData",
 		"POST",
-		"/todos",
-		TodosCreate,
-	},
-	Route{
-		"TodosShow",
-		"GET",
-		"/todos/{todoID}",
-		TodosShow,
-	},
-	Route{
-		"GetPeopleEndpoint",
-		"GET",
-		"/people",
-		GetPeopleEndpoint,
-	},
-	Route{
-		"GetPersonEndpoint",
-		"GET",
-		"/people/{id}",
-		GetPersonEndpoint,
-	},
-	Route{
-		"CreatePersonEndpoint",
-		"POST",
-		"/people/{id}",
-		CreatePersonEndpoint,
-	},
-	Route{
-		"DeletePersonEndpoint",
+		"/postdata/{todoID}",
+		postdataHandler,
+    },
+    Route{
+		"PutData",
+		"PUT",
+		"/putdata/{todoID}",
+		putdataHandler,
+    },
+    Route{
+		"DeleteData",
 		"DELETE",
-		"/people/{id}",
-		DeletePersonEndpoint,
+		"/deletedata/{todoID}",
+		deletedataHandler,
 	},
 }

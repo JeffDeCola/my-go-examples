@@ -1,6 +1,6 @@
 # goroutines-async-channel-receive-no-waiting
 
-A goroutine asynchronously sending data (via a channel buffer) and a goroutine
+_A goroutine asynchronously sending data (via a channel buffer) and a goroutine
 receiving that data, using the latest (if available) and does not wait._
 
 These are my 5 main example of using goroutines,
