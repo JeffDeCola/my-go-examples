@@ -21,7 +21,7 @@ Documentation and reference,
 * Refer to my
   [cheat sheet on blockchains](https://github.com/JeffDeCola/my-cheat-sheets/tree/master/software/development/software-architectures/blockchain/blockchain-cheat-sheet)
 * I got a lot of inspiration from
-  [here](https://github.com/mycoralhealth/blockchain-tutorial/blob/master/main.go).
+  [here](https://github.com/mycoralhealth/blockchain-tutorial/blob/master/main.go)
 
 [GitHub Webpage](https://jeffdecola.github.io/my-go-examples/)
 

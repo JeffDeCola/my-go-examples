@@ -1,4 +1,4 @@
-// tcp-ip tcp-ip.go
+// my-go-examples simple-tcp-ip-server.go
 
 package main
 

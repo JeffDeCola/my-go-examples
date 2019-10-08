@@ -1,4 +1,4 @@
-# tcp-ip-server example
+# simple-tcp-ip-server example
 
 _Sending a message back-and-forth between two TCP servers using the
 standard `net` package._
