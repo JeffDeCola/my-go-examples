@@ -1,4 +1,4 @@
-// my-go-examples simple-blockchain engine.go
+// my-go-examples simple-blockchain blockchain-interface.go
 
 package main
 
@@ -6,8 +6,6 @@ import (
 	"fmt"
 	"strconv"
 	"time"
-
-	"github.com/davecgh/go-spew/spew"
 )
 
 // Create a blockchain
@@ -25,20 +23,22 @@ func createBlockchain() {
 	}
 
 	fmt.Printf("\nCongrats, your first Block in your blockchain is:\n\n")
-	spew.Dump(firstBlock)
+	fmt.Printf("%v\n", firstBlock)
 
 	Blockchain = append(Blockchain, firstBlock)
 }
 
 // Get the Blockchain
-func getBlockchain() Blockchain {
+func getBlockchain() BlockchainSlice {
 
 	return Blockchain
 
 }
 
-// getBlock
+// Get a Block from the chain
 func getBlock(id string) BlockStruct {
+
+	var item BlockStruct
 
 	// SEARCH DATA FOR blockID
 	for _, item := range Blockchain {
@@ -49,20 +49,20 @@ func getBlock(id string) BlockStruct {
 	}
 
 	// RETURN NOT FOUND
-	return nil
+	return item
 }
 
-// addBlockToChain
+// Add a Block to the chain
 func addBlockToChain(newData Message) BlockStruct {
 
 	prevBlock := Blockchain[len(Blockchain)-1]
-	newBlock := addBlockToChain(prevBlock, newData.Data)
+	newBlock := createNewBlock(prevBlock, newData.Data)
 
 	// CHECK IF NEWBLOCK IS VALID
 	if isBlockValid(newBlock, prevBlock) {
 		Blockchain = append(Blockchain, newBlock)
-		spew.Dump(Blockchain)
 	}
 
+	fmt.Printf("\nAdding new Block:\n%v\n\n", newBlock)
 	return newBlock
 }

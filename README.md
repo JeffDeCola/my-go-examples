@@ -6,9 +6,12 @@
 [![Issue Count](https://codeclimate.com/github/JeffDeCola/my-go-examples/badges/issue_count.svg)](https://codeclimate.com/github/JeffDeCola/my-go-examples/issues)
 [![License](http://img.shields.io/:license-mit-blue.svg)](http://jeffdecola.mit-license.org)
 
-`my-go-examples` _is a place to keep my go code snippets and examples._
+_A place to keep my go code snippets and examples._
 
-I organized everything (alphabetically) into these sections,
+These go examples also contain a lot of information
+I gathered from other sources.
+
+Table of Contents,
 
 * [API](https://github.com/JeffDeCola/my-go-examples#api)
 * [BASIC PROGRAMMING](https://github.com/JeffDeCola/my-go-examples#basic-programming)
@@ -32,8 +35,6 @@ I organized everything (alphabetically) into these sections,
 * [PACKAGES](https://github.com/JeffDeCola/my-go-examples#packages)
 * [TESTING](https://github.com/JeffDeCola/my-go-examples#testing)
 * [WEBSERVER](https://github.com/JeffDeCola/my-go-examples#webserver)
-
-These go examples also contain info I gathered from other sources.
 
 [GitHub Webpage](https://jeffdecola.github.io/my-go-examples/)
 
@@ -158,10 +159,10 @@ other cool programs._
 
 ### BLOCKCHAIN
 
-* [simple-blockchain](https://github.com/JeffDeCola/my-go-examples/tree/master/blockchain/simple-blockchain)
+* [simple-blockchain-with-REST](https://github.com/JeffDeCola/my-go-examples/tree/master/blockchain/simple-blockchain-with-REST)
 
   _A simple blockchain with a REST JSON API to view (GET) the blockchain
-  and add (POST) a block._
+  and add (POST) a block using sha256._
 
 ### CGO
 
