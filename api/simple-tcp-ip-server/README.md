@@ -1,6 +1,6 @@
 # simple-tcp-ip-server example
 
-_Using the standard `net` package to build a simple tcp Server
+_Using the standard `net` package to build a simple tcp server
 to handle requests concurrently over ip (tcp/ip)._
 
 Table of Contents,
@@ -14,7 +14,7 @@ Table of Contents,
 
 ## REST vs TCP/IP
 
-Rest does not have state, whereas tcp has an open connection and you
+REST does not have state, whereas tcp has an open connection and you
 can assume a lot about the server.
 
 ## HOW IT WORKS
