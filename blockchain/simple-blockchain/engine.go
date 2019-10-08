@@ -4,21 +4,19 @@ package main
 
 import (
 	"fmt"
-	"sync"
+	"strconv"
 	"time"
 
 	"github.com/davecgh/go-spew/spew"
 )
 
-var mutex = &sync.Mutex{}
-
 // Create a blockchain
 func createBlockchain() {
 
 	t := time.Now()
-	firstBlock := Block{}
+	firstBlock := BlockStruct{}
 
-	firstBlock = Block{
+	firstBlock = BlockStruct{
 		Index:     0,
 		Timestamp: t.String(),
 		Data:      "hi jeff",
@@ -29,7 +27,42 @@ func createBlockchain() {
 	fmt.Printf("\nCongrats, your first Block in your blockchain is:\n\n")
 	spew.Dump(firstBlock)
 
-	mutex.Lock()
 	Blockchain = append(Blockchain, firstBlock)
-	mutex.Unlock()
+}
+
+// Get the Blockchain
+func getBlockchain() Blockchain {
+
+	return Blockchain
+
+}
+
+// getBlock
+func getBlock(id string) BlockStruct {
+
+	// SEARCH DATA FOR blockID
+	for _, item := range Blockchain {
+		if strconv.Itoa(item.Index) == id {
+			// RETURN ITEM
+			return item
+		}
+	}
+
+	// RETURN NOT FOUND
+	return nil
+}
+
+// addBlockToChain
+func addBlockToChain(newData Message) BlockStruct {
+
+	prevBlock := Blockchain[len(Blockchain)-1]
+	newBlock := addBlockToChain(prevBlock, newData.Data)
+
+	// CHECK IF NEWBLOCK IS VALID
+	if isBlockValid(newBlock, prevBlock) {
+		Blockchain = append(Blockchain, newBlock)
+		spew.Dump(Blockchain)
+	}
+
+	return newBlock
 }

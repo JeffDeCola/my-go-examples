@@ -1,14 +1,16 @@
-// my-go-examples simple-blockchain.go
+// my-go-examples simple-blockchain simple-blockchain.go
 
 package main
 
 import (
 	"fmt"
 	"log"
+	"net/http"
 )
 
 const (
-	httpPort = "8080"
+	ip   = "127.0.0.1"
+	port = "1234"
 )
 
 func checkErr(err error) {
@@ -18,17 +20,28 @@ func checkErr(err error) {
 	}
 }
 
+func startWebServer() {
+
+	// CREATE ROUTER
+	myRouter := jeffsRouter()
+
+	// LISTEN ON IP AND PORT
+	fmt.Printf("\nListening on %s:%s\n\n", ip, port)
+	log.Fatal(http.ListenAndServe(ip+":"+port, myRouter))
+
+}
+
 func main() {
 
 	fmt.Printf("\nSTARTING...\n")
 
-	// Create a blockchain
+	// CREATE BLOCKCHAIN
 	createBlockchain()
 
-	// Start the web server
+	// START WEBSERVER
 	go startWebServer()
 
-	// Press return to exit
+	// PRESS RETURN TO EXIT
 	fmt.Scanln()
-	fmt.Println("DONE")
+	fmt.Println("\n...DONE\n")
 }
