@@ -1,4 +1,4 @@
-// my-go-examples simple-blockchain-with-REST blockchain.go
+// my-go-examples multi-node-blockchain-with-REST-and-tcp-ip blockchain.go
 
 package main
 
