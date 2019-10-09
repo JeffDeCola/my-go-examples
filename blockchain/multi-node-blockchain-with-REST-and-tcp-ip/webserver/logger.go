@@ -1,6 +1,6 @@
 // my-go-examples multi-node-blockchain-with-REST-and-tcp-ip logger.go
 
-package main
+package webserver
 
 import (
 	"net/http"

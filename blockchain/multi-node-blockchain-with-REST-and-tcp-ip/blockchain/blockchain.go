@@ -1,6 +1,6 @@
 // my-go-examples multi-node-blockchain-with-REST-and-tcp-ip blockchain.go
 
-package main
+package blockchain
 
 // BlockStruct is your block
 type BlockStruct struct {

@@ -159,9 +159,9 @@ other cool programs._
 
 * [multi-node-blockchain-with-REST-and-tcp-ip](https://github.com/JeffDeCola/my-go-examples/tree/master/blockchain/multi-node-blockchain-with-REST-and-tcp-ip)
 
-  _A multi node sha256 blockchain with a REST JSON API (to view (GET)
-  the blockchain and add (POST) a block) and a tcp server to communicate
-  between the nodes over ip.
+  _A multi node sha256 blockchain with a REST JSON API
+  (to view (GET) the blockchain and add (POST) a block)
+  and a tcp server to communicate between the nodes over ip.
   The blockchain is built from my
   [simple-blockchain-with-REST](https://github.com/JeffDeCola/my-go-examples/tree/master/blockchain/simple-blockchain-with-REST).
   The webserver is built from my
@@ -171,8 +171,8 @@ other cool programs._
 
 * [simple-blockchain-with-REST](https://github.com/JeffDeCola/my-go-examples/tree/master/blockchain/simple-blockchain-with-REST)
 
-  _A simple sha256 blockchain with a REST JSON API (to view (GET) the blockchain
-  and add (POST) a block)._
+  _A simple single node sha256 blockchain with a REST JSON API
+  (to view (GET) the blockchain and add (POST) a block)._
 
 ### CGO
 

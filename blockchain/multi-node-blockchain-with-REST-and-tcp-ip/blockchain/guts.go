@@ -1,6 +1,6 @@
 // my-go-examples multi-node-blockchain-with-REST-and-tcp-ip guts.go
 
-package main
+package blockchain
 
 import (
 	"crypto/sha256"
