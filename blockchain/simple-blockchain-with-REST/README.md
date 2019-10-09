@@ -1,7 +1,7 @@
 # simple-blockchain-with-REST example
 
-_A simple sha256 blockchain with a REST JSON API (to view (GET) the blockchain
-and add (POST) a block)._
+_A simple single node sha256 blockchain with a REST JSON API
+(to view (GET) the blockchain and add (POST) a block)._
 
 Table of Contents,
 

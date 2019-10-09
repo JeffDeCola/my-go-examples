@@ -1,8 +1,8 @@
 # multi-node-blockchain-with-REST-and-tcp-ip example
 
-_A multi node sha256 blockchain with a REST JSON API (to view (GET)
-the blockchain and add (POST) a block) and a tcp server to communicate
-between the nodes over ip._
+_A multi node sha256 blockchain with a REST JSON API
+(to view (GET) the blockchain and add (POST) a block)
+and a tcp server to communicate between the nodes over ip.
 
 Table of Contents,
 
@@ -28,7 +28,7 @@ Documentation and reference,
 This code is broken up into four parts,
 
 * **guts** The blockchain code
-* **blockchain-interface** The interface to the blockchain
+* **blockchain-interface** The interface to the blockchain for th web and tcp server
 * **Webserver** The API and gui
 * **TCP Server** Top communicate between he nodes
 
@@ -47,10 +47,10 @@ This illustration may help,
 ## RUN
 
 ```bash
-go run multi-node-blockchain-with-REST-and-tcp-ip.go \
-       guts.go blockchain.go blockchain-interface.go \
-       router.go routes.go handlers.go logger.go
+go run multi-node-blockchain-with-REST-and-tcp-ip.go
 ```
+
+## WEBSERVER AND API
 
 ### GET (View the entire Blockchain)
 
@@ -85,30 +85,11 @@ Check,
 
 [localhost:1234/](http://localhost:1234/)
 
-## HOW IT WORKS
+## TCP SERVER
 
-We will just be looking at the guts, ignoring the webserver and blockchain-interface.
+Open a connection,
 
-So it actually becomes quite simple. A Block is just a struct and The Blockchain
-is simply a slice of structs. That's it.
-
-```go
-type BlockStruct struct {
-    Index     int    `json:"index"`
-    Timestamp string `json:"timestamp"`
-    Data      string `json:"data"`
-    Hash      string `json:"hash"`
-    PrevHash  string `json:"prevhash"`
-}
-
-type BlockchainSlice []BlockStruct
-
-var Blockchain = BlockchainSlice{}
+```txt
+netcat -q -1 localhost 3333
 ```
 
-And `guts.go` contain the three basic things you want to do
-to that Blockchain (slice of structs),
-
-* calculateBlockHash()
-* isBlockValid()
-* createNewBlock()

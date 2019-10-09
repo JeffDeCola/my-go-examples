@@ -1,12 +1,13 @@
 // my-go-examples multi-node-blockchain-with-REST-and-tcp-ip handlers.go
 
-package main
+package webserver
 
 import (
 	"encoding/json"
 	"io"
 	"net/http"
 
+	blockchain "github.com/JeffDeCola/my-go-examples/blockchain/multi-node-blockchain-with-REST-and-tcp-ip/blockchain"
 	"github.com/gorilla/mux"
 )
 
@@ -19,7 +20,7 @@ func rootHandler(res http.ResponseWriter, req *http.Request) {
 
 	// GET BLOCKCHAIN
 	// Not needed, but I want to go through engine
-	theBlockchain := getBlockchain()
+	theBlockchain := blockchain.GetBlockchain()
 
 	// RESPOND BLOCKCHAIN
 	js, _ := json.MarshalIndent(theBlockchain, "", "    ")
@@ -38,7 +39,7 @@ func showBlockHandler(res http.ResponseWriter, req *http.Request) {
 	blockID := params["blockID"]
 
 	// GET BLOCK - ask interface
-	theblock := getBlock(blockID)
+	theblock := blockchain.GetBlock(blockID)
 
 	// RESPOND BLOCK
 	io.WriteString(res, "The Block you requested:\n\n")
@@ -58,7 +59,7 @@ func addBlockHandler(res http.ResponseWriter, req *http.Request) {
 	_ = json.NewDecoder(req.Body).Decode(&newData)
 
 	// ADD NEW BLOCK TO CHAIN
-	newBlock := addBlockToChain(newData)
+	newBlock := blockchain.AddBlockToChain(newData.Data)
 
 	// RESPOND NEWBLOCK
 	//json.NewEncoder(res).Encode(todosDatabase)

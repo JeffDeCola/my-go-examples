@@ -53,10 +53,10 @@ func getBlock(id string) BlockStruct {
 }
 
 // Add a Block to the chain
-func addBlockToChain(newData Message) BlockStruct {
+func addBlockToChain(newData string) BlockStruct {
 
 	prevBlock := Blockchain[len(Blockchain)-1]
-	newBlock := createNewBlock(prevBlock, newData.Data)
+	newBlock := createNewBlock(prevBlock, newData)
 
 	// CHECK IF NEWBLOCK IS VALID
 	if isBlockValid(newBlock, prevBlock) {

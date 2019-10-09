@@ -1,6 +1,6 @@
-// my-go-examples multi-node-blockchain-with-REST-and-tcp-ip blockchain-interface.go
+// my-go-examples multi-node-blockchain-with-REST-and-tcp-ip webserver-blockchain-interface.go
 
-package main
+package blockchain
 
 import (
 	"fmt"
@@ -8,8 +8,8 @@ import (
 	"time"
 )
 
-// Create a blockchain
-func createBlockchain() {
+// CreateBlockchain - Create a blockchain
+func CreateBlockchain() {
 
 	t := time.Now()
 	firstBlock := BlockStruct{}
@@ -28,15 +28,15 @@ func createBlockchain() {
 	Blockchain = append(Blockchain, firstBlock)
 }
 
-// Get the Blockchain
-func getBlockchain() BlockchainSlice {
+// GetBlockchain - Get the Blockchain
+func GetBlockchain() BlockchainSlice {
 
 	return Blockchain
 
 }
 
-// Get a Block from the chain
-func getBlock(id string) BlockStruct {
+// GetBlock - Get a Block from the chain
+func GetBlock(id string) BlockStruct {
 
 	var item BlockStruct
 
@@ -52,11 +52,11 @@ func getBlock(id string) BlockStruct {
 	return item
 }
 
-// Add a Block to the chain
-func addBlockToChain(newData Message) BlockStruct {
+// AddBlockToChain - Add a Block to the chain
+func AddBlockToChain(newData string) BlockStruct {
 
 	prevBlock := Blockchain[len(Blockchain)-1]
-	newBlock := createNewBlock(prevBlock, newData.Data)
+	newBlock := createNewBlock(prevBlock, newData)
 
 	// CHECK IF NEWBLOCK IS VALID
 	if isBlockValid(newBlock, prevBlock) {

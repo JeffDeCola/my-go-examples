@@ -58,7 +58,7 @@ func addBlockHandler(res http.ResponseWriter, req *http.Request) {
 	_ = json.NewDecoder(req.Body).Decode(&newData)
 
 	// ADD NEW BLOCK TO CHAIN
-	newBlock := addBlockToChain(newData)
+	newBlock := addBlockToChain(newData.Data)
 
 	// RESPOND NEWBLOCK
 	//json.NewEncoder(res).Encode(todosDatabase)

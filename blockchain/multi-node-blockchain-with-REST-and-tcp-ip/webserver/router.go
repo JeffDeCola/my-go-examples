@@ -1,18 +1,20 @@
 // my-go-examples multi-node-blockchain-with-REST-and-tcp-ip router.go
 
-package main
+package webserver
 
 import (
 	"net/http"
 
 	"github.com/gorilla/mux"
 )
+
 // Message takes incoming JSON payload for writing data
 type Message struct {
 	Data string  `json:"data"`
 }
 
-func jeffsRouter() *mux.Router {
+// JeffsRouter is the router
+func JeffsRouter() *mux.Router {
 
 	// MAKE ROUTER
 	router := mux.NewRouter().StrictSlash(true)

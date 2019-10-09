@@ -1,6 +1,6 @@
 // my-go-examples multi-node-blockchain-with-REST-and-tcp-ip routes.go
 
-package main
+package webserver
 
 import "net/http"
 
