@@ -410,7 +410,7 @@ for the standard go packages_
 * [simple-webserver](https://github.com/JeffDeCola/my-go-examples/tree/master/webserver/simple-webserver)
 
   _Using the standard `net/http` package to build a simple webserver.
-  I added an API to this example in the above example
+  I added a REST JSON API to this example in the above example
   [simple-webserver-with-REST](https://github.com/JeffDeCola/my-go-examples#api)._
 
 ## UPDATE GITHUB WEBPAGE & UNIT TESTS USING CONCOURSE (OPTIONAL)

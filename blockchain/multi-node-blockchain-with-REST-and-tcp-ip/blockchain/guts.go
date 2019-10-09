@@ -57,3 +57,15 @@ func createNewBlock(oldBlock BlockStruct, data string) BlockStruct {
 
 	return newBlock
 }
+
+// REPLACE CHAIN WITH LONGER ONE
+func replaceChain(newBlock BlockchainSlice) 
+{
+	if len(newBlock) > len(Blockchain) {
+        log.Println("New Block added to chain")
+		Blockchain = newBlock
+    }
+    else {
+        log.Println("New Block NOT added to chain")
+    }
+}

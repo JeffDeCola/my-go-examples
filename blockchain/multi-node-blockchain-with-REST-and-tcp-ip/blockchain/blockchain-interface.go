@@ -1,8 +1,9 @@
-// my-go-examples multi-node-blockchain-with-REST-and-tcp-ip webserver-blockchain-interface.go
+// my-go-examples multi-node-blockchain-with-REST-and-tcp-ip blockchain-interface.go
 
 package blockchain
 
 import (
+	"encoding/json"
 	"fmt"
 	"strconv"
 	"time"
@@ -23,7 +24,9 @@ func CreateBlockchain() {
 	}
 
 	fmt.Printf("\nCongrats, your first Block in your blockchain is:\n\n")
-	fmt.Printf("%v\n", firstBlock)
+	js, _ := json.MarshalIndent(firstBlock, "", "    ")
+
+	fmt.Printf("%v\n", string(js))
 
 	Blockchain = append(Blockchain, firstBlock)
 }
@@ -60,7 +63,10 @@ func AddBlockToChain(newData string) BlockStruct {
 
 	// CHECK IF NEWBLOCK IS VALID
 	if isBlockValid(newBlock, prevBlock) {
-		Blockchain = append(Blockchain, newBlock)
+        log.Println("Block is valid")
+        newBlockchain := append(Blockchain, newBlock)
+        // REPLACE WITH LONGER ONE
+		replaceChain(newBlockchain)
 	}
 
 	fmt.Printf("\nAdding new Block:\n%v\n\n", newBlock)

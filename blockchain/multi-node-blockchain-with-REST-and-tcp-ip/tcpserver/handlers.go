@@ -4,62 +4,29 @@ package tcpserver
 
 import (
 	"bufio"
-	"strconv"
+	"encoding/json"
 	"strings"
+
+	blockchain "github.com/JeffDeCola/my-go-examples/blockchain/multi-node-blockchain-with-REST-and-tcp-ip/blockchain"
 )
 
-func handleAdd(rw *bufio.ReadWriter) {
+func handleAddNewBlock(rw *bufio.ReadWriter) {
 
-	s := "Please enter two integers"
+	s := "Please enter the new Data"
 	returnMessage(s, rw)
 
-	// WAITING FOR INT 1
-	s1, err := rw.ReadString('\n')
+	// WAITING FOR DATA
+	data, err := rw.ReadString('\n')
 	checkErr(err)
-	s1 = strings.Trim(s1, "\n ")
-	i1, _ := strconv.Atoi(s1)
-	s = "Received first integer: " + s1
+	data = strings.Trim(data, "\n ")
+	s = "Received DATA: " + data
 	returnMessage(s, rw)
 
-	// WAITING FOR INT 2
-	s2, err := rw.ReadString('\n')
-	checkErr(err)
-	s2 = strings.Trim(s2, "\n ")
-	i2, _ := strconv.Atoi(s2)
-	s = "Received second integer: " + s2
-	returnMessage(s, rw)
-
-	// THE SUM
-	sum := i1 + i2
-	s = "The sum of " + s1 + " + " + s2 + " = " + strconv.Itoa(sum)
-	returnMessage(s, rw)
-
-}
-
-func handleSubstract(rw *bufio.ReadWriter) {
-
-	s := "Please enter two integers"
-	returnMessage(s, rw)
-
-	// WAITING FOR INT 1
-	s1, err := rw.ReadString('\n')
-	checkErr(err)
-	s1 = strings.Trim(s1, "\n ")
-	i1, _ := strconv.Atoi(s1)
-	s = "Received first integer: " + s1
-	returnMessage(s, rw)
-
-	// WAITING FOR INT 2
-	s2, err := rw.ReadString('\n')
-	checkErr(err)
-	s2 = strings.Trim(s2, "\n ")
-	i2, _ := strconv.Atoi(s2)
-	s = "Received second integer: " + s2
-	returnMessage(s, rw)
-
-	// SUBTRACT
-	sum := i1 - i2
-	s = "Subtracting " + s1 + " - " + s2 + " = " + strconv.Itoa(sum)
+	// MAKE A NEW BLOCK
+	// ADD NEW BLOCK TO CHAIN
+	newBlock := blockchain.AddBlockToChain(data)
+	js, _ := json.MarshalIndent(newBlock, "", "    ")
+	s = "Added block to blockchain:\n" + string(js)
 	returnMessage(s, rw)
 
 }
