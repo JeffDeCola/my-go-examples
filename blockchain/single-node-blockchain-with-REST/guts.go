@@ -1,4 +1,4 @@
-// my-go-examples simple-blockchain-with-REST guts.go
+// my-go-examples single-node-blockchain-with-REST guts.go
 
 package main
 

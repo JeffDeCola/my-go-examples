@@ -163,13 +163,13 @@ other cool programs._
   (to view (GET) the blockchain and add (POST) a block)
   and a tcp server to communicate between the nodes over ip.
   The blockchain is built from my
-  [simple-blockchain-with-REST](https://github.com/JeffDeCola/my-go-examples/tree/master/blockchain/simple-blockchain-with-REST).
+  [single-node-blockchain-with-REST](https://github.com/JeffDeCola/my-go-examples/tree/master/blockchain/single-node-blockchain-with-REST).
   The webserver is built from my
   [simple-webserver-with-REST](https://github.com/JeffDeCola/my-go-examples/tree/master/api/simple-webserver-with-REST).
   The tcp server is built from my
   [simple-tcp-ip-server](https://github.com/JeffDeCola/my-go-examples/tree/master/api/simple-tcp-ip-server)._
 
-* [simple-blockchain-with-REST](https://github.com/JeffDeCola/my-go-examples/tree/master/blockchain/simple-blockchain-with-REST)
+* [single-node-blockchain-with-REST](https://github.com/JeffDeCola/my-go-examples/tree/master/blockchain/single-node-blockchain-with-REST)
 
   _A simple single node sha256 blockchain with a REST JSON API
   (to view (GET) the blockchain and add (POST) a block)._
