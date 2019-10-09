@@ -1,4 +1,4 @@
-// my-go-examples simple-blockchain-with-REST handlers.go
+// my-go-examples single-node-blockchain-with-REST handlers.go
 
 package main
 

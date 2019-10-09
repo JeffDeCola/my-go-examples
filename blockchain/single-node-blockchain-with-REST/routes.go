@@ -1,4 +1,4 @@
-// my-go-examples simple-blockchain-with-REST routes.go
+// my-go-examples single-node-blockchain-with-REST routes.go
 
 package main
 

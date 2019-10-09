@@ -1,17 +1,17 @@
-# simple-blockchain-with-REST example
+# single-node-blockchain-with-REST example
 
 _A simple single node sha256 blockchain with a REST JSON API
 (to view (GET) the blockchain and add (POST) a block)._
 
 Table of Contents,
 
-* [PREREQUISITES](https://github.com/JeffDeCola/my-go-examples/tree/master/blockchain/simple-blockchain-with-REST#prerequisites)
-* [OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/blockchain/simple-blockchain-with-REST#overview)
-* [RUN](https://github.com/JeffDeCola/my-go-examples/tree/master/blockchain/simple-blockchain-with-REST#run)
-  * [GET (View the entire Blockchain)](https://github.com/JeffDeCola/my-go-examples/tree/master/blockchain/simple-blockchain-with-REST#get-view-the-entire-blockchain)
-  * [GET (Show a Particular Block)](https://github.com/JeffDeCola/my-go-examples/tree/master/blockchain/simple-blockchain-with-REST#get-show-a-particular-block)
-  * [POST (Add a Block)](https://github.com/JeffDeCola/my-go-examples/tree/master/blockchain/simple-blockchain-with-REST#post-add-a-block)
-* [HOW IT WORKS](https://github.com/JeffDeCola/my-go-examples/tree/master/blockchain/simple-blockchain-with-REST#how-it-works)
+* [PREREQUISITES](https://github.com/JeffDeCola/my-go-examples/tree/master/blockchain/single-node-blockchain-with-REST#prerequisites)
+* [OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/blockchain/single-node-blockchain-with-REST#overview)
+* [RUN](https://github.com/JeffDeCola/my-go-examples/tree/master/blockchain/single-node-blockchain-with-REST#run)
+  * [GET (View the entire Blockchain)](https://github.com/JeffDeCola/my-go-examples/tree/master/blockchain/single-node-blockchain-with-REST#get-view-the-entire-blockchain)
+  * [GET (Show a Particular Block)](https://github.com/JeffDeCola/my-go-examples/tree/master/blockchain/single-node-blockchain-with-REST#get-show-a-particular-block)
+  * [POST (Add a Block)](https://github.com/JeffDeCola/my-go-examples/tree/master/blockchain/single-node-blockchain-with-REST#post-add-a-block)
+* [HOW IT WORKS](https://github.com/JeffDeCola/my-go-examples/tree/master/blockchain/single-node-blockchain-with-REST#how-it-works)
 
 Documentation and reference,
 
@@ -51,12 +51,12 @@ This examples will,
 
 This illustration may help,
 
-![IMAGE - simple-blockchain-with-REST - IMAGE](https://github.com/JeffDeCola/my-go-examples/blob/master/docs/pics/simple-blockchain-with-REST.jpg)
+![IMAGE - single-node-blockchain-with-REST - IMAGE](https://github.com/JeffDeCola/my-go-examples/blob/master/docs/pics/single-node-blockchain-with-REST.jpg)
 
 ## RUN
 
 ```bash
-go run simple-blockchain-with-REST.go \
+go run single-node-blockchain-with-REST.go \
        guts.go blockchain.go blockchain-interface.go \
        router.go routes.go handlers.go logger.go
 ```

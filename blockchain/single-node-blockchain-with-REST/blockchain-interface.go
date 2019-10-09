@@ -1,4 +1,4 @@
-// my-go-examples simple-blockchain-with-REST blockchain-interface.go
+// my-go-examples single-node-blockchain-with-REST blockchain-interface.go
 
 package main
 
