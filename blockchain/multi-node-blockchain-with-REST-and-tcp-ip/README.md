@@ -1,23 +1,21 @@
-# simple-blockchain-with-REST example
+# multi-node-blockchain-with-REST-and-tcp-ip example
 
-_A simple sha256 blockchain with a REST JSON API (to view (GET) the blockchain
-and add (POST) a block)._
+_A multi node sha256 blockchain with a REST JSON API (to view (GET)
+the blockchain and add (POST) a block) and a tcp server to communicate
+between the nodes over ip._
 
 Table of Contents,
 
-* [PREREQUISITES](https://github.com/JeffDeCola/my-go-examples/tree/master/blockchain/simple-blockchain-with-REST#prerequisites)
-* [OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/blockchain/simple-blockchain-with-REST#overview)
-* [RUN](https://github.com/JeffDeCola/my-go-examples/tree/master/blockchain/simple-blockchain-with-REST#run)
-  * [GET (View the entire Blockchain)](https://github.com/JeffDeCola/my-go-examples/tree/master/blockchain/simple-blockchain-with-REST#get-view-the-entire-blockchain)
-  * [GET (Show a Particular Block)](https://github.com/JeffDeCola/my-go-examples/tree/master/blockchain/simple-blockchain-with-REST#get-show-a-particular-block)
-  * [POST (Add a Block)](https://github.com/JeffDeCola/my-go-examples/tree/master/blockchain/simple-blockchain-with-REST#post-add-a-block)
-* [HOW IT WORKS](https://github.com/JeffDeCola/my-go-examples/tree/master/blockchain/simple-blockchain-with-REST#how-it-works)
+* tbd
 
 Documentation and reference,
 
-* Refer to my
+* The blockchain is built from my
+  [simple-blockchain-with-REST](https://github.com/JeffDeCola/my-go-examples/tree/master/blockchain/simple-blockchain-with-REST)
+* The webserver is built from my
   [simple-webserver-with-REST](https://github.com/JeffDeCola/my-go-examples/tree/master/api/simple-webserver-with-REST)
-  for the webserver engine
+* The tcp server is built from my
+  [simple-tcp-ip-server](https://github.com/JeffDeCola/my-go-examples/tree/master/api/simple-tcp-ip-server)
 * Refer to my
   [cheat sheet on blockchains](https://github.com/JeffDeCola/my-cheat-sheets/tree/master/software/development/software-architectures/blockchain/blockchain-cheat-sheet)
 * I got a lot of inspiration from
@@ -25,21 +23,14 @@ Documentation and reference,
 
 [GitHub Webpage](https://jeffdecola.github.io/my-go-examples/)
 
-## PREREQUISITES
-
-Gorilla/mux is a popular router I use for the webserver.
-
-```bash
-go get -v -u github.com/gorilla/mux
-```
-
 ## OVERVIEW
 
-This code is broken up into three parts,
+This code is broken up into four parts,
 
 * **guts** The blockchain code
 * **blockchain-interface** The interface to the blockchain
 * **Webserver** The API and gui
+* **TCP Server** Top communicate between he nodes
 
 This examples will,
 
@@ -51,12 +42,12 @@ This examples will,
 
 This illustration may help,
 
-![IMAGE - simple-blockchain-with-REST - IMAGE](https://github.com/JeffDeCola/my-go-examples/blob/master/docs/pics/simple-blockchain-with-REST.jpg)
+![IMAGE - multi-node-blockchain-with-REST-and-tcp-ip - IMAGE](https://github.com/JeffDeCola/my-go-examples/blob/master/docs/pics/multi-node-blockchain-with-REST-and-tcp-ip.jpg)
 
 ## RUN
 
 ```bash
-go run simple-blockchain-with-REST.go \
+go run multi-node-blockchain-with-REST-and-tcp-ip.go \
        guts.go blockchain.go blockchain-interface.go \
        router.go routes.go handlers.go logger.go
 ```

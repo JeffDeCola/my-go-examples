@@ -1,4 +1,4 @@
-// my-go-examples simple-blockchain-with-REST guts.go
+// my-go-examples multi-node-blockchain-with-REST-and-tcp-ip guts.go
 
 package main
 

@@ -1,4 +1,4 @@
-// my-go-examples simple-blockchain-with-REST router.go
+// my-go-examples multi-node-blockchain-with-REST-and-tcp-ip router.go
 
 package main
 
@@ -7,10 +7,9 @@ import (
 
 	"github.com/gorilla/mux"
 )
-
 // Message takes incoming JSON payload for writing data
 type Message struct {
-	Data string `json:"data"`
+	Data string  `json:"data"`
 }
 
 func jeffsRouter() *mux.Router {
