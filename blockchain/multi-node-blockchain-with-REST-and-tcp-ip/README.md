@@ -2,7 +2,7 @@
 
 _A multi node sha256 blockchain with a REST JSON API
 (to view (GET) the blockchain and add (POST) a block)
-and a tcp server to communicate between the nodes over ip.
+and a tcp server to communicate between the nodes over ip._
 
 Table of Contents,
 
@@ -25,11 +25,15 @@ Documentation and reference,
 
 ## OVERVIEW
 
-This code is broken up into four parts,
+This code is broken up into three main parts,
 
-* **guts** The blockchain code
-* **blockchain-interface** The interface to the blockchain for th web and tcp server
-* **Webserver** The API and gui
+* **Blockchain** The Blockchain code
+  * **Guts** The guts the deal directly with the blockchain
+  * **Webserver Blockchain Interface**
+    The interface to the blockchain for the Webserver
+  * **TCP Server Blockchain Interface**
+    The interface to the blockchain for the TCP server
+* **Webserver** The API and GUI
 * **TCP Server** Top communicate between he nodes
 
 This examples will,
@@ -92,4 +96,3 @@ Open a connection,
 ```txt
 netcat -q -1 localhost 3333
 ```
-

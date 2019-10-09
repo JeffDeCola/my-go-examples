@@ -75,6 +75,7 @@ func main() {
 	go startTCPServer()
 
 	// PRESS RETURN TO EXIT
+	fmt.Println("\nPress return to exit\n")
 	fmt.Scanln()
 	fmt.Println("\n...DONE\n")
 }

@@ -28,7 +28,7 @@ func HandleRequest(conn net.Conn) {
 	// READ FROM CONN UTIL EOF
 	for {
 
-		s := "Waiting for command: ADD, SUBTRACT or EOF"
+		s := "Waiting for command: ADDNEWBLOCK or EOF"
 		returnMessage(s, rw)
 
 		cmd, err := rw.ReadString('\n')
@@ -53,13 +53,13 @@ func HandleRequest(conn net.Conn) {
 		}
 
 		// CALL HANDLER
-		// ADD OR SUBSTRACT
+		// ADDNEWBLOCK
 		// Otherwise close connection
 		switch {
-		case cmd == "ADD":
-			handleAdd(rw)
-		case cmd == "SUBTRACT":
-			handleSubstract(rw)
+		case cmd == "ADDNEWBLOCK":
+			handleAddNewBlock(rw)
+		// case cmd == "NEWCOMMAND":
+		//	handleSubstract(rw)
 		case cmd == "EOF":
 			s = "Received EOF"
 			returnMessage(s, rw)
@@ -80,7 +80,7 @@ func HandleRequest(conn net.Conn) {
 
 func returnMessage(s string, rw *bufio.ReadWriter) {
 	log.Println(s)
-	_, err := rw.WriteString(s + "\n")
+	_, err := rw.WriteString("---" + s + "\n")
 	checkErr(err)
 	err = rw.Flush()
 	checkErr(err)
