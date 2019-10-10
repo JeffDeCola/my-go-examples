@@ -25,6 +25,11 @@ func HandleRequest(conn net.Conn) {
 	defer conn.Close()
 	rw := bufio.NewReadWriter(bufio.NewReader(conn), bufio.NewWriter(conn))
 
+	s := "Opening a connection"
+	returnMessage(s, rw)
+	s = "----------------------------------------------------------------"
+	returnMessage(s, rw)
+
 	// READ FROM CONN UTIL EOF
 	for {
 
@@ -45,10 +50,12 @@ func HandleRequest(conn net.Conn) {
 			returnMessage(s, rw)
 			s = "Closing this connection"
 			returnMessage(s, rw)
-			log.Println("----------------------------------------------------------------")
+			s = "----------------------------------------------------------------"
+			returnMessage(s, rw)
 			return
 		case err != nil:
-			log.Println("ERROR reading command. Got: ", cmd, err)
+			s = "ERROR reading command. Got: " + cmd
+			returnMessage(s, rw)
 			return
 		}
 
@@ -65,22 +72,24 @@ func HandleRequest(conn net.Conn) {
 			returnMessage(s, rw)
 			s = "Closing this connection"
 			returnMessage(s, rw)
-			log.Println("----------------------------------------------------------------")
+			s = "----------------------------------------------------------------"
+			returnMessage(s, rw)
 			return
 		default:
 			s = "Did not get correct command. Received: " + cmd
 			returnMessage(s, rw)
 			s = "Closing this connection"
 			returnMessage(s, rw)
-			log.Println("----------------------------------------------------------------")
+			s = "----------------------------------------------------------------"
+			returnMessage(s, rw)
 			return
 		}
 	}
 }
 
 func returnMessage(s string, rw *bufio.ReadWriter) {
-	log.Println(s)
-	_, err := rw.WriteString("---" + s + "\n")
+	log.Println("TCPSERVER:      " + s)
+	_, err := rw.WriteString("--- " + s + "\n")
 	checkErr(err)
 	err = rw.Flush()
 	checkErr(err)

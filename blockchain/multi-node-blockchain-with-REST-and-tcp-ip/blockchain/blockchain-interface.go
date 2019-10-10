@@ -7,6 +7,8 @@ import (
 	"fmt"
 	"strconv"
 	"time"
+
+	log "github.com/sirupsen/logrus"
 )
 
 // CreateBlockchain - Create a blockchain
@@ -25,7 +27,6 @@ func CreateBlockchain() {
 
 	fmt.Printf("\nCongrats, your first Block in your blockchain is:\n\n")
 	js, _ := json.MarshalIndent(firstBlock, "", "    ")
-
 	fmt.Printf("%v\n", string(js))
 
 	Blockchain = append(Blockchain, firstBlock)
@@ -40,6 +41,8 @@ func GetBlockchain() BlockchainSlice {
 
 // GetBlock - Get a Block from the chain
 func GetBlock(id string) BlockStruct {
+
+	log.Println("BLOCKCHAIN I/F: Get a block from blockchain")
 
 	var item BlockStruct
 
@@ -58,17 +61,23 @@ func GetBlock(id string) BlockStruct {
 // AddBlockToChain - Add a Block to the chain
 func AddBlockToChain(newData string) BlockStruct {
 
+	log.Println("BLOCKCHAIN I/F: Started to add block to blockchain")
+
+	var blankBlock BlockStruct
+
 	prevBlock := Blockchain[len(Blockchain)-1]
 	newBlock := createNewBlock(prevBlock, newData)
 
 	// CHECK IF NEWBLOCK IS VALID
 	if isBlockValid(newBlock, prevBlock) {
-        log.Println("Block is valid")
-        newBlockchain := append(Blockchain, newBlock)
-        // REPLACE WITH LONGER ONE
+		log.Println("BLOCKCHAIN I/F: Block is valid")
+		newBlockchain := append(Blockchain, newBlock)
+		// REPLACE WITH LONGER ONE
 		replaceChain(newBlockchain)
+		return newBlock
+	} else {
+		log.Println("BLOCKCHAIN I/F: Block is NOT valid")
+		return blankBlock
 	}
 
-	fmt.Printf("\nAdding new Block:\n%v\n\n", newBlock)
-	return newBlock
 }

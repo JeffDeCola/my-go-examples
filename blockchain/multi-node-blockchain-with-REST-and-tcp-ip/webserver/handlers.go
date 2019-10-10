@@ -7,6 +7,8 @@ import (
 	"io"
 	"net/http"
 
+	log "github.com/sirupsen/logrus"
+
 	blockchain "github.com/JeffDeCola/my-go-examples/blockchain/multi-node-blockchain-with-REST-and-tcp-ip/blockchain"
 	"github.com/gorilla/mux"
 )
@@ -16,17 +18,18 @@ import (
 func rootHandler(res http.ResponseWriter, req *http.Request) {
 
 	res.Header().Set("Content-Type", "application/json")
-	io.WriteString(res, "Welcome, this is the entire Blockchain:\n\n")
 
 	// GET BLOCKCHAIN
 	// Not needed, but I want to go through engine
 	theBlockchain := blockchain.GetBlockchain()
 
 	// RESPOND BLOCKCHAIN
+	s := "The entire Blockchain:"
+	respondMessage(s, res)
 	js, _ := json.MarshalIndent(theBlockchain, "", "    ")
-	res.Write(js)
-	io.WriteString(res, "\n\n")
-
+	s = string(js)
+	log.Println("WEBSERVER:      " + "Blockchain too long, not shown")
+	io.WriteString(res, s+"\n")
 }
 
 // GET
@@ -42,10 +45,11 @@ func showBlockHandler(res http.ResponseWriter, req *http.Request) {
 	theblock := blockchain.GetBlock(blockID)
 
 	// RESPOND BLOCK
-	io.WriteString(res, "The Block you requested:\n\n")
+	s := "The Block you requested:"
+	respondMessage(s, res)
 	js, _ := json.MarshalIndent(theblock, "", "    ")
-	res.Write(js)
-	io.WriteString(res, "\n\n")
+	s = string(js)
+	respondMessage(s, res)
 
 }
 
@@ -63,9 +67,16 @@ func addBlockHandler(res http.ResponseWriter, req *http.Request) {
 
 	// RESPOND NEWBLOCK
 	//json.NewEncoder(res).Encode(todosDatabase)
-	io.WriteString(res, "Added the Following Block to the chain:\n\n")
+	s := "Added the Following Block to the chain:"
+	respondMessage(s, res)
 	js, _ := json.MarshalIndent(newBlock, "", "    ")
-	res.Write(js)
-	io.WriteString(res, "\n\n")
+	s = string(js)
+	respondMessage(s, res)
+}
+
+func respondMessage(s string, res http.ResponseWriter) {
+
+	log.Println("WEBSERVER:      " + s)
+	io.WriteString(res, s+"\n")
 
 }

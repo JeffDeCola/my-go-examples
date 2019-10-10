@@ -18,7 +18,7 @@ func Logger(inner http.Handler, name string) http.Handler {
 		inner.ServeHTTP(res, req)
 
 		log.Printf(
-			"%s\t%s\t%s\t%s",
+			"HTTP            %s\t%s\t%s\t%s",
 			req.Method,
 			req.RequestURI,
 			name,
