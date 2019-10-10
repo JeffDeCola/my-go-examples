@@ -54,9 +54,6 @@ func startTCPServer() {
 		conn, err := server.Accept()
 		checkErr(err)
 
-		log.Println("Opening a connection")
-		log.Println("----------------------------------------------------------------")
-
 		go tcpserver.HandleRequest(conn)
 	}
 }

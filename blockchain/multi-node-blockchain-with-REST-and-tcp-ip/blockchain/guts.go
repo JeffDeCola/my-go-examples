@@ -7,6 +7,8 @@ import (
 	"encoding/hex"
 	"strconv"
 	"time"
+
+	log "github.com/sirupsen/logrus"
 )
 
 // GET HASH
@@ -17,12 +19,15 @@ func calculateBlockHash(block BlockStruct) string {
 	h := sha256.New()
 	h.Write([]byte(record))
 	hashed := h.Sum(nil)
+	log.Println("GUTS:           Calculated Block Hash")
 	return hex.EncodeToString(hashed)
 
 }
 
 // CHECK THAT A NEW BLOCK IS VALID
 func isBlockValid(checkBlock, oldBlock BlockStruct) bool {
+
+	log.Println("GUTS:           Checking if Block is valid")
 
 	// Check index
 	if oldBlock.Index+1 != checkBlock.Index {
@@ -55,17 +60,17 @@ func createNewBlock(oldBlock BlockStruct, data string) BlockStruct {
 	newBlock.PrevHash = oldBlock.Hash
 	newBlock.Hash = calculateBlockHash(newBlock)
 
+	log.Println("GUTS:           Created New Block")
 	return newBlock
 }
 
 // REPLACE CHAIN WITH LONGER ONE
-func replaceChain(newBlock BlockchainSlice) 
-{
+func replaceChain(newBlock BlockchainSlice) {
+
 	if len(newBlock) > len(Blockchain) {
-        log.Println("New Block added to chain")
+		log.Println("GUTS:           New Block added to chain")
 		Blockchain = newBlock
-    }
-    else {
-        log.Println("New Block NOT added to chain")
-    }
+	} else {
+		log.Println("GUTS:           New Block NOT added to chain")
+	}
 }

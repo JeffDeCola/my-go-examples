@@ -24,9 +24,11 @@ func handleAddNewBlock(rw *bufio.ReadWriter) {
 
 	// MAKE A NEW BLOCK
 	// ADD NEW BLOCK TO CHAIN
+	s = "Sending request to add block to the Blockchain"
+	returnMessage(s, rw)
 	newBlock := blockchain.AddBlockToChain(data)
 	js, _ := json.MarshalIndent(newBlock, "", "    ")
-	s = "Added block to blockchain:\n" + string(js)
+	s = "Added block to Blockchain:\n" + string(js)
 	returnMessage(s, rw)
 
 }
