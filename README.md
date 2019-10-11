@@ -157,17 +157,9 @@ other cool programs._
 
 ### BLOCKCHAIN
 
-* [multi-node-blockchain-with-REST-and-tcp-ip](https://github.com/JeffDeCola/my-go-examples/tree/master/blockchain/multi-node-blockchain-with-REST-and-tcp-ip)
+* [jeffCoin](https://github.com/JeffDeCola/jeffCoin)
 
-  _A multi node sha256 blockchain with a REST JSON API
-  (to view (GET) the blockchain and add (POST) a block)
-  and a tcp server to communicate between the nodes over ip.
-  The blockchain is built from my
-  [single-node-blockchain-with-REST](https://github.com/JeffDeCola/my-go-examples/tree/master/blockchain/single-node-blockchain-with-REST).
-  The webserver is built from my
-  [simple-webserver-with-REST](https://github.com/JeffDeCola/my-go-examples/tree/master/api/simple-webserver-with-REST).
-  The tcp server is built from my
-  [simple-tcp-ip-server](https://github.com/JeffDeCola/my-go-examples/tree/master/api/simple-tcp-ip-server)._
+  _I made a working cryptocurrency. This link will take you to that repo._
 
 * [single-node-blockchain-with-REST](https://github.com/JeffDeCola/my-go-examples/tree/master/blockchain/single-node-blockchain-with-REST)
 
