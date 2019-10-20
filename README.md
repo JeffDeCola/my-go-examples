@@ -157,7 +157,7 @@ other cool programs._
 
 ### BLOCKCHAIN
 
-* [create-bitcoin-address-from-ecdsa-publickey](https://github.com/JeffDeCola/my-go-examples/tree/master/cryptography/asymmetric-cryptography/create-bitcoin-address-from-ecdsa-publickey)
+* [create-bitcoin-address-from-ecdsa-publickey](https://github.com/JeffDeCola/my-go-examples/tree/master/blockchain/create-bitcoin-address-from-ecdsa-publickey)
   
   _Create a bitcoin address from your ecdsa public key
   using the `crypto/ecdsa` standard package._
@@ -206,16 +206,16 @@ _Using c with go._
 
 * ASYMMETRIC CRYPTOGRAPHY
 
-* [ecdsa-asymmetric-cryptography](https://github.com/JeffDeCola/my-go-examples/tree/master/cryptography/asymmetric-cryptography/ecdsa-asymmetric-cryptography)
+  * [ecdsa-asymmetric-cryptography](https://github.com/JeffDeCola/my-go-examples/tree/master/cryptography/asymmetric-cryptography/ecdsa-asymmetric-cryptography)
   
-  _Encrypt a message using a private key.
-  Decrypt and verify the message using a public key.
-  Key pair generated using the `crypto/ecdsa` standard package._
+    _Encrypt a message using a private key.
+    Decrypt and verify the message using a public key.
+    Key pair generated using the `crypto/ecdsa` standard package._
 
-* [ecdsa-digital-signature](https://github.com/JeffDeCola/my-go-examples/tree/master/cryptography/asymmetric-cryptography/ecdsa-asymmetric-cryptography)
+  * [ecdsa-digital-signature](https://github.com/JeffDeCola/my-go-examples/tree/master/cryptography/asymmetric-cryptography/ecdsa-asymmetric-cryptography)
   
-  _Create and verify a digital signature using the
-  `crypto/ecdsa` standard package._
+    _Create and verify a digital signature using the
+    `crypto/ecdsa` standard package._
 
 * HASHING
 
