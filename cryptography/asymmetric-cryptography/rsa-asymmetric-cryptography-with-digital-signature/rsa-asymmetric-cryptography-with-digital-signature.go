@@ -123,7 +123,7 @@ func createSignature(senderPrivateKeyRaw *rsa.PrivateKey, plainText string) stri
 
 func verifySignature(senderPublicKeyRaw *rsa.PublicKey, signature string, plainText string) bool {
 
-	var result bool
+	var verifyStatus bool
 
 	// DECODE signature
 	signatureByte, _ := hex.DecodeString(signature)
