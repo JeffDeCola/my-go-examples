@@ -159,7 +159,7 @@ other cool programs._
 
 * [create-bitcoin-address-from-ecdsa-publickey](https://github.com/JeffDeCola/my-go-examples/tree/master/cryptography/asymmetric-cryptography/create-bitcoin-address-from-ecdsa-publickey)
   
-  _Create a bitcoin address from your ecdsa publickey
+  _Create a bitcoin address from your ecdsa public key
   using the `crypto/ecdsa` standard package._
 
 * [jeffCoin](https://github.com/JeffDeCola/jeffCoin)
