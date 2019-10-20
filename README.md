@@ -162,7 +162,7 @@ other cool programs._
   _Create a bitcoin address from your ecdsa public key
   using the `crypto/ecdsa` standard package._
 
-* [jeffCoin](https://github.com/JeffDeCola/jeffCoin)
+* [jeffCoin](https://github.com/JeffDeCola/jeffCoin) (Link to another repo)
 
   _I made a working cryptocurrency. This link will take you to that repo._
 
