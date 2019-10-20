@@ -157,6 +157,11 @@ other cool programs._
 
 ### BLOCKCHAIN
 
+* [create-bitcoin-address-from-ecdsa-publickey](https://github.com/JeffDeCola/my-go-examples/tree/master/cryptography/asymmetric-cryptography/create-bitcoin-address-from-ecdsa-publickey)
+  
+  _Create a bitcoin address from your ecdsa publickey
+  using the `crypto/ecdsa` standard package._
+
 * [jeffCoin](https://github.com/JeffDeCola/jeffCoin)
 
   _I made a working cryptocurrency. This link will take you to that repo._
@@ -201,9 +206,16 @@ _Using c with go._
 
 * ASYMMETRIC CRYPTOGRAPHY
 
-  _Using a public key to encrypt and a private key to decrypt_
+* [ecdsa-asymmetric-cryptography](https://github.com/JeffDeCola/my-go-examples/tree/master/cryptography/asymmetric-cryptography/ecdsa-asymmetric-cryptography)
+  
+  _Encrypt a message using a private key.
+  Decrypt and verify the message using a public key.
+  Key pair generated using the `crypto/ecdsa` standard package._
 
-  * tbd
+* [ecdsa-digital-signature](https://github.com/JeffDeCola/my-go-examples/tree/master/cryptography/asymmetric-cryptography/ecdsa-asymmetric-cryptography)
+  
+  _Create and verify a digital signature using the
+  `crypto/ecdsa` standard package._
 
 * HASHING
 
