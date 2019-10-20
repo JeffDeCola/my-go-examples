@@ -39,3 +39,6 @@ This illustration may help,
 ```bash
 go run create-bitcoin-address-from-ecdsa-publickey.go
 ```
+
+A website I used to test my code
+[here](http://gobittest.appspot.com/Address).
