@@ -162,7 +162,8 @@ other cool programs._
   _Create a bitcoin address from your ecdsa public key
   using the `crypto/ecdsa` standard package._
 
-* [jeffCoin](https://github.com/JeffDeCola/jeffCoin) (Link to another repo)
+* [jeffCoin](https://github.com/JeffDeCola/jeffCoin)
+  _(Link to another repo)_
 
   _I made a working cryptocurrency. This link will take you to that repo._
 
@@ -206,16 +207,24 @@ _Using c with go._
 
 * ASYMMETRIC CRYPTOGRAPHY
 
-  * [ecdsa-asymmetric-cryptography](https://github.com/JeffDeCola/my-go-examples/tree/master/cryptography/asymmetric-cryptography/ecdsa-asymmetric-cryptography)
+  * [ecdsa-digital-signature](https://github.com/JeffDeCola/my-go-examples/tree/master/cryptography/asymmetric-cryptography/ecdsa-digital-signature)
   
-    _Encrypt a message using a private key.
-    Decrypt and verify the message using a public key.
-    Key pair generated using the `crypto/ecdsa` standard package._
-
-  * [ecdsa-digital-signature](https://github.com/JeffDeCola/my-go-examples/tree/master/cryptography/asymmetric-cryptography/ecdsa-asymmetric-cryptography)
-  
-    _Create and verify a digital signature using the
+    _To verify who a message is from,
+    create and verify a digital signature using the
     `crypto/ecdsa` standard package._
+
+  * [rsa-asymmetric-cryptography](https://github.com/JeffDeCola/my-go-examples/tree/master/cryptography/asymmetric-cryptography/rsa-asymmetric-cryptography)
+  
+    _Encrypt a message using a public key.
+    Decrypt the message using a private key.
+    Key pair generated using the `crypto/rsa` standard package
+    (RSA is a cryptosystem for public key encryption)._
+
+  * [rsa-asymmetric-cryptography-with-digital-signature](https://github.com/JeffDeCola/my-go-examples/tree/master/cryptography/asymmetric-cryptography/rsa-asymmetric-cryptography-with-digital-signature)
+  
+    _Using the above example, lets verify who the message is from.
+    Create and verify a digital signature using the
+    `crypto/rsa` standard package._
 
 * HASHING
 
