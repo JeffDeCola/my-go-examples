@@ -145,12 +145,12 @@ func verifySignature(senderPublicKeyRaw *rsa.PublicKey, signature string, plainT
 		&opts,
 	)
 	if err != nil {
-		result = false
+		verifyStatus = false
 	} else {
-		result = true
+		verifyStatus = true
 	}
 
-	return result
+	return verifyStatus
 }
 
 func init() {
@@ -194,7 +194,7 @@ func main() {
 	fmt.Printf("The received message contains:\n\n%s\n\n", plainText)
 
 	// VERIFY SIGNATURE
-	result := verifySignature(senderPublicKeyRaw, signature, plainText)
-	fmt.Printf("The senders signature is: %v\n\n", result)
+	verifyStatus := verifySignature(senderPublicKeyRaw, signature, plainText)
+	fmt.Printf("The senders signature is: %v\n\n", verifyStatus)
 
 }

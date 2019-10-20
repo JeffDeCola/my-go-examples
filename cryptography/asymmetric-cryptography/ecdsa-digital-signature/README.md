@@ -1,6 +1,8 @@
 # ecdsa-digital-signature example
 
-_tbd._
+_To verify who a message is from,
+create and verify a digital signature using the
+`crypto/ecdsa` standard package._
 
 Refer to the
 [crypto/ecdsa](https://golang.org/pkg/crypto/ecdsa/)
@@ -14,7 +16,7 @@ Digital signatures are based on elliptic curve cryptography (ECC) and
 are important for message validation.
 
 The Elliptic Curve Digital Signature Algorithm
-is a great way at present to cryptographically sign a message
+is a great way to cryptographically sign a message.
 
 This illustration may help,
 
@@ -27,22 +29,32 @@ go run ecdsa-digital-signature.go <FILENAME>
 go run ecdsa-digital-signature.go test.txt
 ```
 
-If you run on test.txt you should get,
-
-```txt
-????
-```
-
 ## HOW IT WORKS
 
-Take a string `plainText` and turn into a md5 hash,
+Generate ecdsa keys,
 
 ```go
-plainTextBytes := []byte(plainText)
+// GENERATE PRIVATE & PUBLIC KEY PAIR
+privateKeyRaw, err := ????
 
-// HASH
-md5HashByte := md5.Sum(plainTextBytes)
+// EXTRACT PUBLIC KEY
+publicKeyRaw := &privateKeyRaw.PublicKey
+```
 
-// CONVERT TO STRING
-md5Hash := hex.EncodeToString(md5HashByte[:])
+Create a digital signature,
+
+```go
+// CREATE SIGNATURE
+r, s, err := ecdsa.Sign(rand.Reader, senderPrivateKeyRaw, signHash)
+checkErr(err)
+
+signatureByte := r.Bytes()
+signatureByte = append(signatureByte, s.Bytes()...)
+```
+
+Verify the digital signature,
+
+```go
+// VERIFY SIGNATURE
+verifyStatus := ecdsa.Verify(senderPublicKeyRaw, signhash, r, s)
 ```
