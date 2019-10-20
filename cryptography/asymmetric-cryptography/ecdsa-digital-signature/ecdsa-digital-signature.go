@@ -7,13 +7,12 @@ import (
 	"crypto/elliptic"
 	"crypto/rand"
 	"crypto/sha256"
-	"crypto/x509"
-	"encoding/base64"
 	"encoding/hex"
-	"encoding/pem"
 	"errors"
 	"flag"
 	"fmt"
+	"hash"
+	"io"
 	"io/ioutil"
 	"math/big"
 
@@ -39,83 +38,67 @@ func readFile(filename string) string {
 
 }
 
-func generateECDSAKeys() (ecdsa.PrivateKey, []byte) {
+func generateECDSAKeys() (*ecdsa.PrivateKey, *ecdsa.PublicKey) {
 
-	// GENERATE PUBLIC/PRIVATE KEY PAIR (32 Bytes/256 bits)
+	// GENERATE PRIVATE & PUBLIC KEY PAIR
 	curve := elliptic.P256()
-	privateKeyRAW, err := ecdsa.GenerateKey(curve, rand.Reader)
+	privateKeyRaw, err := ecdsa.GenerateKey(curve, rand.Reader)
 	checkErr(err)
 
-	// GET DIFFERENT FORMATS
-	privateKeys509Binary, _ := x509.MarshalECPrivateKey(privateKeyRAW)
-	privateKeyPEMByte := pem.EncodeToMemory(
-		&pem.Block{
-			Type:  "PUBLIC KEY",
-			Bytes: privateKeys509Binary,
-		})
-	privateKeyHex := hex.EncodeToString(privateKeyPEMByte)
-	privateKeyBase64 := base64.StdEncoding.EncodeToString(privateKeyPEMByte)
+	// EXTRACT PUBLIC KEY
+	publicKeyRaw := &privateKeyRaw.PublicKey
 
-	fmt.Printf("BINARY\n%b\n", privateKeys509Binary)
-	fmt.Printf("BYTE\n%v\n", privateKeyPEMByte)
-	fmt.Printf("HEX\n%v\n", privateKeyHex)
-	fmt.Printf("BASE64\n%v\n", privateKeyBase64)
-
-	// GET PUBLIC KEY FROM PRIVATE KEY
-	publicKeyByte := append(privateKeyECDSA.PublicKey.X.Bytes(), privateKeyECDSA.PublicKey.Y.Bytes()...)
-	//publicKey := &privateKey.PublicKey
-
-	// GET DIFFERENT FORMATS
-	/* publicKeyx509Binary, _ := x509.MarshalPKIXPublicKey(publicKey)
-	publicKeyPEMByte := pem.EncodeToMemory(
-		&pem.Block{
-			Type:  "PUBLIC KEY",
-			Bytes: publicKeyx509Binary,
-		}) */
-	publicKeyHex := hex.EncodeToString(publicKeyByte)
-	publicKeyBase64 := base64.StdEncoding.EncodeToString(publicKeyByte)
-
-	//fmt.Printf("BINARY\n%b\n", publicKeyx509Binary)
-	//fmt.Printf("BYTE\n%v\n", publicKeyPEMByte)
-	fmt.Printf("HEX\n%v\n", publicKeyHex)
-	fmt.Printf("BASE64\n%v\n", publicKeyBase64)
-
-	return *privateKeyRAW, publicKeyByte
+	return privateKeyRaw, publicKeyRaw
 
 }
 
-func calculateSHA256Hash(plainText string) [32]byte {
+func createSignature(senderPrivateKeyRaw *ecdsa.PrivateKey, plainText string) string {
 
-	plainTextByte := []byte(plainText)
+	// HASH plainText
+	var h hash.Hash
+	h = sha256.New()
+	io.WriteString(h, plainText)
+	signHash := h.Sum(nil)
 
-	// HASH
-	sha256HashByte := sha256.Sum256(plainTextByte)
+	// CREATE SIGNATURE
+	r := big.NewInt(0)
+	s := big.NewInt(0)
 
-	return sha256HashByte
+	r, s, err := ecdsa.Sign(rand.Reader, senderPrivateKeyRaw, signHash)
+	checkErr(err)
+
+	signatureByte := r.Bytes()
+	signatureByte = append(signatureByte, s.Bytes()...)
+
+	// ENCODE - RETURN HEX
+	signature := hex.EncodeToString(signatureByte)
+
+	return signature
+
 }
 
-func signatureCreator(privateKeyECDSA ecdsa.PrivateKey, plainText string) (*big.Int, *big.Int) {
+func verifySignature(senderPublicKeyRaw *ecdsa.PublicKey, signature string, plainText string) bool {
 
-	plainTextByte := []byte(plainText)
+	// HASH plainText
+	var h hash.Hash
+	h = sha256.New()
+	io.WriteString(h, plainText)
+	signHash := h.Sum(nil)
 
-	r, s, err := ecdsa.Sign(rand.Reader, &privateKeyECDSA, plainTextByte)
+	// DECODE signature
+	signatureByte, _ := hex.DecodeString(signature)
 
-	signature := append(r.Bytes(), s.Bytes()...)
+	// VERIFY SIGNATURE
+	r := big.NewInt(0)
+	s := big.NewInt(0)
+	sigLen := len(signatureByte)
+	r.SetBytes(signatureByte[:(sigLen / 2)])
+	s.SetBytes(signatureByte[(sigLen / 2):])
 
-	return r, s
-}
+	verifyStatus := ecdsa.Verify(senderPublicKeyRaw, signHash, r, s)
 
-func signatureVerifier(publicKeyByte []byte, plainText string, r big.Int, s big.Int) bool {
+	return verifyStatus
 
-	plainTextByte := []byte(plainText)
-
-	result := ecdsa.Verify(&publicKeyByte, plainTextByte, &r, &s)
-
-	if result {
-		return true
-	} else {
-		return false
-	}
 }
 
 func init() {
@@ -136,24 +119,19 @@ func main() {
 
 	fmt.Println(" ")
 
-	// READ FILE INTO A STRING
+	// READ FILE INTO STRING
 	plainText := readFile(filename)
-	fmt.Printf("The file %s contains:\n\n%s\n\n", filename, plainText)
+	fmt.Printf("The original message contains:\n\n%s\n\n", plainText)
 
-	// GENERATE ECDSA KEYS
-	privateKeyECDSA, publicKeyByte := generateECDSAKeys()
-	fmt.Printf("The private key:\n\n%v\n\n", privateKeyECDSA)
-	fmt.Printf("The public key:\n\n%v\n\n", publicKeyByte)
+	// SENDER GENERATE RSA KEYS
+	senderPrivateKeyRaw, senderPublicKeyRaw := generateECDSAKeys()
 
 	// CREATE SIGNATURE
-	r, s := signatureCreator(privateKeyECDSA, plainText)
+	signature := createSignature(senderPrivateKeyRaw, plainText)
+	fmt.Printf("The senders signature:\n\n%s\n\n", signature)
 
-	// SIGNATURE VERIFIER
-	result := signatureVerifier(publicKeyByte, plainText, r, s)
+	// VERIFY SIGNATURE
+	verifyStatus := verifySignature(senderPublicKeyRaw, signature, plainText)
+	fmt.Printf("The senders signature is: %v\n\n", verifyStatus)
 
-	if result {
-		fmt.Println("Signature Verified - Everything worked great")
-	} else {
-		fmt.Println("Signature NOT Verified - We don't know who this is")
-	}
 }

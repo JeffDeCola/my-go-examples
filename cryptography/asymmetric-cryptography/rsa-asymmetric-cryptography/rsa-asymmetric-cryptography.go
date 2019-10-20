@@ -114,15 +114,15 @@ func main() {
 	plainText := readFile(filename)
 	fmt.Printf("The original message contains:\n\n%s\n\n", plainText)
 
-	// GENERATE RSA KEYS
-	privateKeyRaw, publicKeyRaw := generateRSAKeys()
+	// SENDER GENERATE RSA KEYS
+	senderPrivateKeyRaw, senderPublicKeyRaw := generateRSAKeys()
 
 	// ENCRYPT MESSAGE USING PRIVATE KEY
-	cipherText := encryptMessage(publicKeyRaw, plainText)
+	cipherText := encryptMessage(senderPublicKeyRaw, plainText)
 	fmt.Printf("The encrypted message contains:\n\n%s\n\n", cipherText)
 
 	// DECRYPT MESSAGE USING PUBLIC KEY
-	plainText = decryptMessage(privateKeyRaw, cipherText)
+	plainText = decryptMessage(senderPrivateKeyRaw, cipherText)
 	fmt.Printf("The received message contains:\n\n%s\n\n", plainText)
 
 }
