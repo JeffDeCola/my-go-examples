@@ -207,6 +207,8 @@ _Using c with go._
 
 * ASYMMETRIC CRYPTOGRAPHY
 
+  _Great for digital signatures (verify sender) and receiving encrypted data_
+
   * [ecdsa-digital-signature](https://github.com/JeffDeCola/my-go-examples/tree/master/cryptography/asymmetric-cryptography/ecdsa-digital-signature)
   
     _To verify who a message is from,
@@ -228,6 +230,8 @@ _Using c with go._
 
 * HASHING
 
+  _Great for getting fingerprints_
+
   * [md5-hash-from-file](https://github.com/JeffDeCola/my-go-examples/tree/master/cryptography/hashing/md5-hash-from-file)
 
     _Get an md5 hash (fingerprint) from an input file using the standard
@@ -241,6 +245,8 @@ _Using c with go._
     `crypto/sha256` package_.
 
 * SYMMETRIC CRYPTOGRAPHY
+
+  _Great when using 1 key_
 
   _Using the same key to encrypt and decrypt_
 

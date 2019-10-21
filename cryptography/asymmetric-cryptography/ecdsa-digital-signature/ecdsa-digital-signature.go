@@ -11,8 +11,6 @@ import (
 	"errors"
 	"flag"
 	"fmt"
-	"hash"
-	"io"
 	"io/ioutil"
 	"math/big"
 
@@ -55,16 +53,18 @@ func generateECDSAKeys() (*ecdsa.PrivateKey, *ecdsa.PublicKey) {
 func createSignature(senderPrivateKeyRaw *ecdsa.PrivateKey, plainText string) string {
 
 	// HASH plainText
-	var h hash.Hash
-	h = sha256.New()
-	io.WriteString(h, plainText)
-	signHash := h.Sum(nil)
+	hashedPlainText := sha256.Sum256([]byte(plainText))
+	hashedPlainTextByte := hashedPlainText[:]
 
-	// CREATE SIGNATURE
 	r := big.NewInt(0)
 	s := big.NewInt(0)
 
-	r, s, err := ecdsa.Sign(rand.Reader, senderPrivateKeyRaw, signHash)
+	// CREATE SIGNATURE
+	r, s, err := ecdsa.Sign(
+		rand.Reader,
+		senderPrivateKeyRaw,
+		hashedPlainTextByte,
+	)
 	checkErr(err)
 
 	signatureByte := r.Bytes()
@@ -80,22 +80,26 @@ func createSignature(senderPrivateKeyRaw *ecdsa.PrivateKey, plainText string) st
 func verifySignature(senderPublicKeyRaw *ecdsa.PublicKey, signature string, plainText string) bool {
 
 	// HASH plainText
-	var h hash.Hash
-	h = sha256.New()
-	io.WriteString(h, plainText)
-	signHash := h.Sum(nil)
+	hashedPlainText := sha256.Sum256([]byte(plainText))
+	hashedPlainTextByte := hashedPlainText[:]
 
 	// DECODE signature
 	signatureByte, _ := hex.DecodeString(signature)
 
-	// VERIFY SIGNATURE
+	// EXTRACT R & S
 	r := big.NewInt(0)
 	s := big.NewInt(0)
 	sigLen := len(signatureByte)
 	r.SetBytes(signatureByte[:(sigLen / 2)])
 	s.SetBytes(signatureByte[(sigLen / 2):])
 
-	verifyStatus := ecdsa.Verify(senderPublicKeyRaw, signHash, r, s)
+	// VERIFY SIGNATURE
+	verifyStatus := ecdsa.Verify(
+		senderPublicKeyRaw,
+		hashedPlainTextByte,
+		r,
+		s,
+	)
 
 	return verifyStatus
 

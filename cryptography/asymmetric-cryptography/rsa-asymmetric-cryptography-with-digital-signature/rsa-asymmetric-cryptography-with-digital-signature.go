@@ -98,18 +98,18 @@ func createSignature(senderPrivateKeyRaw *rsa.PrivateKey, plainText string) stri
 
 	var opts rsa.PSSOptions
 	opts.SaltLength = rsa.PSSSaltLengthAuto
-	PSSmessage := []byte(plainText)
+
+	// HASH plainText
 	newhash := crypto.SHA256
-	pssh := newhash.New()
-	pssh.Write(PSSmessage)
-	hashed := pssh.Sum(nil)
+	hashedPlainText := sha256.Sum256([]byte(plainText))
+	hashedPlainTextByte := hashedPlainText[:]
 
 	// CREATE SIGNATURE
 	signatureByte, err := rsa.SignPSS(
 		rand.Reader,
 		senderPrivateKeyRaw,
 		newhash,
-		hashed,
+		hashedPlainTextByte,
 		&opts,
 	)
 	checkErr(err)
@@ -130,17 +130,17 @@ func verifySignature(senderPublicKeyRaw *rsa.PublicKey, signature string, plainT
 
 	var opts rsa.PSSOptions
 	opts.SaltLength = rsa.PSSSaltLengthAuto
-	PSSmessage := []byte(plainText)
+
+	// HASH plainText
 	newhash := crypto.SHA256
-	pssh := newhash.New()
-	pssh.Write(PSSmessage)
-	hashed := pssh.Sum(nil)
+	hashedPlainText := sha256.Sum256([]byte(plainText))
+	hashedPlainTextByte := hashedPlainText[:]
 
 	// VERIFY SIGNATURE
 	err := rsa.VerifyPSS(
 		senderPublicKeyRaw,
 		newhash,
-		hashed,
+		hashedPlainTextByte,
 		signatureByte,
 		&opts,
 	)
