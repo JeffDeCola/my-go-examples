@@ -163,7 +163,7 @@ other cool programs._
   using the `crypto/ecdsa` standard package._
 
 * [jeffCoin](https://github.com/JeffDeCola/jeffCoin)
-  _(Link to another repo)_
+  _(Links to another repo)_
 
   _I made a working cryptocurrency. This link will take you to that repo._
 
@@ -207,7 +207,7 @@ _Using c with go._
 
 * ASYMMETRIC CRYPTOGRAPHY
 
-  _Great for digital signatures (verify sender) and receiving encrypted data_
+  _Great for digital signatures (verify sender) and receiving encrypted data._
 
   * [ecdsa-digital-signature](https://github.com/JeffDeCola/my-go-examples/tree/master/cryptography/asymmetric-cryptography/ecdsa-digital-signature)
   
@@ -230,7 +230,7 @@ _Using c with go._
 
 * HASHING
 
-  _Great for getting fingerprints_
+  _Great for getting fingerprints._
 
   * [md5-hash-from-file](https://github.com/JeffDeCola/my-go-examples/tree/master/cryptography/hashing/md5-hash-from-file)
 
@@ -246,9 +246,7 @@ _Using c with go._
 
 * SYMMETRIC CRYPTOGRAPHY
 
-  _Great when using 1 key_
-
-  _Using the same key to encrypt and decrypt_
+  _Using the same key to encrypt and decrypt._
 
   * [aes-256](https://github.com/JeffDeCola/my-go-examples/tree/master/cryptography/symmetric-cryptography/aes-256)
 
