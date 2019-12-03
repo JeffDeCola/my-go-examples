@@ -1,4 +1,4 @@
-# aes example
+# aes-256 example
 
 _AES-256 **No Mode**
 can only encrypt/decrypt 16 bytes of data._

@@ -1,4 +1,4 @@
-# aes-cbc example
+# aes-256-cbc example
 
 _AES-256 **CBC** (**Cipher Block Chaining**) mode
 where a block of plaintext is XORed with the previous cipherText block before

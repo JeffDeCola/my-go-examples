@@ -1,4 +1,4 @@
-# aes-ctr example
+# aes-256-ctr example
 
 _AES-256 **CTR** (**Counter**) mode,
 which has similar characteristics to OFB, but also
