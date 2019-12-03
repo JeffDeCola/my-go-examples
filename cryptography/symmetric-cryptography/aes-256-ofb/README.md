@@ -1,4 +1,4 @@
-# aes-ofb example
+# aes-256-ofb example
 
 _AES-256 **OFB** (**Output FeedBack**) mode
 which makes a block cipher into a synchronous stream cipher.

@@ -1,4 +1,4 @@
-# aes-gcm example
+# aes-256-gcm example
 
 _AES-256 **GCM** (**Galois/Counter Mode**) mode
 is a block cipher counter mode with authentication._
