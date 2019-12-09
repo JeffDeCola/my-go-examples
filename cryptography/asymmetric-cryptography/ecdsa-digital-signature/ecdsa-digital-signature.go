@@ -7,7 +7,9 @@ import (
 	"crypto/elliptic"
 	"crypto/rand"
 	"crypto/sha256"
+	"crypto/x509"
 	"encoding/hex"
+	"encoding/pem"
 	"errors"
 	"flag"
 	"fmt"
@@ -36,7 +38,7 @@ func readFile(filename string) string {
 
 }
 
-func generateECDSAKeys() (*ecdsa.PrivateKey, *ecdsa.PublicKey) {
+func generateECDSAKeys() (string, string) {
 
 	// GENERATE PRIVATE & PUBLIC KEY PAIR
 	curve := elliptic.P256()
@@ -46,11 +48,43 @@ func generateECDSAKeys() (*ecdsa.PrivateKey, *ecdsa.PublicKey) {
 	// EXTRACT PUBLIC KEY
 	publicKeyRaw := &privateKeyRaw.PublicKey
 
-	return privateKeyRaw, publicKeyRaw
+	// ENCODE
+	privateKeyHex, publicKeyHex := encodeKeys(privateKeyRaw, publicKeyRaw)
+
+	return privateKeyHex, publicKeyHex
 
 }
 
-func createSignature(senderPrivateKeyRaw *ecdsa.PrivateKey, plainText string) string {
+// encodeKeys - Encodes privateKeyRaw & publicKeyRaw to privateKeyHex & publicKeyHex
+func encodeKeys(privateKeyRaw *ecdsa.PrivateKey, publicKeyRaw *ecdsa.PublicKey) (string, string) {
+
+	privateKeyx509Encoded, _ := x509.MarshalECPrivateKey(privateKeyRaw)
+	privateKeyPEM := pem.EncodeToMemory(
+		&pem.Block{
+			Type:  "PRIVATE KEY",
+			Bytes: privateKeyx509Encoded,
+		})
+	privateKeyHex := hex.EncodeToString(privateKeyPEM)
+
+	publicKeyx509Encoded, _ := x509.MarshalPKIXPublicKey(publicKeyRaw)
+	publicKeyPEM := pem.EncodeToMemory(
+		&pem.Block{
+			Type:  "PUBLIC KEY",
+			Bytes: publicKeyx509Encoded,
+		})
+	publicKeyHex := hex.EncodeToString(publicKeyPEM)
+
+	return privateKeyHex, publicKeyHex
+
+}
+
+func createSignature(privateKeyHex string, plainText string) string {
+
+	// DECODE PRIVATE KEY
+	privateKeyPEM, _ := hex.DecodeString(privateKeyHex)
+	block, _ := pem.Decode([]byte(privateKeyPEM))
+	privateKeyx509Encoded := block.Bytes
+	privateKeyRaw, _ := x509.ParseECPrivateKey(privateKeyx509Encoded)
 
 	// HASH plainText
 	hashedPlainText := sha256.Sum256([]byte(plainText))
@@ -62,7 +96,7 @@ func createSignature(senderPrivateKeyRaw *ecdsa.PrivateKey, plainText string) st
 	// CREATE SIGNATURE
 	r, s, err := ecdsa.Sign(
 		rand.Reader,
-		senderPrivateKeyRaw,
+		privateKeyRaw,
 		hashedPlainTextByte,
 	)
 	checkErr(err)
@@ -77,7 +111,14 @@ func createSignature(senderPrivateKeyRaw *ecdsa.PrivateKey, plainText string) st
 
 }
 
-func verifySignature(senderPublicKeyRaw *ecdsa.PublicKey, signature string, plainText string) bool {
+func verifySignature(publicKeyHex string, signature string, plainText string) bool {
+
+	// DECODE PUBLIC KEY
+	publicKeyPEM, _ := hex.DecodeString(publicKeyHex)
+	blockPub, _ := pem.Decode([]byte(publicKeyPEM))
+	publicKeyx509Encoded := blockPub.Bytes
+	genericPublicKey, _ := x509.ParsePKIXPublicKey(publicKeyx509Encoded)
+	publicKeyRaw := genericPublicKey.(*ecdsa.PublicKey)
 
 	// HASH plainText
 	hashedPlainText := sha256.Sum256([]byte(plainText))
@@ -95,7 +136,7 @@ func verifySignature(senderPublicKeyRaw *ecdsa.PublicKey, signature string, plai
 
 	// VERIFY SIGNATURE
 	verifyStatus := ecdsa.Verify(
-		senderPublicKeyRaw,
+		publicKeyRaw,
 		hashedPlainTextByte,
 		r,
 		s,
@@ -128,14 +169,14 @@ func main() {
 	fmt.Printf("The original message contains:\n\n%s\n\n", plainText)
 
 	// SENDER GENERATE RSA KEYS
-	senderPrivateKeyRaw, senderPublicKeyRaw := generateECDSAKeys()
+	senderPrivateKeyHex, senderPublicKeyHex := generateECDSAKeys()
 
 	// CREATE SIGNATURE
-	signature := createSignature(senderPrivateKeyRaw, plainText)
+	signature := createSignature(senderPrivateKeyHex, plainText)
 	fmt.Printf("The senders signature:\n\n%s\n\n", signature)
 
 	// VERIFY SIGNATURE
-	verifyStatus := verifySignature(senderPublicKeyRaw, signature, plainText)
+	verifyStatus := verifySignature(senderPublicKeyHex, signature, plainText)
 	fmt.Printf("The senders signature is: %v\n\n", verifyStatus)
 
 }

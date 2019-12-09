@@ -35,7 +35,8 @@ Generate ecdsa keys,
 
 ```go
 // GENERATE PRIVATE & PUBLIC KEY PAIR
-privateKeyRaw, err := ????
+curve := elliptic.P256()
+privateKeyRaw, err := ecdsa.GenerateKey(curve, rand.Reader)
 
 // EXTRACT PUBLIC KEY
 publicKeyRaw := &privateKeyRaw.PublicKey
@@ -46,7 +47,6 @@ Create a digital signature,
 ```go
 // CREATE SIGNATURE
 r, s, err := ecdsa.Sign(rand.Reader, senderPrivateKeyRaw, signHash)
-checkErr(err)
 
 signatureByte := r.Bytes()
 signatureByte = append(signatureByte, s.Bytes()...)
