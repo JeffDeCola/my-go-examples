@@ -157,6 +157,11 @@ other cool programs._
 
 ### BLOCKCHAIN
 
+* [bitcoin-unspent-transaction-output-model](https://github.com/JeffDeCola/my-go-examples/tree/master/blockchain/bitcoin-unspent-transaction-output-model)
+  
+  _Demonstrates the bitcoin ledger in a blockchain using the
+  **unspent transaction output model**._
+
 * [create-bitcoin-address-from-ecdsa-publickey](https://github.com/JeffDeCola/my-go-examples/tree/master/blockchain/create-bitcoin-address-from-ecdsa-publickey)
   
   _Create a bitcoin address from your ecdsa public key
