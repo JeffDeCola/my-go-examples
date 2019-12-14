@@ -157,7 +157,7 @@ other cool programs._
 
 ### BLOCKCHAIN
 
-* [bitcoin-unspent-transaction-output-model](https://github.com/JeffDeCola/my-go-examples/tree/master/blockchain/bitcoin-unspent-transaction-output-model)
+* [bitcoin-ledger](https://github.com/JeffDeCola/my-go-examples/tree/master/blockchain/bitcoin-ledger)
   
   _Demonstrates the bitcoin ledger in a blockchain using the
   **unspent transaction output model**._

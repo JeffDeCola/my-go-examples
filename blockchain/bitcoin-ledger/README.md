@@ -1,4 +1,4 @@
-# bitcoin-unspent-transaction-output-model example
+# bitcoin-ledger example
 
 _Demonstrates the bitcoin ledger in a blockchain using the
 **unspent transaction output model**._
@@ -18,7 +18,8 @@ tbd
 ## OVERVIEW
 
 An **unspent transaction output model** is a method to log the transactions
-of coins in a cryptocurrency.  It uses an input/output model and has the following rules,
+of coins in a cryptocurrency.  It uses an input/output model and has
+the following rules,
 
 * Every input must have an output.
 * tbd
@@ -44,5 +45,5 @@ tbd
 ## RUN
 
 ```bash
-go run bitcoin-unspent-transaction-output-model.go load-transactions.go
+go run bitcoin-ledger.go data.go
 ```
