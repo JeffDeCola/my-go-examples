@@ -11,7 +11,7 @@ const (
                     "inID": 0,
                     "refTxID": -1,
                     "inPubKey": "",
-                    "signature": "Hello World, WElcome to the first transaction and block of jeffCoin"
+                    "signature": "Hello World, Welcome to the first transaction and block of jeffCoin"
                 }
             ],
             "outputs": [
