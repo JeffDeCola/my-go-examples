@@ -6,7 +6,6 @@ import (
 	"encoding/json"
 	"fmt"
 	"log"
-	"os"
 )
 
 const (
@@ -72,6 +71,13 @@ type outputsStruct struct {
 	Value     int64  `json:"value"`
 }
 
+// UNSPENT OUTPUT
+
+type unspentOutputStruct struct {
+	TxID  int64 `json:"txID"`
+	Value int64 `json:"value"`
+}
+
 func checkErr(err error) {
 	if err != nil {
 		fmt.Printf("Error is %+v\n", err)
@@ -108,8 +114,8 @@ func resetCurrentBlock() {
 	// INCREMENT BlockID
 	currentBlock.BlockID = currentBlock.BlockID + 1
 
-	// INCREMENT TxID
-	transaction.TxID = currentBlock.Transactions[0].TxID + 1
+	// INCREMENT TxID (From last one)
+	transaction.TxID = currentBlock.Transactions[len(currentBlock.Transactions)-1].TxID + 1
 	transactionSlice = append(transactionSlice, transaction)
 
 	// LOAD THE BLOCK
@@ -119,26 +125,26 @@ func resetCurrentBlock() {
 
 func (trms txRequestMessageSignedStruct) processTransactionRequest() string {
 
-	// STEP 1 - VERIFY SIGNATURE
+	// STEP 1 - MOCK - VERIFY SIGNATURE
 	if !(trms.verifySignature()) {
 		return "Signature failed"
 	}
 
-	// STEP 2 - CHECK BALANCE TO SEE IF YOU HAVE THE MONEY
-	// Returns list of the TxID of output unspent transactions
-	balance, unspentOutputTxID := getBalance(trms.TxRequestMessage.SourceAddress)
+	// STEP 2 - MOCK - CHECK BALANCE TO SEE IF YOU HAVE THE MONEY
+	// Returns entire list of the TxID of output unspent transactions
+	balance, unspentOutput := getBalance(trms.TxRequestMessage.SourceAddress, trms.TxRequestMessage.Destinations[0].DestinationAddress)
 	if balance == 0 {
 		return "Not enough money"
 	}
 
 	// STEP 3 - LOAD currentBlock WITH TRANSACTION and UPDATE BALANCE
-	trms.loadTxRequestMessageSignedToCurrentBlock(unspentOutputTxID)
+	trms.loadTxRequestMessageSignedToCurrentBlock(unspentOutput)
 
 	return "Pending"
 
 }
 
-// STEP 1 - VERIFY SIGNATURE
+// STEP 1 - MOCK - VERIFY SIGNATURE
 func (trms txRequestMessageSignedStruct) verifySignature() bool {
 
 	if trms.Signature == "Bad" {
@@ -149,26 +155,38 @@ func (trms txRequestMessageSignedStruct) verifySignature() bool {
 
 }
 
-// STEP 2 - CHECK BALANCE TO SEE IF YOU HAVE THE MONEY
-func getBalance(address string) (int64, []int64) {
+// STEP 2 - MOCK - CHECK BALANCE TO SEE IF YOU HAVE THE MONEY
+func getBalance(sourceAddress string, destinationAddress string) (int64, []unspentOutputStruct) {
 
-	if address == "Founders PubKey" {
-		unspentOutputTxID := []int64{0}
-		return 100000000, unspentOutputTxID
+	unspentOutputSlice := []unspentOutputStruct{{0, 0}}
+
+	// STEP 2.1 - GET UNSPENT OUTPUT TRANSACTIONS
+	if sourceAddress == "Founders PubKey" {
+		if destinationAddress == "Jeffs PubKey" {
+			unspentOutputSlice = []unspentOutputStruct{{0, 100000000}}
+		}
+		unspentOutputSlice = []unspentOutputStruct{{1, 99920000}}
+	}
+	if sourceAddress == "Jeffs PubKey" {
+		unspentOutputSlice = []unspentOutputStruct{{1, 80000}}
+	}
+	if sourceAddress == "Matts PubKey" {
+		unspentOutputSlice = []unspentOutputStruct{{2, 50000}, {3, 25000}}
 	}
 
-	if address == "Jeffs PubKey" {
-		unspentOutputTxID := []int64{1, 2}
-		return 80000, unspentOutputTxID
+	// STEP 2.2 - GET BALANCE
+	var balance int64
+	balance = 0
+	for _, unspentOutput := range unspentOutputSlice {
+		balance = balance + unspentOutput.Value
 	}
 
-	unspentOutputTxID := []int64{0}
-	return 0, unspentOutputTxID
+	return balance, unspentOutputSlice
 
 }
 
 // STEP 3 - LOAD currentBlock WITH TRANSACTION and UPDATE BALANCE
-func (trms txRequestMessageSignedStruct) loadTxRequestMessageSignedToCurrentBlock(unspentOutputTxID []int64) {
+func (trms txRequestMessageSignedStruct) loadTxRequestMessageSignedToCurrentBlock([]unspentOutputStruct) {
 
 	// Check if first transaction in currentBlock
 	first := false
@@ -177,7 +195,7 @@ func (trms txRequestMessageSignedStruct) loadTxRequestMessageSignedToCurrentBloc
 	}
 
 	//-------------------------------------------------------
-	// STEP 3.1 - BUILD INPUT STRUCT
+	// STEP 3.1 - BUILD INPUT STRUCT FOR EACH UNSPENT OUTPUT
 	//-------------------------------------------------------
 	var inputsTemp = inputsStruct{}
 
@@ -211,7 +229,6 @@ func (trms txRequestMessageSignedStruct) loadTxRequestMessageSignedToCurrentBloc
 	if first {
 		transactionTemp.TxID = currentBlock.Transactions[0].TxID
 	} else {
-		// Increment TxID
 		transactionTemp.TxID = currentBlock.Transactions[len(currentBlock.Transactions)-1].TxID + 1
 	}
 	transactionTemp.Inputs = inputsSlice
@@ -249,11 +266,6 @@ func main() {
 	// RESET currentBlock
 	resetCurrentBlock()
 
-	// SHOW THE currentBlock
-	fmt.Printf("\nThe currentBlock is:\n\n")
-	js, _ := json.MarshalIndent(currentBlock, "", "    ")
-	fmt.Printf("%v\n\n", string(js))
-
 	// RECEIVED TRANSACTION MESSAGE txRequestMessageSignedDataStringN
 	// Place transaction Request Message data in transaction Request Message struct
 	var trms txRequestMessageSignedStruct
@@ -264,12 +276,6 @@ func main() {
 	status := trms.processTransactionRequest()
 	fmt.Printf("\nThe transaction message from %v to %v is %v\n\n",
 		trms.TxRequestMessage.SourceAddress, trms.TxRequestMessage.Destinations, status)
-
-	// SHOW THE currentBlock
-	fmt.Printf("\nThe currentBlock is:\n\n")
-	js, _ = json.MarshalIndent(currentBlock, "", "    ")
-	fmt.Printf("%v\n\n", string(js))
-	os.Exit(1)
 
 	// RECEIVED TRANSACTION MESSAGE txRequestMessageSignedDataStringBad
 	// Place transaction Request Message data in transaction Request Message struct
@@ -293,12 +299,6 @@ func main() {
 
 	// ADD currentBlock TO THE blockchain
 	blockchain = append(blockchain, currentBlock)
-
-	// SHOW THE blockchain
-	fmt.Printf("\nThe blockchain is:\n\n")
-	js, _ = json.MarshalIndent(blockchain, "", "    ")
-	fmt.Printf("%v\n\n", string(js))
-	os.Exit(1)
 
 	// RESET currentBlock
 	resetCurrentBlock()
@@ -331,7 +331,7 @@ func main() {
 
 	// SHOW THE blockchain
 	fmt.Printf("\nThe blockchain is:\n\n")
-	js, _ = json.MarshalIndent(blockchain, "", "    ")
+	js, _ := json.MarshalIndent(blockchain, "", "    ")
 	fmt.Printf("%v\n\n", string(js))
 
 	// balance := showbalance(mattPubKey)
