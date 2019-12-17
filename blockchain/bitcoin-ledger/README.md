@@ -24,6 +24,19 @@ the following rules,
 * Every input must have an output.
 * tbd
 
+## THIS EXAMPLE
+
+The first block in the blockchain will contain 1 transaction.  That will be the
+founders initial value of 100,000,000 (or 100,000 jeffCoins). Each jeffCoin
+has a value of 1,000 jefftoshi. Yup.
+
+There will be 4 transactions thereafter,
+
+* Founders sends Jeff 80 jeffCoins
+* Jeff sends Matt 50 jeffCoins and .5 jeffCoins fee to CoinVault
+* Founders sends Matt 250 jeffCoins
+* Matt sends Jill 275 jeffCoins
+
 ## TRANSACTIONS IN LEDGER
 
 This illustrations shows the ledger starting point and the transaction

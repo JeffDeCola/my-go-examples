@@ -71,7 +71,20 @@ const (
                 "destinations": [
                     {
                         "destinationAddress": "` + jillPubKey + `",
-                        "value": 2750000
+                        "value": 35000
+                    }
+                ]
+            },
+            "signature": "` + mattSig + `"
+        }`
+	txRequestMessageSignedDataString5 = `
+        {
+            "txRequestMessage": {
+                "sourceAddress": "` + mattPubKey + `",
+                "destinations": [
+                    {
+                        "destinationAddress": "` + jeffPubKey + `",
+                        "value": 15000
                     }
                 ]
             },
@@ -83,7 +96,7 @@ const (
                 "sourceAddress": "` + foundersPubKey + `",
                 "destinations": [
                     {
-                        "destinationAddress": "` + jeffPubKey + `",
+                        "destinationAddress": "Bad Pub Key",
                         "value": 80000
                     }
                 ]
