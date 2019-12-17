@@ -6,6 +6,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"os"
+	"sort"
 	"strconv"
 
 	log "github.com/sirupsen/logrus"
@@ -63,7 +64,6 @@ type transactionStruct struct {
 }
 
 type inputsStruct struct {
-	InID      int64  `json:"inID"`
 	RefTxID   int64  `json:"refTxID"`
 	InPubKey  string `json:"inPubKey"`
 	Signature string `json:"signature"`
@@ -158,12 +158,11 @@ func (trms txRequestMessageSignedStruct) processTransactionRequest() string {
 		return "Signature failed"
 	}
 
-	// STEP 2 - MOCK - CHECK BALANCE TO SEE IF YOU HAVE THE MONEY
+	// STEP 2 - CHECK BALANCE TO SEE IF YOU HAVE THE MONEY
 	// Returns entire list of the TxID of output unspent transactions
-	s = "STEP 2 - MOCK - CHECK BALANCE TO SEE IF YOU HAVE THE MONEY"
+	s = "STEP 2 - CHECK BALANCE TO SEE IF YOU HAVE THE MONEY"
 	log.Info("processTransactionRequest()      " + s)
-	balance, unspentOutput := getBalance(trms.TxRequestMessage.SourceAddress, trms.TxRequestMessage.Destinations[0].DestinationAddress)
-	balance1, unspentOutput1 := getBalance1(trms.TxRequestMessage.SourceAddress, trms.TxRequestMessage.Destinations[0].DestinationAddress)
+	balance, unspentOutput := getBalance(trms.TxRequestMessage.SourceAddress)
 
 	// STEP 3 - CHECK IF YOU HAVE ENOUGH jeffCoins
 	s = "STEP 3 - CHECK IF YOU HAVE ENOUGH jeffCoins"
@@ -174,9 +173,6 @@ func (trms txRequestMessageSignedStruct) processTransactionRequest() string {
 	}
 	s = "The balance for " + trms.TxRequestMessage.SourceAddress + " is " + strconv.FormatInt(balance, 10) +
 		" and value to remove is " + strconv.FormatInt(value, 10) + " from " + fmt.Sprint(unspentOutput)
-	log.Info("processTransactionRequest()      " + s)
-	s = "The balance for " + trms.TxRequestMessage.SourceAddress + " is " + strconv.FormatInt(balance1, 10) +
-		" and value to remove is " + strconv.FormatInt(value, 10) + " from " + fmt.Sprint(unspentOutput1)
 	log.Info("processTransactionRequest()      " + s)
 	if balance < value {
 		return "Not enough money"
@@ -211,50 +207,14 @@ func (trms txRequestMessageSignedStruct) verifySignature() bool {
 
 }
 
-// STEP 2 - MOCK - CHECK BALANCE TO SEE IF YOU HAVE THE MONEY
-func getBalance(sourceAddress string, destinationAddress string) (int64, []unspentOutputStruct) {
-
-	unspentOutputSlice := []unspentOutputStruct{{0, 0}}
-
-	// STEP 2.1 - GET UNSPENT OUTPUT TRANSACTIONS
-	s := "STEP 2.1 - GET UNSPENT OUTPUT TRANSACTIONS"
-	log.Info("getBalance()                     " + s)
-	if sourceAddress == "Founders PubKey" {
-		if destinationAddress == "Jeffs PubKey" {
-			unspentOutputSlice = []unspentOutputStruct{{0, 100000000}}
-		} else {
-			unspentOutputSlice = []unspentOutputStruct{{1, 99920000}}
-		}
-	}
-	if sourceAddress == "Jeffs PubKey" {
-		unspentOutputSlice = []unspentOutputStruct{{1, 80000}}
-	}
-	if sourceAddress == "Matts PubKey" {
-		if destinationAddress == "Jeffs PubKey" {
-			unspentOutputSlice = []unspentOutputStruct{{3, 250000}, {4, 15000}}
-		} else {
-			unspentOutputSlice = []unspentOutputStruct{{2, 50000}, {3, 250000}}
-		}
-	}
-
-	// STEP 2.2 - GET BALANCE
-	s = "STEP 2.2 - GET BALANCE"
-	log.Info("getBalance()                     " + s)
-	var balance int64
-	balance = 0
-	for _, unspentOutput := range unspentOutputSlice {
-		balance = balance + unspentOutput.Value
-	}
-
-	return balance, unspentOutputSlice
-
-}
-
 // STEP 2 - CHECK BALANCE TO SEE IF YOU HAVE THE MONEY
 // Returns entire list of the TxID of output unspent transactions
-func getBalance1(sourceAddress string, destinationAddress string) (int64, []unspentOutputStruct) {
+func getBalance(address string) (int64, []unspentOutputStruct) {
 
-	unspentOutputSlice := []unspentOutputStruct{{0, 0}}
+	unspentOutputMap := make(map[int64]int64)
+
+	var unspentOutput unspentOutputStruct
+	unspentOutputSlice := []unspentOutputStruct{}
 
 	// STEP 2.1 - GET UNSPENT OUTPUT TRANSACTIONS - Make unspentOutputSlice
 	s := "STEP 2.1 - GET UNSPENT OUTPUT TRANSACTIONS  - Make unspentOutputSlice"
@@ -262,10 +222,41 @@ func getBalance1(sourceAddress string, destinationAddress string) (int64, []unsp
 
 	// LETS ITERATE OVER ALL TRANSACTIONS IN BLOCK CHAIN
 	for _, blocks := range blockchain {
+
 		for _, transaction := range blocks.Transactions {
-			fmt.Printf("transaction %v\n", transaction)
+
+			// ITERATE OVER INPUTS - find inputs with address
+			for _, input := range transaction.Inputs {
+				if address == input.InPubKey {
+					// DID AN OUTPUT USE THIS? If so, delete from map.
+					refTxID := input.RefTxID
+					if unspentOutputMap[refTxID] != 0 {
+						delete(unspentOutputMap, refTxID)
+					}
+				}
+
+			}
+
+			// ITERATE OVER OUTPUTS - find outputs with address
+			for _, output := range transaction.Outputs {
+				if address == output.OutPubKey {
+					// Place in map
+					unspentOutputMap[transaction.TxID] = output.Value
+				}
+			}
 		}
 	}
+
+	// PUT MAP unspentOutputMap IN SLICE unspentOutputSlice
+	for k, v := range unspentOutputMap {
+		unspentOutput = unspentOutputStruct{k, v}
+		unspentOutputSlice = append(unspentOutputSlice, unspentOutput)
+	}
+
+	// SORT SLICE FROM TxID (LOW TO HIGH)
+	sort.Slice(unspentOutputSlice, func(i, j int) bool {
+		return unspentOutputSlice[i].TxID < unspentOutputSlice[j].TxID
+	})
 
 	// STEP 2.2 - GET BALANCE from unspentOutputSlice
 	s = "STEP 2.2 - GET BALANCE from unspentOutputSlice"
@@ -329,8 +320,6 @@ func (trms txRequestMessageSignedStruct) loadTRMSignedToCurrentBlock(unspentOutp
 	var inputsTemp = inputsStruct{}
 	var inputsSlice []inputsStruct
 
-	inputsTemp.InID = 22222222
-
 	// Using the following unspent outputs
 	for _, unspentOutput := range unspentOutputSlice {
 		inputsTemp.RefTxID = unspentOutput.TxID
@@ -371,9 +360,9 @@ func (trms txRequestMessageSignedStruct) loadTRMSignedToCurrentBlock(unspentOutp
 	}
 
 	//-------------------------------------------------------
-	// STEP 5.3 - BUILD THE TRANSACTON
+	// STEP 5.3 - BUILD THE TRANSACTION
 	//-------------------------------------------------------
-	s = "STEP 5.3 - BUILD THE TRANSACTON"
+	s = "STEP 5.3 - BUILD THE TRANSACTION"
 	log.Info("loadTRMSignedToCurrentBlock()    " + s)
 	var transactionTemp = transactionStruct{}
 
@@ -450,10 +439,21 @@ func main() {
 	log.Info("main()                           " + s)
 	receivingTransaction(txRequestMessageSignedDataString1)
 	receivingTransaction(txRequestMessageSignedDataStringBad)
+
+	// ADD currentBlock TO THE blockchain
+	s = "ADD currentBlock TO THE blockchain. Adding block number " + fmt.Sprint(currentBlock.BlockID)
+	log.Info("main()                           " + s)
+	blockchain = append(blockchain, currentBlock)
+
+	// RESET currentBlock
+	s = "RESET currentBlock"
+	log.Info("main()                           " + s)
+	resetCurrentBlock()
+
 	receivingTransaction(txRequestMessageSignedDataString2)
 
 	// ADD currentBlock TO THE blockchain
-	s = "ADD currentBlock TO THE blockchain"
+	s = "ADD currentBlock TO THE blockchain. Adding block number " + fmt.Sprint(currentBlock.BlockID)
 	log.Info("main()                           " + s)
 	blockchain = append(blockchain, currentBlock)
 
@@ -469,7 +469,7 @@ func main() {
 	receivingTransaction(txRequestMessageSignedDataString4)
 
 	// ADD currentBlock TO THE blockchain
-	s = "ADD currentBlock TO THE blockchain"
+	s = "ADD currentBlock TO THE blockchain. Adding block number " + fmt.Sprint(currentBlock.BlockID)
 	log.Info("main()                           " + s)
 	blockchain = append(blockchain, currentBlock)
 
@@ -493,7 +493,13 @@ func main() {
 	js, _ = json.MarshalIndent(currentBlock, "", "    ")
 	fmt.Printf("%v\n\n", string(js))
 
-	// balance := showbalance(mattPubKey)
-	//fmt.Printf("The balance for %s is %d\n\n", mattPubKey, balance)
+	balance, _ := getBalance(foundersPubKey)
+	fmt.Printf("The balance for %s is %d\n\n", foundersPubKey, balance)
+	balance, _ = getBalance(jeffPubKey)
+	fmt.Printf("The balance for %s is %d\n\n", jeffPubKey, balance)
+	balance, _ = getBalance(mattPubKey)
+	fmt.Printf("The balance for %s is %d\n\n", mattPubKey, balance)
+	balance, _ = getBalance(coinVaultPubKey)
+	fmt.Printf("The balance for %s is %d\n\n", coinVaultPubKey, balance)
 
 }
