@@ -30,12 +30,13 @@ every input must have an output.
 
 The first block in the blockchain will contain 1 transaction.  That will be the
 founders initial value of 100,000,000 (or 100,000 jeffCoins). Each jeffCoin
-has a value of 1,000 jefftoshi. Yup.
-
-There will be 5 transaction requests thereafter,
+has a value of 1,000 addies. Meow.
 
 * Block 0 (Genesis Block)
   * Founders start with  100,000 jeffCoins
+
+There are 5 transaction requests thereafter,
+
 * Block 1
   * Founders sends Jeff 80 jeffCoins
 * Block 2  
@@ -46,8 +47,8 @@ There will be 5 transaction requests thereafter,
 * currentBlock
   * Matt send Jeff 15 Coins
 
-The currentBlock is pending, meaning it needs to be verified by other nodes.
-So this block will not have any value until added to the chain.
+The `currentBlock` is pending, meaning it needs to be verified by other nodes.
+So this block will not have any value until part of the blockchain.
 
 ## TRANSACTIONS IN LEDGER
 
@@ -64,8 +65,8 @@ This illustration shows a visual look at how the transactions relate
 
 Here are the steps when adding a transaction request to the currentBlock,
 
-* STEP 1 - MOCK - VERIFY SIGNATURE
-* STEP 2 - MOCK - CHECK BALANCE TO SEE IF YOU HAVE THE MONEY
+* STEP 1 - MOCK - VERIFY SIGNATURE (So I don't need to deal with key pairs)
+* STEP 2 - CHECK BALANCE TO SEE IF YOU HAVE THE MONEY
   * STEP 2.1 - GET UNSPENT OUTPUT TRANSACTIONS  - Make unspentOutputSlice
   * STEP 2.2 - GET BALANCE from unspentOutputSlice
 * STEP 3 - CHECK IF YOU HAVE ENOUGH jeffCoins
@@ -79,6 +80,18 @@ Here are the steps when adding a transaction request to the currentBlock,
 
 ## RUN
 
+This will load the transactions, display the blockchain and show the
+balances for each address (pub Key),
+
 ```bash
 go run bitcoin-ledger.go data.go
+```
+
+The balances should be,
+
+```txt
+The balance for Founders PubKey (Address) is 99670000
+The balance for Jeffs PubKey (Address) is 29500
+The balance for Matts PubKey (Address) is 265000
+The balance for CoinVaults PubKey (Address) is 500
 ```

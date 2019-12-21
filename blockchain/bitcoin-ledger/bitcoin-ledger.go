@@ -493,13 +493,14 @@ func main() {
 	js, _ = json.MarshalIndent(currentBlock, "", "    ")
 	fmt.Printf("%v\n\n", string(js))
 
+	// SHOW BALANCES
 	balance, _ := getBalance(foundersPubKey)
-	fmt.Printf("The balance for %s is %d\n\n", foundersPubKey, balance)
+	fmt.Printf("The balance for %s (Address) is %d\n\n", foundersPubKey, balance)
 	balance, _ = getBalance(jeffPubKey)
-	fmt.Printf("The balance for %s is %d\n\n", jeffPubKey, balance)
+	fmt.Printf("The balance for %s (Address) is %d\n\n", jeffPubKey, balance)
 	balance, _ = getBalance(mattPubKey)
-	fmt.Printf("The balance for %s is %d\n\n", mattPubKey, balance)
+	fmt.Printf("The balance for %s (Address) is %d\n\n", mattPubKey, balance)
 	balance, _ = getBalance(coinVaultPubKey)
-	fmt.Printf("The balance for %s is %d\n\n", coinVaultPubKey, balance)
+	fmt.Printf("The balance for %s (Address) is %d\n\n", coinVaultPubKey, balance)
 
 }
