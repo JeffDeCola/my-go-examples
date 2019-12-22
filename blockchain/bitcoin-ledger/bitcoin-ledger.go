@@ -5,22 +5,10 @@ package main
 import (
 	"encoding/json"
 	"fmt"
-	"os"
 	"sort"
 	"strconv"
 
 	log "github.com/sirupsen/logrus"
-)
-
-const (
-	foundersPubKey  = "Founders PubKey"
-	jeffPubKey      = "Jeffs PubKey"
-	mattPubKey      = "Matts PubKey"
-	coinVaultPubKey = "CoinVaults PubKey"
-	jillPubKey      = "Jills PubKey"
-	foundersSig     = "Founders Signature"
-	jeffSig         = "Jeffs Signature"
-	mattSig         = "Matts Signature"
 )
 
 // BLOCK
@@ -30,30 +18,13 @@ type blockStruct struct {
 	Transactions []transactionStruct `json:"transactions"`
 }
 
-var currentBlock = blockStruct{}
+var pendingBlock = blockStruct{}
 
 // BLOCKCHAIN
 
 type blockchainSlice []blockStruct
 
 var blockchain = blockchainSlice{}
-
-// TRANSACTION REQUEST MESSAGE
-
-type txRequestMessageSignedStruct struct {
-	TxRequestMessage txRequestMessageStruct `json:"txRequestMessage"`
-	Signature        string                 `json:"signature"`
-}
-
-type txRequestMessageStruct struct {
-	SourceAddress string              `json:"sourceAddress"`
-	Destinations  []destinationStruct `json:"destinations"`
-}
-
-type destinationStruct struct {
-	DestinationAddress string `json:"destinationAddress"`
-	Value              int64  `json:"value"`
-}
 
 // TRANSACTIONS
 
@@ -101,52 +72,29 @@ func genesisBlockchain(transactionDataString string) {
 	transactionSlice = append(transactionSlice, tempTransaction)
 
 	// LOAD THE GENESIS BLOCK with transactionSlice
-	currentBlock.BlockID = 0
-	currentBlock.Transactions = transactionSlice
+	pendingBlock.BlockID = 0
+	pendingBlock.Transactions = transactionSlice
 
 	// ADD BLOCK TO THE BLOCKCHAIN
-	blockchain = append(blockchain, currentBlock)
+	blockchain = append(blockchain, pendingBlock)
 
 }
 
-func resetCurrentBlock() {
+func resetPendingBlock() {
 
 	var transactionSlice []transactionStruct
 	var transaction transactionStruct
 
 	// INCREMENT BlockID
-	currentBlock.BlockID = currentBlock.BlockID + 1
+	pendingBlock.BlockID = pendingBlock.BlockID + 1
 
 	// INCREMENT TxID (From last one)
-	transaction.TxID = currentBlock.Transactions[len(currentBlock.Transactions)-1].TxID + 1
+	transaction.TxID = pendingBlock.Transactions[len(pendingBlock.Transactions)-1].TxID + 1
 	transactionSlice = append(transactionSlice, transaction)
 
 	// LOAD THE BLOCK
-	currentBlock.Transactions = transactionSlice
+	pendingBlock.Transactions = transactionSlice
 
-}
-
-func receivingTransaction(txRequestMessageSignedDataString string) {
-
-	s := "------------------------------------------------------------------"
-	log.Info("receivingTransaction()           " + s)
-
-	var trms txRequestMessageSignedStruct
-
-	// RECEIVED TRANSACTION MESSAGE txRequestMessageSignedDataStringBad
-	// Place transaction Request Message data in transaction Request Message struct
-	txRequestMessageSignedDataStringByte := []byte(txRequestMessageSignedDataString)
-	err := json.Unmarshal(txRequestMessageSignedDataStringByte, &trms)
-	checkErr(err)
-
-	// Check is message valid, get balance and add to currentBlock
-	s = "Received transaction message from " + trms.TxRequestMessage.SourceAddress + " to " +
-		fmt.Sprint(trms.TxRequestMessage.Destinations)
-	log.Info("receivingTransaction()           " + s)
-	status := trms.processTransactionRequest()
-	s = "The status of transaction message from " + trms.TxRequestMessage.SourceAddress + " to " +
-		fmt.Sprint(trms.TxRequestMessage.Destinations) + " is " + status
-	log.Info("receivingTransaction()           " + s)
 }
 
 func (trms txRequestMessageSignedStruct) processTransactionRequest() string {
@@ -187,10 +135,10 @@ func (trms txRequestMessageSignedStruct) processTransactionRequest() string {
 	s = "The change will be " + strconv.FormatInt(change, 10)
 	log.Info("processTransactionRequest()      " + s)
 
-	// STEP 5 - LOAD currentBlock WITH TRANSACTION and MAKE CHANGE
-	s = "STEP 5 - LOAD currentBlock WITH TRANSACTION and MAKE CHANGE"
+	// STEP 5 - LOAD pendingBlock WITH TRANSACTION and MAKE CHANGE
+	s = "STEP 5 - LOAD pendingBlock WITH TRANSACTION and MAKE CHANGE"
 	log.Info("processTransactionRequest()      " + s)
-	trms.loadTRMSignedToCurrentBlock(useUnspentOutput, change)
+	trms.loadTRMSignedToPendingBlock(useUnspentOutput, change)
 
 	return "Pending"
 
@@ -303,12 +251,12 @@ func pickUnspentOutputs(pickUnspentOutputSlice []unspentOutputStruct, value int6
 
 }
 
-// STEP 5 - LOAD currentBlock WITH TRANSACTION and MAKE CHANGE
-func (trms txRequestMessageSignedStruct) loadTRMSignedToCurrentBlock(unspentOutputSlice []unspentOutputStruct, change int64) {
+// STEP 5 - LOAD pendingBlock WITH TRANSACTION and MAKE CHANGE
+func (trms txRequestMessageSignedStruct) loadTRMSignedToPendingBlock(unspentOutputSlice []unspentOutputStruct, change int64) {
 
-	// Check if first transaction in currentBlock
+	// Check if first transaction in pendingBlock
 	first := false
-	if currentBlock.Transactions[0].Inputs == nil {
+	if pendingBlock.Transactions[0].Inputs == nil {
 		first = true
 	}
 
@@ -316,7 +264,7 @@ func (trms txRequestMessageSignedStruct) loadTRMSignedToCurrentBlock(unspentOutp
 	// STEP 5.1 - BUILD INPUT STRUCT FOR EACH UNSPENT OUTPUT
 	//-------------------------------------------------------
 	s := "STEP 5.1 - BUILD INPUT STRUCT FOR EACH UNSPENT OUTPUT"
-	log.Info("loadTRMSignedToCurrentBlock()    " + s)
+	log.Info("loadTRMSignedToPendingBlock()    " + s)
 	var inputsTemp = inputsStruct{}
 	var inputsSlice []inputsStruct
 
@@ -334,7 +282,7 @@ func (trms txRequestMessageSignedStruct) loadTRMSignedToCurrentBlock(unspentOutp
 	// STEP 5.2 - BUILD OUTPUT STRUCT
 	//-------------------------------------------------------
 	s = "STEP 5.2 - BUILD OUTPUT STRUCT"
-	log.Info("loadTRMSignedToCurrentBlock()    " + s)
+	log.Info("loadTRMSignedToPendingBlock()    " + s)
 	var outputsTemp = outputsStruct{}
 	var outputsSlice []outputsStruct
 
@@ -363,151 +311,41 @@ func (trms txRequestMessageSignedStruct) loadTRMSignedToCurrentBlock(unspentOutp
 	// STEP 5.3 - BUILD THE TRANSACTION
 	//-------------------------------------------------------
 	s = "STEP 5.3 - BUILD THE TRANSACTION"
-	log.Info("loadTRMSignedToCurrentBlock()    " + s)
+	log.Info("loadTRMSignedToPendingBlock()    " + s)
 	var transactionTemp = transactionStruct{}
 
 	// Check if first transaction
 	if first {
-		transactionTemp.TxID = currentBlock.Transactions[0].TxID
+		transactionTemp.TxID = pendingBlock.Transactions[0].TxID
 	} else {
-		transactionTemp.TxID = currentBlock.Transactions[len(currentBlock.Transactions)-1].TxID + 1
+		transactionTemp.TxID = pendingBlock.Transactions[len(pendingBlock.Transactions)-1].TxID + 1
 	}
 	transactionTemp.Inputs = inputsSlice
 	transactionTemp.Outputs = outputsSlice
 
 	s = "The transactionTemp is " + fmt.Sprint(transactionTemp)
-	log.Info("loadTRMSignedToCurrentBlock()    " + s)
+	log.Info("loadTRMSignedToPendingBlock()    " + s)
 
 	//-------------------------------------------------------
 	// STEP 5.4 - PLACE transactionStruct IN transactionSlice
 	//-------------------------------------------------------
 	s = "STEP 5.4 - PLACE transactionStruct IN transactionSlice"
-	log.Info("loadTRMSignedToCurrentBlock()    " + s)
+	log.Info("loadTRMSignedToPendingBlock()    " + s)
 	var transactionSlice []transactionStruct
 
 	// Check if first transaction
 	if first {
 		transactionSlice = append(transactionSlice, transactionTemp)
 	} else {
-		transactionSlice = append(currentBlock.Transactions, transactionTemp)
+		transactionSlice = append(pendingBlock.Transactions, transactionTemp)
 	}
 
 	//-------------------------------------------------------
 	// STEP 5.5 - LOAD THE CURRENT BLOCK WITH TRANSACTION
 	//-------------------------------------------------------
 	s = "STEP 5.5 - LOAD THE CURRENT BLOCK WITH TRANSACTION"
-	log.Info("loadTRMSignedToCurrentBlock()    " + s)
+	log.Info("loadTRMSignedToPendingBlock()    " + s)
 
-	currentBlock.Transactions = transactionSlice
-
-}
-
-func showbalance(pubKey string) int64 {
-	return 675
-}
-
-func init() {
-
-	// SET FORMAT
-	log.SetFormatter(&log.TextFormatter{})
-	// log.SetFormatter(&log.JSONFormatter{})
-
-	// SET OUTPUT (DEFAULT stderr)
-	log.SetOutput(os.Stdout)
-
-	// SET LOG LEVEL
-	log.SetLevel(log.TraceLevel)
-	// log.SetLevel(log.InfoLevel)
-
-}
-
-func main() {
-
-	// GENISIS BLOCKCHAIN
-	// LOAD BLOCK 0 WITH 0000 TRANSACTION
-	s := "GENISIS BLOCKCHAIN / LOAD BLOCK 0 WITH 0000 TRANSACTION"
-	log.Info("main()                           " + s)
-	genesisBlockchain(genesisTransactionString)
-
-	// RESET currentBlock
-	s = "RESET currentBlock"
-	log.Info("main()                           " + s)
-	resetCurrentBlock()
-
-	// RECEIVING SOME TRANSACTION REQUEST MESSAGES
-	s = "RECEIVING SOME TRANSACTION REQUEST MESSAGES"
-	log.Info("main()                           " + s)
-	receivingTransaction(txRequestMessageSignedDataString1)
-	receivingTransaction(txRequestMessageSignedDataStringBad)
-
-	// ADD currentBlock TO THE blockchain
-	s = "ADD currentBlock TO THE blockchain. Adding block number " + fmt.Sprint(currentBlock.BlockID)
-	log.Info("main()                           " + s)
-	blockchain = append(blockchain, currentBlock)
-
-	// RESET currentBlock
-	s = "RESET currentBlock"
-	log.Info("main()                           " + s)
-	resetCurrentBlock()
-
-	receivingTransaction(txRequestMessageSignedDataString2)
-
-	// ADD currentBlock TO THE blockchain
-	s = "ADD currentBlock TO THE blockchain. Adding block number " + fmt.Sprint(currentBlock.BlockID)
-	log.Info("main()                           " + s)
-	blockchain = append(blockchain, currentBlock)
-
-	// RESET currentBlock
-	s = "RESET currentBlock"
-	log.Info("main()                           " + s)
-	resetCurrentBlock()
-
-	// RECEIVING SOME TRANSACTION REQUEST MESSAGES
-	s = "RECEIVING SOME TRANSACTION REQUEST MESSAGES"
-	log.Info("main()                           " + s)
-	receivingTransaction(txRequestMessageSignedDataString3)
-	receivingTransaction(txRequestMessageSignedDataString4)
-
-	// ADD currentBlock TO THE blockchain
-	s = "ADD currentBlock TO THE blockchain. Adding block number " + fmt.Sprint(currentBlock.BlockID)
-	log.Info("main()                           " + s)
-	blockchain = append(blockchain, currentBlock)
-
-	// RESET currentBlock
-	s = "RESET currentBlock"
-	log.Info("main()                           " + s)
-	resetCurrentBlock()
-
-	// RECEIVING SOME TRANSACTION REQUEST MESSAGES
-	s = "RECEIVING SOME TRANSACTION REQUEST MESSAGES"
-	log.Info("main()                           " + s)
-	receivingTransaction(txRequestMessageSignedDataString5)
-
-	// RECEIVING SOME TRANSACTION REQUEST MESSAGES
-	s = "RECEIVING SOME TRANSACTION REQUEST MESSAGES"
-	log.Info("main()                           " + s)
-	receivingTransaction(txRequestMessageSignedDataString6)
-
-	// SHOW THE blockchain
-	fmt.Printf("\nThe blockchain is:\n\n")
-	js, _ := json.MarshalIndent(blockchain, "", "    ")
-	fmt.Printf("%v\n\n", string(js))
-
-	// SHOW THE currentBlock
-	fmt.Printf("\nThe currentBlock is:\n\n")
-	js, _ = json.MarshalIndent(currentBlock, "", "    ")
-	fmt.Printf("%v\n\n", string(js))
-
-	// SHOW BALANCES
-	balance, _ := getBalance(foundersPubKey)
-	fmt.Printf("The balance for %s (Address) is %d\n\n", foundersPubKey, balance)
-	balance, _ = getBalance(jeffPubKey)
-	fmt.Printf("The balance for %s (Address) is %d\n\n", jeffPubKey, balance)
-	balance, _ = getBalance(mattPubKey)
-	fmt.Printf("The balance for %s (Address) is %d\n\n", mattPubKey, balance)
-	balance, _ = getBalance(jillPubKey)
-	fmt.Printf("The balance for %s (Address) is %d\n\n", jillPubKey, balance)
-	balance, _ = getBalance(coinVaultPubKey)
-	fmt.Printf("The balance for %s (Address) is %d\n\n", coinVaultPubKey, balance)
+	pendingBlock.Transactions = transactionSlice
 
 }

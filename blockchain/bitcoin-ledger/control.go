@@ -51,7 +51,7 @@ func receivingTransaction(txRequestMessageSignedDataString string) {
 	err := json.Unmarshal(txRequestMessageSignedDataStringByte, &trms)
 	checkErr(err)
 
-	// Check is message valid, get balance and add to currentBlock
+	// Check is message valid, get balance and add to pendingBlock
 	s = "Received transaction message from " + trms.TxRequestMessage.SourceAddress + " to " +
 		fmt.Sprint(trms.TxRequestMessage.Destinations)
 	log.Info("receivingTransaction()           " + s)
@@ -84,10 +84,10 @@ func main() {
 	log.Info("main()                           " + s)
 	genesisBlockchain(genesisTransactionString)
 
-	// RESET currentBlock
-	s = "RESET currentBlock"
+	// RESET pendingBlock
+	s = "RESET pendingBlock"
 	log.Info("main()                           " + s)
-	resetCurrentBlock()
+	resetPendingBlock()
 
 	// RECEIVING SOME TRANSACTION REQUEST MESSAGES
 	s = "RECEIVING SOME TRANSACTION REQUEST MESSAGES"
@@ -95,27 +95,27 @@ func main() {
 	receivingTransaction(txRequestMessageSignedDataString1)
 	receivingTransaction(txRequestMessageSignedDataStringBad)
 
-	// ADD currentBlock TO THE blockchain
-	s = "ADD currentBlock TO THE blockchain. Adding block number " + fmt.Sprint(currentBlock.BlockID)
+	// ADD pendingBlock TO THE blockchain
+	s = "ADD pendingBlock TO THE blockchain. Adding block number " + fmt.Sprint(pendingBlock.BlockID)
 	log.Info("main()                           " + s)
-	blockchain = append(blockchain, currentBlock)
+	blockchain = append(blockchain, pendingBlock)
 
-	// RESET currentBlock
-	s = "RESET currentBlock"
+	// RESET pendingBlock
+	s = "RESET pendingBlock"
 	log.Info("main()                           " + s)
-	resetCurrentBlock()
+	resetPendingBlock()
 
 	receivingTransaction(txRequestMessageSignedDataString2)
 
-	// ADD currentBlock TO THE blockchain
-	s = "ADD currentBlock TO THE blockchain. Adding block number " + fmt.Sprint(currentBlock.BlockID)
+	// ADD pendingBlock TO THE blockchain
+	s = "ADD pendingBlock TO THE blockchain. Adding block number " + fmt.Sprint(pendingBlock.BlockID)
 	log.Info("main()                           " + s)
-	blockchain = append(blockchain, currentBlock)
+	blockchain = append(blockchain, pendingBlock)
 
-	// RESET currentBlock
-	s = "RESET currentBlock"
+	// RESET pendingBlock
+	s = "RESET pendingBlock"
 	log.Info("main()                           " + s)
-	resetCurrentBlock()
+	resetPendingBlock()
 
 	// RECEIVING SOME TRANSACTION REQUEST MESSAGES
 	s = "RECEIVING SOME TRANSACTION REQUEST MESSAGES"
@@ -123,15 +123,15 @@ func main() {
 	receivingTransaction(txRequestMessageSignedDataString3)
 	receivingTransaction(txRequestMessageSignedDataString4)
 
-	// ADD currentBlock TO THE blockchain
-	s = "ADD currentBlock TO THE blockchain. Adding block number " + fmt.Sprint(currentBlock.BlockID)
+	// ADD pendingBlock TO THE blockchain
+	s = "ADD pendingBlock TO THE blockchain. Adding block number " + fmt.Sprint(pendingBlock.BlockID)
 	log.Info("main()                           " + s)
-	blockchain = append(blockchain, currentBlock)
+	blockchain = append(blockchain, pendingBlock)
 
-	// RESET currentBlock
-	s = "RESET currentBlock"
+	// RESET pendingBlock
+	s = "RESET pendingBlock"
 	log.Info("main()                           " + s)
-	resetCurrentBlock()
+	resetPendingBlock()
 
 	// RECEIVING SOME TRANSACTION REQUEST MESSAGES
 	s = "RECEIVING SOME TRANSACTION REQUEST MESSAGES"
@@ -148,9 +148,9 @@ func main() {
 	js, _ := json.MarshalIndent(blockchain, "", "    ")
 	fmt.Printf("%v\n\n", string(js))
 
-	// SHOW THE currentBlock
-	fmt.Printf("\nThe currentBlock is:\n\n")
-	js, _ = json.MarshalIndent(currentBlock, "", "    ")
+	// SHOW THE pendingBlock
+	fmt.Printf("\nThe pendingBlock is:\n\n")
+	js, _ = json.MarshalIndent(pendingBlock, "", "    ")
 	fmt.Printf("%v\n\n", string(js))
 
 	// SHOW BALANCES
