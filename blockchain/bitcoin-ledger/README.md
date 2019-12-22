@@ -23,8 +23,15 @@ go get -u -v github.com/sirupsen/logrus
 ## OVERVIEW
 
 An **unspent transaction output model** is a method to log the transactions
-of coins in a cryptocurrency.  It uses an input/output model were
-every input must have an output.
+of coins in a cryptocurrency. This type of bookkeeping does not keep a
+running balance. Each transaction records where the value
+is coming from (input) and where it is going to (output).
+
+All inputs must be tied to other outputs, but outputs can be `"unspent"`, meaning
+not connected to anything.  When you add up all the unspent outputs for an address
+you have the balance.
+
+It's a little tricky at first but makes sense if you're forced to code it.
 
 ## THIS EXAMPLE
 
@@ -84,7 +91,7 @@ This will load the transactions, display the blockchain and show the
 balances for each address (pub Key),
 
 ```bash
-go run bitcoin-ledger.go data.go
+go run control.go bitcoin-ledger.go data.go
 ```
 
 The balances should be,

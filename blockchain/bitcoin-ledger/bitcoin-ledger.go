@@ -1,4 +1,4 @@
-// my-go-examples bitcoin-ledger.go
+// my-go-examples blockchain bitcoin-ledger.go
 
 package main
 
@@ -483,6 +483,11 @@ func main() {
 	log.Info("main()                           " + s)
 	receivingTransaction(txRequestMessageSignedDataString5)
 
+	// RECEIVING SOME TRANSACTION REQUEST MESSAGES
+	s = "RECEIVING SOME TRANSACTION REQUEST MESSAGES"
+	log.Info("main()                           " + s)
+	receivingTransaction(txRequestMessageSignedDataString6)
+
 	// SHOW THE blockchain
 	fmt.Printf("\nThe blockchain is:\n\n")
 	js, _ := json.MarshalIndent(blockchain, "", "    ")
@@ -500,6 +505,8 @@ func main() {
 	fmt.Printf("The balance for %s (Address) is %d\n\n", jeffPubKey, balance)
 	balance, _ = getBalance(mattPubKey)
 	fmt.Printf("The balance for %s (Address) is %d\n\n", mattPubKey, balance)
+	balance, _ = getBalance(jillPubKey)
+	fmt.Printf("The balance for %s (Address) is %d\n\n", jillPubKey, balance)
 	balance, _ = getBalance(coinVaultPubKey)
 	fmt.Printf("The balance for %s (Address) is %d\n\n", coinVaultPubKey, balance)
 

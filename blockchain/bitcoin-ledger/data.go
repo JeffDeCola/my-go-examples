@@ -1,4 +1,4 @@
-// my-go-examples bitcoin-ledger data.go
+// my-go-examples blockchain bitcoin-ledger data.go
 
 package main
 
@@ -59,6 +59,10 @@ const (
                     {
                         "destinationAddress": "` + mattPubKey + `",
                         "value": 250000
+                    },
+                    {
+                        "destinationAddress": "` + jeffPubKey + `",
+                        "value": 13000
                     }
                 ]
             },
@@ -89,6 +93,19 @@ const (
                 ]
             },
             "signature": "` + mattSig + `"
+        }`
+	txRequestMessageSignedDataString6 = `
+        {
+            "txRequestMessage": {
+                "sourceAddress": "` + jeffPubKey + `",
+                "destinations": [
+                    {
+                        "destinationAddress": "` + jillPubKey + `",
+                        "value": 33000
+                    }
+                ]
+            },
+            "signature": "` + jeffSig + `"
         }`
 	txRequestMessageSignedDataStringBad = `
         {
