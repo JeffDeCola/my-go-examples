@@ -1,6 +1,6 @@
 # bitcoin-ledger example
 
-_Demonstrates the bitcoin ledger in a blockchain using the
+_Demonstrates a bitcoin ledger in a blockchain using the
 **unspent transaction output model**._
 
 Table of Contents,
@@ -18,7 +18,9 @@ Documentation and reference,
 [blockchains](https://github.com/JeffDeCola/my-cheat-sheets/tree/master/software/development/software-architectures/blockchain/blockchain-cheat-sheet)
 * A
 [blockchain with REST](https://github.com/JeffDeCola/my-go-examples/tree/master/blockchain/single-node-blockchain-with-REST)
-example I wrote that just stores data. No coins.
+example I wrote that just stores data (no coins)
+* I also wrote an entire cryptocurrency called
+  [jeffCoin](https://github.com/JeffDeCola/jeffCoin)
 
 [GitHub Webpage](https://jeffdecola.github.io/my-go-examples/)
 
@@ -43,30 +45,50 @@ It's a little tricky at first but makes sense if you code it.
 
 ## THIS EXAMPLE
 
-The first block in the blockchain will contain 1 transaction.  That will be the
-founders initial value of 100,000,000 (or 100,000 jeffCoins). Each jeffCoin
+To keep this example really simple, blocks will only contain an ID and transactions.
+
+```go
+type blockStruct struct {
+    BlockID      int64               `json:"blockID"`
+    Transactions []transactionStruct `json:"transactions"`
+}
+```
+
+Where a transaction is just a slice of inputs and outputs,
+
+```go
+type transactionStruct struct {
+    TxID    int64           `json:"txID"`
+    Inputs  []inputsStruct  `json:"inputs"`
+    Outputs []outputsStruct `json:"outputs"`
+}
+```
+
+The first block (genesis) in the blockchain will contain 1 transaction.
+That will be the founders initial value of 100,000,000
+(or 100,000 jeffCoins). Each jeffCoin
 has a value of 1,000 addies. _Meow._
 
-* **Block 0** (Genesis Block)
-  * Founders start with  100,000 jeffCoins
+* **BlockID 0** _Genesis Block_
+  * **TxID 0** _Founders start with  100,000 jeffCoins_
 
 There are 7 transaction requests thereafter (One is bad).
 I will be adding blocks as follows,
 
-* **Block 1**
-  * Founders sends Jeff 80 jeffCoins
-  * Founders send someone 80 jeffCoins (Rejected Signature Failed)
-* **Block 2**  
-  * Jeff sends Matt 50 jeffCoins & CoinVault .5 jeffCoin
-* **Block 3**  
-  * Founders sends Matt 250 jeffCoins & Jeff 13 jeffCoins
-  * Matt sends Jill 35 jeffCoins
+* **BlockID 1**
+  * **TxID 1** _Founders sends Jeff 80 jeffCoins_
+  * _Founders send someone 80 jeffCoins (Rejected Signature Failed)_
+* **BlockID 2**  
+  * **TxID 2** _Jeff sends Matt 50 jeffCoins & CoinVault .5 jeffCoin_
+* **BlockID 3**  
+  * **TxID 3** _Founders sends Matt 250 jeffCoins & Jeff 13 jeffCoins_
+  * **TxID 4** _Matt sends Jill 35 jeffCoins_
 
 Then all other transactions will be pending,
 
 * **pendingBlock**
-  * Matt sends Jeff 15 jeffCoins
-  * Jeff sends Jill 33 jeffCoins
+  * **TxID 5** _Matt sends Jeff 15 jeffCoins_
+  * **TxID 6** _Jeff sends Jill 33 jeffCoins_
 
 The `pendingBlock` is pending, meaning it needs to be verified by other nodes.
 So this block will not have any value until its part of the blockchain.
@@ -84,20 +106,20 @@ This illustration shows a visual look at how the transactions relate
 
 ## ADDING A TRANSACTION TO THE pendingBlock
 
-Here are the steps when adding a transaction request to the pendingBlock,
+Here are the **functions/methods** I wrote when adding a
+transaction request to the pendingBlock.  I broke it down into 5 steps
+(verify signature is just a mockup for simplicity),
 
-* STEP 1 - MOCK - VERIFY SIGNATURE
-* STEP 2 - CHECK BALANCE TO SEE IF YOU HAVE THE MONEY
-  * STEP 2.1 - GET UNSPENT OUTPUT TRANSACTIONS  - Make unspentOutputSlice
-  * STEP 2.2 - GET BALANCE from unspentOutputSlice
-* STEP 3 - CHECK IF YOU HAVE ENOUGH jeffCoins
-* STEP 4 - PICK THE UNSPENT OUTPUTS TO USE AND PROVIDE CHANGE
-* STEP 5 - LOAD pendingBlock WITH TRANSACTION and MAKE CHANGE
-  * STEP 5.1 - BUILD INPUT STRUCT FOR EACH UNSPENT OUTPUT
-  * STEP 5.2 - BUILD OUTPUT STRUCT
-  * STEP 5.3 - BUILD THE TRANSACTION
-  * STEP 5.4 - PLACE transactionStruct IN transactionSlice
-  * STEP 5.5 - LOAD THE CURRENT BLOCK WITH TRANSACTION
+* **processTransactionRequest()**
+  * STEP 1 - VERIFY SIGNATURE
+    * **verifySignature()**
+  * STEP 2 - CHECK BALANCE TO SEE IF YOU HAVE THE MONEY
+    * **getBalance()**
+  * STEP 3 - CHECK IF YOU HAVE ENOUGH jeffCoins
+  * STEP 4 - PICK THE UNSPENT OUTPUTS TO USE AND PROVIDE CHANGE
+    * **pickUnspentOutputs()**
+  * STEP 5 - LOAD pendingBlock WITH TRANSACTION and MAKE CHANGE
+    * **loadTRMSignedToPendingBlock()**
 
 ## RUN
 
@@ -108,7 +130,7 @@ balances for each address (public Keys),
 go run control.go bitcoin-ledger.go data.go
 ```
 
-The balances should be,
+The balances in the blockchain should be,
 
 ```txt
 The balance for Founders PubKey (Address) is 99657000
