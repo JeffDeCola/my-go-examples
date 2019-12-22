@@ -106,9 +106,38 @@ This illustration shows a visual look at how the transactions relate
 
 ## ADDING A TRANSACTION TO THE pendingBlock
 
-Here are the **functions/methods** I wrote when adding a
-transaction request to the pendingBlock.  I broke it down into 5 steps
-(verify signature is just a mockup for simplicity),
+A transaction request message is just a source address requesting to
+transfer value/coins to one ore more destination addresses.
+
+This is easily seen using the following struct,
+
+```go
+type txRequestMessageStruct struct {
+    SourceAddress string              `json:"sourceAddress"`
+    Destinations  []destinationStruct `json:"destinations"`
+}
+
+type destinationStruct struct {
+    DestinationAddress string `json:"destinationAddress"`
+    Value              int64  `json:"value"`
+}
+```
+
+Then it is signed for verification,
+
+```go
+type txRequestMessageSignedStruct struct {
+    TxRequestMessage txRequestMessageStruct `json:"txRequestMessage"`
+    Signature        string                 `json:"signature"`
+}
+```
+
+Below are the **functions/methods** for processing the
+transaction request message. The ultimate goal is to load the
+transaction onto the `pendingBlock` which will be eventually appended
+onto the blockchain.
+
+ I broke it down into 5 steps (verify signature is just a mockup for simplicity),
 
 * **processTransactionRequest()**
   * STEP 1 - VERIFY SIGNATURE
