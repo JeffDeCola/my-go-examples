@@ -9,7 +9,7 @@ Table of Contents,
 * [OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/blockchain/bitcoin-ledger#overview)
 * [THIS EXAMPLE](https://github.com/JeffDeCola/my-go-examples/tree/master/blockchain/bitcoin-ledger#this-example)
 * [TRANSACTIONS IN LEDGER](https://github.com/JeffDeCola/my-go-examples/tree/master/blockchain/bitcoin-ledger#transactions-in-ledger)
-* [ADDING A TRANSACTION TO pendingBlock](https://github.com/JeffDeCola/my-go-examples/tree/master/blockchain/bitcoin-ledger#adding-a-transaction-to-pendingblock)
+* [ADDING A TRANSACTION TO the pendingBlock](https://github.com/JeffDeCola/my-go-examples/tree/master/blockchain/bitcoin-ledger#adding-a-transaction-to-the-pendingblock)
 * [RUN](https://github.com/JeffDeCola/my-go-examples/tree/master/blockchain/bitcoin-ledger#run)
 
 [GitHub Webpage](https://jeffdecola.github.io/my-go-examples/)
@@ -74,7 +74,7 @@ This illustration shows a visual look at how the transactions relate
 
 ![IMAGE - bitcoin-transaction-flow-from-block-to-block - IMAGE](../../docs/pics/bitcoin-transaction-flow-from-block-to-block.jpg)
 
-## ADDING A TRANSACTION TO the pendingBlock
+## ADDING A TRANSACTION TO THE pendingBlock
 
 Here are the steps when adding a transaction request to the pendingBlock,
 
