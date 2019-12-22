@@ -12,6 +12,14 @@ Table of Contents,
 * [ADDING A TRANSACTION TO the pendingBlock](https://github.com/JeffDeCola/my-go-examples/tree/master/blockchain/bitcoin-ledger#adding-a-transaction-to-the-pendingblock)
 * [RUN](https://github.com/JeffDeCola/my-go-examples/tree/master/blockchain/bitcoin-ledger#run)
 
+Documentation and reference,
+
+* My cheat sheet on
+[blockchains](https://github.com/JeffDeCola/my-cheat-sheets/tree/master/software/development/software-architectures/blockchain/blockchain-cheat-sheet)
+* A
+[blockchain with REST](https://github.com/JeffDeCola/my-go-examples/tree/master/blockchain/single-node-blockchain-with-REST)
+example I wrote that just stores data. No coins.
+
 [GitHub Webpage](https://jeffdecola.github.io/my-go-examples/)
 
 ## PREREQUISITES
@@ -37,26 +45,26 @@ It's a little tricky at first but makes sense if you code it.
 
 The first block in the blockchain will contain 1 transaction.  That will be the
 founders initial value of 100,000,000 (or 100,000 jeffCoins). Each jeffCoin
-has a value of 1,000 addies. Meow.
+has a value of 1,000 addies. _Meow._
 
-* Block 0 (Genesis Block)
+* **Block 0** (Genesis Block)
   * Founders start with  100,000 jeffCoins
 
-There are 6 transaction requests thereafter. I will be adding
-blocks as follows,
+There are 7 transaction requests thereafter (One is bad).
+I will be adding blocks as follows,
 
-* Block 1
+* **Block 1**
   * Founders sends Jeff 80 jeffCoins
   * Founders send someone 80 jeffCoins (Rejected Signature Failed)
-* Block 2  
+* **Block 2**  
   * Jeff sends Matt 50 jeffCoins & CoinVault .5 jeffCoin
-* Block 3  
+* **Block 3**  
   * Founders sends Matt 250 jeffCoins & Jeff 13 jeffCoins
   * Matt sends Jill 35 jeffCoins
 
 Then all other transactions will be pending,
 
-* pendingBlock
+* **pendingBlock**
   * Matt sends Jeff 15 jeffCoins
   * Jeff sends Jill 33 jeffCoins
 
