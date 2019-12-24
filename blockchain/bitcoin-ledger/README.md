@@ -147,8 +147,8 @@ onto the blockchain.
   * STEP 3 - CHECK IF YOU HAVE ENOUGH jeffCoins
   * STEP 4 - PICK THE UNSPENT OUTPUTS TO USE AND PROVIDE CHANGE
     * **pickUnspentOutputs()**
-  * STEP 5 - LOAD pendingBlock WITH TRANSACTION and MAKE CHANGE
-    * **loadTRMSignedToPendingBlock()**
+  * STEP 5 - ADD pendingBlock WITH TRANSACTION and MAKE CHANGE
+    * **addTransactionToPendingBlock()**
 
 ## RUN
 
