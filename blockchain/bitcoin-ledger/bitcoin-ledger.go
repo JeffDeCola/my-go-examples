@@ -106,9 +106,9 @@ func (trms txRequestMessageSignedStruct) processTransactionRequest() string {
 		return "Signature failed"
 	}
 
-	// STEP 2 - CHECK BALANCE TO SEE IF YOU HAVE THE MONEY
+	// STEP 2 - GET BALANCE AND A LIST OF UNSPENT OUTPUTS
 	// Returns entire list of the TxID of output unspent transactions
-	s = "STEP 2 - CHECK BALANCE TO SEE IF YOU HAVE THE MONEY"
+	s = "STEP 2 - GET BALANCE AND A LIST OF UNSPENT OUTPUTS"
 	log.Info("processTransactionRequest()      " + s)
 	balance, unspentOutput := getBalance(trms.TxRequestMessage.SourceAddress)
 
@@ -155,7 +155,7 @@ func (trms txRequestMessageSignedStruct) verifySignature() bool {
 
 }
 
-// STEP 2 - CHECK BALANCE TO SEE IF YOU HAVE THE MONEY
+// STEP 2 - GET BALANCE AND A LIST OF UNSPENT OUTPUTS
 // Returns entire list of the TxID of output unspent transactions
 func getBalance(address string) (int64, []unspentOutputStruct) {
 

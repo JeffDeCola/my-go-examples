@@ -142,7 +142,7 @@ onto the blockchain.
 * **processTransactionRequest()**
   * STEP 1 - VERIFY SIGNATURE
     * **verifySignature()**
-  * STEP 2 - CHECK BALANCE TO SEE IF YOU HAVE THE MONEY
+  * STEP 2 - GET BALANCE AND A LIST OF UNSPENT OUTPUTS
     * **getBalance()**
   * STEP 3 - CHECK IF YOU HAVE ENOUGH jeffCoins
   * STEP 4 - PICK THE UNSPENT OUTPUTS TO USE AND PROVIDE CHANGE
