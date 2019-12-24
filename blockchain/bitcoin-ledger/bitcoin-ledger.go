@@ -135,8 +135,8 @@ func (trms txRequestMessageSignedStruct) processTransactionRequest() string {
 	s = "The change will be " + strconv.FormatInt(change, 10)
 	log.Info("processTransactionRequest()      " + s)
 
-	// STEP 5 - ADD pendingBlock WITH TRANSACTION and MAKE CHANGE
-	s = "STEP 5 - ADD pendingBlock WITH TRANSACTION and MAKE CHANGE"
+	// STEP 5 - ADD TRANSACTION to pendingBlock and MAKE CHANGE
+	s = "STEP 5 - ADD TRANSACTION to pendingBlock and MAKE CHANGE"
 	log.Info("processTransactionRequest()      " + s)
 	trms.addTransactionToPendingBlock(useUnspentOutput, change)
 
@@ -251,7 +251,7 @@ func pickUnspentOutputs(pickUnspentOutputSlice []unspentOutputStruct, value int6
 
 }
 
-// STEP 5 - ADD pendingBlock WITH TRANSACTION and MAKE CHANGE
+// STEP 5 - ADD TRANSACTION to pendingBlock and MAKE CHANGE
 func (trms txRequestMessageSignedStruct) addTransactionToPendingBlock(unspentOutputSlice []unspentOutputStruct, change int64) {
 
 	// Check if first transaction in pendingBlock
@@ -264,7 +264,7 @@ func (trms txRequestMessageSignedStruct) addTransactionToPendingBlock(unspentOut
 	// STEP 5.1 - BUILD INPUT STRUCT FOR EACH UNSPENT OUTPUT
 	//-------------------------------------------------------
 	s := "STEP 5.1 - BUILD INPUT STRUCT FOR EACH UNSPENT OUTPUT"
-	log.Info("addTransactionToPendingBlock()    " + s)
+	log.Info("addTransactionToPendingBlock()   " + s)
 	var inputsTemp = inputsStruct{}
 	var inputsSlice []inputsStruct
 
@@ -282,7 +282,7 @@ func (trms txRequestMessageSignedStruct) addTransactionToPendingBlock(unspentOut
 	// STEP 5.2 - BUILD OUTPUT STRUCT
 	//-------------------------------------------------------
 	s = "STEP 5.2 - BUILD OUTPUT STRUCT"
-	log.Info("addTransactionToPendingBlock()    " + s)
+	log.Info("addTransactionToPendingBlock()   " + s)
 	var outputsTemp = outputsStruct{}
 	var outputsSlice []outputsStruct
 
@@ -311,7 +311,7 @@ func (trms txRequestMessageSignedStruct) addTransactionToPendingBlock(unspentOut
 	// STEP 5.3 - BUILD THE TRANSACTION
 	//-------------------------------------------------------
 	s = "STEP 5.3 - BUILD THE TRANSACTION"
-	log.Info("addTransactionToPendingBlock()    " + s)
+	log.Info("addTransactionToPendingBlock()   " + s)
 	var transactionTemp = transactionStruct{}
 
 	// Check if first transaction
@@ -324,13 +324,13 @@ func (trms txRequestMessageSignedStruct) addTransactionToPendingBlock(unspentOut
 	transactionTemp.Outputs = outputsSlice
 
 	s = "The transactionTemp is " + fmt.Sprint(transactionTemp)
-	log.Info("addTransactionToPendingBlock()    " + s)
+	log.Info("addTransactionToPendingBlock()   " + s)
 
 	//-------------------------------------------------------
 	// STEP 5.4 - PLACE transactionStruct IN transactionSlice
 	//-------------------------------------------------------
 	s = "STEP 5.4 - PLACE transactionStruct IN transactionSlice"
-	log.Info("addTransactionToPendingBlock()    " + s)
+	log.Info("addTransactionToPendingBlock()   " + s)
 	var transactionSlice []transactionStruct
 
 	// Check if first transaction
@@ -341,10 +341,10 @@ func (trms txRequestMessageSignedStruct) addTransactionToPendingBlock(unspentOut
 	}
 
 	//-------------------------------------------------------
-	// STEP 5.5 - LOAD THE CURRENT BLOCK WITH TRANSACTION
+	// STEP 5.5 - LOAD THE PENDING BLOCK WITH TRANSACTION
 	//-------------------------------------------------------
-	s = "STEP 5.5 - LOAD THE CURRENT BLOCK WITH TRANSACTION"
-	log.Info("addTransactionToPendingBlock()    " + s)
+	s = "STEP 5.5 - LOAD THE PENDING BLOCK WITH TRANSACTION"
+	log.Info("addTransactionToPendingBlock()   " + s)
 
 	pendingBlock.Transactions = transactionSlice
 
