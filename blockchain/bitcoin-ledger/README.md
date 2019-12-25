@@ -97,7 +97,7 @@ So this block will not have any value until its part of the blockchain.
 ## BLOCKCHAIN AND PENDING BLOCK
 
 After the run the blockchain and pendingBlock should look like
-[blockchain-output.txt](https://github.com/JeffDeCola/my-go-examples/tree/master/blockchain/bitcoin-ledger/blockchain-otuput.txt).
+[blockchain-output.txt](https://github.com/JeffDeCola/my-go-examples/tree/master/blockchain/bitcoin-ledger/blockchain-output.txt).
 
 This illustration may help,
 
