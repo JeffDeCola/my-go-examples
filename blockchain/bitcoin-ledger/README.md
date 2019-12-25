@@ -170,7 +170,7 @@ go run control.go bitcoin-ledger.go data.go
 ```
 
 The blockchain and pendingBlock should look like
-[blockchain-output.txt](https://github.com/JeffDeCola/my-go-examples/tree/master/blockchain/bitcoin-ledger/blockchain-otuput.txt).
+[blockchain-output.txt](https://github.com/JeffDeCola/my-go-examples/blob/master/blockchain/bitcoin-ledger/blockchain-output.txt).
 
 The balances in the blockchain should be,
 
