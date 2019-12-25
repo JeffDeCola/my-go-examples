@@ -8,8 +8,9 @@ Table of Contents,
 * [PREREQUISITES](https://github.com/JeffDeCola/my-go-examples/tree/master/blockchain/bitcoin-ledger#prerequisites)
 * [OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/blockchain/bitcoin-ledger#overview)
 * [THIS EXAMPLE](https://github.com/JeffDeCola/my-go-examples/tree/master/blockchain/bitcoin-ledger#this-example)
+* [BLOCKCHAIN AND PENDING BLOCK](https://github.com/JeffDeCola/my-go-examples/tree/master/blockchain/bitcoin-ledger#blockchain-and-pending-block)
 * [TRANSACTIONS IN LEDGER](https://github.com/JeffDeCola/my-go-examples/tree/master/blockchain/bitcoin-ledger#transactions-in-ledger)
-* [ADDING A TRANSACTION TO the pendingBlock](https://github.com/JeffDeCola/my-go-examples/tree/master/blockchain/bitcoin-ledger#adding-a-transaction-to-the-pendingblock)
+* [ADDING A TRANSACTION TO THE pendingBlock](https://github.com/JeffDeCola/my-go-examples/tree/master/blockchain/bitcoin-ledger#adding-a-transaction-to-the-pendingblock)
 * [RUN](https://github.com/JeffDeCola/my-go-examples/tree/master/blockchain/bitcoin-ledger#run)
 
 Documentation and reference,
