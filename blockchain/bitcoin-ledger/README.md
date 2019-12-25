@@ -93,6 +93,15 @@ Then all other transactions will be pending,
 The `pendingBlock` is pending, meaning it needs to be verified by other nodes.
 So this block will not have any value until its part of the blockchain.
 
+## BLOCKCHAIN AND PENDING BLOCK
+
+After the run the blockchain and pendingBlock should look like
+[blockchain-output.txt](https://github.com/JeffDeCola/my-go-examples/tree/master/blockchain/bitcoin-ledger/blockchain-otuput.txt).
+
+This illustration may help,
+
+![IMAGE - pendingBlock-and-blockchain-flow - IMAGE](../../docs/pics/pendingBlock-and-blockchain-flow.jpg)
+
 ## TRANSACTIONS IN LEDGER
 
 This illustrations shows the ledger in the blockchain and pendingBlock,
@@ -158,6 +167,9 @@ balances for each address (public Keys),
 ```bash
 go run control.go bitcoin-ledger.go data.go
 ```
+
+The blockchain and pendingBlock should look like
+[blockchain-output.txt](https://github.com/JeffDeCola/my-go-examples/tree/master/blockchain/bitcoin-ledger/blockchain-otuput.txt).
 
 The balances in the blockchain should be,
 
