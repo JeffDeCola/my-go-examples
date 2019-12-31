@@ -193,7 +193,7 @@ func toSuccessJson(conn net.Conn, body string) {
 		conn.Write([]byte("Server: FileServer\r\n"))
 		conn.Write([]byte("Date: " + time.Now().String() + "\r\n"))
 		conn.Write([]byte("Content-Type: Application/json\r\n\r\n"))
-		conn.Write([]byte(`{"t":1,"ok"":"yes","msg":"success","data":"` + body + `"}`))
+		conn.Write([]byte(`{"t":1,"ok:"":"yes","msg":"success","data":"` + body + `"}`))
 		conn.Close()
 	}
 	return
@@ -204,7 +204,7 @@ func toErrorJson(conn net.Conn, msg string) {
 		conn.Write([]byte("Server: FileServer\r\n"))
 		conn.Write([]byte("Date: " + time.Now().String() + "\r\n"))
 		conn.Write([]byte("Content-Type: Application/json\r\n\r\n"))
-		conn.Write([]byte(`{"t":0,"ok"":"no","msg":"` + msg + `","data":""}`))
+		conn.Write([]byte(`{"t":0,"ok:"":"no","msg":"` + msg + `","data":""}`))
 		conn.Close()
 	}
 	return
