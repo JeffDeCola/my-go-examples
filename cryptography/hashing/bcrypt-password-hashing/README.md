@@ -24,7 +24,7 @@ is never stored on the server.
 
 This illustration may help,
 
-![IMAGE - bcrypt-password-hashing - IMAGE](../../../docs/pics/bcrypt-password-hashing.jpg)
+![IMAGE - bcrypt-password-hashing - IMAGE](../../../docs/pics/cryptography/bcrypt-password-hashing.jpg)
 
 ## RUN
 

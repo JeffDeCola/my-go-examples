@@ -21,7 +21,7 @@ securing sensitive data over unsecured networks.
 
 This illustration may help,
 
-![IMAGE - rsa-asymmetric-cryptography.jpg - IMAGE](/docs/pics/rsa-asymmetric-cryptography.jpg)
+![IMAGE - rsa-asymmetric-cryptography.jpg - IMAGE](/docs/pics/cryptography/rsa-asymmetric-cryptography.jpg)
 
 ## RUN
 

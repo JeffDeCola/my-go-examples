@@ -26,7 +26,7 @@ var wg sync.WaitGroup
 * wg.Done() - Call done when goroutine finished
 * wg.Wait() - Wait for all the the waitgroups are done
 
-![IMAGE - goroutines-waitgroup - IMAGE](../../docs/pics/goroutines-waitgroup.jpg)
+![IMAGE - goroutines-waitgroup - IMAGE](../../docs/pics/goroutines/goroutines-waitgroup.jpg)
 
 ## RUN
 

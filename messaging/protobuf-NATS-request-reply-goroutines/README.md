@@ -63,4 +63,4 @@ go run server.go messages.pb.go
 
 This illustration may help show what we did,
 
-![IMAGE - protobuf-NATS-request-reply-goroutines - IMAGE](../../docs/pics/protobuf-NATS-request-reply-goroutines.jpg)
+![IMAGE - protobuf-NATS-request-reply-goroutines - IMAGE](../../docs/pics/messaging/protobuf-NATS-request-reply-goroutines.jpg)

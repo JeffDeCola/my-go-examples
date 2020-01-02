@@ -21,7 +21,7 @@ digital signatures for verification.
 
 This illustration may help,
 
-![IMAGE - rsa-asymmetric-cryptography-with-digital-signature.jpg - IMAGE](/docs/pics/rsa-asymmetric-cryptography-with-digital-signature.jpg)
+![IMAGE - rsa-asymmetric-cryptography-with-digital-signature.jpg - IMAGE](/docs/pics/cryptography/rsa-asymmetric-cryptography-with-digital-signature.jpg)
 
 ## RUN
 

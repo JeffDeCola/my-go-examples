@@ -25,7 +25,7 @@ In this case the name is changed from Jill to Lisa.
 
 This diagram may help,
 
-![IMAGE - pointers1 - IMAGE](../../../docs/pics/pointers1.jpg)
+![IMAGE - pointers1 - IMAGE](../../../docs/pics/basic-syntax/pointers1.jpg)
 
 ## RUN
 

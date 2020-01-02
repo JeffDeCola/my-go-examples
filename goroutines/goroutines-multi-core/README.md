@@ -48,7 +48,7 @@ see if you can improve performance.
 
 This diagram will help explain what we're trying to do,
 
-![IMAGE - goroutines-multi-core - IMAGE](../../docs/pics/goroutines-multi-core.jpg)
+![IMAGE - goroutines-multi-core - IMAGE](../../docs/pics/goroutines/goroutines-multi-core.jpg)
 
 ## SETUP
 

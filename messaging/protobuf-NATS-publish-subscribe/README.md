@@ -36,7 +36,7 @@ Documentation and reference,
 
 We have 3 examples using NATS as a pipe. This diagram may help,
 
-![IMAGE - NATS-architectures - IMAGE](../../docs/pics/NATS-architectures.jpg)
+![IMAGE - NATS-architectures - IMAGE](../../docs/pics/messaging/NATS-architectures.jpg)
 
 ## START YOUR NATS SERVER
 
@@ -160,4 +160,4 @@ err = proto.Unmarshal(msg.Data, rcvPerson)
 
 This illustration may help show what we did,
 
-![IMAGE - protobuf-NATS-publish-subscribe - IMAGE](../../docs/pics/protobuf-NATS-publish-subscribe.jpg)
+![IMAGE - protobuf-NATS-publish-subscribe - IMAGE](../../docs/pics/messaging/protobuf-NATS-publish-subscribe.jpg)

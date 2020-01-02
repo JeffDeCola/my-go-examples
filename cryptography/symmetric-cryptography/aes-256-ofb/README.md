@@ -84,4 +84,4 @@ plainText := string(plainTextByte[:])
 
 This illustration may help,
 
-![IMAGE - aes-ofb - IMAGE](../../../docs/pics/aes-ofb.jpg)
+![IMAGE - aes-ofb - IMAGE](../../../docs/pics/cryptography/aes-ofb.jpg)

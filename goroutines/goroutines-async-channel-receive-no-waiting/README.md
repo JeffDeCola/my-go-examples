@@ -24,7 +24,7 @@ These are my 5 main example of using goroutines,
 * Receive the latest data every x seconds from the channel buffer (if available)
 * If there are no data, just use the previous data
 
-![IMAGE - goroutines-async-channel-receive-no-waiting - IMAGE](../../docs/pics/goroutines-async-channel-receive-no-waiting.jpg)
+![IMAGE - goroutines-async-channel-receive-no-waiting - IMAGE](../../docs/pics/goroutines/goroutines-async-channel-receive-no-waiting.jpg)
 
 ## rcvData() FUNCTION - NO WAITING
 

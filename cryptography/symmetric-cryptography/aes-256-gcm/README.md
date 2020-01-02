@@ -76,4 +76,4 @@ plainTextByte, err := gcm.Open(nil, nonce, cipherTextByte, additionalDataByte)
 
 This illustration may help,
 
-![IMAGE - aes-gcm - IMAGE](../../../docs/pics/aes-gcm.jpg)
+![IMAGE - aes-gcm - IMAGE](../../../docs/pics/cryptography/aes-gcm.jpg)
