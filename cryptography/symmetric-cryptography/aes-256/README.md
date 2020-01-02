@@ -58,4 +58,4 @@ block.Decrypt(plainTextByte, cipherTextByte)
 
 This illustration may help,
 
-![IMAGE - aes - IMAGE](../../../docs/pics/aes.jpg)
+![IMAGE - aes - IMAGE](../../../docs/pics/cryptography/aes.jpg)

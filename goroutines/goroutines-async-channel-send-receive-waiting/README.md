@@ -29,7 +29,7 @@ Receive,
 say = <-msgCh                               // ALSO WAITS/BLOCKS
 ```
 
-![IMAGE - goroutines-async-channel-send-receive-waiting - IMAGE](../../docs/pics/goroutines-async-channel-send-receive-waiting.jpg)
+![IMAGE - goroutines-async-channel-send-receive-waiting - IMAGE](../../docs/pics/goroutines/goroutines-async-channel-send-receive-waiting.jpg)
 
 ## RUN
 

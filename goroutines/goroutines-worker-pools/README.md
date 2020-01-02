@@ -17,7 +17,7 @@ These are my 5 main example of using goroutines,
 Worker pools are goroutines that do work.
 Usually they will pull from a channel buffer to get data on what to do.
 
-![IMAGE - goroutines-worker-pools - IMAGE](../../docs/pics/goroutines-worker-pools.jpg)
+![IMAGE - goroutines-worker-pools - IMAGE](../../docs/pics/goroutines/goroutines-worker-pools.jpg)
 
 ## TICK TIME
 

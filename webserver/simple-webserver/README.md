@@ -34,7 +34,7 @@ The `/net/http` package lets us map request paths to functions.
 
 This illustration may help,
 
-![IMAGE - simple-webserver - IMAGE](../../docs/pics/simple-webserver.jpg)
+![IMAGE - simple-webserver - IMAGE](../../docs/pics/webserver/simple-webserver.jpg)
 
 ## RUN
 

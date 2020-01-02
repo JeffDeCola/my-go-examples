@@ -101,18 +101,18 @@ After the run the blockchain and pendingBlock should look like
 
 This illustration may help,
 
-![IMAGE - pendingBlock-and-blockchain-flow - IMAGE](../../docs/pics/pendingBlock-and-blockchain-flow.jpg)
+![IMAGE - pendingBlock-and-blockchain-flow - IMAGE](../../docs/pics/blockchain/pendingBlock-and-blockchain-flow.jpg)
 
 ## TRANSACTIONS IN LEDGER
 
 This illustrations shows the ledger in the blockchain and pendingBlock,
 
-![IMAGE - bitcoin-transactions-inputs-and-outputs - IMAGE](../../docs/pics/bitcoin-transactions-inputs-and-outputs.jpg)
+![IMAGE - bitcoin-transactions-inputs-and-outputs - IMAGE](../../docs/pics/blockchain/bitcoin-transactions-inputs-and-outputs.jpg)
 
 This illustration shows a visual look at how the transactions relate
 (input/output) to each other in the blockchain,
 
-![IMAGE - bitcoin-transaction-flow-from-block-to-block - IMAGE](../../docs/pics/bitcoin-transaction-flow-from-block-to-block.jpg)
+![IMAGE - bitcoin-transaction-flow-from-block-to-block - IMAGE](../../docs/pics/blockchain/bitcoin-transaction-flow-from-block-to-block.jpg)
 
 ## ADDING A TRANSACTION TO THE pendingBlock
 

@@ -20,7 +20,7 @@ is a great way to cryptographically sign a message.
 
 This illustration may help,
 
-![IMAGE - ecdsa-digital-signature.jpg - IMAGE](/docs/pics/ecdsa-digital-signature.jpg)
+![IMAGE - ecdsa-digital-signature.jpg - IMAGE](/docs/pics/cryptography/ecdsa-digital-signature.jpg)
 
 ## RUN
 

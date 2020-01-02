@@ -27,7 +27,7 @@ magic(b)
 
 This diagram illustrates what we are doing,
 
-![IMAGE - pointers1 - IMAGE](../../../docs/pics/interface-example.jpg)
+![IMAGE - pointers1 - IMAGE](../../../docs/pics/basic-syntax/interface-example.jpg)
 
 ## INTERFACE AS A PARAMETER
 

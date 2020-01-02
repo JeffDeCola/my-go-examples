@@ -41,7 +41,7 @@ atm.Withdraw(a1, c1, 50)
 
 This image shows the various functions and methods I made in my packages.
 
-![IMAGE - interfaces-card-atm-bank - IMAGE](../../../docs/pics/interfaces-card-atm-bank.jpg)
+![IMAGE - interfaces-card-atm-bank - IMAGE](../../../docs/pics/basic-syntax/interfaces-card-atm-bank.jpg)
 
 ## RUN
 

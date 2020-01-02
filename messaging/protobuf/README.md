@@ -131,4 +131,4 @@ err = proto.Unmarshal(rcvMsg, rcvPerson)
 
 This illustration may help show what we did,
 
-![IMAGE - protobuf - IMAGE](../../docs/pics/protobuf.jpg)
+![IMAGE - protobuf - IMAGE](../../docs/pics/messaging/protobuf.jpg)

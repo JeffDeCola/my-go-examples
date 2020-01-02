@@ -8,7 +8,7 @@ _An int passed to function by address (reference) and by int pointer (reference)
 
 This diagram may help,
 
-![IMAGE - pointers2 - IMAGE](../../../docs/pics/pointers2.jpg)
+![IMAGE - pointers2 - IMAGE](../../../docs/pics/basic-syntax/pointers2.jpg)
 
 ## RUN
 

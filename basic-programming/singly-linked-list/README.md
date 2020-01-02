@@ -37,7 +37,7 @@ type Value struct {
 
 This illustration may help,
 
-![IMAGE - singly-linked-list - IMAGE](../../docs/pics/singly-linked-list.jpg)
+![IMAGE - singly-linked-list - IMAGE](../../docs/pics/basic-programming/singly-linked-list.jpg)
 
 ### Advantages over arrays
 
