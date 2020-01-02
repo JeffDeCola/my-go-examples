@@ -50,7 +50,7 @@ handle those requests over that connection.
 
 This illustration may help,
 
-![IMAGE - simple-tcp-ip-server - IMAGE](../../docs/pics/simple-tcp-ip-server.jpg)
+![IMAGE - simple-tcp-ip-server - IMAGE](../../docs/pics/api/simple-tcp-ip-server.jpg)
 
 ## RUN
 
