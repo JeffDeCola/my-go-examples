@@ -49,7 +49,7 @@ For simplicity, the code is broken into,
 * **mockdatabase.go** - A slice of structs
 * **logger.go** - A log wrapper for better output
 
-![IMAGE - simple-webserver-with-REST - IMAGE](https://github.com/JeffDeCola/my-go-examples/blob/master/docs/pics/simple-webserver-with-REST.jpg)
+![IMAGE - simple-webserver-with-REST - IMAGE](https://github.com/JeffDeCola/my-go-examples/blob/master/docs/pics/api/simple-webserver-with-REST.jpg)
 
 ## USING A ROUTER - GORILLA/MUX
 

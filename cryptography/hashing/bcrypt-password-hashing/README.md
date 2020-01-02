@@ -16,9 +16,11 @@ go get -u -v golang.org/x/crypto/bcrypt
 
 ## OVERVIEW
 
-Storing normal text passwords is so 2000's.  Encrypting is so 2012.
-Password Hashing is were its at. The password is never stored
-on the server.
+Teh beauty of this, your secret and personal password
+is never stored on the server.
+
+* You first set it and it's hashed at the server
+* When you use it, it's checked against that hash
 
 This illustration may help,
 
@@ -30,5 +32,5 @@ This illustration may help,
 go run bcrypt-password-hashing
 ```
 
-Now go into the code and change `passwordEntered` and note it is
+Now go into the code and change `passwordEntered` and note it's
 invalid.
