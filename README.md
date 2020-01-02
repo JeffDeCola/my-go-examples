@@ -237,6 +237,11 @@ _Using c with go._
 
   _Great for getting fingerprints._
 
+  * [bcrypt-password-hashing](https://github.com/JeffDeCola/my-go-examples/tree/master/cryptography/hashing/bcrypt-password-hashing)
+
+    _Store your password hash, not your password.
+    Set your password hash and then check your password using bcrypt._
+
   * [md5-hash-from-file](https://github.com/JeffDeCola/my-go-examples/tree/master/cryptography/hashing/md5-hash-from-file)
 
     _Get an md5 hash (fingerprint) from an input file using the standard
