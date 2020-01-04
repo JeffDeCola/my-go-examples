@@ -168,7 +168,7 @@ other cool programs._
   using the `crypto/ecdsa` standard package._
 
 * [jeffCoin](https://github.com/JeffDeCola/jeffCoin)
-  _(Links to another repo)_
+  _**Links to another repo**_
 
   _I made a working cryptocurrency. This link will take you to that repo._
 
