@@ -303,6 +303,12 @@ _Using c with go._
 
   _A non-relational (NoSQL) database - Set/Get from/to a key/value pair._
 
+### DISTRIBUTED SYSTEMS
+
+* [raft-consensus-algorithm]https://github.com/JeffDeCola/my-go-examples/tree/master/distributed-systems/raft-consensus-algorithm)
+
+  _tbd_
+
 ### GOROUTINES
 
 _Go is written for concurrency.
