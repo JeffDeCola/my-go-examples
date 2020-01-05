@@ -26,7 +26,7 @@ redis-cli ping
 First, make sure you have the go library
 
 ```bash
-go get -u github.com/go-redis/redis
+go get -u -v github.com/go-redis/redis
 ```
 
 Then run,
