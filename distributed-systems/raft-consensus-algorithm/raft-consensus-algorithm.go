@@ -3,13 +3,15 @@ package main
 import (
 	"flag"
 	"fmt"
+	"net"
 	"os"
+	"path/filepath"
+	"time"
 
+	raft "github.com/hashicorp/raft"
+	raftboltdb "github.com/hashicorp/raft-boltdb"
 	log "github.com/sirupsen/logrus"
 )
-
-// "github.com/hashicorp/raft"
-// "github.com/hashicorp/raft-boltdb"
 
 // "github.com/hashicorp/raft" "github.com/hashicorp/raft-boltdb"
 
@@ -32,11 +34,11 @@ func checkErr(err error) {
 func init() {
 
 	// SET FORMAT
-	log.SetFormatter(&log.TextFormatter{})
+	//log.SetFormatter(&log.TextFormatter{})
 	// log.SetFormatter(&log.JSONFormatter{})
 
 	// SET OUTPUT (DEFAULT stderr)
-	log.SetOutput(os.Stdout)
+	//log.SetOutput(os.Stdout)
 
 	// DATA DIRECTORY
 	dataDirectoryPtr = flag.String("dataDirectory", "/raft", "Directory to store Raft data")
@@ -90,10 +92,15 @@ func main() {
 
 	// LOAD RAFT
 	raftConfig := raft.DefaultConfig()
-	raftConfig.LocalID = raft.ServerID(config.RaftAddress.String())
-	raftConfig.Logger = stdlog.New(log, "", 0)
-	transportLogger := log.With().Str("component", "raft-transport").Logger()
-	transport, err := raftTransport(config.RaftAddress, transportLogger)
+	raftConfig.LocalID = raft.ServerID(*nodeIPPtr)
+
+	address, err := net.ResolveTCPAddr("tcp", *nodeIPPtr)
 	checkErr(err)
+
+	log.WithFields(log.Fields{"component": "s", "raft-transport": "ss"}).Info("d")
+
+	transport, err := raft.NewTCPTransport(address.String(), address, 3, 10*time.Second, log.Info("ls"))
+
+	logStore, err := raftboltdb.NewBoltStore(filepath.Join(*dataDirectoryPtr, "raft-log.bolt"s))
 
 }
