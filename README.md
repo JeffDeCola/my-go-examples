@@ -306,9 +306,11 @@ _Using c with go._
 
 ### DISTRIBUTED SYSTEMS
 
-* [raft-consensus-algorithm]https://github.com/JeffDeCola/my-go-examples/tree/master/distributed-systems/raft-consensus-algorithm)
+* [raft-consensus-algorithm](https://github.com/JeffDeCola/my-go-examples/tree/master/distributed-systems/raft-consensus-algorithm)
 
-  _tbd_
+_A simple example of distributed consensus using Hashicorp raft,
+an asymmetric consensus algorithm where an elected leader issues
+commands to its followers._
 
 ### GOROUTINES
 
