@@ -28,6 +28,7 @@ Table of Contents,
   * HASHING
   * SYMMETRIC CRYPTOGRAPHY
 * [DATABASE](https://github.com/JeffDeCola/my-go-examples#database)
+* [DISTRIBUTED SYSTEMS](https://github.com/JeffDeCola/my-go-examples#distributed-systems)
 * [GOROUTINES](https://github.com/JeffDeCola/my-go-examples#goroutines)
 * [JEFFS GO TEMPLATES](https://github.com/JeffDeCola/my-go-examples#jeffs-go-templates)
 * [MESSAGING](https://github.com/JeffDeCola/my-go-examples#messaging)

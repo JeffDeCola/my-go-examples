@@ -22,23 +22,23 @@ go get -u -v github.com/hashicorp/raft-boltdb
 
 Consensus is having all the Nodes/Servers in a distributed system
 agree on a Value/State. This is more easily said than done because
-how do insure everyone does the correct things.
+how do you insure everyone does the correct things.
 
-**Blockchains** are a kind of consensus since they run calculations to agree on
+**Blockchains** are consensus since they run calculations to agree on
 the state of things.
 
 The **Paxos** algorithm has been wildly used in the 90's, early 2000's
 but is very difficult to use.
 
-**Raft** came along to help makes this easier.
+**Raft** came along to help makes this consensus easier.
 
 ## RAFT
 
-Raft uses asymmetric consensus, meaning their is one leader who tells the other
+Raft uses asymmetric consensus, meaning there is one leader who tells the other
 follower Nodes what to do.
 
 Like otherRaft solves the failures issues such as dead Nodes
-(**fail-stop**) or bad nodes (**Byzantine Failure**).
+(**fail-stop**) or bad Nodes (**Byzantine Failure**).
 
 Once a leader is chosen, we need to handle "log" (state information)
 replication. Each Node/Server has a list of logs.
