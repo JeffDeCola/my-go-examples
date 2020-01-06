@@ -5,11 +5,9 @@ import (
 	"fmt"
 	"net"
 	"os"
-	"path/filepath"
 	"time"
 
 	raft "github.com/hashicorp/raft"
-	raftboltdb "github.com/hashicorp/raft-boltdb"
 	log "github.com/sirupsen/logrus"
 )
 
@@ -97,10 +95,17 @@ func main() {
 	address, err := net.ResolveTCPAddr("tcp", *nodeIPPtr)
 	checkErr(err)
 
-	log.WithFields(log.Fields{"component": "s", "raft-transport": "ss"}).Info("d")
+	// THIS IS NORMAL LOGGER
+	// transportLogger := log.With().Str("component", "raft-transport").Logger()
+	transportLogger := log.WithFields(log.Fields{"component": "s", "raft-transport": "ss"})
 
-	transport, err := raft.NewTCPTransport(address.String(), address, 3, 10*time.Second, log.Info("ls"))
+	transport, err := raft.NewTCPTransport(address.String(), address, 3, 10*time.Second, transportLogger.Info(???????))
 
-	logStore, err := raftboltdb.NewBoltStore(filepath.Join(*dataDirectoryPtr, "raft-log.bolt"s))
+	//snapshotStoreLogger := log.With().Str("component", "raft-snapshots").Logger()
+	//snapshotStore, err := raft.NewFileSnapshotStore(config.DataDir, 1, snapshotStoreLogger)
+
+	//logStore, err := raftboltdb.NewBoltStore(filepath.Join(config.DataDir, "raft-log.bolt"))
+
+	//stableStore, err := raftboltdb.NewBoltStore(filepath.Join(config.DataDir, "raft-stable.bolt"))
 
 }
