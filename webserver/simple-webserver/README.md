@@ -46,6 +46,14 @@ Press return to exit.
 
 You can interact with the web server many different ways.
 
+### USING A BROWSER
+
+[http://127.0.0.1:1234/](http://127.0.0.1:1234/)
+
+[http://127.0.0.1:1234/jeff](http://127.0.0.1:1234/jeff)
+
+[http://127.0.0.1:1234/monkey](http://127.0.0.1:1234/monkey)
+
 ### USING HTTPIE
 
 In another terminal, use a CLI http client like
@@ -74,11 +82,3 @@ curl 127.0.0.1:1234
 curl 127.0.0.1:1234/jeff
 curl 127.0.0.1:1234/monkey
 ```
-
-### USING A BROWSER
-
-[http://127.0.0.1:1234/](http://127.0.0.1:1234/)
-
-[http://127.0.0.1:1234/jeff](http://127.0.0.1:1234/jeff)
-
-[http://127.0.0.1:1234/monkey](http://127.0.0.1:1234/monkey)
