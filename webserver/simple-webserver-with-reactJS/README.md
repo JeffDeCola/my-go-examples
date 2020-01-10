@@ -43,7 +43,7 @@ The `????` package lets us map request paths to functions.
 
 This illustration may help,
 
-![IMAGE - simple-webserver - IMAGE](../../docs/pics/webserver/simple-webserver.jpg)
+![IMAGE - simple-webserver-with-reactJS - IMAGE](../../docs/pics/webserver/simple-webserver-with-reactJS.jpg)
 
 ## RUN
 

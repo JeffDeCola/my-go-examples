@@ -59,6 +59,10 @@ The go library gives you a simple interface to use.  So lets use it.
 
 ## LETS CODE
 
+This illustration may help,
+
+![IMAGE - raft-consensus-algorithm - IMAGE](../../docs/pics/webserver/raft-consensus-algorithm.jpg)
+
 ## RUN
 
 ```bash
