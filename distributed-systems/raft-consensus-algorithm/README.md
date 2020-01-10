@@ -61,7 +61,7 @@ The go library gives you a simple interface to use.  So lets use it.
 
 This illustration may help,
 
-![IMAGE - raft-consensus-algorithm - IMAGE](../../docs/pics/webserver/raft-consensus-algorithm.jpg)
+![IMAGE - raft-consensus-algorithm - IMAGE](../../docs/pics/distributed-systems/raft-consensus-algorithm.jpg)
 
 ## RUN
 
