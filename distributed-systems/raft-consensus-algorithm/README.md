@@ -1,5 +1,9 @@
 # raft-consensus-algorithm
 
+```text
+*** THE REPO IS UNDER CONSTRUCTION - CHECK BACK SOON ***
+```
+
 _A simple example of distributed consensus using Hashicorp raft,
 an asymmetric consensus algorithm where an elected leader issues
 commands to its followers._
