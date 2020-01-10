@@ -1,4 +1,4 @@
-# simple-webserver-with-react example
+# simple-webserver-with-reactJS example
 
 ```text
 *** THE REPO IS UNDER CONSTRUCTION - CHECK BACK SOON ***

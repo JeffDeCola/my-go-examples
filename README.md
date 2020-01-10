@@ -449,7 +449,7 @@ for the standard go packages_
   I added a REST JSON API to this example in the above example
   [simple-webserver-with-REST](https://github.com/JeffDeCola/my-go-examples#api)._
 
-* [simple-webserver-with-reactjs](https://github.com/JeffDeCola/my-go-examples/tree/master/webserver/simple-webserver-with-reactjs)
+* [simple-webserver-with-reactJS](https://github.com/JeffDeCola/my-go-examples/tree/master/webserver/simple-webserver-with-reactJS)
 
   _Adding ReactJS, an open source UI, to  to create a
   single-page App (SPA) (Allowing content to be dynamically displayed
