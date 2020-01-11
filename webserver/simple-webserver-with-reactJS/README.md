@@ -17,10 +17,14 @@ go get -u -v github.com/sirupsen/logrus
 
 ## SOFTWARE STACK
 
-* **GUI** - ReactJS
-* **Routing & REST framework** - go gorilla/mux package
-* **Backend** - golang
-* **Database** - Postgres
+* **GUI**
+  _golang net/http package and ReactJS_
+* **Routing & REST API framework**
+  _golang gorilla/mux package_
+* **Backend**
+  _golang_
+* **Database**
+  _N/A_
 
 ## HOW IT WORKS
 
