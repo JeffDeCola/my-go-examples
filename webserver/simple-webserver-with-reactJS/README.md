@@ -8,6 +8,24 @@ _TBD._
 
 [GitHub Webpage](https://jeffdecola.github.io/my-go-examples/)
 
+## PREREQUISITES
+
+```bash
+go get -u -v github.com/gorilla/mux
+go get -u -v github.com/sirupsen/logrus
+```
+
+## SOFTWARE STACK
+
+* **GUI**
+  _golang net/http package and ReactJS_
+* **Routing & REST API framework**
+  _golang gorilla/mux package_
+* **Backend**
+  _golang_
+* **Database**
+  _N/A_
+
 ## HOW IT WORKS
 
 
