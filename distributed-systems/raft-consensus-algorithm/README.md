@@ -22,6 +22,17 @@ go get -u -v github.com/hashicorp/raft
 go get -u -v github.com/hashicorp/raft-boltdb
 ```
 
+## SOFTWARE STACK
+
+* **GUI**
+  _golang net/http package and ReactJS_
+* **Routing & REST API framework**
+  _golang gorilla/mux package_
+* **Backend**
+  _golang_
+* **Database**
+  _N/A_
+  
 ## SOLVING DISTRIBUTED CONSENSUS - A BRIEF HISTORY
 
 Consensus is having all the Nodes/Servers in a distributed system
