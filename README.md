@@ -8,7 +8,7 @@
 
 _A place to keep my go code snippets and examples._
 
-These go examples also contain a lot of information
+These go examples also contain information
 I gathered from other sources.
 
 Table of Contents,
