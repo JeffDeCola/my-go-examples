@@ -5,6 +5,12 @@ LED using a button._
 
 [GitHub Webpage](https://jeffdecola.github.io/my-go-examples/)
 
+## PREREQUISITE
+
+```go
+go get -u github.com/stianeikeland/go-rpio
+```
+
 ## OVERVIEW
 
 tbd
