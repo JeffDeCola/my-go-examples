@@ -4,6 +4,7 @@ import (
 	"flag"
 	"fmt"
 	"os"
+	"time"
 
 	errors "github.com/pkg/errors"
 	log "github.com/sirupsen/logrus"
@@ -11,14 +12,26 @@ import (
 
 const toolVersion = "1.0.0"
 
-var integerPtr *int
-
 // A Function that also returns an error
 func jeffFunc(x int) (string, error) {
-	if x == 42 {
-		// Make your error
-		return "error", errors.New("can't work with 42")
+
+	fmt.Println("opening gpio")
+
+	err := rpio.Open()
+	if err != nil {
+		return "error", errors.New("unable to open gpio")
 	}
+
+	defer rpio.Close()
+
+	pin := rpio.Pin(21)
+	pin.Output()
+
+	for x := 0; x < 20; x++ {
+		pin.Toggle()
+		time.Sleep(time.Second / 5)
+	}
+
 	return "Everything worked great", nil
 }
 
@@ -45,8 +58,6 @@ func init() {
 
 	// VERSION FLAG
 	version := flag.Bool("v", false, "prints current version")
-	// INTEGER FLAG
-	integerPtr = flag.Int("i", 42, "This is the flag for an integer")
 	// Parse the flags
 	flag.Parse()
 
