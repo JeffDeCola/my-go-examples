@@ -4,6 +4,11 @@ _Using googles `periph` library to control a Raspberry Pi's
 GPIO input/output pins. The example used will be turning
 on/off an external LED via a button._
 
+Documents and references,
+
+* [periph](https://periph.io/)
+  Home page
+
 [GitHub Webpage](https://jeffdecola.github.io/my-go-examples/)
 
 ## PREREQUISITE
@@ -12,12 +17,22 @@ on/off an external LED via a button._
 go get -u periph.io/x/periph/cmd/...
 ```
 
-Will include as,
+Will use include as,
 
 ```go
     "periph.io/x/periph/conn/gpio"
     "periph.io/x/periph/conn/gpio/gpioreg"
     "periph.io/x/periph/host"
+```
+
+I also created following group,
+
+```bash
+sudo groupadd gpio
+sudo usermod -a -G gpio jeff
+sudo grep gpio /etc/group
+sudo chown root.gpio /dev/gpiomem
+sudo chmod g+rw /dev/gpiomem
 ```
 
 ## OVERVIEW
