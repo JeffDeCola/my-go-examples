@@ -5,6 +5,10 @@ import (
 	"fmt"
 	"os"
 	"time"
+	"github.com/stianeikeland/go-rpio"
+    "periph.io/x/periph/conn/gpio"
+    "periph.io/x/periph/host"
+    "periph.io/x/periph/host/rpi"
 
 	errors "github.com/pkg/errors"
 	log "github.com/sirupsen/logrus"
@@ -13,24 +17,16 @@ import (
 const toolVersion = "1.0.0"
 
 // A Function that also returns an error
-func jeffFunc(x int) (string, error) {
+func jeffFunc() (string, error) {
 
 	fmt.Println("opening gpio")
 
-	err := rpio.Open()
-	if err != nil {
-		return "error", errors.New("unable to open gpio")
-	}
-
-	defer rpio.Close()
-
-	pin := rpio.Pin(21)
-	pin.Output()
-
-	for x := 0; x < 20; x++ {
-		pin.Toggle()
-		time.Sleep(time.Second / 5)
-	}
+    host.Init()
+    t := time.NewTicker(500 * time.Millisecond)
+    for l := gpio.Low; ; l = !l {
+        rpi.P1_33.Out(l)
+        <-t.C
+    }
 
 	return "Everything worked great", nil
 }
@@ -72,7 +68,7 @@ func init() {
 func main() {
 
 	log.Trace("Calling jeffFunc to get result")
-	r, err := jeffFunc(*integerPtr)
+	r, err := jeffFunc()
 	checkErr(err)
 	fmt.Println("Returned", r)
 
