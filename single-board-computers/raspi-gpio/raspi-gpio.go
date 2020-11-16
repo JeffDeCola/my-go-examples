@@ -5,12 +5,11 @@ import (
 	"fmt"
 	"os"
 	"time"
-	"github.com/stianeikeland/go-rpio"
-    "periph.io/x/periph/conn/gpio"
-    "periph.io/x/periph/host"
-    "periph.io/x/periph/host/rpi"
 
-	errors "github.com/pkg/errors"
+	"periph.io/x/periph/conn/gpio"
+	"periph.io/x/periph/host"
+	"periph.io/x/periph/host/rpi"
+
 	log "github.com/sirupsen/logrus"
 )
 
@@ -21,12 +20,12 @@ func jeffFunc() (string, error) {
 
 	fmt.Println("opening gpio")
 
-    host.Init()
-    t := time.NewTicker(500 * time.Millisecond)
-    for l := gpio.Low; ; l = !l {
-        rpi.P1_33.Out(l)
-        <-t.C
-    }
+	host.Init()
+	t := time.NewTicker(500 * time.Millisecond)
+	for l := gpio.Low; ; l = !l {
+		rpi.P1_33.Out(l)
+		<-t.C
+	}
 
 	return "Everything worked great", nil
 }
