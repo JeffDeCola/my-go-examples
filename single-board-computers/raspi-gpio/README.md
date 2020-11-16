@@ -17,7 +17,7 @@ Documents and references,
 go get -u periph.io/x/periph/cmd/...
 ```
 
-Will include as,
+Will use include as,
 
 ```go
     "periph.io/x/periph/conn/gpio"
@@ -25,12 +25,15 @@ Will include as,
     "periph.io/x/periph/host"
 ```
 
+I also created following group,
 
+```bash
 sudo groupadd gpio
-sudo usermod -a -G gpio user_name
+sudo usermod -a -G gpio jeff
 sudo grep gpio /etc/group
 sudo chown root.gpio /dev/gpiomem
 sudo chmod g+rw /dev/gpiomem
+```
 
 ## OVERVIEW
 
