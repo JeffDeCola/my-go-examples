@@ -1,13 +1,15 @@
 # raspi-gpio example
 
-_Using googles `periph` library to control a Raspberry Pi's
+_Using googles `periph` (peripherals in go) library to control a Raspberry Pi's
 GPIO (General Purpose Input/Output) pins. The example used will be turning
 on/off an external LED via a button._
 
 Documents and references,
 
 * [periph](https://periph.io/)
-  Home page
+  home page
+* [google/periph](https://github.com/google/periph)
+  github page
 
 [GitHub Webpage](https://jeffdecola.github.io/my-go-examples/)
 
@@ -35,7 +37,7 @@ sudo chown root.gpio /dev/gpiomem
 sudo chmod g+rw /dev/gpiomem
 ```
 
-## OVERVIEW
+## GPIO TO BREADBOARD SCHEMATIC
 
 We will control the LED via a button on the Raspberry Pi with
 the following setup,

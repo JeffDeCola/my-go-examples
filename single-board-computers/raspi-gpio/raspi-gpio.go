@@ -1,3 +1,5 @@
+// my-go-examples raspi-gpio.go
+
 package main
 
 import (
