@@ -37,6 +37,12 @@ Table of Contents,
 * [TESTING](https://github.com/JeffDeCola/my-go-examples#testing)
 * [WEBSERVER](https://github.com/JeffDeCola/my-go-examples#webserver)
 
+Documents and references,
+
+* [go cheat sheet](https://github.com/JeffDeCola/my-cheat-sheets/tree/master/software/development/languages/go-cheat-sheet)
+* [my-go-packages](https://github.com/JeffDeCola/my-go-packages)
+* [my-go-tools](https://github.com/JeffDeCola/my-go-tools)
+
 [GitHub Webpage](https://jeffdecola.github.io/my-go-examples/)
 
 ## GO EXAMPLES
