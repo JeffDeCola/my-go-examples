@@ -432,7 +432,7 @@ for the standard go packages_
 
 * [raspi-gpio](https://github.com/JeffDeCola/my-go-examples/tree/master/single-board-computers/raspi-gpio)
 
-  _Using googles `periph` library to control a Raspberry Pi's
+  _Using googles `periph` (peripherals in go) library to control a Raspberry Pi's
   GPIO (General Purpose Input/Output) pins. The example used will be turning
   on/off an external LED via a button._
 
