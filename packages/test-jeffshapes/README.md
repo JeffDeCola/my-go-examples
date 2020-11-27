@@ -6,7 +6,7 @@ This package was created in my repo
 [my-go-packages](https://github.com/JeffDeCola/my-go-packages#jeffshapes).
 
 The code is
-[here](https://github.com/JeffDeCola/my-go-packages/blob/master/jeffshapes/jeffshapes.go).
+[here](https://github.com/JeffDeCola/my-go-packages/blob/master/geometry/jeffshapes/jeffshapes.go).
 
 [GitHub Webpage](https://jeffdecola.github.io/my-go-examples/)
 
@@ -15,7 +15,7 @@ The code is
 First get the package,
 
 ```bash
-go get -u -v github.com/JeffDeCola/my-go-packages/jeffshapes
+go get -u -v github.com/JeffDeCola/my-go-packages/geometry/jeffshapes
 ```
 
 Note `-v` is verbose and `-u` is update.
@@ -23,7 +23,7 @@ Note `-v` is verbose and `-u` is update.
 To use the package in go,
 
 ```go
-import github.com/JeffDeCola/my-go-packages/jeffshapes
+import github.com/JeffDeCola/my-go-packages/geometry/jeffshapes
 ```
 
 ## RUN
