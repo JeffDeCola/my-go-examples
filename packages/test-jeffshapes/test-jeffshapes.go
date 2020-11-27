@@ -5,7 +5,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/JeffDeCola/my-go-packages/jeffshapes"
+	"github.com/JeffDeCola/my-go-packages/geometry/jeffshapes"
 )
 
 func main() {
