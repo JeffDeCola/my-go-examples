@@ -2,11 +2,10 @@
 
 _Testing the `jeffshapes` package._
 
-This package was created in my repo
-[my-go-packages](https://github.com/JeffDeCola/my-go-packages#jeffshapes).
+Documentation and reference,
 
-The code is
-[here](https://github.com/JeffDeCola/my-go-packages/blob/master/geometry/jeffshapes/jeffshapes.go).
+* This package was created in my repo
+  [my-go-packages](https://github.com/JeffDeCola/my-go-packages/tree/master/geometry/jeffshapes)
 
 [GitHub Webpage](https://jeffdecola.github.io/my-go-examples/)
 
