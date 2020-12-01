@@ -44,6 +44,8 @@ Documentation and reference,
 * [my-go-tools](https://github.com/JeffDeCola/my-go-tools)
 
 [GitHub Webpage](https://jeffdecola.github.io/my-go-examples/)
+_built with
+[concourse ci](https://github.com/JeffDeCola/my-go-examples/blob/master/ci-README.md)_
 
 ## GO EXAMPLES
 
@@ -469,36 +471,3 @@ for the standard go packages_
   _Adding ReactJS, an open source UI, to  to create a
   single-page App (SPA) (Allowing content to be dynamically displayed
   without requiring you to refresh or navigate to a different page)._
-
-## UPDATE GITHUB WEBPAGE & UNIT TESTS USING CONCOURSE (OPTIONAL)
-
-For fun, I use concourse to  update
-[my-go-examples GitHub Webpage](https://jeffdecola.github.io/my-go-examples/),
-run my unit-tests and alert me of the changes via repo status and slack.
-
-A pipeline file [pipeline.yml](https://github.com/JeffDeCola/my-go-examples/tree/master/ci/pipeline.yml)
-shows the entire ci flow. Visually, it looks like,
-
-![IMAGE - my-go-examples concourse ci pipeline - IMAGE](docs/pics/my-go-examples-pipeline.jpg)
-
-The `jobs` and `tasks` are,
-
-* `job-readme-github-pages` runs task
-  [readme-github-pages.sh](https://github.com/JeffDeCola/my-go-examples/tree/master/ci/scripts/readme-github-pages.sh).
-* `job-unit-tests` runs task
-  [unit-tests.sh](https://github.com/JeffDeCola/my-go-examples/tree/master/ci/scripts/unit-tests.sh).
-
-The concourse `resources types` are,
-
-* `my-go-examples` uses a resource type
-  [docker-image](https://hub.docker.com/r/concourse/git-resource/)
-  to PULL a repo from github.
-* `resource-slack-alert` uses a resource type
-  [docker image](https://hub.docker.com/r/cfcommunity/slack-notification-resource)
-  that will notify slack on your progress.
-* `resource-repo-status` uses a resource type
-  [docker image](https://hub.docker.com/r/dpb587/github-status-resource)
-  that will update your git status for that particular commit.
-
-For more information on using concourse for continuous integration,
-refer to my cheat sheet on [concourse](https://github.com/JeffDeCola/my-cheat-sheets/tree/master/software/operations-tools/continuous-integration-continuous-deployment/concourse-cheat-sheet).
