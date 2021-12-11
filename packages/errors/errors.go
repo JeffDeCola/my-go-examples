@@ -76,16 +76,15 @@ func main() {
 	for {
 
 		userAnswer, err := a()
-
 		if err != nil {
 			log.Errorf("INCORRECT: %s", err)
+		}
+
+		if userAnswer == "stop" {
+			fmt.Println("Done")
+			break
 		} else {
-			if userAnswer == "stop" {
-				fmt.Println("Done")
-				break
-			} else {
-				fmt.Println("CORRECT: ", userAnswer)
-			}
+			fmt.Println("CORRECT: ", userAnswer)
 		}
 
 		fmt.Println("-----------------------------")
