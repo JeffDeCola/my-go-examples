@@ -2,16 +2,23 @@
 
 _Error handling using non-standard `github.com/pkg/errors` package._
 
-Refer to the
-[github.com/pkg/errors](https://github.com/pkg/errors)
-package for more info.
+Documentation and references,
 
-[GitHub Webpage](https://jeffdecola.github.io/my-go-examples/)
+* Refer to the
+  [github.com/pkg/errors](https://github.com/pkg/errors)
+  package for more info
+* This repos [github webpage](https://jeffdecola.github.io/my-go-examples/)
 
-## HANDLE ERRORS
+## OVERVIEW - HOW TO HANDLE ERRORS
 
 Go doesn’t have exceptions, so it doesn’t have try, catch or anything similar.
-So how do we handle errors? With Multiple return values.
+So how do we handle errors? **With Multiple return values**.
+
+To get,
+
+```bash
+go get -u -v github.com/pkg/errors
+```
 
 ## MULTIPLE RETURN VALUES
 
@@ -62,12 +69,6 @@ func main() {
 ```
 
 ## RUN
-
-To get,
-
-```bash
-go get -u -v github.com/pkg/errors
-```
 
 Run,
 

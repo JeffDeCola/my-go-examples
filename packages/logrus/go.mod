@@ -1,4 +1,4 @@
-module github.com/JeffDeCola/my-go-tools/cryptography-tools/encryptfile
+module github.com/JeffDeCola/my-go-examples/packages/logrus
 
 go 1.17
 
