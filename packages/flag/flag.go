@@ -10,7 +10,7 @@ import (
 func main() {
 
 	// STRING
-	stringPtr := flag.String("s", "default", "This is the flag for a string")
+	stringPtr := flag.String("s", "Cloudy Days", "This is the flag for a string")
 
 	// INTEGER
 	integerPtr := flag.Int("i", 1, "This is the flag for an integer")
