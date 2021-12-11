@@ -2,6 +2,11 @@
 
 _The `flag` package makes it easy to implement command-line flag parsing._
 
+Table of Contents,
+
+* [OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/packages/flag#overview)
+* [RUN](https://github.com/JeffDeCola/my-go-examples/tree/master/packages/flag#run)
+
 Documentation and references,
 
 * Refer to the
@@ -41,8 +46,8 @@ func main() {
 
 For integers and strings, the following formats are permitted,
 
-* -flagname=x
-* -flagname x
+* -flag=x
+* -flag x
 
 String,
 

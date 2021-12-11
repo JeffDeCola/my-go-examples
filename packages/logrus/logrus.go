@@ -46,19 +46,14 @@ func createLogFile(filename string) (*os.File, error) {
 
 	var myfile *os.File
 
-	if filename != "" {
+	log.Info("Writing to log file")
 
-		log.Info("Writing to log file")
-
-		// LOGGING TO FILE (APPEND) (io.Writer)
-		myfile, err := os.OpenFile(filename, os.O_CREATE|os.O_WRONLY|os.O_APPEND, 0666)
-		if err == nil {
-			log.SetOutput(myfile)
-		} else {
-			return nil, fmt.Errorf("failed to log to file, using default stderr: %w", err)
-
-		}
-
+	// LOGGING TO FILE (APPEND) (io.Writer)
+	myfile, err := os.OpenFile(filename, os.O_CREATE|os.O_WRONLY|os.O_APPEND, 0666)
+	if err == nil {
+		log.SetOutput(myfile)
+	} else {
+		return nil, fmt.Errorf("failed to log to file, using default stderr: %w", err)
 	}
 
 	return myfile, nil
@@ -77,11 +72,14 @@ func main() {
 		log.Errorf("Error getting logLevel: %s", err)
 	}
 
-	myfile, err := createLogFile(*logFilePtr)
-	if err != nil {
-		log.Errorf("Error creating logfile: %s", err)
+	// CREATE LOG FILE IF FLAG IS SET
+	if *logFilePtr != "" {
+		myfile, err := createLogFile(*logFilePtr)
+		if err != nil {
+			log.Errorf("Error creating logfile: %s", err)
+		}
+		defer myfile.Close()
 	}
-	defer myfile.Close()
 
 	// LOGGING
 	log.Error("Something failed but I'm not quitting.")
