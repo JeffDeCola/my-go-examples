@@ -14,7 +14,7 @@ Documentation and references,
 Go doesn’t have exceptions, so it doesn’t have try, catch or anything similar.
 So how do we handle errors? **With Multiple return values**.
 
-To get,
+To get package,
 
 ```bash
 go get -u -v github.com/pkg/errors

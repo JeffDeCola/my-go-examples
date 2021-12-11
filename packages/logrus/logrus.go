@@ -72,7 +72,7 @@ func main() {
 		log.Errorf("Error getting logLevel: %s", err)
 	}
 
-	// CREATE LOG FILE IF FLAG IS SET
+	// CREATE AND SENT TO LOG FILE IF FLAG IS SET
 	if *logFilePtr != "" {
 		myfile, err := createLogFile(*logFilePtr)
 		if err != nil {
