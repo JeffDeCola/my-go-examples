@@ -1,0 +1,7 @@
+[31mERRO[0m[0000] Something failed but I'm not quitting.       
+[36mINFO[0m[0000] Something noteworthy happened!               
+[37mTRAC[0m[0000] Something very low level.                    
+[36mINFO[0m[0000] This is from jeff                            
+[37mTRAC[0m[0000] What animal is it?                            [37manimal[0m=cat
+[37mTRAC[0m[0000] Using the animal and color field              [37manimal[0m=cat [37mcolor[0m=grey
+[37mTRAC[0m[0000] Me too                                        [37manimal[0m=cat [37mcolor[0m=grey

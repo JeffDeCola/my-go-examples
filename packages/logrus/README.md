@@ -2,25 +2,47 @@
 
 _Logging using non-standard `logrus` package._
 
-Refer to the
-[github.com/sirupsen/logrus](https://github.com/sirupsen/logrus)
-package for more info.  This is not a standard package.
+Table of Contents,
 
-* [RUN](https://github.com/JeffDeCola/my-go-examples/tree/master/packages/logrus#run)
-* [LOG LEVELS](https://github.com/JeffDeCola/my-go-examples/tree/master/packages/logrus#log-levels)
+* [OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/packages/logrus#overview)
 * [USING LOGRUS](https://github.com/JeffDeCola/my-go-examples/tree/master/packages/logrus#using-logrus)
-  * [SET LOG LEVEL](https://github.com/JeffDeCola/my-go-examples/tree/master/packages/logrus#set-log-level)
-  * [SET FORMAT](https://github.com/JeffDeCola/my-go-examples/tree/master/packages/logrus#set-format)
-  * [SET OUTPUT (DEFAULT stderr)](https://github.com/JeffDeCola/my-go-examples/tree/master/packages/logrus#set-output-default-stderr)
-  * [LOGGING TO FILE (APPEND) (io.Writer)](https://github.com/JeffDeCola/my-go-examples/tree/master/packages/logrus#logging-to-file-append-iowriter)
+  * [SET LOG LEVEL, FORMAT AND OUTPUT](https://github.com/JeffDeCola/my-go-examples/tree/master/packages/logrus#set-log-level-format-and-output)
   * [NORMAL LOGGING](https://github.com/JeffDeCola/my-go-examples/tree/master/packages/logrus#normal-logging)
-  * [NORMAL LOGGING WITH FORMATTING](https://github.com/JeffDeCola/my-go-examples/tree/master/packages/logrus#normal-logging-with-formatting)
-  * [USING FIELDS](https://github.com/JeffDeCola/my-go-examples/tree/master/packages/logrus#using-fields)
-  * [REUSING FIELDS](https://github.com/JeffDeCola/my-go-examples/tree/master/packages/logrus#reusing-fields)
+  * [LOGGING WITH FIELDS](https://github.com/JeffDeCola/my-go-examples/tree/master/packages/logrus#logging-with-fields)
+  * [LOGGING TO FILE (APPEND)](https://github.com/JeffDeCola/my-go-examples/tree/master/packages/logrus#logging-to-file-append)
+* [RUN](https://github.com/JeffDeCola/my-go-examples/tree/master/packages/logrus#run)
   
-[GitHub Webpage](https://jeffdecola.github.io/my-go-examples/)
+Documentation and references,
 
-## RUN
+* Refer to the
+  [github.com/sirupsen/logrus](https://github.com/sirupsen/logrus)
+  package for more info
+* Refer to my
+  [flag](https://github.com/JeffDeCola/my-go-examples/tree/master/packages/flag)
+  example
+* This repos [github webpage](https://jeffdecola.github.io/my-go-examples/)
+
+## OVERVIEW
+
+Logrus has seven levels in this order,
+
+* log.**Panic**("I'm bailing. Calls panic() after logging.")
+* log.**Error**("Something failed but I'm not quitting.")
+* log.**Warn**("You should probably take a look at this.")
+* log.**Info**("Something noteworthy happened!")
+* log.**Debug**("Useful debugging information.")
+* log.**Trace**("Something very low level.")
+
+But I like to use four in my code,
+
+* log.**Fatal**("Bye. Calls os.Exit(1) after logging.")  
+* log.**Error**("Something failed but I'm not quitting.")
+* log.**Info**("Something noteworthy happened!")
+* log.**Trace**("Something very low level.")
+
+## USING LOGRUS
+
+This is a very simple package.
 
 To get,
 
@@ -28,54 +50,63 @@ To get,
 go get -u -v github.com/sirupsen/logrus
 ```
 
-Run,
-
-```bash
-go run logrus.go
-```
-
-## LOG LEVELS
-
-Logrus has seven levels in this order,
-
-* log.**Panic**("I'm bailing. Calls panic() after logging.")
-* log.**Fatal**("Bye. Calls os.Exit(1) after logging.")  
-* log.**Error**("Something failed but I'm not quitting.")
-* log.**Warn**("You should probably take a look at this.")
-* log.**Info**("Something noteworthy happened!")
-* log.**Debug**("Useful debugging information.")
-* log.**Trace**("Something very low level.")
-
-## USING LOGRUS
-
-This is a very simple package.
-
-### SET LOG LEVEL
+### SET LOG LEVEL, FORMAT AND OUTPUT
 
 ```go
-// SET LOG LEVEL
-// log.SetLevel(log.InfoLevel)
+// SET LOG LEVEL TO TRACE
 log.SetLevel(log.TraceLevel)
 ```
-
-### SET FORMAT
 
 ```go
 // SET FORMAT
 log.SetFormatter(&log.TextFormatter{})
-// log.SetFormatter(&log.JSONFormatter{})
 ```
 
-### SET OUTPUT (DEFAULT stderr)
-
-Output to stdout instead of the default stderr,
+Set output to stdout instead of the default stderr,
   
 ```go
 // SET OUTPUT (DEFAULT stderr)
 log.SetOutput(os.Stdout)
 ```
 
-### LOGGING TO FILE (APPEND) (io.Writer)
+### NORMAL LOGGING
+
+```go
+// NORMAL LOGGING
+log.Error("Something failed but I'm not quitting.")
+log.Info("Something noteworthy happened!")
+log.Trace("Something very low level.")
+```
+
+```go
+// NORMAL LOGGING WITH FORMATTING
+name := "jeff"
+s := fmt.Sprintf("This is from %s", name)
+log.Info(s)
+```
+
+### LOGGING WITH FIELDS
+
+```go
+log.WithFields(log.Fields{
+    "animal": "cat",
+}).Trace("What animal is it?")
+```
+
+Reusing fields,
+
+```go
+// REUSING FIELDS
+jeffLogger := log.WithFields(log.Fields{
+    "animal": "cat",
+    "color":  "grey",
+})
+
+jeffLogger.Trace("Using the animal and color field")
+jeffLogger.Trace("Me too")
+```
+
+### LOGGING TO FILE (APPEND)
 
 ```go
 // LOGGING TO FILE (APPEND) (io.Writer)
@@ -89,45 +120,37 @@ if err == nil {
 defer myfile.Close()
 ```
 
-### NORMAL LOGGING
+## RUN
 
-```go
-// NORMAL LOGGING
-//log.Panic("I'm bailing. Calls panic() after logging.")
-//log.Fatal("Bye. Calls os.Exit(1) after logging.")
-log.Error("Something failed but I'm not quitting.")
-log.Warn("You should probably take a look at this.")
-log.Info("Something noteworthy happened!")
-log.Debug("Useful debugging information.")
-log.Trace("Something very low level.")
+Run with various log levels,
+
+```bash
+go run logrus.go
+go run logrus.go -loglevel error
+go run logrus.go -loglevel info
+go run logrus.go -loglevel trace
 ```
 
-### NORMAL LOGGING WITH FORMATTING
+For trace, the output should be,
 
-```go
-// NORMAL LOGGING WITH FORMATTING
-name := "jeff"
-s := fmt.Sprintf("This is from %s", name)
-log.Info(s)
+```bash
+ERRO[0000] Something failed but I'm not quitting.       
+INFO[0000] Something noteworthy happened!               
+TRAC[0000] Something very low level.                    
+INFO[0000] This is from jeff                            
+TRAC[0000] What animal is it?                            animal=cat
+TRAC[0000] Using the animal and color field              animal=cat color=grey
+TRAC[0000] Me too                                        animal=cat color=grey
 ```
 
-### USING FIELDS
+An example of an error,
 
-```go
-// USING FIELDS
-log.WithFields(log.Fields{
-    "animal": "cat",
-}).Info("A cat appears")
+```bash
+go run logrus.go -loglevel badinput
 ```
 
-### REUSING FIELDS
+log to a logfile instead of stdout,
 
-```go
-// REUSING FIELDS
-jeffLogger := log.WithFields(log.Fields{
-    "animal": "cat",
-    "other": "I also should be logged always",
-})
-jeffLogger.Info("I'll be logged with common and other field")
-jeffLogger.Info("Me too")
+```bash
+go run logrus.go -loglevel trace -logfile logfile.log
 ```
