@@ -29,7 +29,11 @@ func setLogLevel(logLevel string) error {
 	}
 
 	// SET FORMAT
-	log.SetFormatter(&log.TextFormatter{})
+	log.SetFormatter(&log.TextFormatter{
+		DisableColors: false,
+		FullTimestamp: false,
+	})
+	// log.SetFormatter(&log.JSONFormatter{})
 
 	// SET OUTPUT (DEFAULT stderr)
 	log.SetOutput(os.Stdout)
@@ -77,18 +81,16 @@ func main() {
 	if err != nil {
 		log.Errorf("Error creating logfile: %s", err)
 	}
-	// don't forget to close it
 	defer myfile.Close()
 
-	// NORMAL LOGGING
+	// LOGGING
 	log.Error("Something failed but I'm not quitting.")
 	log.Info("Something noteworthy happened!")
 	log.Trace("Something very low level.")
 
-	// NORMAL LOGGING WITH FORMATTING
+	// WITH FORMATTING
 	name := "jeff"
-	s := fmt.Sprintf("This is from %s", name)
-	log.Info(s)
+	log.Infof("This is from %s", name)
 
 	// USING FIELDS
 	log.WithFields(log.Fields{

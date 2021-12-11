@@ -4,12 +4,14 @@ _Logging using non-standard `logrus` package._
 
 Table of Contents,
 
+Table of Contents,
+
 * [OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/packages/logrus#overview)
 * [USING LOGRUS](https://github.com/JeffDeCola/my-go-examples/tree/master/packages/logrus#using-logrus)
   * [SET LOG LEVEL, FORMAT AND OUTPUT](https://github.com/JeffDeCola/my-go-examples/tree/master/packages/logrus#set-log-level-format-and-output)
-  * [NORMAL LOGGING](https://github.com/JeffDeCola/my-go-examples/tree/master/packages/logrus#normal-logging)
-  * [LOGGING WITH FIELDS](https://github.com/JeffDeCola/my-go-examples/tree/master/packages/logrus#logging-with-fields)
-  * [LOGGING TO FILE (APPEND)](https://github.com/JeffDeCola/my-go-examples/tree/master/packages/logrus#logging-to-file-append)
+  * [LOGGING](https://github.com/JeffDeCola/my-go-examples/tree/master/packages/logrus#logging)
+  * [FIELDS](https://github.com/JeffDeCola/my-go-examples/tree/master/packages/logrus#fields)
+  * [LOGGING TO A FILE](https://github.com/JeffDeCola/my-go-examples/tree/master/packages/logrus#logging-to-a-file)
 * [RUN](https://github.com/JeffDeCola/my-go-examples/tree/master/packages/logrus#run)
   
 Documentation and references,
@@ -69,23 +71,22 @@ Set output to stdout instead of the default stderr,
 log.SetOutput(os.Stdout)
 ```
 
-### NORMAL LOGGING
+### LOGGING
 
 ```go
-// NORMAL LOGGING
+// LOGGING
 log.Error("Something failed but I'm not quitting.")
 log.Info("Something noteworthy happened!")
 log.Trace("Something very low level.")
 ```
 
 ```go
-// NORMAL LOGGING WITH FORMATTING
+// WITH FORMATTING
 name := "jeff"
-s := fmt.Sprintf("This is from %s", name)
-log.Info(s)
+log.Infof("This is from %s", name)
 ```
 
-### LOGGING WITH FIELDS
+### FIELDS
 
 ```go
 log.WithFields(log.Fields{
@@ -106,7 +107,7 @@ jeffLogger.Trace("Using the animal and color field")
 jeffLogger.Trace("Me too")
 ```
 
-### LOGGING TO FILE (APPEND)
+### LOGGING TO A FILE
 
 ```go
 // LOGGING TO FILE (APPEND) (io.Writer)
