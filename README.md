@@ -400,9 +400,9 @@ for packages I created. Refer to
 for the standard go packages_
 
 * [errors](https://github.com/JeffDeCola/my-go-examples/tree/master/packages/errors)
-  _(github.com/pkg/errors)_
+  _(standard)_
 
-  _Error Handling using non-standard `github.com/pkg/errors` package._
+  _Error Handling using the standard `error` package._
 
 * [flag](https://github.com/JeffDeCola/my-go-examples/tree/master/packages/flag)
   _(standard)_
@@ -412,7 +412,8 @@ for the standard go packages_
 * [fmt-scan](https://github.com/JeffDeCola/my-go-examples/tree/master/packages/fmt-scan)
   _(standard)_
 
-  _The `fmt` package makes it easy to scan user input using fmt.Scan() by reading os.Stdin._
+  _The `fmt` package makes it easy to scan user input using fmt.Scan()
+  by reading os.Stdin._
 
 * [logrus](https://github.com/JeffDeCola/my-go-examples/tree/master/packages/logrus)
   _(github.com/sirupsen/logrus)_

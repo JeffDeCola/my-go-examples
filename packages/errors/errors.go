@@ -3,91 +3,88 @@
 package main
 
 import (
+	"bufio"
 	"errors"
 	"fmt"
+	"os"
 	"strconv"
 
 	log "github.com/sirupsen/logrus"
 )
 
-func a() (string, error) {
+var ErrIncorrectAnswer = errors.New("the answer is incorrect")
 
-	// DO STUFF
+func a(answer string) error {
 
-	// CALL ANOTHER FUNCTION
-	out, err := b()
+	// CALL ANOTHER FUNCTION - THIS IS ALL I DO
+	err := b(answer)
 	if err != nil {
-		return out, fmt.Errorf("error in a: %w", err)
+		return fmt.Errorf("error calling b from a: %w", err)
 	}
 
-	return out, err
+	return err
 
 }
 
-func b() (string, error) {
-
-	// DO STUFF
-
-	// CALL ANOTHER FUNCTION
-	out, err := c()
-	if err != nil {
-		return out, fmt.Errorf("error in b: %w", err)
-	}
-
-	return out, err
-
-}
-
-func c() (string, error) {
-
-	var userAnswer string
-
-	// GET USER ANSWER
-	fmt.Print("What is 2 + 2?: ")
-	_, err := fmt.Scan(&userAnswer)
-	if err != nil {
-		return "", fmt.Errorf("unable to get user input: %w", err)
-	}
-
-	if userAnswer == "stop" {
-		return userAnswer, nil
-	}
+func b(answer string) error {
 
 	// CONVERT TO INT
-	answerInt, err := strconv.Atoi(userAnswer)
+	answerInt, err := strconv.Atoi(answer)
 	if err != nil {
-		return userAnswer, fmt.Errorf("unable to convert string: %w", err)
+		return fmt.Errorf("unable to convert in b: %w", err)
 	}
+
+	// CHECK ANSWER
+	err = c(answerInt)
+	if err != nil {
+		return fmt.Errorf("error calling c from b: %w", err)
+	}
+
+	return err
+
+}
+
+func c(answer int) error {
 
 	// IS ANSWER CORRECT?
-	if answerInt != 4 {
-		// Make your error
-		err := errors.New("incorrect answer " + userAnswer + "error in c")
-		return userAnswer, err
+	if answer != 4 {
+		return fmt.Errorf("%d was provided: %w", answer, ErrIncorrectAnswer)
 	}
 
-	return userAnswer, nil
+	return nil
 
 }
 
 func main() {
 
-	// ASK USER A MATH QUESTION UNTIL THEY TYPE "stop"
-	for {
+	scanner := bufio.NewScanner(os.Stdin)
+	question := "What is 2+2?: "
+	separator := "------------------------"
 
-		userAnswer, err := a()
-		if err != nil {
-			log.Errorf("INCORRECT: %s", err)
-		}
+	// ASK USER A MATH QUESTION UNTIL THEY TYPE "stop"
+	for fmt.Print(question); scanner.Scan(); fmt.Printf("%s\n%s", separator, question) {
+
+		userAnswer := scanner.Text()
 
 		if userAnswer == "stop" {
 			fmt.Println("Done")
 			break
-		} else {
-			fmt.Println("CORRECT: ", userAnswer)
 		}
 
-		fmt.Println("-----------------------------")
+		err := a(userAnswer)
+		if err != nil {
+			switch {
+			case errors.Is(err, strconv.ErrSyntax):
+				fmt.Println("Not an int")
+			case errors.Is(err, ErrIncorrectAnswer):
+				fmt.Println("INCORRECT!!")
+			}
+			log.Errorf("Error with answer: %s", err)
+			continue
+		}
+
+		fmt.Printf("YOUR ANSWER %s IS CORRECT!\n", userAnswer)
+
 	}
 
 }
