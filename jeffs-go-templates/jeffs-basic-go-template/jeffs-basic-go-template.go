@@ -13,7 +13,6 @@ import (
 const toolVersion = "1.0.0"
 
 var ErrLogLevel = errors.New("please use trace, info or error")
-var ErrIncorrectAnswer = errors.New("answer is wrong")
 
 func setLogLevel(logLevel string) error {
 
@@ -46,8 +45,6 @@ func setLogLevel(logLevel string) error {
 }
 
 func getNumbers() (int, int, error) {
-
-	// var n1String, n2String string
 
 	// FIRST NUMBER - USER INPUT
 	log.Trace("Get 1st number from user and convert to int")
@@ -86,6 +83,7 @@ func getUserInput(ask string) (string, error) {
 	if err != nil {
 		return "", fmt.Errorf("unable to get string from user: %w", err)
 	}
+
 	return nString, nil
 
 }
@@ -96,8 +94,9 @@ func convertStringToInt(nString string) (int, error) {
 	log.Trace("Convert string to int")
 	n, err := strconv.Atoi(nString)
 	if err != nil {
-		return 0, fmt.Errorf("unable to convert string to int: %w", err)
+		return -1, fmt.Errorf("unable to convert string to int: %w", err)
 	}
+
 	return n, err
 
 }
@@ -107,6 +106,7 @@ func getSum(n1 int, n2 int) int {
 	// ADD TWO INTS TOGETHER
 	log.Trace("Add two integers together")
 	result := n1 + n2
+
 	return result
 
 }
