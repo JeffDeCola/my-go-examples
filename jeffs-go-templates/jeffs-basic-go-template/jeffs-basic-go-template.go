@@ -50,22 +50,22 @@ func getNumbers() (int, int, error) {
 	log.Trace("Get 1st number from user and convert to int")
 	n1String, err := getUserInput("What is first number: ")
 	if err != nil {
-		return 0, 0, fmt.Errorf("unable to get string from user: %w", err)
+		return -1, -1, fmt.Errorf("unable to get string from user: %w", err)
 	}
 	n1, err := convertStringToInt(n1String)
 	if err != nil {
-		return 0, 0, fmt.Errorf("unable to get string from user: %w", err)
+		return -1, -1, fmt.Errorf("unable to get string from user: %w", err)
 	}
 
 	// SECOND NUMBER - USER INPUT
 	log.Trace("Get 2nd number from user and convert to int")
 	n2String, err := getUserInput("What is second number: ")
 	if err != nil {
-		return 0, 0, fmt.Errorf("unable to get string from user: %w", err)
+		return -1, -1, fmt.Errorf("unable to get string from user: %w", err)
 	}
 	n2, err := convertStringToInt(n2String)
 	if err != nil {
-		return 0, 0, fmt.Errorf("unable to get string from user: %w", err)
+		return -1, -1, fmt.Errorf("unable to get string from user: %w", err)
 	}
 
 	return n1, n2, nil
