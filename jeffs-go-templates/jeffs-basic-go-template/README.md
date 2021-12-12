@@ -5,18 +5,26 @@ _A simple go template with flags, logging & error handling._
 Table of Contents,
 
 * [OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/jeffs-go-templates/jeffs-basic-go-template#overview)
+* [PREREQUISITES](https://github.com/JeffDeCola/my-go-examples/tree/master/jeffs-go-templates/jeffs-basic-go-template#prerequisites)
 * [RUN](https://github.com/JeffDeCola/my-go-examples/tree/master/jeffs-go-templates/jeffs-basic-go-template#run)
+* [TEST](https://github.com/JeffDeCola/my-go-examples/tree/master/jeffs-go-templates/jeffs-basic-go-template#test)
+* [USAGE](https://github.com/JeffDeCola/my-go-examples/tree/master/jeffs-go-templates/jeffs-basic-go-template#usage)
+  * [-h](https://github.com/JeffDeCola/my-go-examples/tree/master/jeffs-go-templates/jeffs-basic-go-template#-h)
+  * [-v](https://github.com/JeffDeCola/my-go-examples/tree/master/jeffs-go-templates/jeffs-basic-go-template#-v)
+  * [-loglevel string](https://github.com/JeffDeCola/my-go-examples/tree/master/jeffs-go-templates/jeffs-basic-go-template#-loglevel-string)
 
 Documentation and references,
 
-* [flag](https://github.com/JeffDeCola/my-go-examples/tree/master/packages/flag)
-* [logrus](https://github.com/JeffDeCola/my-go-examples/tree/master/packages/logrus)
-* [errors](https://github.com/JeffDeCola/my-go-examples/tree/master/packages/errors)
+* Check out my [flag](https://github.com/JeffDeCola/my-go-examples/tree/master/packages/flag),
+  [logrus](https://github.com/JeffDeCola/my-go-examples/tree/master/packages/logrus)
+  and
+  [errors](https://github.com/JeffDeCola/my-go-examples/tree/master/packages/errors)
+  examples
 * This repos [github webpage](https://jeffdecola.github.io/my-go-examples/)
 
 ## OVERVIEW
 
-This is a very simple program that will ask user for 2 integers
+This is a very simple program that will ask a user for 2 integers
 and add them together.
 
 ## PREREQUISITES
@@ -36,6 +44,21 @@ Things to try,
 * Add numbers together
 * Enter a string instead of a number
 * Use flags
+
+## TEST
+
+To create `_test` files,
+
+```bash
+gotests -w -all jeffs-basic-go-template.go
+```
+
+To unit test the code,
+
+```bash
+go test -cover ./... | tee test_coverage.txt
+cat test_coverage.txt
+```
 
 ## USAGE
 
