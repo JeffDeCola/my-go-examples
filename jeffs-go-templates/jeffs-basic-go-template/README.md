@@ -2,30 +2,67 @@
 
 _A simple go template with flags, logging & error handling._
 
-Just copy/paste to use in your projects.
+Table of Contents,
 
-Refer to the following go examples for more information,
+* [OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/jeffs-go-templates/jeffs-basic-go-template#overview)
+* [RUN](https://github.com/JeffDeCola/my-go-examples/tree/master/jeffs-go-templates/jeffs-basic-go-template#run)
+
+Documentation and references,
 
 * [flag](https://github.com/JeffDeCola/my-go-examples/tree/master/packages/flag)
 * [logrus](https://github.com/JeffDeCola/my-go-examples/tree/master/packages/logrus)
 * [errors](https://github.com/JeffDeCola/my-go-examples/tree/master/packages/errors)
+* This repos [github webpage](https://jeffdecola.github.io/my-go-examples/)
 
-[GitHub Webpage](https://jeffdecola.github.io/my-go-examples/)
+## OVERVIEW
 
-## RUN
+This is a very simple program that will ask user for 2 integers
+and add them together.
 
-Remember to get the packages,
+## PREREQUISITES
 
 ```bash
 go get -u -v github.com/sirupsen/logrus
-go get -u -v github.com/pkg/errors
 ```
 
-The default flag i=42 which will be an error. Hence set the flag i to
-any other integer,
+## RUN
 
 ```bash
 go run jeffs-basic-go-template.go
-go run jeffs-basic-go-template.go -i 42
-go run jeffs-basic-go-template.go -i 10
+```
+
+Things to try,
+
+* Add numbers together
+* Enter a string instead of a number
+* Use flags
+
+## USAGE
+
+```bash
+go run jeffs-basic-go-template.go {-h|-v} -loglevel {trace|info|error}
+```
+
+### -h
+
+Help,
+
+```bash
+go run jeffs-basic-go-template.go -h
+```
+
+### -v
+
+Version,
+
+```bash
+go run jeffs-basic-go-template.go -v
+```
+
+### -loglevel string
+
+```bash
+go run jeffs-basic-go-template.go -loglevel trace
+go run jeffs-basic-go-template.go -loglevel info
+go run jeffs-basic-go-template.go -loglevel error
 ```
