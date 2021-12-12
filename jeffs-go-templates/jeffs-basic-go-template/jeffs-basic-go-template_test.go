@@ -56,7 +56,12 @@ func Test_getNumbers(t *testing.T) {
 		want1   int
 		wantErr bool
 	}{
-		// TODO: Add test cases.
+		{
+			name:    "Test Get Numbers Error",
+			want:    -1,
+			want1:   -1,
+			wantErr: true,
+		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
@@ -85,7 +90,14 @@ func Test_getUserInput(t *testing.T) {
 		want    string
 		wantErr bool
 	}{
-		// TODO: Add test cases.
+		{
+			name: "Test Get User Input Error",
+			args: args{
+				ask: "What is your name?",
+			},
+			want:    "",
+			wantErr: true,
+		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
@@ -173,9 +185,7 @@ func Test_getSum(t *testing.T) {
 func Test_main(t *testing.T) {
 	tests := []struct {
 		name string
-	}{
-		// TODO: Add test cases.
-	}
+	}{}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			main()

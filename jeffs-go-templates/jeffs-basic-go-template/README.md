@@ -31,6 +31,8 @@ and add them together.
 
 ```bash
 go get -u -v github.com/sirupsen/logrus
+go get -u -v github.com/golang/mock/gomock
+go get -u -v github.com/golang/mock/mockgen
 ```
 
 ## RUN
@@ -51,6 +53,12 @@ To create `_test` files,
 
 ```bash
 gotests -w -all jeffs-basic-go-template.go
+```
+
+Since there are external dependencies like user input, we need to mock that.
+
+```bash
+mockgen -source=jeffs-basic-go-template.go -destination=jeffs-basic-go-template_mock.go -package=main
 ```
 
 To unit test the code,
