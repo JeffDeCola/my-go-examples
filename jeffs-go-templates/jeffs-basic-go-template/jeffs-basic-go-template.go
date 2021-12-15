@@ -4,6 +4,7 @@ import (
 	"errors"
 	"flag"
 	"fmt"
+	"io"
 	"os"
 	"strconv"
 
@@ -44,11 +45,11 @@ func setLogLevel(logLevel string) error {
 
 }
 
-func getNumbers() (int, int, error) {
+func getNumbers(r1 io.Reader, r2 io.Reader) (int, int, error) {
 
 	// FIRST NUMBER - USER INPUT
 	log.Trace("Get 1st number from user and convert to int")
-	n1String, err := getUserInput("What is first number: ")
+	n1String, err := getUserInput(r1, "What is first number: ")
 	if err != nil {
 		return -1, -1, fmt.Errorf("unable to get string from user: %w", err)
 	}
@@ -59,7 +60,7 @@ func getNumbers() (int, int, error) {
 
 	// SECOND NUMBER - USER INPUT
 	log.Trace("Get 2nd number from user and convert to int")
-	n2String, err := getUserInput("What is second number: ")
+	n2String, err := getUserInput(r2, "What is second number: ")
 	if err != nil {
 		return -1, -1, fmt.Errorf("unable to get string from user: %w", err)
 	}
@@ -72,14 +73,14 @@ func getNumbers() (int, int, error) {
 
 }
 
-func getUserInput(ask string) (string, error) {
+func getUserInput(r io.Reader, askUser string) (string, error) {
 
 	var nString string
 
 	// GET STRING FROM USER
 	log.Trace("Get string from user")
-	fmt.Printf("%s", ask)
-	_, err := fmt.Scan(&nString)
+	fmt.Printf("%s", askUser)
+	_, err := fmt.Fscan(r, &nString)
 	if err != nil {
 		return "", fmt.Errorf("unable to get string from user: %w", err)
 	}
@@ -138,7 +139,7 @@ func main() {
 	fmt.Println("Let's add two numbers together")
 
 	// GET NUMBERS FROM USER INPUT
-	n1, n2, err := getNumbers()
+	n1, n2, err := getNumbers(os.Stdin, os.Stdin)
 	if err != nil {
 		log.Fatalf("Error getting numbers: %s", err)
 	}
