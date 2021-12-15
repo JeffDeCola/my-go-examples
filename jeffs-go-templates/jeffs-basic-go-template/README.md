@@ -31,8 +31,6 @@ and add them together.
 
 ```bash
 go get -u -v github.com/sirupsen/logrus
-go get -u -v github.com/golang/mock/gomock
-go get -u -v github.com/golang/mock/mockgen
 ```
 
 ## RUN
@@ -55,18 +53,24 @@ To create `_test` files,
 gotests -w -all jeffs-basic-go-template.go
 ```
 
-Since there are external dependencies like user input, we need to mock that.
-
-```bash
-mockgen -source=jeffs-basic-go-template.go -destination=jeffs-basic-go-template_mock.go -package=main
-```
-
 To unit test the code,
 
 ```bash
 go test -cover ./... | tee test_coverage.txt
 cat test_coverage.txt
 ```
+
+Note, to test the function `getUserInput()` I am using an io.Reader to provide
+a way to mimic user input and test.
+
+```go
+func getUserInput(r io.Reader, askUser string) (string, error) {
+...
+    _, err := fmt.Fscan(r, &nString)
+...
+```
+
+I do the same thing in the function `getNumbers()`.
 
 ## USAGE
 

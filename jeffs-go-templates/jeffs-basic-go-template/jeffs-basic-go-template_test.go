@@ -1,6 +1,10 @@
 package main
 
-import "testing"
+import (
+	"io"
+	"strings"
+	"testing"
+)
 
 func Test_setLogLevel(t *testing.T) {
 	type args struct {
@@ -50,14 +54,63 @@ func Test_setLogLevel(t *testing.T) {
 }
 
 func Test_getNumbers(t *testing.T) {
+	type args struct {
+		r1 io.Reader
+		r2 io.Reader
+	}
 	tests := []struct {
 		name    string
+		args    args
 		want    int
 		want1   int
 		wantErr bool
 	}{
 		{
-			name:    "Test Get Numbers Error",
+			name: "Test, get numbers 4 and 4",
+			args: args{
+				r1: strings.NewReader("4"),
+				r2: strings.NewReader("4"),
+			},
+			want:    4,
+			want1:   4,
+			wantErr: false,
+		},
+		{
+			name: "Test, get numbers r and 4",
+			args: args{
+				r1: strings.NewReader("r"),
+				r2: strings.NewReader("4"),
+			},
+			want:    -1,
+			want1:   -1,
+			wantErr: true,
+		},
+		{
+			name: "Test, get numbers \n and 4",
+			args: args{
+				r1: strings.NewReader("\n"),
+				r2: strings.NewReader("4"),
+			},
+			want:    -1,
+			want1:   -1,
+			wantErr: true,
+		},
+		{
+			name: "Test, get numbers 4 and r",
+			args: args{
+				r1: strings.NewReader("4"),
+				r2: strings.NewReader("r"),
+			},
+			want:    -1,
+			want1:   -1,
+			wantErr: true,
+		},
+		{
+			name: "Test, get numbers 4 and \n",
+			args: args{
+				r1: strings.NewReader("4"),
+				r2: strings.NewReader("\n"),
+			},
 			want:    -1,
 			want1:   -1,
 			wantErr: true,
@@ -65,7 +118,7 @@ func Test_getNumbers(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			got, got1, err := getNumbers()
+			got, got1, err := getNumbers(tt.args.r1, tt.args.r2)
 			if (err != nil) != tt.wantErr {
 				t.Errorf("getNumbers() error = %v, wantErr %v", err, tt.wantErr)
 				return
@@ -82,7 +135,8 @@ func Test_getNumbers(t *testing.T) {
 
 func Test_getUserInput(t *testing.T) {
 	type args struct {
-		ask string
+		r       io.Reader
+		askUser string
 	}
 	tests := []struct {
 		name    string
@@ -93,15 +147,25 @@ func Test_getUserInput(t *testing.T) {
 		{
 			name: "Test Get User Input Error",
 			args: args{
-				ask: "What is your name?",
+				r:       strings.NewReader("\n"),
+				askUser: "What is your name?",
 			},
 			want:    "",
 			wantErr: true,
 		},
+		{
+			name: "Test Get User Input",
+			args: args{
+				r:       strings.NewReader("jeff"),
+				askUser: "What is your name?",
+			},
+			want:    "jeff",
+			wantErr: false,
+		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			got, err := getUserInput(tt.args.ask)
+			got, err := getUserInput(tt.args.r, tt.args.askUser)
 			if (err != nil) != tt.wantErr {
 				t.Errorf("getUserInput() error = %v, wantErr %v", err, tt.wantErr)
 				return
@@ -185,7 +249,9 @@ func Test_getSum(t *testing.T) {
 func Test_main(t *testing.T) {
 	tests := []struct {
 		name string
-	}{}
+	}{
+		// TODO: Add test cases.
+	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			main()
