@@ -2,7 +2,11 @@
 .credentials.yml
 
 # GO
-coverage.out
+**/test/test_coverage.txt
 
 # macOS
 .DS_Store
+
+# TEMPORARY
+**/erase
+erase-README.md
