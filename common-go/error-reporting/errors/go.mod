@@ -1,4 +1,4 @@
-module github.com/JeffDeCola/my-go-examples/packages/errors
+module github.com/JeffDeCola/my-go-examples/common-go/error-reporting/errors
 
 go 1.17
 

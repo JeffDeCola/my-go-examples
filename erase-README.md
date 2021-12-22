@@ -347,32 +347,11 @@ _My starting point for all my go projects._
 
 ### PACKAGES
 
-_Refer to my repo
-[my-go-packages](https://github.com/JeffDeCola/my-go-packages)
-for packages I created. Refer to
-[golang.org/pkg](https://golang.org/pkg/)
-for the standard go packages_
-
-* [errors](https://github.com/JeffDeCola/my-go-examples/tree/master/packages/errors)
-  _(standard)_
-
-  _Error Handling using the standard `error` package._
-
-* [flag](https://github.com/JeffDeCola/my-go-examples/tree/master/packages/flag)
-  _(standard)_
-
-  _The `flag` package makes it easy to implement command-line flag parsing._
-
 * [fmt-scan](https://github.com/JeffDeCola/my-go-examples/tree/master/packages/fmt-scan)
   _(standard)_
 
   _The `fmt` package makes it easy to scan user input using fmt.Scan()
   by reading os.Stdin._
-
-* [logrus](https://github.com/JeffDeCola/my-go-examples/tree/master/packages/logrus)
-  _(github.com/sirupsen/logrus)_
-
-  _Logging using non-standard `logrus` package._
 
 * `net/http`
   _(standard)_
