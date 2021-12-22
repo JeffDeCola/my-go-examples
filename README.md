@@ -6,9 +6,7 @@
 [![Issue Count](https://codeclimate.com/github/JeffDeCola/my-go-examples/badges/issue_count.svg)](https://codeclimate.com/github/JeffDeCola/my-go-examples/issues)
 [![License](http://img.shields.io/:license-mit-blue.svg)](http://jeffdecola.mit-license.org)
 
-_A place to keep my go snippets and examples.
-These also contain information
-I gathered from other sources._
+_A place to keep my go snippets and examples._
 
 Table of Contents,
 
@@ -21,6 +19,10 @@ Table of Contents,
   * INTERFACES
   * METHODS
 * [CGO](https://github.com/JeffDeCola/my-go-examples#cgo)
+* [CLIENT/SERVER](https://github.com/JeffDeCola/my-go-examples#clientserver)
+  * HTTP
+  * gRPC
+  * TCP/IP
 * [CLOUD SERVICE PROVIDERS](https://github.com/JeffDeCola/my-go-examples#cloud-service-providers)
 * [COMMON GO](https://github.com/JeffDeCola/my-go-examples#common-go)
   * ERROR REPORTING
@@ -28,10 +30,6 @@ Table of Contents,
   * LOGGING
   * MY GENERIC GO TEMPLATE
   * TESTING
-* [CLIENT/SERVER](https://github.com/JeffDeCola/my-go-examples#clientserver)
-  * HTTP
-  * gRPC
-  * TCP/IP
 * [COMMUNICATION](https://github.com/JeffDeCola/my-go-examples#communication)
   * [API](https://github.com/JeffDeCola/my-go-examples#api)
     * ASYNCHRONOUS
@@ -98,6 +96,16 @@ _Just your basic syntax examples in go._
 
 _Using c with go._
 
+### CLIENT/SERVER
+
+_Lets make a server._
+
+* HTTP
+
+* gRPC
+
+* TCP/IP
+
 ### CLOUD SERVICE PROVIDERS
 
 _AWS and Google services._
@@ -108,23 +116,29 @@ _A good place to start._
 
 * ERROR REPORTING
 
+  * [errors](https://github.com/JeffDeCola/my-go-examples/tree/master/packages/errors)
+
+    _Error Handling using the standard `error` package._
+
 * FLAGS
+
+  * [flag](https://github.com/JeffDeCola/my-go-examples/tree/master/packages/flag)
+
+    _The standard `flag` package makes it easy to implement command-line flag parsing._
 
 * LOGGING
 
+  * [logrus](https://github.com/JeffDeCola/my-go-examples/tree/master/packages/logrus)
+
+    _Logging using non-standard `logrus` package._
+
 * MY GENERIC GO TEMPLATE
 
+  * [jeffs-basic-go-template](https://github.com/JeffDeCola/my-go-examples/tree/master/jeffs-go-templates/jeffs-basic-go-template)
+
+    _A simple go template with flags, logging & error handling._
+
 * TESTING
-
-### CLIENT/SERVER
-
-_Lets make a server._
-
-* HTTP
-
-* gRPC
-
-* TCP/IP
 
 ### COMMUNICATION
 
@@ -203,4 +217,3 @@ package to read data and write data to/from various IO
 _Using go with the Internet of Things (IoT)._
 
 * RASPBERRY PI
-
