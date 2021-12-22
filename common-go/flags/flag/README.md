@@ -1,13 +1,13 @@
 # flag (standard) example
 
-_The `flag` package makes it easy to implement command-line flag parsing._
+_The `flag` standard package makes it easy to implement command-line flag parsing._
 
 Table of Contents,
 
 * [OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/packages/flag#overview)
 * [RUN](https://github.com/JeffDeCola/my-go-examples/tree/master/packages/flag#run)
 
-Documentation and references,
+Documentation and reference,
 
 * Refer to the
   [flag](https://golang.org/pkg/flag/)
@@ -68,3 +68,7 @@ Boolean,
 ```bash
 go run flag.go -b
 ```
+
+## TEST
+
+No testing on main.
