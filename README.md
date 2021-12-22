@@ -62,7 +62,8 @@ Documentation and reference,
 * [go-cheat-sheet](https://github.com/JeffDeCola/my-cheat-sheets/tree/master/software/development/languages/go-cheat-sheet)
 * [my-go-packages](https://github.com/JeffDeCola/my-go-packages)
 * [my-go-tools](https://github.com/JeffDeCola/my-go-tools)
-* [github webpage](https://jeffdecola.github.io/my-go-examples/)
+* This repos
+  [github webpage](https://jeffdecola.github.io/my-go-examples/)
   _built with
   [concourse](https://github.com/JeffDeCola/my-go-examples/blob/master/ci-README.md)_
 
