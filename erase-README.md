@@ -1,3 +1,5 @@
+# ERASE THIS
+
 ## GO EXAMPLES
 
 _All sections in alphabetical order._
@@ -305,10 +307,6 @@ The OS schedules these threads on cpus/cores._
 ### JEFFS GO TEMPLATES
 
 _My starting point for all my go projects._
-
-* [jeffs-basic-go-template](https://github.com/JeffDeCola/my-go-examples/tree/master/jeffs-go-templates/jeffs-basic-go-template)
-
-  _A simple go template with flags, logging & error handling._
 
 ### MESSAGING
 
