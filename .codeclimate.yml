@@ -1,37 +1,58 @@
 # .codeclimate.yml
 
 version: "2"
+
+# --------------------------------------------------------------------------
 # prepare: Actions to perform before analysis begins
-#   fetch: Remote files to fetch (files are placed relative to the repo's root directory)
+#   fetch: Remote files to fetch (files placed relative to the repo's root dir)
 #     url: url to fetch
 #     path: destination relative to repo's root directory
+
+# --------------------------------------------------------------------------
 
 # checks: Configuration of maintainability checks
 #   <name>
 #     enabled: true|false
 #     config: check configuration
 
+checks:
+  similar-code:
+    enabled: false
+  identical-code:
+    enabled: false
+
+# --------------------------------------------------------------------------
 # plugins: Enable optional engines to run in addition to your analysis
 #   <name>
 #     enabled: true|false
 #     channel: alternate channel to use (stable is default)
 #     config: plugin configuration
+
 plugins:
+  # A tool designed to check markdown files and flag style issues
+  # I had to shut it off because it flags on inline HTML code
   markdownlint:
-    enabled: true
+    enabled: false
+  # A tool for suggesting possible improvements to bash/sh shell scripts.
   shellcheck:
     enabled: true
+  # Official style checker from the Go team.
   gofmt:
     enabled: true
+  # Lints
   golint:
     enabled: true
     config:
       min_confidence: 0.9
+  # Examines source code to identify suspicious constructs and potential bugs
   govet:
     enabled: true
 
+# --------------------------------------------------------------------------
 # exclude_patterns: Exclude files and/or directories from analysis
 # - <pattern>
 # - <pattern>
+
 exclude_patterns:
 - "docs/"
+- "**/*_test.go" # exclude the unit testing code
