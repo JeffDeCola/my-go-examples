@@ -31,20 +31,8 @@ Table of Contents,
   * MY GENERIC GO TEMPLATE
   * TESTING
 * [COMMUNICATION](https://github.com/JeffDeCola/my-go-examples#communication)
-  * [API](https://github.com/JeffDeCola/my-go-examples#api)
-    * ASYNCHRONOUS
-      * MESSAGE QUEUES
-      * TCP/IP
-    * SYNCHRONOUS
-      * gRPC
-      * REST
-  * [INTER PROCESS COMMUNICATION (IPC)](https://github.com/JeffDeCola/my-go-examples#inter-process-communication-ipc)
-    * ASYNCHRONOUS
-      * CHANNELS (UNBUFFERED)
-      * SOCKETS
-    * SYNCHRONOUS
-      * CHANNELS (BUFFERED)
-      * PIPES
+  * API
+  * INTER PROCESS COMMUNICATION (IPC)
 * [CRYPTOGRAPHY](https://github.com/JeffDeCola/my-go-examples#cryptography)
   * ASYMMETRIC CRYPTOGRAPHY
   * HASHING
@@ -117,25 +105,25 @@ _A good place to start._
 
 * ERROR REPORTING
 
-  * [errors](https://github.com/JeffDeCola/my-go-examples/tree/master/packages/errors)
+  * [errors](https://github.com/JeffDeCola/my-go-examples/tree/master/common-go/error-reporting/errors)
 
     _Error Handling using the standard `error` package._
 
 * FLAGS
 
-  * [flag](https://github.com/JeffDeCola/my-go-examples/tree/master/packages/flag)
+  * [flag](https://github.com/JeffDeCola/my-go-examples/tree/master/common-go/flags/flag)
 
     _The standard `flag` package makes it easy to implement command-line flag parsing._
 
 * LOGGING
 
-  * [logrus](https://github.com/JeffDeCola/my-go-examples/tree/master/packages/logrus)
+  * [logrus](https://github.com/JeffDeCola/my-go-examples/tree/master/common-go/logging/logrus)
 
     _Logging using non-standard `logrus` package._
 
 * MY GENERIC GO TEMPLATE
 
-  * [jeffs-basic-go-template](https://github.com/JeffDeCola/my-go-examples/tree/master/jeffs-go-templates/jeffs-basic-go-template)
+  * [jeffs-basic-go-template](https://github.com/JeffDeCola/my-go-examples/tree/master/common-go/my-generic-go-tempalte/jeffs-basic-go-template)
 
     _A simple go template with flags, logging & error handling._
 
@@ -145,37 +133,33 @@ _A good place to start._
 
 _Talk to me._
 
-#### API
+* API
 
-_Application communication._
-
-* ASYNCHRONOUS
+  * ASYNCHRONOUS
   
-  * MESSAGE QUEUES
+    * MESSAGE QUEUES
   
-  * TCP/IP
+    * TCP/IP
   
-* SYNCHRONOUS
+  * SYNCHRONOUS
   
-  * gRPC
+    * gRPC
   
-  * REST
+    * REST
 
-#### INTER PROCESS COMMUNICATION (IPC)
+* INTER PROCESS COMMUNICATION (IPC)
 
-_Process level communication._
+  * ASYNCHRONOUS
 
-* ASYNCHRONOUS
+    * CHANNELS (UNBUFFERED)
 
-  * CHANNELS (UNBUFFERED)
+    * SOCKETS
 
-  * SOCKETS
-
-* SYNCHRONOUS
+  * SYNCHRONOUS
   
-  * CHANNELS (BUFFERED)
+    * CHANNELS (BUFFERED)
   
-  * PIPES
+    * PIPES
 
 ### CRYPTOGRAPHY
 
