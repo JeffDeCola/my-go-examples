@@ -7,7 +7,6 @@
 # macOS
 .DS_Store
 
-# TEMPORARY
-/erase
-erase-README.md
-flag.go
+# TEMPORARY AS I REVAMP REPO
+/eraseme
+eraseme-README.md

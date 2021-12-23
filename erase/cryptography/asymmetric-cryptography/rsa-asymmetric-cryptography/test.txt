@@ -1,3 +1,0 @@
-This is a test1 to get the md5 fingerprint from this file.
-This is a test2 to get the md5 fingerprint from this file.
-This is a test3 to get the md5 fingerprint from this file.
