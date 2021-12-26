@@ -123,7 +123,7 @@ _A good place to start._
 
 * MY GENERIC GO TEMPLATE
 
-  * [jeffs-basic-go-template](https://github.com/JeffDeCola/my-go-examples/tree/master/common-go/my-generic-go-tempalte/jeffs-basic-go-template)
+  * [jeffs-basic-go-template](https://github.com/JeffDeCola/my-go-examples/tree/master/common-go/my-generic-go-template/jeffs-basic-go-template)
 
     _A simple go template with flags, logging & error handling._
 
