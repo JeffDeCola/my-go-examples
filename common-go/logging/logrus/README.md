@@ -1,16 +1,17 @@
-# logrus (github.com/sirupsen/logrus) example
+# logrus
 
-_Logging using non-standard `logrus` package._
+_Logging using `logrus` package._
 
 Table of Contents,
 
-* [OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/packages/logrus#overview)
-* [USING LOGRUS](https://github.com/JeffDeCola/my-go-examples/tree/master/packages/logrus#using-logrus)
-  * [SET LOG LEVEL, FORMAT AND OUTPUT](https://github.com/JeffDeCola/my-go-examples/tree/master/packages/logrus#set-log-level-format-and-output)
-  * [LOGGING](https://github.com/JeffDeCola/my-go-examples/tree/master/packages/logrus#logging)
-  * [FIELDS](https://github.com/JeffDeCola/my-go-examples/tree/master/packages/logrus#fields)
-  * [LOGGING TO A FILE](https://github.com/JeffDeCola/my-go-examples/tree/master/packages/logrus#logging-to-a-file)
-* [RUN](https://github.com/JeffDeCola/my-go-examples/tree/master/packages/logrus#run)
+* [OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/common-go/logging/logrus#overview)
+  * [SET LOG LEVEL, FORMAT AND OUTPUT](https://github.com/JeffDeCola/my-go-examples/tree/master/common-go/logging/logrus#set-log-level-format-and-output)
+  * [LOGGING](https://github.com/JeffDeCola/my-go-examples/tree/master/common-go/logging/logrus#logging)
+  * [FIELDS](https://github.com/JeffDeCola/my-go-examples/tree/master/common-go/logging/logrus#fields)
+  * [LOGGING TO A FILE](https://github.com/JeffDeCola/my-go-examples/tree/master/common-go/logging/logrus#logging-to-a-file)
+* [PREREQUISITES](https://github.com/JeffDeCola/my-go-examples/tree/master/common-go/logging/logrus#prerequisites)
+* [RUN](https://github.com/JeffDeCola/my-go-examples/tree/master/common-go/logging/logrus#run)
+* [TEST](https://github.com/JeffDeCola/my-go-examples/tree/master/common-go/logging/logrus#test)
   
 Documentation and references,
 
@@ -18,7 +19,7 @@ Documentation and references,
   [github.com/sirupsen/logrus](https://github.com/sirupsen/logrus)
   package for more info
 * Refer to my
-  [flag](https://github.com/JeffDeCola/my-go-examples/tree/master/packages/flag)
+  [flag](https://github.com/JeffDeCola/my-go-examples/tree/master/common-go/flags/flag)
   example
 * This repos [github webpage](https://jeffdecola.github.io/my-go-examples/)
 
@@ -39,14 +40,6 @@ But I like to keep it simple,
 * **Error**
 * **Info**
 * **Trace**
-
-## USING LOGRUS
-
-To get,
-
-```bash
-go get -u -v github.com/sirupsen/logrus
-```
 
 ### SET LOG LEVEL, FORMAT AND OUTPUT
 
@@ -120,6 +113,20 @@ if err == nil {
 defer myfile.Close()
 ```
 
+## PREREQUISITES
+
+Need,
+
+```txt
+github.com/sirupsen/logrus
+```
+
+Run,
+
+```bash
+go mod tidy
+```
+
 ## RUN
 
 Run with various log levels,
@@ -154,4 +161,18 @@ Log to a logfile instead of stdout,
 ```bash
 go run logrus.go -loglevel trace -logfile logfile.log
 cat logfile.log
+```
+
+## TEST
+
+To create _test files,
+
+```bash
+gotests -w -all logrus.go
+```
+
+To unit test the code,
+
+```bash
+go test -cover ./... 
 ```

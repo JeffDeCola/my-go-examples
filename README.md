@@ -119,7 +119,7 @@ _A good place to start._
 
   * [logrus](https://github.com/JeffDeCola/my-go-examples/tree/master/common-go/logging/logrus)
 
-    _Logging using non-standard `logrus` package._
+    _Logging using `logrus` package._
 
 * MY GENERIC GO TEMPLATE
 

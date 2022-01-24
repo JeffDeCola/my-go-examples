@@ -1,36 +1,45 @@
-# jeffs-basic-go-template example
+# jeffs-basic-go-template
 
 _A simple go template with flags, logging & error handling._
 
 Table of Contents,
 
-* [OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/jeffs-go-templates/jeffs-basic-go-template#overview)
-* [PREREQUISITES](https://github.com/JeffDeCola/my-go-examples/tree/master/jeffs-go-templates/jeffs-basic-go-template#prerequisites)
-* [RUN](https://github.com/JeffDeCola/my-go-examples/tree/master/jeffs-go-templates/jeffs-basic-go-template#run)
-* [TEST](https://github.com/JeffDeCola/my-go-examples/tree/master/jeffs-go-templates/jeffs-basic-go-template#test)
-* [USAGE](https://github.com/JeffDeCola/my-go-examples/tree/master/jeffs-go-templates/jeffs-basic-go-template#usage)
-  * [-h](https://github.com/JeffDeCola/my-go-examples/tree/master/jeffs-go-templates/jeffs-basic-go-template#-h)
-  * [-v](https://github.com/JeffDeCola/my-go-examples/tree/master/jeffs-go-templates/jeffs-basic-go-template#-v)
-  * [-loglevel string](https://github.com/JeffDeCola/my-go-examples/tree/master/jeffs-go-templates/jeffs-basic-go-template#-loglevel-string)
-
+* [OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/common-go/my-generic-go-template/jeffs-basic-go-template#overview)
+* [PREREQUISITES](https://github.com/JeffDeCola/my-go-examples/tree/master/common-go/my-generic-go-template/jeffs-basic-go-template#prerequisites)
+* [RUN](https://github.com/JeffDeCola/my-go-examples/tree/master/common-go/my-generic-go-template/jeffs-basic-go-template#run)
+* [TEST](https://github.com/JeffDeCola/my-go-examples/tree/master/common-go/my-generic-go-template/jeffs-basic-go-template#test)
+* [USAGE](https://github.com/JeffDeCola/my-go-examples/tree/master/common-go/my-generic-go-template/jeffs-basic-go-template#usage)
+  * [-h](https://github.com/JeffDeCola/my-go-examples/tree/master/common-go/my-generic-go-template/jeffs-basic-go-template#-h)
+  * [-v](https://github.com/JeffDeCola/my-go-examples/tree/master/common-go/my-generic-go-template/jeffs-basic-go-template#-v)
+  * [-loglevel string](https://github.com/JeffDeCola/my-go-examples/tree/master/common-go/my-generic-go-template/jeffs-basic-go-template#-loglevel-string)
+  
 Documentation and references,
 
-* Check out my [flag](https://github.com/JeffDeCola/my-go-examples/tree/master/packages/flag),
-  [logrus](https://github.com/JeffDeCola/my-go-examples/tree/master/packages/logrus)
+* Check out my
+  [flag](https://github.com/JeffDeCola/my-go-examples/tree/master/common-go/flags/flag),
+  [logrus](https://github.com/JeffDeCola/my-go-examples/tree/master/common-go/logging/logrus)
   and
-  [errors](https://github.com/JeffDeCola/my-go-examples/tree/master/packages/errors)
+  [errors](https://github.com/JeffDeCola/my-go-examples/tree/master/common-go/error-reporting/errors)
   examples
 * This repos [github webpage](https://jeffdecola.github.io/my-go-examples/)
 
 ## OVERVIEW
 
 This is a very simple program that will ask a user for 2 integers
-and add them together.
+and adds them together.
 
 ## PREREQUISITES
 
+Need,
+
+```txt
+github.com/sirupsen/logrus
+```
+
+Run,
+
 ```bash
-go get -u -v github.com/sirupsen/logrus
+go mod tidy
 ```
 
 ## RUN
@@ -56,8 +65,7 @@ gotests -w -all jeffs-basic-go-template.go
 To unit test the code,
 
 ```bash
-go test -cover ./... | tee test_coverage.txt
-cat test_coverage.txt
+go test -cover ./...
 ```
 
 Note, to test the function `getUserInput()` I am using an io.Reader to provide

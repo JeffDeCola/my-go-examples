@@ -1,11 +1,12 @@
-# flag (standard) example
+# flag
 
 _The `flag` standard package makes it easy to implement command-line flag parsing._
 
 Table of Contents,
 
-* [OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/packages/flag#overview)
-* [RUN](https://github.com/JeffDeCola/my-go-examples/tree/master/packages/flag#run)
+* [OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/common-go/flags/flag#overview)
+* [RUN](https://github.com/JeffDeCola/my-go-examples/tree/master/common-go/flags/flag#run)
+* [TEST](https://github.com/JeffDeCola/my-go-examples/tree/master/common-go/flags/flag#test)
 
 Documentation and reference,
 
@@ -46,8 +47,8 @@ func main() {
 
 For integers and strings, the following formats are permitted,
 
-* -flag=x
 * -flag x
+* -flag=x
 
 String,
 
@@ -71,4 +72,14 @@ go run flag.go -b
 
 ## TEST
 
-No testing on main.
+To create _test files,
+
+```bash
+gotests -w -all flag.go
+```
+
+To unit test the code,
+
+```bash
+go test -cover ./... 
+```
