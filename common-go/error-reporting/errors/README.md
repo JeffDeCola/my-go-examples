@@ -1,12 +1,13 @@
-# errors (standard) example
+# errors
 
 _Error Handling using the standard `error` package._
 
 Table of Contents,
 
-* [OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/packages/errors#overview)
-* [DEFINE YOUR OWN ERROR](https://github.com/JeffDeCola/my-go-examples/tree/master/packages/errors#define-your-own-error)
-* [RUN](https://github.com/JeffDeCola/my-go-examples/tree/master/packages/errors#run)
+* [OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/common-go/error-reporting/errors#overview)
+  * [DEFINE YOUR OWN ERROR](https://github.com/JeffDeCola/my-go-examples/tree/master/common-go/error-reporting/errors#define-your-own-error)
+* [RUN](https://github.com/JeffDeCola/my-go-examples/tree/master/common-go/error-reporting/errors#run)
+* [TEST](https://github.com/JeffDeCola/my-go-examples/tree/master/common-go/error-reporting/errors#test)
 
 Documentation and references,
 
@@ -20,9 +21,9 @@ Documentation and references,
 Go doesn’t have exceptions, so it doesn’t have try, catch or anything similar.
 So how do we handle errors? **With Multiple return values**.
 
-## DEFINE YOUR OWN ERROR
+### DEFINE YOUR OWN ERROR
 
-It is very easy. For example,
+It's very easy. For example,
 
 ```go
 var ErrIncorrectAnswer = errors.New("the answer is incorrect")
@@ -62,3 +63,17 @@ Done
 ```
 
 Notice how it traces the error back to your original function.
+
+## TEST
+
+To create _test files,
+
+```bash
+gotests -w -all errors.go
+```
+
+To unit test the code,
+
+```bash
+go test -cover ./... 
+```
