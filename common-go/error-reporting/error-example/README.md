@@ -1,4 +1,4 @@
-# errors
+# error-example
 
 _Error Handling using the standard `error` package._
 
@@ -12,7 +12,7 @@ Table of Contents,
 Documentation and references,
 
 * Refer to the
-  [errors](https://pkg.go.dev/errors)
+  [error-example](https://pkg.go.dev/error-example)
   package for more info
 * This repos [github webpage](https://jeffdecola.github.io/my-go-examples/)
 
@@ -36,29 +36,30 @@ if answer != 4 {
 ## RUN
 
 The programs asks you what is 2+2 and depending on your answer will
-say you are incorrect, correct and/or give you an error.
+say you are incorrect, correct and/or give you an error. Notice how it propagates
+the error up the function calls.
 
 Run,
 
 ```bash
-go run errors.go
+go run error-example.go
 ```
 
 The output may look like,
 
 ```bash
-What is 2+2?: 4
+What is 2+2? 4
 YOUR ANSWER 4 IS CORRECT!
 ------------------------
-What is 2+2?: 5
-INCORRECT!!
-ERRO[0002] Error with answer: error calling b from a: error calling c from b: 5 was provided: the answer is incorrect 
-------------------------
-What is 2+2?: cat
-Not an int
-ERRO[0004] Error with answer: error calling b from a: unable to convert in b: strconv.Atoi: parsing "cat": invalid syntax 
-------------------------
-What is 2+2?: stop
+What is 2+2? 5
+INCORRECT!
+ERRO[0003] Error with answer: error calling checkNumber: 5 was provided: the answer is incorrect
+------------------------ 
+What is 2+2? cat
+Not an integer
+ERRO[0005] Error with answer: unable to convert to integer: strconv.Atoi: parsing "cat": invalid syntax
+------------------------ 
+What is 2+2? stop
 Done
 ```
 
@@ -69,11 +70,12 @@ Notice how it traces the error back to your original function.
 To create _test files,
 
 ```bash
-gotests -w -all errors.go
+gotests -w -all error-example.go
 ```
 
 To unit test the code,
 
 ```bash
+go test -func -cover ./... 
 go test -cover ./... 
 ```

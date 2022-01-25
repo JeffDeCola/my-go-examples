@@ -19,7 +19,7 @@ Documentation and references,
   [flag](https://github.com/JeffDeCola/my-go-examples/tree/master/common-go/flags/flag),
   [logrus](https://github.com/JeffDeCola/my-go-examples/tree/master/common-go/logging/logrus)
   and
-  [errors](https://github.com/JeffDeCola/my-go-examples/tree/master/common-go/error-reporting/errors)
+  [error-example](https://github.com/JeffDeCola/my-go-examples/tree/master/common-go/error-reporting/error-example)
   examples
 * This repos [github webpage](https://jeffdecola.github.io/my-go-examples/)
 

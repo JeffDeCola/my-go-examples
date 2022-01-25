@@ -105,7 +105,7 @@ _A good place to start._
 
 * ERROR REPORTING
 
-  * [errors](https://github.com/JeffDeCola/my-go-examples/tree/master/common-go/error-reporting/errors)
+  * [error-example](https://github.com/JeffDeCola/my-go-examples/tree/master/common-go/error-reporting/error-example)
 
     _Error Handling using the standard `error` package._
 
