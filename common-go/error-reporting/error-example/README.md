@@ -76,6 +76,5 @@ gotests -w -all error-example.go
 To unit test the code,
 
 ```bash
-go test -func -cover ./... 
 go test -cover ./... 
 ```
