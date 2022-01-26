@@ -195,7 +195,17 @@ package to read data and write data to/from various IO
 
 * IO READER
 
+  * [io-reader](https://github.com/JeffDeCola/my-go-examples/tree/master/input-output/io-reader)
+
+    _Read data (a stream of bytes) from a buffer, a file, stdin and a pipe
+    using the standard `io` package._
+
 * IO WRITER
+
+  * [io-writer](https://github.com/JeffDeCola/my-go-examples/tree/master/input-output/io-writer)
+
+    _Write data (a stream of bytes) to a buffer, a file, stdout and a pipe
+    using the standard `io` package._
 
 ### IoT
 
