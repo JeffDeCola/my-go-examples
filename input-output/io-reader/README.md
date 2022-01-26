@@ -29,7 +29,7 @@ can be read or written to.
 Simply put, the io.Reader is an interface from which you can
 read a stream of bytes into a buffer.
 
-![IMAGE - buffered-io.jpg - IMAGE](docs/pics/input-output/buffered-io.jpg)
+![IMAGE - buffered-io.jpg - IMAGE](../../docs/pics/input-output/buffered-io.jpg)
 
 r is the io.Reader and can handle multiple types of streams,
 
