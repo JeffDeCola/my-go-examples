@@ -34,12 +34,26 @@ Lets have one interface that can get the area for both
 a rectangle and a circle.
 
 ```go
+type areaInterface interface {
+    theArea() float64
+}
+
+func area(a areaInterface) float64 {
+    // CALL THE METHOD - WILL CHOSE RIGHT ONE
+    area := a.theArea()
+    return area
+}
+```
+
+where,
+
+```go
 type Rectangle struct {
     width  float32
     height float32
 }
 
-func (r Rectangle) areaRectangle() float32 {
+func (r Rectangle) theArea() float32 {
     area := r.width * r.height
     return area
 }

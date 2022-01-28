@@ -33,8 +33,8 @@ func (r Rectangle) theArea() float64 {
 	return area
 }
 
-func (r Circle) theArea() float64 {
-	area := math.Pi * math.Pow(r.radius, 2)
+func (c Circle) theArea() float64 {
+	area := math.Pi * math.Pow(c.radius, 2)
 	return area
 }
 
