@@ -1,6 +1,6 @@
-# shapes
+# area-shapes-methods
 
-_Using methods to define and calculate the area and perimeter of geometric shapes._
+_Using methods to calculate the area of a rectangle and circle._
 
 Other examples using,
 
@@ -8,9 +8,20 @@ Other examples using,
 * Methods **<- YOU ARE HERE**
 * Interfaces
 
+tl;dr,
+
+```go
+// Function, method, interface
+recArea := areaRectangle(recWidth, recHeight)
+recArea := rec.areaRectangle()
+recArea := area(rec)
+```
+
 Table of Contents,
 
-* tbd
+* [OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/methods/area-shapes-methods#overview)
+* [RUN](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/methods/area-shapes-methods#run)
+* [TEST](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/methods/area-shapes-methods#test)
 
 Documentation and reference,
 
@@ -36,11 +47,6 @@ func (r Rectangle) areaRectangle() float32 {
     area := r.width * r.height
     return area
 }
-
-func (r Rectangle)  perimeterRectangle() float32 {
-    perimeter := 2 * (r.width + r.height)
-    return perimeter
-}
 ```
 
 Define the rectangle,
@@ -52,9 +58,7 @@ rec := Rectangle{2.4, 34.4}
 Calculate using method,
 
 ```go
-// CALCULATE AREA & PERIMETER
 recArea := rec.areaRectangle()
-recPerimeter := rec.perimeterRectangle()
 ```
 
 ## RUN
@@ -62,7 +66,7 @@ recPerimeter := rec.perimeterRectangle()
 To run,
 
 ```bash
-go run shapes-methods.go
+go run area-shapes-methods.go
 ```
 
 ## TEST
@@ -70,7 +74,7 @@ go run shapes-methods.go
 To create _test files,
 
 ```bash
-gotests -w -all shapes-methods.go
+gotests -w -all area-shapes-methods.go
 ```
 
 To unit test the code,
