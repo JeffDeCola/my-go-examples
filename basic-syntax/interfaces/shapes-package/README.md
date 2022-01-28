@@ -24,7 +24,24 @@ Documentation and reference,
 
 ## OVERVIEW
 
-The goal is to just have an interface that calculates area,
+Defines the shapes using a struct,
+
+```go
+rec := shapes.Rectangle{
+    Width:  2.4,
+    Height: 34.4,
+}
+circ := shapes.Circle{
+    Radius: 2.3,
+}
+tri := shapes.Triangle{
+    A: 2,
+    B: 3.3,
+    C: 4,
+}
+```
+
+The beauty of an interface is their is only one function,
 
 ```go
 recArea := area(rec)
@@ -53,7 +70,8 @@ go run shapes-package.go
 To create _test files,
 
 ```bash
-gotests -w -all shapes-package.go
+cd shapes
+gotests -w -all shapes.go
 ```
 
 To unit test the code,
