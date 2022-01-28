@@ -23,6 +23,7 @@ Table of Contents,
 * [OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/methods/area-shapes-methods#overview)
 * [RUN](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/methods/area-shapes-methods#run)
 * [TEST](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/methods/area-shapes-methods#test)
+* [AN ILLUSTRATION THAT MAY HELP](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/methods/area-shapes-methods#an-illustration-that-may-help)
 
 Documentation and reference,
 
@@ -83,3 +84,7 @@ To unit test the code,
 ```bash
 go test -cover ./... 
 ```
+
+## AN ILLUSTRATION THAT MAY HELP
+
+![IMAGE - functions-methods-interfaces.jpg - IMAGE](../../../docs/pics/basic-syntax/functions-methods-interfaces.jpg)

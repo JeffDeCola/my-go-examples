@@ -23,6 +23,7 @@ Table of Contents,
 * [OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/interfaces/area-shapes-interfaces#overview)
 * [RUN](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/interfaces/area-shapes-interfaces#run)
 * [TEST](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/interfaces/area-shapes-interfaces#test)
+* [AN ILLUSTRATION THAT MAY HELP](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/interfaces/area-shapes-interfaces#an-illustration-that-may-help)
 
 Documentation and reference,
 
@@ -30,8 +31,8 @@ Documentation and reference,
 
 ## OVERVIEW
 
-Lets have one interface that can get the area for both
-a rectangle and a circle.
+Lets have one function that can get the area for both
+a rectangle and a circle. That's an interface.
 
 Define the rectangle using a struct,
 
@@ -94,3 +95,7 @@ To unit test the code,
 ```bash
 go test -cover ./... 
 ```
+
+## AN ILLUSTRATION THAT MAY HELP
+
+![IMAGE - functions-methods-interfaces.jpg - IMAGE](../../../docs/pics/basic-syntax/functions-methods-interfaces.jpg)
