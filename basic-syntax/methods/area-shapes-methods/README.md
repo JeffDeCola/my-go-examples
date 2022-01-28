@@ -36,30 +36,30 @@ The benefit of methods over functions is that you use a struct that defines
 the characteristics of the shape. It just makes it a lot easier to use a
 struct, rather than passing lots of variables around.
 
-The rectangle methods,
+Define the rectangle using a struct,
 
 ```go
 type Rectangle struct {
-    width  float32
-    height float32
+    width  float64
+    height float64
 }
 
-func (r Rectangle) areaRectangle() float32 {
-    area := r.width * r.height
-    return area
-}
-```
-
-Define the rectangle,
-
-```go
 rec := Rectangle{2.4, 34.4}
 ```
 
-Calculate using method,
+Calculate the area using a method,
 
 ```go
 recArea := rec.areaRectangle()
+```
+
+The rectangle method,
+
+```go
+func (r Rectangle) areaRectangle() float64 {
+    area := r.width * r.height
+    return area
+}
 ```
 
 ## RUN

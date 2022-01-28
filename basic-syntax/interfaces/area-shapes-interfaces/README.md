@@ -33,6 +33,25 @@ Documentation and reference,
 Lets have one interface that can get the area for both
 a rectangle and a circle.
 
+Define the rectangle using a struct,
+
+```go
+type Rectangle struct {
+    width  float64
+    height float64
+}
+
+rec := Rectangle{2.4, 34.4}
+```
+
+Calculate the area using an interface,
+
+```go
+recArea := area(rec)
+```
+
+The rectangle interface,
+
 ```go
 type areaInterface interface {
     theArea() float64
@@ -48,27 +67,10 @@ func area(a areaInterface) float64 {
 where,
 
 ```go
-type Rectangle struct {
-    width  float32
-    height float32
-}
-
 func (r Rectangle) theArea() float32 {
     area := r.width * r.height
     return area
 }
-```
-
-Define the rectangle,
-
-```go
-rec := Rectangle{2.4, 34.4}
-```
-
-Calculate using interface,
-
-```go
-recArea := area(rec)
 ```
 
 ## RUN
