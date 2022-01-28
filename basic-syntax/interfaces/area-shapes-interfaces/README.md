@@ -49,18 +49,23 @@ Calculate the area using an interface,
 
 ```go
 recArea := area(rec)
+
+// OR I COULD CALCULATE AREA WITHOUT USING THE AREA FUNCTION
+var g geometry
+g = rec
+recArea := g.theArea()
 ```
 
 The rectangle interface,
 
 ```go
-type areaInterface interface {
+type geometry interface {
     theArea() float64
 }
 
-func area(a areaInterface) float64 {
+func area(g geometry) float64 {
     // CALL THE METHOD - WILL CHOSE RIGHT ONE
-    area := a.theArea()
+    area := g.theArea()
     return area
 }
 ```
