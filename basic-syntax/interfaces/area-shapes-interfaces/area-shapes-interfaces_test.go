@@ -12,11 +12,18 @@ func Test_area(t *testing.T) {
 		want float64
 	}{
 		{
-			name: "Test Area Interface",
+			name: "Test Area Interface - Rectangle",
 			args: args{
 				a: Rectangle{2.4, 34.4},
 			},
 			want: 82.55999999999999,
+		},
+		{
+			name: "Test Area Interface - Circle",
+			args: args{
+				a: Circle{2.3},
+			},
+			want: 16.619025137490002,
 		},
 	}
 	for _, tt := range tests {

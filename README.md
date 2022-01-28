@@ -71,31 +71,30 @@ _Using go to build fun things._
 
 ### BASIC SYNTAX
 
-_Just your basic syntax examples in go._
-
-* DATA TYPES
-
-  * [tbd](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/data-types/tbd)
-
-    _tbd_
+_In logical order._
 
 * FUNCTIONS
 
-  * [tbd](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/functions/tbd)
+  * [area-shapes-functions](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/functions/area-shapes-functions)
 
-    _tbd_
-
-* INTERFACES
-
-  * [tbd](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/interfaces/tbd)
-
-    _tbd_
+    _Using functions to calculate the area of a rectangle and circle._
 
 * METHODS
 
-  * [tbd](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/methods/tbd)
+  * [area-shapes-methods](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/methods/area-shapes-methods)
 
-    _tbd_
+    _Using methods to calculate the area of a rectangle and circle._
+
+* INTERFACES
+
+  * [area-shapes-interfaces](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/interfaces/area-shapes-interfaces)
+
+    _Using an interface to calculate the area of a rectangle and circle._
+
+  * [shapes-package](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/interfaces/shapes-package)
+
+    _Using an interface to calculate the area and perimeter of a rectangle,
+    circle and triangle via a shapes package._
 
 ### CGO
 
