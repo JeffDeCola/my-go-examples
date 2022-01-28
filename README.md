@@ -75,11 +75,27 @@ _Just your basic syntax examples in go._
 
 * DATA TYPES
 
+  * [tbd](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/data-types/tbd)
+
+    _tbd_
+
 * FUNCTIONS
+
+  * [tbd](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/functions/tbd)
+
+    _tbd_
 
 * INTERFACES
 
+  * [tbd](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/interfaces/tbd)
+
+    _tbd_
+
 * METHODS
+
+  * [tbd](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/methods/tbd)
+
+    _tbd_
 
 ### CGO
 
