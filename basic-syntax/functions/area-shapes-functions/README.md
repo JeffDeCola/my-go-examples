@@ -4,9 +4,10 @@ _Using functions to calculate the area of a rectangle and circle._
 
 Other examples using,
 
-* Functions **<- YOU ARE HERE**
-* Methods
-* Interfaces
+* [Functions](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/functions/area-shapes-functions)
+  **<- YOU ARE HERE**
+* [Methods](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/functions/area-shapes-methods)
+* [Interfaces](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/functions/area-shapes-interfaces)
 
 tl;dr,
 

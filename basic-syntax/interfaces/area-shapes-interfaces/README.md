@@ -1,12 +1,13 @@
 # area-shapes-interfaces
 
-_Using interfaces to calculate the area of a rectangle and circle._
+_Using an interface to calculate the area of a rectangle and circle._
 
 Other examples using,
 
-* Functions
-* Methods
-* Interfaces **<- YOU ARE HERE**
+* [Functions](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/functions/area-shapes-functions)
+* [Methods](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/functions/area-shapes-methods)
+* [Interfaces](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/functions/area-shapes-interfaces)
+  **<- YOU ARE HERE**
 
 tl;dr,
 
@@ -41,11 +42,6 @@ type Rectangle struct {
 func (r Rectangle) areaRectangle() float32 {
     area := r.width * r.height
     return area
-}
-
-func (r Rectangle)  perimeterRectangle() float32 {
-    perimeter := 2 * (r.width + r.height)
-    return perimeter
 }
 ```
 
