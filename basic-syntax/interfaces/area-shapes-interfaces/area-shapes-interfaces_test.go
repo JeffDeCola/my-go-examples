@@ -2,39 +2,6 @@ package main
 
 import "testing"
 
-func Test_area(t *testing.T) {
-	type args struct {
-		a areaInterface
-	}
-	tests := []struct {
-		name string
-		args args
-		want float64
-	}{
-		{
-			name: "Test Area Interface - Rectangle",
-			args: args{
-				a: Rectangle{2.4, 34.4},
-			},
-			want: 82.55999999999999,
-		},
-		{
-			name: "Test Area Interface - Circle",
-			args: args{
-				a: Circle{2.3},
-			},
-			want: 16.619025137490002,
-		},
-	}
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := area(tt.args.a); got != tt.want {
-				t.Errorf("area() = %v, want %v", got, tt.want)
-			}
-		})
-	}
-}
-
 func TestRectangle_theArea(t *testing.T) {
 	type fields struct {
 		width  float64
@@ -86,11 +53,44 @@ func TestCircle_theArea(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			r := Circle{
+			c := Circle{
 				radius: tt.fields.radius,
 			}
-			if got := r.theArea(); got != tt.want {
+			if got := c.theArea(); got != tt.want {
 				t.Errorf("Circle.theArea() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
+
+func Test_area(t *testing.T) {
+	type args struct {
+		g geometry
+	}
+	tests := []struct {
+		name string
+		args args
+		want float64
+	}{
+		{
+			name: "Test Area Interface - Rectangle",
+			args: args{
+				g: Rectangle{2.4, 34.4},
+			},
+			want: 82.55999999999999,
+		},
+		{
+			name: "Test Area Interface - Circle",
+			args: args{
+				g: Circle{2.3},
+			},
+			want: 16.619025137490002,
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := area(tt.args.g); got != tt.want {
+				t.Errorf("area() = %v, want %v", got, tt.want)
 			}
 		})
 	}

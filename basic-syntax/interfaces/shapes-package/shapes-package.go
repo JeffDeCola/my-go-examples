@@ -21,7 +21,19 @@ func main() {
 		C: 4,
 	}
 
-	// CALCULATE AREA - THE POWER OF THE INTERFACE
+	// METHOD 1 - CALCULATE AREA - THE POWER OF THE INTERFACE
+	// I LIKE METHOD 2 - I FIND IT CLEANER
+	//
+	// var g shapes.Geometry
+	//
+	// g = rec
+	// recArea := g.TheArea()
+	// g = circ
+	// circArea := g.TheArea()
+	// g = tri
+	// triArea := g.TheArea()
+
+	// METHOD 2 - CALCULATE AREA - THE POWER OF THE INTERFACE
 	recArea := shapes.Area(rec)
 	circArea := shapes.Area(circ)
 	triArea := shapes.Area(tri)
