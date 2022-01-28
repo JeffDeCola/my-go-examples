@@ -30,26 +30,26 @@ Documentation and reference,
 
 ## OVERVIEW
 
-The rectangle functions,
+Define the rectangle,
+
+```go
+var recWidth float64 = 2.4
+var recHeight float34 = 34.4
+```
+
+Calculate the area using a function,
+
+```go
+recArea := areaRectangle(recWidth, recHeight)
+```
+
+The rectangle function,
 
 ```go
 func areaRectangle(w float64, h float64) float64 {
     area := w * h
     return area
 }
-```
-
-Define the rectangle,
-
-```go
-var recWidth float32 = 2.4
-var recHeight float32 = 34.4
-```
-
-Calculate using function,
-
-```go
-recArea := areaRectangle(recWidth, recHeight)
 ```
 
 ## RUN
