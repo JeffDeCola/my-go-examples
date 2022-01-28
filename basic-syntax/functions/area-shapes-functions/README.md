@@ -6,8 +6,8 @@ Other examples using,
 
 * [Functions](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/functions/area-shapes-functions)
   **<- YOU ARE HERE**
-* [Methods](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/functions/area-shapes-methods)
-* [Interfaces](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/functions/area-shapes-interfaces)
+* [Methods](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/methods/area-shapes-methods)
+* [Interfaces](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/interfaces/area-shapes-interfaces)
 
 tl;dr,
 
