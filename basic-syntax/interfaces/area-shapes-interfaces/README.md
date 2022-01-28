@@ -30,8 +30,8 @@ Documentation and reference,
 
 ## OVERVIEW
 
-Lets go one more level and have 1 function that can get the area and
-perimeter of many different shapes.
+Lets have one interface that can get the area for both
+a rectangle and a circle.
 
 ```go
 type Rectangle struct {
@@ -54,9 +54,7 @@ rec := Rectangle{2.4, 34.4}
 Calculate using interface,
 
 ```go
-// CALCULATE AREA & PERIMETER
 recArea := area(rec)
-recPerimeter := perimeter(rec)
 ```
 
 ## RUN
