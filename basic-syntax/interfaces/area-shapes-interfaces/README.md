@@ -23,6 +23,7 @@ Table of Contents,
 * [OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/interfaces/area-shapes-interfaces#overview)
 * [RUN](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/interfaces/area-shapes-interfaces#run)
 * [TEST](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/interfaces/area-shapes-interfaces#test)
+* [TWO WAYS TO CODE INTERFACES](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/interfaces/area-shapes-interfaces#two-ways-to-code-interfaces)
 * [AN ILLUSTRATION THAT MAY HELP](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/interfaces/area-shapes-interfaces#an-illustration-that-may-help)
 
 Documentation and reference,
@@ -56,7 +57,7 @@ g = rec
 recArea := g.theArea()
 ```
 
-The rectangle interface,
+The rectangle interface (I like making a function using the interface),
 
 ```go
 type geometry interface {
@@ -99,6 +100,35 @@ To unit test the code,
 
 ```bash
 go test -cover ./... 
+```
+
+## TWO WAYS TO CODE INTERFACES
+
+For me, I like to place the interface in a function,
+
+```go
+func area(g geometry) float64 {
+    area := g.theArea()
+    return area
+}
+
+func main() {
+
+    rec := Rectangle{2.4, 34.4}
+    recArea := area(rec)
+
+```
+
+Rather than,
+
+```go
+
+func main() {
+
+    var g geometry
+    rec := Rectangle{2.4, 34.4}
+    g = rec
+    recArea := g.theArea()
 ```
 
 ## AN ILLUSTRATION THAT MAY HELP
