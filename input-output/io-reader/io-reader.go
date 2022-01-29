@@ -1,51 +1,79 @@
 package main
 
 import (
+	"bytes"
 	"fmt"
 	"io"
 	"os"
 	"strings"
 )
 
-func readerToBuffer(r io.Reader) error {
+func readToBufferandPrint(r io.Reader) error {
 
-	// CREATE BUFFER TO WRITE TO
+	// CREATE SMALL BUFFER TO WRITE INTO
 	buffer := make([]byte, 20)
 
 	// LETS STREAM FROM READER INTO BUFFER AND PRINT
 	for {
-		// RETURNS COUNT TILL EOF
+
+		// READ METHOD
+		// Retruns count till EOF
 		n, err := r.Read(buffer)
-		if err == io.EOF {
-			return nil
-		}
-		// A REAL ERROR
 		if err != nil {
+			if err == io.EOF {
+				bufferOutput := string(buffer[:n])
+				fmt.Printf(bufferOutput + "\n")
+				return nil
+			}
 			return fmt.Errorf("error reading Stdin: %w", err)
 		}
-		if string(buffer[:4]) == "stop" {
+
+		// PRINT THE BUFFER AND LOOP
+		bufferOutput := string(buffer[:n])
+		if bufferOutput == "stop\n" {
+			fmt.Printf("Stopping\n")
 			return nil
 		}
-		fmt.Printf(string(buffer[:n]) + "\n")
+		fmt.Printf(bufferOutput + "\n")
+
 	}
 
 }
 
 func main() {
 
-	// READING FROM A BUFFER - which is a string of bytes
-	fmt.Printf("\nREADING FROM A BUFFER\n")
-	// CREATE THE READER
-	sourceBuffer := []byte("This data is being put into a buffer")
-	r := strings.NewReader(string(sourceBuffer))
-	// READER TO BUFFER
-	err := readerToBuffer(r)
+	// ---------------------------------------------------
+	// READING FROM A STRING (*string.Reader)
+	fmt.Printf("\nREADING FROM A STRING\n")
+
+	// CREATE THE STRING READER
+	sourceString := "This data is being put into a string reader"
+	s := strings.NewReader(sourceString)
+
+	// STREAM TO BUFFER (s is *strings.Reader)
+	err := readToBufferandPrint(s)
 	if err != nil {
-		fmt.Printf("Error with reading buffer: %s\n", err)
+		fmt.Printf("Error reading string: %s\n", err)
 	}
 
-	// -- READING FROM A FILE (BYTES) TO A BUFFER (BYTES) --
+	// ---------------------------------------------------
+	// READING FROM A BUFFER (*bytes.Reader)
+	fmt.Printf("\nREADING FROM A BUFFER\n")
+
+	// CREATE THE READER
+	sourceBuffer := []byte("This data is being put into a byte reader")
+	b := bytes.NewReader(sourceBuffer)
+
+	// STREAM TO BUFFER (b is *bytes.Reader)
+	err = readToBufferandPrint(b)
+	if err != nil {
+		fmt.Printf("Error reading bytes: %s\n", err)
+	}
+
+	// ---------------------------------------------------
+	// READING FROM A FILE (*os.File)
 	fmt.Printf("\nREAD FROM FILE\n")
+
 	// OPEN THE FILE
 	filename := "test.txt"
 	f, err := os.Open(filename)
@@ -53,22 +81,27 @@ func main() {
 		fmt.Printf("error opening file: %s", err)
 	}
 	defer f.Close()
-	// READER TO BUFFER
-	err = readerToBuffer(f)
+
+	// STREAM TO BUFFER (f is *os.File)
+	err = readToBufferandPrint(f)
 	if err != nil {
 		fmt.Printf("Error with reading file: %s\n", err)
 	}
 
-	// -- READING FROM STDIN TO A BUFFER (BYTES) --
-	fmt.Printf("\nREAD FROM STDIN - TYPE 'STOP' TO CONTINUE\n")
-	// READER TO BUFFER
-	err = readerToBuffer(os.Stdin)
+	// ---------------------------------------------------
+	// READING FROM STDIN (os.Stdin)
+	fmt.Printf("\nREAD FROM STDIN - type 'stop' to continue\n")
+
+	// STREAM TO BUFFER (os.Stdin)
+	err = readToBufferandPrint(os.Stdin)
 	if err != nil {
-		fmt.Printf("Error with reading Stdin: %s\n", err)
+		fmt.Printf("Error reading Stdin: %s\n", err)
 	}
 
-	// -- READING FROM A PIPE TO A BUFFER (BYTES) --
+	// ---------------------------------------------------
+	// READING FROM A PIPE (*io.PipeReader)
 	fmt.Printf("\nREAD FROM A PIPE\n")
+
 	// CREATE THE PIPE
 	rpipe, wpipe := io.Pipe()
 	// WRITE INTO PIPE USING GO ROUTINE
@@ -77,10 +110,11 @@ func main() {
 		// Using Close method to close write
 		wpipe.Close()
 	}()
-	// READER TO BUFFER
-	err = readerToBuffer(rpipe)
+
+	// STREAM TO BUFFER (rpipe is *io.PipeReader)
+	err = readToBufferandPrint(rpipe)
 	if err != nil {
-		fmt.Printf("Error with reading Pipe: %s\n", err)
+		fmt.Printf("Error reading pipe: %s\n", err)
 	}
 
 }

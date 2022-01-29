@@ -6,10 +6,6 @@ using the standard `io` package._
 Table of Contents,
 
 * [OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/input-output/io-reader#overview)
-  * [FROM A BUFFER (STRING)](https://github.com/JeffDeCola/my-go-examples/tree/master/input-output/io-reader#from-a-buffer-string)
-  * [FROM A FILE](https://github.com/JeffDeCola/my-go-examples/tree/master/input-output/io-reader#from-a-file)
-  * [FROM STDIN](https://github.com/JeffDeCola/my-go-examples/tree/master/input-output/io-reader#from-stdin)
-  * [FROM A PIPE](https://github.com/JeffDeCola/my-go-examples/tree/master/input-output/io-reader#from-a-pipe)
 * [RUN](https://github.com/JeffDeCola/my-go-examples/tree/master/input-output/io-reader#run)
 * [TEST](https://github.com/JeffDeCola/my-go-examples/tree/master/input-output/io-reader#test)
 
@@ -23,7 +19,7 @@ Documentation and references,
 ## OVERVIEW
 
 Buffered I/O is extremely powerful in go.
-Input and output operations model data as streams of bytes that
+Input/output operations model data as streams of bytes that
 can be read or written to.
 
 Simply put, the io.Reader is an interface from which you can
@@ -31,41 +27,50 @@ read a stream of bytes into a buffer.
 
 ![IMAGE - buffered-io.jpg - IMAGE](../../docs/pics/input-output/buffered-io.jpg)
 
-r is the io.Reader and can handle multiple types of streams,
+The io.Reader interface looks like,
 
 ```go
-// r is the io.Reader
-buffer := make([]byte, 20)
-// THE READER PLACES THE BYTES INTO A BUFFER
+type Reader interface {
+        Read(p []byte) (n int, err error)
+}
+```
+
+Hence, we use the Method Read(),
+
+```go
 n, err := r.Read(buffer)
 ```
 
-### FROM A BUFFER (strings.Reader)
+### FROM A STRING (*strings.Reader)
 
 ```go
-sourceBuffer := []byte("This data is being put into a buffer")
-r := string.NewReader(string(sourceBuffer))
-// r strings.Reader put into the reader
+sourceString := "This data is being put into a string reader"
+s := strings.NewReader(sourceString)
 ```
 
-### FROM A FILE (os.File)
+### FROM A BUFFER (*bytes.Reader)
+
+```go
+sourceBuffer := []byte("This data is being put into a byte reader")
+b := bytes.NewReader(sourceBuffer)
+```
+
+### FROM A FILE (*os.File)
 
 ```go
 f, err := os.Open("test.txt")
-// f os.File put into the reader
 ```
 
 ### FROM A USER (os.Stdin)
 
-```go
-// os.Stdin is put into the reader
-```
+Just use os.Stdin.
 
-### FROM A PIPE (io.PipeReader)
+### FROM A PIPE (*io.PipeReader)
+
+Use the pipe output rpipe,
 
 ```go
 rpipe, wpipe := io.Pipe()
-// rpipe io.PipeReader is put into the reader
 ```
 
 ## RUN
