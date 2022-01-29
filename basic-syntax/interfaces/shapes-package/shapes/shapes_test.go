@@ -2,7 +2,7 @@ package shapes
 
 import "testing"
 
-func TestRectangle_theArea(t *testing.T) {
+func TestRectangle_Area(t *testing.T) {
 	type fields struct {
 		Width  float64
 		Height float64
@@ -27,14 +27,14 @@ func TestRectangle_theArea(t *testing.T) {
 				Width:  tt.fields.Width,
 				Height: tt.fields.Height,
 			}
-			if got := r.TheArea(); got != tt.want {
-				t.Errorf("Rectangle.theArea() = %v, want %v", got, tt.want)
+			if got := r.Area(); got != tt.want {
+				t.Errorf("Rectangle.Area() = %v, want %v", got, tt.want)
 			}
 		})
 	}
 }
 
-func TestRectangle_thePerimeter(t *testing.T) {
+func TestRectangle_Perimeter(t *testing.T) {
 	type fields struct {
 		Width  float64
 		Height float64
@@ -59,14 +59,14 @@ func TestRectangle_thePerimeter(t *testing.T) {
 				Width:  tt.fields.Width,
 				Height: tt.fields.Height,
 			}
-			if got := r.ThePerimeter(); got != tt.want {
-				t.Errorf("Rectangle.thePerimeter() = %v, want %v", got, tt.want)
+			if got := r.Perimeter(); got != tt.want {
+				t.Errorf("Rectangle.Perimeter() = %v, want %v", got, tt.want)
 			}
 		})
 	}
 }
 
-func TestCircle_theArea(t *testing.T) {
+func TestCircle_Area(t *testing.T) {
 	type fields struct {
 		Radius float64
 	}
@@ -88,14 +88,14 @@ func TestCircle_theArea(t *testing.T) {
 			c := Circle{
 				Radius: tt.fields.Radius,
 			}
-			if got := c.TheArea(); got != tt.want {
-				t.Errorf("Circle.theArea() = %v, want %v", got, tt.want)
+			if got := c.Area(); got != tt.want {
+				t.Errorf("Circle.Area() = %v, want %v", got, tt.want)
 			}
 		})
 	}
 }
 
-func TestCircle_thePerimeter(t *testing.T) {
+func TestCircle_Perimeter(t *testing.T) {
 	type fields struct {
 		Radius float64
 	}
@@ -117,14 +117,14 @@ func TestCircle_thePerimeter(t *testing.T) {
 			c := Circle{
 				Radius: tt.fields.Radius,
 			}
-			if got := c.ThePerimeter(); got != tt.want {
-				t.Errorf("Circle.thePerimeter() = %v, want %v", got, tt.want)
+			if got := c.Perimeter(); got != tt.want {
+				t.Errorf("Circle.Perimeter() = %v, want %v", got, tt.want)
 			}
 		})
 	}
 }
 
-func TestTriangle_theArea(t *testing.T) {
+func TestTriangle_Area(t *testing.T) {
 	type fields struct {
 		A float64
 		B float64
@@ -152,14 +152,14 @@ func TestTriangle_theArea(t *testing.T) {
 				B: tt.fields.B,
 				C: tt.fields.C,
 			}
-			if got := tr.TheArea(); got != tt.want {
-				t.Errorf("Triangle.theArea() = %v, want %v", got, tt.want)
+			if got := tr.Area(); got != tt.want {
+				t.Errorf("Triangle.Area() = %v, want %v", got, tt.want)
 			}
 		})
 	}
 }
 
-func TestTriangle_thePerimeter(t *testing.T) {
+func TestTriangle_Perimeter(t *testing.T) {
 	type fields struct {
 		A float64
 		B float64
@@ -187,14 +187,14 @@ func TestTriangle_thePerimeter(t *testing.T) {
 				B: tt.fields.B,
 				C: tt.fields.C,
 			}
-			if got := tr.ThePerimeter(); got != tt.want {
-				t.Errorf("Triangle.thePerimeter() = %v, want %v", got, tt.want)
+			if got := tr.Perimeter(); got != tt.want {
+				t.Errorf("Triangle.Perimeter() = %v, want %v", got, tt.want)
 			}
 		})
 	}
 }
 
-func TestArea(t *testing.T) {
+func TestGetArea(t *testing.T) {
 	type args struct {
 		g Geometry
 	}
@@ -227,14 +227,14 @@ func TestArea(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if got := Area(tt.args.g); got != tt.want {
+			if got := GetArea(tt.args.g); got != tt.want {
 				t.Errorf("Area() = %v, want %v", got, tt.want)
 			}
 		})
 	}
 }
 
-func TestPerimeter(t *testing.T) {
+func TestGetPerimeter(t *testing.T) {
 	type args struct {
 		g Geometry
 	}
@@ -267,7 +267,7 @@ func TestPerimeter(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if got := Perimeter(tt.args.g); got != tt.want {
+			if got := GetPerimeter(tt.args.g); got != tt.want {
 				t.Errorf("Perimeter() = %v, want %v", got, tt.want)
 			}
 		})

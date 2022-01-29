@@ -6,10 +6,15 @@ circle and triangle via a shapes package._
 tl;dr,
 
 ```go
-// Function, method, interface
+// FUNCTION
 recArea := areaRectangle(recWidth, recHeight)
+// METHOD
+rec := Rectangle{2.4, 34.4}
 recArea := rec.areaRectangle()
-recArea := area(rec)
+// INTERFACE
+var g geometry
+g = rec
+recArea := g.area()
 ```
 
 Table of Contents,
@@ -41,20 +46,20 @@ tri := shapes.Triangle{
 }
 ```
 
-The beauty of an interface is their is only one function,
+Calculate area and perimeter using geometry interface
 
 ```go
-recArea := area(rec)
-circArea := area(circ)
-triArea := area(tri)
-```
+var g shapes.Geometry
 
-Or perimeter,
-
-```go
-recPerimeter := area(rec)
-circPerimeter := area(circ)
-triPerimeter := area(tri)
+g = rec
+recArea := g.Area()
+recPerimeter := g.Perimeter()
+g = circ
+circArea := g.Area()
+circPerimeter := g.Perimeter()
+g = tri
+triArea := g.Area()
+triPerimeter := g.Perimeter()
 ```
 
 ## RUN

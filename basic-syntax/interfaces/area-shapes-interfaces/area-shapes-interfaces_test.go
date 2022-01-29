@@ -2,7 +2,7 @@ package main
 
 import "testing"
 
-func TestRectangle_theArea(t *testing.T) {
+func TestRectangle_Area(t *testing.T) {
 	type fields struct {
 		width  float64
 		height float64
@@ -27,14 +27,14 @@ func TestRectangle_theArea(t *testing.T) {
 				width:  tt.fields.width,
 				height: tt.fields.height,
 			}
-			if got := r.theArea(); got != tt.want {
+			if got := r.area(); got != tt.want {
 				t.Errorf("Rectangle.theArea() = %v, want %v", got, tt.want)
 			}
 		})
 	}
 }
 
-func TestCircle_theArea(t *testing.T) {
+func TestCircle_Area(t *testing.T) {
 	type fields struct {
 		radius float64
 	}
@@ -56,14 +56,14 @@ func TestCircle_theArea(t *testing.T) {
 			c := Circle{
 				radius: tt.fields.radius,
 			}
-			if got := c.theArea(); got != tt.want {
+			if got := c.area(); got != tt.want {
 				t.Errorf("Circle.theArea() = %v, want %v", got, tt.want)
 			}
 		})
 	}
 }
 
-func Test_area(t *testing.T) {
+func Test_getArea(t *testing.T) {
 	type args struct {
 		g geometry
 	}
@@ -89,7 +89,7 @@ func Test_area(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if got := area(tt.args.g); got != tt.want {
+			if got := getArea(tt.args.g); got != tt.want {
 				t.Errorf("area() = %v, want %v", got, tt.want)
 			}
 		})

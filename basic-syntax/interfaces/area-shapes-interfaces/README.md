@@ -12,10 +12,15 @@ Other examples using,
 tl;dr,
 
 ```go
-// Function, method, interface
+// FUNCTION
 recArea := areaRectangle(recWidth, recHeight)
+// METHOD
+rec := Rectangle{2.4, 34.4}
 recArea := rec.areaRectangle()
-recArea := area(rec)
+// INTERFACE
+var g geometry
+g = rec
+recArea := g.area()
 ```
 
 Table of Contents,
@@ -46,38 +51,35 @@ type Rectangle struct {
 rec := Rectangle{2.4, 34.4}
 ```
 
-Calculate the area using an interface,
+Calculate the area using area method,
 
 ```go
-recArea := area(rec)
-
-// OR I COULD CALCULATE AREA WITHOUT USING THE AREA FUNCTION
 var g geometry
 g = rec
-recArea := g.theArea()
+recArea := g.area()
 ```
 
-The rectangle interface (I like making a function using the interface),
+Where the interface is,
 
 ```go
 type geometry interface {
-    theArea() float64
+    area() float64
 }
+```
 
-func area(g geometry) float64 {
-    // CALL THE METHOD - WILL CHOSE RIGHT ONE
-    area := g.theArea()
+Or you could create a function,
+
+```go
+func theArea(g geometry) float64 {
+    area := g.area()
     return area
 }
 ```
 
-where,
+To Calculate the area ,
 
 ```go
-func (r Rectangle) theArea() float32 {
-    area := r.width * r.height
-    return area
-}
+recArea := theArea(rec)
 ```
 
 ## RUN
@@ -100,35 +102,6 @@ To unit test the code,
 
 ```bash
 go test -cover ./... 
-```
-
-## TWO WAYS TO CODE INTERFACES
-
-For me, I like to place the interface in a function,
-
-```go
-func area(g geometry) float64 {
-    area := g.theArea()
-    return area
-}
-
-func main() {
-
-    rec := Rectangle{2.4, 34.4}
-    recArea := area(rec)
-
-```
-
-Rather than,
-
-```go
-
-func main() {
-
-    var g geometry
-    rec := Rectangle{2.4, 34.4}
-    g = rec
-    recArea := g.theArea()
 ```
 
 ## AN ILLUSTRATION THAT MAY HELP
