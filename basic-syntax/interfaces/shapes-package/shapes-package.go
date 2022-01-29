@@ -21,30 +21,35 @@ func main() {
 		C: 4,
 	}
 
-	// METHOD 1 - CALCULATE AREA - THE POWER OF THE INTERFACE
-	// I LIKE METHOD 2 - I FIND IT CLEANER
-	//
-	// var g shapes.Geometry
-	//
-	// g = rec
-	// recArea := g.TheArea()
-	// g = circ
-	// circArea := g.TheArea()
-	// g = tri
-	// triArea := g.TheArea()
+	// CALCULATE AREA AND PERIMETER
+	var g shapes.Geometry
 
-	// METHOD 2 - CALCULATE AREA - THE POWER OF THE INTERFACE
-	recArea := shapes.Area(rec)
-	circArea := shapes.Area(circ)
-	triArea := shapes.Area(tri)
-
-	// CALCULATE PERIMETER - THE POWER OF THE INTERFACE
-	recPerimeter := shapes.Perimeter(rec)
-	circPerimeter := shapes.Perimeter(circ)
-	triPerimeter := shapes.Perimeter(tri)
+	g = rec
+	recArea := g.Area()
+	recPerimeter := g.Perimeter()
+	g = circ
+	circArea := g.Area()
+	circPerimeter := g.Perimeter()
+	g = tri
+	triArea := g.Area()
+	triPerimeter := g.Perimeter()
 
 	// PRINT
 	fmt.Printf("Rectangle (%.2f x %.2f): Area=%.2f, Perimeter=%.2f\n", rec.Width, rec.Height, recArea, recPerimeter)
 	fmt.Printf("Circle (%.2f): Area=%.2f, Perimeter=%.2f\n", circ.Radius, circArea, circPerimeter)
 	fmt.Printf("Triangle (%.2f x %.2f x %.2f ): Area=%.2f, Perimeter=%.2f\n", tri.A, tri.B, tri.C, triArea, triPerimeter)
+
+	// COULD PUT THE INTERFACE IN A FUNCTION
+	recArea = shapes.GetArea(rec)
+	circArea = shapes.GetArea(circ)
+	triArea = shapes.GetArea(tri)
+	recPerimeter = shapes.GetPerimeter(rec)
+	circPerimeter = shapes.GetPerimeter(circ)
+	triPerimeter = shapes.GetPerimeter(tri)
+
+	// PRINT
+	fmt.Printf("Rectangle (%.2f x %.2f): Area=%.2f, Perimeter=%.2f\n", rec.Width, rec.Height, recArea, recPerimeter)
+	fmt.Printf("Circle (%.2f): Area=%.2f, Perimeter=%.2f\n", circ.Radius, circArea, circPerimeter)
+	fmt.Printf("Triangle (%.2f x %.2f x %.2f ): Area=%.2f, Perimeter=%.2f\n", tri.A, tri.B, tri.C, triArea, triPerimeter)
+
 }

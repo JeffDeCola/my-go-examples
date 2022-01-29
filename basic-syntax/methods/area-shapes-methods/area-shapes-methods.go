@@ -16,12 +16,12 @@ type Circle struct {
 }
 
 // MATH USING METHODS
-func (r Rectangle) areaRectangle() float64 {
+func (r Rectangle) area() float64 {
 	area := r.width * r.height
 	return area
 }
 
-func (c Circle) areaCircle() float64 {
+func (c Circle) area() float64 {
 	area := math.Pi * math.Pow(c.radius, 2)
 	return area
 }
@@ -33,8 +33,8 @@ func main() {
 	circ := Circle{2.3}
 
 	// CALCULATE AREA OF SHAPES
-	recArea := rec.areaRectangle()
-	circArea := circ.areaCircle()
+	recArea := rec.area()
+	circArea := circ.area()
 
 	// PRINT
 	fmt.Printf("Rectangle (%.2f x %.2f): Area=%.2f\n", rec.width, rec.height, recArea)

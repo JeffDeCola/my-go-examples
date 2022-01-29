@@ -2,7 +2,7 @@ package main
 
 import "testing"
 
-func TestRectangle_areaRectangle(t *testing.T) {
+func TestRectangle_area(t *testing.T) {
 	type fields struct {
 		width  float64
 		height float64
@@ -27,14 +27,14 @@ func TestRectangle_areaRectangle(t *testing.T) {
 				width:  tt.fields.width,
 				height: tt.fields.height,
 			}
-			if got := r.areaRectangle(); got != tt.want {
-				t.Errorf("Rectangle.areaRectangle() = %v, want %v", got, tt.want)
+			if got := r.area(); got != tt.want {
+				t.Errorf("Rectangle.area() = %v, want %v", got, tt.want)
 			}
 		})
 	}
 }
 
-func TestCircle_areaCircle(t *testing.T) {
+func TestCircle_area(t *testing.T) {
 	type fields struct {
 		radius float64
 	}
@@ -56,8 +56,8 @@ func TestCircle_areaCircle(t *testing.T) {
 			r := Circle{
 				radius: tt.fields.radius,
 			}
-			if got := r.areaCircle(); got != tt.want {
-				t.Errorf("Circle.areaCircle() = %v, want %v", got, tt.want)
+			if got := r.area(); got != tt.want {
+				t.Errorf("Circle.area() = %v, want %v", got, tt.want)
 			}
 		})
 	}

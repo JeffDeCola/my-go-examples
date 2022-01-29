@@ -12,10 +12,15 @@ Other examples using,
 tl;dr,
 
 ```go
-// Function, method, interface
+// FUNCTION
 recArea := areaRectangle(recWidth, recHeight)
+// METHOD
+rec := Rectangle{2.4, 34.4}
 recArea := rec.areaRectangle()
-recArea := area(rec)
+// INTERFACE
+var g geometry
+g = rec
+recArea := g.area()
 ```
 
 Table of Contents,
