@@ -1,7 +1,7 @@
 # io-reader
 
-_Read data (a stream of bytes) from a buffer, a file, stdin and a pipe to a buffer
-using the standard `io` package._
+_Read data (a stream of bytes) from a string, buffer, file, stdin and
+a pipe to a buffer using the standard `io` package._
 
 Table of Contents,
 
@@ -41,36 +41,36 @@ Hence, we use the Method Read(),
 n, err := r.Read(buffer)
 ```
 
-### FROM A STRING (*strings.Reader)
+From a string (*strings.Reader),
 
 ```go
 sourceString := "This data is being put into a string reader"
 s := strings.NewReader(sourceString)
 ```
 
-### FROM A BUFFER (*bytes.Reader)
+From a buffer (*bytes.Buffer),
 
 ```go
-sourceBuffer := []byte("This data is being put into a byte reader")
-b := bytes.NewReader(sourceBuffer)
+b := new(bytes.Buffer)
+b.WriteString("This data is being put into a byte.buffer")
 ```
 
-### FROM A FILE (*os.File)
+From a file (*os.File),
 
 ```go
 f, err := os.Open("test.txt")
 ```
 
-### FROM A USER (os.Stdin)
-
-Just use os.Stdin.
-
-### FROM A PIPE (*io.PipeReader)
-
-Use the pipe output rpipe,
+From a user (os.Stdin),
 
 ```go
-rpipe, wpipe := io.Pipe()
+i := os.Stdin
+```
+
+From a pipe (*io.PipeReader),
+
+```go
+pipeReader, pipeWriter := io.Pipe()
 ```
 
 ## RUN

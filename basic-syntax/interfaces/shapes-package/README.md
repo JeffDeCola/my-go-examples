@@ -31,7 +31,8 @@ Documentation and reference,
 ## OVERVIEW
 
 The power of interfaces really shine when you have a package.
-Because you can have one interface that does a lot of things.
+Because you can have one interface that does a lot of things
+like a geometry shapes package.
 
 Defines the shapes using a struct,
 
@@ -50,7 +51,7 @@ tri := shapes.Triangle{
 }
 ```
 
-Calculate area and perimeter using geometry interface
+Calculate area and perimeter using a interface,
 
 ```go
 var g shapes.Geometry
@@ -64,6 +65,15 @@ circPerimeter := g.Perimeter()
 g = tri
 triArea := g.Area()
 triPerimeter := g.Perimeter()
+```
+
+Where the interface is,
+
+```go
+type Geometry interface {
+    Area() float64
+    Perimeter() float64
+}
 ```
 
 ## RUN

@@ -47,7 +47,7 @@ type Rectangle struct {
 rec := Rectangle{2.4, 34.4}
 ```
 
-Calculate the area using a method,
+Calculate the area using a interface,
 
 ```go
 var g geometry

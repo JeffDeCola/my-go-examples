@@ -17,7 +17,7 @@ func readToBufferandPrint(r io.Reader) error {
 	for {
 
 		// READ METHOD
-		// Retruns count till EOF
+		// Returns byte count till EOF
 		n, err := r.Read(buffer)
 		if err != nil {
 			if err == io.EOF {
@@ -25,7 +25,7 @@ func readToBufferandPrint(r io.Reader) error {
 				fmt.Printf(bufferOutput + "\n")
 				return nil
 			}
-			return fmt.Errorf("error reading Stdin: %w", err)
+			return fmt.Errorf("error reading io.Reader: %w", err)
 		}
 
 		// PRINT THE BUFFER AND LOOP
@@ -53,21 +53,21 @@ func main() {
 	// STREAM TO BUFFER (s is *strings.Reader)
 	err := readToBufferandPrint(s)
 	if err != nil {
-		fmt.Printf("Error reading string: %s\n", err)
+		fmt.Printf("Error reading from string: %s\n", err)
 	}
 
 	// ---------------------------------------------------
 	// READING FROM A BUFFER (*bytes.Reader)
 	fmt.Printf("\nREADING FROM A BUFFER\n")
 
-	// CREATE THE READER
-	sourceBuffer := []byte("This data is being put into a byte reader")
-	b := bytes.NewReader(sourceBuffer)
+	// CREATE THE BUFFER
+	b := new(bytes.Buffer)
+	b.WriteString("This data is being put into a byte.buffer")
 
 	// STREAM TO BUFFER (b is *bytes.Reader)
 	err = readToBufferandPrint(b)
 	if err != nil {
-		fmt.Printf("Error reading bytes: %s\n", err)
+		fmt.Printf("Error reading from buffer: %s\n", err)
 	}
 
 	// ---------------------------------------------------
@@ -92,10 +92,13 @@ func main() {
 	// READING FROM STDIN (os.Stdin)
 	fmt.Printf("\nREAD FROM STDIN - type 'stop' to continue\n")
 
+	// STDIN
+	i := os.Stdin
+
 	// STREAM TO BUFFER (os.Stdin)
-	err = readToBufferandPrint(os.Stdin)
+	err = readToBufferandPrint(i)
 	if err != nil {
-		fmt.Printf("Error reading Stdin: %s\n", err)
+		fmt.Printf("Error reading from Stdin: %s\n", err)
 	}
 
 	// ---------------------------------------------------
@@ -103,18 +106,18 @@ func main() {
 	fmt.Printf("\nREAD FROM A PIPE\n")
 
 	// CREATE THE PIPE
-	rpipe, wpipe := io.Pipe()
+	pipeReader, pipeWriter := io.Pipe()
 	// WRITE INTO PIPE USING GO ROUTINE
 	go func() {
-		fmt.Fprint(wpipe, "This data is being put into a pipe")
+		fmt.Fprint(pipeWriter, "This data is being put into a pipe")
 		// Using Close method to close write
-		wpipe.Close()
+		pipeWriter.Close()
 	}()
 
 	// STREAM TO BUFFER (rpipe is *io.PipeReader)
-	err = readToBufferandPrint(rpipe)
+	err = readToBufferandPrint(pipeReader)
 	if err != nil {
-		fmt.Printf("Error reading pipe: %s\n", err)
+		fmt.Printf("Error reading from pipe: %s\n", err)
 	}
 
 }
