@@ -16,7 +16,7 @@ tl;dr,
 recArea := areaRectangle(recWidth, recHeight)
 // METHOD
 rec := Rectangle{2.4, 34.4}
-recArea := rec.areaRectangle()
+recArea := rec.area()
 // INTERFACE
 var g geometry
 g = rec
