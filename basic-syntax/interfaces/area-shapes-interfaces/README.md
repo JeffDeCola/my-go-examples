@@ -76,7 +76,7 @@ func theArea(g geometry) float64 {
 }
 ```
 
-To Calculate the area ,
+To Calculate the area,
 
 ```go
 recArea := theArea(rec)
