@@ -1,8 +1,10 @@
 package main
 
-import "testing"
+import (
+	"testing"
+)
 
-func TestRectangle_Area(t *testing.T) {
+func TestRectangle_area(t *testing.T) {
 	type fields struct {
 		width  float64
 		height float64
@@ -34,7 +36,7 @@ func TestRectangle_Area(t *testing.T) {
 	}
 }
 
-func TestCircle_Area(t *testing.T) {
+func TestCircle_area(t *testing.T) {
 	type fields struct {
 		radius float64
 	}

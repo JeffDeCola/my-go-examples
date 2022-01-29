@@ -28,7 +28,6 @@ Table of Contents,
 * [OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/interfaces/area-shapes-interfaces#overview)
 * [RUN](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/interfaces/area-shapes-interfaces#run)
 * [TEST](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/interfaces/area-shapes-interfaces#test)
-* [TWO WAYS TO CODE INTERFACES](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/interfaces/area-shapes-interfaces#two-ways-to-code-interfaces)
 * [AN ILLUSTRATION THAT MAY HELP](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/interfaces/area-shapes-interfaces#an-illustration-that-may-help)
 
 Documentation and reference,
@@ -36,9 +35,6 @@ Documentation and reference,
 * This repos [github webpage](https://jeffdecola.github.io/my-go-examples/)
 
 ## OVERVIEW
-
-Lets have one function that can get the area for both
-a rectangle and a circle. That's an interface.
 
 Define the rectangle using a struct,
 
@@ -51,7 +47,7 @@ type Rectangle struct {
 rec := Rectangle{2.4, 34.4}
 ```
 
-Calculate the area using area method,
+Calculate the area using a method,
 
 ```go
 var g geometry
@@ -67,7 +63,9 @@ type geometry interface {
 }
 ```
 
-Or you could create a function,
+### WRAP INTERFACE IN A FUNCTION
+
+You could create a function,
 
 ```go
 func theArea(g geometry) float64 {

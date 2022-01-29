@@ -56,13 +56,13 @@ rec := Rectangle{2.4, 34.4}
 Calculate the area using a method,
 
 ```go
-recArea := rec.areaRectangle()
+recArea := rec.area()
 ```
 
 The rectangle method,
 
 ```go
-func (r Rectangle) areaRectangle() float64 {
+func (r Rectangle) area() float64 {
     area := r.width * r.height
     return area
 }
