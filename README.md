@@ -79,11 +79,21 @@ _In logical order._
 
     _Using functions to calculate the area of a rectangle and circle._
 
+    * [area-shapes-functions-ptrs](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/functions/area-shapes-functions-ptrs)
+
+    _Using functions to calculate the area of a rectangle and circle
+    by passing pointers._
+
 * METHODS
 
   * [area-shapes-methods](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/methods/area-shapes-methods)
 
     _Using methods to calculate the area of a rectangle and circle._
+
+  * [area-shapes-methods-ptrs](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/methods/area-shapes-methods-ptrs)
+
+    _Using methods to calculate the area of a rectangle and circle
+    by passing pointers._
 
 * INTERFACES
 
@@ -91,10 +101,21 @@ _In logical order._
 
     _Using an interface to calculate the area of a rectangle and circle._
 
+  * [area-shapes-interfaces-ptrs](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/interfaces/area-shapes-interfaces-ptrs)
+
+    _Using an interface to calculate the area of a rectangle and circle
+    by passing pointers._
+
   * [shapes-package](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/interfaces/shapes-package)
 
     _Using an interface to calculate the area and perimeter of a rectangle,
     circle and triangle via a shapes package._
+
+  * [shapes-package-ptrs](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/interfaces/shapes-package-ptrs)
+
+    _Using an interface to calculate the area and perimeter of a rectangle,
+    circle and triangle via a shapes package
+    by passing pointers._
 
 ### CGO
 
@@ -215,11 +236,21 @@ package to read data and write data to/from various IO
     _Read data (a stream of bytes) from a string, buffer, file, stdin and
     a pipe to a buffer using the standard `io` package._
 
+  * [io-reader-simple](https://github.com/JeffDeCola/my-go-examples/tree/master/input-output/io-reader-simple)
+
+    _Read data (a stream of bytes) from a buffer to a buffer
+    using the standard `io` package._
+
 * IO WRITER
 
   * [io-writer](https://github.com/JeffDeCola/my-go-examples/tree/master/input-output/io-writer)
 
     _Write data (a stream of bytes) to a buffer, file, stdout and a pipe
+    using the standard `io` package._
+
+  * [io-writer-simple](https://github.com/JeffDeCola/my-go-examples/tree/master/input-output/io-writer-simple)
+
+    _Write data (a stream of bytes) to a buffer
     using the standard `io` package._
 
 ### IoT

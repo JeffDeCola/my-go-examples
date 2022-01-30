@@ -1,7 +1,8 @@
-# shapes-package
+# shapes-package-ptrs
 
 _Using an interface to calculate the area and perimeter of a rectangle,
-circle and triangle via a shapes package._
+circle and triangle via a shapes package
+by passing pointers._
 
 Other examples using,
 
@@ -15,8 +16,8 @@ Other examples using,
   * [returns](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/interfaces/area-shapes-interfaces)
   * [pointers](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/interfaces/area-shapes-interfaces-ptrs)
   * [returns using a package](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/interfaces/shapes-package)
-    **<- YOU ARE HERE**
   * [pointers using a package](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/interfaces/shapes-package-ptrs)
+    **<- YOU ARE HERE**
 
 tl;dr,
 
@@ -51,10 +52,10 @@ tl;dr,
 
 Table of Contents,
 
-* [OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/interfaces/shapes-package#overview)
-* [RUN](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/interfaces/shapes-package#run)
-* [TEST](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/interfaces/shapes-package#test)
-* [AN ILLUSTRATION THAT MAY HELP](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/interfaces/shapes-package#an-illustration-that-may-help)
+* [OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/interfaces/shapes-package-ptrs#overview)
+* [RUN](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/interfaces/shapes-package-ptrs#run)
+* [TEST](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/interfaces/shapes-package-ptrs#test)
+* [AN ILLUSTRATION THAT MAY HELP](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/interfaces/shapes-package-ptrs#an-illustration-that-may-help)
 
 Documentation and reference,
 
@@ -89,25 +90,27 @@ Calculate area and perimeter using a interface,
 var gRec shapes.Geometry
 var gCirc shapes.Geometry
 var gTri shapes.Geometry
+var recArea, circArea, triArea float64
+var recPerimeter, circPerimeter, triPerimeter float64
 
 gRec = rec
 gCirc = circ
 gTri = tri
 
-recArea := gRec.Area()
-recPerimeter := gRec.Perimeter()
-circArea := gCirc.Area()
-circPerimeter := gCirc.Perimeter()
-triArea := gTri.Area()
-triPerimeter := gTri.Perimeter()
+gRec.Area(&recArea)
+gRec.Perimeter(&recPerimeter)
+gCirc.Area(&circArea)
+gCirc.Perimeter(&circPerimeter)
+gTri.Area(&triArea)
+gTri.Perimeter(&triPerimeter)
 ```
 
 Where the interface is,
 
 ```go
 type Geometry interface {
-    Area() float64
-    Perimeter() float64
+    Area(*float64) 
+    Perimeter(*float64)
 }
 ```
 
@@ -116,7 +119,7 @@ type Geometry interface {
 To run,
 
 ```bash
-go run shapes-package.go
+go run shapes-package-ptrs.go
 ```
 
 ## TEST

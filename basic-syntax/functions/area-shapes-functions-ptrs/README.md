@@ -1,13 +1,14 @@
-# shapes-package
+# area-shapes-functions-ptrs
 
-_Using an interface to calculate the area and perimeter of a rectangle,
-circle and triangle via a shapes package._
+_Using functions to calculate the area of a rectangle and circle
+by passing pointers._
 
 Other examples using,
 
 * Functions using
   * [returns](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/functions/area-shapes-functions)
   * [pointers](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/functions/area-shapes-functions-ptrs)
+    **<- YOU ARE HERE**
 * Methods using
   * [returns](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/methods/area-shapes-methods)
   * [pointers](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/methods/area-shapes-methods-ptrs)
@@ -15,9 +16,8 @@ Other examples using,
   * [returns](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/interfaces/area-shapes-interfaces)
   * [pointers](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/interfaces/area-shapes-interfaces-ptrs)
   * [returns using a package](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/interfaces/shapes-package)
-    **<- YOU ARE HERE**
   * [pointers using a package](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/interfaces/shapes-package-ptrs)
-
+  
 tl;dr,
 
 ```go
@@ -51,10 +51,10 @@ tl;dr,
 
 Table of Contents,
 
-* [OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/interfaces/shapes-package#overview)
-* [RUN](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/interfaces/shapes-package#run)
-* [TEST](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/interfaces/shapes-package#test)
-* [AN ILLUSTRATION THAT MAY HELP](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/interfaces/shapes-package#an-illustration-that-may-help)
+* [OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/functions/area-shapes-functions-ptrs#overview)
+* [RUN](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/functions/area-shapes-functions-ptrs#run)
+* [TEST](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/functions/area-shapes-functions-ptrs#test)
+* [AN ILLUSTRATION THAT MAY HELP](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/functions/area-shapes-functions-ptrs#an-illustration-that-may-help)
 
 Documentation and reference,
 
@@ -62,52 +62,25 @@ Documentation and reference,
 
 ## OVERVIEW
 
-The power of interfaces really shine when you have a package.
-Because you can have one interface that does a lot of things
-like a geometry shapes package.
-
-Defines the shapes using a struct,
+Define the rectangle,
 
 ```go
-rec := shapes.Rectangle{
-    Width:  2.4,
-    Height: 34.4,
-}
-circ := shapes.Circle{
-    Radius: 2.3,
-}
-tri := shapes.Triangle{
-    A: 2,
-    B: 3.3,
-    C: 4,
-}
+var recWidth float64 = 2.4
+var recHeight float34 = 34.4
 ```
 
-Calculate area and perimeter using a interface,
+Calculate the area using a function,
 
 ```go
-var gRec shapes.Geometry
-var gCirc shapes.Geometry
-var gTri shapes.Geometry
-
-gRec = rec
-gCirc = circ
-gTri = tri
-
-recArea := gRec.Area()
-recPerimeter := gRec.Perimeter()
-circArea := gCirc.Area()
-circPerimeter := gCirc.Perimeter()
-triArea := gTri.Area()
-triPerimeter := gTri.Perimeter()
+var recArea float64
+areaRectangle(recWidth, recHeight, &recArea)
 ```
 
-Where the interface is,
+The rectangle function,
 
 ```go
-type Geometry interface {
-    Area() float64
-    Perimeter() float64
+func areaRectangle(w float64, h float64, a *float64) {
+    *a = w * h
 }
 ```
 
@@ -116,7 +89,7 @@ type Geometry interface {
 To run,
 
 ```bash
-go run shapes-package.go
+go run area-shapes-functions-ptrs.go
 ```
 
 ## TEST
@@ -124,8 +97,7 @@ go run shapes-package.go
 To create _test files,
 
 ```bash
-cd shapes
-gotests -w -all shapes.go
+gotests -w -all area-shapes-functions-ptrs.go
 ```
 
 To unit test the code,
