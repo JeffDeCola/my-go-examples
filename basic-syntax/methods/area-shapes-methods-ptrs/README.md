@@ -1,7 +1,7 @@
-# shapes-package
+# area-shapes-methods-ptrs
 
-_Using an interface to calculate the area and perimeter of a rectangle,
-circle and triangle via a shapes package._
+_Using methods to calculate the area of a rectangle and circle
+by passing pointers._
 
 Other examples using,
 
@@ -11,13 +11,13 @@ Other examples using,
 * Methods using
   * [returns](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/methods/area-shapes-methods)
   * [pointers](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/methods/area-shapes-methods-ptrs)
+    **<- YOU ARE HERE**
 * Interface using
   * [returns](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/interfaces/area-shapes-interfaces)
   * [pointers](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/interfaces/area-shapes-interfaces-ptrs)
   * [returns using a package](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/interfaces/shapes-package)
-    **<- YOU ARE HERE**
   * [pointers using a package](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/interfaces/shapes-package-ptrs)
-
+  
 tl;dr,
 
 ```go
@@ -51,10 +51,10 @@ tl;dr,
 
 Table of Contents,
 
-* [OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/interfaces/shapes-package#overview)
-* [RUN](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/interfaces/shapes-package#run)
-* [TEST](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/interfaces/shapes-package#test)
-* [AN ILLUSTRATION THAT MAY HELP](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/interfaces/shapes-package#an-illustration-that-may-help)
+* [OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/methods/area-shapes-methods-ptrs#overview)
+* [RUN](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/methods/area-shapes-methods-ptrs#run)
+* [TEST](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/methods/area-shapes-methods-ptrs#test)
+* [AN ILLUSTRATION THAT MAY HELP](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/methods/area-shapes-methods-ptrs#an-illustration-that-may-help)
 
 Documentation and reference,
 
@@ -62,52 +62,34 @@ Documentation and reference,
 
 ## OVERVIEW
 
-The power of interfaces really shine when you have a package.
-Because you can have one interface that does a lot of things
-like a geometry shapes package.
+I love structs. So do methods.
 
-Defines the shapes using a struct,
+The benefit of methods over functions is that you use a struct that defines
+the characteristics of the shape. It just makes it a lot easier to use a
+struct, rather than passing lots of variables around.
+
+Define the rectangle using a struct,
 
 ```go
-rec := shapes.Rectangle{
-    Width:  2.4,
-    Height: 34.4,
+type Rectangle struct {
+    width  float64
+    height float64
 }
-circ := shapes.Circle{
-    Radius: 2.3,
-}
-tri := shapes.Triangle{
-    A: 2,
-    B: 3.3,
-    C: 4,
-}
+
+rec := Rectangle{2.4, 34.4}
 ```
 
-Calculate area and perimeter using a interface,
+Calculate the area using a method,
 
 ```go
-var gRec shapes.Geometry
-var gCirc shapes.Geometry
-var gTri shapes.Geometry
-
-gRec = rec
-gCirc = circ
-gTri = tri
-
-recArea := gRec.Area()
-recPerimeter := gRec.Perimeter()
-circArea := gCirc.Area()
-circPerimeter := gCirc.Perimeter()
-triArea := gTri.Area()
-triPerimeter := gTri.Perimeter()
+rec.area(&recArea)
 ```
 
-Where the interface is,
+Which will chose the area method that has a Rectangle struct,
 
 ```go
-type Geometry interface {
-    Area() float64
-    Perimeter() float64
+func (r Rectangle) area(a *float64) {
+    *a = r.width * r.height
 }
 ```
 
@@ -116,7 +98,7 @@ type Geometry interface {
 To run,
 
 ```bash
-go run shapes-package.go
+go run area-shapes-methods-ptrs.go
 ```
 
 ## TEST
@@ -124,8 +106,7 @@ go run shapes-package.go
 To create _test files,
 
 ```bash
-cd shapes
-gotests -w -all shapes.go
+gotests -w -all area-shapes-methods-ptrs.go
 ```
 
 To unit test the code,

@@ -92,11 +92,8 @@ func main() {
 	// READING FROM STDIN (os.Stdin)
 	fmt.Printf("\nREAD FROM STDIN - type 'stop' to continue\n")
 
-	// STDIN
-	i := os.Stdin
-
 	// STREAM TO BUFFER (os.Stdin)
-	err = readToBufferandPrint(i)
+	err = readToBufferandPrint(os.Stdin)
 	if err != nil {
 		fmt.Printf("Error reading from Stdin: %s\n", err)
 	}

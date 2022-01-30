@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"shapes-package/shapes"
+	"shapes-package-ptrs/shapes"
 )
 
 func main() {
@@ -25,17 +25,19 @@ func main() {
 	var gRec shapes.Geometry
 	var gCirc shapes.Geometry
 	var gTri shapes.Geometry
+	var recArea, circArea, triArea float64
+	var recPerimeter, circPerimeter, triPerimeter float64
 
 	gRec = rec
 	gCirc = circ
 	gTri = tri
 
-	recArea := gRec.Area()
-	recPerimeter := gRec.Perimeter()
-	circArea := gCirc.Area()
-	circPerimeter := gCirc.Perimeter()
-	triArea := gTri.Area()
-	triPerimeter := gTri.Perimeter()
+	gRec.Area(&recArea)
+	gRec.Perimeter(&recPerimeter)
+	gCirc.Area(&circArea)
+	gCirc.Perimeter(&circPerimeter)
+	gTri.Area(&triArea)
+	gTri.Perimeter(&triPerimeter)
 
 	// PRINT
 	fmt.Printf("Rectangle (%.2f x %.2f): Area=%.2f, Perimeter=%.2f\n", rec.Width, rec.Height, recArea, recPerimeter)

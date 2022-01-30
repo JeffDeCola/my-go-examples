@@ -4,29 +4,54 @@ _Using an interface to calculate the area of a rectangle and circle._
 
 Other examples using,
 
-* [Functions](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/functions/area-shapes-functions)
-* [Methods](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/methods/area-shapes-methods)
-* [Interfaces](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/interfaces/area-shapes-interfaces)
-  **<- YOU ARE HERE**
-
+* Functions using
+  * [returns](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/functions/area-shapes-functions)
+  * [pointers](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/functions/area-shapes-functions-ptrs)
+* Methods using
+  * [returns](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/methods/area-shapes-methods)
+  * [pointers](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/methods/area-shapes-methods-ptrs)
+* Interface using
+  * [returns](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/interfaces/area-shapes-interfaces)
+    **<- YOU ARE HERE**
+  * [pointers](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/interfaces/area-shapes-interfaces-ptrs)
+  * [returns using a package](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/interfaces/shapes-package)
+  * [pointers using a package](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/interfaces/shapes-package-ptrs)
+  
 tl;dr,
 
 ```go
 // FUNCTION
-recArea := areaRectangle(recWidth, recHeight)
+    // USING RETURN
+    recArea := areaRectangle(recWidth, recHeight)
+    // USING POINTER
+    var recArea float64
+    areaRectangle(recWidth, recHeight, &recArea)
 // METHOD
-rec := Rectangle{2.4, 34.4}
-recArea := rec.area()
+    // USING RETURN
+    rec := Rectangle{2.4, 34.4}
+    recArea := rec.area()
+    // USING POINTER
+    rec := Rectangle{2.4, 34.4}
+    var recArea float64
+    rec.area(&recArea)
 // INTERFACE
-rec := Rectangle{2.4, 34.4}
-var gRec geometry
-gRec = rec
-recArea := gRec.area()
+    // USING RETURN
+    rec := Rectangle{2.4, 34.4}
+    var gRec geometry
+    gRec = rec
+    recArea := gRec.area()
+    // USING POINTER
+    rec := Rectangle{2.4, 34.4}
+    var gRec geometry
+    var recArea float64
+    gRec = rec
+    gRec.area(&recArea)
 ```
 
 Table of Contents,
 
 * [OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/interfaces/area-shapes-interfaces#overview)
+  * [WRAP INTERFACE IN A FUNCTION](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/interfaces/area-shapes-interfaces#wrap-interface-in-a-function)
 * [RUN](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/interfaces/area-shapes-interfaces#run)
 * [TEST](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/interfaces/area-shapes-interfaces#test)
 * [AN ILLUSTRATION THAT MAY HELP](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/interfaces/area-shapes-interfaces#an-illustration-that-may-help)
