@@ -219,7 +219,7 @@ package to read data and write data to/from various IO
 
   * [io-writer](https://github.com/JeffDeCola/my-go-examples/tree/master/input-output/io-writer)
 
-    _Write data (a stream of bytes) to a string, buffer, file, stdout and a pipe
+    _Write data (a stream of bytes) to a buffer, file, stdout and a pipe
     using the standard `io` package._
 
 ### IoT

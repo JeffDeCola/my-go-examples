@@ -18,9 +18,10 @@ recArea := areaRectangle(recWidth, recHeight)
 rec := Rectangle{2.4, 34.4}
 recArea := rec.area()
 // INTERFACE
-var g geometry
-g = rec
-recArea := g.area()
+rec := Rectangle{2.4, 34.4}
+var gRec geometry
+gRec = rec
+recArea := gRec.area()
 ```
 
 Table of Contents,
@@ -59,7 +60,7 @@ Calculate the area using a method,
 recArea := rec.area()
 ```
 
-The rectangle method,
+Which will chose the area method that has a Rectangle struct,
 
 ```go
 func (r Rectangle) area() float64 {

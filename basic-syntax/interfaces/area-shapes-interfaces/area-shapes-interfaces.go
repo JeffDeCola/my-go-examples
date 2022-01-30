@@ -44,19 +44,19 @@ func main() {
 	rec := Rectangle{2.4, 34.4}
 	circ := Circle{2.3}
 
-	// CALCULATE AREA
-	// USING AN INTERFACE THAT CALLS THE CORRECT METHOD
-	var g geometry
-	g = rec
-	recArea := g.area()
-	g = circ
-	circArea := g.area()
+	// CALCULATE AREA USING AN INTERFACE TYPE
+	var gRec geometry
+	var gCirc geometry
+	gRec = rec
+	gCirc = circ
+	recArea := gRec.area()
+	circArea := gCirc.area()
 
 	// PRINT
 	fmt.Printf("Rectangle (%.2f x %.2f): Area=%.2f\n", rec.width, rec.height, recArea)
 	fmt.Printf("Circle (%.2f): Area=%.2f\n", circ.radius, circArea)
 
-	// I COULD ALSO CALCULATE AREA USING A FUNCTION THAT USES THE INTERFACE
+	// I COULD WRAP THE INTERFACE IN A FUNCTION
 	recArea = getArea(rec)
 	circArea = getArea(circ)
 

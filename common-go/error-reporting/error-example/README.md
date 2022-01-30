@@ -4,10 +4,10 @@ _Error Handling using the standard `error` package._
 
 Table of Contents,
 
-* [OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/common-go/error-reporting/errors#overview)
-  * [DEFINE YOUR OWN ERROR](https://github.com/JeffDeCola/my-go-examples/tree/master/common-go/error-reporting/errors#define-your-own-error)
-* [RUN](https://github.com/JeffDeCola/my-go-examples/tree/master/common-go/error-reporting/errors#run)
-* [TEST](https://github.com/JeffDeCola/my-go-examples/tree/master/common-go/error-reporting/errors#test)
+* [OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/common-go/error-reporting/error-example#overview)
+  * [DEFINE YOUR OWN ERROR](https://github.com/JeffDeCola/my-go-examples/tree/master/common-go/error-reporting/error-example#define-your-own-error)
+* [RUN](https://github.com/JeffDeCola/my-go-examples/tree/master/common-go/error-reporting/error-example#run)
+* [TEST](https://github.com/JeffDeCola/my-go-examples/tree/master/common-go/error-reporting/error-example#test)
 
 Documentation and references,
 
