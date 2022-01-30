@@ -1,6 +1,6 @@
 # io-writer
 
-_Write data (a stream of bytes) to a string, buffer, file, stdout
+_Write data (a stream of bytes) to a buffer, file, stdout
 and a pipe from a buffer using the standard `io` package._
 
 Table of Contents,
@@ -39,12 +39,6 @@ Hence, we use the Method Write(),
 
 ```go
 n, err := r.Write(buffer)
-```
-
-To a string (*strings.Writer),
-
-```go
-???????
 ```
 
 To a buffer (*bytes.Buffer),

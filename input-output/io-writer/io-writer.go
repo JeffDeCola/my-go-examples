@@ -65,7 +65,7 @@ func main() {
 
 	// ---------------------------------------------------
 	// WRITING TO STDOUT(os.Stdout)
-	fmt.Printf("\nWRITE TO STDIN\n")
+	fmt.Printf("\nWRITE TO STDOUT\n")
 
 	// STDOUT
 	o := os.Stdout
@@ -79,8 +79,8 @@ func main() {
 	// OUTPUT WILL BE ON TERMINAL
 
 	// ---------------------------------------------------
-	// READING FROM A PIPE (*io.PipeReader)
-	fmt.Printf("\nREAD FROM A PIPE\n")
+	// WRITING TO A PIPE (*io.PipeReader)
+	fmt.Printf("\nWRITE TO A PIPE\n")
 
 	// CREATE THE PIPE
 	pipeReader, pipeWriter := io.Pipe()

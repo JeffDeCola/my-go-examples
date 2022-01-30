@@ -32,7 +32,7 @@ func main() {
 	rec := Rectangle{2.4, 34.4}
 	circ := Circle{2.3}
 
-	// CALCULATE AREA OF SHAPES
+	// CALCULATE AREA USING A STRUCT TYPE
 	recArea := rec.area()
 	circArea := circ.area()
 
