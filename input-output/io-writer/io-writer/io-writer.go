@@ -40,8 +40,8 @@ func main() {
 		fmt.Printf("Error writing to buffer: %s\n", err)
 	}
 
-	// PRINT BUFFER
-	fmt.Printf("Buffer after io.Writer: %s \n", b.String())
+	// PRINT BUFFER b
+	fmt.Printf("Buffer b: %s \n", b.String())
 
 	// ---------------------------------------------------
 	// WRITING TO A FILE (*os.File)
@@ -97,10 +97,10 @@ func main() {
 	}()
 
 	// READ FROM PIPE AND PRINT
-	buffer := new(bytes.Buffer)
-	buffer.ReadFrom(pipeReader)
+	outputBuffer := new(bytes.Buffer)
+	outputBuffer.ReadFrom(pipeReader)
 
 	// PRINT PIPE
-	fmt.Printf("Pipe output: %s", buffer.String())
+	fmt.Printf("Pipe output: %s", outputBuffer.String())
 
 }

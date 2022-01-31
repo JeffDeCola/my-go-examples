@@ -13,7 +13,7 @@ func Test_writeFromBuffer(t *testing.T) {
 	}{
 		{
 			name:    "Test Write",
-			wantW:   "This data is being put into a byte reader\n",
+			wantW:   "This is the buffer data\n",
 			wantErr: false,
 		},
 	}
