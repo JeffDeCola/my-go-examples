@@ -1,13 +1,23 @@
 # io-writer
 
-_Write data (a stream of bytes) to a buffer, file, stdout
-and a pipe from a buffer using the standard `io` package._
+_Write data (a stream of bytes) to a buffer, file, stdout and a pipe
+from a buffer using the standard `io` package._
+
+Other examples using,
+
+* IO.READER
+  * [io-reader](https://github.com/JeffDeCola/my-go-examples/tree/master/input-output/io-reader-/io-reader)
+  * [io-reader-simple](https://github.com/JeffDeCola/my-go-examples/tree/master/input-output/io-reader-/io-reader-simple)
+* IO.WRITER
+  * [io-writer](https://github.com/JeffDeCola/my-go-examples/tree/master/input-output/io-writer/io-writer)
+    **<- YOU ARE HERE**
+  * [io-writer-simple](https://github.com/JeffDeCola/my-go-examples/tree/master/input-output/io-writer/io-writer-simple)
 
 Table of Contents,
 
-* [OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/input-output/io-writer#overview)
-* [RUN](https://github.com/JeffDeCola/my-go-examples/tree/master/input-output/io-writer#run)
-* [TEST](https://github.com/JeffDeCola/my-go-examples/tree/master/input-output/io-writer#test)
+* [OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/input-output/io-writer/io-writer#overview)
+* [RUN](https://github.com/JeffDeCola/my-go-examples/tree/master/input-output/io-writer/io-writer#run)
+* [TEST](https://github.com/JeffDeCola/my-go-examples/tree/master/input-output/io-writer/io-writer#test)
 
 Documentation and references,
 

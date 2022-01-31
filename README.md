@@ -79,7 +79,7 @@ _In logical order._
 
     _Using functions to calculate the area of a rectangle and circle._
 
-    * [area-shapes-functions-ptrs](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/functions/area-shapes-functions-ptrs)
+  * [area-shapes-functions-ptrs](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/functions/area-shapes-functions-ptrs)
 
     _Using functions to calculate the area of a rectangle and circle
     by passing pointers._
@@ -231,27 +231,27 @@ package to read data and write data to/from various IO
 
 * IO READER
 
-  * [io-reader](https://github.com/JeffDeCola/my-go-examples/tree/master/input-output/io-reader)
+  * [io-reader](https://github.com/JeffDeCola/my-go-examples/tree/master/input-output/io-reader-/io-reader)
 
     _Read data (a stream of bytes) from a string, buffer, file, stdin and
     a pipe to a buffer using the standard `io` package._
 
-  * [io-reader-simple](https://github.com/JeffDeCola/my-go-examples/tree/master/input-output/io-reader-simple)
+  * [io-reader-simple](https://github.com/JeffDeCola/my-go-examples/tree/master/input-output/io-reader-/io-reader-simple)
 
     _Read data (a stream of bytes) from a buffer to a buffer
     using the standard `io` package._
 
 * IO WRITER
 
-  * [io-writer](https://github.com/JeffDeCola/my-go-examples/tree/master/input-output/io-writer)
+  * [io-writer](https://github.com/JeffDeCola/my-go-examples/tree/master/input-output/io-writer/io-writer)
 
     _Write data (a stream of bytes) to a buffer, file, stdout and a pipe
-    using the standard `io` package._
+    from a buffer using the standard `io` package._
 
-  * [io-writer-simple](https://github.com/JeffDeCola/my-go-examples/tree/master/input-output/io-writer-simple)
+  * [io-writer-simple](https://github.com/JeffDeCola/my-go-examples/tree/master/input-output/io-writer/io-writer-simple)
 
     _Write data (a stream of bytes) to a buffer
-    using the standard `io` package._
+    from a buffer using the standard `io` package._
 
 ### IoT
 
