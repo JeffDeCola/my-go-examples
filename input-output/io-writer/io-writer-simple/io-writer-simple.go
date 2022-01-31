@@ -6,36 +6,28 @@ import (
 	"io"
 )
 
-func writeFromBuffer(w io.Writer) error {
-
-	// WRITE METHOD
-	// Returns byte count
-
-	fmt.Printf("Wrote %d bytes to io.Writer\n", n)
-	return nil
-
-}
-
 func main() {
 
-	// CREATE BUFFER
+	// CREATE THE IO WRITER INTERFACE
+	var w io.Writer
+
+	// CREATE BUFFER TO READ FROM
 	buffer := []byte("This data is being put into a byte reader\n")
 
-	// CREATE THE BUFFER
+	// CREATE THE BUFFER b TO WRITE TO
 	b := new(bytes.Buffer)
-	fmt.Printf("Buffer before io.Writer: %s \n", b)
+	fmt.Printf("Buffer in:  %s\n", b.String())
 
-	// STREAM FROM BUFFER (b is *bytes.Buffer)
-	err := writeFromBuffer(b)
+	// ASSIGN B TO WRITER
+	w = b
+
+	// WRITE METHOD (USING io.Writer)
+	_, err := w.Write(buffer)
 	if err != nil {
-		fmt.Printf("Error writing to buffer: %s\n", err)
+		fmt.Printf("Error with io.Writer: %s", err)
 	}
 
-	n, err := w.Write(buffer)
-	if err != nil {
-		return fmt.Errorf("error writing io.Writer: %w", err)
-	}
-	// PRINT BUFFER
-	fmt.Printf("Buffer after io.Writer: %s \n", b)
+	// PRINT b
+	fmt.Printf("Buffer out: %s\n", b.String())
 
 }

@@ -30,9 +30,9 @@ func main() {
 	// WRITING TO A BUFFER (*bytes.Buffer)
 	fmt.Printf("\nWRITING TO A BUFFER\n")
 
-	// CREATE THE BUFFER
+	// CREATE THE BUFFER b TO WRITE TO
 	b := new(bytes.Buffer)
-	fmt.Printf("Buffer before io.Writer: %s \n", b)
+	fmt.Printf("Buffer before io.Writer: %s \n", b.String())
 
 	// STREAM FROM BUFFER (b is *bytes.Buffer)
 	err := writeFromBuffer(b)
@@ -41,7 +41,7 @@ func main() {
 	}
 
 	// PRINT BUFFER
-	fmt.Printf("Buffer after io.Writer: %s \n", b)
+	fmt.Printf("Buffer after io.Writer: %s \n", b.String())
 
 	// ---------------------------------------------------
 	// WRITING TO A FILE (*os.File)
