@@ -236,12 +236,12 @@ package to read data and write data to/from various IO
 
 * IO READER
 
-  * [io-reader](https://github.com/JeffDeCola/my-go-examples/tree/master/input-output/io-reader-/io-reader)
+  * [io-reader](https://github.com/JeffDeCola/my-go-examples/tree/master/input-output/io-reader/io-reader)
 
     _Read data (a stream of bytes) from a string, buffer, file, stdin and
     a pipe to a buffer using the standard `io` package._
 
-  * [io-reader-simple](https://github.com/JeffDeCola/my-go-examples/tree/master/input-output/io-reader-/io-reader-simple)
+  * [io-reader-simple](https://github.com/JeffDeCola/my-go-examples/tree/master/input-output/io-reader/io-reader-simple)
 
     _Read data (a stream of bytes) from a buffer to a buffer
     using the standard `io` package._

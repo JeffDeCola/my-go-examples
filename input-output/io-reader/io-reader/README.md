@@ -6,9 +6,9 @@ a pipe to a buffer using the standard `io` package._
 Other examples using,
 
 * IO.READER
-  * [io-reader](https://github.com/JeffDeCola/my-go-examples/tree/master/input-output/io-reader-/io-reader)
+  * [io-reader](https://github.com/JeffDeCola/my-go-examples/tree/master/input-output/io-reader/io-reader)
     **<- YOU ARE HERE**
-  * [io-reader-simple](https://github.com/JeffDeCola/my-go-examples/tree/master/input-output/io-reader-/io-reader-simple)
+  * [io-reader-simple](https://github.com/JeffDeCola/my-go-examples/tree/master/input-output/io-reader/io-reader-simple)
 * IO.WRITER
   * [io-writer](https://github.com/JeffDeCola/my-go-examples/tree/master/input-output/io-writer/io-writer)
   * [io-writer-simple](https://github.com/JeffDeCola/my-go-examples/tree/master/input-output/io-writer/io-writer-simple)
@@ -34,8 +34,6 @@ can be read or written to.
 
 Simply put, the io.Reader is an interface from which you can
 read a stream of bytes into a buffer.
-
-![IMAGE - buffered-io.jpg - IMAGE](../../docs/pics/input-output/buffered-io.jpg)
 
 The io.Reader interface looks like,
 
@@ -104,3 +102,7 @@ To unit test the code,
 ```bash
 go test -cover ./... 
 ```
+
+## AN ILLUSTRATION THAT MAY HELP
+
+![IMAGE - buffered-io.jpg - IMAGE](../../../docs/pics/input-output/buffered-io.jpg)
