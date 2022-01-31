@@ -17,7 +17,7 @@ Table of Contents,
 
 * [OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/input-output/io-reader/io-reader-simple#overview)
 * [RUN](https://github.com/JeffDeCola/my-go-examples/tree/master/input-output/io-reader/io-reader-simple#run)
-* [TEST](https://github.com/JeffDeCola/my-go-examples/tree/master/input-output/io-reader/io-reader-simple#test)
+* [AN ILLUSTRATION THAT MAY HELP](https://github.com/JeffDeCola/my-go-examples/tree/master/input-output/io-reader/io-reader-simple#an-illustration-that-may-help)
 
 Documentation and references,
 
@@ -55,12 +55,12 @@ Therefore,
 // CREATE THE IO READER INTERFACE
 var r io.Reader
 
-// CREATE THE BUFFER TO READ FROM
+// CREATE THE BUFFER b TO READ FROM
 b := new(bytes.Buffer)
-b.WriteString("This data is being put into a byte.buffer")
+b.WriteString("This is data in byte.buffer")
 fmt.Printf("Buffer in:  %s\n", b.String())
 
-// CREATE BUFFER TO WRITE INTO
+// CREATE BUFFER TO WRITE TO
 buffer := make([]byte, 100)
 
 // ASSIGN BUFFER TO READER
@@ -69,7 +69,7 @@ r = b
 // READ METHOD (USING io.Reader)
 n, err := r.Read(buffer)
 if err != nil {
-    fmt.Printf("error reading io.Reader: %s", err)
+    fmt.Printf("Error with io.Reader: %s", err)
 }
 
 // PRINT BUFFER
@@ -82,20 +82,6 @@ Run,
 
 ```bash
 go run io-reader-simple.go
-```
-
-## TEST
-
-To create _test files,
-
-```bash
-gotests -w -all io-reader-simple.go
-```
-
-To unit test the code,
-
-```bash
-go test -cover ./... 
 ```
 
 ## AN ILLUSTRATION THAT MAY HELP

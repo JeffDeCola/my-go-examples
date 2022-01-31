@@ -18,6 +18,7 @@ Table of Contents,
 * [OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/input-output/io-writer/io-writer#overview)
 * [RUN](https://github.com/JeffDeCola/my-go-examples/tree/master/input-output/io-writer/io-writer#run)
 * [TEST](https://github.com/JeffDeCola/my-go-examples/tree/master/input-output/io-writer/io-writer#test)
+* [AN ILLUSTRATION THAT MAY HELP](https://github.com/JeffDeCola/my-go-examples/tree/master/input-output/io-writer/io-writer#an-illustration-that-may-help)
 
 Documentation and references,
 

@@ -47,7 +47,7 @@ func main() {
 	fmt.Printf("\nREADING FROM A STRING\n")
 
 	// CREATE THE STRING READER
-	sourceString := "This data is being put into a string reader"
+	sourceString := "This is data in string.Reader"
 	s := strings.NewReader(sourceString)
 
 	// STREAM TO BUFFER (s is *strings.Reader)
@@ -62,7 +62,7 @@ func main() {
 
 	// CREATE THE BUFFER
 	b := new(bytes.Buffer)
-	b.WriteString("This data is being put into a byte.buffer")
+	b.WriteString("This is data in byte.buffer")
 
 	// STREAM TO BUFFER (b is *bytes.Reader)
 	err = readToBufferandPrint(b)
@@ -92,8 +92,11 @@ func main() {
 	// READING FROM STDIN (os.Stdin)
 	fmt.Printf("\nREAD FROM STDIN - type 'stop' to continue\n")
 
+	// CREATE THE STDIN
+	i := os.Stdin
+
 	// STREAM TO BUFFER (os.Stdin)
-	err = readToBufferandPrint(os.Stdin)
+	err = readToBufferandPrint(i)
 	if err != nil {
 		fmt.Printf("Error reading from Stdin: %s\n", err)
 	}
@@ -106,7 +109,7 @@ func main() {
 	pipeReader, pipeWriter := io.Pipe()
 	// WRITE INTO PIPE USING GO ROUTINE
 	go func() {
-		fmt.Fprint(pipeWriter, "This data is being put into a pipe")
+		fmt.Fprint(pipeWriter, "This is data being put into a pipe")
 		// Using Close method to close write
 		pipeWriter.Close()
 	}()

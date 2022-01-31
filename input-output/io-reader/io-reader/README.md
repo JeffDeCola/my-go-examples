@@ -18,6 +18,7 @@ Table of Contents,
 * [OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/input-output/io-reader/io-reader#overview)
 * [RUN](https://github.com/JeffDeCola/my-go-examples/tree/master/input-output/io-reader/io-reader#run)
 * [TEST](https://github.com/JeffDeCola/my-go-examples/tree/master/input-output/io-reader/io-reader#test)
+* [AN ILLUSTRATION THAT MAY HELP](https://github.com/JeffDeCola/my-go-examples/tree/master/input-output/io-reader/io-reader#an-illustration-that-may-help)
 
 Documentation and references,
 
@@ -52,7 +53,7 @@ n, err := r.Read(buffer)
 From a string (*strings.Reader),
 
 ```go
-sourceString := "This data is being put into a string reader"
+sourceString := "This is data in string.Reader"
 s := strings.NewReader(sourceString)
 ```
 
@@ -60,7 +61,7 @@ From a buffer (*bytes.Buffer),
 
 ```go
 b := new(bytes.Buffer)
-b.WriteString("This data is being put into a byte.buffer")
+b.WriteString("This is data in byte.buffer")
 ```
 
 From a file (*os.File),
