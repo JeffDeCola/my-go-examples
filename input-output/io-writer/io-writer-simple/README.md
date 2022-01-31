@@ -17,7 +17,7 @@ Table of Contents,
 
 * [OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/input-output/io-writer/io-writer-simple#overview)
 * [RUN](https://github.com/JeffDeCola/my-go-examples/tree/master/input-output/io-writer/io-writer-simple#run)
-* [TEST](https://github.com/JeffDeCola/my-go-examples/tree/master/input-output/io-writer/io-writer-simple#test)
+* [AN ILLUSTRATION THAT MAY HELP](https://github.com/JeffDeCola/my-go-examples/tree/master/input-output/io-writer/io-writer-simple#an-illustration-that-may-help)
 
 Documentation and references,
 
@@ -56,7 +56,7 @@ Therefore,
 var w io.Writer
 
 // CREATE BUFFER TO READ FROM
-buffer := []byte("This data is being put into a byte reader\n")
+buffer := []byte("This is the buffer data")
 
 // CREATE THE BUFFER b TO WRITE TO
 b := new(bytes.Buffer)
@@ -81,20 +81,6 @@ Run,
 
 ```bash
 go run io-writer-simple.go
-```
-
-## TEST
-
-To create _test files,
-
-```bash
-gotests -w -all io-writer-simple.go
-```
-
-To unit test the code,
-
-```bash
-go test -cover ./... 
 ```
 
 ## AN ILLUSTRATION THAT MAY HELP

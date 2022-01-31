@@ -11,9 +11,9 @@ func main() {
 	// CREATE THE IO READER INTERFACE
 	var r io.Reader
 
-	// CREATE THE BUFFER TO READ FROM
+	// CREATE THE BUFFER b TO READ FROM
 	b := new(bytes.Buffer)
-	b.WriteString("This data is being put into a byte.buffer")
+	b.WriteString("This is data in byte.buffer")
 	fmt.Printf("Buffer in:  %s\n", b.String())
 
 	// CREATE BUFFER TO WRITE TO

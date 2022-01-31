@@ -12,7 +12,7 @@ func main() {
 	var w io.Writer
 
 	// CREATE BUFFER TO READ FROM
-	buffer := []byte("This data is being put into a byte reader\n")
+	buffer := []byte("This is the buffer data")
 
 	// CREATE THE BUFFER b TO WRITE TO
 	b := new(bytes.Buffer)

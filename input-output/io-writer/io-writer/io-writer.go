@@ -10,7 +10,7 @@ import (
 func writeFromBuffer(w io.Writer) error {
 
 	// CREATE BUFFER
-	buffer := []byte("This data is being put into a byte reader\n")
+	buffer := []byte("This is the buffer data\n")
 
 	// WRITE METHOD
 	// Returns byte count
