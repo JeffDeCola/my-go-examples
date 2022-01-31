@@ -3,11 +3,21 @@
 _Read data (a stream of bytes) from a string, buffer, file, stdin and
 a pipe to a buffer using the standard `io` package._
 
+Other examples using,
+
+* IO.READER
+  * [io-reader](https://github.com/JeffDeCola/my-go-examples/tree/master/input-output/io-reader-/io-reader)
+    **<- YOU ARE HERE**
+  * [io-reader-simple](https://github.com/JeffDeCola/my-go-examples/tree/master/input-output/io-reader-/io-reader-simple)
+* IO.WRITER
+  * [io-writer](https://github.com/JeffDeCola/my-go-examples/tree/master/input-output/io-writer/io-writer)
+  * [io-writer-simple](https://github.com/JeffDeCola/my-go-examples/tree/master/input-output/io-writer/io-writer-simple)
+
 Table of Contents,
 
-* [OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/input-output/io-reader#overview)
-* [RUN](https://github.com/JeffDeCola/my-go-examples/tree/master/input-output/io-reader#run)
-* [TEST](https://github.com/JeffDeCola/my-go-examples/tree/master/input-output/io-reader#test)
+* [OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/input-output/io-reader/io-reader#overview)
+* [RUN](https://github.com/JeffDeCola/my-go-examples/tree/master/input-output/io-reader/io-reader#run)
+* [TEST](https://github.com/JeffDeCola/my-go-examples/tree/master/input-output/io-reader/io-reader#test)
 
 Documentation and references,
 
