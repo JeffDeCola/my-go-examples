@@ -1,8 +1,7 @@
-# shapes-package-ptrs
+# area-shapes-interfaces-ptrs-x2
 
-_Using an interface to calculate the area and perimeter of a rectangle,
-circle and triangle via a shapes package
-by passing pointers._
+_Using an interface to calculate the area of a rectangle and circle
+by passing pointers. Also multiple Rectangle and Circle structs by 2._
 
 Other examples using,
 
@@ -15,10 +14,12 @@ Other examples using,
 * Interface using
   * [returns](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/interfaces/area-shapes-interfaces)
   * [pointers](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/interfaces/area-shapes-interfaces-ptrs)
+  * [pointers](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/interfaces/area-shapes-interfaces-ptrs-x2)
+    (multiply structs by 2)
+    **<- YOU ARE HERE**
   * [returns using a package](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/interfaces/shapes-package)
   * [pointers using a package](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/interfaces/shapes-package-ptrs)
-    **<- YOU ARE HERE**
-
+  
 tl;dr,
 
 ```go
@@ -52,10 +53,10 @@ tl;dr,
 
 Table of Contents,
 
-* [OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/interfaces/shapes-package-ptrs#overview)
-* [RUN](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/interfaces/shapes-package-ptrs#run)
-* [TEST](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/interfaces/shapes-package-ptrs#test)
-* [AN ILLUSTRATION THAT MAY HELP](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/interfaces/shapes-package-ptrs#an-illustration-that-may-help)
+* [OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/interfaces/area-shapes-interfaces-ptrs-x2#overview)
+* [RUN](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/interfaces/area-shapes-interfaces-ptrs-x2#run)
+* [TEST](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/interfaces/area-shapes-interfaces-ptrs-x2#test)
+* [AN ILLUSTRATION THAT MAY HELP](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/interfaces/area-shapes-interfaces-ptrs-x2#an-illustration-that-may-help)
 
 Documentation and reference,
 
@@ -63,54 +64,40 @@ Documentation and reference,
 
 ## OVERVIEW
 
-The power of interfaces really shine when you have a package.
-Because you can have one interface that does a lot of things
-like a geometry shapes package.
-
-Defines the shapes using a struct,
+Define the rectangle using a struct,
 
 ```go
-rec := shapes.Rectangle{
-    Width:  2.4,
-    Height: 34.4,
+type Rectangle struct {
+    width  float64
+    height float64
 }
-circ := shapes.Circle{
-    Radius: 2.3,
-}
-tri := shapes.Triangle{
-    A: 2,
-    B: 3.3,
-    C: 4,
-}
+
+rec := Rectangle{2.4, 34.4}
 ```
 
-Calculate area and perimeter using a interface,
+Calculate the area using a interface,
 
 ```go
-var gRec shapes.Geometry
-var gCirc shapes.Geometry
-var gTri shapes.Geometry
-var recArea, circArea, triArea float64
-var recPerimeter, circPerimeter, triPerimeter float64
-
-gRec = rec
-gCirc = circ
-gTri = tri
-
-gRec.Area(&recArea)
-gRec.Perimeter(&recPerimeter)
-gCirc.Area(&circArea)
-gCirc.Perimeter(&circPerimeter)
-gTri.Area(&triArea)
-gTri.Perimeter(&triPerimeter)
+var gRec geometry
+var recArea float64
+gRec = &rec
+gRec.area(&recArea)
 ```
 
 Where the interface is,
 
 ```go
-type Geometry interface {
-    Area(*float64) 
-    Perimeter(*float64)
+type geometry interface {
+    area(*float64)
+    perimeter(*float64)
+}
+```
+
+Which will chose the area method that has a **Rectangle struct pointer**,
+
+```go
+func (r *Rectangle) area(a *float64) {
+    *a = r.width * r.height
 }
 ```
 
@@ -119,7 +106,7 @@ type Geometry interface {
 To run,
 
 ```bash
-go run shapes-package-ptrs.go
+go run area-shapes-interfaces-ptrs-x2.go
 ```
 
 ## TEST
@@ -127,8 +114,7 @@ go run shapes-package-ptrs.go
 To create _test files,
 
 ```bash
-cd shapes
-gotests -w -all shapes.go
+gotests -w -all area-shapes-interfaces-ptrs-x2.go
 ```
 
 To unit test the code,
@@ -139,4 +125,4 @@ go test -cover ./...
 
 ## AN ILLUSTRATION THAT MAY HELP
 
-![IMAGE - functions-methods-interfaces-ptrs.jpg - IMAGE](../../../docs/pics/basic-syntax/functions-methods-interfaces-ptrs.jpg)
+![IMAGE - interfaces-ptrs-x2.jpg - IMAGE](../../../docs/pics/basic-syntax/interfaces-ptrs-x2.jpg)

@@ -105,7 +105,7 @@ func (r Rectangle) area(a *float64) {
 To run,
 
 ```bash
-go run area-shapes-interfaces-ptrs-ptrs.go
+go run area-shapes-interfaces-ptrs.go
 ```
 
 ## TEST
@@ -113,7 +113,7 @@ go run area-shapes-interfaces-ptrs-ptrs.go
 To create _test files,
 
 ```bash
-gotests -w -all area-shapes-interfaces-ptrs-ptrs.go
+gotests -w -all area-shapes-interfaces-ptrs.go
 ```
 
 To unit test the code,
@@ -124,4 +124,4 @@ go test -cover ./...
 
 ## AN ILLUSTRATION THAT MAY HELP
 
-![IMAGE - functions-methods-interfaces.jpg - IMAGE](../../../docs/pics/basic-syntax/functions-methods-interfaces.jpg)
+![IMAGE - functions-methods-interfaces-ptrs.jpg - IMAGE](../../../docs/pics/basic-syntax/functions-methods-interfaces-ptrs.jpg)

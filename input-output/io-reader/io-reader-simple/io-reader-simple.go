@@ -16,16 +16,16 @@ func main() {
 	b.WriteString("This data is being put into a byte.buffer")
 	fmt.Printf("Buffer in:  %s\n", b.String())
 
-	// CREATE BUFFER TO WRITE INTO
+	// CREATE BUFFER TO WRITE TO
 	buffer := make([]byte, 100)
 
 	// ASSIGN BUFFER TO READER
 	r = b
 
-	// READ METHOD (USING io.reader)
+	// READ METHOD (USING io.Reader)
 	n, err := r.Read(buffer)
 	if err != nil {
-		fmt.Printf("error reading io.Reader: %s", err)
+		fmt.Printf("Error with io.Reader: %s", err)
 	}
 
 	// PRINT BUFFER

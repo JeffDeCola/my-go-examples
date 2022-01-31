@@ -106,6 +106,11 @@ _In logical order._
     _Using an interface to calculate the area of a rectangle and circle
     by passing pointers._
 
+  * [area-shapes-interfaces-ptrs-x2](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/interfaces/area-shapes-interfaces-ptrs-x2)
+
+    _Using an interface to calculate the area of a rectangle and circle
+    by passing pointers. Also multiple Rectangle and Circle structs by 2._
+
   * [shapes-package](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/interfaces/shapes-package)
 
     _Using an interface to calculate the area and perimeter of a rectangle,

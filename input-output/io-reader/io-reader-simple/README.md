@@ -68,7 +68,7 @@ buffer := make([]byte, 100)
 // ASSIGN BUFFER TO READER
 r = b
 
-// READ METHOD (USING io.reader)
+// READ METHOD (USING io.Reader)
 n, err := r.Read(buffer)
 if err != nil {
     fmt.Printf("error reading io.Reader: %s", err)
