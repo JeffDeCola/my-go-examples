@@ -37,7 +37,7 @@ func setLogLevel(logLevel string) error {
 	})
 	// log.SetFormatter(&log.JSONFormatter{})
 
-	// SET OUTPUT (DEFAULT stderr)
+	// SET OUTPUT (DEFAULT os.Stderr)
 	log.SetOutput(os.Stdout)
 
 	return nil

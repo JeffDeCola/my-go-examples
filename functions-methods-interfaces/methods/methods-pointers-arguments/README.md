@@ -140,4 +140,4 @@ go test -cover ./...
 
 ## AN ILLUSTRATION THAT MAY HELP
 
-![IMAGE - functions-methods-interfaces-pointers-arguments.jpg - IMAGE](../../../docs/pics/basic-syntax/functions-methods-interfaces-pointers-arguments.jpg)
+![IMAGE - functions-methods-interfaces-pointers-arguments.jpg - IMAGE](../../../docs/pics/functions-methods-interfaces/functions-methods-interfaces-pointers-arguments.jpg)

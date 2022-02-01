@@ -18,7 +18,7 @@ func askQuestion(r io.Reader) (string, error) {
 
 	var userInput string
 
-	fmt.Print("What is 2+2? ")
+	fmt.Print("What is 2+2 (type stop to quit)? ")
 	// THIS WILL BLOCK
 	_, err := fmt.Fscan(r, &userInput)
 	if err != nil {

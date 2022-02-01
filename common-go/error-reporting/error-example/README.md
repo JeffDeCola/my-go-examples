@@ -12,7 +12,7 @@ Table of Contents,
 Documentation and references,
 
 * Refer to the
-  [error](https://pkg.go.dev/error)
+  [errors](https://pkg.go.dev/errors)
   package for more info
 * This repos [github webpage](https://jeffdecola.github.io/my-go-examples/)
 
@@ -48,18 +48,18 @@ go run error-example.go
 The output may look like,
 
 ```bash
-What is 2+2? 4
+What is 2+2 (type stop to quit)? 4
 YOUR ANSWER 4 IS CORRECT!
 ------------------------
-What is 2+2? 5
+What is 2+2 (type stop to quit)? 5
 INCORRECT!
 ERRO[0003] Error with answer: error calling checkNumber: 5 was provided: the answer is incorrect
 ------------------------ 
-What is 2+2? cat
+What is 2+2 (type stop to quit)? cat
 Not an integer
 ERRO[0005] Error with answer: unable to convert to integer: strconv.Atoi: parsing "cat": invalid syntax
 ------------------------ 
-What is 2+2? stop
+What is 2+2 (type stop to quit)? stop
 Done
 ```
 
