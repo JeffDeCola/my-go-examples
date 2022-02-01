@@ -33,7 +33,7 @@ Table of Contents,
   * HASHING
   * SYMMETRIC CRYPTOGRAPHY
 * [DATABASES](https://github.com/JeffDeCola/my-go-examples#databases)
-* [FUNCTIONS, METHODS AND INTERFACES](https://github.com/JeffDeCola/my-go-examples#?????????????????????????????????????)
+* [FUNCTIONS, METHODS AND INTERFACES](https://github.com/JeffDeCola/my-go-examples#functions-methods-and-interfaces)
   * FUNCTIONS
   * METHODS
   * INTERFACES
