@@ -69,17 +69,3 @@ Boolean,
 ```bash
 go run flag.go -b
 ```
-
-## TEST
-
-To create _test files,
-
-```bash
-gotests -w -all flag.go
-```
-
-To unit test the code,
-
-```bash
-go test -cover ./... 
-```

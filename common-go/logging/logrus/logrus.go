@@ -64,19 +64,20 @@ func createLogFile(filename string) (*os.File, error) {
 
 func main() {
 
-	logLevelPtr := flag.String("loglevel", "error", "log level (trace, info or error)")
-	logFilePtr := flag.String("logfile", "", "log output to a file")
+	// FLAGS
+	logLevel := flag.String("loglevel", "error", "log level (trace, info or error)")
+	logFile := flag.String("logfile", "", "log output to a file")
 	flag.Parse()
 
 	// SET LOG LEVEL (trace, info or error) None of which exit
-	err := setLogLevel(*logLevelPtr)
+	err := setLogLevel(*logLevel)
 	if err != nil {
 		log.Errorf("Error getting logLevel: %s", err)
 	}
 
 	// CREATE AND SENT TO LOG FILE IF FLAG IS SET
-	if *logFilePtr != "" {
-		myfile, err := createLogFile(*logFilePtr)
+	if *logFile != "" {
+		myfile, err := createLogFile(*logFile)
 		if err != nil {
 			log.Errorf("Error creating logfile: %s", err)
 		}

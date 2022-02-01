@@ -12,7 +12,7 @@ Table of Contents,
 Documentation and references,
 
 * Refer to the
-  [error-example](https://pkg.go.dev/error-example)
+  [error](https://pkg.go.dev/error)
   package for more info
 * This repos [github webpage](https://jeffdecola.github.io/my-go-examples/)
 
@@ -36,7 +36,7 @@ if answer != 4 {
 ## RUN
 
 The programs asks you what is 2+2 and depending on your answer will
-say you are incorrect, correct and/or give you an error. Notice how it propagates
+say you are incorrect, correct and/or give you an error. Notice how it **propagates**
 the error up the function calls.
 
 Run,

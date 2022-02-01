@@ -13,11 +13,6 @@ Table of Contents,
 * [ARCHITECTURES](https://github.com/JeffDeCola/my-go-examples#architectures)
   * BLOCKCHAIN
   * SCRAPING
-* [BASIC SYNTAX](https://github.com/JeffDeCola/my-go-examples#basic-syntax)
-  * DATA TYPES
-  * FUNCTIONS
-  * INTERFACES
-  * METHODS
 * [CGO](https://github.com/JeffDeCola/my-go-examples#cgo)
 * [CLIENT/SERVER](https://github.com/JeffDeCola/my-go-examples#clientserver)
   * HTTP
@@ -38,6 +33,10 @@ Table of Contents,
   * HASHING
   * SYMMETRIC CRYPTOGRAPHY
 * [DATABASES](https://github.com/JeffDeCola/my-go-examples#databases)
+* [FUNCTIONS, METHODS AND INTERFACES](https://github.com/JeffDeCola/my-go-examples#?????????????????????????????????????)
+  * FUNCTIONS
+  * METHODS
+  * INTERFACES
 * [GOROUTINES](https://github.com/JeffDeCola/my-go-examples#goroutines)
 * [INPUT/OUTPUT](https://github.com/JeffDeCola/my-go-examples#inputoutput)
   * IO READER
@@ -68,59 +67,6 @@ _Using go to build fun things._
 * SCRAPING
 
   _coming soon_
-
-### BASIC SYNTAX
-
-_In logical order._
-
-* FUNCTIONS
-
-  * [area-shapes-functions](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/functions/area-shapes-functions)
-
-    _Using functions to calculate the area of a rectangle and circle._
-
-  * [area-shapes-functions-ptrs](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/functions/area-shapes-functions-ptrs)
-
-    _Using functions to calculate the area of a rectangle and circle
-    by passing pointers._
-
-* METHODS
-
-  * [area-shapes-methods](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/methods/area-shapes-methods)
-
-    _Using methods to calculate the area of a rectangle and circle._
-
-  * [area-shapes-methods-ptrs](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/methods/area-shapes-methods-ptrs)
-
-    _Using methods to calculate the area of a rectangle and circle
-    by passing pointers._
-
-* INTERFACES
-
-  * [area-shapes-interfaces](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/interfaces/area-shapes-interfaces)
-
-    _Using an interface to calculate the area of a rectangle and circle._
-
-  * [area-shapes-interfaces-ptrs](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/interfaces/area-shapes-interfaces-ptrs)
-
-    _Using an interface to calculate the area of a rectangle and circle
-    by passing pointers._
-
-  * [area-shapes-interfaces-ptrs-x2](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/interfaces/area-shapes-interfaces-ptrs-x2)
-
-    _Using an interface to calculate the area of a rectangle and circle
-    by passing pointers. Also multiple Rectangle and Circle structs by 2._
-
-  * [shapes-package](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/interfaces/shapes-package)
-
-    _Using an interface to calculate the area and perimeter of a rectangle,
-    circle and triangle via a shapes package._
-
-  * [shapes-package-ptrs](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/interfaces/shapes-package-ptrs)
-
-    _Using an interface to calculate the area and perimeter of a rectangle,
-    circle and triangle via a shapes package
-    by passing pointers._
 
 ### CGO
 
@@ -221,6 +167,60 @@ _Secure communication techniques._
 ### DATABASES
 
 _Save and organize your data._
+
+### FUNCTIONS, METHODS AND INTERFACES
+
+_The following code demonstrates functions, methods and interfaces using
+simple area and perimeter calculations for different shapes._
+
+* FUNCTIONS
+
+  * [functions](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/functions/functions)
+
+    _Using functions to calculate the area of a rectangle and circle._
+
+  * [functions-pointers-arguments](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/functions/functions-pointers-arguments)
+
+    _Using functions to calculate the area of a rectangle and circle
+    by passing pointers._
+
+* METHODS
+
+  * [methods](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/methods/methods)
+
+    _Using methods to calculate the area of a rectangle and circle._
+
+  * [methods-pointers-arguments](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/methods/methods-pointers-arguments)
+
+    _Using methods to calculate the area of a rectangle and circle
+    by passing pointers._
+
+  * [methods-pointers-receivers](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/methods/methods-pointers-receivers)
+
+    _Using methods to calculate the area of a rectangle and circle
+    by passing pointers and using pointer receivers._
+
+* INTERFACES
+
+  * [interfaces](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/interfaces/interfaces)
+
+    _Using an interface to calculate the area of a rectangle and circle._
+
+  * [interfaces-pointers-arguments](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/interfaces/interfaces-pointers-arguments)
+
+    _Using an interface to calculate the area of a rectangle and circle
+    by passing pointers._
+
+  * [interfaces-pointer-receivers](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/interfaces/interfaces-pointers-receivers)
+
+    _Using an interface to calculate the area of a rectangle and circle
+    by passing pointers and using pointer receivers._
+
+  * [geometry-package](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/interfaces/geometry-package)
+
+    _Using an interface to calculate the area and perimeter of a rectangle,
+    circle and triangle via a geometry package.
+    It uses pointers for arguments and receivers._
 
 ### GOROUTINES
 
