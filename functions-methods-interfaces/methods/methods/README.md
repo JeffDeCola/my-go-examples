@@ -56,7 +56,6 @@ tl;dr,
         rec := Rectangle{2.4, 34.4}
         rec.size(2)
 
-
 // INTERFACES
     
     // USING RETURNS
@@ -79,17 +78,16 @@ tl;dr,
         // To Use
         rec := Rectangle{2.4, 34.4}
         var gRec geometry
-        var recArea float64
         gRec = &rec // Note this
         gRec.size(2)
 ```
 
 Table of Contents,
 
-* [OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/methods/area-shapes-methods#overview)
-* [RUN](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/methods/area-shapes-methods#run)
-* [TEST](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/methods/area-shapes-methods#test)
-* [AN ILLUSTRATION THAT MAY HELP](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/methods/area-shapes-methods#an-illustration-that-may-help)
+* [OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/methods/methods#overview)
+* [RUN](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/methods/methods#run)
+* [TEST](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/methods/methods#test)
+* [AN ILLUSTRATION THAT MAY HELP](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/methods/methods#an-illustration-that-may-help)
 
 Documentation and reference,
 
