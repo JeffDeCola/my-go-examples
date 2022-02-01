@@ -1,6 +1,7 @@
-# methods
+# methods-pointers-receivers
 
-_Using methods to calculate the area of a rectangle and circle._
+_Using methods to calculate the area of a rectangle and circle
+by passing pointers and using pointer receivers._
 
 Other examples using,
 
@@ -9,9 +10,9 @@ Other examples using,
   * [functions-pointers-arguments](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/functions/functions-pointers-arguments)
 * **METHODS**
   * [methods](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/methods/methods)
-    **<- YOU ARE HERE**
   * [methods-pointers-arguments](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/methods/methods-pointers-arguments)
   * [methods-pointers-receivers](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/methods/methods-pointers-receivers)
+    **<- YOU ARE HERE**
 * **INTERFACES**
   * [interfaces](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/interfaces/interfaces)
   * [interfaces-pointers-arguments](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/interfaces/interfaces-pointers-arguments)
@@ -26,10 +27,10 @@ tl;dr,
 
 Table of Contents,
 
-* [OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/methods/area-shapes-methods#overview)
-* [RUN](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/methods/area-shapes-methods#run)
-* [TEST](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/methods/area-shapes-methods#test)
-* [AN ILLUSTRATION THAT MAY HELP](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/methods/area-shapes-methods#an-illustration-that-may-help)
+* [OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/methods/area-shapes-methods-ptrs#overview)
+* [RUN](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/methods/area-shapes-methods-ptrs#run)
+* [TEST](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/methods/area-shapes-methods-ptrs#test)
+* [AN ILLUSTRATION THAT MAY HELP](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/methods/area-shapes-methods-ptrs#an-illustration-that-may-help)
 
 Documentation and reference,
 
@@ -41,8 +42,6 @@ A method is a function with a special receiver type.
 
 It just makes it a lot easier to use a
 struct as a receiver, rather than passing lots of variables around.
-
-Define the rectangle using a struct,
 
 ```go
 type Rectangle struct {
@@ -56,15 +55,14 @@ rec := Rectangle{2.4, 34.4}
 Calculate the area using a method,
 
 ```go
-recArea := rec.area()
+rec.area(&recArea)
 ```
 
 Which will chose the area method that has a Rectangle struct,
 
 ```go
-func (r Rectangle) area() float64 {
-    area := r.width * r.height
-    return area
+func (r Rectangle) area(a *float64) {
+    *a = r.width * r.height
 }
 ```
 
@@ -73,7 +71,7 @@ func (r Rectangle) area() float64 {
 To run,
 
 ```bash
-go run methods.go
+go run methods-pointers-receivers.go
 ```
 
 ## TEST
@@ -81,7 +79,7 @@ go run methods.go
 To create _test files,
 
 ```bash
-gotests -w -all methods.go
+gotests -w -all methods-pointers-receivers.go
 ```
 
 To unit test the code,
@@ -92,4 +90,4 @@ go test -cover ./...
 
 ## AN ILLUSTRATION THAT MAY HELP
 
-![IMAGE - functions-methods-interfaces.jpg - IMAGE](../../../docs/pics/basic-syntax/functions-methods-interfaces.jpg)
+![IMAGE - methods-interfaces-pointers-receivers.jpg - IMAGE](../../../docs/pics/basic-syntax/methods-interfaces-pointers-receivers.jpg)

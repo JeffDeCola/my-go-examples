@@ -5,50 +5,24 @@ by passing pointers._
 
 Other examples using,
 
-* Functions using
-  * [returns](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/functions/area-shapes-functions)
-  * [pointers](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/functions/area-shapes-functions-ptrs)
+* **FUNCTIONS**
+  * [functions](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/functions/functions)
+  * [functions-pointers-arguments](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/functions/functions-pointers-arguments)
     **<- YOU ARE HERE**
-* Methods using
-  * [returns](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/methods/area-shapes-methods)
-  * [pointers](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/methods/area-shapes-methods-ptrs)
-* Interface using
-  * [returns](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/interfaces/area-shapes-interfaces)
-  * [pointers](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/interfaces/area-shapes-interfaces-ptrs)
-  * [pointers](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/interfaces/area-shapes-interfaces-ptrs-x2)
-    (multiply structs by 2)
-  * [returns using a package](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/interfaces/shapes-package)
-  * [pointers using a package](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/interfaces/shapes-package-ptrs)
+* **METHODS**
+  * [methods](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/methods/methods)
+  * [methods-pointers-arguments](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/methods/methods-pointers-arguments)
+  * [methods-pointers-receivers](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/methods/methods-pointers-receivers)
+* **INTERFACES**
+  * [interfaces](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/interfaces/interfaces)
+  * [interfaces-pointers-arguments](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/interfaces/interfaces-pointers-arguments)
+  * [interfaces-pointers-receivers](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/interfaces/interfaces-pointers-receivers)
+  * [geometry-package](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/interfaces/geometry-package)
   
 tl;dr,
 
 ```go
-// FUNCTION
-    // USING RETURN
-    recArea := areaRectangle(recWidth, recHeight)
-    // USING POINTER
-    var recArea float64
-    areaRectangle(recWidth, recHeight, &recArea)
-// METHOD
-    // USING RETURN
-    rec := Rectangle{2.4, 34.4}
-    recArea := rec.area()
-    // USING POINTER
-    rec := Rectangle{2.4, 34.4}
-    var recArea float64
-    rec.area(&recArea)
-// INTERFACE
-    // USING RETURN
-    rec := Rectangle{2.4, 34.4}
-    var gRec geometry
-    gRec = rec
-    recArea := gRec.area()
-    // USING POINTER
-    rec := Rectangle{2.4, 34.4}
-    var gRec geometry
-    var recArea float64
-    gRec = rec
-    gRec.area(&recArea)
+
 ```
 
 Table of Contents,
@@ -91,7 +65,7 @@ func areaRectangle(w float64, h float64, a *float64) {
 To run,
 
 ```bash
-go run area-shapes-functions-ptrs.go
+go run functions-pointers-arguments.go
 ```
 
 ## TEST
@@ -99,7 +73,7 @@ go run area-shapes-functions-ptrs.go
 To create _test files,
 
 ```bash
-gotests -w -all area-shapes-functions-ptrs.go
+gotests -w -all functions-pointers-arguments.go
 ```
 
 To unit test the code,
@@ -110,4 +84,4 @@ go test -cover ./...
 
 ## AN ILLUSTRATION THAT MAY HELP
 
-![IMAGE - functions-methods-interfaces-ptrs.jpg - IMAGE](../../../docs/pics/basic-syntax/functions-methods-interfaces-ptrs.jpg)
+![IMAGE - functions-methods-interfaces-pointers-arguments.jpg - IMAGE](../../../docs/pics/basic-syntax/functions-methods-interfaces-pointers-arguments.jpg)

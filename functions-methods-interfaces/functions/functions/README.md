@@ -24,7 +24,8 @@ tl;dr,
 // SYNTAX
     // (receiver) func (arguments) (return arguments)
 
-// FUNCTION
+// FUNCTIONS
+
     // USING RETURNS
         func areaRectangle(w float64, h float64) float64 {
         // To Use
@@ -35,7 +36,8 @@ tl;dr,
         var recArea float64
         areaRectangle(recWidth, recHeight, &recArea)
 
-// METHOD
+// METHODS
+
     // USING RETURNS
         func (r Rectangle) area() float64 {
         // To Use
@@ -54,8 +56,8 @@ tl;dr,
         rec := Rectangle{2.4, 34.4}
         var recArea float64??????????????????
         rec.area(&recArea)
-        
-// INTERFACE
+
+// INTERFACES
     
     // USING RETURNS
         
@@ -117,7 +119,7 @@ func areaRectangle(w float64, h float64) float64 {
 To run,
 
 ```bash
-go run area-shapes-functions.go
+go run functions.go
 ```
 
 ## TEST
@@ -125,7 +127,7 @@ go run area-shapes-functions.go
 To create _test files,
 
 ```bash
-gotests -w -all area-shapes-functions.go
+gotests -w -all functions.go
 ```
 
 To unit test the code,
