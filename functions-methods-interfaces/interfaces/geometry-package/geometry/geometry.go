@@ -1,4 +1,4 @@
-package shapes
+package geometry
 
 import (
 	"math"
@@ -8,6 +8,7 @@ import (
 type Geometry interface {
 	Area(*float64)
 	Perimeter(*float64)
+	Size(float64)
 }
 
 //  STRUCTS - SHAPE CHARACTERISTICS
@@ -31,16 +32,8 @@ func (r Rectangle) Area(a *float64) {
 	*a = r.Width * r.Height
 }
 
-func (r Rectangle) Perimeter(p *float64) {
-	*p = 2 * (r.Width + r.Height)
-}
-
 func (c Circle) Area(a *float64) {
 	*a = math.Pi * math.Pow(c.Radius, 2)
-}
-
-func (c Circle) Perimeter(p *float64) {
-	*p = 2 * math.Pi * c.Radius
 }
 
 func (t Triangle) Area(a *float64) {
@@ -49,21 +42,29 @@ func (t Triangle) Area(a *float64) {
 	*a = math.Sqrt(s * (s - t.A) * (s - t.B) * (s - t.C))
 }
 
+func (r Rectangle) Perimeter(p *float64) {
+	*p = 2 * (r.Width + r.Height)
+}
+
+func (c Circle) Perimeter(p *float64) {
+	*p = 2 * math.Pi * c.Radius
+}
+
 func (t Triangle) Perimeter(a *float64) {
 	*a = t.A + t.B + t.C
 }
 
-// FUNCTION USING AN INTERFACE
-func GetArea(g Geometry) float64 {
-	// CALL THE METHOD - WILL CHOSE RIGHT ONE
-	var area float64
-	g.Area(&area)
-	return area
+func (r *Rectangle) Size(f float64) {
+	r.Width = f * r.Width
+	r.Height = f * r.Height
 }
 
-func GetPerimeter(g Geometry) float64 {
-	// CALL THE METHOD - WILL CHOSE RIGHT ONE
-	var perimeter float64
-	g.Perimeter(&perimeter)
-	return perimeter
+func (c *Circle) Size(f float64) {
+	c.Radius = f * c.Radius
+}
+
+func (t *Triangle) Size(f float64) {
+	t.A = f * t.A
+	t.B = f * t.B
+	t.C = f * t.C
 }

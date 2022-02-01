@@ -22,7 +22,67 @@ Other examples using,
 tl;dr,
 
 ```go
+// SYNTAX
+    // (receiver) func (arguments) (return arguments)
 
+// FUNCTIONS
+
+    // USING RETURNS
+        func areaRectangle(w float64, h float64) float64 {
+        // To Use
+        recArea := areaRectangle(recWidth, recHeight)
+    // USING POINTERS IN ARGUMENTS
+        func areaRectangle(w float64, h float64, a *float64) {
+        // To Use
+        var recArea float64
+        areaRectangle(recWidth, recHeight, &recArea)
+
+// METHODS
+
+    // USING RETURNS
+        func (r Rectangle) area() float64 {
+        // To Use
+        rec := Rectangle{2.4, 34.4}
+        recArea := rec.area()
+        // To Use
+    // USING POINTERS IN ARGUMENTS
+        func (r Rectangle) area(a *float64) {
+        // To Use
+        rec := Rectangle{2.4, 34.4}
+        var recArea float64
+        rec.area(&recArea)
+     // USING POINTERS IN RECEIVERS
+        func (r *Rectangle) size(f factor) {
+        // To Use
+        rec := Rectangle{2.4, 34.4}
+        rec.size(2)
+
+
+// INTERFACES
+    
+    // USING RETURNS
+        func (geometry).area() float64 // Abstract representation
+        // To Use
+        rec := Rectangle{2.4, 34.4}
+        var gRec geometry
+        gRec = rec
+        recArea := gRec.area()
+    // USING POINTERS IN ARGUMENTS
+        func (geometry).area()(*float64) // Abstract representation
+        // To Use
+        rec := Rectangle{2.4, 34.4}
+        var gRec geometry
+        var recArea float64
+        gRec = rec
+        gRec.area(&recArea)
+    // USING POINTERS IN RECEIVERS
+        func (geometry).size()(*float64) // Abstract representation
+        // To Use
+        rec := Rectangle{2.4, 34.4}
+        var gRec geometry
+        var recArea float64
+        gRec = &rec // Note this
+        gRec.size(2)
 ```
 
 Table of Contents,
@@ -43,6 +103,9 @@ A method is a function with a special receiver type.
 It just makes it a lot easier to use a
 struct as a receiver, rather than passing lots of variables around.
 
+In this example, let's use a size method with a pointer receiver
+that will increase or decrease the size of the rectangle or circle.
+
 ```go
 type Rectangle struct {
     width  float64
@@ -52,17 +115,18 @@ type Rectangle struct {
 rec := Rectangle{2.4, 34.4}
 ```
 
-Calculate the area using a method,
+Calculate the size of the rectangle using a method with pointer receiver,
 
 ```go
-rec.area(&recArea)
+rec.size(2)
 ```
 
-Which will chose the area method that has a Rectangle struct,
+Which will chose the size method that has a Rectangle receiver,
 
 ```go
-func (r Rectangle) area(a *float64) {
-    *a = r.width * r.height
+func (r *Rectangle) size(f float64) {
+    r.width = r.width * f
+    r.height = r.height * f
 }
 ```
 

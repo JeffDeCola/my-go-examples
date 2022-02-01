@@ -1,6 +1,8 @@
 package main
 
-import "testing"
+import (
+	"testing"
+)
 
 func TestRectangle_area(t *testing.T) {
 	type fields struct {
@@ -67,6 +69,75 @@ func TestCircle_area(t *testing.T) {
 				radius: tt.fields.radius,
 			}
 			c.area(tt.args.a)
+		})
+	}
+}
+
+func TestRectangle_size(t *testing.T) {
+	type fields struct {
+		width  float64
+		height float64
+	}
+	type args struct {
+		f float64
+	}
+	tests := []struct {
+		name   string
+		fields fields
+		args   args
+	}{
+		{
+			name: "Test Size Rectangle",
+			fields: fields{
+				width:  2.4,
+				height: 34.4,
+				// want: 330.24,
+			},
+			args: args{
+				f: 2,
+			},
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			r := &Rectangle{
+				width:  tt.fields.width,
+				height: tt.fields.height,
+			}
+			r.size(tt.args.f)
+		})
+	}
+}
+
+func TestCircle_size(t *testing.T) {
+	type fields struct {
+		radius float64
+	}
+	type args struct {
+		f float64
+	}
+	tests := []struct {
+		name   string
+		fields fields
+		args   args
+	}{
+		{
+			name: "Test Size Circle",
+			fields: fields{
+				radius: 2.3,
+				// want: 66.48,
+			},
+			args: args{
+				f: 2,
+			},
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			c := &Circle{
+				radius: tt.fields.radius,
+			}
+			c.size(tt.args.f)
 		})
 	}
 }

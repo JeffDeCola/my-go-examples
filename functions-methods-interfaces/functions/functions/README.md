@@ -51,32 +51,37 @@ tl;dr,
         var recArea float64
         rec.area(&recArea)
      // USING POINTERS IN RECEIVERS
-        func (r *Rectangle) area(a *float64) {
+        func (r *Rectangle) size(f factor) {
         // To Use
         rec := Rectangle{2.4, 34.4}
-        var recArea float64??????????????????
-        rec.area(&recArea)
+        rec.size(2)
+
 
 // INTERFACES
     
     // USING RETURNS
-        
+        func (geometry).area() float64 // Abstract representation
         // To Use
         rec := Rectangle{2.4, 34.4}
         var gRec geometry
         gRec = rec
         recArea := gRec.area()
     // USING POINTERS IN ARGUMENTS
-        
+        func (geometry).area()(*float64) // Abstract representation
         // To Use
         rec := Rectangle{2.4, 34.4}
         var gRec geometry
         var recArea float64
         gRec = rec
         gRec.area(&recArea)
-
     // USING POINTERS IN RECEIVERS
-
+        func (geometry).size()(*float64) // Abstract representation
+        // To Use
+        rec := Rectangle{2.4, 34.4}
+        var gRec geometry
+        var recArea float64
+        gRec = &rec // Note this
+        gRec.size(2)
 ```
 
 Table of Contents,

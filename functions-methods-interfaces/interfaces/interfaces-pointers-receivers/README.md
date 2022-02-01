@@ -22,7 +22,67 @@ Other examples using,
 tl;dr,
 
 ```go
+// SYNTAX
+    // (receiver) func (arguments) (return arguments)
 
+// FUNCTIONS
+
+    // USING RETURNS
+        func areaRectangle(w float64, h float64) float64 {
+        // To Use
+        recArea := areaRectangle(recWidth, recHeight)
+    // USING POINTERS IN ARGUMENTS
+        func areaRectangle(w float64, h float64, a *float64) {
+        // To Use
+        var recArea float64
+        areaRectangle(recWidth, recHeight, &recArea)
+
+// METHODS
+
+    // USING RETURNS
+        func (r Rectangle) area() float64 {
+        // To Use
+        rec := Rectangle{2.4, 34.4}
+        recArea := rec.area()
+        // To Use
+    // USING POINTERS IN ARGUMENTS
+        func (r Rectangle) area(a *float64) {
+        // To Use
+        rec := Rectangle{2.4, 34.4}
+        var recArea float64
+        rec.area(&recArea)
+     // USING POINTERS IN RECEIVERS
+        func (r *Rectangle) size(f factor) {
+        // To Use
+        rec := Rectangle{2.4, 34.4}
+        rec.size(2)
+
+
+// INTERFACES
+    
+    // USING RETURNS
+        func (geometry).area() float64 // Abstract representation
+        // To Use
+        rec := Rectangle{2.4, 34.4}
+        var gRec geometry
+        gRec = rec
+        recArea := gRec.area()
+    // USING POINTERS IN ARGUMENTS
+        func (geometry).area()(*float64) // Abstract representation
+        // To Use
+        rec := Rectangle{2.4, 34.4}
+        var gRec geometry
+        var recArea float64
+        gRec = rec
+        gRec.area(&recArea)
+    // USING POINTERS IN RECEIVERS
+        func (geometry).size()(*float64) // Abstract representation
+        // To Use
+        rec := Rectangle{2.4, 34.4}
+        var gRec geometry
+        var recArea float64
+        gRec = &rec // Note this
+        gRec.size(2)
 ```
 
 Table of Contents,
@@ -49,13 +109,13 @@ type Rectangle struct {
 rec := Rectangle{2.4, 34.4}
 ```
 
-Calculate the area using a interface,
+Calculate the size of the rectangle using an interface with pointer receiver,
 
 ```go
 var gRec geometry
 var recArea float64
 gRec = &rec
-gRec.area(&recArea)
+gRec.size(2)
 ```
 
 Where the interface is,
@@ -63,15 +123,16 @@ Where the interface is,
 ```go
 type geometry interface {
     area(*float64)
-    perimeter(*float64)
+    size(float64)
 }
 ```
 
-Which will chose the area method that has a **Rectangle struct pointer**,
+Which will chose the size method that has a **Rectangle struct pointer receiver**,
 
 ```go
-func (r *Rectangle) area(a *float64) {
-    *a = r.width * r.height
+func (r *Rectangle) size(f float64) {
+    r.width = r.width * f
+    r.height = r.height * f
 }
 ```
 
