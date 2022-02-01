@@ -58,7 +58,6 @@ tl;dr,
         rec := Rectangle{2.4, 34.4}
         rec.size(2)
 
-
 // INTERFACES
     
     // USING RETURNS
@@ -81,17 +80,16 @@ tl;dr,
         // To Use
         rec := Rectangle{2.4, 34.4}
         var gRec geometry
-        var recArea float64
         gRec = &rec // Note this
         gRec.size(2)
 ```
 
 Table of Contents,
 
-* [OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/interfaces/shapes-package-ptrs#overview)
-* [RUN](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/interfaces/shapes-package-ptrs#run)
-* [TEST](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/interfaces/shapes-package-ptrs#test)
-* [AN ILLUSTRATION THAT MAY HELP](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/interfaces/shapes-package-ptrs#an-illustration-that-may-help)
+* [OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/interfaces/geometry-package#overview)
+* [RUN](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/interfaces/geometry-package#run)
+* [TEST](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/interfaces/geometry-package#test)
+* [AN ILLUSTRATION THAT MAY HELP](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/interfaces/geometry-package#an-illustration-that-may-help)
 
 Documentation and reference,
 
@@ -106,14 +104,14 @@ like a geometry shapes package.
 Defines the shapes using a struct,
 
 ```go
-rec := shapes.Rectangle{
+rec := geometry.Rectangle{
     Width:  2.4,
     Height: 34.4,
 }
-circ := shapes.Circle{
+circ := geometry.Circle{
     Radius: 2.3,
 }
-tri := shapes.Triangle{
+tri := geometry.Triangle{
     A: 2,
     B: 3.3,
     C: 4,
@@ -123,16 +121,17 @@ tri := shapes.Triangle{
 Calculate area and perimeter using a interface,
 
 ```go
-var gRec shapes.Geometry
-var gCirc shapes.Geometry
-var gTri shapes.Geometry
+var gRec geometry.Geometry
+var gCirc geometry.Geometry
+var gTri geometry.Geometry
 var recArea, circArea, triArea float64
 var recPerimeter, circPerimeter, triPerimeter float64
 
-gRec = rec
-gCirc = circ
-gTri = tri
+gRec = &rec
+gCirc = &circ
+gTri = &tri
 
+// CALCULATE AREA PERIMETER
 gRec.Area(&recArea)
 gRec.Perimeter(&recPerimeter)
 gCirc.Area(&circArea)
@@ -145,8 +144,9 @@ Where the interface is,
 
 ```go
 type Geometry interface {
-    Area(*float64) 
+    Area(*float64)
     Perimeter(*float64)
+    Size(float64)
 }
 ```
 

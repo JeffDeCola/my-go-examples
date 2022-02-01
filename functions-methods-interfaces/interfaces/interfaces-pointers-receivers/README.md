@@ -57,7 +57,6 @@ tl;dr,
         rec := Rectangle{2.4, 34.4}
         rec.size(2)
 
-
 // INTERFACES
     
     // USING RETURNS
@@ -80,17 +79,16 @@ tl;dr,
         // To Use
         rec := Rectangle{2.4, 34.4}
         var gRec geometry
-        var recArea float64
         gRec = &rec // Note this
         gRec.size(2)
 ```
 
 Table of Contents,
 
-* [OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/interfaces/area-shapes-interfaces-ptrs-x2#overview)
-* [RUN](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/interfaces/area-shapes-interfaces-ptrs-x2#run)
-* [TEST](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/interfaces/area-shapes-interfaces-ptrs-x2#test)
-* [AN ILLUSTRATION THAT MAY HELP](https://github.com/JeffDeCola/my-go-examples/tree/master/basic-syntax/interfaces/area-shapes-interfaces-ptrs-x2#an-illustration-that-may-help)
+* [OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/interfaces/interfaces-pointers-receivers#overview)
+* [RUN](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/interfaces/interfaces-pointers-receivers#run)
+* [TEST](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/interfaces/interfaces-pointers-receivers#test)
+* [AN ILLUSTRATION THAT MAY HELP](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/interfaces/interfaces-pointers-receivers#an-illustration-that-may-help)
 
 Documentation and reference,
 
@@ -113,7 +111,6 @@ Calculate the size of the rectangle using an interface with pointer receiver,
 
 ```go
 var gRec geometry
-var recArea float64
 gRec = &rec
 gRec.size(2)
 ```
