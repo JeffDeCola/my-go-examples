@@ -141,4 +141,4 @@ go test -cover ./...
 
 ## AN ILLUSTRATION THAT MAY HELP
 
-![IMAGE - functions-methods-interfaces.jpg - IMAGE](../../../docs/pics/basic-syntax/functions-methods-interfaces.jpg)
+![IMAGE - functions-methods-interfaces.jpg - IMAGE](../../../docs/pics/functions-methods-interfaces/functions-methods-interfaces.jpg)

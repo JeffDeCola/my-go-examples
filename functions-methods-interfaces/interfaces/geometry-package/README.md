@@ -171,4 +171,4 @@ go test -cover ./...
 
 ## AN ILLUSTRATION THAT MAY HELP
 
-![IMAGE - methods-interfaces-pointers-receivers.jpg - IMAGE](../../../docs/pics/basic-syntax/methods-interfaces-pointers-receivers.jpg)
+![IMAGE - methods-interfaces-pointers-receivers.jpg - IMAGE](../../../docs/pics/functions-methods-interfaces/methods-interfaces-pointers-receivers.jpg)
