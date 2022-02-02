@@ -49,7 +49,7 @@ func getNumbers(r1 io.Reader, r2 io.Reader) (int, int, error) {
 
 	// FIRST NUMBER - USER INPUT
 	log.Trace("Get 1st number from user and convert to int")
-	n1String, err := getUserInput(r1, "What is first number: ")
+	n1String, err := getUserInput(r1, "What is first number?: ")
 	if err != nil {
 		return -1, -1, fmt.Errorf("unable to get string from user: %w", err)
 	}
@@ -60,7 +60,7 @@ func getNumbers(r1 io.Reader, r2 io.Reader) (int, int, error) {
 
 	// SECOND NUMBER - USER INPUT
 	log.Trace("Get 2nd number from user and convert to int")
-	n2String, err := getUserInput(r2, "What is second number: ")
+	n2String, err := getUserInput(r2, "What is second number?: ")
 	if err != nil {
 		return -1, -1, fmt.Errorf("unable to get string from user: %w", err)
 	}
@@ -115,25 +115,25 @@ func getSum(n1 int, n2 int) int {
 func main() {
 
 	// FLAGS
-	versionPtr := flag.Bool("v", false, "prints current version")
-	logLevelPtr := flag.String("loglevel", "error", "log level (trace, info or error)")
+	version := flag.Bool("v", false, "prints current version")
+	logLevel := flag.String("loglevel", "error", "log level (trace, info or error)")
 	flag.Parse()
 
 	// CHECK VERSION
-	if *versionPtr {
+	if *version {
 		fmt.Println(toolVersion)
-		os.Exit(1)
+		os.Exit(0)
 	}
 
 	// SET LOG LEVEL (trace, info or error) None of which exit
-	err := setLogLevel(*logLevelPtr)
+	err := setLogLevel(*logLevel)
 	if err != nil {
 		log.Errorf("Error getting logLevel: %s", err)
 	}
 
 	// PRINT OUT FLAGS
-	log.Trace("Version flag = ", *versionPtr)
-	log.Trace("Log Level = ", *logLevelPtr)
+	log.Trace("Version flag = ", *version)
+	log.Trace("Log Level = ", *logLevel)
 
 	fmt.Println(" ")
 	fmt.Println("Let's add two numbers together")

@@ -48,7 +48,7 @@ tl;dr,
         rec.area(&recArea)
      // USING POINTERS IN RECEIVERS
         func (r *Rectangle) size(f factor) {
-        rec := Rectangle{2.4, 34.4}
+        rec := Rectangle{2.4, 34.4} // We want to change this
         rec.size(2)
 
 // INTERFACES
@@ -68,7 +68,7 @@ tl;dr,
         gRec.area(&recArea)
     // USING POINTERS IN RECEIVERS
         func (geometry).size()(*float64) // Abstract representation
-        rec := Rectangle{2.4, 34.4}
+        rec := Rectangle{2.4, 34.4} // We want to change this
         var gRec geometry
         gRec = &rec // Note this
         gRec.size(2)
@@ -102,7 +102,7 @@ Calculate the size of the rectangle using an interface with pointer receiver,
 
 ```go
 var gRec geometry
-gRec = &rec
+gRec = &rec // Note this
 gRec.size(2)
 ```
 

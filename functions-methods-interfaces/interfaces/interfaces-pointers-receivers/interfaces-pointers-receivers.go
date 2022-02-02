@@ -51,6 +51,7 @@ func main() {
 	var recArea float64
 	var circArea float64
 
+	// Note using the address
 	gRec = &rec
 	gCirc = &circ
 

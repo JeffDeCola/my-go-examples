@@ -44,7 +44,7 @@ type Writer interface {
 }
 ```
 
-Hence, we use the Method Write(),
+Hence, we use the method Write(),
 
 ```go
 n, err := r.Write(buffer)

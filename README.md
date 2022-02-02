@@ -246,6 +246,15 @@ package to read data and write data to/from various IO
     _Read data (a stream of bytes) from a buffer to a buffer
     using the standard `io` package._
 
+  * [read-file](https://github.com/JeffDeCola/my-go-examples/tree/master/input-output/io-reader/read-file)
+
+    _Read a file (*os.File) to a buffer._
+
+  * [read-user-input](https://github.com/JeffDeCola/my-go-examples/tree/master/input-output/io-reader/read-user-input)
+
+    _Read user input (os.Stdin) to a buffer (using Read method)
+    and string (using Fscan)._
+
 * IO WRITER
 
   * [io-writer](https://github.com/JeffDeCola/my-go-examples/tree/master/input-output/io-writer/io-writer)
