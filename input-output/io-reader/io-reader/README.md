@@ -44,7 +44,7 @@ type Reader interface {
 }
 ```
 
-Hence, we use the Method Read(),
+Hence, we use the method Read(),
 
 ```go
 n, err := r.Read(buffer)

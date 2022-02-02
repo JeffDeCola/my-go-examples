@@ -18,7 +18,7 @@ func main() {
 	b := new(bytes.Buffer)
 	fmt.Printf("Buffer in:  %s\n", b.String())
 
-	// ASSIGN B TO WRITER
+	// ASSIGN b TO WRITER
 	w = b
 
 	// WRITE METHOD (USING io.Writer)

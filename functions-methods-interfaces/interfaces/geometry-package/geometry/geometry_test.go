@@ -1,6 +1,8 @@
 package geometry
 
-import "testing"
+import (
+	"testing"
+)
 
 func TestRectangle_Area(t *testing.T) {
 	type fields struct {
@@ -214,6 +216,111 @@ func TestTriangle_Perimeter(t *testing.T) {
 				C: tt.fields.C,
 			}
 			tr.Perimeter(tt.args.a)
+		})
+	}
+}
+
+func TestRectangle_Size(t *testing.T) {
+	type fields struct {
+		Width  float64
+		Height float64
+	}
+	type args struct {
+		f float64
+	}
+	tests := []struct {
+		name   string
+		fields fields
+		args   args
+	}{
+		{
+			name: "Test Size Rectangle",
+			fields: fields{
+				Width:  2.4,
+				Height: 34.4,
+			},
+			args: args{
+				f: 2,
+			},
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			r := &Rectangle{
+				Width:  tt.fields.Width,
+				Height: tt.fields.Height,
+			}
+			r.Size(tt.args.f)
+		})
+	}
+}
+
+func TestCircle_Size(t *testing.T) {
+	type fields struct {
+		Radius float64
+	}
+	type args struct {
+		f float64
+	}
+	tests := []struct {
+		name   string
+		fields fields
+		args   args
+	}{
+		{
+			name: "Test Size Circle",
+			fields: fields{
+				Radius: 2.3,
+			},
+			args: args{
+				f: 2,
+			},
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			c := &Circle{
+				Radius: tt.fields.Radius,
+			}
+			c.Size(tt.args.f)
+		})
+	}
+}
+
+func TestTriangle_Size(t *testing.T) {
+	type fields struct {
+		A float64
+		B float64
+		C float64
+	}
+	type args struct {
+		f float64
+	}
+	tests := []struct {
+		name   string
+		fields fields
+		args   args
+	}{
+		{
+			name: "Test Size Triangle",
+			fields: fields{
+				A: 2,
+				B: 3.3,
+				C: 4,
+			},
+			args: args{
+				f: 2,
+			},
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			tr := &Triangle{
+				A: tt.fields.A,
+				B: tt.fields.B,
+				C: tt.fields.C,
+			}
+			tr.Size(tt.args.f)
 		})
 	}
 }
