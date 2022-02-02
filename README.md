@@ -26,8 +26,8 @@ Table of Contents,
   * MY GENERIC GO TEMPLATE
   * TESTING
 * [COMMUNICATION](https://github.com/JeffDeCola/my-go-examples#communication)
-  * API
-  * INTER PROCESS COMMUNICATION (IPC)
+  * IN-PROCESS COMMUNICATION
+  * INTER-PROCESS COMMUNICATION (IPC)
 * [CRYPTOGRAPHY](https://github.com/JeffDeCola/my-go-examples#cryptography)
   * ASYMMETRIC CRYPTOGRAPHY
   * HASHING
@@ -120,33 +120,59 @@ _A good place to start._
 
 _Talk to me._
 
-* API
+* IN-PROCESS COMMUNICATION
 
-  * ASYNCHRONOUS
-  
-    * MESSAGE QUEUES
-  
-    * TCP/IP
-  
-  * SYNCHRONOUS
-  
-    * gRPC
-  
-    * REST
+  * GOROUTINES
 
-* INTER PROCESS COMMUNICATION (IPC)
+    * ASYNCHRONOUS
 
-  * ASYNCHRONOUS
+      * [CHANNELS (BUFFERED)](https://github.com/JeffDeCola/my-go-examples/tree/master/communication/in-process-communication/goroutines/asynchronous/channels-buffered)
+  
+        _tbd_
 
-    * CHANNELS (UNBUFFERED)
+    * SYNCHRONOUS
 
-    * SOCKETS
+      * [CHANNELS (UNBUFFERED)](https://github.com/JeffDeCola/my-go-examples/tree/master/communication/in-process-communication/goroutines/synchronous/channels-unbuffered)
+
+        _tbd_
 
   * SYNCHRONOUS
+
+    * [PIPES](https://github.com/JeffDeCola/my-go-examples/tree/master/communication/in-process-communication/synchronous/pipes)
+
+      _tbd_
+
+* INTER-PROCESS COMMUNICATION (IPC)
+
+  * ONE-TO-MANY
+
+    * ASYNCHRONOUS
   
-    * CHANNELS (BUFFERED)
+      * [PUB/SUB](https://github.com/JeffDeCola/my-go-examples/tree/master/communication/inter-process-communication-ipc/one-to-many/asynchronous/pub-sub)
   
-    * PIPES
+        _tbd_
+
+  * ONE-TO-ONE
+  
+    * ASYNCHRONOUS
+  
+      * [MESSAGE QUEUES](https://github.com/JeffDeCola/my-go-examples/tree/master/communication/inter-process-communication-ipc/one-to-one/asynchronous/message-queues)
+  
+        _tbd_
+
+      * [TCP/IP](https://github.com/JeffDeCola/my-go-examples/tree/master/communication/inter-process-communication-ipc/one-to-one/asynchronous/tcp-ip)
+
+        _tbd_
+
+    * SYNCHRONOUS
+  
+      * [gRPC](https://github.com/JeffDeCola/my-go-examples/tree/master/communication/inter-process-communication-ipc/one-to-one/synchronous/gRPC)
+  
+        _tbd_
+
+      * [REST](https://github.com/JeffDeCola/my-go-examples/tree/master/communication/inter-process-communication-ipc/one-to-one/synchronous/rest)
+
+        _tbd_
 
 ### CRYPTOGRAPHY
 
