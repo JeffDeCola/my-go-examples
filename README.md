@@ -248,7 +248,7 @@ _Talk to me._
 
   * SYNCHRONOUS
 
-    * [PIPES (UNNAMED)](https://github.com/JeffDeCola/my-go-examples/tree/master/in-process-communication/synchronous/pipes-unnamed)
+    * [PIPES (UNNAMED)](https://github.com/JeffDeCola/my-go-examples/tree/master/in-process-communication/shared-memory/synchronous/pipes-unnamed)
 
       _tbd._
 
@@ -256,17 +256,17 @@ _Talk to me._
 
   * ASYNCHRONOUS
 
-    * [CHANNELS (BUFFERED)](https://github.com/JeffDeCola/my-go-examples/tree/master/in-process-communication/asynchronous/channels-buffered)
+    * [CHANNELS (BUFFERED)](https://github.com/JeffDeCola/my-go-examples/tree/master/in-process-communication/message-passing/asynchronous/channels-buffered)
 
       _tbd._
 
   * SYNCHRONOUS
 
-    * [CHANNELS (UNBUFFERED)](https://github.com/JeffDeCola/my-go-examples/tree/master/in-process-communication/synchronous/channels-unbuffered)
+    * [CHANNELS (UNBUFFERED)](https://github.com/JeffDeCola/my-go-examples/tree/master/in-process-communication/message-passing/synchronous/channels-unbuffered)
 
       _tbd._
 
-### INTER-PROCESS COMMUNICATION
+### INTER-PROCESS COMMUNICATION (IPC)
 
 _Talk to me._
 
@@ -276,7 +276,7 @@ _Talk to me._
 
   * SYNCHRONOUS
 
-    * [PIPES (NAMED)](https://github.com/JeffDeCola/my-go-examples/tree/master/communication/inter-process-communication-ipc/synchronous/pipes-named)
+    * [PIPES (NAMED)](https://github.com/JeffDeCola/my-go-examples/tree/master/communication/inter-process-communication-ipc/sahred-memory/synchronous/pipes-named)
 
       _tbd._
 
@@ -286,41 +286,41 @@ _Talk to me._
 
     * ASYNCHRONOUS
 
-      * [MESSAGE QUEUES](https://github.com/JeffDeCola/my-go-examples/tree/master/inter-process-communication-ipc/operating-system/asynchronous/message-queues)
+      * [MESSAGE QUEUES](https://github.com/JeffDeCola/my-go-examples/tree/master/inter-process-communication-ipc/message-passing/operating-system/asynchronous/message-queues)
 
         _tbd._
 
-      * [PUB/SUB (NATS)](https://github.com/JeffDeCola/my-go-examples/tree/master/inter-process-communication-ipc/operating-system/asynchronous/pub-sub-nats)
+      * [PUB/SUB (NATS)](https://github.com/JeffDeCola/my-go-examples/tree/master/inter-process-communication-ipc/message-passing/operating-system/asynchronous/pub-sub-nats)
 
         _tbd._
 
-      * [TCP](https://github.com/JeffDeCola/my-go-examples/tree/master/communication/inter-process-communication-ipc/operating-system/asynchronous/tcp)
+      * [TCP](https://github.com/JeffDeCola/my-go-examples/tree/master/communication/inter-process-communication-ipc/message-passing/operating-system/asynchronous/tcp)
 
         _tbd._
 
     * SYNCHRONOUS
 
-      * [gRPC](https://github.com/JeffDeCola/my-go-examples/tree/master/inter-process-communication-ipc/operating-system/synchronous/gRPC)
+      * [gRPC](https://github.com/JeffDeCola/my-go-examples/tree/master/inter-process-communication-ipc/message-passing/operating-system/synchronous/gRPC)
 
   * NETWORK
 
     * ASYNCHRONOUS
 
-      * [PUB/SUB (NATS)](https://github.com/JeffDeCola/my-go-examples/tree/master/inter-process-communication-ipc/network/asynchronous/pub-sub-nats)
+      * [PUB/SUB (NATS)](https://github.com/JeffDeCola/my-go-examples/tree/master/inter-process-communication-ipc/message-passing/network/asynchronous/pub-sub-nats)
 
         _tbd._
 
-      * [TCP/IP](https://github.com/JeffDeCola/my-go-examples/tree/master/inter-process-communication-ipc/network/asynchronous/tcp)
+      * [TCP/IP](https://github.com/JeffDeCola/my-go-examples/tree/master/inter-process-communication-ipc/message-passing/network/asynchronous/tcp)
 
         _tbd._
 
     * SYNCHRONOUS
 
-      * [gRPC](https://github.com/JeffDeCola/my-go-examples/tree/master/inter-process-communication-ipc/network/synchronous/gRPC)
+      * [gRPC](https://github.com/JeffDeCola/my-go-examples/tree/master/inter-process-communication-ipc/message-passing/network/synchronous/gRPC)
 
         _tbd._
 
-      * [REST](https://github.com/JeffDeCola/my-go-examples/tree/master/inter-process-communication-ipc/network/synchronous/rest)
+      * [REST](https://github.com/JeffDeCola/my-go-examples/tree/master/inter-process-communication-ipc/message-passing/network/synchronous/rest)
 
         _tbd._
 
