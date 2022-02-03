@@ -25,9 +25,6 @@ Table of Contents,
   * LOGGING
   * MY GENERIC GO TEMPLATE
   * TESTING
-* [COMMUNICATION](https://github.com/JeffDeCola/my-go-examples#communication)
-  * IN-PROCESS COMMUNICATION
-  * INTER-PROCESS COMMUNICATION (IPC)
 * [CRYPTOGRAPHY](https://github.com/JeffDeCola/my-go-examples#cryptography)
   * ASYMMETRIC CRYPTOGRAPHY
   * HASHING
@@ -41,6 +38,12 @@ Table of Contents,
 * [INPUT/OUTPUT](https://github.com/JeffDeCola/my-go-examples#inputoutput)
   * IO READER
   * IO WRITER
+* [IN-PROCESS COMMUNICATION](https://github.com/JeffDeCola/my-go-examples#in-process-communication)
+  * SHARED MEMORY
+  * MESSAGE PASSING
+* [INTER-PROCESS COMMUNICATION (IPC)](https://github.com/JeffDeCola/my-go-examples#inter-process-communication-ipc)
+  * SHARED MEMORY
+  * MESSAGE PASSING
 * [IoT](https://github.com/JeffDeCola/my-go-examples#iot)
   * RASPBERRY PI
 
@@ -115,64 +118,6 @@ _A good place to start._
     _A simple go template with flags, logging & error handling._
 
 * TESTING
-
-### COMMUNICATION
-
-_Talk to me._
-
-* IN-PROCESS COMMUNICATION
-
-  * GOROUTINES
-
-    * ASYNCHRONOUS
-
-      * [CHANNELS (BUFFERED)](https://github.com/JeffDeCola/my-go-examples/tree/master/communication/in-process-communication/goroutines/asynchronous/channels-buffered)
-  
-        _tbd_
-
-    * SYNCHRONOUS
-
-      * [CHANNELS (UNBUFFERED)](https://github.com/JeffDeCola/my-go-examples/tree/master/communication/in-process-communication/goroutines/synchronous/channels-unbuffered)
-
-        _tbd_
-
-  * SYNCHRONOUS
-
-    * [PIPES](https://github.com/JeffDeCola/my-go-examples/tree/master/communication/in-process-communication/synchronous/pipes)
-
-      _tbd_
-
-* INTER-PROCESS COMMUNICATION (IPC)
-
-  * ONE-TO-MANY
-
-    * ASYNCHRONOUS
-  
-      * [PUB/SUB](https://github.com/JeffDeCola/my-go-examples/tree/master/communication/inter-process-communication-ipc/one-to-many/asynchronous/pub-sub)
-  
-        _tbd_
-
-  * ONE-TO-ONE
-  
-    * ASYNCHRONOUS
-  
-      * [MESSAGE QUEUES](https://github.com/JeffDeCola/my-go-examples/tree/master/communication/inter-process-communication-ipc/one-to-one/asynchronous/message-queues)
-  
-        _tbd_
-
-      * [TCP/IP](https://github.com/JeffDeCola/my-go-examples/tree/master/communication/inter-process-communication-ipc/one-to-one/asynchronous/tcp-ip)
-
-        _tbd_
-
-    * SYNCHRONOUS
-  
-      * [gRPC](https://github.com/JeffDeCola/my-go-examples/tree/master/communication/inter-process-communication-ipc/one-to-one/synchronous/gRPC)
-  
-        _tbd_
-
-      * [REST](https://github.com/JeffDeCola/my-go-examples/tree/master/communication/inter-process-communication-ipc/one-to-one/synchronous/rest)
-
-        _tbd_
 
 ### CRYPTOGRAPHY
 
@@ -292,6 +237,92 @@ package to read data and write data to/from various IO
 
     _Write data (a stream of bytes) to a buffer
     from a buffer using the standard `io` package._
+
+### IN-PROCESS COMMUNICATION
+
+_Talk to me._
+
+* SHARED MEMORY
+
+  * ASYNCHRONOUS
+
+  * SYNCHRONOUS
+
+    * [PIPES (UNNAMED)](https://github.com/JeffDeCola/my-go-examples/tree/master/in-process-communication/synchronous/pipes-unnamed)
+
+      _tbd._
+
+* MESSAGE PASSING
+
+  * ASYNCHRONOUS
+
+    * [CHANNELS (BUFFERED)](https://github.com/JeffDeCola/my-go-examples/tree/master/in-process-communication/asynchronous/channels-buffered)
+
+      _tbd._
+
+  * SYNCHRONOUS
+
+    * [CHANNELS (UNBUFFERED)](https://github.com/JeffDeCola/my-go-examples/tree/master/in-process-communication/synchronous/channels-unbuffered)
+
+      _tbd._
+
+### INTER-PROCESS COMMUNICATION
+
+_Talk to me._
+
+* SHARED MEMORY
+
+  * ASYNCHRONOUS
+
+  * SYNCHRONOUS
+
+    * [PIPES (NAMED)](https://github.com/JeffDeCola/my-go-examples/tree/master/communication/inter-process-communication-ipc/synchronous/pipes-named)
+
+      _tbd._
+
+* MESSAGE PASSING
+
+  * OPERATING SYSTEM
+
+    * ASYNCHRONOUS
+
+      * [MESSAGE QUEUES](https://github.com/JeffDeCola/my-go-examples/tree/master/inter-process-communication-ipc/operating-system/asynchronous/message-queues)
+
+        _tbd._
+
+      * [PUB/SUB (NATS)](https://github.com/JeffDeCola/my-go-examples/tree/master/inter-process-communication-ipc/operating-system/asynchronous/pub-sub-nats)
+
+        _tbd._
+
+      * [TCP](https://github.com/JeffDeCola/my-go-examples/tree/master/communication/inter-process-communication-ipc/operating-system/asynchronous/tcp)
+
+        _tbd._
+
+    * SYNCHRONOUS
+
+      * [gRPC](https://github.com/JeffDeCola/my-go-examples/tree/master/inter-process-communication-ipc/operating-system/synchronous/gRPC)
+
+  * NETWORK
+
+    * ASYNCHRONOUS
+
+      * [PUB/SUB (NATS)](https://github.com/JeffDeCola/my-go-examples/tree/master/inter-process-communication-ipc/network/asynchronous/pub-sub-nats)
+
+        _tbd._
+
+      * [TCP/IP](https://github.com/JeffDeCola/my-go-examples/tree/master/inter-process-communication-ipc/network/asynchronous/tcp)
+
+        _tbd._
+
+    * SYNCHRONOUS
+
+      * [gRPC](https://github.com/JeffDeCola/my-go-examples/tree/master/inter-process-communication-ipc/network/synchronous/gRPC)
+
+        _tbd._
+
+      * [REST](https://github.com/JeffDeCola/my-go-examples/tree/master/inter-process-communication-ipc/network/synchronous/rest)
+
+        _tbd._
 
 ### IoT
 

@@ -1,4 +1,4 @@
-# channels-buffered
+# pipes-unnamed
 
 _tbd._
 
@@ -37,9 +37,9 @@ Other examples using,
 
 Table of Contents,
 
-* [OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/communication/in-process-communication/goroutines/asynchronous/channels-buffered#overview)
-* [RUN](https://github.com/JeffDeCola/my-go-examples/tree/master/communication/in-process-communication/goroutines/asynchronous/channels-buffered#run)
-* [TEST](https://github.com/JeffDeCola/my-go-examples/tree/master/communication/in-process-communication/goroutines/asynchronous/channels-buffered#test)
+* [OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/in-process-communication/message-passing/synchronous/pipes-unnamed#overview)
+* [RUN](https://github.com/JeffDeCola/my-go-examples/tree/master/in-process-communication/message-passing/synchronous/pipes-unnamed#run)
+* [TEST](https://github.com/JeffDeCola/my-go-examples/tree/master/in-process-communication/message-passing/synchronous/pipes-unnamed#test)
 
 Documentation and references,
 
@@ -50,8 +50,6 @@ Documentation and references,
 
 ## OVERVIEW
 
-* One-to-one – Each client request is processed by one Server
-* One-to-many – Each Client request is processed by Multiple Servers
 * Synchronous – The client expects a timely response and might
   even block while it waits
 * Asynchronous – The client doesn’t block while waiting for a response,
@@ -62,7 +60,7 @@ Documentation and references,
 Run,
 
 ```bash
-go run channels-buffered.go
+go run pipes-unnamed.go
 ```
 
 ## TEST
@@ -70,7 +68,7 @@ go run channels-buffered.go
 To create _test files,
 
 ```bash
-gotests -w -all channels-buffered.go
+gotests -w -all pipes-unnamed.go
 ```
 
 To unit test the code,
@@ -78,3 +76,9 @@ To unit test the code,
 ```bash
 go test -cover ./... 
 ```
+
+## COMMUNICATIONS ILLUSTRATION
+
+This illustration may help,
+
+![IMAGE - communications-overview.jpg - IMAGE](../../../docs/pics/in-process-communications/communications-overview.jpg)
