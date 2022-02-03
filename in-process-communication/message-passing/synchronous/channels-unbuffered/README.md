@@ -82,4 +82,4 @@ go test -cover ./...
 
 This illustration may help,
 
-![IMAGE - communications-overview.jpg - IMAGE](../../../docs/pics/in-process-communications/communications-overview.jpg)
+![IMAGE - communications-overview.jpg - IMAGE](../../../../docs/pics/in-process-communication/communications-overview.jpg)
