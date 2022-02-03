@@ -1,4 +1,4 @@
-# channels-buffered
+# pipes-unnamed
 
 _tbd._
 
@@ -50,8 +50,6 @@ Documentation and references,
 
 ## OVERVIEW
 
-* One-to-one – Each client request is processed by one Server
-* One-to-many – Each Client request is processed by Multiple Servers
 * Synchronous – The client expects a timely response and might
   even block while it waits
 * Asynchronous – The client doesn’t block while waiting for a response,
@@ -62,7 +60,7 @@ Documentation and references,
 Run,
 
 ```bash
-go run channels-buffered.go
+go run pipes-unnamed.go
 ```
 
 ## TEST
@@ -70,7 +68,7 @@ go run channels-buffered.go
 To create _test files,
 
 ```bash
-gotests -w -all channels-buffered.go
+gotests -w -all pipes-unnamed.go
 ```
 
 To unit test the code,
