@@ -18,21 +18,21 @@ Other examples using,
   * **SHARED MEMORY**
     * ASYNCHRONOUS
     * SYNCHRONOUS
-      * [PIPES (NAMED)](https://github.com/JeffDeCola/my-go-examples/tree/master/communication/inter-process-communication-ipc/shared-memory/synchronous/pipes-named)
+      * [PIPES (NAMED)](https://github.com/JeffDeCola/my-go-examples/tree/master/inter-process-communication-ipc/shared-memory/synchronous/pipes-named)
   * **MESSAGE PASSING**
     * **OPERATING SYSTEM**
       * ASYNCHRONOUS
         * [MESSAGE QUEUES](https://github.com/JeffDeCola/my-go-examples/tree/master/inter-process-communication-ipc/message-passing/operating-system/asynchronous/message-queues)
         * [PUB/SUB (NATS)](https://github.com/JeffDeCola/my-go-examples/tree/master/inter-process-communication-ipc/message-passing/operating-system/asynchronous/pub-sub-nats)
-        * [TCP](https://github.com/JeffDeCola/my-go-examples/tree/master/communication/inter-process-communication-ipc/message-passing/operating-system/asynchronous/tcp)
+        * [TCP](https://github.com/JeffDeCola/my-go-examples/tree/master/inter-process-communication-ipc/message-passing/operating-system/asynchronous/tcp)
       * SYNCHRONOUS
-        * [gRPC](https://github.com/JeffDeCola/my-go-examples/tree/master/inter-process-communication-ipc/message-passing/operating-system/synchronous/gRPC)
+        * [gRPC](https://github.com/JeffDeCola/my-go-examples/tree/master/inter-process-communication-ipc/message-passing/operating-system/synchronous/grpc)
     * **NETWORK**
       * ASYNCHRONOUS
         * [PUB/SUB (NATS)](https://github.com/JeffDeCola/my-go-examples/tree/master/inter-process-communication-ipc/message-passing/network/asynchronous/pub-sub-nats)
-        * [TCP/IP](https://github.com/JeffDeCola/my-go-examples/tree/master/inter-process-communication-ipc/message-passing/network/asynchronous/tcp)
+        * [TCP/IP](https://github.com/JeffDeCola/my-go-examples/tree/master/inter-process-communication-ipc/message-passing/network/asynchronous/tcp-ip)
       * SYNCHRONOUS
-        * [gRPC](https://github.com/JeffDeCola/my-go-examples/tree/master/inter-process-communication-ipc/message-passing/network/synchronous/gRPC)
+        * [gRPC](https://github.com/JeffDeCola/my-go-examples/tree/master/inter-process-communication-ipc/message-passing/network/synchronous/grpc)
         * [REST](https://github.com/JeffDeCola/my-go-examples/tree/master/inter-process-communication-ipc/message-passing/network/synchronous/rest)
 
 Table of Contents,
