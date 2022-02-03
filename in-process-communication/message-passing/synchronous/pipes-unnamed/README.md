@@ -37,9 +37,9 @@ Other examples using,
 
 Table of Contents,
 
-* [OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/communication/in-process-communication/goroutines/asynchronous/channels-buffered#overview)
-* [RUN](https://github.com/JeffDeCola/my-go-examples/tree/master/communication/in-process-communication/goroutines/asynchronous/channels-buffered#run)
-* [TEST](https://github.com/JeffDeCola/my-go-examples/tree/master/communication/in-process-communication/goroutines/asynchronous/channels-buffered#test)
+* [OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/in-process-communication/message-passing/synchronous/pipes-unnamed#overview)
+* [RUN](https://github.com/JeffDeCola/my-go-examples/tree/master/in-process-communication/message-passing/synchronous/pipes-unnamed#run)
+* [TEST](https://github.com/JeffDeCola/my-go-examples/tree/master/in-process-communication/message-passing/synchronous/pipes-unnamed#test)
 
 Documentation and references,
 
@@ -76,3 +76,9 @@ To unit test the code,
 ```bash
 go test -cover ./... 
 ```
+
+## COMMUNICATIONS ILLUSTRATION
+
+This illustration may help,
+
+![IMAGE - communications-overview.jpg - IMAGE](../../../docs/pics/in-process-communications/communications-overview.jpg)
