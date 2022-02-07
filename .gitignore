@@ -2,10 +2,23 @@
 .credentials.yml
 
 # GO
+coverage.out
 **/test/test_coverage.txt
 
 # macOS
 .DS_Store
+
+# Wind0ws
+.jpg:Zone.Identifier
+
+# Ignore binaries
+**/bin/hello-go
+
+# Ignore test coverage
+**/test/test_coverage.txt
+
+# Ignore binary used for docker build
+**/build-push/hello-go
 
 # TEMPORARY AS I REVAMP REPO
 /eraseme
