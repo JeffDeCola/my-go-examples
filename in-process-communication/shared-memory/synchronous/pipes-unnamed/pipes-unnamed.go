@@ -12,10 +12,11 @@ func sendData(pw *io.PipeWriter, data string) {
 	if err != nil {
 		fmt.Printf("error with pr.Write method: %s", err)
 	}
+	pw.Close()
 
 }
 
-func receiveData(pr *io.PipeReader) (string, error) {
+func rcvData(pr *io.PipeReader) (string, error) {
 
 	buffer := make([]byte, 100)
 
@@ -42,7 +43,7 @@ func main() {
 	go sendData(pw, dataSend)
 
 	// RECEIVE
-	dataReceived, err := receiveData(pr)
+	dataReceived, err := rcvData(pr)
 	if err != nil {
 		fmt.Printf("Error with receiving data: %s", err)
 	}

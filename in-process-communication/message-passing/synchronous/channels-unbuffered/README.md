@@ -1,6 +1,6 @@
 # channels-unbuffered
 
-_tbd._
+_Unbuffered channels are unidirectional and synchronous with blocking._
 
 Other examples using,
 
@@ -46,9 +46,6 @@ Table of Contents,
 
 Documentation and references,
 
-* Refer to the
-  [???](https://pkg.go.dev/????)
-  package for more info
 * This repos [github webpage](https://jeffdecola.github.io/my-go-examples/)
 
 ## OVERVIEW
@@ -58,6 +55,12 @@ Documentation and references,
 * Asynchronous – The client doesn’t block while waiting for a response,
   and the response, if any, may not be immediate
 
+**Unbuffered channels are unidirectional and synchronous with blocking.**
+
+This illustration  may help,
+
+![IMAGE - channels-unbuffered.jpg - IMAGE](../../../../docs/pics/in-process-communication/channels-unbuffered.jpg)
+
 ## RUN
 
 Run,
@@ -65,6 +68,25 @@ Run,
 ```bash
 go run channels-unbuffered.go
 ```
+
+```bash
+SEND:     I am the data that will be sent 
+SEND FAST - WAITS
+RECEIVED: I am the data that was received 1 - Took 0 seconds 
+RECEIVED: I am the data that was received 2 - Took 2 seconds 
+RECEIVED: I am the data that was received 3 - Took 4 seconds 
+RECEIVED: I am the data that was received 4 - Took 4 seconds 
+RECEIVED: I am the data that was received 5 - Took 4 seconds 
+RECEIVED: I am the data that was received 6 - Took 4 seconds 
+SEND SLOW
+RECEIVED: I am the data that was received A - Took 0 seconds 
+RECEIVED: I am the data that was received B - Took 0 seconds 
+RECEIVED: I am the data that was received C - Took 0 seconds 
+RECEIVED: I am the data that was received D - Took 0 seconds 
+RECEIVED: I am the data that was received E - Took 0 seconds 
+```
+
+Note how it takes 4 seconds, because it's a 2 hop process.
 
 ## TEST
 

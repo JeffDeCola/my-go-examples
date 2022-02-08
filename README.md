@@ -262,13 +262,13 @@ _One process/service._
 
     * [channels-buffered](https://github.com/JeffDeCola/my-go-examples/tree/master/in-process-communication/message-passing/asynchronous/channels-buffered)
 
-      _tbd._
+      _Buffered channels are unidirectional and asynchronous with no blocking._
 
   * SYNCHRONOUS
 
     * [channels-unbuffered](https://github.com/JeffDeCola/my-go-examples/tree/master/in-process-communication/message-passing/synchronous/channels-unbuffered)
 
-      _tbd._
+      _Unbuffered channels are unidirectional and synchronous with blocking._
 
 ### INTER-PROCESS COMMUNICATION (IPC)
 
