@@ -195,8 +195,22 @@ simple area and perimeter calculations for different shapes._
 
 ### GOROUTINES
 
-_Go is written for concurrency. The go runtime schedules goroutines on threads.
+_Go is written for **concurrency**. The go runtime schedules goroutines on threads.
 The OS schedules these threads on cpus/cores._
+
+* [goroutines-multi-core](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-multi-core)
+
+  _Concurrency across multiples cores.  You can play around with workers,
+  threads, cpus/cores and nice to find the fastest performance.
+  It will find the total amount of prime numbers up to a number._
+
+* [goroutines-waitgroup](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-waitgroup)
+
+  _Concurrency using a waitgroup (waiting for a collection of goroutines to finish)._
+
+* [goroutines-worker-pools](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-worker-pools)
+
+  _Concurrency using worker pools._
 
 ### INPUT/OUTPUT
 
