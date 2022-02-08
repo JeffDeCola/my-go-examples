@@ -1,6 +1,6 @@
 # channels-buffered
 
-_tbd._
+_Buffered channels are unidirectional and asynchronous with no blocking._
 
 Other examples using,
 
@@ -46,9 +46,6 @@ Table of Contents,
 
 Documentation and references,
 
-* Refer to the
-  [???](https://pkg.go.dev/????)
-  package for more info
 * This repos [github webpage](https://jeffdecola.github.io/my-go-examples/)
 
 ## OVERVIEW
@@ -58,12 +55,41 @@ Documentation and references,
 * Asynchronous – The client doesn’t block while waiting for a response,
   and the response, if any, may not be immediate
 
+**Buffered channels are unidirectional and asynchronous with no blocking.**
+
+This illustration  may help,
+
+![IMAGE - channels-buffered.jpg - IMAGE](../../../../docs/pics/in-process-communication/channels-buffered.jpg)
+
 ## RUN
 
 Run,
 
 ```bash
 go run channels-buffered.go
+```
+
+```bash
+SEND:     I am the data that will be sent 
+SEND FAST - WAITS
+Chilling....
+RECEIVED: I am the data that was received 6 - Took 2 seconds 
+Chilling....
+SEND SLOW
+RECEIVED: I am the data that was received A - Took 1 seconds 
+Chilling....
+RECEIVED: I am the data that was received B - Took 2 seconds 
+RECEIVED: I am the data that was received C - Took 1 seconds 
+Chilling....
+RECEIVED: I am the data that was received D - Took 2 seconds 
+TOTAL TIME: 17 seconds
+RECEIVED: I am the data that was received E - Took 1 seconds 
+Chilling....
+Chilling....
+Chilling....
+Chilling....
+Chilling....
+Chilling....
 ```
 
 ## TEST
