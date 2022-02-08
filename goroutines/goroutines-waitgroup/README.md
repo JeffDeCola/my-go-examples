@@ -11,7 +11,8 @@ Other examples using,
 
 Table of Contents,
 
-* _tbd._
+* [OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-waitgroup#overview)
+* [RUN](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-waitgroup#run)
 
 Documentation and references,
 
@@ -19,7 +20,7 @@ Documentation and references,
 
 ## OVERVIEW
 
-A WaitGroup allows to wait for a collection of goroutines to finish.
+A WaitGroup waits for a collection of goroutines to finish.
 
 First make a waitgroup,
 
@@ -27,13 +28,15 @@ First make a waitgroup,
 var wg sync.WaitGroup
 ```
 
-* wg.Add(1) - Add the goroutines to the waitgroup
-* wg.Done() - Call done when goroutine finished
-* wg.Wait() - Wait for all the the waitgroups to finish
+Then,
+
+* **wg.Add(1)** - Add the goroutines to the waitgroup
+* **wg.Done()** - Call done when goroutine finished
+* **wg.Wait()** - Wait for all the the waitgroups to finish
 
 This illustration may help,
 
-![IMAGE - goroutines-waitgroup.jpg - IMAGE](../../../../docs/pics/goroutines/goroutines-waitgroup.jpg)
+![IMAGE - goroutines-waitgroup.jpg - IMAGE](../../docs/pics/goroutines/goroutines-waitgroup.jpg)
 
 ## RUN
 
@@ -41,18 +44,4 @@ Run,
 
 ```bash
 go run goroutines-waitgroup.go
-```
-
-## TEST
-
-To create _test files,
-
-```bash
-gotests -w -all goroutines-waitgroup.go
-```
-
-To unit test the code,
-
-```bash
-go test -cover ./... 
 ```

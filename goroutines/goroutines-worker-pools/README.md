@@ -11,7 +11,8 @@ Other examples using,
 
 Table of Contents,
 
-* _tbd._
+* [OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-worker-pools#overview)
+* [RUN](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-worker-pools#run)
 
 Documentation and references,
 
@@ -22,25 +23,27 @@ Documentation and references,
 Worker pools are goroutines that do work.
 Usually they will pull from a channel buffer to get data on what to do.
 
-### TICK TIME
+In this example, doSomething() is sending tasks to workers.
 
-In this example, doSomething is using tick time.
-Meaning, asking the workers to do a bunch of stuff in period of time
-(a tick).
-In this example the default is to have the workers complete
-5 jobs in 10 seconds.
-And we only have 2 workers that take 7 seconds to complete its task.
-So you can see this will break.
+The **default is to complete a job (consisting of 5 tasks in 10 seconds)**.
+But we have 2 task workers in pool that take 7 seconds to finish each task.
 
-So you will have to fix this by doing one of the following,
+This will break. So you will have to fix this by doing one of the following,
 
-* Increase the number of workers
-* Reduce the number of jobs per tick
+* Increase the number of workers in pool
+  * Try changing **numberWorkers** from 2 to 5
+* Reduce the number of tasks per job
+  * Try reducing **jobTaskList** to two tasks
+* Increase new job Time to finish all tasks
+  * Try increasing **SendNewJobTime** to 30
 * Speed up the workers
+  * Try changing **taskTime** from 7 to 1
 
-This illustration  may help,
+Increasing the buffer size will only work until it fills up.
 
-![IMAGE - channels-buffered.jpg - IMAGE](../../../../docs/pics/in-process-communication/channels-buffered.jpg)
+This illustration may help,
+
+![IMAGE - goroutines-worker-pools.jpg - IMAGE](../../docs/pics/goroutines/goroutines-worker-pools.jpg)
 
 ## RUN
 
@@ -50,34 +53,19 @@ Run,
 go run goroutines-worker-pools.go
 ```
 
-**Simply press return to stop.**
+**Press return to stop.**
 
-These are the defaults, play around with them.  Right now it will break,
-so you need to adjust this.
+The default settings are,
 
 ```go
-// SET CONSTANTS FOR WORKER doWork()
-const numberWorkers = 2                                             // How many workers you want
-const workerTime = 7                                                // How long it takes a worker to work
+// FOR doSomething()
+var jobTaskList = []string{"taskA", "taskB", "taskC", "taskD", "taskE"} // 5 tasks
+const SendNewJobTime = 10                               // Send a job every x seconds
 
-// SET CONSTANTS FOR doSomething()
-var jobList = []string{"jobA", "jobB", "jobC", "jobD", "jobE"}      // 5 jobs with jobNames
-var ticktimeSeconds = 10                                            // Tick time to send a bunch of jobs workers
+// FOR WORKERS - doTask()
+const numberWorkers = 2 // How many workers in pool
+const taskTime = 7      // How long it takes a worker to complete a task
 
-// OTHER
-var channelBufferSize = 1                                           // How many channel buffers
-```
-
-## TEST
-
-To create _test files,
-
-```bash
-gotests -w -all goroutines-worker-pools.go
-```
-
-To unit test the code,
-
-```bash
-go test -cover ./... 
+// CHANNEL
+var channelBufferSize = 2
 ```
