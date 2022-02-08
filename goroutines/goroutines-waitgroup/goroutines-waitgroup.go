@@ -1,4 +1,4 @@
-// my-go-examples goroutines-waitgroup.go
+// goroutines-waitgroup.go
 
 package main
 
@@ -9,12 +9,17 @@ import (
 	"time"
 )
 
-const numberWorkers = 20
+const numberWorkers = 10
 
 func doWork(wg *sync.WaitGroup, id int) {
 
+	// START
 	fmt.Println(id, "Started")
+
+	// DO WORK
 	time.Sleep(3 * time.Second)
+
+	// DONE
 	fmt.Println(id, "Done")
 	wg.Done()
 
@@ -34,9 +39,10 @@ func main() {
 
 	}
 
-	// Waits for all the goroutines to finish
+	// BLOCK TILL ALL WAITGROUP DONE
 	fmt.Println("Waiting for all the workers to finish")
 	wg.Wait()
+
 	fmt.Println("All workers done!")
 
 }
