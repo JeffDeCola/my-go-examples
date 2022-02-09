@@ -75,6 +75,14 @@ _Using go to build fun things._
 
 _Using c with go._
 
+* [simple-c-code](https://github.com/JeffDeCola/my-go-examples/tree/master/cgo/simple-c-code)
+
+  _A very simple example to show you how to write a c function in go._
+
+* [simple-c-code-using-stdio](https://github.com/JeffDeCola/my-go-examples/tree/master/cgo/simple-c-code-using-stdio)
+
+  _A c function in go using stdio.h for printf._
+
 ### CLIENT/SERVER
 
 _Lets make a server._

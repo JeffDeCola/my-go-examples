@@ -4,7 +4,7 @@ _Concurrency across multi-cores. You can play around with workers,
 threads, cpus/cores and nice to find the fastest performance.
 It will find the total amount of prime numbers up to a number._
 
-This program will show that **lightweight goroutines are amazing**.
+This will show that **lightweight goroutines are amazing**.
 
 Other examples using,
 
@@ -15,7 +15,14 @@ Other examples using,
 
 Table of contents,
 
-* ???
+* [MACOS DOES NOT WORK](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-multi-core#macos-does-not-work)
+* [OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-multi-core#overview)
+* [SETUP](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-multi-core#setup)
+* [GO RUNTIME FEATURES](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-multi-core#go-runtime-features)
+* [OS KERNAL FEATURES](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-multi-core#os-kernal-features)
+* [RUN](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-multi-core#run)
+* [SOME BENCHMARKS](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-multi-core#some-benchmarks)
+* [TEST](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-multi-core#test)
 
 Documentation and references,
 
@@ -29,11 +36,11 @@ figure it out. But if someone figures this out, please let me know.
 ## OVERVIEW
 
 Your go executable has a go runtime environment that schedules
-where the goroutines run (which CPU and which thread).
+where the goroutines run (which CPU/CORE and which thread).
 This is constantly changing.
 
 This example will show you how to `lock the goroutine` to a particular
-CPU and a particular thread.
+CPU/CORE and a particular thread.
 
 This example will also allow you to change variables (like how many workers) to
 see if you can improve performance.
@@ -209,9 +216,3 @@ To unit test the code,
 ```bash
 go test -cover ./... 
 ```
-
-## COMMUNICATIONS ILLUSTRATION
-
-This illustration may help,
-
-![IMAGE - communications-overview.jpg - IMAGE](../../../../docs/pics/in-process-communication/communications-overview.jpg)
