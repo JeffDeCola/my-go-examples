@@ -3,7 +3,10 @@
 package main
 
 import (
+	"errors"
+	"flag"
 	"fmt"
+	"os"
 	"runtime"
 	"sync"
 	"syscall"
@@ -18,46 +21,57 @@ import (
 #include <sched.h>
 #include <pthread.h>
 
+// FEATURE 3 - LOCK THREAD TO CPU/CORE
 void lock_thread(int cpuid) {
-        pthread_t tid;
-        cpu_set_t cpuset;
-
-        tid = pthread_self();
-        CPU_ZERO(&cpuset);
-        CPU_SET(cpuid, &cpuset);
+    pthread_t tid;
+    cpu_set_t cpuset;
+    tid = pthread_self();
+    CPU_ZERO(&cpuset);
+    CPU_SET(cpuid, &cpuset);
     pthread_setaffinity_np(tid, sizeof(cpu_set_t), &cpuset);
 }
+
+// FEATURE 2 - PIN THREAD TO CPU/CORE
 void set_affinity(int cpuid) {
-        cpu_set_t my_set;        // Define your cpu_set bit mask
-        CPU_ZERO(&my_set);       // Initialize it all to 0, i.e. no CPUs selected
-        CPU_SET(cpuid, &my_set);     // Set the bit that represents core
-        sched_setaffinity(0, sizeof(cpu_set_t), &my_set); // Set affinity of this process to
+    cpu_set_t my_set;            // Define your cpu_set bit mask
+    CPU_ZERO(&my_set);           // Initialize it all to 0, i.e. no CPUs selected
+    CPU_SET(cpuid, &my_set);     // Set the bit that represents core
+    sched_setaffinity(0, sizeof(cpu_set_t), &my_set); // Set affinity of this process to
 }
 */
 import "C"
 
+const toolVersion = "1.0.0"
+
+var ErrLogLevel = errors.New("please use trace, info or error")
+
 // GO RUNTIME & OS FEATURES
 // FEATURE 1 - LOCK A GOROUTINE TO A THREAD
 const lockThread = true // locked the goroutine to a thread (Done in go runtime)
+
 // FEATURE 2 - PIN A THREAD TO A CPU (set affinity)
-const useParticularCPUs = true       // Do you want to use particular CPUs?
-var usetheseCPUs = []int{0, 1, 2, 3} // Which CPU/Cores to use. These will rotate
+const useParticularCPUs = true                     // Do you want to use particular CPUs?
+var usetheseCPUs = []int{0, 1, 2, 3, 8, 9, 10, 11} // Which CPU/Cores to use. These will rotate
+
 // FEATURE 3 - LOCK A THREAD TO A CPU/CORE
-const lockCore = true // locked the thread to a core (Done in C)
+const lockCore = false // locked the thread to a core (Done in C)
+
 // FEATURE 4 - SET PRIORITY ON THREAD
-const setPriority = true   // Set the thread priority the goroutine
+const setPriority = false  // Set the thread priority the goroutine
 const setPriorityLevel = 0 // (0 to 39 with 0 highest)
 
 // WORKERS
-const useGoroutine = true  // Do you want to use goroutines
-const numberWorkers = 5    // Number of workers
-const testforPrimes = 1000 // Find all prime numbers up to this number (brute force way)
+const useGoroutine = true // Do you want to use goroutines
+const numberWorkers = 10  // Number of workers
+
+// PRIME NUMBER
+const testforPrimes = 500000 // Find all prime numbers up to this number (brute force way)
 // This must be divisible by the numberWorkers
 
 // BUFFER CHANNEL
 var channelBufferSize = numberWorkers + 1 // How many channel buffers
 
-// struct to pass in channel
+// struct to pass in channel message
 type workerStats struct {
 	id             int
 	timeTook       time.Duration
@@ -68,7 +82,37 @@ type workerStats struct {
 	foundPrimes    int
 }
 
-func doWork(msgCh chan *workerStats, wg *sync.WaitGroup, id int, useCPU int, startNumber int, endNumber int) {
+func setLogLevel(logLevel string) error {
+
+	// SET LOG LEVEL (trace, info or error) None of which exit
+	log.Trace("Set Log Level")
+
+	switch logLevel {
+	case "trace":
+		log.SetLevel(log.TraceLevel)
+	case "info":
+		log.SetLevel(log.InfoLevel)
+	case "error":
+		log.SetLevel(log.ErrorLevel)
+	default:
+		log.SetLevel(log.ErrorLevel)
+		return fmt.Errorf("%s", ErrLogLevel)
+	}
+
+	// SET FORMAT
+	log.SetFormatter(&log.TextFormatter{
+		DisableColors: false,
+		FullTimestamp: false,
+	})
+
+	// SET OUTPUT (DEFAULT stderr)
+	log.SetOutput(os.Stdout)
+
+	return nil
+
+}
+
+func doWork(chMsg chan *workerStats, wg *sync.WaitGroup, id int, useCPU int, startNumber int, endNumber int) {
 
 	timeStart := time.Now().UTC()
 
@@ -102,16 +146,17 @@ func doWork(msgCh chan *workerStats, wg *sync.WaitGroup, id int, useCPU int, sta
 	// Put it back to what it was (I can't get this to work correctly)
 	//defer syscall.Setpriority(syscall.PRIO_PROCESS, syscall.Getpid(), startthreadPriority)
 
-	// Get the start specs
-	startcpuID := C.sched_getcpu()
-	startpid := syscall.Getpid()
-	starttid := syscall.Gettid()
-	startthreadPriority, _ := syscall.Getpriority(syscall.PRIO_PROCESS, 0)
+	// START SPECS
+	startcpuID := C.sched_getcpu()                                         // CPU ID
+	startpid := syscall.Getpid()                                           // PROCESS ID
+	starttid := syscall.Gettid()                                           // THREAD ID
+	startthreadPriority, _ := syscall.Getpriority(syscall.PRIO_PROCESS, 0) // THREAD PRIORITY
 
-	// Print out some stats
-	s := fmt.Sprintf("    Worker: %v, cpuID: %v, pid: %v, tid: %v, threadPriority: %v, startNumber: %v, endNumber: %v\n", id, startcpuID, startpid, starttid, startthreadPriority, startNumber, endNumber)
-	log.Debug(s)
-	// DO SOMETHING (DON'T SLEEP) TAX THE PROCESSOR A BIT
+	// SOME STATS
+	s := fmt.Sprintf("START:     Worker: %2d, cpuID: %2d, process id: %6d, thread id: %6d, threadPriority: %4d, startNumber: %10d, endNumber: %10d\n", id, startcpuID, startpid, starttid, startthreadPriority, startNumber, endNumber)
+	log.Info(s)
+
+	// DO SOMETHING TAX THE PROCESSOR A BIT
 	// Find prime number the brute force way, by dividing.
 	// Find all Prime numbers up to n
 	// A prime is defined as any counting number that is divisible
@@ -135,34 +180,38 @@ func doWork(msgCh chan *workerStats, wg *sync.WaitGroup, id int, useCPU int, sta
 		}
 	}
 
+	// END SPECS
 	timeEnd := time.Now().UTC()
 	timeTook := timeEnd.Sub(timeStart)
+	endcpuID := C.sched_getcpu()                                         // CPU ID
+	endpid := syscall.Getpid()                                           // PROCESS ID
+	endtid := syscall.Gettid()                                           // THREAD ID
+	endthreadPriority, _ := syscall.Getpriority(syscall.PRIO_PROCESS, 0) // THREAD PRIORITY
 
-	// Get the end specs
-	endcpuID := C.sched_getcpu()
-	endpid := syscall.Getpid()
-	endtid := syscall.Gettid()
-	endthreadPriority, _ := syscall.Getpriority(syscall.PRIO_PROCESS, 0)
-
-	// Check if anything changed
+	// DID ANYTHING CHANGE
 	if startcpuID != endcpuID {
-		s := fmt.Sprintf("    ***WARNING*** Worker: %v used different cpuID\n", id)
+		s := fmt.Sprintf("    ***WARNING*** Worker: %v used different CPU ID (From %d to %d)\n", id, startcpuID, endcpuID)
 		log.Warn(s)
 	}
 	if startpid != endpid {
-		s := fmt.Sprintf("    ***WARNING*** Worker: %v used different pid\n", id)
+		s := fmt.Sprintf("    ***WARNING*** Worker: %v used different Process ID (From %d to %d)\n", id, startpid, endpid)
 		log.Warn(s)
 	}
 	if starttid != endtid {
-		s := fmt.Sprintf("    ***WARNING*** Worker: %v used different tid\n", id)
+		s := fmt.Sprintf("    ***WARNING*** Worker: %v used different Thread ID (From %d to %d)\n", id, starttid, endtid)
 		log.Warn(s)
 	}
 	if startthreadPriority != endthreadPriority {
-		s := fmt.Sprintf("    ***WARNING*** Worker: %v used different threadPriority\n", id)
+		s := fmt.Sprintf("    ***WARNING*** Worker: %v used different Thread Priority (From %d to %d)\n", id, startthreadPriority, endthreadPriority)
 		log.Warn(s)
 	}
 
-	msgCh <- &workerStats{
+	// SOME STATS
+	s = fmt.Sprintf("COMPLETE:  Worker: %2d, cpuID: %2d, process id: %6d, thread id: %6d, threadPriority: %4d, startNumber: %10d, endNumber: %10d\n", id, endcpuID, endpid, endtid, endthreadPriority, startNumber, endNumber)
+	log.Info(s)
+
+	// SEND INFO FOR STATS
+	chMsg <- &workerStats{
 		id:             id,
 		timeTook:       timeTook,
 		cpuID:          endcpuID,
@@ -171,16 +220,17 @@ func doWork(msgCh chan *workerStats, wg *sync.WaitGroup, id int, useCPU int, sta
 		threadPriority: int(endthreadPriority),
 		foundPrimes:    foundPrimes,
 	}
+
+	// WAITGROUP DONE
 	wg.Done()
 
 }
 
-func getStats(msgCh chan *workerStats, wg *sync.WaitGroup, numberWorkers int, start time.Time) {
+func getStats(chMsg chan *workerStats, wg *sync.WaitGroup, numberWorkers int, start time.Time) {
 
-	// WAIT FOR ALL WORKERS TO FINISH
+	// BLOCK - WAIT FOR ALL WORKERS TO FINISH
 	fmt.Println("getStats - Waiting for all the workers to finish")
 	fmt.Printf("getStats - There are currently %v goroutines running\n", runtime.NumGoroutine())
-
 	wg.Wait()
 
 	// Print out stats from each worker
@@ -191,10 +241,13 @@ func getStats(msgCh chan *workerStats, wg *sync.WaitGroup, numberWorkers int, st
 	totalWorkersUsed := make(map[int]int)
 	totalPrimesFound := 0
 
+	// LOOP OVER ALL WORKERS
 	for i := 0; i < numberWorkers; i++ {
-		r := <-msgCh
-		s := fmt.Sprintf("getStats - From Worker %v, Took: %v, cpuID: %v, pid: %v, tid: %v, threadPriority: %v foundPrimes: %v\n", r.id, r.timeTook, r.cpuID, r.pid, r.tid, r.threadPriority, r.foundPrimes)
-		log.Debug(s)
+
+		r := <-chMsg
+		s := fmt.Sprintf("Worker %2d, cpuID: %2d, pid: %6d, tid: %6d, threadPriority: %4d foundPrimes: %6d (Took %v)\n", r.id, r.cpuID, r.pid, r.tid, r.threadPriority, r.foundPrimes, r.timeTook)
+		log.Info(s)
+
 		// totalCPUUsed - check if you have CPU in your slice
 		newCPUFound := true
 		for _, element := range cpuSet {
@@ -203,6 +256,7 @@ func getStats(msgCh chan *workerStats, wg *sync.WaitGroup, numberWorkers int, st
 				break
 			}
 		}
+
 		if newCPUFound {
 			totalCPUsUsed++
 			cpuSet = append(cpuSet, int(r.cpuID))
@@ -230,35 +284,48 @@ func getStats(msgCh chan *workerStats, wg *sync.WaitGroup, numberWorkers int, st
 	}
 
 	fmt.Printf("")
-	fmt.Printf("** The total CPU/Cores used was %v\n", totalCPUsUsed)
+	fmt.Printf("\n** The total CPU/Cores used: %v\n", totalCPUsUsed)
 	for _, cpuID := range cpuSet {
-		fmt.Printf("  For CPU/Core %v", cpuID)
-		fmt.Printf("  %v Workers used %v Threads\n", totalWorkersUsed[cpuID], totalThreadsUsed[cpuID])
+		fmt.Printf("  For CPU/Core %2d", cpuID)
+		fmt.Printf("  %3d Workers used %3d Threads\n", totalWorkersUsed[cpuID], totalThreadsUsed[cpuID])
 	}
-	fmt.Printf("** The total Primes under %v is %v\n", testforPrimes, totalPrimesFound)
-	fmt.Printf("** End time: %f seconds\n", time.Since(start).Seconds())
-	fmt.Println("** Press Return to exit")
+	fmt.Printf("** The total Primes numbers under %d is %d\n", testforPrimes, totalPrimesFound)
+	fmt.Printf("** Total time took: %f seconds\n", time.Since(start).Seconds())
+	fmt.Println("\nDone- Press Return to exit")
 
 }
 
 func main() {
 
+	// FLAGS
+	version := flag.Bool("v", false, "prints current version")
+	logLevel := flag.String("loglevel", "error", "log level (trace, info or error)")
+	flag.Parse()
+
+	// CHECK VERSION
+	if *version {
+		fmt.Println(toolVersion)
+		os.Exit(0)
+	}
+
+	// SET LOG LEVEL (trace, info or error) None of which exit
+	err := setLogLevel(*logLevel)
+	if err != nil {
+		log.Errorf("Error getting logLevel: %s", err)
+	}
+
+	// PRINT OUT FLAGS
+	log.Trace("Version flag = ", *version)
+	log.Trace("Log Level = ", *logLevel)
+
 	// START
-	start := time.Now()
+	startTime := time.Now()
 	fmt.Println("")
 
-	// SET LOG LEVEL
-	log.SetLevel(log.InfoLevel)
-	//log.SetLevel(log.TraceLevel)
-	// SET FORMAT
-	log.SetFormatter(&log.TextFormatter{})
-
-	// Create wait group
-	var wg sync.WaitGroup
-
 	// PRINT SOME STATS
-	fmt.Printf("Main start time: %f seconds\n", time.Since(start).Seconds())
-	// Print constants
+	fmt.Printf("Main start time: %f seconds\n", time.Since(startTime).Seconds())
+
+	// SETTINGS
 	fmt.Println("Your settings are:")
 	fmt.Println("FEATURE 1 - LOCK A GOROUTINE TO A THREAD")
 	fmt.Printf("    const lockThread = %v\n", lockThread)
@@ -276,17 +343,19 @@ func main() {
 	fmt.Printf("    const testforPrimes = %v\n", testforPrimes)
 	fmt.Println("BUFFER CHANNEL")
 	fmt.Printf("    const channelBufferSize = %v\n", channelBufferSize)
-	// How many cores can i use?
+	fmt.Println("")
+
+	// HOW MANY CORES CAN WE USE
 	fmt.Println("Total number of cores on this machine: ", runtime.NumCPU())
 	// Limit number of cores to numberCores
 	// runtime.GOMAXPROCS(numberCores)
-	fmt.Println("Number of Cores you set ", runtime.GOMAXPROCS(-1))
+	fmt.Println("Number of Cores you set: ", runtime.GOMAXPROCS(-1))
 	fmt.Println("")
 
-	// Make Channel Buffer
-	msgCh := make(chan *workerStats, channelBufferSize)
+	// CHANNEL BUFFER FOR MESSAGES
+	chMsg := make(chan *workerStats, channelBufferSize)
 
-	// Divide the workload
+	// DIVIDE WORKLOAD
 	if testforPrimes%numberWorkers != 0 {
 		log.Fatal("Can't split workload evenly - change testforPrimes or numberWorkers")
 	}
@@ -294,31 +363,46 @@ func main() {
 	startNumber := 1
 	endNumber := splitWorkload
 
-	// Create Workers and split workload (start and end numbers)
-	c := 0
+	// CREATE WORKERS AND SPLIT WORKLOAD (START AND END NUMBERS)
+	// Create wait group
+	var wg sync.WaitGroup
+	c := 0 // Used to rotate through CPUs
 	for id := 1; id < numberWorkers+1; id++ {
+
+		// ADD WAITGROUP TO SEND TO GOROUTINE
 		wg.Add(1)
+
+		// WHAT CPU TO USE
 		if c == len(usetheseCPUs) {
 			c = 0
 		}
 		useCPU := usetheseCPUs[c]
 		c++
-		s := fmt.Sprintf("Starting worker %v using CPU %v\n", id, useCPU)
-		log.Debug(s)
+
+		// KICK OFF A WORKER
 		if useGoroutine {
-			go doWork(msgCh, &wg, id, useCPU, startNumber, endNumber)
+			fmt.Printf("Kicking off goroutine worker %2d for CPU %2d (Numbers %8d - %8d)\n", id, useCPU, startNumber, endNumber)
+			go doWork(chMsg, &wg, id, useCPU, startNumber, endNumber)
 		} else {
-			doWork(msgCh, &wg, id, useCPU, startNumber, endNumber)
+			fmt.Printf("Kicking off worker %2d for CPU %2d (Numbers %8d - %8d)\n", id, useCPU, startNumber, endNumber)
+			doWork(chMsg, &wg, id, useCPU, startNumber, endNumber)
 		}
 		startNumber = startNumber + splitWorkload
 		endNumber = endNumber + splitWorkload
 	}
-	fmt.Printf("Finished Kicking off all goroutines in %f seconds\n", time.Since(start).Seconds())
 
-	// Gather Stats from workers
-	go getStats(msgCh, &wg, numberWorkers, start)
+	// DONE KICKING OFF WORKERS
+	if useGoroutine {
+		fmt.Printf("Finished Kicking off all goroutines in %f seconds\n\n", time.Since(startTime).Seconds())
+	} else {
+		fmt.Printf("Finished all work in %f seconds\n\n", time.Since(startTime).Seconds())
+	}
 
-	// Press return to exit
+	// GATHER STATS FROM WORKERS
+	go getStats(chMsg, &wg, numberWorkers, startTime)
+
+	// PRESS RETURN TO EXIT
 	fmt.Scanln()
 	fmt.Println("EOF...")
+
 }

@@ -44,6 +44,8 @@ Table of Contents,
 * [INTER-PROCESS COMMUNICATION (IPC)](https://github.com/JeffDeCola/my-go-examples#inter-process-communication-ipc)
   * SHARED MEMORY
   * MESSAGE PASSING
+* [INTERACT GO RUNTIME](ttps://github.com/JeffDeCola/my-go-examples#interact-go-runtime)
+* [INTERACT OS](ttps://github.com/JeffDeCola/my-go-examples#interact-os)
 * [IoT](https://github.com/JeffDeCola/my-go-examples#iot)
   * RASPBERRY PI
 
@@ -351,6 +353,26 @@ _More than one process/service._
       * [rest](https://github.com/JeffDeCola/my-go-examples/tree/master/inter-process-communication-ipc/message-passing/network/synchronous/rest)
 
         _tbd._
+
+### INTERACT GO RUNTIME
+
+ _The interface between your code and the go runtime system._
+
+* [simple-go-runtime-interactions](https://github.com/JeffDeCola/my-go-examples/tree/master/interact-go-runtime/simple-go-runtime-interactions)
+
+  _A few go runtime interactions using the `runtime` package._
+
+### INTERACT OS
+
+ _The interface between your code and the operating system._
+
+* [simple-external-commands](https://github.com/JeffDeCola/my-go-examples/tree/master/interact-go-runtime/simple-external-commands)
+
+  _Run a few os commands using the `exec` package._
+
+* [simple-os-interactions](https://github.com/JeffDeCola/my-go-examples/tree/master/interact-go-runtime/simple-os-interactions)
+
+  _A few os interactions using the `syscall` package._
 
 ### IoT
 

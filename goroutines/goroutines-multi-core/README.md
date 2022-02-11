@@ -19,7 +19,11 @@ Table of contents,
 * [OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-multi-core#overview)
 * [SETUP](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-multi-core#setup)
 * [GO RUNTIME FEATURES](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-multi-core#go-runtime-features)
-* [OS KERNAL FEATURES](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-multi-core#os-kernal-features)
+  * [FEATURE 1 - LOCK A GOROUTINE TO A THREAD](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-multi-core#feature-1---lock-a-goroutine-to-a-thread)
+* [OS KERNEL FEATURES](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-multi-core#os-kernel-features)
+  * [FEATURE 2 - PIN A THREAD TO A CPU (set affinity)](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-multi-core#feature-2---pin-a-thread-to-a-cpu-set-affinity)
+  * [FEATURE 3 - LOCK A THREAD TO A CPU/CORE](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-multi-core#feature-3---lock-a-thread-to-a-cpucore)
+  * [FEATURE 4 - SET PRIORITY ON THREAD](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-multi-core#feature-4---set-priority-on-thread)
 * [RUN](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-multi-core#run)
 * [SOME BENCHMARKS](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-multi-core#some-benchmarks)
 * [TEST](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-multi-core#test)
@@ -72,6 +76,8 @@ statistics of each process and core.
 // WORKERS
     const useGoroutine = true               // Do you want to use goroutines
     const numberWorkers = 5                 // Number of workers
+
+// PRIME NUMBER   
     const testforPrimes = 20000             // Find all prime numbers up to this number (brute force way)
                                             // This must be divisible by the numberWorkers
 
@@ -102,9 +108,9 @@ if lockThread {
 }
 ```
 
-## OS KERNAL FEATURES
+## OS KERNEL FEATURES
 
-These require c code or system calls to the kernal.
+These require c code or system calls to the kernel.
 
 ### FEATURE 2 - PIN A THREAD TO A CPU (set affinity)
 
@@ -151,7 +157,7 @@ if setPriority {
 go run goroutines-multi-core.go
 ```
 
-Simply press return to exit.
+Press return to exit.
 
 Check a pid, nice levels and show threads,
 
