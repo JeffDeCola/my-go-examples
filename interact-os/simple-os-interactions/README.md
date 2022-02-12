@@ -18,6 +18,18 @@ Documentation and references,
 
 Package syscall contains an interface to the low-level operating system primitives.
 
+For example,
+
+```go
+// GET PROCESS ID (pid)
+pid := syscall.Getpid()
+fmt.Printf("Process ID (pid): %d\n", pid)
+
+// GET THREAD ID (tid)
+tid := syscall.Gettid()
+fmt.Printf("Thread ID (id):   %d\n", tid)
+```
+
 ## RUN
 
 Run,

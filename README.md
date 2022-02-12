@@ -212,7 +212,7 @@ The OS schedules these threads on cpus/cores._
 
   _Concurrency across multiples cores.  You can play around with workers,
   threads, cpus/cores and nice to find the fastest performance.
-  It will find the total amount of prime numbers up to a number._
+  It will find the total number of prime numbers within a range._
 
 * [goroutines-waitgroup](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-waitgroup)
 

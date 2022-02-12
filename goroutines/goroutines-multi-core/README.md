@@ -2,7 +2,7 @@
 
 _Concurrency across multi-cores. You can play around with workers,
 threads, cpus/cores and nice to find the fastest performance.
-It will find the total amount of prime numbers up to a number._
+It will find the total number of prime numbers within a range._
 
 This will show that **lightweight goroutines are amazing**.
 
@@ -19,17 +19,20 @@ Table of contents,
 * [OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-multi-core#overview)
 * [SETUP](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-multi-core#setup)
 * [GO RUNTIME FEATURES](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-multi-core#go-runtime-features)
-  * [FEATURE 1 - LOCK A GOROUTINE TO A THREAD](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-multi-core#feature-1---lock-a-goroutine-to-a-thread)
+  * [FEATURE 1 -  LOCK A GOROUTINE TO A THREAD](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-multi-core#feature-1----lock-a-goroutine-to-a-thread)
 * [OS KERNEL FEATURES](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-multi-core#os-kernel-features)
-  * [FEATURE 2 - PIN A THREAD TO A CPU (set affinity)](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-multi-core#feature-2---pin-a-thread-to-a-cpu-set-affinity)
-  * [FEATURE 3 - LOCK A THREAD TO A CPU/CORE](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-multi-core#feature-3---lock-a-thread-to-a-cpucore)
+  * [FEATURE 2 - LOCK A GOROUTINE TO A CPU](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-multi-core#feature-2---lock-a-goroutine-to-a-cpu)
+  * [FEATURE 3 - LOCK A THREAD TO A CPU](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-multi-core#feature-3---lock-a-thread-to-a-cpu)
   * [FEATURE 4 - SET PRIORITY ON THREAD](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-multi-core#feature-4---set-priority-on-thread)
 * [RUN](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-multi-core#run)
 * [SOME BENCHMARKS](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-multi-core#some-benchmarks)
-* [TEST](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-multi-core#test)
 
 Documentation and references,
 
+* [simple-go-runtime-interactions](https://github.com/JeffDeCola/my-go-examples/tree/master/interact-go-runtime/simple-go-runtime-interactions)
+show a few go runtime interactions using the `runtime` package
+* [simple-os-interactions](https://github.com/JeffDeCola/my-go-examples/tree/master/interact-os/simple-os-interactions)
+shows a few os interactions using the `syscall` package
 * This repos [github webpage](https://jeffdecola.github.io/my-go-examples/)
 
 ## MACOS DOES NOT WORK
@@ -40,49 +43,50 @@ figure it out. But if someone figures this out, please let me know.
 ## OVERVIEW
 
 Your go executable has a go runtime environment that schedules
-where the goroutines run (which CPU/CORE and which thread).
+where the goroutines run (which CPU/CORE and which Thread).
 This is constantly changing.
 
 This example will show you how to `lock the goroutine` to a particular
-CPU/CORE and a particular thread.
+CPU/CORE and a particular Thread.
 
 This example will also allow you to change variables (like how many workers) to
 see if you can improve performance.
 
-This diagram will help explain what we're trying to do,
+These illustrations may help,
 
 ![IMAGE - goroutines-multi-core - IMAGE](../../docs/pics/goroutines/goroutines-multi-core.jpg)
 
+![IMAGE - goroutines-lock-threads-cores - IMAGE](../../docs/pics/goroutines/goroutines-lock-threads-cores.jpg)
+
 ## SETUP
 
-This program will allow you to set the numbers of workers per core and check the
-statistics of each process and core.
+This program will allow you to set the numbers of workers and check the
+statistics of each goroutine and core.
 
 ```go
-// FEATURE 1 - LOCK A GOROUTINE TO A THREAD
-    const lockThread = true                 // locked the goroutine to a thread (Done in go runtime)
-
-// FEATURE 2 - PIN A THREAD TO A CPU (set affinity)
-    const useParticularCPUs = true          // Do you want to use particular CPUs?
-    var usetheseCPUs = []int{0,1,2,3}       // Which CPU/Cores to use. These will rotate
-
-// FEATURE 3 - LOCK A THREAD TO A CPU/CORE
-    const lockCore = true                   // locked the thread to a core (Done in C)
-
-// FEATURE 4 - SET PRIORITY ON THREAD
-    const setPriority = true                // Set the thread priority the goroutine
-    const setPriorityLevel = 7              // (0 to 39 with 0 highest)
-
 // WORKERS
-    const useGoroutine = true               // Do you want to use goroutines
-    const numberWorkers = 5                 // Number of workers
+const useGoroutine = false
+const numberWorkers = 50
 
-// PRIME NUMBER   
-    const testforPrimes = 20000             // Find all prime numbers up to this number (brute force way)
-                                            // This must be divisible by the numberWorkers
+// PRIME NUMBER
+const testForPrimes = 200000
 
 // BUFFER CHANNEL
-    var channelBufferSize = numberWorkers + 1 // How many channel buffers
+var channelBufferSize = numberWorkers + 1
+
+// FEATURE 1 - LOCK A GOROUTINE TO A THREAD
+const lockGoroutineToThread = false
+
+// FEATURE 2 - LOCK A GOROUTINE TO A CPU
+const lockGoroutineToCPU = false 
+var useTheseCPUs = []int{9}
+
+// FEATURE 3 - LOCK A THREAD TO A CPU
+const lockThreadToCore = false
+
+// FEATURE 4 - SET PRIORITY ON THREAD
+const setPriority = false  
+const setPriorityLevel = 0
 ```
 
 The workload will simple split the workload (finding a prime number)
@@ -92,17 +96,18 @@ worker 1 will get numbers 1-200, worker 2, 201-400 and so on.
 
 ## GO RUNTIME FEATURES
 
-I added some features you can play around to see what gives you the better performance.
-
-### FEATURE 1 - LOCK A GOROUTINE TO A THREAD
-
 The `go runtime` will schedule goroutines to cores and threads.  And this
-can change a lot.  No goroutine is locked to a particular thread or a
-particular core.
+can change a lot.  
+
+### FEATURE 1 -  LOCK A GOROUTINE TO A THREAD
+
+This feature will lock a goroutine (worker) to a thread.
+The thread can bounce around to different CPUs,
+carrying the goroutine with it.
 
 ```go
-// Lock this goroutine to a particular thread (go runtime won't change threads)
-if lockThread {
+// FEATURE 1 - LOCK A GOROUTINE TO A THREAD
+if lockGoroutineToThread {
     runtime.LockOSThread()
     defer runtime.UnlockOSThread()
 }
@@ -112,24 +117,27 @@ if lockThread {
 
 These require c code or system calls to the kernel.
 
-### FEATURE 2 - PIN A THREAD TO A CPU (set affinity)
+### FEATURE 2 - LOCK A GOROUTINE TO A CPU
 
-This is a little more tricky and needs a bit of C code.
-What its really doing is pinning a thread to a cpu.
+This feature will lock a goroutine (worker) to a CPU.
+The goroutine can bounce around to different threads
+in the same CPU.
 
 ```go
-// Set thread to a particular Core/CPU - Set affinity()
-C.set_affinity(useCPU)
+// FEATURE 2 - LOCK A GOROUTINE TO A CPU
+if lockGoroutineToCPU {
+    C.set_affinity(C.int(useCPU))
+}
 ```
 
-### FEATURE 3 - LOCK A THREAD TO A CPU/CORE
+### FEATURE 3 - LOCK A THREAD TO A CPU
 
-This is also outside go and uses C.  So since we now have a locked thread,
-and we are on a particular CPU, lets lock that thread to a CPU.
+This feature will lock a thread to a CPU.
+Goroutines can go to other threads on other CPUs.
 
 ```go
-// Now lock this thread to the Core/CPU you are on 
-if lockCore {
+// FEATURE 3 -  LOCK A THREAD TO A CPU
+if lockThreadToCore {
     // Get the cpu your are on
     cpuID := C.sched_getcpu()
     // lock the thread to a cpu
@@ -144,10 +152,13 @@ always off a little. So take my nice code with a grain of salt.
 I will have to revisit this at some point.
 
 ```go
-startthreadPriority, _ := syscall.Getpriority(syscall.PRIO_PROCESS, 0)
+// FEATURE 4 - SET PRIORITY ON THREAD
 if setPriority {
     err := syscall.Setpriority(syscall.PRIO_PROCESS, 0, setPriorityLevel)
-    ...
+    if err != nil {
+        println("Setpriority failed")
+        return
+    }
 }
 ```
 
@@ -155,6 +166,7 @@ if setPriority {
 
 ```bash
 go run goroutines-multi-core.go
+go run goroutines-multi-core.go -loglevel info
 ```
 
 Press return to exit.
@@ -172,53 +184,46 @@ For calculating all primes up to 200,000 (17,984 primes)
 
 Running on my rig,
 
-| Focus     | LOCK goroutine | NUM CPUs | LOCK Thread | Priority | Workers |          Time |
-|:----------|---------------:|--------:|------------:|---------:|---------:|--------------:|
-|   Workers |              N |       1 |           N |  default |       50 |     25.532367 |
-|           |              N |       1 |           N |  default |      500 |     22.465188 |
-|           |              N |       1 |           N |  default |     2000 |     22.259715 |
-|           |              N |       1 |           N |  default |    20000 |     20.062055 |
-|   Lock GR |              Y |       1 |           N |  default |       50 |     24.042777 |
-|           |              Y |       1 |           N |  default |      500 |     22.255453 |
-|           |              Y |       1 |           N |  default |     2000 |     21.577278 |
-|           |              Y |       1 |           N |  default |    20000 |     19.667587 |
-|     CPU 8 |              N |       8 |           N |  default |       50 |     24.942142 |
-|           |              N |       8 |           N |  default |      500 |     21.898585 |
-|           |              N |       8 |           N |  default |     2000 |     21.253711 |
-|           |              N |       8 |           N |  default |    20000 |     19.375311 |
-|    CPU 16 |              N |      16 |           N |  default |       50 |     22.748823 |
-|           |              N |      16 |           N |  default |      500 |     21.665127 |
-|           |              N |      16 |           N |  default |     2000 |     21.284461 |
-|           |              N |      16 |           N |  default |    20000 |     19.730614 |
-|  Lock Thd |              N |       1 |           Y |  default |       50 |     23.949443 |
-|           |              N |       1 |           Y |  default |      500 |     21.841208 |
-|           |              N |       1 |           Y |  default |     2000 |     22.090544 |
-|           |              N |       1 |           Y |  default |    20000 |     19.762526 |
-|     Pri O |              N |       1 |           N |        0 |       50 |     23.553114 |
-|           |              N |       1 |           N |        0 |      500 |     21.522687 |
-|           |              N |       1 |           N |        0 |     2000 |     21.230785 |
-|           |              N |       1 |           N |        0 |    20000 |     19.401425 |
-
-From the above I tried to find the sweet spot,
-
-| Focus     | LOCK goroutine | NUM CPUs | LOCK Thread | Priority | Workers |          Time |
-|:----------|---------------:|--------:|------------:|---------:|---------:|--------------:|
-|           |              Y |      16 |           Y |        0 |    20000 |     18.912954 |
-|           |              Y |      16 |           Y |        0 |    50000 |     15.456460 |
+| FOCUS     | F1 LK-GR | F2-LK CPU | F3-LK T | F4-PRTY | Workers |   Time |           Comments |
+|:----------|---------:|----------:|--------:|--------:|--------:|-------:|-------------------:|
+| No GR     |        F |     F (1) |       F | default |      50 |  29.44 | The one Worker     |
+|           |        F |     F (1) |       F | default |     500 |  29.42 | could use diff CPU |
+|           |        F |     F (1) |       F | default |    2000 |  29.30 | and diff thread    |
+|           |        F |     F (1) |       F | default |   20000 |  26.58 |                    |
+| GR ON     |        F |    F (16) |       F | default |      50 |   4.12 | A Worker could use |
+|           |        F |    F (16) |       F | default |     500 |   3.97 | diff CPU and and   |
+|           |        F |    F (16) |       F | default |    2000 |   3.95 | diff Thread        |
+|           |        F |    F (16) |       F | default |   20000 |   3.54 |                    |
+|           |        F |    F (16) |       F | default |   50000 |**2.97**|                    |
+|           |        F |    F (16) |       F | default |   75000 |3.24|                    |
+| F1-LK GR  |        T |    F (16) |       F | default |      50 |   4.12 | A Worker will use  |
+|           |        T |    F (16) |       F | default |     500 |   4.05 | same thread but    |
+|           |        T |    F (16) |       F | default |    2000 |   3.93 | could use diff CPU |
+|           |        T |    F (16) |       F | default |   20000 |   3.76 |                    |
+| F2-1 CPU  |        F |       T-1 |       F | default |      50 |  29.47 | A Worker in same   |
+|           |        F |       T-1 |       F | default |     500 |  29.40 | CPU but could use  |
+|           |        F |       T-1 |       F | default |    2000 |  29.19 | diff thread        |
+|           |        F |       T-1 |       F | default |   20000 |  26.89 |                    |
+| F2-8 CPUs |        T |       T-8 |       F | default |      50 |   5.27 | 8 CPUs             |
+|           |        T |       T-8 |       F | default |     500 |   5.21 |                    |
+|           |        T |       T-8 |       F | default |    2000 |   5.46 |                    |
+|           |        T |       T-8 |       F | default |   20000 |   5.51 |                    |
+| F2-16 CPUs|        T |      T-16 |       F | default |      50 |   4.40 | 16 CPUs            |
+|           |        T |      T-16 |       F | default |     500 |   4.50 |                    |
+|           |        T |      T-16 |       F | default |    2000 |   4.65 |                    |
+|           |        T |      T-16 |       F | default |   20000 |   4.22 |                    |
+| F3-LK T   |        F |    F (16) |       T | default |      50 |   4.08 | Threads locked to  |
+|           |        F |    F (16) |       T | default |     500 |   3.95 | CPU but Worker     |
+|           |        F |    F (16) |       T | default |    2000 |   3.88 | could use diff CPU |
+|           |        F |    F (16) |       T | default |   20000 |   4.77 |                    |
+| F4 - PRTY |        F |    F (16) |       F |       0 |      50 |   4.02 |                    |
+|           |        F |    F (16) |       F |       0 |     500 |   3.90 |                    |
+|           |        F |    F (16) |       F |       0 |    2000 |   3.86 |                    |
+|           |        F |    F (16) |       F |       0 |   20000 |   3.54 |                    |
+| F1,2,3,4  |        T |      T-16 |       T |       0 |      50 |   4.71 | Workers locked to  |
+|           |        T |      T-16 |       T |       0 |     500 |   4.78 | CPU and Thread     |
+|           |        T |      T-16 |       T |       0 |    2000 |   4.90 |                    |
+|           |        T |      T-16 |       T |       0 |   20000 |   4.96 |                    |
 
 You can see the **more routines doing a small calculations** is the key.
 Lightweight goroutines are amazing.
-
-## TEST
-
-To create _test files,
-
-```bash
-gotests -w -all channels-buffered.go
-```
-
-To unit test the code,
-
-```bash
-go test -cover ./... 
-```
