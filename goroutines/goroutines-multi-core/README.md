@@ -185,7 +185,7 @@ For calculating all primes up to 200,000 (17,984 primes)
 Running on my rig,
 
 | FOCUS     | F1 LK-GR | F2-LK CPU | F3-LK T | F4-PRTY | Workers |   Time |           Comments |
-|:----------|---------:|----------:|--------:|--------:|--------:|-------:|-------------------:|
+|:----------|---------:|----------:|--------:|--------:|--------:|-------:|:-------------------|
 | No GR     |        F |     F (1) |       F | default |      50 |  29.44 | The one Worker     |
 |           |        F |     F (1) |       F | default |     500 |  29.42 | could use diff CPU |
 |           |        F |     F (1) |       F | default |    2000 |  29.30 | and diff thread    |
@@ -195,7 +195,7 @@ Running on my rig,
 |           |        F |    F (16) |       F | default |    2000 |   3.95 | diff Thread        |
 |           |        F |    F (16) |       F | default |   20000 |   3.54 |                    |
 |           |        F |    F (16) |       F | default |   50000 |**2.97**|                    |
-|           |        F |    F (16) |       F | default |   75000 |3.24|                    |
+|           |        F |    F (16) |       F | default |  100000 |   3.55 |                    |
 | F1-LK GR  |        T |    F (16) |       F | default |      50 |   4.12 | A Worker will use  |
 |           |        T |    F (16) |       F | default |     500 |   4.05 | same thread but    |
 |           |        T |    F (16) |       F | default |    2000 |   3.93 | could use diff CPU |
