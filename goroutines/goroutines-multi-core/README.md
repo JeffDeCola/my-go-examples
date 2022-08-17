@@ -1,4 +1,4 @@
-# goroutines-multi-core example
+# goroutines-multi-core
 
 _Concurrency across multi-cores. You can play around with workers,
 threads, cpus/cores and nice to find the fastest performance.

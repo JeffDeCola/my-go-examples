@@ -1,6 +1,6 @@
 # grpc-os
 
-_tbd._
+_Start a grpc server in the go runtime environment using googles grpc package._
 
 Other examples using,
 
@@ -53,17 +53,26 @@ Documentation and references,
 
 ## OVERVIEW
 
-* Synchronous – The client expects a timely response and might
-  even block while it waits
-* Asynchronous – The client doesn’t block while waiting for a response,
-  and the response, if any, may not be immediate
+gRPC enables client and server to communicate easily using functions.
+
+### SERVER
+
+Using go runtime environment to start a gRPC Server
+
+```go
+
+
+```
+
+### CLIENT
 
 ## RUN
 
 Run,
 
 ```bash
-go run grpc-os.go
+go run server.go
+go run client.go
 ```
 
 ## TEST

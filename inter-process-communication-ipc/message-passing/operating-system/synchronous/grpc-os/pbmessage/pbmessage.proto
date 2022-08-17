@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+package pbmessage; //  Names of the folder this is in
+
+option go_package = ".;pbmessage"; // This will put package name in .pg.go file
+
+// Define the gRPC service
+// Functions that can be called by any RPC client in any language
+service Greeter  {
+    rpc SayHello(HelloRequestMessage) returns (HelloReplyMessage) {}
+    rpc SayHelloAgain (HelloRequestMessage) returns (HelloReplyMessage) {}
+    rpc getPersonInfo(PersonRequestMessage) returns (PersonReplyMessage) {}
+}
+
+message HelloRequestMessage {
+    string name = 1;
+}
+
+message HelloReplyMessage {
+    string message = 1;
+}
+
+message PersonRequestMessage {
+    string name = 1;
+}
+
+message PersonReplyMessage {
+    string Name = 1;
+    int32 Age = 2;
+    string Email = 3;
+    string Phone = 4;
+}
