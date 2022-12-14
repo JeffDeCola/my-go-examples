@@ -5,17 +5,18 @@ import (
 	"math"
 )
 
-// MATH USING FUNCTIONS
 func areaRectangle(w float64, h float64) float64 {
 	area := w * h
 	return area
 }
 
+// MATH USING FUNCTIONS
 func areaCircle(r float64) float64 {
 	area := math.Pi * math.Pow(r, 2)
 	return area
 }
 
+// MAIN
 func main() {
 
 	// DEFINE
