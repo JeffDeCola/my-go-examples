@@ -379,3 +379,13 @@ _More than one process/service._
 _Using go with the Internet of Things (IoT)._
 
 * RASPBERRY PI
+
+### MODULES AND PACKAGES
+
+* [module-package-user-created](https://github.com/JeffDeCola/my-go-examples/tree/master/modules-and-packages/module-package-user-created)
+
+  _A user created package._
+
+* [module-package-public](https://github.com/JeffDeCola/my-go-examples/tree/master/modules-and-packages/module-package-public)
+
+  _Using a public package._
