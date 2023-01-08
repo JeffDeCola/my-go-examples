@@ -382,10 +382,10 @@ _Using go with the Internet of Things (IoT)._
 
 ### MODULES AND PACKAGES
 
-* [module-package-user-created](https://github.com/JeffDeCola/my-go-examples/tree/master/modules-and-packages/module-package-user-created)
+* [module-with-local-package](https://github.com/JeffDeCola/my-go-examples/tree/master/modules-and-packages/module-with-local-package)
 
-  _A user created package._
+  _A go module with a local package._
 
-* [module-package-public](https://github.com/JeffDeCola/my-go-examples/tree/master/modules-and-packages/module-package-public)
+* [module-with-remote-package](https://github.com/JeffDeCola/my-go-examples/tree/master/modules-and-packages/module-with-remote-package)
 
-  _Using a public package._
+  _A go module with a remote (public) package._
