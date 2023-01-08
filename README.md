@@ -48,6 +48,7 @@ Table of Contents,
 * [INTERACT OS](https://github.com/JeffDeCola/my-go-examples#interact-os)
 * [IoT](https://github.com/JeffDeCola/my-go-examples#iot)
   * RASPBERRY PI
+* [MODULES AND PACKAGES](https://github.com/JeffDeCola/my-go-examples#modules-and-packages)
 
 Documentation and reference,
 
