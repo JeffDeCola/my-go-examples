@@ -1,10 +1,10 @@
 package main
 
-import {
-     "fmt"
-
-}
+import (
+	"fmt"
+)
 
 func main() {
-	StartRPCServer()
+	// StartRPCServer()
+	fmt.Println("Server is running")
 }

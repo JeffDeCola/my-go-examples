@@ -2,10 +2,12 @@ package main
 
 import (
 	"fmt"
-	"module-package-user-created/arithmetic"
+	arithmetic "module-with-local-package/mypackage"
 )
 
 func main() {
+
 	sum := arithmetic.Add(2, 2)
 	fmt.Println(sum)
+
 }
