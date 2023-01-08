@@ -4,7 +4,7 @@
 
 Other examples using,
 
-* [module-with-remote-package](https://github.com/JeffDeCola/my-go-examples/tree/master/modules-and-packages/module-with-remote-package)
+* [module-with-local-package](https://github.com/JeffDeCola/my-go-examples/tree/master/modules-and-packages/module-with-local-package)
 * [module-with-remote-package](https://github.com/JeffDeCola/my-go-examples/tree/master/modules-and-packages/module-with-remote-package)
   **<- YOU ARE HERE**
 
@@ -30,6 +30,8 @@ of related go source files in the same directory.
 
 ## STRUCTURE
 
+Let's use a package I made to calculate the area and perimeter of a circle.
+
 ![IMAGE - go-module-with-remote-package - IMAGE](../../docs/pics/modules-and-packages/go-module-with-remote-package.jpg)
 
 ## CREATE A MODULE (go.mod)
@@ -46,6 +48,12 @@ module module-with-remote-package
 go 1.19
 
 require github.com/JeffDeCola/my-go-packages v0.0.0-20201127151932-875bcb639112
+```
+
+Run `go mod tidy` to clean up the go.mod file,
+
+```cmd
+go mod tidy
 ```
 
 ## RUN
