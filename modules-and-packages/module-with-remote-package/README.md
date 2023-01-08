@@ -1,12 +1,12 @@
 # module-with-remote-package
 
-  _A go module with a remote package._
+  _A go module with a remote (public) package._
 
 Other examples using,
 
 * [module-with-remote-package](https://github.com/JeffDeCola/my-go-examples/tree/master/modules-and-packages/module-with-remote-package)
-  **<- YOU ARE HERE**
 * [module-with-remote-package](https://github.com/JeffDeCola/my-go-examples/tree/master/modules-and-packages/module-with-remote-package)
+  **<- YOU ARE HERE**
 
 Table of Contents,
 
@@ -30,7 +30,7 @@ of related go source files in the same directory.
 
 ## STRUCTURE
 
-![IMAGE - go-module-with-remote-package - IMAGE](../../docs/pics/go-module-with-remote-package.jpg)
+![IMAGE - go-module-with-remote-package - IMAGE](../../docs/pics/modules-and-packages/go-module-with-remote-package.jpg)
 
 ## CREATE A MODULE (go.mod)
 
@@ -40,10 +40,12 @@ go mod init module-with-remote-package
 
 Will look like,
 
-```go
+```txt
 module module-with-remote-package
 
 go 1.19
+
+require github.com/JeffDeCola/my-go-packages v0.0.0-20201127151932-875bcb639112
 ```
 
 ## RUN
@@ -95,4 +97,4 @@ use (
 
 This diagram may help,
 
-![IMAGE - vs-code-multi-root-workspace-with-go-multi-modules - IMAGE](../../docs/pics/vs-code-multi-root-workspace-with-go-multi-modules.jpg)
+![IMAGE - vs-code-multi-root-workspace-with-go-multi-modules - IMAGE](../../docs/pics/modules-and-packages/vs-code-multi-root-workspace-with-go-multi-modules.jpg)

@@ -30,7 +30,7 @@ of related go source files in the same directory.
 
 ## STRUCTURE
 
-![IMAGE - go-module-with-local-package - IMAGE](../../docs/pics/go-module-with-local-package.jpg)
+![IMAGE - go-module-with-local-package - IMAGE](../../docs/pics/modules-and-packages/go-module-with-local-package.jpg)
 
 ## CREATE A MODULE (go.mod)
 
@@ -40,7 +40,7 @@ go mod init module-with-local-package
 
 Will look like,
 
-```go
+```txt
 module module-with-local-package
 
 go 1.19
@@ -95,4 +95,4 @@ use (
 
 This diagram may help,
 
-![IMAGE - vs-code-multi-root-workspace-with-go-multi-modules - IMAGE](../../docs/pics/vs-code-multi-root-workspace-with-go-multi-modules.jpg)
+![IMAGE - vs-code-multi-root-workspace-with-go-multi-modules - IMAGE](../../docs/pics/modules-and-packages/vs-code-multi-root-workspace-with-go-multi-modules.jpg)
