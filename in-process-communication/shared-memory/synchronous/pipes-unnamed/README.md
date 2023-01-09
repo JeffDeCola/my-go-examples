@@ -2,9 +2,9 @@
 
 _A pipe provides a unidirectional communication channel._
 
-Other examples using,
+Other communication examples using,
 
-**IN-PROCESS COMMUNICATION**
+**I - IN-PROCESS COMMUNICATION**
 
 * **SHARED MEMORY**
   * ASYNCHRONOUS
@@ -18,7 +18,7 @@ Other examples using,
   * SYNCHRONOUS
     * [channels-unbuffered](https://github.com/JeffDeCola/my-go-examples/tree/master/in-process-communication/message-passing/synchronous/channels-unbuffered)
 
-**INTER-PROCESS COMMUNICATION (IPC)**
+**II - INTER-PROCESS COMMUNICATION (IPC)**
 
 * **SHARED MEMORY**
   * ASYNCHRONOUS
