@@ -57,6 +57,18 @@ Documentation and references,
 
 **Unbuffered channels are unidirectional and synchronous with blocking.**
 
+You create a unbuffered channel in go as follows,
+
+```go
+chUnBuffered := make(chan string) // UNBUFFERED
+```
+
+And place data on that channel as follows,
+
+```go
+chUnBuffered <- data // BLOCKING - WAITING
+```
+
 This illustration  may help,
 
 ![IMAGE - channels-unbuffered.jpg - IMAGE](../../../../docs/pics/in-process-communication/channels-unbuffered.jpg)

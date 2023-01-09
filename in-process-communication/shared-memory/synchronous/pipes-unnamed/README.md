@@ -58,7 +58,7 @@ Documentation and references,
 * Asynchronous – The client doesn’t block while waiting for a response,
   and the response, if any, may not be immediate
 
-A pipe provides a unidirectional inter-process communication channel, where two
+A pipe provides a unidirectional in-process communication channel, where two
 ends are involved: reader and writer. Data written to the write end of
 the pipe can be read from the read end.
 
