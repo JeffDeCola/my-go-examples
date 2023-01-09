@@ -10,7 +10,7 @@ Other communication examples using,
   * ASYNCHRONOUS
   * SYNCHRONOUS
     * [pipes-unnamed](https://github.com/JeffDeCola/my-go-examples/tree/master/in-process-communication/shared-memory/synchronous/pipes-unnamed)
-    **<- YOU ARE HERE**
+      **<- YOU ARE HERE**
     * [pipes-unnamed-io](https://github.com/JeffDeCola/my-go-examples/tree/master/in-process-communication/shared-memory/synchronous/pipes-unnamed-io)
 * **MESSAGE PASSING**
   * ASYNCHRONOUS
