@@ -7,22 +7,26 @@ import (
 	"time"
 )
 
-func sendData(chSend chan string, chMsg chan string) {
+func sendData(chData chan string, chUnBuffered chan string) {
 
-	data := "empty"
-
+	// Loop forever
 	for {
-		data = <-chSend // BLOCKS
-		chMsg <- data   // WAITS
+
+		// Data to send
+		data := <-chData
+
+		// Send data to buffered channel
+		chUnBuffered <- data // BLOCKING - WAITING
 	}
 
 }
 
-func rcvData(chMsg chan string) {
+func rcvData(chUnBuffered chan string) {
 
+	// Loop forever every 2 seconds
 	for {
 
-		data := <-chMsg // BLOCKS
+		data := <-chUnBuffered // BLOCKS
 
 		// REPLACE WITH "that will be sent" with "that was received"
 		replacedString := strings.Replace(data, "that will be sent", "that was received", -1)
@@ -46,42 +50,42 @@ func rcvData(chMsg chan string) {
 
 func main() {
 
-	chSend := make(chan string)
-	chMsg := make(chan string) // UNBUFFERED
+	chData := make(chan string)
+	chUnBuffered := make(chan string) // UNBUFFERED
 
 	// DATA TO SEND
-	dataSend := "I am the data that will be sent"
-	fmt.Printf("SEND:     %s \n", dataSend)
+	data := "I am the data that will be sent"
+	fmt.Printf("SEND:     %s \n", data)
 
-	// SEND
-	go sendData(chSend, chMsg)
+	// SEND GO ROUTINE
+	go sendData(chData, chUnBuffered)
 
-	// RECEIVE - Can consume every 2 seconds
-	go rcvData(chMsg)
+	// RECEIVE GO ROUTINE - Can consume every 2 seconds
+	go rcvData(chUnBuffered)
 
 	startTime := time.Now().Unix()
 
 	// SEND DATA WITH EPOCH TIME - FAST
 	fmt.Println("SEND FAST - WAITS")
-	chSend <- dataSend + " 1 " + strconv.FormatInt(time.Now().Unix(), 10) // WAITS
-	chSend <- dataSend + " 2 " + strconv.FormatInt(time.Now().Unix(), 10) // WAITS
-	chSend <- dataSend + " 3 " + strconv.FormatInt(time.Now().Unix(), 10) // WAITS
-	chSend <- dataSend + " 4 " + strconv.FormatInt(time.Now().Unix(), 10) // WAITS
-	chSend <- dataSend + " 5 " + strconv.FormatInt(time.Now().Unix(), 10) // WAITS
-	chSend <- dataSend + " 6 " + strconv.FormatInt(time.Now().Unix(), 10) // WAITS
+	chData <- data + " 1 " + strconv.FormatInt(time.Now().Unix(), 10) // WAITS
+	chData <- data + " 2 " + strconv.FormatInt(time.Now().Unix(), 10) // WAITS
+	chData <- data + " 3 " + strconv.FormatInt(time.Now().Unix(), 10) // WAITS
+	chData <- data + " 4 " + strconv.FormatInt(time.Now().Unix(), 10) // WAITS
+	chData <- data + " 5 " + strconv.FormatInt(time.Now().Unix(), 10) // WAITS
+	chData <- data + " 6 " + strconv.FormatInt(time.Now().Unix(), 10) // WAITS
 	time.Sleep(5 * time.Second)
 
 	// SEND DATA WITH EPOCH TIME - SLOW
 	fmt.Println("SEND SLOW")
-	chSend <- dataSend + " A " + strconv.FormatInt(time.Now().Unix(), 10) // WAITS
+	chData <- data + " A " + strconv.FormatInt(time.Now().Unix(), 10) // WAITS
 	time.Sleep(3 * time.Second)
-	chSend <- dataSend + " B " + strconv.FormatInt(time.Now().Unix(), 10) // WAITS
+	chData <- data + " B " + strconv.FormatInt(time.Now().Unix(), 10) // WAITS
 	time.Sleep(3 * time.Second)
-	chSend <- dataSend + " C " + strconv.FormatInt(time.Now().Unix(), 10) // WAITS
+	chData <- data + " C " + strconv.FormatInt(time.Now().Unix(), 10) // WAITS
 	time.Sleep(3 * time.Second)
-	chSend <- dataSend + " D " + strconv.FormatInt(time.Now().Unix(), 10) // WAITS
+	chData <- data + " D " + strconv.FormatInt(time.Now().Unix(), 10) // WAITS
 	time.Sleep(3 * time.Second)
-	chSend <- dataSend + " E " + strconv.FormatInt(time.Now().Unix(), 10) // WAITS
+	chData <- data + " E " + strconv.FormatInt(time.Now().Unix(), 10) // WAITS
 
 	endTime := time.Now().Unix()
 	diffTime := endTime - startTime

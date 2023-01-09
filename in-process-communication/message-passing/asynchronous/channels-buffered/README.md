@@ -57,6 +57,18 @@ Documentation and references,
 
 **Buffered channels are unidirectional and asynchronous with no blocking.**
 
+You create a buffered channel in go as follows,
+
+```go
+var chBuffered = make(chan string, 100) // BUFFERED
+```
+
+And place data on that channel as follows,
+
+```go
+chBuffered <- data // NO BLOCKING - NO WAITING
+```
+
 This illustration  may help,
 
 ![IMAGE - channels-buffered.jpg - IMAGE](../../../../docs/pics/in-process-communication/channels-buffered.jpg)
