@@ -307,9 +307,11 @@ _More than one process/service._
 
     * [pipes-named](https://github.com/JeffDeCola/my-go-examples/tree/master/inter-process-communication-ipc/shared-memory/synchronous/pipes-named)
 
-      _tbd._
+      _Sending data over a named-pipe (FIFO) from one process to another process._
 
 * MESSAGE PASSING
+
+  **_This is where you have a client/server model._**
 
   * OPERATING SYSTEM
 

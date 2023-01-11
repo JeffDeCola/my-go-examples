@@ -1,6 +1,6 @@
 # pipes-named
 
-_tbd._
+_Sending data over a named-pipe (FIFO) from one process to another process._
 
 Other communication examples using,
 
@@ -60,6 +60,11 @@ Documentation and references,
   even block while it waits
 * Asynchronous – The client doesn’t block while waiting for a response,
   and the response, if any, may not be immediate
+
+There are two processes,
+
+reader.go writer.go
+
 
 ## RUN
 
