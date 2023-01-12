@@ -6,5 +6,5 @@ import (
 
 func main() {
 	// StartRPCServer()
-	fmt.Println("Server is running")
+	fmt.Println("Server is really running")
 }
