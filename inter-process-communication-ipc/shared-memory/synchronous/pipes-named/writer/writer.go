@@ -1,10 +1,6 @@
-package main
 
-import (
-	"fmt"
-)
 
-func main() {
+func () {
 	// StartRPCServer()
 	fmt.Println("Server is running")
 }
