@@ -51,19 +51,7 @@ Documentation and references,
   package for more info
 * This repos [github webpage](https://jeffdecola.github.io/my-go-examples/)
 
-## CLIENT/SERVER MODEL
-
-Inter-process communication (IPC) message passing is based on the
-client-server model as shown,
-
-![IMAGE - client-server-request-and-reply-model.jpg - IMAGE](../../../../../docs/pics/inter-process-communication/client-server-request-and-reply-model.jpg)
-
-* Synchronous – The client expects a timely response and might
-  even block while it waits
-* Asynchronous – The client doesn’t block while waiting for a response,
-  and the response, if any, may not be immediate
-
-## TCP OVERVIEW
+## OVERVIEW
 
 TCP is a connection-oriented protocol. It is a reliable, ordered,
 and error-checked delivery of a stream of bytes between applications
@@ -91,8 +79,29 @@ To unit test the code,
 go test -cover ./... 
 ```
 
-## COMMUNICATIONS ILLUSTRATION
+## COMMUNICATION OVERVIEW
 
-This illustration may help,
+### SYNCHRONOUS AND ASYNCHRONOUS COMMUNICATION
 
-![IMAGE - communications-overview.jpg - IMAGE](../../../../../docs/pics/in-process-communication/communications-overview.jpg)
+Synchronous and asynchronous communication really depends on
+what you're referring too. For example, if you have a uni-directional
+communication and you are referring to the data transfer. Or if it
+a bi-directional communication and you're referring to
+the reply.
+
+Here is a high-level view,
+
+* Synchronous – The client expects a timely response and might
+  even block while it waits
+* Asynchronous – The client doesn’t block while waiting for a response,
+  and the response, if any, may not be immediate
+
+![IMAGE - synchronous-and-asynchronous-communication.jpg - IMAGE](../../../../docs/pics/in-process-communication/synchronous-and-asynchronous-communication.jpg)
+
+### CLIENT SERVER COMMUNICATION
+
+![IMAGE - client-server-communication.jpg - IMAGE](../../../../docs/pics/in-process-communication/client-server-communication.jpg)
+
+### IN-PROCESS AND INTER-PROCESS COMMUNICATION
+
+![IMAGE - in-process-and-inter-process-communication.jpg - IMAGE](../../../../docs/pics/in-process-communication/in-process-and-inter-process-communication.jpg)
