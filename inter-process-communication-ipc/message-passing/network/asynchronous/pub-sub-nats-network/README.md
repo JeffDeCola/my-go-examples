@@ -42,10 +42,7 @@ Other communication examples using,
 
 Table of Contents,
 
-* [OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/inter-process-communication-ipc/message-passing/network/asynchronous/pub-sub-nats#overview)
-* [RUN](https://github.com/JeffDeCola/my-go-examples/tree/master/inter-process-communication-ipc/message-passing/network/asynchronous/pub-sub-nats#run)
-* [TEST](https://github.com/JeffDeCola/my-go-examples/tree/master/inter-process-communication-ipc/message-passing/network/asynchronous/pub-sub-nats#test)
-* [COMMUNICATIONS ILLUSTRATION](https://github.com/JeffDeCola/my-go-examples/tree/master/inter-process-communication-ipc/message-passing/network/asynchronous/pub-sub-nats#communications-illustration)
+* tbd
 
 Documentation and references,
 
@@ -54,12 +51,21 @@ Documentation and references,
   package for more info
 * This repos [github webpage](https://jeffdecola.github.io/my-go-examples/)
 
-## OVERVIEW
+## CLIENT/SERVER MODEL
+
+Inter-process communication (IPC) message passing is based on the
+client-server model as shown,
+
+![IMAGE - client-server-request-and-reply-model.jpg - IMAGE](../../../../../docs/pics/inter-process-communication/client-server-request-and-reply-model.jpg)
 
 * Synchronous – The client expects a timely response and might
   even block while it waits
 * Asynchronous – The client doesn’t block while waiting for a response,
   and the response, if any, may not be immediate
+
+## PUB SUB OVERVIEW
+
+This is a simple example of a publisher and subscriber using NATS.
 
 ## RUN
 

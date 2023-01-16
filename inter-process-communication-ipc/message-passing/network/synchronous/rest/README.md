@@ -42,10 +42,7 @@ Other communication examples using,
 
 Table of Contents,
 
-* [OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/inter-process-communication-ipc/message-passing/network/synchronous/rest#overview)
-* [RUN](https://github.com/JeffDeCola/my-go-examples/tree/master/inter-process-communication-ipc/message-passing/network/synchronous/rest#run)
-* [TEST](https://github.com/JeffDeCola/my-go-examples/tree/master/inter-process-communication-ipc/message-passing/network/synchronous/rest#test)
-* [COMMUNICATIONS ILLUSTRATION](https://github.com/JeffDeCola/my-go-examples/tree/master/inter-process-communication-ipc/message-passing/network/synchronous/rest#communications-illustration)
+* tbd
 
 Documentation and references,
 
@@ -54,12 +51,26 @@ Documentation and references,
   package for more info
 * This repos [github webpage](https://jeffdecola.github.io/my-go-examples/)
 
-## OVERVIEW
+## CLIENT/SERVER MODEL
+
+Inter-process communication (IPC) message passing is based on the
+client-server model as shown,
+
+![IMAGE - client-server-request-and-reply-model.jpg - IMAGE](../../../../../docs/pics/inter-process-communication/client-server-request-and-reply-model.jpg)
 
 * Synchronous – The client expects a timely response and might
   even block while it waits
 * Asynchronous – The client doesn’t block while waiting for a response,
   and the response, if any, may not be immediate
+
+## REST OVERVIEW
+
+REST is a software architectural style that defines a set of
+constraints to be used for creating Web services. RESTful Web services
+allow the requesting systems to access and manipulate textual
+representations of Web resources by using a uniform and predefined set
+of stateless operations. RESTful Web services are characterized by how
+they are stateless and separate the concerns of client and server.
 
 ## RUN
 

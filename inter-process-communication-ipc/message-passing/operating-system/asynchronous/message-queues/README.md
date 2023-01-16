@@ -42,10 +42,7 @@ Other communication examples using,
 
 Table of Contents,
 
-* [OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/inter-process-communication-ipc/message-passing/operating-system/asynchronous/message-queues#overview)
-* [RUN](https://github.com/JeffDeCola/my-go-examples/tree/master/inter-process-communication-ipc/message-passing/operating-system/asynchronous/message-queues#run)
-* [TEST](https://github.com/JeffDeCola/my-go-examples/tree/master/inter-process-communication-ipc/message-passing/operating-system/asynchronous/message-queues#test)
-* [COMMUNICATIONS ILLUSTRATION](https://github.com/JeffDeCola/my-go-examples/tree/master/inter-process-communication-ipc/message-passing/operating-system/asynchronous/message-queues#communications-illustration)
+* tbd
 
 Documentation and references,
 
@@ -54,12 +51,24 @@ Documentation and references,
   package for more info
 * This repos [github webpage](https://jeffdecola.github.io/my-go-examples/)
 
-## OVERVIEW
+## CLIENT/SERVER MODEL
+
+Inter-process communication (IPC) message passing is based on the
+client-server model as shown,
+
+![IMAGE - client-server-request-and-reply-model.jpg - IMAGE](../../../../../docs/pics/inter-process-communication/client-server-request-and-reply-model.jpg)
 
 * Synchronous – The client expects a timely response and might
   even block while it waits
 * Asynchronous – The client doesn’t block while waiting for a response,
   and the response, if any, may not be immediate
+
+## MESSAGE QUEUES OVERVIEW
+
+Message queues are a form of asynchronous IPC. They are a
+communication method that allows applications to send and receive
+messages. The messages are stored in a queue until the receiving
+application is ready to process them.
 
 ## RUN
 
