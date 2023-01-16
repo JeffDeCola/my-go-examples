@@ -311,8 +311,6 @@ _More than one process/service._
 
 * MESSAGE PASSING
 
-  **_This is where you have a client/server model._**
-
   * OPERATING SYSTEM
 
     * ASYNCHRONOUS

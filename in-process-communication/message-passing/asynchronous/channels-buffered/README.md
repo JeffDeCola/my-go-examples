@@ -53,11 +53,6 @@ Documentation and references,
 
 ## OVERVIEW
 
-* Synchronous – The client expects a timely response and might
-  even block while it waits
-* Asynchronous – The client doesn’t block while waiting for a response,
-  and the response, if any, may not be immediate
-
 **Buffered channels are unidirectional and asynchronous with no blocking.**
 
 You create a buffered channel in go as follows,
@@ -121,8 +116,29 @@ To unit test the code,
 go test -cover ./... 
 ```
 
-## COMMUNICATIONS ILLUSTRATION
+## COMMUNICATION OVERVIEW
 
-This illustration may help,
+### SYNCHRONOUS AND ASYNCHRONOUS COMMUNICATION
 
-![IMAGE - communications-overview.jpg - IMAGE](../../../../docs/pics/in-process-communication/communications-overview.jpg)
+Synchronous and asynchronous communication really depends on
+what you're referring too. For example, if you have a uni-directional
+communication and you are referring to the data transfer. Or if it
+a bi-directional communication and you're referring to
+the reply.
+
+Here is a high-level view,
+
+* Synchronous – The client expects a timely response and might
+  even block while it waits
+* Asynchronous – The client doesn’t block while waiting for a response,
+  and the response, if any, may not be immediate
+
+![IMAGE - synchronous-and-asynchronous-communication.jpg - IMAGE](../../../../docs/pics/in-process-communication/synchronous-and-asynchronous-communication.jpg)
+
+### CLIENT SERVER COMMUNICATION
+
+![IMAGE - client-server-communication.jpg - IMAGE](../../../../docs/pics/in-process-communication/client-server-communication.jpg)
+
+### IN-PROCESS AND INTER-PROCESS COMMUNICATION
+
+![IMAGE - in-process-and-inter-process-communication.jpg - IMAGE](../../../../docs/pics/in-process-communication/in-process-and-inter-process-communication.jpg)
