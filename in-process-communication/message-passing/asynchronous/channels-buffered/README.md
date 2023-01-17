@@ -1,6 +1,6 @@
 # channels-buffered
 
-_Buffered channels are unidirectional and asynchronous with no blocking._
+_Buffered channels are uni-directional, asynchronous with no blocking._
 
 Other communication examples using,
 
@@ -53,7 +53,13 @@ Documentation and references,
 
 ## OVERVIEW
 
-**Buffered channels are unidirectional and asynchronous with no blocking.**
+Buffered channels are uni-directional, asynchronous with no blocking.
+
+* **MACHINE**: SAME
+* **PROCESSES**: IN-PROCESS
+* **TYPE**: MESSAGE PASSING
+* **TIMING**: ASYNCHRONOUS
+* **DIRECTION**: UNI-DIRECTIONAL
 
 You create a buffered channel in go as follows,
 

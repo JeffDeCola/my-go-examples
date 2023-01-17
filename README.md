@@ -275,7 +275,7 @@ _One process/service._
 
     * [pipes-unnamed](https://github.com/JeffDeCola/my-go-examples/tree/master/in-process-communication/shared-memory/synchronous/pipes-unnamed)
 
-      _A pipe provides a unidirectional communication channel._
+      _A pipe provides a uni-directional communication channel._
 
     * [pipes-unnamed-io](https://github.com/JeffDeCola/my-go-examples/tree/master/in-process-communication/shared-memory/synchronous/pipes-unnamed-io)
 
@@ -287,13 +287,13 @@ _One process/service._
 
     * [channels-buffered](https://github.com/JeffDeCola/my-go-examples/tree/master/in-process-communication/message-passing/asynchronous/channels-buffered)
 
-      _Buffered channels are unidirectional and asynchronous with no blocking._
+      _Buffered channels are uni-directional, asynchronous with no blocking._
 
   * SYNCHRONOUS
 
     * [channels-unbuffered](https://github.com/JeffDeCola/my-go-examples/tree/master/in-process-communication/message-passing/synchronous/channels-unbuffered)
 
-      _Unbuffered channels are unidirectional and synchronous with blocking._
+      _Unbuffered channels are uni-directional, synchronous with blocking._
 
 ### INTER-PROCESS COMMUNICATION (IPC)
 

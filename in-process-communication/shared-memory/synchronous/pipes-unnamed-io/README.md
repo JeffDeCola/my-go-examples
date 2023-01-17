@@ -56,12 +56,18 @@ Documentation and references,
 
 ## OVERVIEW
 
-A pipe provides a unidirectional inter-process communication channel, where two
+A pipe provides a uni-directional inter-process communication channel, where two
 ends are involved: reader and writer. Data written to the write end of
 the pipe can be read from the read end.
 
-**Pipes in go can be used to connect code expecting an io.Reader with
-code expecting an io.Writer.**
+* **MACHINE**: SAME
+* **PROCESSES**: IN-PROCESS
+* **TYPE**: SHARED MEMORY
+* **TIMING**: SYNCHRONOUS
+* **DIRECTION**: UNI-DIRECTIONAL
+
+Pipes in go can be used to connect code expecting an io.Reader with
+code expecting an io.Writer.
 
 ```go
 pr, pw := io.Pipe()
