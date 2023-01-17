@@ -1,6 +1,6 @@
 # channels-unbuffered
 
-_Unbuffered channels are unidirectional and synchronous with blocking._
+_Unbuffered channels are uni-directional, synchronous with blocking._
 
 Other communication examples using,
 
@@ -53,7 +53,13 @@ Documentation and references,
 
 ## OVERVIEW
 
-**Unbuffered channels are unidirectional and synchronous with blocking.**
+Unbuffered channels are uni-directional, synchronous with blocking.
+
+* **MACHINE**: SAME
+* **PROCESSES**: IN-PROCESS
+* **TYPE**: MESSAGE PASSING
+* **TIMING**: SYNCHRONOUS
+* **DIRECTION**: UNI-DIRECTIONAL
 
 You create a unbuffered channel in go as follows,
 
