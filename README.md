@@ -273,13 +273,18 @@ _One process/service._
 
   * SYNCHRONOUS
 
+    * [pipes-unnamed-simple](https://github.com/JeffDeCola/my-go-examples/tree/master/in-process-communication/shared-memory/synchronous/pipes-unnamed-simple)
+
+      _A pipe provides a uni-directional communication channel.
+      This is a very simple example of an unnamed pipe._
+
     * [pipes-unnamed](https://github.com/JeffDeCola/my-go-examples/tree/master/in-process-communication/shared-memory/synchronous/pipes-unnamed)
 
-      _A pipe provides a uni-directional communication channel._
+      _This is a more robust example of an unnamed pipe showing multiple reads._
 
     * [pipes-unnamed-io](https://github.com/JeffDeCola/my-go-examples/tree/master/in-process-communication/shared-memory/synchronous/pipes-unnamed-io)
 
-      _Using a Pipe to connect an io.Writer and io.Reader._
+      _This example of an unnamed pipe connects an io.Writer and io.Reader._
 
 * MESSAGE PASSING
 
