@@ -43,10 +43,11 @@ Other communication examples using,
 
 Table of Contents,
 
-* [OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/in-process-communication/message-passing/synchronous/channels-unbuffered#overview)
+* [UNBUFFERED CHANNEL OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/in-process-communication/message-passing/synchronous/channels-unbuffered#unbuffered-channel-overview)
+* [CODE](https://github.com/JeffDeCola/my-go-examples/tree/master/in-process-communication/message-passing/synchronous/channels-unbuffered#code)
 * [RUN](https://github.com/JeffDeCola/my-go-examples/tree/master/in-process-communication/message-passing/synchronous/channels-unbuffered#run)
 * [TEST](https://github.com/JeffDeCola/my-go-examples/tree/master/in-process-communication/message-passing/synchronous/channels-unbuffered#test)
-* [COMMUNICATIONS ILLUSTRATION](https://github.com/JeffDeCola/my-go-examples/tree/master/in-process-communication/message-passing/synchronous/channels-unbuffered#communications-illustration)
+* [IN-PROCESS AND INTER-PROCESS COMMUNICATION OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/in-process-communication/message-passing/synchronous/channels-unbuffered#in-process-and-inter-process-communication-overview)
 
 Documentation and references,
 
@@ -55,7 +56,7 @@ Documentation and references,
   for a communications overview
 * This repos [github webpage](https://jeffdecola.github.io/my-go-examples/)
 
-## OVERVIEW
+## UNBUFFERED CHANNEL OVERVIEW
 
 Unbuffered channels are uni-directional, synchronous with blocking.
 
@@ -64,6 +65,8 @@ Unbuffered channels are uni-directional, synchronous with blocking.
 * **TYPE**: MESSAGE PASSING
 * **TIMING**: SYNCHRONOUS
 * **DIRECTION**: UNI-DIRECTIONAL
+
+## CODE
 
 You create a unbuffered channel in go as follows,
 

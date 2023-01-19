@@ -43,10 +43,11 @@ Other communication examples using,
 
 Table of Contents,
 
-* [OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/in-process-communication/message-passing/asynchronous/channels-buffered#overview)
+* [BUFFERED CHANNEL OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/in-process-communication/message-passing/asynchronous/channels-buffered#buffered-channel-overview)
+* [CODE](https://github.com/JeffDeCola/my-go-examples/tree/master/in-process-communication/message-passing/asynchronous/channels-buffered#code)
 * [RUN](https://github.com/JeffDeCola/my-go-examples/tree/master/in-process-communication/message-passing/asynchronous/channels-buffered#run)
 * [TEST](https://github.com/JeffDeCola/my-go-examples/tree/master/in-process-communication/message-passing/asynchronous/channels-buffered#test)
-* [COMMUNICATIONS ILLUSTRATION](https://github.com/JeffDeCola/my-go-examples/tree/master/in-process-communication/message-passing/asynchronous/channels-buffered#communications-illustration)
+* [IN-PROCESS AND INTER-PROCESS COMMUNICATION OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/in-process-communication/message-passing/asynchronous/channels-buffered#in-process-and-inter-process-communication-overview)
 
 Documentation and references,
 
@@ -55,7 +56,7 @@ Documentation and references,
   for a communications overview
 * This repos [github webpage](https://jeffdecola.github.io/my-go-examples/)
 
-## OVERVIEW
+## BUFFERED CHANNEL OVERVIEW
 
 Buffered channels are uni-directional, asynchronous with no blocking.
 
@@ -64,6 +65,8 @@ Buffered channels are uni-directional, asynchronous with no blocking.
 * **TYPE**: MESSAGE PASSING
 * **TIMING**: ASYNCHRONOUS
 * **DIRECTION**: UNI-DIRECTIONAL
+
+## CODE
 
 You create a buffered channel in go as follows,
 

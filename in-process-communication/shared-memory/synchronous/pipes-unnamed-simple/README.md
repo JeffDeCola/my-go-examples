@@ -85,11 +85,10 @@ Create the pipe using the "io" package,
 pr, pw := io.Pipe()
 ```
 
-Send data (write) to the pipe and close it,
+Send data (write) to the pipe.
 
 ```go
 _, err := pw.Write([]byte(data))
-pw.Close()
 ```
 
 This writes the data to memory that is shared.
@@ -97,8 +96,8 @@ This writes the data to memory that is shared.
 Now when ready, receive data (read) from the pipe (i.e. read from memory),
 
 ```go
-buffer := make([]byte, 100)
-_, err := pr.Read(buffer)
+rcvData := make([]byte, 100)
+_, err := pr.Read(rcvData)
 ```
 
 ## RUN
@@ -106,7 +105,7 @@ _, err := pr.Read(buffer)
 Run,
 
 ```bash
-go run pipes-unnamed.go
+go run pipes-unnamed-simple.go
 ```
 
 ## IN-PROCESS AND INTER-PROCESS COMMUNICATION OVERVIEW
