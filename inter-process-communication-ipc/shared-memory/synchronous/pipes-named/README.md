@@ -9,6 +9,7 @@ Other communication examples using,
 * **SHARED MEMORY**
   * ASYNCHRONOUS
   * SYNCHRONOUS
+    * [pipes-unnamed-simple](https://github.com/JeffDeCola/my-go-examples/tree/master/in-process-communication/shared-memory/synchronous/pipes-unnamed-simple)
     * [pipes-unnamed](https://github.com/JeffDeCola/my-go-examples/tree/master/in-process-communication/shared-memory/synchronous/pipes-unnamed)
     * [pipes-unnamed-io](https://github.com/JeffDeCola/my-go-examples/tree/master/in-process-communication/shared-memory/synchronous/pipes-unnamed-io)
 * **MESSAGE PASSING**
@@ -42,11 +43,10 @@ Other communication examples using,
 
 Table of Contents,
 
-* [OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/inter-process-communication-ipc/shared-memory/synchronous/pipes-named#overview)
+* [NAMED PIPE (FIFO) OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/inter-process-communication-ipc/shared-memory/synchronous/pipes-named#named-pipe-fifo-overview)
 * [RUN](https://github.com/JeffDeCola/my-go-examples/tree/master/inter-process-communication-ipc/shared-memory/synchronous/pipes-named#run)
 * [TEST](https://github.com/JeffDeCola/my-go-examples/tree/master/inter-process-communication-ipc/shared-memory/synchronous/pipes-named#test)
-* [COMMUNICATIONS ILLUSTRATION](https://github.com/JeffDeCola/my-go-examples/tree/master/inter-process-communication-ipc/shared-memory/synchronous/pipes-named#communications-illustration)
-
+* [IN-PROCESS AND INTER-PROCESS COMMUNICATION OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/inter-process-communication-ipc/shared-memory/synchronous/pipes-named#in-process-and-inter-process-communication-overview)
 Documentation and references,
 
 * Refer to the
@@ -57,7 +57,12 @@ Documentation and references,
   for a communications overview
 * This repos [github webpage](https://jeffdecola.github.io/my-go-examples/)
 
-## OVERVIEW
+## NAMED PIPE (FIFO) OVERVIEW
+
+As opposed to pipes, named pipes have a name and exist in the file system.  They
+don't vanish when they are closed.
+
+## CODE
 
 There are two processes,
 

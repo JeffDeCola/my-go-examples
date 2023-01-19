@@ -9,7 +9,7 @@ Other communication examples using,
 * **SHARED MEMORY**
   * ASYNCHRONOUS
   * SYNCHRONOUS
-    * [pipes-unnamed-simple](https://github.com/JeffDeCola/my-go-examples/tree/master/in-process-communication/shared-memory/synchronous/pipes-unnamed-simple)
+    * [pipes-unnamed](https://github.com/JeffDeCola/my-go-examples/tree/master/in-process-communication/shared-memory/synchronous/pipes-unnamed)
     * [pipes-unnamed](https://github.com/JeffDeCola/my-go-examples/tree/master/in-process-communication/shared-memory/synchronous/pipes-unnamed)
       **<- YOU ARE HERE**
     * [pipes-unnamed-io](https://github.com/JeffDeCola/my-go-examples/tree/master/in-process-communication/shared-memory/synchronous/pipes-unnamed-io)
@@ -43,10 +43,10 @@ Other communication examples using,
 
 Table of Contents,
 
-* [OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/in-process-communication/shared-memory/synchronous/pipes-unnamed#overview)
+* [PIPES OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/in-process-communication/shared-memory/synchronous/pipes-unnamed#pipes-overview)
+* [CODE](https://github.com/JeffDeCola/my-go-examples/tree/master/in-process-communication/shared-memory/synchronous/pipes-unnamed#code)
 * [RUN](https://github.com/JeffDeCola/my-go-examples/tree/master/in-process-communication/shared-memory/synchronous/pipes-unnamed#run)
-* [TEST](https://github.com/JeffDeCola/my-go-examples/tree/master/in-process-communication/shared-memory/synchronous/pipes-unnamed#test)
-* [COMMUNICATIONS ILLUSTRATION](https://github.com/JeffDeCola/my-go-examples/tree/master/in-process-communication/shared-memory/synchronous/pipes-unnamed#communications-illustration)
+* [IN-PROCESS AND INTER-PROCESS COMMUNICATION OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/in-process-communication/shared-memory/synchronous/pipes-unnamed#in-process-and-inter-process-communication-overview)
 
 Documentation and references,
 
@@ -74,6 +74,8 @@ different processes whereas an unnamed pipe can be accessed from the same proces
 Pipes in go can be used to connect code expecting an io.Reader with
 code expecting an io.Writer.
 
+![IMAGE - pipes-unnamed-named.jpg - IMAGE](../../../../docs/pics/in-process-communication/pipes-unnamed-named.jpg)
+
 ## CODE
 
 Create the pipe using the "io" package,
@@ -82,24 +84,20 @@ Create the pipe using the "io" package,
 pr, pw := io.Pipe()
 ```
 
-Send data (write) to the pipe and close it,
+Send data (write) to the pipe.
 
 ```go
 _, err := pw.Write([]byte(data))
-pw.Close()
 ```
 
-This actually write to memory that is shared.
-You can actually sleep now.
+This writes the data to memory that is shared.
 
 Now when ready, receive data (read) from the pipe (i.e. read from memory),
 
 ```go
-buffer := make([]byte, 100)
-_, err := pr.Read(buffer)
+rcvData := make([]byte, 100)
+_, err := pr.Read(rcvData)
 ```
-
-You could actually read a little at a time,
 
 ## RUN
 
@@ -107,6 +105,23 @@ Run,
 
 ```bash
 go run pipes-unnamed.go
+```
+
+Output will be,
+
+```txt
+RECEIVED   : I am the data that w 
+RECEIVED   : ill be sent 1 
+SEND       : I am the data that will be sent 1 
+RECEIVED   : I am the data that w 
+RECEIVED   : ill be sent 2 
+SEND       : I am the data that will be sent 2 
+RECEIVED   : I am the data that w 
+RECEIVED   : ill be sent 3 
+SEND       : I am the data that will be sent 3 
+CLOSED PIPE
+EOF
+DONE
 ```
 
 ## IN-PROCESS AND INTER-PROCESS COMMUNICATION OVERVIEW

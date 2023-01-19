@@ -19,7 +19,7 @@ func main() {
 		defer pw.Close()
 		_, err := pw.Write([]byte(data))
 		if err != nil {
-			fmt.Printf("error with pr.Write method: %v", err)
+			fmt.Printf("error with pr.Write method: %v \n", err)
 		}
 	}()
 
@@ -27,7 +27,7 @@ func main() {
 	rcvData := make([]byte, 100)
 	_, err := pr.Read(rcvData)
 	if err != nil {
-		fmt.Printf("error with pr.Read method: %v", err)
+		fmt.Printf("error with pr.Read method: %v \n", err)
 	}
 	fmt.Printf("RECEIVED   : %s \n", rcvData)
 

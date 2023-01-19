@@ -3,20 +3,19 @@ package main
 import (
 	"fmt"
 	"io"
-	"time"
 )
 
-// sendDataLoop will write to the pipe
+// sendDataLoop will write to the pipe 3 times
 func sendDataLoop(pw *io.PipeWriter, data string) {
 
 	n := 1
-	for n <= 5 {
+	for n <= 3 {
 		data := fmt.Sprintf("%s %d", data, n)
 		_, err := pw.Write([]byte(data))
 		if err != nil {
-			fmt.Printf("error with pr.Write method: %v", err)
+			fmt.Printf("error with pr.Write method: %v \n", err)
 		}
-		fmt.Println("SENT DATA   : " + data)
+		fmt.Printf("SEND       : %s \n", data)
 		n++
 	}
 
@@ -25,17 +24,21 @@ func sendDataLoop(pw *io.PipeWriter, data string) {
 
 }
 
-// rcvData will read from the pipe 50 bytes at a time
-func rcvData(pr *io.PipeReader) (string, error) {
+// rcvData will read from the pipe 50 bytes at a time until EOF
+func rcvDataUntilEOF(pr *io.PipeReader) {
 
-	buffer := make([]byte, 20)
-
-	_, err := pr.Read(buffer)
-	if err != nil {
-		return "", fmt.Errorf("error with pr.Read method: %v", err)
+	for {
+		rcvData := make([]byte, 20)
+		_, err := pr.Read(rcvData)
+		if err == io.EOF {
+			fmt.Println("EOF")
+			break
+		}
+		if err != nil {
+			fmt.Printf("error with pr.Read method: %v \n", err)
+		}
+		fmt.Printf("RECEIVED   : %s \n", rcvData)
 	}
-
-	return string(buffer), err
 
 }
 
@@ -46,32 +49,12 @@ func main() {
 
 	// DATA TO SEND
 	data := "I am the data that will be sent"
-	fmt.Printf("Data to Send: %s \n", data)
 
-	// SEND
-	// WILL WRITE TO SHARED MEMORY IN A LOOP AND BLOCK UNTIL ALL DATA IS READ
+	// SEND - WRITE TO SHARED MEMORY
 	go sendDataLoop(pw, data)
 
-	// DATA IS NOT IN MEMORY
-	// YOU WILL READ IT OUT A LITTLE AT A TIME
-
-	// RECEIVE SOME OF MESSAGE
-	// WILL READ FROM SHARED MEMORY
-	// UNTIL EOF
-	for {
-		rcvData, err := rcvData(pr)
-		fmt.Printf("TEST    : %v \n", err)
-
-		if err != nil {
-			fmt.Printf("error with rcvData method: %v", err)
-		}
-		if err == io.EOF {
-			fmt.Println("EOF")
-			break
-		}
-		time.Sleep(1 * time.Second)
-		fmt.Printf("RECEIVED    : %s \n", rcvData)
-	}
+	// RECEIVE - READ FROM SHARED MEMORY
+	rcvDataUntilEOF(pr)
 
 	fmt.Println("DONE")
 

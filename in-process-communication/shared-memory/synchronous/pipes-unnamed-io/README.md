@@ -9,10 +9,10 @@ Other communication examples using,
 * **SHARED MEMORY**
   * ASYNCHRONOUS
   * SYNCHRONOUS
-    * [pipes-unnamed-simple](https://github.com/JeffDeCola/my-go-examples/tree/master/in-process-communication/shared-memory/synchronous/pipes-unnamed-simple)
-    * [pipes-unnamed](https://github.com/JeffDeCola/my-go-examples/tree/master/in-process-communication/shared-memory/synchronous/pipes-unnamed)
     * [pipes-unnamed-io](https://github.com/JeffDeCola/my-go-examples/tree/master/in-process-communication/shared-memory/synchronous/pipes-unnamed-io)
+    * [pipes-unnamed](https://github.com/JeffDeCola/my-go-examples/tree/master/in-process-communication/shared-memory/synchronous/pipes-unnamed)
       **<- YOU ARE HERE**
+    * [pipes-unnamed-io](https://github.com/JeffDeCola/my-go-examples/tree/master/in-process-communication/shared-memory/synchronous/pipes-unnamed-io)
 * **MESSAGE PASSING**
   * ASYNCHRONOUS
     * [channels-buffered](https://github.com/JeffDeCola/my-go-examples/tree/master/in-process-communication/message-passing/asynchronous/channels-buffered)
@@ -43,10 +43,10 @@ Other communication examples using,
 
 Table of Contents,
 
-* [OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/in-process-communication/shared-memory/synchronous/pipes-unnamed#overview)
-* [RUN](https://github.com/JeffDeCola/my-go-examples/tree/master/in-process-communication/shared-memory/synchronous/pipes-unnamed#run)
-* [TEST](https://github.com/JeffDeCola/my-go-examples/tree/master/in-process-communication/shared-memory/synchronous/pipes-unnamed#test)
-* [COMMUNICATIONS ILLUSTRATION](https://github.com/JeffDeCola/my-go-examples/tree/master/in-process-communication/shared-memory/synchronous/pipes-unnamed#communications-illustration)
+* [PIPES OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/in-process-communication/shared-memory/synchronous/pipes-unnamed-io#pipes-overview)
+* [CODE](https://github.com/JeffDeCola/my-go-examples/tree/master/in-process-communication/shared-memory/synchronous/pipes-unnamed-io#code)
+* [RUN](https://github.com/JeffDeCola/my-go-examples/tree/master/in-process-communication/shared-memory/synchronous/pipes-unnamed-io#run)
+* [IN-PROCESS AND INTER-PROCESS COMMUNICATION OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/in-process-communication/shared-memory/synchronous/pipes-unnamed-io#in-process-and-inter-process-communication-overview)
 
 Documentation and references,
 
@@ -58,11 +58,12 @@ Documentation and references,
   for a communications overview
 * This repos [github webpage](https://jeffdecola.github.io/my-go-examples/)
 
-## OVERVIEW
+## PIPES OVERVIEW
 
-A pipe provides a uni-directional inter-process communication channel, where two
+A pipe provides a uni-directional in-process communication channel, where two
 ends are involved: reader and writer. Data written to the write end of
-the pipe can be read from the read end.
+the pipe can be read from the read end. A named pipe (FIFO) can be accessed from
+different processes whereas an unnamed pipe can be accessed from the same process.
 
 * **MACHINE**: SAME
 * **PROCESSES**: IN-PROCESS
@@ -73,19 +74,29 @@ the pipe can be read from the read end.
 Pipes in go can be used to connect code expecting an io.Reader with
 code expecting an io.Writer.
 
+![IMAGE - pipes-unnamed-named.jpg - IMAGE](../../../../docs/pics/in-process-communication/pipes-unnamed-named.jpg)
+
+## CODE
+
+Create the pipe using the "io" package,
+
 ```go
 pr, pw := io.Pipe()
+```
 
-// I USE IO.WRITER
-go func() {
-    fmt.Fprint(pw, "I am some data using pipe\n")
-    pw.Close()
-}()
+Send data (write) to the pipe using io.Writer.
 
-// I USE IO.READER
-if _, err := io.Copy(os.Stdout, pr); err != nil {
-    log.Fatal(err)
-}
+```go
+fmt.Fprint(pw, "I am some data using pipe\n")
+```
+
+This writes the data to memory that is shared.
+
+Now when ready, receive data (read) from the pipe (i.e. read from memory)
+using io.Reader,
+
+```go
+_, err := io.Copy(os.Stdout, pr)
 ```
 
 ## RUN

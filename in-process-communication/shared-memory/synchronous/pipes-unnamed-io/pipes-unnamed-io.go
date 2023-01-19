@@ -22,7 +22,8 @@ func noPipe() {
 
 	// I USE IO.READER
 	r = b
-	if _, err := io.Copy(os.Stdout, r); err != nil {
+	_, err := io.Copy(os.Stdout, r)
+	if err != nil {
 		log.Fatal(err)
 	}
 
@@ -30,19 +31,18 @@ func noPipe() {
 
 func withPipe() {
 
-	// Pipes in go can be used to connect code expecting an io.Reader with
-	// code expecting an io.Writer.
-
+	// CREATE UNNAMED PIPE
 	pr, pw := io.Pipe()
 
-	// I USE IO.WRITER
+	// WRITE INTO PIPE USING IO.WRITER
 	go func() {
 		fmt.Fprint(pw, "I am some data using pipe\n")
 		pw.Close()
 	}()
 
-	// I USE IO.READER
-	if _, err := io.Copy(os.Stdout, pr); err != nil {
+	// READ FROM PIPE USING IO.READER
+	_, err := io.Copy(os.Stdout, pr)
+	if err != nil {
 		log.Fatal(err)
 	}
 
