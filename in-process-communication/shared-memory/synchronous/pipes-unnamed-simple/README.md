@@ -44,16 +44,19 @@ Other communication examples using,
 
 Table of Contents,
 
-* [OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/in-process-communication/shared-memory/synchronous/pipes-unnamed#overview)
-* [RUN](https://github.com/JeffDeCola/my-go-examples/tree/master/in-process-communication/shared-memory/synchronous/pipes-unnamed#run)
-* [TEST](https://github.com/JeffDeCola/my-go-examples/tree/master/in-process-communication/shared-memory/synchronous/pipes-unnamed#test)
-* [COMMUNICATIONS ILLUSTRATION](https://github.com/JeffDeCola/my-go-examples/tree/master/in-process-communication/shared-memory/synchronous/pipes-unnamed#communications-illustration)
+* [PIPES OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/in-process-communication/shared-memory/synchronous/pipes-unnamed-simple#pipes-overview)
+* [CODE](https://github.com/JeffDeCola/my-go-examples/tree/master/in-process-communication/shared-memory/synchronous/pipes-unnamed-simple#code)
+* [RUN](https://github.com/JeffDeCola/my-go-examples/tree/master/in-process-communication/shared-memory/synchronous/pipes-unnamed-simple#run)
+* [IN-PROCESS AND INTER-PROCESS COMMUNICATION OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/in-process-communication/shared-memory/synchronous/pipes-unnamed-simple#in-process-and-inter-process-communication-overview)
 
 Documentation and references,
 
 * Refer to the
   [io.Pipe](https://pkg.go.dev/io#Pipe)
   package for more info
+* Refer to
+  [my cheat sheets](https://github.com/JeffDeCola/my-cheat-sheets/tree/master/software/development/software-architectures/communication/in-process-and-inter-process-communications-ipc-overview-cheat-sheet)
+  for a communications overview
 * This repos [github webpage](https://jeffdecola.github.io/my-go-examples/)
 
 ## PIPES OVERVIEW
@@ -72,6 +75,8 @@ different processes whereas an unnamed pipe can be accessed from the same proces
 Pipes in go can be used to connect code expecting an io.Reader with
 code expecting an io.Writer.
 
+![IMAGE - pipes-unnamed-named.jpg - IMAGE](../../../../docs/pics/in-process-communication/pipes-unnamed-named.jpg)
+
 ## CODE
 
 Create the pipe using the "io" package,
@@ -87,8 +92,7 @@ _, err := pw.Write([]byte(data))
 pw.Close()
 ```
 
-This actually write to memory that is shared.
-You can actually sleep now.
+This writes the data to memory that is shared.
 
 Now when ready, receive data (read) from the pipe (i.e. read from memory),
 
@@ -96,8 +100,6 @@ Now when ready, receive data (read) from the pipe (i.e. read from memory),
 buffer := make([]byte, 100)
 _, err := pr.Read(buffer)
 ```
-
-You could actually read a little at a time,
 
 ## RUN
 
@@ -108,5 +110,9 @@ go run pipes-unnamed.go
 ```
 
 ## IN-PROCESS AND INTER-PROCESS COMMUNICATION OVERVIEW
+
+Refer to
+[my cheat sheets](https://github.com/JeffDeCola/my-cheat-sheets/tree/master/software/development/software-architectures/communication/in-process-and-inter-process-communications-ipc-overview-cheat-sheet)
+for a more thorough communications overview.
 
 ![IMAGE - in-process-and-inter-process-communication.jpg - IMAGE](https://github.com/JeffDeCola/my-cheat-sheets/blob/master/docs/pics/in-process-and-inter-process-communication.jpg)
