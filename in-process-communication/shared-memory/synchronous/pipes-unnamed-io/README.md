@@ -1,6 +1,6 @@
 # pipes-unnamed-io
 
-_Using a Pipe to connect an io.Writer and io.Reader._
+_This example of an unnamed pipe connects an io.Writer and io.Reader._
 
 Other communication examples using,
 
@@ -9,6 +9,7 @@ Other communication examples using,
 * **SHARED MEMORY**
   * ASYNCHRONOUS
   * SYNCHRONOUS
+    * [pipes-unnamed-simple](https://github.com/JeffDeCola/my-go-examples/tree/master/in-process-communication/shared-memory/synchronous/pipes-unnamed-simple)
     * [pipes-unnamed](https://github.com/JeffDeCola/my-go-examples/tree/master/in-process-communication/shared-memory/synchronous/pipes-unnamed)
     * [pipes-unnamed-io](https://github.com/JeffDeCola/my-go-examples/tree/master/in-process-communication/shared-memory/synchronous/pipes-unnamed-io)
       **<- YOU ARE HERE**

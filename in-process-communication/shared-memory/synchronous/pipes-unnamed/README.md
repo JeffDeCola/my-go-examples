@@ -1,6 +1,6 @@
 # pipes-unnamed
 
-_A pipe provides a uni-directional communication channel._
+_This is a more robust example of an unnamed pipe showing multiple reads._
 
 Other communication examples using,
 
@@ -9,6 +9,7 @@ Other communication examples using,
 * **SHARED MEMORY**
   * ASYNCHRONOUS
   * SYNCHRONOUS
+    * [pipes-unnamed-simple](https://github.com/JeffDeCola/my-go-examples/tree/master/in-process-communication/shared-memory/synchronous/pipes-unnamed-simple)
     * [pipes-unnamed](https://github.com/JeffDeCola/my-go-examples/tree/master/in-process-communication/shared-memory/synchronous/pipes-unnamed)
       **<- YOU ARE HERE**
     * [pipes-unnamed-io](https://github.com/JeffDeCola/my-go-examples/tree/master/in-process-communication/shared-memory/synchronous/pipes-unnamed-io)
@@ -54,11 +55,12 @@ Documentation and references,
   package for more info
 * This repos [github webpage](https://jeffdecola.github.io/my-go-examples/)
 
-## OVERVIEW
+## PIPES OVERVIEW
 
 A pipe provides a uni-directional in-process communication channel, where two
 ends are involved: reader and writer. Data written to the write end of
-the pipe can be read from the read end.
+the pipe can be read from the read end. A named pipe (FIFO) can be accessed from
+different processes whereas an unnamed pipe can be accessed from the same process.
 
 * **MACHINE**: SAME
 * **PROCESSES**: IN-PROCESS
@@ -68,6 +70,33 @@ the pipe can be read from the read end.
 
 Pipes in go can be used to connect code expecting an io.Reader with
 code expecting an io.Writer.
+
+## CODE
+
+Create the pipe using the "io" package,
+
+```go
+pr, pw := io.Pipe()
+```
+
+Send data (write) to the pipe and close it,
+
+```go
+_, err := pw.Write([]byte(data))
+pw.Close()
+```
+
+This actually write to memory that is shared.
+You can actually sleep now.
+
+Now when ready, receive data (read) from the pipe (i.e. read from memory),
+
+```go
+buffer := make([]byte, 100)
+_, err := pr.Read(buffer)
+```
+
+You could actually read a little at a time,
 
 ## RUN
 
