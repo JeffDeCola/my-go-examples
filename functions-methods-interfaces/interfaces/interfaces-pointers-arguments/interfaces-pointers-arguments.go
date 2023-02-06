@@ -10,30 +10,30 @@ type geometry interface {
 	area(*float64)
 }
 
-//  STRUCTS - SHAPE CHARACTERISTICS
-type Rectangle struct {
+// STRUCTS - SHAPE CHARACTERISTICS
+type rectangle struct {
 	width  float64
 	height float64
 }
 
-type Circle struct {
+type circle struct {
 	radius float64
 }
 
 // MATH USING METHODS
-func (r Rectangle) area(a *float64) {
+func (r rectangle) area(a *float64) {
 	*a = r.width * r.height
 }
 
-func (c Circle) area(a *float64) {
+func (c circle) area(a *float64) {
 	*a = math.Pi * math.Pow(c.radius, 2)
 }
 
 func main() {
 
 	// DEFINE
-	rec := Rectangle{2.4, 34.4}
-	circ := Circle{2.3}
+	rec := rectangle{2.4, 34.4}
+	circ := circle{2.3}
 
 	// CALCULATE AREA USING AN INTERFACE TYPE
 	var gRec geometry

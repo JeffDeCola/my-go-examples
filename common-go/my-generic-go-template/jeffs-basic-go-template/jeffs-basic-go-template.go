@@ -13,7 +13,7 @@ import (
 
 const toolVersion = "1.0.0"
 
-var ErrLogLevel = errors.New("please use trace, info or error")
+var errLogLevel = errors.New("please use trace, info or error")
 
 func setLogLevel(logLevel string) error {
 
@@ -29,7 +29,7 @@ func setLogLevel(logLevel string) error {
 		log.SetLevel(log.ErrorLevel)
 	default:
 		log.SetLevel(log.ErrorLevel)
-		return fmt.Errorf("%s", ErrLogLevel)
+		return fmt.Errorf("%s", errLogLevel)
 	}
 
 	// SET FORMAT

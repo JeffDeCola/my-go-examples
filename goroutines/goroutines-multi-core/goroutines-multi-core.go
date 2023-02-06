@@ -43,7 +43,7 @@ import "C"
 
 const toolVersion = "2.0.0"
 
-var ErrLogLevel = errors.New("please use trace, info or error")
+var errLogLevel = errors.New("please use trace, info or error")
 
 // WORKERS
 const useGoroutine = true // Do you want to use goroutines
@@ -97,7 +97,7 @@ func setLogLevel(logLevel string) error {
 		log.SetLevel(log.ErrorLevel)
 	default:
 		log.SetLevel(log.ErrorLevel)
-		return fmt.Errorf("%s", ErrLogLevel)
+		return fmt.Errorf("%s", errLogLevel)
 	}
 
 	// SET FORMAT

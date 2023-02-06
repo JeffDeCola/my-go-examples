@@ -23,7 +23,7 @@ func TestRectangle_area(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			r := Rectangle{
+			r := rectangle{
 				width:  tt.fields.width,
 				height: tt.fields.height,
 			}
@@ -53,7 +53,7 @@ func TestCircle_area(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			r := Circle{
+			r := circle{
 				radius: tt.fields.radius,
 			}
 			if got := r.area(); got != tt.want {
