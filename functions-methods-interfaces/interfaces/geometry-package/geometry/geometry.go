@@ -56,23 +56,23 @@ func (c Circle) Perimeter(p *float64) {
 	*p = 2 * math.Pi * c.Radius
 }
 
-// PERIMETER FOR TRIANGLE
+// Perimeter of a triangle
 func (t Triangle) Perimeter(a *float64) {
 	*a = t.A + t.B + t.C
 }
 
-// SIZE FOR RECTANGLE
+// Size of a rectangle
 func (r *Rectangle) Size(f float64) {
 	r.Width = f * r.Width
 	r.Height = f * r.Height
 }
 
-// SIZE FOR CIRCLE
+// Calculate Size of a Circle
 func (c *Circle) Size(f float64) {
 	c.Radius = f * c.Radius
 }
 
-// SIZE FOR TRIANGLE
+// Calculate Size of a Triangle
 func (t *Triangle) Size(f float64) {
 	t.A = f * t.A
 	t.B = f * t.B
