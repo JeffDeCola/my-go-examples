@@ -11,58 +11,68 @@ type Geometry interface {
 	Size(float64)
 }
 
-//  STRUCTS - SHAPE CHARACTERISTICS
+// RECTANGLE SHAPE CHARACTERISTICS
 type Rectangle struct {
 	Width  float64
 	Height float64
 }
 
+// CIRCLE SHAPE CHARACTERISTICS
 type Circle struct {
 	Radius float64
 }
 
+// TRIANGLE SHAPE CHARACTERISTICS
 type Triangle struct {
 	A float64
 	B float64
 	C float64
 }
 
-// MATH USING METHODS
+// AREA FOR RECTANGLE
 func (r Rectangle) Area(a *float64) {
 	*a = r.Width * r.Height
 }
 
+// AREA FOR CIRCLE
 func (c Circle) Area(a *float64) {
 	*a = math.Pi * math.Pow(c.Radius, 2)
 }
 
+// AREA FOR TRIANGLE
 func (t Triangle) Area(a *float64) {
 	// Heron's Formula to get area from 3 sides
 	s := ((t.A + t.B + t.C) / 2)
 	*a = math.Sqrt(s * (s - t.A) * (s - t.B) * (s - t.C))
 }
 
+// PERIMETER FOR RECTANGLE
 func (r Rectangle) Perimeter(p *float64) {
 	*p = 2 * (r.Width + r.Height)
 }
 
+// PERIMETER FOR CIRCLE
 func (c Circle) Perimeter(p *float64) {
 	*p = 2 * math.Pi * c.Radius
 }
 
+// PERIMETER FOR TRIANGLE
 func (t Triangle) Perimeter(a *float64) {
 	*a = t.A + t.B + t.C
 }
 
+// SIZE FOR RECTANGLE
 func (r *Rectangle) Size(f float64) {
 	r.Width = f * r.Width
 	r.Height = f * r.Height
 }
 
+// SIZE FOR CIRCLE
 func (c *Circle) Size(f float64) {
 	c.Radius = f * c.Radius
 }
 
+// SIZE FOR TRIANGLE
 func (t *Triangle) Size(f float64) {
 	t.A = f * t.A
 	t.B = f * t.B

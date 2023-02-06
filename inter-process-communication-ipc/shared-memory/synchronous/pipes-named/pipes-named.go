@@ -1,9 +1,14 @@
 package main
 
-import (
-	"fmt"
-)
+func foo(p *int) int {
+	*p = 3
+	return *p
+}
+
+func bar(n int) int {
+	return n + foo(&n)
+}
 
 func main() {
-	fmt.Print("Server is running")
+	println(bar(2))
 }
