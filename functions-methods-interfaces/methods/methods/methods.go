@@ -5,23 +5,23 @@ import (
 	"math"
 )
 
-//  STRUCTS - SHAPE CHARACTERISTICS
-type Rectangle struct {
+// STRUCTS - SHAPE CHARACTERISTICS
+type rectangle struct {
 	width  float64
 	height float64
 }
 
-type Circle struct {
+type circle struct {
 	radius float64
 }
 
 // MATH USING METHODS
-func (r Rectangle) area() float64 {
+func (r rectangle) area() float64 {
 	area := r.width * r.height
 	return area
 }
 
-func (c Circle) area() float64 {
+func (c circle) area() float64 {
 	area := math.Pi * math.Pow(c.radius, 2)
 	return area
 }
@@ -29,8 +29,8 @@ func (c Circle) area() float64 {
 func main() {
 
 	// DEFINE
-	rec := Rectangle{2.4, 34.4}
-	circ := Circle{2.3}
+	rec := rectangle{2.4, 34.4}
+	circ := circle{2.3}
 
 	// CALCULATE AREA USING A STRUCT TYPE
 	recArea := rec.area()

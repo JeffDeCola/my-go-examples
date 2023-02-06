@@ -25,7 +25,7 @@ func TestRectangle_area(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			r := Rectangle{
+			r := rectangle{
 				width:  tt.fields.width,
 				height: tt.fields.height,
 			}
@@ -55,7 +55,7 @@ func TestCircle_area(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			c := Circle{
+			c := circle{
 				radius: tt.fields.radius,
 			}
 			if got := c.area(); got != tt.want {
@@ -77,14 +77,14 @@ func Test_getArea(t *testing.T) {
 		{
 			name: "Test Area Interface - Rectangle",
 			args: args{
-				g: Rectangle{2.4, 34.4},
+				g: rectangle{2.4, 34.4},
 			},
 			want: 82.55999999999999,
 		},
 		{
 			name: "Test Area Interface - Circle",
 			args: args{
-				g: Circle{2.3},
+				g: circle{2.3},
 			},
 			want: 16.619025137490002,
 		},
