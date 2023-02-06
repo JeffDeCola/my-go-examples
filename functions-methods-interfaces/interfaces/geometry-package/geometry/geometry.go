@@ -4,7 +4,7 @@ import (
 	"math"
 )
 
-// INTERFACE TYPES - TIES INTERFACE WITH METHODS
+// Geometry of shapes interface
 type Geometry interface {
 	Area(*float64)
 	Perimeter(*float64)

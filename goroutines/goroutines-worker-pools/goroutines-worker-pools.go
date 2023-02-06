@@ -10,7 +10,7 @@ import (
 
 // FOR doSomething()
 var jobTaskList = []string{"taskA", "taskB", "taskC", "taskD", "taskE"} // 5 tasks
-const SendNewJobTime = 10                                               // Send a job every x seconds
+const sendNewJobTime = 10                                               // Send a job every x seconds
 
 // FOR WORKERS - doTask()
 const numberWorkers = 2 // How many workers in pool
@@ -50,13 +50,13 @@ func doSomething(msgCh chan jobInfo) {
 
 	var jobNumber = 1 // The start job number
 
-	endTime := time.Now().UTC().Add(-(time.Duration(SendNewJobTime) * time.Second)) // Substract (SendNewJobTime) from endTime
+	endTime := time.Now().UTC().Add(-(time.Duration(sendNewJobTime) * time.Second)) // Substract (sendNewJobTime) from endTime
 
-	for c := time.Tick(time.Duration(SendNewJobTime) * time.Second); ; <-c {
+	for c := time.Tick(time.Duration(sendNewJobTime) * time.Second); ; <-c {
 
 		oldendTime := endTime
 		endTime = time.Now().UTC()
-		startTime := endTime.Add(-(time.Duration(SendNewJobTime) * time.Second)) // Substract (SendNewJobTime) from endTime
+		startTime := endTime.Add(-(time.Duration(sendNewJobTime) * time.Second)) // Substract (sendNewJobTime) from endTime
 
 		// CHECK IF YOU MADE IT BACK IN TIME (WITHIN A SECOND)
 		diff := startTime.Sub(oldendTime)
