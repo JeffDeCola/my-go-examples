@@ -19,6 +19,8 @@ Table of Contents,
 
 Documentation and reference,
 
+* My circle
+  [package](https://jeffdecola.github.io/my-go-packages/geometry/circle/)
 * This repos [github webpage](https://jeffdecola.github.io/my-go-examples/)
 
 ## OVERVIEW
