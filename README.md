@@ -52,7 +52,7 @@ Table of Contents,
 
 Documentation and reference,
 
-* [go-cheat-sheet](https://github.com/JeffDeCola/my-cheat-sheets/tree/master/software/development/languages/go-cheat-sheet)
+* My [go cheat sheet](https://github.com/JeffDeCola/my-cheat-sheets/tree/master/software/development/languages/go-cheat-sheet)
 * [my-go-packages](https://github.com/JeffDeCola/my-go-packages)
 * [my-go-tools](https://github.com/JeffDeCola/my-go-tools)
 * This repos

@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	shapes "github.com/JeffDeCola/my-go-packages/geometry/jeffshapes"
+	shapes "github.com/JeffDeCola/my-go-packages/geometry/circle"
 )
 
 func main() {

@@ -1,2 +1,4 @@
 github.com/JeffDeCola/my-go-packages v0.0.0-20201127151932-875bcb639112 h1:xMDxs3gHYds0SGzIfhioYzipALs9hVCdXyxWPp8lZD0=
 github.com/JeffDeCola/my-go-packages v0.0.0-20201127151932-875bcb639112/go.mod h1:c/MhbGQQtpxSlpSLJLBfoHz/6ayaVSVtMtNHq4xiJQA=
+github.com/JeffDeCola/my-go-packages v0.0.0-20230206230107-93a807a96985 h1:hTPUfb0KBfW0jXBGHLTQkKWTqwmZhSUKymcxytH8N+U=
+github.com/JeffDeCola/my-go-packages v0.0.0-20230206230107-93a807a96985/go.mod h1:c/MhbGQQtpxSlpSLJLBfoHz/6ayaVSVtMtNHq4xiJQA=
