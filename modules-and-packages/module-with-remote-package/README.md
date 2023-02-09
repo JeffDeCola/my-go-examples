@@ -49,7 +49,7 @@ module module-with-remote-package
 
 go 1.19
 
-require github.com/JeffDeCola/my-go-packages v0.0.0-20201127151932-875bcb639112
+require github.com/JeffDeCola/my-go-packages v0.0.0.5
 ```
 
 Run `go mod tidy` to clean up the go.mod file,
