@@ -2,8 +2,6 @@ package main
 
 import (
 	"fmt"
-
-	geometry "github.com/JeffDeCola/my-go-packages/geometry/shapes"
 )
 
 func main() {
