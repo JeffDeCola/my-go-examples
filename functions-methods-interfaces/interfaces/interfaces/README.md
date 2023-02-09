@@ -126,7 +126,7 @@ func (r Rectangle) area() float64 {
 
 ### WRAP INTERFACE IN A FUNCTION
 
-You could create a function,
+A better way is to wrap the interface in a function,
 
 ```go
 func theArea(g geometry) float64 {

@@ -2,7 +2,8 @@ package main
 
 import (
 	"fmt"
-	"geometry-package/geometry"
+
+	geometry "github.com/JeffDeCola/my-go-packages/geometry/shapes"
 )
 
 func main() {
@@ -21,13 +22,16 @@ func main() {
 		C: 4,
 	}
 
-	// CALCULATE AREA AND PERIMETER
+	// THE INTERFACE
 	var gRec geometry.Geometry
 	var gCirc geometry.Geometry
 	var gTri geometry.Geometry
+
+	// AREA AND PERIMETER
 	var recArea, circArea, triArea float64
 	var recPerimeter, circPerimeter, triPerimeter float64
 
+	// ASSIGN STRUCT TO INTERFACE
 	gRec = &rec
 	gCirc = &circ
 	gTri = &tri
