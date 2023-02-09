@@ -3,17 +3,20 @@ package main
 import (
 	"fmt"
 
-	shapes "github.com/JeffDeCola/my-go-packages/geometry/circle"
+	"github.com/JeffDeCola/my-go-packages/geometry/circle"
 )
 
 func main() {
 
-	c := shapes.Circle{R: 5}
+	// Create a Circle type
+	c := circle.Circle{Radius: 5}
 
-	area := c.CircleArea()
-	fmt.Println(area)
+	// Get the area
+	a := c.Area()
+	fmt.Println("Area =", a)
 
-	circumference := c.CircleCircumference()
-	fmt.Println(circumference)
+	// Get the circumference
+	p := c.Circumference()
+	fmt.Println("Circumference =", p)
 
 }

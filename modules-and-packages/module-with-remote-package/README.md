@@ -13,6 +13,7 @@ Table of Contents,
 * [OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/modules-and-packages/module-with-remote-package#overview)
 * [STRUCTURE](https://github.com/JeffDeCola/my-go-examples/tree/master/modules-and-packages/module-with-remote-package#structure)
 * [CREATE A MODULE (go.mod)](https://github.com/JeffDeCola/my-go-examples/tree/master/modules-and-packages/module-with-remote-package#create-a-module-gomod)
+* [EXAMPLE](https://github.com/JeffDeCola/my-go-examples/tree/master/modules-and-packages/module-with-remote-package#example)
 * [RUN](https://github.com/JeffDeCola/my-go-examples/tree/master/modules-and-packages/module-with-remote-package#run)
 * [TEST](https://github.com/JeffDeCola/my-go-examples/tree/master/modules-and-packages/module-with-remote-package#test)
 * [VS CODE AND GO MULTI-MODULES (go.work)](https://github.com/JeffDeCola/my-go-examples/tree/master/modules-and-packages/module-with-remote-package#vs-code-and-go-multi-modules-gowork)
@@ -32,7 +33,7 @@ of related go source files in the same directory.
 
 ## STRUCTURE
 
-Let's use a package I made to calculate the area and perimeter of a circle.
+Let's use a package I made to calculate the area and circumference of a circle.
 
 ![IMAGE - go-module-with-remote-package - IMAGE](../../docs/pics/modules-and-packages/go-module-with-remote-package.jpg)
 
@@ -49,13 +50,40 @@ module module-with-remote-package
 
 go 1.19
 
-require github.com/JeffDeCola/my-go-packages v0.0.0.5
+require github.com/JeffDeCola/my-go-packages v0.0.0.9
 ```
 
 Run `go mod tidy` to clean up the go.mod file,
 
 ```cmd
 go mod tidy
+```
+
+## EXAMPLE
+
+```go
+package main
+
+import (
+    "fmt"
+
+    "github.com/JeffDeCola/my-go-packages/geometry/circle"
+)
+
+func main() {
+
+    // Create a Circle type
+    c := circle.Circle{Radius: 5}
+
+    // Get the area
+    a := c.Area()
+    fmt.Println("Area =", a)    
+
+    // Get the circumference
+    p := c.Circumference()
+    fmt.Println("Circumference =", p)
+
+}
 ```
 
 ## RUN

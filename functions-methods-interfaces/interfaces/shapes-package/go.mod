@@ -1,4 +1,4 @@
-module module-with-remote-package
+module shapes-package
 
 go 1.19
 

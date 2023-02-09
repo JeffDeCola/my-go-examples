@@ -204,6 +204,10 @@ simple area and perimeter calculations for different shapes._
     circle and triangle via a geometry package.
     It uses pointers for arguments and receivers._
 
+  * [shapes-package](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/interfaces/shapes-package)
+
+    _Using an interface to calculate and manipulate simple 2D and 3D geometric shapes._
+
 ### GOROUTINES
 
 _Go is written for **concurrency**. The go runtime schedules goroutines on threads.

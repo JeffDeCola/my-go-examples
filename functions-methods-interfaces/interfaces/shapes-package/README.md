@@ -1,8 +1,6 @@
-# geometry-package
+# shapes-package
 
- _Using an interface to calculate the area and perimeter of a rectangle,
-circle and triangle via a geometry package.
-It uses pointers for arguments and receivers._
+_Using an interface to calculate and manipulate simple 2D and 3D geometric shapes._
 
 Other examples using,
 
@@ -24,7 +22,7 @@ tl;dr,
 
 ```go
 // SYNTAX
-    // (receiver) func (arguments) (return arguments)
+    // (receiver type) func (parameters) (return types)
 
 // FUNCTIONS
 
@@ -42,7 +40,7 @@ tl;dr,
         func (r Rectangle) area() float64 {
         rec := Rectangle{2.4, 34.4}
         recArea := rec.area()
-    // USING POINTERS IN ARGUMENTS
+    // USING POINTERS IN PARAMETERS
         func (r Rectangle) area(a *float64) {
         rec := Rectangle{2.4, 34.4}
         var recArea float64
@@ -77,12 +75,7 @@ tl;dr,
 
 Table of Contents,
 
-* [OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/interfaces/geometry-package#overview)
-* [RUN](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/interfaces/geometry-package#run)
-* [TEST](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/interfaces/geometry-package#test)
-* [AN ILLUSTRATION THAT MAY HELP](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/interfaces/geometry-package#an-illustration-that-may-help)
-
-Documentation and reference,
+* tbd
 
 Documentation and reference,
 
@@ -92,11 +85,8 @@ Documentation and reference,
 
 ## OVERVIEW
 
-The power of interfaces really shine when you have a package.
-Because you can have one interface that does a lot of things
-like a geometry shapes package.
-
-My shapes package has some function that using an interface,
+The use of interfaces is to create a common type that can be used by
+multiple types.
 
 ```go
 func GetArea(t TwoDCalculations) float64
@@ -109,7 +99,7 @@ func ChangeSize(t ShapeManipulations, f float64)
 ## EXAMPLE
 
 ```go
-??????????????????????????
+tbd
 ```
 
 ## RUN
