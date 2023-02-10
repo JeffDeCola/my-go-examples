@@ -63,8 +63,12 @@ Documentation and reference,
 ## ARCHITECTURES
   
 * BLOCKCHAIN
+
+  * _coming soon_
   
 * SCRAPING
+
+  * _coming soon_
 
 ## CGO
 
@@ -80,13 +84,19 @@ Documentation and reference,
 
 * HTTP
 
+  * _coming soon_
+
 * gRPC
+
+  * _coming soon_
 
 * TCP/IP
 
+  * _coming soon_
+
 ## CLOUD SERVICE PROVIDERS
 
-* tbd
+* _coming soon_
 
 ## COMMON GO
 
@@ -116,23 +126,28 @@ Documentation and reference,
 
 * TESTING
 
+  * _coming soon_
+
 ## CRYPTOGRAPHY
 
 * ASYMMETRIC CRYPTOGRAPHY
+_(Great for digital signatures (verify sender) and receiving encrypted data)_
 
-  _Great for digital signatures (verify sender) and receiving encrypted data._
+  * _coming soon_
 
 * HASHING
+_(Great for getting fingerprints)_
 
-  _Great for getting fingerprints._
+  * _coming soon_
 
 * SYMMETRIC CRYPTOGRAPHY
+_(Using the same key to encrypt and decrypt)_
 
-  _Using the same key to encrypt and decrypt._
+  * _coming soon_
 
 ## DATABASES
 
-* tbd
+* _coming soon_
 
 ## FUNCTIONS, METHODS AND INTERFACES
 
@@ -246,6 +261,8 @@ Documentation and reference,
 
   * ASYNCHRONOUS
 
+    * _coming soon_
+
   * SYNCHRONOUS
 
     * [pipes-unnamed-simple](https://github.com/JeffDeCola/my-go-examples/tree/master/in-process-communication/shared-memory/synchronous/pipes-unnamed-simple)
@@ -280,6 +297,8 @@ Documentation and reference,
 * SHARED MEMORY
 
   * ASYNCHRONOUS
+
+    * _coming soon_
 
   * SYNCHRONOUS
 
@@ -351,7 +370,7 @@ Documentation and reference,
 
 ## IoT
 
-* RASPBERRY PI
+* _coming soon_
 
 ## MODULES AND PACKAGES
 
