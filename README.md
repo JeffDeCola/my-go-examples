@@ -62,17 +62,11 @@ Documentation and reference,
 
 ## ARCHITECTURES
   
-_Using go to build fun things._
-
 * BLOCKCHAIN
   
 * SCRAPING
 
-  _coming soon_
-
 ## CGO
-
-_Using c with go._
 
 * [simple-c-code](https://github.com/JeffDeCola/my-go-examples/tree/master/cgo/simple-c-code)
 
@@ -84,8 +78,6 @@ _Using c with go._
 
 ## CLIENT/SERVER
 
-_Lets make a server._
-
 * HTTP
 
 * gRPC
@@ -94,11 +86,9 @@ _Lets make a server._
 
 ## CLOUD SERVICE PROVIDERS
 
-_AWS and Google services._
+* tbd
 
 ## COMMON GO
-
-_A good place to start._
 
 * ERROR REPORTING
 
@@ -128,8 +118,6 @@ _A good place to start._
 
 ## CRYPTOGRAPHY
 
-_Secure communication techniques._
-
 * ASYMMETRIC CRYPTOGRAPHY
 
   _Great for digital signatures (verify sender) and receiving encrypted data._
@@ -144,12 +132,9 @@ _Secure communication techniques._
 
 ## DATABASES
 
-_Save and organize your data._
+* tbd
 
 ## FUNCTIONS, METHODS AND INTERFACES
-
-_The following code demonstrates functions, methods and interfaces using
-simple area and perimeter calculations for different shapes._
 
 * FUNCTIONS
 
@@ -206,9 +191,6 @@ simple area and perimeter calculations for different shapes._
 
 ## GOROUTINES
 
-_Go is written for **concurrency**. The go runtime schedules goroutines on threads.
-The OS schedules these threads on cpus/cores._
-
 * [goroutines-multi-core](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-multi-core)
 
   _Concurrency across multiples cores.  You can play around with workers,
@@ -224,11 +206,6 @@ The OS schedules these threads on cpus/cores._
   _Concurrency using worker pools._
 
 ## INPUT/OUTPUT
-
-_Using the
-[io](https://pkg.go.dev/io)
-package to read data and write data to/from various IO
-(files, buffers, pipes)._
 
 * IO READER
 
@@ -265,8 +242,6 @@ package to read data and write data to/from various IO
 
 ## IN-PROCESS COMMUNICATION
 
-_One process/service._
-
 * SHARED MEMORY
 
   * ASYNCHRONOUS
@@ -301,8 +276,6 @@ _One process/service._
       _Unbuffered channels are uni-directional, synchronous with blocking._
 
 ## INTER-PROCESS COMMUNICATION (IPC)
-
-_More than one process/service._
 
 * SHARED MEMORY
 
@@ -362,15 +335,11 @@ _More than one process/service._
 
 ## INTERACT GO RUNTIME
 
- _The interface between your code and the go runtime system._
-
 * [simple-go-runtime-interactions](https://github.com/JeffDeCola/my-go-examples/tree/master/interact-go-runtime/simple-go-runtime-interactions)
 
   _A few go runtime interactions using the `runtime` package._
 
 ## INTERACT OS
-
- _The interface between your code and the operating system._
 
 * [simple-external-commands](https://github.com/JeffDeCola/my-go-examples/tree/master/interact-os/simple-external-commands)
 
@@ -381,8 +350,6 @@ _More than one process/service._
   _A few os interactions using the `syscall` package._
 
 ## IoT
-
-_Using go with the Internet of Things (IoT)._
 
 * RASPBERRY PI
 

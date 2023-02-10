@@ -42,6 +42,9 @@ figure it out. But if someone figures this out, please let me know.
 
 ## OVERVIEW
 
+Go is written for **concurrency**. The go runtime schedules goroutines on threads.
+The OS schedules these threads on cpus/cores.
+
 Your go executable has a go runtime environment that schedules
 where the goroutines run (which CPU/CORE and which Thread).
 This is constantly changing.
