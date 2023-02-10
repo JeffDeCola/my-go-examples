@@ -75,13 +75,25 @@ tl;dr,
 
 Table of Contents,
 
-* tbd
+* [PREREQUISITES](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/interfaces/shapes-package#prerequisites)
+* [OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/interfaces/shapes-package#overview)
+* [EXAMPLE](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/interfaces/shapes-package#example)
+* [RUN](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/interfaces/shapes-package#run)
+* [TEST](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/interfaces/shapes-package#test)
+* [AN ILLUSTRATION THAT MAY HELP](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/interfaces/shapes-package#an-illustration-that-may-help)
 
 Documentation and reference,
 
 * My shapes
-  [package](https://jeffdecola.github.io/my-go-packages/geometry/shapes/)
+  [package](https://github.com/JeffDeCola/my-go-packages/tree/master/geometry/shapes)
 * This repos [github webpage](https://jeffdecola.github.io/my-go-examples/)
+
+## PREREQUISITES
+
+```go
+go get -u -v github.com/JeffDeCola/my-go-packages
+go install -v github.com/JeffDeCola/my-go-packages@latest
+```
 
 ## OVERVIEW
 
@@ -99,7 +111,38 @@ func ChangeSize(t ShapeManipulations, f float64)
 ## EXAMPLE
 
 ```go
-tbd
+package main
+
+import (
+    "fmt"
+
+    "github.com/JeffDeCola/my-go-packages/geometry/shapes"
+)
+
+func main() {
+
+    // Create a Rectangle and Circle type
+    r := shapes.Rectangle{Width: 10, Height: 10}
+    c := shapes.Circle{Radius: 5}
+
+    // Get the area (using the interface)
+    //a := shapes.GetArea(r)
+    a := r.Area()
+    fmt.Println("Area of rectangle =", a)
+    a = shapes.GetArea(c)
+    fmt.Println("Area of circle =", a)
+
+    // Change the size (x2)
+    shapes.ChangeSize(&r, 2)
+    shapes.ChangeSize(&c, 2)
+
+    // Get the area (using the interface)
+    a = shapes.GetArea(r)
+    fmt.Println("Area of rectangle =", a)
+    a = shapes.GetArea(c)
+    fmt.Println("Area of circle =", a)
+
+}
 ```
 
 ## RUN

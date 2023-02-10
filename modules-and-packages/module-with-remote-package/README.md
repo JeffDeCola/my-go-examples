@@ -10,6 +10,7 @@ Other examples using,
 
 Table of Contents,
 
+* [PREREQUISITES](https://github.com/JeffDeCola/my-go-examples/tree/master/modules-and-packages/module-with-remote-package#prerequisites)
 * [OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/modules-and-packages/module-with-remote-package#overview)
 * [STRUCTURE](https://github.com/JeffDeCola/my-go-examples/tree/master/modules-and-packages/module-with-remote-package#structure)
 * [CREATE A MODULE (go.mod)](https://github.com/JeffDeCola/my-go-examples/tree/master/modules-and-packages/module-with-remote-package#create-a-module-gomod)
@@ -21,8 +22,15 @@ Table of Contents,
 Documentation and reference,
 
 * My circle
-  [package](https://jeffdecola.github.io/my-go-packages/geometry/circle/)
+  [package](https://github.com/JeffDeCola/my-go-packages/tree/master/geometry/circle)
 * This repos [github webpage](https://jeffdecola.github.io/my-go-examples/)
+
+## PREREQUISITES
+
+```go
+go get -u -v github.com/JeffDeCola/my-go-packages
+go install -v github.com/JeffDeCola/my-go-packages@latest
+```
 
 ## OVERVIEW
 

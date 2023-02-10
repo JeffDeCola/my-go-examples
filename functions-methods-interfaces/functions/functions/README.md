@@ -7,14 +7,14 @@ Other examples using,
 * **FUNCTIONS**
   * [functions](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/functions/functions)
     **<- YOU ARE HERE**
-  * [functions-pointers-arguments](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/functions/functions-pointers-arguments)
+  * [functions-pointers-parameters](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/functions/functions-pointers-parameters)
 * **METHODS**
   * [methods](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/methods/methods)
-  * [methods-pointers-arguments](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/methods/methods-pointers-arguments)
+  * [methods-pointers-parameters](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/methods/methods-pointers-parameters)
   * [methods-pointers-receivers](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/methods/methods-pointers-receivers)
 * **INTERFACES**
   * [interfaces](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/interfaces/interfaces)
-  * [interfaces-pointers-arguments](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/interfaces/interfaces-pointers-arguments)
+  * [interfaces-pointers-parameters](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/interfaces/interfaces-pointers-parameters)
   * [interfaces-pointers-receivers](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/interfaces/interfaces-pointers-receivers)
   * [geometry-package](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/interfaces/geometry-package)
 
@@ -22,14 +22,14 @@ tl;dr,
 
 ```go
 // SYNTAX
-    // (receiver) func (arguments) (return arguments)
+    // (receiver) func (parameters) (return parameters)
 
 // FUNCTIONS
 
     // USING RETURNS
         func areaRectangle(w float64, h float64) float64 {    
         recArea := areaRectangle(recWidth, recHeight)
-    // USING POINTERS IN ARGUMENTS
+    // USING POINTERS IN PARAMETERS
         func areaRectangle(w float64, h float64, a *float64) {
         var recArea float64
         areaRectangle(recWidth, recHeight, &recArea)
@@ -40,7 +40,7 @@ tl;dr,
         func (r Rectangle) area() float64 {
         rec := Rectangle{2.4, 34.4}
         recArea := rec.area()
-    // USING POINTERS IN ARGUMENTS
+    // USING POINTERS IN PARAMETERS
         func (r Rectangle) area(a *float64) {
         rec := Rectangle{2.4, 34.4}
         var recArea float64
@@ -58,7 +58,7 @@ tl;dr,
         var gRec geometry
         gRec = rec
         recArea := gRec.area()
-    // USING POINTERS IN ARGUMENTS
+    // USING POINTERS IN PARAMETERS
         func (geometry).area()(*float64) // Abstract representation
         rec := Rectangle{2.4, 34.4}
         var gRec geometry

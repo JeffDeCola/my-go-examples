@@ -6,7 +6,7 @@
 [![Issue Count](https://codeclimate.com/github/JeffDeCola/my-go-examples/badges/issue_count.svg)](https://codeclimate.com/github/JeffDeCola/my-go-examples/issues)
 [![License](http://img.shields.io/:license-mit-blue.svg)](http://jeffdecola.mit-license.org)
 
-_A place to keep my go snippets and examples._
+_A place to keep my go examples._
 
 Table of Contents,
 
@@ -60,11 +60,7 @@ Documentation and reference,
   _built with
   [concourse](https://github.com/JeffDeCola/my-go-examples/blob/master/ci-README.md)_
 
-## GO EXAMPLES
-
-_All sections in alphabetical order._
-
-### ARCHITECTURES
+## ARCHITECTURES
   
 _Using go to build fun things._
 
@@ -74,7 +70,7 @@ _Using go to build fun things._
 
   _coming soon_
 
-### CGO
+## CGO
 
 _Using c with go._
 
@@ -86,7 +82,7 @@ _Using c with go._
 
   _A c function in go using stdio.h for printf._
 
-### CLIENT/SERVER
+## CLIENT/SERVER
 
 _Lets make a server._
 
@@ -96,11 +92,11 @@ _Lets make a server._
 
 * TCP/IP
 
-### CLOUD SERVICE PROVIDERS
+## CLOUD SERVICE PROVIDERS
 
 _AWS and Google services._
 
-### COMMON GO
+## COMMON GO
 
 _A good place to start._
 
@@ -130,7 +126,7 @@ _A good place to start._
 
 * TESTING
 
-### CRYPTOGRAPHY
+## CRYPTOGRAPHY
 
 _Secure communication techniques._
 
@@ -146,11 +142,11 @@ _Secure communication techniques._
 
   _Using the same key to encrypt and decrypt._
 
-### DATABASES
+## DATABASES
 
 _Save and organize your data._
 
-### FUNCTIONS, METHODS AND INTERFACES
+## FUNCTIONS, METHODS AND INTERFACES
 
 _The following code demonstrates functions, methods and interfaces using
 simple area and perimeter calculations for different shapes._
@@ -208,7 +204,7 @@ simple area and perimeter calculations for different shapes._
 
     _Using an interface to calculate and manipulate simple 2D and 3D geometric shapes._
 
-### GOROUTINES
+## GOROUTINES
 
 _Go is written for **concurrency**. The go runtime schedules goroutines on threads.
 The OS schedules these threads on cpus/cores._
@@ -227,7 +223,7 @@ The OS schedules these threads on cpus/cores._
 
   _Concurrency using worker pools._
 
-### INPUT/OUTPUT
+## INPUT/OUTPUT
 
 _Using the
 [io](https://pkg.go.dev/io)
@@ -267,7 +263,7 @@ package to read data and write data to/from various IO
     _Write data (a stream of bytes) to a buffer
     from a buffer using the standard `io` package._
 
-### IN-PROCESS COMMUNICATION
+## IN-PROCESS COMMUNICATION
 
 _One process/service._
 
@@ -304,7 +300,7 @@ _One process/service._
 
       _Unbuffered channels are uni-directional, synchronous with blocking._
 
-### INTER-PROCESS COMMUNICATION (IPC)
+## INTER-PROCESS COMMUNICATION (IPC)
 
 _More than one process/service._
 
@@ -364,7 +360,7 @@ _More than one process/service._
 
         _tbd._
 
-### INTERACT GO RUNTIME
+## INTERACT GO RUNTIME
 
  _The interface between your code and the go runtime system._
 
@@ -372,7 +368,7 @@ _More than one process/service._
 
   _A few go runtime interactions using the `runtime` package._
 
-### INTERACT OS
+## INTERACT OS
 
  _The interface between your code and the operating system._
 
@@ -384,13 +380,13 @@ _More than one process/service._
 
   _A few os interactions using the `syscall` package._
 
-### IoT
+## IoT
 
 _Using go with the Internet of Things (IoT)._
 
 * RASPBERRY PI
 
-### MODULES AND PACKAGES
+## MODULES AND PACKAGES
 
 * [module-with-local-package](https://github.com/JeffDeCola/my-go-examples/tree/master/modules-and-packages/module-with-local-package)
 
