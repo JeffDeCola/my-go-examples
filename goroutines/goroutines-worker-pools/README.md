@@ -20,6 +20,9 @@ Documentation and references,
 
 ## OVERVIEW
 
+Go is written for **concurrency**. The go runtime schedules goroutines on threads.
+The OS schedules these threads on cpus/cores.
+
 Worker pools are goroutines that do work.
 Usually they will pull from a channel buffer to get data on what to do.
 

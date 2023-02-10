@@ -20,6 +20,9 @@ Documentation and references,
 
 ## OVERVIEW
 
+Go is written for **concurrency**. The go runtime schedules goroutines on threads.
+The OS schedules these threads on cpus/cores.
+
 A WaitGroup waits for a collection of goroutines to finish.
 
 First make a waitgroup,
