@@ -8,7 +8,7 @@ coverage.out
 # macOS
 .DS_Store
 
-# Windows
+# # WINDOWS
 *.jpg:Zone.Identifier
 
 # Ignore binaries
