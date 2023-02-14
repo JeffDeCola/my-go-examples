@@ -108,7 +108,7 @@ Documentation and reference,
 
 * FLAGS
 
-  * [flag](https://github.com/JeffDeCola/my-go-examples/tree/master/common-go/flags/flag)
+  * [flags](https://github.com/JeffDeCola/my-go-examples/tree/master/common-go/flags/flags)
 
     _The standard `flag` package makes it easy to implement command-line flag parsing._
 

@@ -1,4 +1,4 @@
-# flag
+# flags
 
 _The `flag` standard package makes it easy to implement command-line flag parsing._
 
