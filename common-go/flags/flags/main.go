@@ -1,4 +1,4 @@
-// my-go-examples flag.go
+// my-go-examples flags
 
 package main
 
