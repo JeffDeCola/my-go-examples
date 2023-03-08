@@ -370,7 +370,12 @@ _(Using the same key to encrypt and decrypt)_
 
 ## IoT
 
-* _coming soon_
+* RASPBERRY PI
+
+  * [turn-led-on-off-raspberry-pi-gpio](https://github.com/JeffDeCola/my-go-examples/tree/master/iot/raspberry-pi/turn-led-on-off-raspberry-pi-gpio)
+
+    _Turn an LED on/off with a button via a Raspberry Pi GPIO
+    using the `periph.io/...` packages._
 
 ## MODULES AND PACKAGES
 
