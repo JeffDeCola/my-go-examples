@@ -1,4 +1,4 @@
-module blink-led-raspberry-pi-gpio
+module blink-led-raspberry-pi-gpio-periph
 
 go 1.20
 

@@ -1,12 +1,17 @@
-# PUSH BUTTON RASPBERRY PI GPIO
+# BLINK LED RASPBERRY PI GPIO PERIPH
 
-  _Push a button
-  via a Raspberry Pi GPIO
-  using the `periph.io/...` packages._
+_GPIO OUPUT -
+Blink an LED
+via a Raspberry Pi GPIO
+using the `periph.io/...` packages._
 
 Table of Contents
 
-* tbd
+* [PREREQUISITES](https://github.com/JeffDeCola/my-go-examples/tree/master/iot/raspberry-pi/blink-led-raspberry-pi-gpio-periph#prerequisites)
+* [OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/iot/raspberry-pi/blink-led-raspberry-pi-gpio-periph#overview)
+* [RUN](https://github.com/JeffDeCola/my-go-examples/tree/master/iot/raspberry-pi/blink-led-raspberry-pi-gpio-periph#run)
+* [TEST](https://github.com/JeffDeCola/my-go-examples/tree/master/iot/raspberry-pi/blink-led-raspberry-pi-gpio-periph#test)
+* [ILLUSTRATION](https://github.com/JeffDeCola/my-go-examples/tree/master/iot/raspberry-pi/blink-led-raspberry-pi-gpio-periph#illustration)
 
 Documentation and Reference
 
@@ -25,12 +30,12 @@ Physically, you will need,
 
 * Raspberry Pi
 * Breadboard with a cable connector and jumper wires
-* For the Button
-  * A 10K Ohm 1/4W resistor (10,000 color code is Brown Black Orange)
+* For the LED
+  * A 560 Ohm 1/4W resistor (560 color code is Green Blue Black)
 
 Where,
 
-* GPIO PIN 12 is connected to the button
+* GPIO PIN 5 to connected to the LED
 
 To get the entire periph.io go packages,
 
@@ -40,12 +45,26 @@ go get periph.io/x/cmd/...
 
 ## OVERVIEW
 
-This code will print everytime the button is high or low.
+These are the basic 3 building blocks.
 
-The code is as follow,
+First you init the host machine (i.e. Raspberry Pi),
+
+```
+host.Init()
+```
+
+Then you assign a GPIO Pin to the LED
 
 ```go
-tbd
+ledPin := gpioreg.ByName("5")
+```
+
+Now you can control the OUTPUT of that GPIO pin
+with a High or Low state,
+
+```go
+ledPinState := gpio.High 
+ledPin.Out(ledPinState)
 ```
 
 ## RUN
@@ -56,7 +75,7 @@ go run main.go
 
 ## TEST
 
-To create _test files,
+To create test files,
 
 ```
 gotests -w -all main.go
