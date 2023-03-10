@@ -372,15 +372,17 @@ _(Using the same key to encrypt and decrypt)_
 
 * RASPBERRY PI
 
-  * [blink-led-raspberry-pi-gpio](https://github.com/JeffDeCola/my-go-examples/tree/master/iot/raspberry-pi/blink-led-raspberry-pi-gpio)
+  * [blink-led-raspberry-pi-gpio-periph](https://github.com/JeffDeCola/my-go-examples/tree/master/iot/raspberry-pi/blink-led-raspberry-pi-gpio-periph)
 
-    _Blink an LED
+    _GPIO OUPUT -
+    Blink an LED
     via a Raspberry Pi GPIO
     using the `periph.io/...` packages._
 
-  * [push-button-raspberry-pi-gpio](https://github.com/JeffDeCola/my-go-examples/tree/master/iot/raspberry-pi/push-button-raspberry-pi-gpio)
+  * [push-button-raspberry-pi-gpio-periph](https://github.com/JeffDeCola/my-go-examples/tree/master/iot/raspberry-pi/push-button-raspberry-pi-gpio-periph)
 
-    _Push a button
+    _GPIO INPUT - 
+    Push a button
     via a Raspberry Pi GPIO
     using the `periph.io/...` packages._
 

@@ -1,4 +1,4 @@
-// my-go-examples blink-led-raspberry-pi-gpio
+// my-go-examples blink-led-raspberry-pi-gpio-periph
 
 package main
 
@@ -17,7 +17,7 @@ func blinkLed(ledPin gpio.PinIO, blinkTime time.Duration) {
 	ledPinState := gpio.High
 	ticker := time.NewTicker(blinkTime * time.Millisecond)
 
-	for _ = range ticker.C {
+	for range ticker.C {
 
 		// PIN OUTPUT FOR LED ON TOGGLE VALUE
 		err := ledPin.Out(ledPinState)
@@ -49,7 +49,7 @@ func main() {
 	// ASSIGN GPIO5 TO ledPin
 	ledPin := gpioreg.ByName("5")
 	if ledPin == nil {
-		log.Fatal("Failed to find led_out")
+		log.Fatal("Failed to find ledPin")
 	}
 
 	// KICK OFF BLINK LOOP
