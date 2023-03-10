@@ -1,7 +1,8 @@
-# TURN LED ON OFF RASPBERRY PI GPIO
+# PUSH BUTTON RASPBERRY PI GPIO
 
-_Turn an LED on/off with a button via a Raspberry Pi GPIO
-using the `periph.io/...` packages._
+  _Push a button
+  via a Raspberry Pi GPIO
+  using the `periph.io/...` packages._
 
 Table of Contents
 
@@ -20,20 +21,18 @@ Documentation and Reference
 
 ## PREREQUISITES
 
-Physically, you need,
+Physically, you will need,
 
 * Raspberry Pi
-* A 560 Ohm 1/4W resistor (560 color code is Green Blue Black)
-* An LED
-* A button
-* A breadboard and some jumper wires
+* Breadboard with a cable connector and jumper wires
+* For the Button
+  * A 10K Ohm 1/4W resistor (10,000 color code is Brown Black Orange)
 
 Where,
 
-* GPIO PIN 7 is connected to button
-* GPIO PIN 12 to connected to LED
+* GPIO PIN 12 is connected to the button
 
-Get the periph.io go packages,
+To get the entire periph.io go packages,
 
 ```bash
 go get periph.io/x/cmd/...
@@ -41,9 +40,7 @@ go get periph.io/x/cmd/...
 
 ## OVERVIEW
 
-tbd
-
-## EXAMPLE
+This code will print everytime the button is high or low.
 
 The code is as follow,
 
@@ -53,24 +50,26 @@ tbd
 
 ## RUN
 
-You may need to,
-
-```go
-sudo groupadd gpio
-sudo usermod -a -G gpio jeff
-sudo grep gpio /etc/group
-sudo chown root.gpio /dev/gpiomem
-sudo chmod g+rw /dev/gpiomem
-```
-
 ```go
 go run main.go
 ```
 
 ## TEST
 
+To create _test files,
 
+```
+gotests -w -all main.go
+```
+
+To unit test the code,
+
+```
+go test -cover ./...
+```
 
 ## ILLUSTRATION
+
+How to connect the button and LED to the Raspberry Pi,
 
 ![IMAGE - raspberry-pi-input-and-output-using-gpio-pins - IMAGE](https://github.com/JeffDeCola/my-cheat-sheets/blob/master/docs/pics/raspberry-pi-input-and-output-using-gpio-pins.jpg?raw=true)

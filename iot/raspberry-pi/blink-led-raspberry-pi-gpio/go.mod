@@ -1,4 +1,4 @@
-module turn-led-on-off-raspberry-pi-gpio
+module blink-led-raspberry-pi-gpio
 
 go 1.20
 
