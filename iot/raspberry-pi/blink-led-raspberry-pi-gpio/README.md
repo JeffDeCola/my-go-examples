@@ -40,14 +40,25 @@ go get periph.io/x/cmd/...
 
 ## OVERVIEW
 
-tbd
+These are the basic 3 building blocks.
 
-## EXAMPLE
+First you init the host machine (i.e. Raspberry {Pi),
 
-The code is as follow,
+```
+host.Init()
+```
+
+Then you assign a GPIO Pin to the LED
 
 ```go
-tbd
+ledPin := gpioreg.ByName("5")
+```
+
+Now you can control that GPIO pin with a High or Low state,
+
+```go
+ledPinState := gpio.High 
+ledPin.Out(ledPinState)
 ```
 
 ## RUN
