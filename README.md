@@ -372,9 +372,22 @@ _(Using the same key to encrypt and decrypt)_
 
 * RASPBERRY PI
 
-  * [turn-led-on-off-raspberry-pi-gpio](https://github.com/JeffDeCola/my-go-examples/tree/master/iot/raspberry-pi/turn-led-on-off-raspberry-pi-gpio)
+  * [blink-led-raspberry-pi-gpio](https://github.com/JeffDeCola/my-go-examples/tree/master/iot/raspberry-pi/blink-led-raspberry-pi-gpio)
 
-    _Turn an LED on/off with a button via a Raspberry Pi GPIO
+    _Blink an LED
+    via a Raspberry Pi GPIO
+    using the `periph.io/...` packages._
+
+  * [push-button-raspberry-pi-gpio](https://github.com/JeffDeCola/my-go-examples/tree/master/iot/raspberry-pi/push-button-raspberry-pi-gpio)
+
+    _Push a button
+    via a Raspberry Pi GPIO
+    using the `periph.io/...` packages._
+
+  * [toggle-led-with-button-raspberry-pi-gpio](https://github.com/JeffDeCola/my-go-examples/tree/master/iot/raspberry-pi/toggle-led-with-button-raspberry-pi-gpio)
+
+    _Toggle an LED with a button push
+    via a Raspberry Pi GPIO
     using the `periph.io/...` packages._
 
 ## MODULES AND PACKAGES
