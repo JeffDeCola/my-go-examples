@@ -386,7 +386,7 @@ _(Using the same key to encrypt and decrypt)_
     via a Raspberry Pi GPIO
     using the `periph.io/...` packages._
 
-  * [toggle-led-with-button-raspberry-pi-gpio](https://github.com/JeffDeCola/my-go-examples/tree/master/iot/raspberry-pi/toggle-led-with-button-raspberry-pi-gpio)
+  * [toggle-led-with-button-raspberry-pi-gpio-periph](https://github.com/JeffDeCola/my-go-examples/tree/master/iot/raspberry-pi/toggle-led-with-button-raspberry-pi-gpio-periph)
 
     _Toggle an LED with a button push
     via a Raspberry Pi GPIO
