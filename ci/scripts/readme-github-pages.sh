@@ -51,7 +51,7 @@ echo "THE GOAL IS TO COPY README.md to /docs/_includes/README.md"
 echo " "
 
 echo "Remove everything before the second heading in README.md.  Place in temp-README.md"
-sed '0,/GitHub Webpage/d' README.md > temp-README.md
+sed '0,/github webpage/d' README.md > temp-README.md
 # Change the first heading ## to #
 sed -i '0,/##/{s/##/#/}' temp-README.md
 # update the image links (remove docs/)
