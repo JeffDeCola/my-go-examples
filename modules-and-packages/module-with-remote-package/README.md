@@ -1,14 +1,14 @@
-# module-with-remote-package
+# MODULE WITH REMOTE PACKAGE EXAMPLE
 
-  _A go module with a remote (public) package._
+_A go module with a remote (public) package._
 
-Other examples using,
+Other Examples
 
 * [module-with-local-package](https://github.com/JeffDeCola/my-go-examples/tree/master/modules-and-packages/module-with-local-package)
 * [module-with-remote-package](https://github.com/JeffDeCola/my-go-examples/tree/master/modules-and-packages/module-with-remote-package)
   **<- YOU ARE HERE**
 
-Table of Contents,
+Table of Contents
 
 * [PREREQUISITES](https://github.com/JeffDeCola/my-go-examples/tree/master/modules-and-packages/module-with-remote-package#prerequisites)
 * [OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/modules-and-packages/module-with-remote-package#overview)
@@ -19,18 +19,10 @@ Table of Contents,
 * [TEST](https://github.com/JeffDeCola/my-go-examples/tree/master/modules-and-packages/module-with-remote-package#test)
 * [VS CODE AND GO MULTI-MODULES (go.work)](https://github.com/JeffDeCola/my-go-examples/tree/master/modules-and-packages/module-with-remote-package#vs-code-and-go-multi-modules-gowork)
 
-Documentation and reference,
+Documentation and Reference
 
 * My circle
   [package](https://github.com/JeffDeCola/my-go-packages/tree/master/geometry/circle)
-* This repos [github webpage](https://jeffdecola.github.io/my-go-examples/)
-
-## PREREQUISITES
-
-```go
-go get -u -v github.com/JeffDeCola/my-go-packages
-go install -v github.com/JeffDeCola/my-go-packages@latest
-```
 
 ## OVERVIEW
 
@@ -38,6 +30,13 @@ A go **module** is used to manage various versions of dependencies/packages.
 
 In go, each directory is considered its own **package**. A package is a collection
 of related go source files in the same directory.
+
+## PREREQUISITES
+
+```go
+go get -u -v github.com/JeffDeCola/my-go-packages
+go install -v github.com/JeffDeCola/my-go-packages@latest
+```
 
 ## STRUCTURE
 

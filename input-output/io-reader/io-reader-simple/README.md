@@ -1,9 +1,9 @@
-# io-reader-simple
+# IO.READER SIMPLE EXAMPLE
 
 _Read data (a stream of bytes) from a buffer to a buffer
 using the standard `io` package._
 
-Other examples using,
+Other Examples
 
 * IO.READER
   * [io-reader](https://github.com/JeffDeCola/my-go-examples/tree/master/input-output/io-reader/io-reader)
@@ -13,18 +13,17 @@ Other examples using,
   * [io-writer](https://github.com/JeffDeCola/my-go-examples/tree/master/input-output/io-writer/io-writer)
   * [io-writer-simple](https://github.com/JeffDeCola/my-go-examples/tree/master/input-output/io-writer/io-writer-simple)
 
-Table of Contents,
+Table of Contents
 
 * [OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/input-output/io-reader/io-reader-simple#overview)
 * [RUN](https://github.com/JeffDeCola/my-go-examples/tree/master/input-output/io-reader/io-reader-simple#run)
 * [AN ILLUSTRATION THAT MAY HELP](https://github.com/JeffDeCola/my-go-examples/tree/master/input-output/io-reader/io-reader-simple#an-illustration-that-may-help)
 
-Documentation and references,
+Documentation and Reference
 
 * Refer to the
   [io](https://pkg.go.dev/io)
   package for more info
-* This repos [github webpage](https://jeffdecola.github.io/my-go-examples/)
 
 ## OVERVIEW
 
@@ -81,7 +80,7 @@ fmt.Printf("Buffer out: %s\n", string(buffer[:n]))
 Run,
 
 ```bash
-go run io-reader-simple.go
+go run main.go
 ```
 
 ## AN ILLUSTRATION THAT MAY HELP

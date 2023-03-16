@@ -1,3 +1,3 @@
 module simple-external-commands
 
-go 1.17
+go 1.20

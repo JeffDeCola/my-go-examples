@@ -1,18 +1,17 @@
-# simple-external-commands
+# SIMPLE EXTERNAL COMMANDS EXAMPLE
 
 _Run a few os commands using the `exec` package._
 
-Table of Contents,
+Table of Contents
 
 * [OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/interact-os/simple-os-interactions#overview)
 * [RUN](https://github.com/JeffDeCola/my-go-examples/tree/master/interact-os/simple-os-interactions#run)
 
-Documentation and references,
+Documentation and Reference
 
 * Refer to the
   [exec](https://pkg.go.dev/exec)
   package for more info
-* This repos [github webpage](https://jeffdecola.github.io/my-go-examples/)
 
 ## OVERVIEW
 
@@ -34,5 +33,5 @@ fmt.Println(string(out))
 Run,
 
 ```bash
-go run simple-external-commands.go
+go run main.go
 ```

@@ -1,9 +1,9 @@
-# io-reader
+# IO.READER EXAMPLE
 
 _Read data (a stream of bytes) from a string, buffer, file, stdin and
 a pipe to a buffer using the standard `io` package._
 
-Other examples using,
+Other Examples
 
 * IO.READER
   * [io-reader](https://github.com/JeffDeCola/my-go-examples/tree/master/input-output/io-reader/io-reader)
@@ -13,19 +13,18 @@ Other examples using,
   * [io-writer](https://github.com/JeffDeCola/my-go-examples/tree/master/input-output/io-writer/io-writer)
   * [io-writer-simple](https://github.com/JeffDeCola/my-go-examples/tree/master/input-output/io-writer/io-writer-simple)
 
-Table of Contents,
+Table of Contents
 
 * [OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/input-output/io-reader/io-reader#overview)
 * [RUN](https://github.com/JeffDeCola/my-go-examples/tree/master/input-output/io-reader/io-reader#run)
 * [TEST](https://github.com/JeffDeCola/my-go-examples/tree/master/input-output/io-reader/io-reader#test)
 * [AN ILLUSTRATION THAT MAY HELP](https://github.com/JeffDeCola/my-go-examples/tree/master/input-output/io-reader/io-reader#an-illustration-that-may-help)
 
-Documentation and references,
+Documentation and Reference
 
 * Refer to the
   [io](https://pkg.go.dev/io)
   package for more info
-* This repos [github webpage](https://jeffdecola.github.io/my-go-examples/)
 
 ## OVERVIEW
 
@@ -87,7 +86,7 @@ pipeReader, pipeWriter := io.Pipe()
 Run,
 
 ```bash
-go run io-reader.go
+go run main.go
 ```
 
 ## TEST
@@ -95,7 +94,7 @@ go run io-reader.go
 To create _test files,
 
 ```bash
-gotests -w -all io-reader.go
+gotests -w -all main.go
 ```
 
 To unit test the code,
