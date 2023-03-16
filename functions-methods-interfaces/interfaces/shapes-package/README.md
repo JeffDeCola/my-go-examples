@@ -2,7 +2,7 @@
 
 _Using an interface to calculate and manipulate simple 2D and 3D geometric shapes._
 
-Other examples using,
+Other Examples
 
 * **FUNCTIONS**
   * [functions](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/functions/functions)

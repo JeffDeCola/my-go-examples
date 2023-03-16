@@ -1,8 +1,6 @@
-# pipes-unnamed-io
+# PIPE UNNAMED IO EXAMPLE
 
 _This example of an unnamed pipe connects an io.Writer and io.Reader._
-
-Other communication examples using,
 
 **I - IN-PROCESS COMMUNICATION**
 
@@ -11,8 +9,8 @@ Other communication examples using,
   * SYNCHRONOUS
     * [pipes-unnamed-io](https://github.com/JeffDeCola/my-go-examples/tree/master/in-process-communication/shared-memory/synchronous/pipes-unnamed-io)
     * [pipes-unnamed](https://github.com/JeffDeCola/my-go-examples/tree/master/in-process-communication/shared-memory/synchronous/pipes-unnamed)
-      **<- YOU ARE HERE**
     * [pipes-unnamed-io](https://github.com/JeffDeCola/my-go-examples/tree/master/in-process-communication/shared-memory/synchronous/pipes-unnamed-io)
+      **<- YOU ARE HERE**
 * **MESSAGE PASSING**
   * ASYNCHRONOUS
     * [channels-buffered](https://github.com/JeffDeCola/my-go-examples/tree/master/in-process-communication/message-passing/asynchronous/channels-buffered)
@@ -41,14 +39,14 @@ Other communication examples using,
       * [grpc-network](https://github.com/JeffDeCola/my-go-examples/tree/master/inter-process-communication-ipc/message-passing/network/synchronous/grpc-network)
       * [rest](https://github.com/JeffDeCola/my-go-examples/tree/master/inter-process-communication-ipc/message-passing/network/synchronous/rest)
 
-Table of Contents,
+Table of Contents
 
 * [PIPES OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/in-process-communication/shared-memory/synchronous/pipes-unnamed-io#pipes-overview)
 * [CODE](https://github.com/JeffDeCola/my-go-examples/tree/master/in-process-communication/shared-memory/synchronous/pipes-unnamed-io#code)
 * [RUN](https://github.com/JeffDeCola/my-go-examples/tree/master/in-process-communication/shared-memory/synchronous/pipes-unnamed-io#run)
 * [IN-PROCESS AND INTER-PROCESS COMMUNICATION OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/in-process-communication/shared-memory/synchronous/pipes-unnamed-io#in-process-and-inter-process-communication-overview)
 
-Documentation and references,
+Documentation and Reference
 
 * Refer to the
   [io.Pipe](https://pkg.go.dev/io#Pipe)
@@ -56,7 +54,6 @@ Documentation and references,
 * Refer to
   [my cheat sheets](https://github.com/JeffDeCola/my-cheat-sheets/tree/master/software/development/software-architectures/communication/in-process-and-inter-process-communications-ipc-overview-cheat-sheet)
   for a communications overview
-* This repos [github webpage](https://jeffdecola.github.io/my-go-examples/)
 
 ## PIPES OVERVIEW
 
@@ -104,7 +101,7 @@ _, err := io.Copy(os.Stdout, pr)
 Run,
 
 ```bash
-go run pipes-unnamed-io.go
+go run main.go
 ```
 
 ## IN-PROCESS AND INTER-PROCESS COMMUNICATION OVERVIEW

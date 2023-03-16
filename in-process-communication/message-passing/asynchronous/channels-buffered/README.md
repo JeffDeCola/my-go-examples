@@ -1,8 +1,6 @@
-# channels-buffered
+# CHANNELS BUFFERED EXAMPLE
 
 _Buffered channels are uni-directional, asynchronous with no blocking._
-
-Other communication examples using,
 
 **I - IN-PROCESS COMMUNICATION**
 
@@ -41,7 +39,7 @@ Other communication examples using,
       * [grpc-network](https://github.com/JeffDeCola/my-go-examples/tree/master/inter-process-communication-ipc/message-passing/network/synchronous/grpc-network)
       * [rest](https://github.com/JeffDeCola/my-go-examples/tree/master/inter-process-communication-ipc/message-passing/network/synchronous/rest)
 
-Table of Contents,
+Table of Contents
 
 * [BUFFERED CHANNEL OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/in-process-communication/message-passing/asynchronous/channels-buffered#buffered-channel-overview)
 * [CODE](https://github.com/JeffDeCola/my-go-examples/tree/master/in-process-communication/message-passing/asynchronous/channels-buffered#code)
@@ -49,12 +47,11 @@ Table of Contents,
 * [TEST](https://github.com/JeffDeCola/my-go-examples/tree/master/in-process-communication/message-passing/asynchronous/channels-buffered#test)
 * [IN-PROCESS AND INTER-PROCESS COMMUNICATION OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/in-process-communication/message-passing/asynchronous/channels-buffered#in-process-and-inter-process-communication-overview)
 
-Documentation and references,
+Documentation and Reference
 
 * Refer to
   [my cheat sheets](https://github.com/JeffDeCola/my-cheat-sheets/tree/master/software/development/software-architectures/communication/in-process-and-inter-process-communications-ipc-overview-cheat-sheet)
   for a communications overview
-* This repos [github webpage](https://jeffdecola.github.io/my-go-examples/)
 
 ## BUFFERED CHANNEL OVERVIEW
 
@@ -89,7 +86,7 @@ This illustration  may help,
 Run,
 
 ```bash
-go run channels-buffered.go
+go run main.go
 ```
 
 ```bash
@@ -120,7 +117,7 @@ Chilling....
 To create _test files,
 
 ```bash
-gotests -w -all channels-buffered.go
+gotests -w -all main.go
 ```
 
 To unit test the code,

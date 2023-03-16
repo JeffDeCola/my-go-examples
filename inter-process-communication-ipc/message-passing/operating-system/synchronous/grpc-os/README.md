@@ -1,8 +1,6 @@
-# grpc-os
+# GRPC OS EXAMPLE
 
 _Start a grpc server in the go runtime environment using googles grpc package._
-
-Other communication examples using,
 
 **I - IN-PROCESS COMMUNICATION**
 
@@ -40,11 +38,11 @@ Other communication examples using,
       * [grpc-network](https://github.com/JeffDeCola/my-go-examples/tree/master/inter-process-communication-ipc/message-passing/network/synchronous/grpc-network)
       * [rest](https://github.com/JeffDeCola/my-go-examples/tree/master/inter-process-communication-ipc/message-passing/network/synchronous/rest)
 
-Table of Contents,
+Table of Contents
 
 * tbd
 
-Documentation and references,
+Documentation and Reference
 
 * Refer to the
   [???](https://pkg.go.dev/????)
@@ -52,7 +50,6 @@ Documentation and references,
 * Refer to
   [my cheat sheets](https://github.com/JeffDeCola/my-cheat-sheets/tree/master/software/development/software-architectures/communication/in-process-and-inter-process-communications-ipc-overview-cheat-sheet)
   for a communications overview
-* This repos [github webpage](https://jeffdecola.github.io/my-go-examples/)
 
 ## OVERVIEW
 
@@ -64,8 +61,7 @@ It uses HTTP/2 for transport which is a binary protocol.
 Using go runtime environment to start a gRPC Server
 
 ```go
-
-
+tbd
 ```
 
 ### CLIENT
@@ -75,8 +71,8 @@ Using go runtime environment to start a gRPC Server
 Run,
 
 ```bash
-go run server.go
-go run client.go
+go run ???.go
+go run ???.go
 ```
 
 ## TEST
@@ -84,7 +80,7 @@ go run client.go
 To create _test files,
 
 ```bash
-gotests -w -all grpc-os.go
+gotests -w -all ??.go
 ```
 
 To unit test the code,

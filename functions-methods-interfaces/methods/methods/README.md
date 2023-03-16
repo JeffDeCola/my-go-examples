@@ -2,7 +2,7 @@
 
 _Using methods to calculate the area of a rectangle and circle._
 
-Other examples using,
+Other Examples
 
 * **FUNCTIONS**
   * [functions](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/functions/functions)
