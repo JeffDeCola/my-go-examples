@@ -31,6 +31,10 @@ plugins:
   # A tool designed to check markdown files and flag style issues
   markdownlint:
     enabled: true
+    checks:
+      # Emphasis used instead of a header
+      MD036:
+        enabled: false
   # A tool for suggesting possible improvements to bash/sh shell scripts
   shellcheck:
     enabled: true

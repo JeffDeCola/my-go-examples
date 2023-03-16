@@ -51,7 +51,7 @@ tl;dr,
         rec.size(2)
 
 // INTERFACES
-    
+
     // USING RETURNS
         func (geometry).area() float64 // Abstract representation
         rec := Rectangle{2.4, 34.4}
