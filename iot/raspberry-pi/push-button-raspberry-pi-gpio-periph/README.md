@@ -1,6 +1,6 @@
 # PUSH BUTTON RASPBERRY PI GPIO PERIPH
 
-_GPIO INPUT - 
+_GPIO INPUT -
 Push a button
 via a Raspberry Pi GPIO
 using the `periph.io/...` packages._
@@ -50,7 +50,7 @@ These are the basic 3 building blocks.
 
 First you init the host machine (i.e. Raspberry Pi),
 
-```
+```go
 host.Init()
 ```
 
@@ -84,13 +84,13 @@ go run main.go
 
 To create test files,
 
-```
+```bash
 gotests -w -all main.go
 ```
 
 To unit test the code,
 
-```
+```bash
 go test -cover ./...
 ```
 

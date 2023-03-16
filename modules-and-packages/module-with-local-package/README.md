@@ -1,14 +1,14 @@
-# module-with-local-package
+# MODULE WITH LOCAL PACKAGE EXAMPLE
 
-  _A go module with a local package._
+_A go module with a local package._
 
-Other examples using,
+Other Examples
 
 * [module-with-local-package](https://github.com/JeffDeCola/my-go-examples/tree/master/modules-and-packages/module-with-local-package)
   **<- YOU ARE HERE**
 * [module-with-remote-package](https://github.com/JeffDeCola/my-go-examples/tree/master/modules-and-packages/module-with-remote-package)
 
-Table of Contents,
+Table of Contents
 
 * [OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/modules-and-packages/module-with-local-package#overview)
 * [STRUCTURE](https://github.com/JeffDeCola/my-go-examples/tree/master/modules-and-packages/module-with-local-package#structure)
@@ -16,10 +16,6 @@ Table of Contents,
 * [RUN](https://github.com/JeffDeCola/my-go-examples/tree/master/modules-and-packages/module-with-local-package#run)
 * [TEST](https://github.com/JeffDeCola/my-go-examples/tree/master/modules-and-packages/module-with-local-package#test)
 * [VS CODE AND GO MULTI-MODULES (go.work)](https://github.com/JeffDeCola/my-go-examples/tree/master/modules-and-packages/module-with-local-package#vs-code-and-go-multi-modules-gowork)
-
-Documentation and reference,
-
-* This repos [github webpage](https://jeffdecola.github.io/my-go-examples/)
 
 ## OVERVIEW
 

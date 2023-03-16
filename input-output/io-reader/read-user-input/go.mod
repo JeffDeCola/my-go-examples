@@ -1,3 +1,3 @@
 module read-user-input
 
-go 1.17
+go 1.20

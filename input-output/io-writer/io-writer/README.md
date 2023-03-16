@@ -1,9 +1,9 @@
-# io-writer
+# IO.WRITER EXAMPLE
 
 _Write data (a stream of bytes) to a buffer, file, stdout and a pipe
 from a buffer using the standard `io` package._
 
-Other examples using,
+Other Examples
 
 * IO.READER
   * [io-reader](https://github.com/JeffDeCola/my-go-examples/tree/master/input-output/io-reader/io-reader)
@@ -13,19 +13,18 @@ Other examples using,
     **<- YOU ARE HERE**
   * [io-writer-simple](https://github.com/JeffDeCola/my-go-examples/tree/master/input-output/io-writer/io-writer-simple)
 
-Table of Contents,
+Table of Contents
 
 * [OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/input-output/io-writer/io-writer#overview)
 * [RUN](https://github.com/JeffDeCola/my-go-examples/tree/master/input-output/io-writer/io-writer#run)
 * [TEST](https://github.com/JeffDeCola/my-go-examples/tree/master/input-output/io-writer/io-writer#test)
 * [AN ILLUSTRATION THAT MAY HELP](https://github.com/JeffDeCola/my-go-examples/tree/master/input-output/io-writer/io-writer#an-illustration-that-may-help)
 
-Documentation and references,
+Documentation and Reference
 
 * Refer to the
   [io](https://pkg.go.dev/io)
   package for more info
-* This repos [github webpage](https://jeffdecola.github.io/my-go-examples/)
 
 ## OVERVIEW
 
@@ -79,7 +78,7 @@ pipeReader, pipeWriter := io.Pipe()
 Run,
 
 ```bash
-go run io-writer.go
+go run main.go
 ```
 
 ## TEST
@@ -87,7 +86,7 @@ go run io-writer.go
 To create _test files,
 
 ```bash
-gotests -w -all io-writer.go
+gotests -w -all main.go
 ```
 
 To unit test the code,

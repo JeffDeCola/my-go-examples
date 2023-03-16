@@ -1,18 +1,17 @@
-# simple-os-interactions
+# SIMPLE OS INTERACTIONS EXAMPLE
 
- _A few os interactions using the `syscall` package._
+_A few os interactions using the `syscall` package._
 
-Table of Contents,
+Table of Contents
 
 * [OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/interact-os/simple-os-interactions#overview)
 * [RUN](https://github.com/JeffDeCola/my-go-examples/tree/master/interact-os/simple-os-interactions#run)
 
-Documentation and references,
+Documentation and Reference
 
 * Refer to the
   [syscall](https://pkg.go.dev/syscall)
   package for more info
-* This repos [github webpage](https://jeffdecola.github.io/my-go-examples/)
 
 ## OVERVIEW
 
@@ -35,5 +34,5 @@ fmt.Printf("Thread ID (id):   %d\n", tid)
 Run,
 
 ```bash
-go run simple-os-interactions.go
+go run main.go
 ```

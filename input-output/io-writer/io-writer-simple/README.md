@@ -1,9 +1,9 @@
-# io-writer-simple
+# IO.WRITER SIMPLE EXAMPLE
 
 _Write data (a stream of bytes) to a buffer
 from a buffer using the standard `io` package._
 
-Other examples using,
+Other Examples
 
 * IO.READER
   * [io-reader](https://github.com/JeffDeCola/my-go-examples/tree/master/input-output/io-reader/io-reader)
@@ -13,18 +13,17 @@ Other examples using,
   * [io-writer-simple](https://github.com/JeffDeCola/my-go-examples/tree/master/input-output/io-writer/io-writer-simple)
     **<- YOU ARE HERE**
 
-Table of Contents,
+Table of Contents
 
 * [OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/input-output/io-writer/io-writer-simple#overview)
 * [RUN](https://github.com/JeffDeCola/my-go-examples/tree/master/input-output/io-writer/io-writer-simple#run)
 * [AN ILLUSTRATION THAT MAY HELP](https://github.com/JeffDeCola/my-go-examples/tree/master/input-output/io-writer/io-writer-simple#an-illustration-that-may-help)
 
-Documentation and references,
+Documentation and Reference
 
 * Refer to the
   [io](https://pkg.go.dev/io)
   package for more info
-* This repos [github webpage](https://jeffdecola.github.io/my-go-examples/)
 
 ## OVERVIEW
 
@@ -80,7 +79,7 @@ fmt.Printf("Buffer out: %s\n", b.String())
 Run,
 
 ```bash
-go run io-writer-simple.go
+go run main.go
 ```
 
 ## AN ILLUSTRATION THAT MAY HELP

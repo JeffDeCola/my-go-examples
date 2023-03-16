@@ -58,9 +58,9 @@ The LED go routine was shown in my
 [blink-led-raspberry-pi-gpio-periph](https://github.com/JeffDeCola/my-go-examples/tree/master/iot/raspberry-pi/blink-led-raspberry-pi-gpio-periph)
 OUTPUT example.
 
-I connect bother together using a channel.  When the 
-buitton is fully pressed I send this "event"
-from the  buttom go routine
+I connect bother together using a channel.  When the
+button is fully pressed I send this "event"
+from the  button go routine
 to the LED go routine
 to toggle the LED.
 
@@ -74,13 +74,13 @@ go run main.go
 
 To create test files,
 
-```
+```bash
 gotests -w -all main.go
 ```
 
 To unit test the code,
 
-```
+```bash
 go test -cover ./...
 ```
 
