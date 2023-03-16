@@ -4,7 +4,7 @@ I use concourse ci to,
 
 * Copy and edit `README.md` to `/docs/_includes/README.md` for
   [GitHub Webpage](https://jeffdecola.github.io/my-go-examples/)
-* TEST code (_Currently just a placeholder_)
+* TEST code
 * Alert me of the progress via repo status and slack
 
 ## PIPELINE
