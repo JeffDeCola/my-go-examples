@@ -1,8 +1,6 @@
-# channels-unbuffered
+# CHANNELS UNBUFFERED EXAMPLE
 
 _Unbuffered channels are uni-directional, synchronous with blocking._
-
-Other communication examples using,
 
 **I - IN-PROCESS COMMUNICATION**
 
@@ -41,7 +39,7 @@ Other communication examples using,
       * [grpc-network](https://github.com/JeffDeCola/my-go-examples/tree/master/inter-process-communication-ipc/message-passing/network/synchronous/grpc-network)
       * [rest](https://github.com/JeffDeCola/my-go-examples/tree/master/inter-process-communication-ipc/message-passing/network/synchronous/rest)
 
-Table of Contents,
+Table of Contents
 
 * [UNBUFFERED CHANNEL OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/in-process-communication/message-passing/synchronous/channels-unbuffered#unbuffered-channel-overview)
 * [CODE](https://github.com/JeffDeCola/my-go-examples/tree/master/in-process-communication/message-passing/synchronous/channels-unbuffered#code)
@@ -49,12 +47,11 @@ Table of Contents,
 * [TEST](https://github.com/JeffDeCola/my-go-examples/tree/master/in-process-communication/message-passing/synchronous/channels-unbuffered#test)
 * [IN-PROCESS AND INTER-PROCESS COMMUNICATION OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/in-process-communication/message-passing/synchronous/channels-unbuffered#in-process-and-inter-process-communication-overview)
 
-Documentation and references,
+Documentation and Reference
 
 * Refer to
   [my cheat sheets](https://github.com/JeffDeCola/my-cheat-sheets/tree/master/software/development/software-architectures/communication/in-process-and-inter-process-communications-ipc-overview-cheat-sheet)
   for a communications overview
-* This repos [github webpage](https://jeffdecola.github.io/my-go-examples/)
 
 ## UNBUFFERED CHANNEL OVERVIEW
 
@@ -89,7 +86,7 @@ This illustration  may help,
 Run,
 
 ```bash
-go run channels-unbuffered.go
+go run main.go
 ```
 
 ```bash
@@ -116,7 +113,7 @@ Note how it takes 4 seconds, because it's a 2 hop process.
 To create _test files,
 
 ```bash
-gotests -w -all channels-unbuffered.go
+gotests -w -all main.go
 ```
 
 To unit test the code,

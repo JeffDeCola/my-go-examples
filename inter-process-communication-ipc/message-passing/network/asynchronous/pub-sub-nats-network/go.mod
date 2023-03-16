@@ -1,3 +1,3 @@
 module pup-sub-nats-network
 
-go 1.17
+go 1.20

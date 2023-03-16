@@ -1,9 +1,7 @@
-# pipes-unnamed-simple
+# PIPE UNNAMED SIMPLE EXAMPLE
 
 _A pipe provides a uni-directional communication channel.
 This is a very simple example of an unnamed pipe._
-
-Other communication examples using,
 
 **I - IN-PROCESS COMMUNICATION**
 
@@ -42,14 +40,14 @@ Other communication examples using,
       * [grpc-network](https://github.com/JeffDeCola/my-go-examples/tree/master/inter-process-communication-ipc/message-passing/network/synchronous/grpc-network)
       * [rest](https://github.com/JeffDeCola/my-go-examples/tree/master/inter-process-communication-ipc/message-passing/network/synchronous/rest)
 
-Table of Contents,
+Table of Contents
 
 * [PIPES OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/in-process-communication/shared-memory/synchronous/pipes-unnamed-simple#pipes-overview)
 * [CODE](https://github.com/JeffDeCola/my-go-examples/tree/master/in-process-communication/shared-memory/synchronous/pipes-unnamed-simple#code)
 * [RUN](https://github.com/JeffDeCola/my-go-examples/tree/master/in-process-communication/shared-memory/synchronous/pipes-unnamed-simple#run)
 * [IN-PROCESS AND INTER-PROCESS COMMUNICATION OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/in-process-communication/shared-memory/synchronous/pipes-unnamed-simple#in-process-and-inter-process-communication-overview)
 
-Documentation and references,
+Documentation and Reference
 
 * Refer to the
   [io.Pipe](https://pkg.go.dev/io#Pipe)
@@ -57,7 +55,6 @@ Documentation and references,
 * Refer to
   [my cheat sheets](https://github.com/JeffDeCola/my-cheat-sheets/tree/master/software/development/software-architectures/communication/in-process-and-inter-process-communications-ipc-overview-cheat-sheet)
   for a communications overview
-* This repos [github webpage](https://jeffdecola.github.io/my-go-examples/)
 
 ## PIPES OVERVIEW
 
@@ -105,7 +102,7 @@ _, err := pr.Read(rcvData)
 Run,
 
 ```bash
-go run pipes-unnamed-simple.go
+go run main.go
 ```
 
 ## IN-PROCESS AND INTER-PROCESS COMMUNICATION OVERVIEW

@@ -1,22 +1,18 @@
-# goroutines-worker-pools
+# GOROUTINES WORKER POOLS
 
 _Concurrency using worker pools._
 
-Other examples using,
+Other Examples
 
 * [goroutines-multi-core](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-multi-core)
 * [goroutines-waitgroup](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-waitgroup)
 * [goroutines-worker-pools](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-worker-pools)
   **<- You are here**
 
-Table of Contents,
+Table of Contents
 
 * [OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-worker-pools#overview)
 * [RUN](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-worker-pools#run)
-
-Documentation and references,
-
-* This repos [github webpage](https://jeffdecola.github.io/my-go-examples/)
 
 ## OVERVIEW
 
@@ -53,7 +49,7 @@ This illustration may help,
 Run,
 
 ```bash
-go run goroutines-worker-pools.go
+go run main.go
 ```
 
 **Press return to stop.**

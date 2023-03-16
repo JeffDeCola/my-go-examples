@@ -1,4 +1,4 @@
-# goroutines-multi-core
+# GOROUTINES MULTI CORE
 
 _Concurrency across multi-cores. You can play around with workers,
 threads, cpus/cores and nice to find the fastest performance.
@@ -6,14 +6,14 @@ It will find the total number of prime numbers within a range._
 
 This will show that **lightweight goroutines are amazing**.
 
-Other examples using,
+Other Examples
 
 * [goroutines-multi-core](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-multi-core)
   **<- You are here**
 * [goroutines-waitgroup](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-waitgroup)
 * [goroutines-worker-pools](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-worker-pools)
 
-Table of contents,
+Table of Contents
 
 * [MACOS DOES NOT WORK](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-multi-core#macos-does-not-work)
 * [OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-multi-core#overview)
@@ -27,13 +27,12 @@ Table of contents,
 * [RUN](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-multi-core#run)
 * [SOME BENCHMARKS](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-multi-core#some-benchmarks)
 
-Documentation and references,
+Documentation and Reference
 
 * [simple-go-runtime-interactions](https://github.com/JeffDeCola/my-go-examples/tree/master/interact-go-runtime/simple-go-runtime-interactions)
 show a few go runtime interactions using the `runtime` package
 * [simple-os-interactions](https://github.com/JeffDeCola/my-go-examples/tree/master/interact-os/simple-os-interactions)
 shows a few os interactions using the `syscall` package
-* This repos [github webpage](https://jeffdecola.github.io/my-go-examples/)
 
 ## MACOS DOES NOT WORK
 
@@ -168,8 +167,8 @@ if setPriority {
 ## RUN
 
 ```bash
-go run goroutines-multi-core.go
-go run goroutines-multi-core.go -loglevel info
+go run main.go
+go run main.go -loglevel info
 ```
 
 Press return to exit.

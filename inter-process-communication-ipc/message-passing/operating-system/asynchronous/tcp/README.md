@@ -1,8 +1,6 @@
-# tcp
+# TCP EXAMPLE
 
 _tbd._
-
-Other communication examples using,
 
 **I - IN-PROCESS COMMUNICATION**
 
@@ -40,11 +38,11 @@ Other communication examples using,
       * [grpc-network](https://github.com/JeffDeCola/my-go-examples/tree/master/inter-process-communication-ipc/message-passing/network/synchronous/grpc-network)
       * [rest](https://github.com/JeffDeCola/my-go-examples/tree/master/inter-process-communication-ipc/message-passing/network/synchronous/rest)
 
-Table of Contents,
+Table of Contents
 
 * tbd
 
-Documentation and references,
+Documentation and Reference
 
 * Refer to the
   [???](https://pkg.go.dev/????)
@@ -52,7 +50,6 @@ Documentation and references,
 * Refer to
   [my cheat sheets](https://github.com/JeffDeCola/my-cheat-sheets/tree/master/software/development/software-architectures/communication/in-process-and-inter-process-communications-ipc-overview-cheat-sheet)
   for a communications overview
-* This repos [github webpage](https://jeffdecola.github.io/my-go-examples/)
 
 ## OVERVIEW
 
@@ -65,7 +62,7 @@ running on hosts communicating via an IP network.
 Run,
 
 ```bash
-go run tcp.go
+go run main.go
 ```
 
 ## TEST
@@ -73,7 +70,7 @@ go run tcp.go
 To create _test files,
 
 ```bash
-gotests -w -all tcp.go
+gotests -w -all main.go
 ```
 
 To unit test the code,

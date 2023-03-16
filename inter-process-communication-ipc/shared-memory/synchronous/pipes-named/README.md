@@ -1,4 +1,4 @@
-# pipes-named
+# PIPES NAMED EXAMPLE
 
 _Sending data over a named-pipe (FIFO) from one process to another process._
 
@@ -41,7 +41,7 @@ Other communication examples using,
       * [grpc-network](https://github.com/JeffDeCola/my-go-examples/tree/master/inter-process-communication-ipc/message-passing/network/synchronous/grpc-network)
       * [rest](https://github.com/JeffDeCola/my-go-examples/tree/master/inter-process-communication-ipc/message-passing/network/synchronous/rest)
 
-Table of Contents,
+Table of Contents
 
 * [NAMED PIPE (FIFO) OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/inter-process-communication-ipc/shared-memory/synchronous/pipes-named#named-pipe-fifo-overview)
 * [RUN](https://github.com/JeffDeCola/my-go-examples/tree/master/inter-process-communication-ipc/shared-memory/synchronous/pipes-named#run)
@@ -55,7 +55,6 @@ Documentation and references,
 * Refer to
   [my cheat sheets](https://github.com/JeffDeCola/my-cheat-sheets/tree/master/software/development/software-architectures/communication/in-process-and-inter-process-communications-ipc-overview-cheat-sheet)
   for a communications overview
-* This repos [github webpage](https://jeffdecola.github.io/my-go-examples/)
 
 ## NAMED PIPE (FIFO) OVERVIEW
 
@@ -73,7 +72,7 @@ reader.go writer.go
 Run,
 
 ```bash
-go run pipes-named.go
+go run main.go
 ```
 
 ## TEST
@@ -81,7 +80,7 @@ go run pipes-named.go
 To create _test files,
 
 ```bash
-gotests -w -all pipes-named.go
+gotests -w -all main.go
 ```
 
 To unit test the code,
