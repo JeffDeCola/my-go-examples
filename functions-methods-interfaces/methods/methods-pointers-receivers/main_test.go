@@ -156,3 +156,103 @@ func Test_main(t *testing.T) {
 		})
 	}
 }
+
+func Test_rectangle_area(t *testing.T) {
+	type fields struct {
+		width  float64
+		height float64
+	}
+	type args struct {
+		a *float64
+	}
+	tests := []struct {
+		name   string
+		fields fields
+		args   args
+	}{
+		// TODO: Add test cases.
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			r := rectangle{
+				width:  tt.fields.width,
+				height: tt.fields.height,
+			}
+			r.area(tt.args.a)
+		})
+	}
+}
+
+func Test_circle_area(t *testing.T) {
+	type fields struct {
+		radius float64
+	}
+	type args struct {
+		a *float64
+	}
+	tests := []struct {
+		name   string
+		fields fields
+		args   args
+	}{
+		// TODO: Add test cases.
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			c := circle{
+				radius: tt.fields.radius,
+			}
+			c.area(tt.args.a)
+		})
+	}
+}
+
+func Test_rectangle_size(t *testing.T) {
+	type fields struct {
+		width  float64
+		height float64
+	}
+	type args struct {
+		f float64
+	}
+	tests := []struct {
+		name   string
+		fields fields
+		args   args
+	}{
+		// TODO: Add test cases.
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			r := &rectangle{
+				width:  tt.fields.width,
+				height: tt.fields.height,
+			}
+			r.size(tt.args.f)
+		})
+	}
+}
+
+func Test_circle_size(t *testing.T) {
+	type fields struct {
+		radius float64
+	}
+	type args struct {
+		f float64
+	}
+	tests := []struct {
+		name   string
+		fields fields
+		args   args
+	}{
+		// TODO: Add test cases.
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			c := &circle{
+				radius: tt.fields.radius,
+			}
+			c.size(tt.args.f)
+		})
+	}
+}

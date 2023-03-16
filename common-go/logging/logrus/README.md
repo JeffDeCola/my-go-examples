@@ -1,8 +1,8 @@
-# logrus
+# LOGRUS EXAMPLE
 
 _Logging using `logrus` package._
 
-Table of Contents,
+Table of Contents
 
 * [OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/common-go/logging/logrus#overview)
   * [SET LOG LEVEL, FORMAT AND OUTPUT](https://github.com/JeffDeCola/my-go-examples/tree/master/common-go/logging/logrus#set-log-level-format-and-output)
@@ -13,7 +13,7 @@ Table of Contents,
 * [RUN](https://github.com/JeffDeCola/my-go-examples/tree/master/common-go/logging/logrus#run)
 * [TEST](https://github.com/JeffDeCola/my-go-examples/tree/master/common-go/logging/logrus#test)
   
-Documentation and references,
+Documentation and Reference
 
 * Refer to the
   [github.com/sirupsen/logrus](https://github.com/sirupsen/logrus)
@@ -21,7 +21,6 @@ Documentation and references,
 * Refer to my
   [flag](https://github.com/JeffDeCola/my-go-examples/tree/master/common-go/flags/flag)
   example
-* This repos [github webpage](https://jeffdecola.github.io/my-go-examples/)
 
 ## OVERVIEW
 
@@ -115,16 +114,11 @@ defer myfile.Close()
 
 ## PREREQUISITES
 
-Need,
-
-```txt
-github.com/sirupsen/logrus
-```
-
-Run,
+You will need the following go packages,
 
 ```bash
-go mod tidy
+go get -u github.com/cweill/gotests/...
+go get -u github.com/sirupsen/logrus
 ```
 
 ## RUN
@@ -132,10 +126,10 @@ go mod tidy
 Run with various log levels,
 
 ```bash
-go run logrus.go
-go run logrus.go -loglevel error
-go run logrus.go -loglevel info
-go run logrus.go -loglevel trace
+go run main.go
+go run main.go -loglevel error
+go run main.go -loglevel info
+go run main.go -loglevel trace
 ```
 
 For trace, the output should be,
@@ -153,13 +147,13 @@ TRAC[0000] Me too                                        animal=cat color=grey
 An example of an error,
 
 ```bash
-go run logrus.go -loglevel badinput
+go run main.go -loglevel badinput
 ```
 
 Log to a logfile instead of stdout,
 
 ```bash
-go run logrus.go -loglevel trace -logfile logfile.log
+go run main.go -loglevel trace -logfile logfile.log
 cat logfile.log
 ```
 
@@ -168,7 +162,7 @@ cat logfile.log
 To create _test files,
 
 ```bash
-gotests -w -all logrus.go
+gotests -w -all main.go
 ```
 
 To unit test the code,

@@ -1,8 +1,8 @@
-# jeffs-basic-go-template
+# JEFF BASIC GO TEMPLATE
 
 _A simple go template with flags, logging & error handling._
 
-Table of Contents,
+Table of Contents
 
 * [OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/common-go/my-generic-go-template/jeffs-basic-go-template#overview)
 * [PREREQUISITES](https://github.com/JeffDeCola/my-go-examples/tree/master/common-go/my-generic-go-template/jeffs-basic-go-template#prerequisites)
@@ -12,16 +12,15 @@ Table of Contents,
   * [-h](https://github.com/JeffDeCola/my-go-examples/tree/master/common-go/my-generic-go-template/jeffs-basic-go-template#-h)
   * [-v](https://github.com/JeffDeCola/my-go-examples/tree/master/common-go/my-generic-go-template/jeffs-basic-go-template#-v)
   * [-loglevel string](https://github.com/JeffDeCola/my-go-examples/tree/master/common-go/my-generic-go-template/jeffs-basic-go-template#-loglevel-string)
-  
+
 Documentation and references,
 
 * Check out my
-  [flag](https://github.com/JeffDeCola/my-go-examples/tree/master/common-go/flags/flag),
+  [flags](https://github.com/JeffDeCola/my-go-examples/tree/master/common-go/flags/flags),
   [logrus](https://github.com/JeffDeCola/my-go-examples/tree/master/common-go/logging/logrus)
   and
   [error-example](https://github.com/JeffDeCola/my-go-examples/tree/master/common-go/error-reporting/error-example)
   examples
-* This repos [github webpage](https://jeffdecola.github.io/my-go-examples/)
 
 ## OVERVIEW
 
@@ -30,22 +29,17 @@ and adds them together.
 
 ## PREREQUISITES
 
-Need,
+You will need the following go package,
 
 ```txt
-github.com/sirupsen/logrus
-```
-
-Run,
-
-```bash
-go mod tidy
+go get -u github.com/cweill/gotests/...
+go get -u github.com/sirupsen/logrus
 ```
 
 ## RUN
 
 ```bash
-go run jeffs-basic-go-template.go
+go run main.go
 ```
 
 Things to try,
@@ -59,7 +53,7 @@ Things to try,
 To create `_test` files,
 
 ```bash
-gotests -w -all jeffs-basic-go-template.go
+gotests -w -all main.go
 ```
 
 To unit test the code,
@@ -83,7 +77,7 @@ I do the same thing in the function `getNumbers()`.
 ## USAGE
 
 ```bash
-go run jeffs-basic-go-template.go {-h|-v} -loglevel {trace|info|error}
+go run main.go {-h|-v} -loglevel {trace|info|error}
 ```
 
 ### -h
@@ -91,7 +85,7 @@ go run jeffs-basic-go-template.go {-h|-v} -loglevel {trace|info|error}
 Help,
 
 ```bash
-go run jeffs-basic-go-template.go -h
+go run main.go -h
 ```
 
 ### -v
@@ -99,13 +93,13 @@ go run jeffs-basic-go-template.go -h
 Version,
 
 ```bash
-go run jeffs-basic-go-template.go -v
+go run main.go -v
 ```
 
 ### -loglevel string
 
 ```bash
-go run jeffs-basic-go-template.go -loglevel trace
-go run jeffs-basic-go-template.go -loglevel info
-go run jeffs-basic-go-template.go -loglevel error
+go run main.go -loglevel trace
+go run main.go -loglevel info
+go run main.go -loglevel error
 ```

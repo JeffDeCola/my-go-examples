@@ -1,4 +1,4 @@
-# methods-pointers-arguments
+# METHODS POINTERS ARGUMENTS EXAMPLE
 
 _Using methods to calculate the area of a rectangle and circle
 by passing pointers._
@@ -17,8 +17,8 @@ Other examples using,
   * [interfaces](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/interfaces/interfaces)
   * [interfaces-pointers-arguments](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/interfaces/interfaces-pointers-arguments)
   * [interfaces-pointers-receivers](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/interfaces/interfaces-pointers-receivers)
-  * [geometry-package](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/interfaces/geometry-package)
-  
+  * [shapes-package](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/interfaces/shapes-package)
+
 tl;dr,
 
 ```go
@@ -74,16 +74,12 @@ tl;dr,
         gRec.size(2)
 ```
 
-Table of Contents,
+Table of Contents
 
 * [OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/methods/methods-pointers-arguments#overview)
 * [RUN](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/methods/methods-pointers-arguments#run)
 * [TEST](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/methods/methods-pointers-arguments#test)
 * [AN ILLUSTRATION THAT MAY HELP](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/methods/methods-pointers-arguments#an-illustration-that-may-help)
-
-Documentation and reference,
-
-* This repos [github webpage](https://jeffdecola.github.io/my-go-examples/)
 
 ## OVERVIEW
 
@@ -121,7 +117,7 @@ func (r Rectangle) area(a *float64) {
 To run,
 
 ```bash
-go run methods-pointers-arguments.go
+go run main.go
 ```
 
 ## TEST
@@ -129,7 +125,7 @@ go run methods-pointers-arguments.go
 To create _test files,
 
 ```bash
-gotests -w -all methods-pointers-arguments.go
+gotests -w -all main.go
 ```
 
 To unit test the code,

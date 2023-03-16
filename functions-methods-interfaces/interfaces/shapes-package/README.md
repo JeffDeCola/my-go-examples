@@ -1,4 +1,4 @@
-# shapes-package
+# SHAPES PACKAGE EXAMPLE
 
 _Using an interface to calculate and manipulate simple 2D and 3D geometric shapes._
 
@@ -15,7 +15,7 @@ Other examples using,
   * [interfaces](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/interfaces/interfaces)
   * [interfaces-pointers-arguments](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/interfaces/interfaces-pointers-arguments)
   * [interfaces-pointers-receivers](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/interfaces/interfaces-pointers-receivers)
-  * [geometry-package](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/interfaces/geometry-package)
+  * [shapes-package](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/interfaces/shapes-package)
     **<- YOU ARE HERE**
 
 tl;dr,
@@ -73,7 +73,7 @@ tl;dr,
         gRec.size(2)
 ```
 
-Table of Contents,
+Table of Contents
 
 * [PREREQUISITES](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/interfaces/shapes-package#prerequisites)
 * [OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/interfaces/shapes-package#overview)
@@ -82,18 +82,10 @@ Table of Contents,
 * [TEST](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/interfaces/shapes-package#test)
 * [AN ILLUSTRATION THAT MAY HELP](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/interfaces/shapes-package#an-illustration-that-may-help)
 
-Documentation and reference,
+Documentation and Reference
 
 * My shapes
   [package](https://github.com/JeffDeCola/my-go-packages/tree/master/geometry/shapes)
-* This repos [github webpage](https://jeffdecola.github.io/my-go-examples/)
-
-## PREREQUISITES
-
-```go
-go get -u -v github.com/JeffDeCola/my-go-packages
-go install -v github.com/JeffDeCola/my-go-packages@latest
-```
 
 ## OVERVIEW
 
@@ -106,6 +98,13 @@ func GetPerimeter(t TwoDCalculations) float64
 func GetVolume(t ThreeDCalculations) float64
 func GetSurfaceArea(t ThreeDCalculations) float64
 func ChangeSize(t ShapeManipulations, f float64)
+```
+
+## PREREQUISITES
+
+```go
+go get -u -v github.com/JeffDeCola/my-go-packages
+go install -v github.com/JeffDeCola/my-go-packages@latest
 ```
 
 ## EXAMPLE

@@ -1,15 +1,11 @@
-# simple-c-code example
+# SIMPLE C CODE EXAMPLE
 
 _A very simple example to show you how to write a c function in go._
 
-Table of Contents,
+Table of Contents
 
 * [OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/cgo/simple-c-code#overview)
 * [RUN](https://github.com/JeffDeCola/my-go-examples/tree/master/cgo/simple-c-code#run)
-
-Documentation and references,
-
-* This repos [github webpage](https://jeffdecola.github.io/my-go-examples/)
 
 ## OVERVIEW
 
@@ -46,7 +42,7 @@ func main() {
 ## RUN
 
 ```bash
-go run simple-c-code.go
+go run main.go
 ```
 
 The output is,

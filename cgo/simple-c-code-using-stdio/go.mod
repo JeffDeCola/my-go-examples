@@ -1,3 +1,3 @@
 module simple-c-code-using-stdio
 
-go 1.17
+go 1.20

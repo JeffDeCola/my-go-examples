@@ -1,4 +1,4 @@
-# functions-pointers-arguments
+# FUNCTION POINTERS ARGUMENTS EXAMPLE
 
 _Using functions to calculate the area of a rectangle and circle
 by passing pointers._
@@ -17,7 +17,7 @@ Other examples using,
   * [interfaces](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/interfaces/interfaces)
   * [interfaces-pointers-arguments](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/interfaces/interfaces-pointers-arguments)
   * [interfaces-pointers-receivers](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/interfaces/interfaces-pointers-receivers)
-  * [geometry-package](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/interfaces/geometry-package)
+  * [shapes-package](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/interfaces/shapes-package)
   
 tl;dr,
 
@@ -74,16 +74,12 @@ tl;dr,
         gRec.size(2)
 ```
 
-Table of Contents,
+Table of Contents
 
 * [OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/functions/functions-pointers-arguments#overview)
 * [RUN](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/functions/functions-pointers-arguments#run)
 * [TEST](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/functions/functions-pointers-arguments#test)
 * [AN ILLUSTRATION THAT MAY HELP](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/functions/functions-pointers-arguments#an-illustration-that-may-help)
-
-Documentation and reference,
-
-* This repos [github webpage](https://jeffdecola.github.io/my-go-examples/)
 
 ## OVERVIEW
 
@@ -114,7 +110,7 @@ func areaRectangle(w float64, h float64, a *float64) {
 To run,
 
 ```bash
-go run functions-pointers-arguments.go
+go run main.go
 ```
 
 ## TEST
@@ -122,7 +118,7 @@ go run functions-pointers-arguments.go
 To create _test files,
 
 ```bash
-gotests -w -all functions-pointers-arguments.go
+gotests -w -all main.go
 ```
 
 To unit test the code,
