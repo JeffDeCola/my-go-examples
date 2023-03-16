@@ -1,3 +1,3 @@
 module area-shapes-functions-ptrs
 
-go 1.17
+go 1.20

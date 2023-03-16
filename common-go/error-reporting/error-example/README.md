@@ -1,27 +1,35 @@
-# error-example
+# ERROR EXAMPLE
 
 _Error Handling using the standard `error` package._
 
-Table of Contents,
+Table of Contents
 
 * [OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/common-go/error-reporting/error-example#overview)
-  * [DEFINE YOUR OWN ERROR](https://github.com/JeffDeCola/my-go-examples/tree/master/common-go/error-reporting/error-example#define-your-own-error)
+* [PREREQUISITES](https://github.com/JeffDeCola/my-go-examples/tree/master/common-go/error-reporting/error-example#prerequisites)
+* [DEFINE YOUR OWN ERROR](https://github.com/JeffDeCola/my-go-examples/tree/master/common-go/error-reporting/error-example#define-your-own-error)
 * [RUN](https://github.com/JeffDeCola/my-go-examples/tree/master/common-go/error-reporting/error-example#run)
 * [TEST](https://github.com/JeffDeCola/my-go-examples/tree/master/common-go/error-reporting/error-example#test)
 
-Documentation and references,
+Documentation and References
 
 * Refer to the
   [errors](https://pkg.go.dev/errors)
   package for more info
-* This repos [github webpage](https://jeffdecola.github.io/my-go-examples/)
 
 ## OVERVIEW
 
 Go doesn’t have exceptions, so it doesn’t have try, catch or anything similar.
 So how do we handle errors? **With Multiple return values**.
 
-### DEFINE YOUR OWN ERROR
+## PREREQUISITES
+
+You will need the following go packages,
+
+```bash
+go get -u github.com/cweill/gotests/...
+```
+
+## DEFINE YOUR OWN ERROR
 
 It's very easy. For example,
 
@@ -42,7 +50,7 @@ the error up the function calls.
 Run,
 
 ```bash
-go run error-example.go
+go run main.go
 ```
 
 The output may look like,
@@ -70,7 +78,7 @@ Notice how it traces the error back to your original function.
 To create _test files,
 
 ```bash
-gotests -w -all error-example.go
+gotests -w -all main.go
 ```
 
 To unit test the code,

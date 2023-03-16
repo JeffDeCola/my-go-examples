@@ -1,4 +1,4 @@
-// my-go-examples error-example.go
+// my-go-examples error-example
 
 package main
 

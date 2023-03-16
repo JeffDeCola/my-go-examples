@@ -1,15 +1,11 @@
-# simple-c-code-using-stdio
+# SIMPLE C CODE USING STDIO EXAMPLE
 
 _A c function in go using stdio.h for printf._
 
-Table of Contents,
+Table of Contents
 
 * [OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/cgo/simple-c-code-using-stdio#overview)
 * [RUN](https://github.com/JeffDeCola/my-go-examples/tree/master/cgo/simple-c-code-using-stdio#run)
-
-Documentation and references,
-
-* This repos [github webpage](https://jeffdecola.github.io/my-go-examples/)
 
 ## OVERVIEW
 
@@ -59,7 +55,7 @@ func main() {
 ## RUN
 
 ```bash
-go run simple-c-code-using-stdio.go
+go run main.go
 ```
 
 The output is,

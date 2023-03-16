@@ -1,4 +1,4 @@
-# functions
+# FUNCTIONS EXAMPLE
 
 _Using functions to calculate the area of a rectangle and circle._
 
@@ -16,7 +16,7 @@ Other examples using,
   * [interfaces](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/interfaces/interfaces)
   * [interfaces-pointers-parameters](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/interfaces/interfaces-pointers-parameters)
   * [interfaces-pointers-receivers](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/interfaces/interfaces-pointers-receivers)
-  * [geometry-package](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/interfaces/geometry-package)
+  * [shapes-package](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/interfaces/shapes-package)
 
 tl;dr,
 
@@ -73,16 +73,12 @@ tl;dr,
         gRec.size(2)
 ```
 
-Table of Contents,
+Table of Contents
 
 * [OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/functions/functions#overview)
 * [RUN](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/functions/functions#run)
 * [TEST](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/functions/functions#test)
 * [AN ILLUSTRATION THAT MAY HELP](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/functions/functions#an-illustration-that-may-help)
-
-Documentation and reference,
-
-* This repos [github webpage](https://jeffdecola.github.io/my-go-examples/)
 
 ## OVERVIEW
 
@@ -113,7 +109,7 @@ func areaRectangle(w float64, h float64) float64 {
 To run,
 
 ```bash
-go run functions.go
+go run main.go
 ```
 
 ## TEST
@@ -121,7 +117,7 @@ go run functions.go
 To create _test files,
 
 ```bash
-gotests -w -all functions.go
+gotests -w -all main.go
 ```
 
 To unit test the code,

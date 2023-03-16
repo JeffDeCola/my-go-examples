@@ -1,4 +1,4 @@
-// my-go-examples simple-c-code-using-stdio.go
+// my-go-examples simple-c-code-using-stdio
 
 package main
 

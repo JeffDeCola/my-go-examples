@@ -196,12 +196,6 @@ _(Using the same key to encrypt and decrypt)_
     _Using an interface to calculate the area of a rectangle and circle
     by passing pointers and using pointer receivers._
 
-  * [geometry-package](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/interfaces/geometry-package)
-
-    _Using an interface to calculate the area and perimeter of a rectangle,
-    circle and triangle via a geometry package.
-    It uses pointers for arguments and receivers._
-
   * [shapes-package](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/interfaces/shapes-package)
 
     _Using an interface to calculate and manipulate simple 2D and 3D geometric shapes._

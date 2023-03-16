@@ -1,19 +1,18 @@
-# flags
+# FLAGS EXAMPLE
 
 _The `flag` standard package makes it easy to implement command-line flag parsing._
 
-Table of Contents,
+Table of Contents
 
-* [OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/common-go/flags/flag#overview)
-* [RUN](https://github.com/JeffDeCola/my-go-examples/tree/master/common-go/flags/flag#run)
-* [TEST](https://github.com/JeffDeCola/my-go-examples/tree/master/common-go/flags/flag#test)
+* [OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/common-go/flags/flags#overview)
+* [PREREQUISITES](https://github.com/JeffDeCola/my-go-examples/tree/master/common-go/flags/flags#prerequisites)
+* [RUN](https://github.com/JeffDeCola/my-go-examples/tree/master/common-go/flags/flags#run)
 
-Documentation and reference,
+Documentation and Reference
 
 * Refer to the
   [flag](https://golang.org/pkg/flag/)
   package for more info
-* This repos [github webpage](https://jeffdecola.github.io/my-go-examples/)
 
 ## OVERVIEW
 
@@ -43,6 +42,14 @@ func main() {
 }
 ```
 
+## PREREQUISITES
+
+You will need the following go packages,
+
+```bash
+go get -u github.com/cweill/gotests/...
+```
+
 ## RUN
 
 For integers and strings, the following formats are permitted,
@@ -53,19 +60,19 @@ For integers and strings, the following formats are permitted,
 String,
 
 ```bash
-go run flag.go -s "happy days"
-go run flag.go -s="happy days"
+go run main.go -s "happy days"
+go run main.go -s="happy days"
 ```
 
 Integer,
 
 ```bash
-go run flag.go -i 56
-go run flag.go -i=56
+go run main.go -i 56
+go run main.go -i=56
 ```
 
 Boolean,
 
 ```bash
-go run flag.go -b
+go run main.go -b
 ```

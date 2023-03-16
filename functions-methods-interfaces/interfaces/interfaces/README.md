@@ -1,4 +1,4 @@
-# interfaces
+# INTERFACES EXAMPLE
 
 _Using an interface to calculate the area of a rectangle and circle._
 
@@ -16,7 +16,7 @@ Other examples using,
     **<- YOU ARE HERE**
   * [interfaces-pointers-arguments](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/interfaces/interfaces-pointers-arguments)
   * [interfaces-pointers-receivers](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/interfaces/interfaces-pointers-receivers)
-  * [geometry-package](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/interfaces/geometry-package)
+  * [shapes-package](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/interfaces/shapes-package)
   
 tl;dr,
 
@@ -81,10 +81,6 @@ Table of Contents,
 * [TEST](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/interfaces/interfaces#test)
 * [AN ILLUSTRATION THAT MAY HELP](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/interfaces/interfaces#an-illustration-that-may-help)
 
-Documentation and reference,
-
-* This repos [github webpage](https://jeffdecola.github.io/my-go-examples/)
-
 ## OVERVIEW
 
 Define the rectangle using a struct,
@@ -146,7 +142,7 @@ recArea := theArea(rec)
 To run,
 
 ```bash
-go run interfaces.go
+go run main.go
 ```
 
 ## TEST
@@ -154,7 +150,7 @@ go run interfaces.go
 To create _test files,
 
 ```bash
-gotests -w -all interfaces.go
+gotests -w -all main.go
 ```
 
 To unit test the code,

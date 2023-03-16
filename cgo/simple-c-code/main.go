@@ -1,4 +1,4 @@
-// my-go-examples simple-c-code.go
+// my-go-examples simple-c-code
 
 package main
 
