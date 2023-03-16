@@ -1,6 +1,6 @@
 # BLINK LED RASPBERRY PI GPIO PERIPH
 
-_GPIO OUPUT -
+_GPIO OUTPUT -
 Blink an LED
 via a Raspberry Pi GPIO
 using the `periph.io/...` packages._

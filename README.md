@@ -1,14 +1,17 @@
-# my-go-examples
+# MY GO EXAMPLES
 
+[![Tag Latest](https://img.shields.io/github/v/tag/jeffdecola/my-go-examples)](https://github.com/JeffDeCola/my-go-examples/tags)
+[![Go Reference](https://pkg.go.dev/badge/github.com/JeffDeCola/my-go-examples.svg)](https://pkg.go.dev/github.com/JeffDeCola/my-go-examples)
 [![Go Report Card](https://goreportcard.com/badge/github.com/JeffDeCola/my-go-examples)](https://goreportcard.com/report/github.com/JeffDeCola/my-go-examples)
-[![GoDoc](https://godoc.org/github.com/JeffDeCola/my-go-examples?status.svg)](https://godoc.org/github.com/JeffDeCola/my-go-examples)
-[![Maintainability](https://api.codeclimate.com/v1/badges/3c5477c63d77a071fdff/maintainability)](https://codeclimate.com/github/JeffDeCola/my-go-examples/maintainability)
-[![Issue Count](https://codeclimate.com/github/JeffDeCola/my-go-examples/badges/issue_count.svg)](https://codeclimate.com/github/JeffDeCola/my-go-examples/issues)
-[![License](http://img.shields.io/:license-mit-blue.svg)](http://jeffdecola.mit-license.org)
+[![codeclimate Maintainability](https://api.codeclimate.com/v1/badges/3c5477c63d77a071fdff/maintainability)](https://codeclimate.com/github/JeffDeCola/my-go-examples/maintainability)
+[![codeclimate Issue Count](https://codeclimate.com/github/JeffDeCola/my-go-examples/badges/issue_count.svg)](https://codeclimate.com/github/JeffDeCola/my-go-examples/issues)
+[![Docker Pulls](https://badgen.net/docker/pulls/jeffdecola/my-go-examples?icon=docker&label=pulls)](https://hub.docker.com/r/jeffdecola/crypto-wallet-status/)
+[![MIT License](http://img.shields.io/:license-mit-blue.svg)](http://jeffdecola.mit-license.org)
+[![jeffdecola.com](https://img.shields.io/badge/website-jeffdecola.com-blue)](https://jeffdecola.com)
 
 _A place to keep my go examples._
 
-Table of Contents,
+Table of Contents
 
 * [ARCHITECTURES](https://github.com/JeffDeCola/my-go-examples#architectures)
   * BLOCKCHAIN
@@ -50,7 +53,7 @@ Table of Contents,
   * RASPBERRY PI
 * [MODULES AND PACKAGES](https://github.com/JeffDeCola/my-go-examples#modules-and-packages)
 
-Documentation and reference,
+Documentation and Reference
 
 * My [go cheat sheet](https://github.com/JeffDeCola/my-cheat-sheets/tree/master/software/development/languages/go-cheat-sheet)
 * [my-go-packages](https://github.com/JeffDeCola/my-go-packages)
@@ -374,14 +377,14 @@ _(Using the same key to encrypt and decrypt)_
 
   * [blink-led-raspberry-pi-gpio-periph](https://github.com/JeffDeCola/my-go-examples/tree/master/iot/raspberry-pi/blink-led-raspberry-pi-gpio-periph)
 
-    _GPIO OUPUT -
+    _GPIO OUTPUT -
     Blink an LED
     via a Raspberry Pi GPIO
     using the `periph.io/...` packages._
 
   * [push-button-raspberry-pi-gpio-periph](https://github.com/JeffDeCola/my-go-examples/tree/master/iot/raspberry-pi/push-button-raspberry-pi-gpio-periph)
 
-    _GPIO INPUT - 
+    _GPIO INPUT -
     Push a button
     via a Raspberry Pi GPIO
     using the `periph.io/...` packages._

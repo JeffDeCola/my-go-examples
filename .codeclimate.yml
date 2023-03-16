@@ -9,7 +9,6 @@ version: "2"
 #     path: destination relative to repo's root directory
 
 # --------------------------------------------------------------------------
-
 # checks: Configuration of maintainability checks
 #   <name>
 #     enabled: true|false
@@ -30,13 +29,12 @@ checks:
 
 plugins:
   # A tool designed to check markdown files and flag style issues
-  # I had to shut it off because it flags on inline HTML code
   markdownlint:
-    enabled: false
-  # A tool for suggesting possible improvements to bash/sh shell scripts.
+    enabled: true
+  # A tool for suggesting possible improvements to bash/sh shell scripts
   shellcheck:
     enabled: true
-  # Official style checker from the Go team.
+  # Official style checker from the Go team
   gofmt:
     enabled: true
   # Lints
