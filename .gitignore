@@ -1,21 +1,21 @@
 # CONCOURSE
 .credentials.yml
 
+# VSCODE
+.vscode/
+
 # GO
 coverage.out
-**/test/test_coverage.txt
 
 # macOS
 .DS_Store
 
-# # WINDOWS
+# WINDOWS
 *.jpg:Zone.Identifier
 
 # Ignore binaries
-# **/bin/hello-go
 
 # Ignore test coverage
 **/test/test_coverage.txt
 
 # Ignore binary used for docker build
-# **/build/hello-go
