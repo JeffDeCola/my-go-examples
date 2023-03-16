@@ -28,7 +28,7 @@ tl;dr,
 // FUNCTIONS
 
     // USING RETURNS
-        func areaRectangle(w float64, h float64) float64 {    
+        func areaRectangle(w float64, h float64) float64 {
         recArea := areaRectangle(recWidth, recHeight)
     // USING POINTERS IN ARGUMENTS
         func areaRectangle(w float64, h float64, a *float64) {
@@ -52,7 +52,7 @@ tl;dr,
         rec.size(2)
 
 // INTERFACES
-    
+
     // USING RETURNS
         func (geometry).area() float64 // Abstract representation
         rec := Rectangle{2.4, 34.4}

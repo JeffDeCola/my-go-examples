@@ -107,15 +107,15 @@ go run main.go
 Output will be,
 
 ```txt
-RECEIVED   : I am the data that w 
-RECEIVED   : ill be sent 1 
-SEND       : I am the data that will be sent 1 
-RECEIVED   : I am the data that w 
-RECEIVED   : ill be sent 2 
-SEND       : I am the data that will be sent 2 
-RECEIVED   : I am the data that w 
-RECEIVED   : ill be sent 3 
-SEND       : I am the data that will be sent 3 
+RECEIVED   : I am the data that w
+RECEIVED   : ill be sent 1
+SEND       : I am the data that will be sent 1
+RECEIVED   : I am the data that w
+RECEIVED   : ill be sent 2
+SEND       : I am the data that will be sent 2
+RECEIVED   : I am the data that w
+RECEIVED   : ill be sent 3
+SEND       : I am the data that will be sent 3
 CLOSED PIPE
 EOF
 DONE

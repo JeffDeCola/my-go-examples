@@ -30,9 +30,9 @@ Table of Contents
 Documentation and Reference
 
 * [simple-go-runtime-interactions](https://github.com/JeffDeCola/my-go-examples/tree/master/interact-go-runtime/simple-go-runtime-interactions)
-show a few go runtime interactions using the `runtime` package
+  show a few go runtime interactions using the `runtime` package
 * [simple-os-interactions](https://github.com/JeffDeCola/my-go-examples/tree/master/interact-os/simple-os-interactions)
-shows a few os interactions using the `syscall` package
+  shows a few os interactions using the `syscall` package
 
 ## MACOS DOES NOT WORK
 
@@ -80,14 +80,14 @@ var channelBufferSize = numberWorkers + 1
 const lockGoroutineToThread = false
 
 // FEATURE 2 - LOCK A GOROUTINE TO A CPU
-const lockGoroutineToCPU = false 
+const lockGoroutineToCPU = false
 var useTheseCPUs = []int{9}
 
 // FEATURE 3 - LOCK A THREAD TO A CPU
 const lockThreadToCore = false
 
 // FEATURE 4 - SET PRIORITY ON THREAD
-const setPriority = false  
+const setPriority = false
 const setPriorityLevel = 0
 ```
 
@@ -99,7 +99,7 @@ worker 1 will get numbers 1-200, worker 2, 201-400 and so on.
 ## GO RUNTIME FEATURES
 
 The `go runtime` will schedule goroutines to cores and threads.  And this
-can change a lot.  
+can change a lot.
 
 ### FEATURE 1 -  LOCK A GOROUTINE TO A THREAD
 
