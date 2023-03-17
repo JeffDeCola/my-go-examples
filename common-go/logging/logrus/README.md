@@ -137,8 +137,8 @@ For trace, the output should be,
 ```bash
 ERRO[0000] Something failed but I'm not quitting.
 INFO[0000] Something noteworthy happened!
-TRAC[0000] Something very low level.   
-INFO[0000] This is from jeff                            
+TRAC[0000] Something very low level.
+INFO[0000] This is from jeff          
 TRAC[0000] What animal is it?                            animal=cat
 TRAC[0000] Using the animal and color field              animal=cat color=grey
 TRAC[0000] Me too                                        animal=cat color=grey

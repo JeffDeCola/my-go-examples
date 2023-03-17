@@ -2,8 +2,6 @@
 
 _Sending data over a named-pipe (FIFO) from one process to another process._
 
-Other communication examples using,
-
 **I - IN-PROCESS COMMUNICATION**
 
 * **SHARED MEMORY**
@@ -47,7 +45,8 @@ Table of Contents
 * [RUN](https://github.com/JeffDeCola/my-go-examples/tree/master/inter-process-communication-ipc/shared-memory/synchronous/pipes-named#run)
 * [TEST](https://github.com/JeffDeCola/my-go-examples/tree/master/inter-process-communication-ipc/shared-memory/synchronous/pipes-named#test)
 * [IN-PROCESS AND INTER-PROCESS COMMUNICATION OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/inter-process-communication-ipc/shared-memory/synchronous/pipes-named#in-process-and-inter-process-communication-overview)
-Documentation and references,
+
+Documentation and Reference
 
 * Refer to the
   [???](https://pkg.go.dev/????)
