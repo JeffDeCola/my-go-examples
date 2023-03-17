@@ -76,7 +76,7 @@ gotests -w -all main.go
 To unit test the code,
 
 ```bash
-go test -cover ./... 
+go test -cover ./...
 ```
 
 ## IN-PROCESS AND INTER-PROCESS COMMUNICATION OVERVIEW

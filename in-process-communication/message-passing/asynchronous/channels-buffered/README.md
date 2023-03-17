@@ -90,20 +90,20 @@ go run main.go
 ```
 
 ```bash
-SEND:     I am the data that will be sent 
+SEND:     I am the data that will be sent
 SEND FAST - WAITS
 Chilling....
-RECEIVED: I am the data that was received 6 - Took 2 seconds 
+RECEIVED: I am the data that was received 6 - Took 2 seconds
 Chilling....
 SEND SLOW
-RECEIVED: I am the data that was received A - Took 1 seconds 
+RECEIVED: I am the data that was received A - Took 1 seconds
 Chilling....
-RECEIVED: I am the data that was received B - Took 2 seconds 
-RECEIVED: I am the data that was received C - Took 1 seconds 
+RECEIVED: I am the data that was received B - Took 2 seconds
+RECEIVED: I am the data that was received C - Took 1 seconds
 Chilling....
-RECEIVED: I am the data that was received D - Took 2 seconds 
+RECEIVED: I am the data that was received D - Took 2 seconds
 TOTAL TIME: 17 seconds
-RECEIVED: I am the data that was received E - Took 1 seconds 
+RECEIVED: I am the data that was received E - Took 1 seconds
 Chilling....
 Chilling....
 Chilling....
@@ -123,7 +123,7 @@ gotests -w -all main.go
 To unit test the code,
 
 ```bash
-go test -cover ./... 
+go test -cover ./...
 ```
 
 ## IN-PROCESS AND INTER-PROCESS COMMUNICATION OVERVIEW

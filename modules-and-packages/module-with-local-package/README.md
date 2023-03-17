@@ -63,7 +63,7 @@ Now edit test files.
 To unit test the code,
 
 ```bash
-go test -cover ./... 
+go test -cover ./...
 ```
 
 ## VS CODE AND GO MULTI-MODULES (go.work)
