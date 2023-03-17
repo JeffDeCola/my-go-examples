@@ -62,11 +62,11 @@ YOUR ANSWER 4 IS CORRECT!
 What is 2+2 (type stop to quit)? 5
 INCORRECT!
 ERRO[0003] Error with answer: error calling checkNumber: 5 was provided: the answer is incorrect
------------------------- 
+------------------------
 What is 2+2 (type stop to quit)? cat
 Not an integer
 ERRO[0005] Error with answer: unable to convert to integer: strconv.Atoi: parsing "cat": invalid syntax
------------------------- 
+------------------------
 What is 2+2 (type stop to quit)? stop
 Done
 ```
@@ -84,5 +84,5 @@ gotests -w -all main.go
 To unit test the code,
 
 ```bash
-go test -cover ./... 
+go test -cover ./...
 ```

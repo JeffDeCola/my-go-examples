@@ -90,20 +90,20 @@ go run main.go
 ```
 
 ```bash
-SEND:     I am the data that will be sent 
+SEND:     I am the data that will be sent
 SEND FAST - WAITS
-RECEIVED: I am the data that was received 1 - Took 0 seconds 
-RECEIVED: I am the data that was received 2 - Took 2 seconds 
-RECEIVED: I am the data that was received 3 - Took 4 seconds 
-RECEIVED: I am the data that was received 4 - Took 4 seconds 
-RECEIVED: I am the data that was received 5 - Took 4 seconds 
-RECEIVED: I am the data that was received 6 - Took 4 seconds 
+RECEIVED: I am the data that was received 1 - Took 0 seconds
+RECEIVED: I am the data that was received 2 - Took 2 seconds
+RECEIVED: I am the data that was received 3 - Took 4 seconds
+RECEIVED: I am the data that was received 4 - Took 4 seconds
+RECEIVED: I am the data that was received 5 - Took 4 seconds
+RECEIVED: I am the data that was received 6 - Took 4 seconds
 SEND SLOW
-RECEIVED: I am the data that was received A - Took 0 seconds 
-RECEIVED: I am the data that was received B - Took 0 seconds 
-RECEIVED: I am the data that was received C - Took 0 seconds 
-RECEIVED: I am the data that was received D - Took 0 seconds 
-RECEIVED: I am the data that was received E - Took 0 seconds 
+RECEIVED: I am the data that was received A - Took 0 seconds
+RECEIVED: I am the data that was received B - Took 0 seconds
+RECEIVED: I am the data that was received C - Took 0 seconds
+RECEIVED: I am the data that was received D - Took 0 seconds
+RECEIVED: I am the data that was received E - Took 0 seconds
 ```
 
 Note how it takes 4 seconds, because it's a 2 hop process.
@@ -119,7 +119,7 @@ gotests -w -all main.go
 To unit test the code,
 
 ```bash
-go test -cover ./... 
+go test -cover ./...
 ```
 
 ## IN-PROCESS AND INTER-PROCESS COMMUNICATION OVERVIEW

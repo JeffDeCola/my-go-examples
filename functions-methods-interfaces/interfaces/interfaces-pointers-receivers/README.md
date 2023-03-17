@@ -18,7 +18,7 @@ Other Examples
   * [interfaces-pointers-receivers](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/interfaces/interfaces-pointers-receivers)
     **<- YOU ARE HERE**
   * [shapes-package](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/interfaces/shapes-package)
-  
+
 tl;dr,
 
 ```go
@@ -139,7 +139,7 @@ gotests -w -all main.go
 To unit test the code,
 
 ```bash
-go test -cover ./... 
+go test -cover ./...
 ```
 
 ## AN ILLUSTRATION THAT MAY HELP

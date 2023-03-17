@@ -12,7 +12,7 @@ Table of Contents
 * [PREREQUISITES](https://github.com/JeffDeCola/my-go-examples/tree/master/common-go/logging/logrus#prerequisites)
 * [RUN](https://github.com/JeffDeCola/my-go-examples/tree/master/common-go/logging/logrus#run)
 * [TEST](https://github.com/JeffDeCola/my-go-examples/tree/master/common-go/logging/logrus#test)
-  
+
 Documentation and Reference
 
 * Refer to the
@@ -55,7 +55,7 @@ log.SetFormatter(&log.TextFormatter{})
 ```
 
 Set output to stdout instead of the default stderr,
-  
+
 ```go
 // SET OUTPUT (DEFAULT stderr)
 log.SetOutput(os.Stdout)
@@ -135,9 +135,9 @@ go run main.go -loglevel trace
 For trace, the output should be,
 
 ```bash
-ERRO[0000] Something failed but I'm not quitting.       
-INFO[0000] Something noteworthy happened!               
-TRAC[0000] Something very low level.                    
+ERRO[0000] Something failed but I'm not quitting.
+INFO[0000] Something noteworthy happened!
+TRAC[0000] Something very low level.   
 INFO[0000] This is from jeff                            
 TRAC[0000] What animal is it?                            animal=cat
 TRAC[0000] Using the animal and color field              animal=cat color=grey
@@ -168,5 +168,5 @@ gotests -w -all main.go
 To unit test the code,
 
 ```bash
-go test -cover ./... 
+go test -cover ./...
 ```
