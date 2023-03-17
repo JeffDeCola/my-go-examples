@@ -58,3 +58,6 @@ plugins:
 exclude_patterns:
 - "docs/"
 - "**/*_test.go" # exclude the unit testing code
+- "**/goroutines/goroutines-multi-core/main.go" #doWork` has 72 lines of code
+- "**/common-go/my-generic-go-template/jeffs-basic-go-template/main.go" #getNumbers` has 5 return statements
+- "**/goroutines/goroutines-multi-core/README.md" #Line length
