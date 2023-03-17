@@ -12,6 +12,7 @@ import (
 	log "github.com/sirupsen/logrus"
 )
 
+// ErrIncorrectAnswer is an error that is returned when the answer is incorrect
 var ErrIncorrectAnswer = errors.New("the answer is incorrect")
 
 func askQuestion(r io.Reader) (string, error) {
