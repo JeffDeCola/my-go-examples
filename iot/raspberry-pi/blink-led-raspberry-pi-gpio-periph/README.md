@@ -63,7 +63,7 @@ Now you can control the OUTPUT of that GPIO pin
 with a High or Low state,
 
 ```go
-ledPinState := gpio.High 
+ledPinState := gpio.High
 ledPin.Out(ledPinState)
 ```
 

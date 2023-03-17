@@ -84,7 +84,7 @@ func main() {
 
     // Get the area
     a := c.Area()
-    fmt.Println("Area =", a)    
+    fmt.Println("Area =", a)
 
     // Get the circumference
     p := c.Circumference()
