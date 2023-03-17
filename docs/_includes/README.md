@@ -2,11 +2,11 @@
   [concourse](https://github.com/JeffDeCola/my-go-examples/blob/master/ci-README.md)_
 
 # ARCHITECTURES
-  
+
 * BLOCKCHAIN
 
   * _coming soon_
-  
+
 * SCRAPING
 
   * _coming soon_
@@ -72,17 +72,17 @@
 ## CRYPTOGRAPHY
 
 * ASYMMETRIC CRYPTOGRAPHY
-_(Great for digital signatures (verify sender) and receiving encrypted data)_
+  _(Great for digital signatures (verify sender) and receiving encrypted data)_
 
   * _coming soon_
 
 * HASHING
-_(Great for getting fingerprints)_
+  _(Great for getting fingerprints)_
 
   * _coming soon_
 
 * SYMMETRIC CRYPTOGRAPHY
-_(Using the same key to encrypt and decrypt)_
+  _(Using the same key to encrypt and decrypt)_
 
   * _coming soon_
 
