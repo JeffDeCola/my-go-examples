@@ -4,18 +4,18 @@ _A go module with a local package._
 
 Other Examples
 
-* [module-with-local-package](https://github.com/JeffDeCola/my-go-examples/tree/master/modules-and-packages/module-with-local-package)
+* [module-with-local-package](https://github.com/JeffDeCola/my-go-examples/tree/master/modules-and-packages/local-packages/module-with-local-package)
   **<- YOU ARE HERE**
-* [module-with-remote-package](https://github.com/JeffDeCola/my-go-examples/tree/master/modules-and-packages/module-with-remote-package)
+* [module-with-remote-package](https://github.com/JeffDeCola/my-go-examples/tree/master/modules-and-packages/remote-packages/module-with-remote-package)
 
 Table of Contents
 
-* [OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/modules-and-packages/module-with-local-package#overview)
-* [STRUCTURE](https://github.com/JeffDeCola/my-go-examples/tree/master/modules-and-packages/module-with-local-package#structure)
-* [CREATE A MODULE (go.mod)](https://github.com/JeffDeCola/my-go-examples/tree/master/modules-and-packages/module-with-local-package#create-a-module-gomod)
-* [RUN](https://github.com/JeffDeCola/my-go-examples/tree/master/modules-and-packages/module-with-local-package#run)
-* [TEST](https://github.com/JeffDeCola/my-go-examples/tree/master/modules-and-packages/module-with-local-package#test)
-* [VS CODE AND GO MULTI-MODULES (go.work)](https://github.com/JeffDeCola/my-go-examples/tree/master/modules-and-packages/module-with-local-package#vs-code-and-go-multi-modules-gowork)
+* [OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/modules-and-packages/local-packages/module-with-local-package#overview)
+* [STRUCTURE](https://github.com/JeffDeCola/my-go-examples/tree/master/modules-and-packages/local-packages/module-with-local-package#structure)
+* [CREATE A MODULE (go.mod)](https://github.com/JeffDeCola/my-go-examples/tree/master/modules-and-packages/local-packages/module-with-local-package#create-a-module-gomod)
+* [RUN](https://github.com/JeffDeCola/my-go-examples/tree/master/modules-and-packages/local-packages/module-with-local-package#run)
+* [TEST](https://github.com/JeffDeCola/my-go-examples/tree/master/modules-and-packages/local-packages/module-with-local-package#test)
+* [VS CODE AND GO MULTI-MODULES (go.work)](https://github.com/JeffDeCola/my-go-examples/tree/master/modules-and-packages/local-packages/module-with-local-package#vs-code-and-go-multi-modules-gowork)
 
 ## OVERVIEW
 
@@ -26,7 +26,7 @@ of related go source files in the same directory.
 
 ## STRUCTURE
 
-![IMAGE - go-module-with-local-package - IMAGE](../../docs/pics/modules-and-packages/go-module-with-local-package.jpg)
+![IMAGE - go-module-with-local-package - IMAGE](../../../docs/pics/modules-and-packages/go-module-with-local-package.jpg)
 
 ## CREATE A MODULE (go.mod)
 
@@ -91,4 +91,4 @@ use (
 
 This diagram may help,
 
-![IMAGE - vs-code-multi-root-workspace-with-go-multi-modules - IMAGE](../../docs/pics/modules-and-packages/vs-code-multi-root-workspace-with-go-multi-modules.jpg)
+![IMAGE - vs-code-multi-root-workspace-with-go-multi-modules - IMAGE](../../../docs/pics/modules-and-packages/vs-code-multi-root-workspace-with-go-multi-modules.jpg)

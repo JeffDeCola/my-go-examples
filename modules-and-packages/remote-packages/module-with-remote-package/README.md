@@ -4,20 +4,20 @@ _A go module with a remote (public) package._
 
 Other Examples
 
-* [module-with-local-package](https://github.com/JeffDeCola/my-go-examples/tree/master/modules-and-packages/module-with-local-package)
-* [module-with-remote-package](https://github.com/JeffDeCola/my-go-examples/tree/master/modules-and-packages/module-with-remote-package)
+* [module-with-local-package](https://github.com/JeffDeCola/my-go-examples/tree/master/modules-and-packages/local-packages/module-with-local-package)
+* [module-with-remote-package](https://github.com/JeffDeCola/my-go-examples/tree/master/modules-and-packages/remote-packages/module-with-remote-package)
   **<- YOU ARE HERE**
 
 Table of Contents
 
-* [PREREQUISITES](https://github.com/JeffDeCola/my-go-examples/tree/master/modules-and-packages/module-with-remote-package#prerequisites)
-* [OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/modules-and-packages/module-with-remote-package#overview)
-* [STRUCTURE](https://github.com/JeffDeCola/my-go-examples/tree/master/modules-and-packages/module-with-remote-package#structure)
-* [CREATE A MODULE (go.mod)](https://github.com/JeffDeCola/my-go-examples/tree/master/modules-and-packages/module-with-remote-package#create-a-module-gomod)
-* [EXAMPLE](https://github.com/JeffDeCola/my-go-examples/tree/master/modules-and-packages/module-with-remote-package#example)
-* [RUN](https://github.com/JeffDeCola/my-go-examples/tree/master/modules-and-packages/module-with-remote-package#run)
-* [TEST](https://github.com/JeffDeCola/my-go-examples/tree/master/modules-and-packages/module-with-remote-package#test)
-* [VS CODE AND GO MULTI-MODULES (go.work)](https://github.com/JeffDeCola/my-go-examples/tree/master/modules-and-packages/module-with-remote-package#vs-code-and-go-multi-modules-gowork)
+* [PREREQUISITES](https://github.com/JeffDeCola/my-go-examples/tree/master/modules-and-packages/remote-packages/module-with-remote-package#prerequisites)
+* [OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/modules-and-packages/remote-packages/module-with-remote-package#overview)
+* [STRUCTURE](https://github.com/JeffDeCola/my-go-examples/tree/master/modules-and-packages/remote-packages/module-with-remote-package#structure)
+* [CREATE A MODULE (go.mod)](https://github.com/JeffDeCola/my-go-examples/tree/master/modules-and-packages/remote-packages/module-with-remote-package#create-a-module-gomod)
+* [EXAMPLE](https://github.com/JeffDeCola/my-go-examples/tree/master/modules-and-packages/remote-packages/module-with-remote-package#example)
+* [RUN](https://github.com/JeffDeCola/my-go-examples/tree/master/modules-and-packages/remote-packages/module-with-remote-package#run)
+* [TEST](https://github.com/JeffDeCola/my-go-examples/tree/master/modules-and-packages/remote-packages/module-with-remote-package#test)
+* [VS CODE AND GO MULTI-MODULES (go.work)](https://github.com/JeffDeCola/my-go-examples/tree/master/modules-and-packages/remote-packages/module-with-remote-package#vs-code-and-go-multi-modules-gowork)
 
 Documentation and Reference
 
@@ -42,7 +42,7 @@ go install -v github.com/JeffDeCola/my-go-packages@latest
 
 Let's use a package I made to calculate the area and circumference of a circle.
 
-![IMAGE - go-module-with-remote-package - IMAGE](../../docs/pics/modules-and-packages/go-module-with-remote-package.jpg)
+![IMAGE - go-module-with-remote-package - IMAGE](../../../docs/pics/modules-and-packages/go-module-with-remote-package.jpg)
 
 ## CREATE A MODULE (go.mod)
 
@@ -142,4 +142,4 @@ use (
 
 This diagram may help,
 
-![IMAGE - vs-code-multi-root-workspace-with-go-multi-modules - IMAGE](../../docs/pics/modules-and-packages/vs-code-multi-root-workspace-with-go-multi-modules.jpg)
+![IMAGE - vs-code-multi-root-workspace-with-go-multi-modules - IMAGE](../../../docs/pics/modules-and-packages/vs-code-multi-root-workspace-with-go-multi-modules.jpg)

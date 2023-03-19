@@ -4,8 +4,8 @@ _A c function in go using stdio.h for printf._
 
 Table of Contents
 
-* [OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/cgo/simple-c-code-using-stdio#overview)
-* [RUN](https://github.com/JeffDeCola/my-go-examples/tree/master/cgo/simple-c-code-using-stdio#run)
+* [OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/cgo/c-code/simple-c-code-using-stdio#overview)
+* [RUN](https://github.com/JeffDeCola/my-go-examples/tree/master/cgo/c-code/simple-c-code-using-stdio#run)
 
 ## OVERVIEW
 
