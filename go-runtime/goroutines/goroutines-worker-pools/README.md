@@ -4,15 +4,15 @@ _Concurrency using worker pools._
 
 Other Examples
 
-* [goroutines-multi-core](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-multi-core)
-* [goroutines-waitgroup](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-waitgroup)
-* [goroutines-worker-pools](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-worker-pools)
+* [goroutines-multi-core](https://github.com/JeffDeCola/my-go-examples/tree/master/go-runtime/goroutines/goroutines-multi-core)
+* [goroutines-waitgroup](https://github.com/JeffDeCola/my-go-examples/tree/master/go-runtime/goroutines/goroutines-waitgroup)
+* [goroutines-worker-pools](https://github.com/JeffDeCola/my-go-examples/tree/master/go-runtime/goroutines/goroutines-worker-pools)
   **<- You are here**
 
 Table of Contents
 
-* [OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-worker-pools#overview)
-* [RUN](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-worker-pools#run)
+* [OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/go-runtime/goroutines/goroutines-worker-pools#overview)
+* [RUN](https://github.com/JeffDeCola/my-go-examples/tree/master/go-runtime/goroutines/goroutines-worker-pools#run)
 
 ## OVERVIEW
 
@@ -42,7 +42,7 @@ Increasing the buffer size will only work until it fills up.
 
 This illustration may help,
 
-![IMAGE - goroutines-worker-pools.jpg - IMAGE](../../docs/pics/goroutines/goroutines-worker-pools.jpg)
+![IMAGE - goroutines-worker-pools.jpg - IMAGE](../../../docs/pics/goroutines/goroutines-worker-pools.jpg)
 
 ## RUN
 

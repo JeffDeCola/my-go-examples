@@ -4,15 +4,15 @@ _Concurrency using a waitgroup (waiting for a collection of goroutines to finish
 
 Other Examples
 
-* [goroutines-multi-core](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-multi-core)
-* [goroutines-waitgroup](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-waitgroup)
+* [goroutines-multi-core](https://github.com/JeffDeCola/my-go-examples/tree/master/go-runtime/goroutines/goroutines-multi-core)
+* [goroutines-waitgroup](https://github.com/JeffDeCola/my-go-examples/tree/master/go-runtime/goroutines/goroutines-waitgroup)
   **<- You are here**
-* [goroutines-worker-pools](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-worker-pools)
+* [goroutines-worker-pools](https://github.com/JeffDeCola/my-go-examples/tree/master/go-runtime/goroutines/goroutines-worker-pools)
 
 Table of Contents
 
-* [OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-waitgroup#overview)
-* [RUN](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-waitgroup#run)
+* [OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/go-runtime/goroutines/goroutines-waitgroup#overview)
+* [RUN](https://github.com/JeffDeCola/my-go-examples/tree/master/go-runtime/goroutines/goroutines-waitgroup#run)
 
 ## OVERVIEW
 
@@ -35,7 +35,7 @@ Then,
 
 This illustration may help,
 
-![IMAGE - goroutines-waitgroup.jpg - IMAGE](../../docs/pics/goroutines/goroutines-waitgroup.jpg)
+![IMAGE - goroutines-waitgroup.jpg - IMAGE](../../../docs/pics/goroutines/goroutines-waitgroup.jpg)
 
 ## RUN
 

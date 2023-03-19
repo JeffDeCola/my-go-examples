@@ -15,6 +15,8 @@ Table of Contents
 * [ARCHITECTURES](https://github.com/JeffDeCola/my-go-examples#architectures)
   * BLOCKCHAIN
   * SCRAPING
+* [CGO](https://github.com/JeffDeCola/my-go-examples#cgo)
+    C CODE
 * [CLIENT/SERVER](https://github.com/JeffDeCola/my-go-examples#clientserver)
   * gRPC
   * HTTP
@@ -58,10 +60,6 @@ Table of Contents
   * LOCAL PACKAGES
   * REMOTE PACKAGES  
 
-FIGURE OUT
-
-* [CGO](https://github.com/JeffDeCola/my-go-examples#cgo)
-
 Documentation and Reference
 
 * My [go cheat sheet](https://github.com/JeffDeCola/my-cheat-sheets/tree/master/software/development/languages/go-cheat-sheet)
@@ -81,6 +79,18 @@ Documentation and Reference
 * SCRAPING
 
   * _Coming soon._
+
+## CGO
+
+* C CODE
+
+  * [simple-c-code](https://github.com/JeffDeCola/my-go-examples/tree/master/cgo/simple-c-code)
+
+    _A very simple example to show you how to write a c function in go._
+
+  * [simple-c-code-using-stdio](https://github.com/JeffDeCola/my-go-examples/tree/master/cgo/simple-c-code-using-stdio)
+
+    _A c function in go using stdio.h for printf._
 
 ## CLIENT/SERVER
 
@@ -414,13 +424,3 @@ Documentation and Reference
   * [module-with-remote-package](https://github.com/JeffDeCola/my-go-examples/tree/master/modules-and-packages/module-with-remote-package)
 
     _A go module with a remote (public) package._
-
-## CGO
-
-* [simple-c-code](https://github.com/JeffDeCola/my-go-examples/tree/master/cgo/simple-c-code)
-
-  _A very simple example to show you how to write a c function in go._
-
-* [simple-c-code-using-stdio](https://github.com/JeffDeCola/my-go-examples/tree/master/cgo/simple-c-code-using-stdio)
-
-  _A c function in go using stdio.h for printf._

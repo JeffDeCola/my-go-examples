@@ -4,8 +4,8 @@ _Run a few os commands using the `exec` package._
 
 Table of Contents
 
-* [OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/interact-os/simple-os-interactions#overview)
-* [RUN](https://github.com/JeffDeCola/my-go-examples/tree/master/interact-os/simple-os-interactions#run)
+* [OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/go-runtime/interact-host-os/simple-os-interactions#overview)
+* [RUN](https://github.com/JeffDeCola/my-go-examples/tree/master/go-runtime/interact-host-os/simple-os-interactions#run)
 
 Documentation and Reference
 

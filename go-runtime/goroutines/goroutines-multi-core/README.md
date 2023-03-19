@@ -8,30 +8,30 @@ This will show that **lightweight goroutines are amazing**.
 
 Other Examples
 
-* [goroutines-multi-core](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-multi-core)
+* [goroutines-multi-core](https://github.com/JeffDeCola/my-go-examples/tree/master/go-runtime/goroutines/goroutines-multi-core)
   **<- You are here**
-* [goroutines-waitgroup](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-waitgroup)
-* [goroutines-worker-pools](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-worker-pools)
+* [goroutines-waitgroup](https://github.com/JeffDeCola/my-go-examples/tree/master/go-runtime/goroutines/goroutines-waitgroup)
+* [goroutines-worker-pools](https://github.com/JeffDeCola/my-go-examples/tree/master/go-runtime/goroutines/goroutines-worker-pools)
 
 Table of Contents
 
-* [MACOS DOES NOT WORK](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-multi-core#macos-does-not-work)
-* [OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-multi-core#overview)
-* [SETUP](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-multi-core#setup)
-* [GO RUNTIME FEATURES](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-multi-core#go-runtime-features)
-  * [FEATURE 1 -  LOCK A GOROUTINE TO A THREAD](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-multi-core#feature-1----lock-a-goroutine-to-a-thread)
-* [OS KERNEL FEATURES](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-multi-core#os-kernel-features)
-  * [FEATURE 2 - LOCK A GOROUTINE TO A CPU](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-multi-core#feature-2---lock-a-goroutine-to-a-cpu)
-  * [FEATURE 3 - LOCK A THREAD TO A CPU](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-multi-core#feature-3---lock-a-thread-to-a-cpu)
-  * [FEATURE 4 - SET PRIORITY ON THREAD](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-multi-core#feature-4---set-priority-on-thread)
-* [RUN](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-multi-core#run)
-* [SOME BENCHMARKS](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-multi-core#some-benchmarks)
+* [MACOS DOES NOT WORK](https://github.com/JeffDeCola/my-go-examples/tree/master/go-runtime/goroutines/goroutines-multi-core#macos-does-not-work)
+* [OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/go-runtime/goroutines/goroutines-multi-core#overview)
+* [SETUP](https://github.com/JeffDeCola/my-go-examples/tree/master/go-runtime/goroutines/goroutines-multi-core#setup)
+* [GO RUNTIME FEATURES](https://github.com/JeffDeCola/my-go-examples/tree/master/go-runtime/goroutines/goroutines-multi-core#go-runtime-features)
+  * [FEATURE 1 -  LOCK A GOROUTINE TO A THREAD](https://github.com/JeffDeCola/my-go-examples/tree/master/go-runtime/goroutines/goroutines-multi-core#feature-1----lock-a-goroutine-to-a-thread)
+* [OS KERNEL FEATURES](https://github.com/JeffDeCola/my-go-examples/tree/master/go-runtime/goroutines/goroutines-multi-core#os-kernel-features)
+  * [FEATURE 2 - LOCK A GOROUTINE TO A CPU](https://github.com/JeffDeCola/my-go-examples/tree/master/go-runtime/goroutines/goroutines-multi-core#feature-2---lock-a-goroutine-to-a-cpu)
+  * [FEATURE 3 - LOCK A THREAD TO A CPU](https://github.com/JeffDeCola/my-go-examples/tree/master/go-runtime/goroutines/goroutines-multi-core#feature-3---lock-a-thread-to-a-cpu)
+  * [FEATURE 4 - SET PRIORITY ON THREAD](https://github.com/JeffDeCola/my-go-examples/tree/master/go-runtime/goroutines/goroutines-multi-core#feature-4---set-priority-on-thread)
+* [RUN](https://github.com/JeffDeCola/my-go-examples/tree/master/go-runtime/goroutines/goroutines-multi-core#run)
+* [SOME BENCHMARKS](https://github.com/JeffDeCola/my-go-examples/tree/master/go-runtime/goroutines/goroutines-multi-core#some-benchmarks)
 
 Documentation and Reference
 
-* [simple-go-runtime-interactions](https://github.com/JeffDeCola/my-go-examples/tree/master/interact-go-runtime/simple-go-runtime-interactions)
+* [simple-go-runtime-interactions](https://github.com/JeffDeCola/my-go-examples/tree/master/go-runtime/interact-go-runtime/simple-go-runtime-interactions)
   show a few go runtime interactions using the `runtime` package
-* [simple-os-interactions](https://github.com/JeffDeCola/my-go-examples/tree/master/interact-os/simple-os-interactions)
+* [simple-os-interactions](https://github.com/JeffDeCola/my-go-examples/tree/master/go-runtime/interact-host-os/simple-os-interactions)
   shows a few os interactions using the `syscall` package
 
 ## MACOS DOES NOT WORK
@@ -56,9 +56,9 @@ see if you can improve performance.
 
 These illustrations may help,
 
-![IMAGE - goroutines-multi-core - IMAGE](../../docs/pics/goroutines/goroutines-multi-core.jpg)
+![IMAGE - goroutines-multi-core - IMAGE](../../../docs/pics/goroutines/goroutines-multi-core.jpg)
 
-![IMAGE - goroutines-lock-threads-cores - IMAGE](../../docs/pics/goroutines/goroutines-lock-threads-cores.jpg)
+![IMAGE - goroutines-lock-threads-cores - IMAGE](../../../docs/pics/goroutines/goroutines-lock-threads-cores.jpg)
 
 ## SETUP
 
