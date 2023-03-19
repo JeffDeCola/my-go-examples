@@ -16,7 +16,7 @@ Table of Contents
   * BLOCKCHAIN
   * SCRAPING
 * [CGO](https://github.com/JeffDeCola/my-go-examples#cgo)
-    C CODE
+  * C CODE
 * [CLIENT/SERVER](https://github.com/JeffDeCola/my-go-examples#clientserver)
   * gRPC
   * HTTP
@@ -40,7 +40,7 @@ Table of Contents
 * [FUNCTIONS, METHODS AND INTERFACES](https://github.com/JeffDeCola/my-go-examples#functions-methods-and-interfaces)
   * FUNCTIONS
   * METHODS
-  * INTERFACES  
+  * INTERFACES
 * [GO RUNTIME](https://github.com/JeffDeCola/my-go-examples#go-runtime)
   * GOROUTINES
   * INTERACT GO RUNTIME
@@ -58,7 +58,7 @@ Table of Contents
   * RASPBERRY PI
 * [MODULES AND PACKAGES](https://github.com/JeffDeCola/my-go-examples#modules-and-packages)
   * LOCAL PACKAGES
-  * REMOTE PACKAGES  
+  * REMOTE PACKAGES
 
 Documentation and Reference
 
@@ -97,7 +97,7 @@ Documentation and Reference
 * gRPC
 
   * _Coming soon._
-  
+
 * HTTP
 
   * _Coming soon._
@@ -109,7 +109,7 @@ Documentation and Reference
 ## CLOUD SERVICE PROVIDERS
 
 * GOOGLE CLOUD PLATFORM
-  
+
   * _Coming soon._
 
 * MICROSOFT AZURE
@@ -415,7 +415,7 @@ Documentation and Reference
 ## MODULES AND PACKAGES
 
 * LOCAL PACKAGES
-  
+
   * [module-with-local-package](https://github.com/JeffDeCola/my-go-examples/tree/master/modules-and-packages/module-with-local-package)
 
     _A go module with a local package._
