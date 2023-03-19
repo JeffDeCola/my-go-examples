@@ -11,6 +11,18 @@
 
   * _Coming soon._
 
+## CGO
+
+* C CODE
+
+  * [simple-c-code](https://github.com/JeffDeCola/my-go-examples/tree/master/cgo/simple-c-code)
+
+    _A very simple example to show you how to write a c function in go._
+
+  * [simple-c-code-using-stdio](https://github.com/JeffDeCola/my-go-examples/tree/master/cgo/simple-c-code-using-stdio)
+
+    _A c function in go using stdio.h for printf._
+
 ## CLIENT/SERVER
 
 * gRPC
@@ -343,13 +355,3 @@
   * [module-with-remote-package](https://github.com/JeffDeCola/my-go-examples/tree/master/modules-and-packages/module-with-remote-package)
 
     _A go module with a remote (public) package._
-
-## CGO
-
-* [simple-c-code](https://github.com/JeffDeCola/my-go-examples/tree/master/cgo/simple-c-code)
-
-  _A very simple example to show you how to write a c function in go._
-
-* [simple-c-code-using-stdio](https://github.com/JeffDeCola/my-go-examples/tree/master/cgo/simple-c-code-using-stdio)
-
-  _A c function in go using stdio.h for printf._
