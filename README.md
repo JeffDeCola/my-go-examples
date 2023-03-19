@@ -15,12 +15,13 @@ Table of Contents
 * [ARCHITECTURES](https://github.com/JeffDeCola/my-go-examples#architectures)
   * BLOCKCHAIN
   * SCRAPING
-* [CGO](https://github.com/JeffDeCola/my-go-examples#cgo)
 * [CLIENT/SERVER](https://github.com/JeffDeCola/my-go-examples#clientserver)
-  * HTTP
   * gRPC
+  * HTTP
   * TCP/IP
 * [CLOUD SERVICE PROVIDERS](https://github.com/JeffDeCola/my-go-examples#cloud-service-providers)
+  * GOOGLE CLOUD PLATFORM
+  * MICROSOFT AZURE
 * [COMMON GO](https://github.com/JeffDeCola/my-go-examples#common-go)
   * ERROR REPORTING
   * FLAGS
@@ -32,11 +33,16 @@ Table of Contents
   * HASHING
   * SYMMETRIC CRYPTOGRAPHY
 * [DATABASES](https://github.com/JeffDeCola/my-go-examples#databases)
+  * NON-RELATIONAL
+  * RELATIONAL
 * [FUNCTIONS, METHODS AND INTERFACES](https://github.com/JeffDeCola/my-go-examples#functions-methods-and-interfaces)
   * FUNCTIONS
   * METHODS
-  * INTERFACES
-* [GOROUTINES](https://github.com/JeffDeCola/my-go-examples#goroutines)
+  * INTERFACES  
+* [GO RUNTIME](https://github.com/JeffDeCola/my-go-examples#go-runtime)
+  * GOROUTINES
+  * INTERACT GO RUNTIME
+  * INTERACT HOST OS
 * [INPUT/OUTPUT](https://github.com/JeffDeCola/my-go-examples#inputoutput)
   * IO READER
   * IO WRITER
@@ -46,11 +52,15 @@ Table of Contents
 * [INTER-PROCESS COMMUNICATION (IPC)](https://github.com/JeffDeCola/my-go-examples#inter-process-communication-ipc)
   * SHARED MEMORY
   * MESSAGE PASSING
-* [INTERACT GO RUNTIME](https://github.com/JeffDeCola/my-go-examples#interact-go-runtime)
-* [INTERACT OS](https://github.com/JeffDeCola/my-go-examples#interact-os)
 * [IoT](https://github.com/JeffDeCola/my-go-examples#iot)
   * RASPBERRY PI
 * [MODULES AND PACKAGES](https://github.com/JeffDeCola/my-go-examples#modules-and-packages)
+  * LOCAL PACKAGES
+  * REMOTE PACKAGES  
+
+FIGURE OUT
+
+* [CGO](https://github.com/JeffDeCola/my-go-examples#cgo)
 
 Documentation and Reference
 
@@ -66,39 +76,35 @@ Documentation and Reference
 
 * BLOCKCHAIN
 
-  * _coming soon_
+  * _Coming soon._
 
 * SCRAPING
 
-  * _coming soon_
-
-## CGO
-
-* [simple-c-code](https://github.com/JeffDeCola/my-go-examples/tree/master/cgo/simple-c-code)
-
-  _A very simple example to show you how to write a c function in go._
-
-* [simple-c-code-using-stdio](https://github.com/JeffDeCola/my-go-examples/tree/master/cgo/simple-c-code-using-stdio)
-
-  _A c function in go using stdio.h for printf._
+  * _Coming soon._
 
 ## CLIENT/SERVER
 
-* HTTP
-
-  * _coming soon_
-
 * gRPC
 
-  * _coming soon_
+  * _Coming soon._
+  
+* HTTP
+
+  * _Coming soon._
 
 * TCP/IP
 
-  * _coming soon_
+  * _Coming soon._
 
 ## CLOUD SERVICE PROVIDERS
 
-* _coming soon_
+* GOOGLE CLOUD PLATFORM
+  
+  * _Coming soon._
+
+* MICROSOFT AZURE
+
+  * _Coming soon._
 
 ## COMMON GO
 
@@ -128,28 +134,34 @@ Documentation and Reference
 
 * TESTING
 
-  * _coming soon_
+  * _Coming soon._
 
 ## CRYPTOGRAPHY
 
 * ASYMMETRIC CRYPTOGRAPHY
   _(Great for digital signatures (verify sender) and receiving encrypted data)_
 
-  * _coming soon_
+  * _Coming soon._
 
 * HASHING
   _(Great for getting fingerprints)_
 
-  * _coming soon_
+  * _Coming soon._
 
 * SYMMETRIC CRYPTOGRAPHY
   _(Using the same key to encrypt and decrypt)_
 
-  * _coming soon_
+  * _Coming soon._
 
 ## DATABASES
 
-* _coming soon_
+* NON-RELATIONAL
+
+  * _Coming soon._
+
+* RELATIONAL
+
+  * _Coming soon._
 
 ## FUNCTIONS, METHODS AND INTERFACES
 
@@ -200,21 +212,39 @@ Documentation and Reference
 
     _Using an interface to calculate and manipulate simple 2D and 3D geometric shapes._
 
-## GOROUTINES
+## GO RUNTIME
 
-* [goroutines-multi-core](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-multi-core)
+* GO ROUTINES
 
-  _Concurrency across multiples cores.  You can play around with workers,
-  threads, cpus/cores and nice to find the fastest performance.
-  It will find the total number of prime numbers within a range._
+  * [goroutines-multi-core](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-multi-core)
 
-* [goroutines-waitgroup](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-waitgroup)
+    _Concurrency across multiples cores.  You can play around with workers,
+    threads, cpus/cores and nice to find the fastest performance.
+    It will find the total number of prime numbers within a range._
 
-  _Concurrency using a waitgroup (waiting for a collection of goroutines to finish)._
+  * [goroutines-waitgroup](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-waitgroup)
 
-* [goroutines-worker-pools](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-worker-pools)
+    _Concurrency using a waitgroup (waiting for a collection of goroutines to finish)._
 
-  _Concurrency using worker pools._
+  * [goroutines-worker-pools](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-worker-pools)
+
+    _Concurrency using worker pools._
+
+* INTERACT GO RUNTIME
+
+  * [simple-go-runtime-interactions](https://github.com/JeffDeCola/my-go-examples/tree/master/interact-go-runtime/simple-go-runtime-interactions)
+
+    _A few go runtime interactions using the `runtime` package._
+
+* INTERACT HOST OS
+
+  * [simple-external-commands](https://github.com/JeffDeCola/my-go-examples/tree/master/interact-os/simple-external-commands)
+
+    _Run a few os commands using the `exec` package._
+
+  * [simple-os-interactions](https://github.com/JeffDeCola/my-go-examples/tree/master/interact-os/simple-os-interactions)
+
+    _A few os interactions using the `syscall` package._
 
 ## INPUT/OUTPUT
 
@@ -257,7 +287,7 @@ Documentation and Reference
 
   * ASYNCHRONOUS
 
-    * _coming soon_
+    * _Coming soon._
 
   * SYNCHRONOUS
 
@@ -294,7 +324,7 @@ Documentation and Reference
 
   * ASYNCHRONOUS
 
-    * _coming soon_
+    * _Coming soon._
 
   * SYNCHRONOUS
 
@@ -348,22 +378,6 @@ Documentation and Reference
 
         _tbd._
 
-## INTERACT GO RUNTIME
-
-* [simple-go-runtime-interactions](https://github.com/JeffDeCola/my-go-examples/tree/master/interact-go-runtime/simple-go-runtime-interactions)
-
-  _A few go runtime interactions using the `runtime` package._
-
-## INTERACT OS
-
-* [simple-external-commands](https://github.com/JeffDeCola/my-go-examples/tree/master/interact-os/simple-external-commands)
-
-  _Run a few os commands using the `exec` package._
-
-* [simple-os-interactions](https://github.com/JeffDeCola/my-go-examples/tree/master/interact-os/simple-os-interactions)
-
-  _A few os interactions using the `syscall` package._
-
 ## IoT
 
 * RASPBERRY PI
@@ -390,10 +404,23 @@ Documentation and Reference
 
 ## MODULES AND PACKAGES
 
-* [module-with-local-package](https://github.com/JeffDeCola/my-go-examples/tree/master/modules-and-packages/module-with-local-package)
+* LOCAL PACKAGES
+  
+  * [module-with-local-package](https://github.com/JeffDeCola/my-go-examples/tree/master/modules-and-packages/module-with-local-package)
 
-  _A go module with a local package._
+    _A go module with a local package._
 
-* [module-with-remote-package](https://github.com/JeffDeCola/my-go-examples/tree/master/modules-and-packages/module-with-remote-package)
+* REMOTE PACKAGES
+  * [module-with-remote-package](https://github.com/JeffDeCola/my-go-examples/tree/master/modules-and-packages/module-with-remote-package)
 
-  _A go module with a remote (public) package._
+    _A go module with a remote (public) package._
+
+## CGO
+
+* [simple-c-code](https://github.com/JeffDeCola/my-go-examples/tree/master/cgo/simple-c-code)
+
+  _A very simple example to show you how to write a c function in go._
+
+* [simple-c-code-using-stdio](https://github.com/JeffDeCola/my-go-examples/tree/master/cgo/simple-c-code-using-stdio)
+
+  _A c function in go using stdio.h for printf._
