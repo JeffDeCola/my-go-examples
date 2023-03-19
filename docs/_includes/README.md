@@ -28,7 +28,7 @@
 * gRPC
 
   * _Coming soon._
-  
+
 * HTTP
 
   * _Coming soon._
@@ -40,7 +40,7 @@
 ## CLOUD SERVICE PROVIDERS
 
 * GOOGLE CLOUD PLATFORM
-  
+
   * _Coming soon._
 
 * MICROSOFT AZURE
@@ -346,7 +346,7 @@
 ## MODULES AND PACKAGES
 
 * LOCAL PACKAGES
-  
+
   * [module-with-local-package](https://github.com/JeffDeCola/my-go-examples/tree/master/modules-and-packages/module-with-local-package)
 
     _A go module with a local package._
