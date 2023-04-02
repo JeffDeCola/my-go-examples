@@ -3,7 +3,7 @@
 I use concourse to automate,
 
 * Use README for
-  [GitHub Webpage](https://jeffdecola.github.io/hello-go-deploy-marathon/)
+  [GitHub Webpage](https://jeffdecola.github.io/my-go-examples/)
 * TEST code
 * Alert me of the progress via repo status and slack
 
