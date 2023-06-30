@@ -226,33 +226,33 @@ Documentation and Reference
 
 * GO ROUTINES
 
-  * [goroutines-multi-core](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-multi-core)
+  * [goroutines-multi-core](https://github.com/JeffDeCola/my-go-examples/tree/master/go-runtime/goroutines/goroutines-multi-core)
 
     _Concurrency across multiples cores.  You can play around with workers,
     threads, cpus/cores and nice to find the fastest performance.
     It will find the total number of prime numbers within a range._
 
-  * [goroutines-waitgroup](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-waitgroup)
+  * [goroutines-waitgroup](https://github.com/JeffDeCola/my-go-examples/tree/master/go-runtime/goroutines/goroutines-waitgroup)
 
     _Concurrency using a waitgroup (waiting for a collection of goroutines to finish)._
 
-  * [goroutines-worker-pools](https://github.com/JeffDeCola/my-go-examples/tree/master/goroutines/goroutines-worker-pools)
+  * [goroutines-worker-pools](https://github.com/JeffDeCola/my-go-examples/tree/master/go-runtime/goroutines/goroutines-worker-pools)
 
     _Concurrency using worker pools._
 
 * INTERACT GO RUNTIME
 
-  * [simple-go-runtime-interactions](https://github.com/JeffDeCola/my-go-examples/tree/master/interact-go-runtime/simple-go-runtime-interactions)
+  * [simple-go-runtime-interactions](https://github.com/JeffDeCola/my-go-examples/tree/master/go-runtime/interact-host-os/simple-external-commands)
 
     _A few go runtime interactions using the `runtime` package._
 
 * INTERACT HOST OS
 
-  * [simple-external-commands](https://github.com/JeffDeCola/my-go-examples/tree/master/interact-os/simple-external-commands)
+  * [simple-external-commands](https://github.com/JeffDeCola/my-go-examples/tree/master/go-runtime/interact-host-os/simple-external-commands)
 
     _Run a few os commands using the `exec` package._
 
-  * [simple-os-interactions](https://github.com/JeffDeCola/my-go-examples/tree/master/interact-os/simple-os-interactions)
+  * [simple-os-interactions](https://github.com/JeffDeCola/my-go-examples/tree/master/go-runtime/interact-host-os/simple-os-interactions)
 
     _A few os interactions using the `syscall` package._
 
