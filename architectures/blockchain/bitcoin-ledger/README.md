@@ -1,9 +1,9 @@
-# bitcoin-ledger example
+# BITCOIN EXAMPLE
 
 _Demonstrates a bitcoin ledger in a blockchain using the
-**unspent transaction output model**._
+unspent transaction output model._
 
-Table of Contents,
+Table of Contents
 
 * [PREREQUISITES](https://github.com/JeffDeCola/my-go-examples/tree/master/blockchain/bitcoin-ledger#prerequisites)
 * [OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/blockchain/bitcoin-ledger#overview)
@@ -13,7 +13,7 @@ Table of Contents,
 * [ADDING A TRANSACTION TO THE pendingBlock](https://github.com/JeffDeCola/my-go-examples/tree/master/blockchain/bitcoin-ledger#adding-a-transaction-to-the-pendingblock)
 * [RUN](https://github.com/JeffDeCola/my-go-examples/tree/master/blockchain/bitcoin-ledger#run)
 
-Documentation and reference,
+Documentation and Reference
 
 * My cheat sheet on
 [blockchains](https://github.com/JeffDeCola/my-cheat-sheets/tree/master/software/development/software-architectures/blockchain/blockchain-cheat-sheet)
