@@ -1,19 +1,19 @@
-# single-node-blockchain-with-REST example
+# SINGLE NODE BLOCKCHAIN WITH REST EXAMPLE
 
 _A simple single node sha256 blockchain with a REST JSON API
 (to view (GET) the blockchain and add (POST) a block)._
 
-Table of Contents,
+Table of Contents
 
-* [PREREQUISITES](https://github.com/JeffDeCola/my-go-examples/tree/master/blockchain/single-node-blockchain-with-REST#prerequisites)
-* [OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/blockchain/single-node-blockchain-with-REST#overview)
-* [RUN](https://github.com/JeffDeCola/my-go-examples/tree/master/blockchain/single-node-blockchain-with-REST#run)
-  * [GET (View the entire Blockchain)](https://github.com/JeffDeCola/my-go-examples/tree/master/blockchain/single-node-blockchain-with-REST#get-view-the-entire-blockchain)
-  * [GET (Show a Particular Block)](https://github.com/JeffDeCola/my-go-examples/tree/master/blockchain/single-node-blockchain-with-REST#get-show-a-particular-block)
-  * [POST (Add a Block)](https://github.com/JeffDeCola/my-go-examples/tree/master/blockchain/single-node-blockchain-with-REST#post-add-a-block)
-* [HOW IT WORKS](https://github.com/JeffDeCola/my-go-examples/tree/master/blockchain/single-node-blockchain-with-REST#how-it-works)
+* [PREREQUISITES](https://github.com/JeffDeCola/my-go-examples/tree/master/architectures/blockchain/single-node-blockchain-with-REST#prerequisites)
+* [OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/architectures/blockchain/single-node-blockchain-with-REST#overview)
+* [RUN](https://github.com/JeffDeCola/my-go-examples/tree/master/architectures/blockchain/single-node-blockchain-with-REST#run)
+  * [GET (View the entire Blockchain)](https://github.com/JeffDeCola/my-go-examples/tree/master/architectures/blockchain/single-node-blockchain-with-REST#get-view-the-entire-blockchain)
+  * [GET (Show a Particular Block)](https://github.com/JeffDeCola/my-go-examples/tree/master/architectures/blockchain/single-node-blockchain-with-REST#get-show-a-particular-block)
+  * [POST (Add a Block)](https://github.com/JeffDeCola/my-go-examples/tree/master/architectures/blockchain/single-node-blockchain-with-REST#post-add-a-block)
+* [HOW IT WORKS](https://github.com/JeffDeCola/my-go-examples/tree/master/architectures/blockchain/single-node-blockchain-with-REST#how-it-works)
 
-Documentation and reference,
+Documentation and Reference
 
 * Refer to my
   [simple-webserver-with-REST](https://github.com/JeffDeCola/my-go-examples/tree/master/api/simple-webserver-with-REST)
@@ -22,8 +22,6 @@ Documentation and reference,
   [cheat sheet on blockchains](https://github.com/JeffDeCola/my-cheat-sheets/tree/master/software/development/software-architectures/blockchain/blockchain-cheat-sheet)
 * I got a lot of inspiration from
   [here](https://github.com/nosequeldeebee/blockchain-tutorial)
-
-[GitHub Webpage](https://jeffdecola.github.io/my-go-examples/)
 
 ## PREREQUISITES
 

@@ -1,29 +1,27 @@
-# BITCOIN EXAMPLE
+# BITCOIN LEDGER EXAMPLE
 
 _Demonstrates a bitcoin ledger in a blockchain using the
 unspent transaction output model._
 
 Table of Contents
 
-* [PREREQUISITES](https://github.com/JeffDeCola/my-go-examples/tree/master/blockchain/bitcoin-ledger#prerequisites)
-* [OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/blockchain/bitcoin-ledger#overview)
-* [THIS EXAMPLE](https://github.com/JeffDeCola/my-go-examples/tree/master/blockchain/bitcoin-ledger#this-example)
-* [BLOCKCHAIN AND PENDING BLOCK](https://github.com/JeffDeCola/my-go-examples/tree/master/blockchain/bitcoin-ledger#blockchain-and-pending-block)
-* [TRANSACTIONS IN LEDGER](https://github.com/JeffDeCola/my-go-examples/tree/master/blockchain/bitcoin-ledger#transactions-in-ledger)
-* [ADDING A TRANSACTION TO THE pendingBlock](https://github.com/JeffDeCola/my-go-examples/tree/master/blockchain/bitcoin-ledger#adding-a-transaction-to-the-pendingblock)
-* [RUN](https://github.com/JeffDeCola/my-go-examples/tree/master/blockchain/bitcoin-ledger#run)
+* [PREREQUISITES](https://github.com/JeffDeCola/my-go-examples/tree/master/architectures/blockchain/bitcoin-ledger#prerequisites)
+* [OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/architectures/blockchain/bitcoin-ledger#overview)
+* [THIS EXAMPLE](https://github.com/JeffDeCola/my-go-examples/tree/master/architectures/blockchain/bitcoin-ledger#this-example)
+* [BLOCKCHAIN AND PENDING BLOCK](https://github.com/JeffDeCola/my-go-examples/tree/master/architectures/blockchain/bitcoin-ledger#blockchain-and-pending-block)
+* [TRANSACTIONS IN LEDGER](https://github.com/JeffDeCola/my-go-examples/tree/master/architectures/blockchain/bitcoin-ledger#transactions-in-ledger)
+* [ADDING A TRANSACTION TO THE pendingBlock](https://github.com/JeffDeCola/my-go-examples/tree/master/architectures/blockchain/bitcoin-ledger#adding-a-transaction-to-the-pendingblock)
+* [RUN](https://github.com/JeffDeCola/my-go-examples/tree/master/architectures/blockchain/bitcoin-ledger#run)
 
 Documentation and Reference
 
 * My cheat sheet on
 [blockchains](https://github.com/JeffDeCola/my-cheat-sheets/tree/master/software/development/software-architectures/blockchain/blockchain-cheat-sheet)
 * A
-[blockchain with REST](https://github.com/JeffDeCola/my-go-examples/tree/master/blockchain/single-node-blockchain-with-REST)
+[blockchain with REST](https://github.com/JeffDeCola/my-go-examples/tree/master/architectures/blockchain/single-node-blockchain-with-REST)
 example I wrote that just stores data (no coins)
 * I also wrote an entire cryptocurrency called
   [jeffCoin](https://github.com/JeffDeCola/jeffCoin)
-
-[GitHub Webpage](https://jeffdecola.github.io/my-go-examples/)
 
 ## PREREQUISITES
 
