@@ -10,19 +10,19 @@
     _Demonstrates a bitcoin ledger in a blockchain using the
     unspent transaction output model._
 
-  * [create-bitcoin-address-from-ecdsa-publickey]()
+  * [create-bitcoin-address-from-ecdsa-publickey](https://github.com/JeffDeCola/my-go-examples/tree/master/architectures/blockchain/create-bitcoin-address-from-ecdsa-publickey)
 
     _Create a bitcoin address from your ecdsa public key
     using the `crypto/ecdsa` standard package._
   
-  * [single-node-blockchain-with-REST]()
+  * [single-node-blockchain-with-REST](https://github.com/JeffDeCola/my-go-examples/tree/master/architectures/blockchain/single-node-blockchain-with-REST)
 
     _A simple single node sha256 blockchain with a REST JSON API
     (to view (GET) the blockchain and add (POST) a block)._
 
-* SCRAPING
+* WEB SCRAPING
 
-  * _Coming soon._
+  * _[web scrape twitter for ???]_
 
 ## CGO
 
