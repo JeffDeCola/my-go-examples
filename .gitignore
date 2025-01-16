@@ -1,11 +1,7 @@
-# CONCOURSE
+# golang-generic.gitignore
+
+# CONCOURSE SECRETS
 .credentials.yml
-
-# VSCODE
-.vscode/
-
-# GO
-coverage.out
 
 # macOS
 .DS_Store
@@ -13,9 +9,5 @@ coverage.out
 # WINDOWS
 *.jpg:Zone.Identifier
 
-# Ignore binaries
-
-# Ignore test coverage
+# TEST
 **/test/test_coverage.txt
-
-# Ignore binary used for docker build
