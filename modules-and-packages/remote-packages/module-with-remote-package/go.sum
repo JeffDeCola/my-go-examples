@@ -1,2 +1,7 @@
+<<<<<<< HEAD
+github.com/JeffDeCola/my-go-packages v0.2.0 h1:TJ6K9eA+pT710+1p3Huh5IKNxmNa6RTWz5dTorzl++Q=
+github.com/JeffDeCola/my-go-packages v0.2.0/go.mod h1:c/MhbGQQtpxSlpSLJLBfoHz/6ayaVSVtMtNHq4xiJQA=
+=======
 github.com/JeffDeCola/my-go-packages v0.2.2 h1:bPuYvCa+NfwpE5EC0ShExOQ1kPVG4XLh52W1pm1a2GA=
 github.com/JeffDeCola/my-go-packages v0.2.2/go.mod h1:c/MhbGQQtpxSlpSLJLBfoHz/6ayaVSVtMtNHq4xiJQA=
+>>>>>>> dd03f0e95a582b96bf7a6f87812ed40ca04b8542
