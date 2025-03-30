@@ -1,122 +1,65 @@
-// my-go-examples error-example.go
+// my-go-examples error-example
 
 package main
 
-import (
-	"io"
-	"strings"
-	"testing"
-)
+import "testing"
 
-func Test_askQuestion(t *testing.T) {
+func Test_firstLevel(t *testing.T) {
 	type args struct {
-		r io.Reader
+		filename string
 	}
 	tests := []struct {
 		name    string
 		args    args
-		want    string
 		wantErr bool
 	}{
-		{
-			name: "Test Get User Input Error",
-			args: args{
-				r: strings.NewReader("\n"),
-			},
-			want:    "",
-			wantErr: true,
-		},
-		{
-			name: "Test Get User Input",
-			args: args{
-				r: strings.NewReader("jeff"),
-			},
-			want:    "jeff",
-			wantErr: false,
-		},
+		{"test for empty filename", args{""}, true},
+		{"test for filename", args{"jeff"}, false},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			got, err := askQuestion(tt.args.r)
-			if (err != nil) != tt.wantErr {
-				t.Errorf("askQuestion() error = %v, wantErr %v", err, tt.wantErr)
-				return
-			}
-			if got != tt.want {
-				t.Errorf("askQuestion() = %v, want %v", got, tt.want)
+			if err := firstLevel(tt.args.filename); (err != nil) != tt.wantErr {
+				t.Errorf("firstLevel() error = %v, wantErr %v", err, tt.wantErr)
 			}
 		})
 	}
 }
 
-func Test_checkAnswer(t *testing.T) {
+func Test_secondLevel(t *testing.T) {
 	type args struct {
-		answer string
+		filename string
 	}
 	tests := []struct {
 		name    string
 		args    args
 		wantErr bool
 	}{
-		{
-			name: "Integer - Correct Number",
-			args: args{
-				answer: "4",
-			},
-			wantErr: false,
-		},
-		{
-			name: "Integer - Incorrect Number",
-			args: args{
-				answer: "5",
-			},
-			wantErr: true,
-		},
-		{
-			name: "Not and Integer",
-			args: args{
-				answer: "a",
-			},
-			wantErr: true,
-		},
+		// TODO: Add test cases.
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if err := checkAnswer(tt.args.answer); (err != nil) != tt.wantErr {
-				t.Errorf("checkAnswer() error = %v, wantErr %v", err, tt.wantErr)
+			if err := secondLevel(tt.args.filename); (err != nil) != tt.wantErr {
+				t.Errorf("secondLevel() error = %v, wantErr %v", err, tt.wantErr)
 			}
 		})
 	}
 }
 
-func Test_checkNumber(t *testing.T) {
+func Test_thirdLevel(t *testing.T) {
 	type args struct {
-		answer int
+		filename string
 	}
 	tests := []struct {
 		name    string
 		args    args
 		wantErr bool
 	}{
-		{
-			name: "Test 4",
-			args: args{
-				answer: 4,
-			},
-			wantErr: false,
-		},
-		{
-			name: "Test 5 - Error",
-			args: args{
-				answer: 0,
-			},
-			wantErr: true,
-		},
+		// TODO: Add test cases.
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if err := checkNumber(tt.args.answer); (err != nil) != tt.wantErr {
-				t.Errorf("checkNumber() error = %v, wantErr %v", err, tt.wantErr)
+			if err := thirdLevel(tt.args.filename); (err != nil) != tt.wantErr {
+				t.Errorf("thirdLevel() error = %v, wantErr %v", err, tt.wantErr)
 			}
 		})
 	}
@@ -126,7 +69,7 @@ func Test_main(t *testing.T) {
 	tests := []struct {
 		name string
 	}{
-		// TODO: Add test cases.
+		{"Main test"},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {

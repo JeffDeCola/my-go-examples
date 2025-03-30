@@ -1,6 +1,10 @@
 # LOGRUS EXAMPLE
 
-_Logging using `logrus` package._
+_Logging using my
+[github.com/JeffDeCola/golang/logger](https://github.com/JeffDeCola/my-go-packages/tree/master/golang/logger)
+which uses the standard
+[slog](https://pkg.go.dev/log/slog)
+library._
 
 Table of Contents
 
