@@ -1,4 +1,4 @@
-# LOGRUS EXAMPLE
+# JEFFS LOGGER EXAMPLE
 
 _Logging using my
 [github.com/JeffDeCola/golang/logger](https://github.com/JeffDeCola/my-go-packages/tree/master/golang/logger)
@@ -19,12 +19,7 @@ Table of Contents
 
 Documentation and Reference
 
-* Refer to the
-  [github.com/sirupsen/logrus](https://github.com/sirupsen/logrus)
-  package for more info
-* Refer to my
-  [flag](https://github.com/JeffDeCola/my-go-examples/tree/master/common-go/flags/flag)
-  example
+* [github.com/JeffDeCola/golang/logger](https://github.com/JeffDeCola/my-go-packages/tree/master/golang/logger)
 
 ## OVERVIEW
 
