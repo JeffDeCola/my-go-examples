@@ -145,9 +145,13 @@ Documentation and Reference
 
 * LOGGING
 
-  * [logrus](https://github.com/JeffDeCola/my-go-examples/tree/master/common-go/logging/logrus)
+  * [jeffs-logger](https://github.com/JeffDeCola/my-go-examples/tree/master/common-go/logging/logrus)
 
-    _Logging using `logrus` package._
+    _Logging using my
+    [github.com/JeffDeCola/golang/logger](https://github.com/JeffDeCola/my-go-packages/tree/master/golang/logger)
+    which uses the standard
+    [slog](https://pkg.go.dev/log/slog)
+    library._
 
 * MY GENERIC GO TEMPLATE
 

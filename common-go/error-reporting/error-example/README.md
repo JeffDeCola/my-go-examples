@@ -2,6 +2,17 @@
 
 _Error Handling using the standard `error` package._
 
+tl;dr
+
+```go
+var ErrFilenameEmpty = errors.New("filename can not be empty")
+
+return fmt.Errorf("firstLevel: %w", err)
+return fmt.Errorf("secondLevel: %w", err)
+return fmt.Errorf("thirdLevel: %w", ErrFilenameEmpty)
+return fmt.Errorf("thirdLevel: %w, %s", ErrFilenameEmpty, otherInfo)
+```
+
 Table of Contents
 
 * [OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/common-go/error-reporting/error-example#overview)
@@ -34,18 +45,16 @@ go get -u github.com/cweill/gotests/...
 It's very easy. For example,
 
 ```go
-var ErrIncorrectAnswer = errors.New("the answer is incorrect")
+var ErrFilenameEmpty = errors.New("filename can not be empty")
 
-if answer != 4 {
-    return fmt.Errorf("%d was provided: %w", answer, ErrIncorrectAnswer)
+if filename == "" {
+    return fmt.Errorf("thirdLevel: %w", ErrFilenameEmpty)
 }
 ```
 
 ## RUN
 
-The programs asks you what is 2+2 and depending on your answer will
-say you are incorrect, correct and/or give you an error. Notice how it **propagates**
-the error up the function calls.
+The programs **propagates** the error up the function calls.
 
 Run,
 
@@ -56,19 +65,13 @@ go run main.go
 The output may look like,
 
 ```bash
-What is 2+2 (type stop to quit)? 4
-YOUR ANSWER 4 IS CORRECT!
-------------------------
-What is 2+2 (type stop to quit)? 5
-INCORRECT!
-ERRO[0003] Error with answer: error calling checkNumber: 5 was provided: the answer is incorrect
-------------------------
-What is 2+2 (type stop to quit)? cat
-Not an integer
-ERRO[0005] Error with answer: unable to convert to integer: strconv.Atoi: parsing "cat": invalid syntax
-------------------------
-What is 2+2 (type stop to quit)? stop
-Done
+[ERROR] Got an Error (error: firstLevel: secondLevel: thirdLevel: filename can not be empty)
+Optional
+[ERROR] Caused by: (chain: firstLevel: secondLevel: thirdLevel: filename can not be empty)
+[ERROR] Caused by: (chain: secondLevel: thirdLevel: filename can not be empty)
+[ERROR] Caused by: (chain: thirdLevel: filename can not be empty)
+[ERROR] Caused by: (chain: filename can not be empty)
+[ERROR] Root Cause: (root: filename can not be empty)
 ```
 
 Notice how it traces the error back to your original function.
