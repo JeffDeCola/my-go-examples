@@ -1,6 +1,8 @@
 # ERROR EXAMPLE
 
-_Error Handling using the standard `error` package._
+_Error Handling using the standard
+[errors](https://pkg.go.dev/errors)
+library._
 
 tl;dr
 

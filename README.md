@@ -135,7 +135,9 @@ Documentation and Reference
 
   * [error-example](https://github.com/JeffDeCola/my-go-examples/tree/master/common-go/error-reporting/error-example)
 
-    _Error Handling using the standard `error` package._
+  _Error Handling using the standard
+  [errors](https://pkg.go.dev/errors)
+  library._
 
 * FLAGS
 
@@ -145,11 +147,11 @@ Documentation and Reference
 
 * LOGGING
 
-  * [jeffs-logger](https://github.com/JeffDeCola/my-go-examples/tree/master/common-go/logging/logrus)
+  * [jeffs-logger](https://github.com/JeffDeCola/my-go-examples/tree/master/common-go/logging/jeffs-logger)
 
     _Logging using my
-    [github.com/JeffDeCola/golang/logger](https://github.com/JeffDeCola/my-go-packages/tree/master/golang/logger)
-    which uses the standard
+    [github.com/JeffDeCola/my-go-packages/golang/logger](https://github.com/JeffDeCola/my-go-packages/tree/master/golang/logger)
+    which uses the standard structured logging
     [slog](https://pkg.go.dev/log/slog)
     library._
 
