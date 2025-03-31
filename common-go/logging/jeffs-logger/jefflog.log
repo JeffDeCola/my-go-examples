@@ -1,0 +1,7 @@
+[[90mTRACE[0m] This is a trace message 
+[[36mDEBUG[0m] This is a debug message 
+[[32mINFO [0m] Formatted Info Message a=4.55 (a: 4.54534), (user: jeff)
+[[33mWARN [0m] This is a Warning Message (user: jeff)
+[[31mERROR[0m] This is an Error message 
+[[33mWARN [0m] This is a Warning Message (user: jeff)
+[[31mERROR[0m] This is an Error message 

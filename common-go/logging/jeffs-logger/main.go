@@ -1,110 +1,42 @@
-// my-go-examples logrus.go
+//my-go-examples
+
+//my-go-examples
 
 package main
 
 import (
-	"errors"
-	"flag"
 	"fmt"
 	"os"
 
-	log "github.com/sirupsen/logrus"
+	logger "github.com/JeffDeCola/my-go-packages/golang/logger"
 )
-
-var errLogLevel = errors.New("please use trace, info or error")
-
-func setLogLevel(logLevel string) error {
-
-	// SET LOG LEVEL (trace, info or error) None of which exit
-	log.Trace("Set Log Level")
-
-	switch logLevel {
-	case "trace":
-		log.SetLevel(log.TraceLevel)
-	case "info":
-		log.SetLevel(log.InfoLevel)
-	case "error":
-		log.SetLevel(log.ErrorLevel)
-	default:
-		log.SetLevel(log.ErrorLevel)
-		return fmt.Errorf("%s", errLogLevel)
-	}
-
-	// SET FORMAT
-	log.SetFormatter(&log.TextFormatter{
-		DisableColors: false,
-		FullTimestamp: false,
-	})
-	// log.SetFormatter(&log.JSONFormatter{})
-
-	// SET OUTPUT (DEFAULT os.Stderr)
-	log.SetOutput(os.Stdout)
-
-	return nil
-
-}
-
-func createLogFile(filename string) (*os.File, error) {
-
-	var myfile *os.File
-
-	log.Info("Writing to log file")
-
-	// LOGGING TO FILE (APPEND) (io.Writer)
-	myfile, err := os.OpenFile(filename, os.O_CREATE|os.O_WRONLY|os.O_APPEND, 0666)
-	if err == nil {
-		log.SetOutput(myfile)
-	} else {
-		return nil, fmt.Errorf("failed to log to file, using default stderr: %w", err)
-	}
-
-	return myfile, nil
-
-}
 
 func main() {
 
-	// FLAGS
-	logLevel := flag.String("loglevel", "error", "log level (trace, info or error)")
-	logFile := flag.String("logfile", "", "log output to a file")
-	flag.Parse()
-
-	// SET LOG LEVEL (trace, info or error) None of which exit
-	err := setLogLevel(*logLevel)
+	// Open or create the log file, output is filename
+	output, err := os.OpenFile("jefflog.log", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
 	if err != nil {
-		log.Errorf("Error getting logLevel: %s", err)
+		panic("Failed to open/create log file" + err.Error())
 	}
 
-	// CREATE AND SENT TO LOG FILE IF FLAG IS SET
-	if *logFile != "" {
-		myfile, err := createLogFile(*logFile)
-		if err != nil {
-			log.Errorf("Error creating logfile: %s", err)
-		}
-		defer myfile.Close()
-	}
+	log := logger.CreateLogger(logger.Trace, "jeffs_noTime", output)
 
-	// LOGGING
-	log.Error("Something failed but I'm not quitting.")
-	log.Info("Something noteworthy happened!")
-	log.Trace("Something very low level.")
+	a := 4.54534
 
-	// WITH FORMATTING
-	name := "jeff"
-	log.Infof("This is from %s", name)
+	log.Trace("This is a trace message")
+	log.Debug("This is a debug message")
+	log.Info(fmt.Sprintf("Formatted Info Message a=%.2f", a), "a", a, "user", "jeff")
+	log.Warning("This is a Warning Message", "user", "jeff")
+	log.Error("This is an Error message")
+	// log.Fatal("Fatal Error")
 
-	// USING FIELDS
-	log.WithFields(log.Fields{
-		"animal": "cat",
-	}).Trace("What animal is it?")
+	// Dynamically change log level
+	fmt.Printf("\nCHANGE LEVEL\n\n")
+	log.ChangeLogLevel(logger.Warning)
 
-	// REUSING FIELDS
-	jeffLogger := log.WithFields(log.Fields{
-		"animal": "cat",
-		"color":  "grey",
-	})
-
-	jeffLogger.Trace("Using the animal and color field")
-	jeffLogger.Trace("Me too")
-
+	log.Trace("This is a trace message")
+	log.Debug("This is a debug message")
+	log.Info(fmt.Sprintf("Formatted Info Message a=%.2f", a), "a", a, "user", "jeff")
+	log.Warning("This is a Warning Message", "user", "jeff")
+	log.Error("This is an Error message")
 }
