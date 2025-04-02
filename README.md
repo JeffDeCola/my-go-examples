@@ -143,7 +143,9 @@ Documentation and Reference
 
   * [flags](https://github.com/JeffDeCola/my-go-examples/tree/master/common-go/flags/flags)
 
-    _The standard `flag` package makes it easy to implement command-line flag parsing._
+    _The
+    [flag](https://pkg.go.dev/flag)
+    standard package makes it easy to implement command-line flag parsing._
 
 * LOGGING
 

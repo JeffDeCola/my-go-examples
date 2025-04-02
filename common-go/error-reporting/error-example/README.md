@@ -23,7 +23,7 @@ Table of Contents
 * [RUN](https://github.com/JeffDeCola/my-go-examples/tree/master/common-go/error-reporting/error-example#run)
 * [TEST](https://github.com/JeffDeCola/my-go-examples/tree/master/common-go/error-reporting/error-example#test)
 
-Documentation and References
+Documentation and Reference
 
 * Refer to the
   [errors](https://pkg.go.dev/errors)
@@ -39,7 +39,7 @@ So how do we handle errors? **With Multiple return values**.
 You will need the following go packages,
 
 ```bash
-go get -u github.com/cweill/gotests/...
+go install github.com/cweill/gotests/...@latest
 ```
 
 ## DEFINE YOUR OWN ERROR

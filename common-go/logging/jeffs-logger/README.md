@@ -6,7 +6,7 @@ which uses the standard structured logging
 [slog](https://pkg.go.dev/log/slog)
 library._
 
-tl;r,
+tl;dr
 
 ```go
 logger "github.com/JeffDeCola/my-go-packages/golang/logger"
@@ -22,6 +22,7 @@ log.ChangeLogLevel(logger.Warning)
 Table of Contents
 
 * [OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/common-go/logging/jeffs-logger/README.md#overview)
+* [PREREQUISITES](https://github.com/JeffDeCola/my-go-examples/tree/master/common-go/logging/jeffs-logger/README.md#prerequisites)
 * [SET LOG LEVEL, FORMAT AND OUTPUT](https://github.com/JeffDeCola/my-go-examples/tree/master/common-go/logging/jeffs-logger/README.md#set-log-level-format-and-output)
 * [CHANGE LEVEL](https://github.com/JeffDeCola/my-go-examples/tree/master/common-go/logging/jeffs-logger/README.md#change-level)
 * [RUN](https://github.com/JeffDeCola/my-go-examples/tree/master/common-go/logging/jeffs-logger/README.md#run)
@@ -41,6 +42,14 @@ My logger package uses six levels,
 * log.**Info**("Something noteworthy happened!")
 * log.**Debug**("Useful debugging information.")
 * log.**Trace**("Something very low level.")
+
+## PREREQUISITES
+
+You will need the following go packages,
+
+```bash
+go install github.com/cweill/gotests/...@latest
+```
 
 ## SET LOG LEVEL, FORMAT AND OUTPUT
 

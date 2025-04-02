@@ -5,6 +5,7 @@ package main
 import (
 	"errors"
 	"fmt"
+	"os"
 
 	logger "github.com/JeffDeCola/my-go-packages/golang/logger"
 )
@@ -13,9 +14,9 @@ import (
 var ErrFilenameEmpty = errors.New("filename can not be empty")
 
 // PROPAGATE ERROR
-func firstLevel(filename string) error {
+func firstLevel(filename string) (err error) {
 
-	err := secondLevel(filename)
+	err = secondLevel(filename)
 	if err != nil {
 		return fmt.Errorf("firstLevel: %w", err)
 	}
@@ -25,9 +26,9 @@ func firstLevel(filename string) error {
 }
 
 // PROPAGATE ERROR
-func secondLevel(filename string) error {
+func secondLevel(filename string) (err error) {
 
-	err := thirdLevel(filename)
+	err = thirdLevel(filename)
 	if err != nil {
 		return fmt.Errorf("secondLevel: %w", err)
 	}
@@ -37,7 +38,7 @@ func secondLevel(filename string) error {
 }
 
 // ORIGINATE ERROR
-func thirdLevel(filename string) error {
+func thirdLevel(filename string) (err error) {
 
 	if filename == "" {
 		return fmt.Errorf("thirdLevel: %w", ErrFilenameEmpty)
@@ -50,7 +51,7 @@ func thirdLevel(filename string) error {
 func main() {
 
 	// Use my logger
-	log := logger.CreateLogger(logger.Debug, "jeffs_noTime")
+	log := logger.CreateLogger(logger.Debug, "jeffs_noTime", os.Stdout)
 
 	// Trigger and error by passing empty filename
 	err := firstLevel("")
