@@ -1,12 +1,28 @@
 # FLAGS EXAMPLE
 
-_The `flag` standard package makes it easy to implement command-line flag parsing._
+_The
+[flag](https://pkg.go.dev/flag)
+ standard package makes it easy to implement command-line flag parsing._
+
+tl;dr
+
+```go
+// STRING
+stringPtr := flag.String("s", "Cloudy Days", "This is the flag for a string")
+// INTEGER
+integerPtr := flag.Int("i", 1, "This is the flag for an integer")
+// BOOLEAN
+boolPtr := flag.Bool("b", false, "This is the flag for a boolean")
+// Parse the flags
+flag.Parse()
+```
 
 Table of Contents
 
 * [OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/common-go/flags/flags#overview)
 * [PREREQUISITES](https://github.com/JeffDeCola/my-go-examples/tree/master/common-go/flags/flags#prerequisites)
 * [RUN](https://github.com/JeffDeCola/my-go-examples/tree/master/common-go/flags/flags#run)
+* [TEST](https://github.com/JeffDeCola/my-go-examples/tree/master/common-go/flags/flags#test)
 
 Documentation and Reference
 
@@ -47,7 +63,7 @@ func main() {
 You will need the following go packages,
 
 ```bash
-go get -u github.com/cweill/gotests/...
+go install github.com/cweill/gotests/...@latest
 ```
 
 ## RUN
@@ -75,4 +91,18 @@ Boolean,
 
 ```bash
 go run main.go -b
+```
+
+## TEST
+
+To create _test files,
+
+```bash
+gotests -w -all main.go
+```
+
+To unit test the code,
+
+```bash
+go test -cover ./...
 ```

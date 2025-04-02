@@ -1,7 +1,5 @@
 module jeffs-basic-go-template
 
-go 1.20
+go 1.24.0
 
-require github.com/sirupsen/logrus v1.9.0
-
-require golang.org/x/sys v0.6.0 // indirect
+require github.com/JeffDeCola/my-go-packages/golang/logger v0.1.5

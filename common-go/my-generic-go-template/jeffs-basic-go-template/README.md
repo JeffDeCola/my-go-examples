@@ -13,11 +13,11 @@ Table of Contents
   * [-v](https://github.com/JeffDeCola/my-go-examples/tree/master/common-go/my-generic-go-template/jeffs-basic-go-template#-v)
   * [-loglevel string](https://github.com/JeffDeCola/my-go-examples/tree/master/common-go/my-generic-go-template/jeffs-basic-go-template#-loglevel-string)
 
-Documentation and references,
+Documentation and References
 
 * Check out my
   [flags](https://github.com/JeffDeCola/my-go-examples/tree/master/common-go/flags/flags),
-  [logrus](https://github.com/JeffDeCola/my-go-examples/tree/master/common-go/logging/logrus)
+  [jeffs-logger](https://github.com/JeffDeCola/my-go-examples/tree/master/common-go/logging/jeffs-logger)
   and
   [error-example](https://github.com/JeffDeCola/my-go-examples/tree/master/common-go/error-reporting/error-example)
   examples
@@ -32,7 +32,7 @@ and adds them together.
 You will need the following go package,
 
 ```txt
-go get -u github.com/cweill/gotests/...
+go install github.com/cweill/gotests/...@latest
 go get -u github.com/sirupsen/logrus
 ```
 
@@ -76,7 +76,7 @@ I do the same thing in the function `getNumbers()`.
 
 ## USAGE
 
-```bash
+```text
 go run main.go {-h|-v} -loglevel {trace|info|error}
 ```
 
