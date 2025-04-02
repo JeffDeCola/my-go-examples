@@ -42,7 +42,7 @@ go install -v github.com/JeffDeCola/my-go-packages@latest
 
 Let's use a package I made to calculate the area and circumference of a circle.
 
-![IMAGE - go-module-with-remote-package - IMAGE](../../../docs/pics/modules-and-packages/go-module-with-remote-package.jpg)
+![IMAGE - go-module-with-remote-package - IMAGE](../../../docs/pics/modules-and-packages/go-module-with-remote-package.svg)
 
 ## CREATE A MODULE (go.mod)
 
@@ -142,4 +142,4 @@ use (
 
 This diagram may help,
 
-![IMAGE - vs-code-multi-root-workspace-with-go-multi-modules - IMAGE](../../../docs/pics/modules-and-packages/vs-code-multi-root-workspace-with-go-multi-modules.jpg)
+![IMAGE - vs-code-multi-root-workspace-with-go-multi-modules - IMAGE](../../../docs/pics/modules-and-packages/vs-code-multi-root-workspace-with-go-multi-modules.svg)
