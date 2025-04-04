@@ -1,5 +1,8 @@
 # ERROR EXAMPLE
 
+[![jeffdecola.com](https://img.shields.io/badge/website-jeffdecola.com-blue)](https://jeffdecola.com)
+[![MIT License](https://img.shields.io/:license-mit-blue.svg)](https://jeffdecola.mit-license.org)
+
 _Error Handling using the standard
 [errors](https://pkg.go.dev/errors)
 library._
@@ -25,9 +28,9 @@ Table of Contents
 
 Documentation and Reference
 
-* Refer to the
+* standard
   [errors](https://pkg.go.dev/errors)
-  package for more info
+  library
 
 ## OVERVIEW
 
