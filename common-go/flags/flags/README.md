@@ -26,9 +26,8 @@ Table of Contents
 
 Documentation and Reference
 
-* Refer to the
-  [flag](https://golang.org/pkg/flag/)
-  package for more info
+* [flag](https://golang.org/pkg/flag/)
+  standard package
 
 ## OVERVIEW
 

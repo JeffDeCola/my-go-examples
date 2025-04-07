@@ -1,10 +1,12 @@
 # GOROUTINES MULTI CORE
 
+[![jeffdecola.com](https://img.shields.io/badge/website-jeffdecola.com-blue)](https://jeffdecola.com)
+[![MIT License](https://img.shields.io/:license-mit-blue.svg)](https://jeffdecola.mit-license.org)
+
 _Concurrency across multi-cores. You can play around with workers,
 threads, cpus/cores and nice to find the fastest performance.
-It will find the total number of prime numbers within a range._
-
-This will show that **lightweight goroutines are amazing**.
+It will find the total number of prime numbers within a range.
+**Lightweight goroutines are amazing**._
 
 Other Examples
 
@@ -30,9 +32,13 @@ Table of Contents
 Documentation and Reference
 
 * [simple-go-runtime-interactions](https://github.com/JeffDeCola/my-go-examples/tree/master/go-runtime/interact-go-runtime/simple-go-runtime-interactions)
-  show a few go runtime interactions using the `runtime` package
+  show a few go runtime interactions using the
+  [runtime](https://pkg.go.dev/runtime)
+  standard package
 * [simple-os-interactions](https://github.com/JeffDeCola/my-go-examples/tree/master/go-runtime/interact-host-os/simple-os-interactions)
-  shows a few os interactions using the `syscall` package
+  shows a few os interactions using the
+  [syscall](https://pkg.go.dev/syscall)
+  standard package
 
 ## MACOS DOES NOT WORK
 
@@ -56,9 +62,9 @@ see if you can improve performance.
 
 These illustrations may help,
 
-![IMAGE - goroutines-multi-core - IMAGE](../../../docs/pics/goroutines/goroutines-multi-core.jpg)
+![IMAGE - goroutines-multi-core - IMAGE](../../../docs/pics/goroutines/goroutines-multi-core.svg)
 
-![IMAGE - goroutines-lock-threads-cores - IMAGE](../../../docs/pics/goroutines/goroutines-lock-threads-cores.jpg)
+![IMAGE - goroutines-lock-threads-cores - IMAGE](../../../docs/pics/goroutines/goroutines-lock-threads-cores.svg)
 
 ## SETUP
 

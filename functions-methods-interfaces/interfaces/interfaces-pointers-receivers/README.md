@@ -1,5 +1,8 @@
 # INTERFACES POINTERS RECEIVERS EXAMPLE
 
+[![jeffdecola.com](https://img.shields.io/badge/website-jeffdecola.com-blue)](https://jeffdecola.com)
+[![MIT License](https://img.shields.io/:license-mit-blue.svg)](https://jeffdecola.mit-license.org)
+
 _Using an interface to calculate the area of a rectangle and circle
 by passing pointers and using pointer receivers._
 
@@ -19,7 +22,7 @@ Other Examples
     **<- YOU ARE HERE**
   * [shapes-package](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/interfaces/shapes-package)
 
-tl;dr,
+tl;dr
 
 ```go
 // SYNTAX
@@ -144,4 +147,4 @@ go test -cover ./...
 
 ## AN ILLUSTRATION THAT MAY HELP
 
-![IMAGE - methods-interfaces-pointers-receivers.jpg - IMAGE](../../../docs/pics/functions-methods-interfaces/methods-interfaces-pointers-receivers.jpg)
+![IMAGE - methods-interfaces-pointers-receivers.jpg - IMAGE](../../../docs/pics/functions-methods-interfaces/methods-interfaces-pointers-receivers.svg)

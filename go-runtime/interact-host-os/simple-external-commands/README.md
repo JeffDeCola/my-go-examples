@@ -1,6 +1,11 @@
 # SIMPLE EXTERNAL COMMANDS EXAMPLE
 
-_Run a few os commands using the `exec` package._
+[![jeffdecola.com](https://img.shields.io/badge/website-jeffdecola.com-blue)](https://jeffdecola.com)
+[![MIT License](https://img.shields.io/:license-mit-blue.svg)](https://jeffdecola.mit-license.org)
+
+_Run a few os commands using the
+[os/exec](https://pkg.go.dev/os/exec)
+standard package._
 
 Table of Contents
 
@@ -9,9 +14,8 @@ Table of Contents
 
 Documentation and Reference
 
-* Refer to the
-  [exec](https://pkg.go.dev/exec)
-  package for more info
+* [os/exec](https://pkg.go.dev/os/exec)
+  standard package
 
 ## OVERVIEW
 

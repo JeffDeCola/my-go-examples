@@ -1,5 +1,8 @@
 # BITCOIN LEDGER EXAMPLE
 
+[![jeffdecola.com](https://img.shields.io/badge/website-jeffdecola.com-blue)](https://jeffdecola.com)
+[![MIT License](https://img.shields.io/:license-mit-blue.svg)](https://jeffdecola.mit-license.org)
+
 _Demonstrates a bitcoin ledger in a blockchain using the
 unspent transaction output model._
 
@@ -15,8 +18,7 @@ Table of Contents
 
 Documentation and Reference
 
-* My cheat sheet on
-[blockchains](https://github.com/JeffDeCola/my-cheat-sheets/tree/master/software/development/software-architectures/blockchain/blockchain-cheat-sheet)
+* [blockchains](https://github.com/JeffDeCola/my-cheat-sheets/tree/master/software/development/software-architectures/blockchain/blockchain-cheat-sheet)
 * A
 [blockchain with REST](https://github.com/JeffDeCola/my-go-examples/tree/master/architectures/blockchain/single-node-blockchain-with-REST)
 example I wrote that just stores data (no coins)
@@ -95,7 +97,7 @@ So this block will not have any value until its part of the blockchain.
 ## BLOCKCHAIN AND PENDING BLOCK
 
 After the run the blockchain and pendingBlock should look like
-[blockchain-output.txt](https://github.com/JeffDeCola/my-go-examples/tree/master/blockchain/bitcoin-ledger/blockchain-output.txt).
+[blockchain-output.txt](https://github.com/JeffDeCola/my-go-examples/blob/master/architectures/blockchain/bitcoin-ledger/blockchain-output.txt).
 
 This illustration may help,
 
@@ -168,7 +170,7 @@ go run control.go bitcoin-ledger.go data.go
 ```
 
 The blockchain and pendingBlock should look like
-[blockchain-output.txt](https://github.com/JeffDeCola/my-go-examples/blob/master/blockchain/bitcoin-ledger/blockchain-output.txt).
+[blockchain-output.txt](https://github.com/JeffDeCola/my-go-examples/blob/master/architectures/blockchain/bitcoin-ledger/blockchain-output.txt).
 
 The balances in the blockchain should be,
 
