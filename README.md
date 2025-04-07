@@ -1,12 +1,9 @@
 # MY GO EXAMPLES
 
-[![Tag Latest](https://img.shields.io/github/v/tag/jeffdecola/my-go-examples)](https://github.com/JeffDeCola/my-go-examples/tags)
+[![jeffdecola.com](https://img.shields.io/badge/website-jeffdecola.com-blue)](https://jeffdecola.com)
+[![MIT License](https://img.shields.io/:license-mit-blue.svg)](https://jeffdecola.mit-license.org)
 [![Go Reference](https://pkg.go.dev/badge/github.com/JeffDeCola/my-go-examples.svg)](https://pkg.go.dev/github.com/JeffDeCola/my-go-examples)
 [![Go Report Card](https://goreportcard.com/badge/github.com/JeffDeCola/my-go-examples)](https://goreportcard.com/report/github.com/JeffDeCola/my-go-examples)
-[![codeclimate Maintainability](https://api.codeclimate.com/v1/badges/3c5477c63d77a071fdff/maintainability)](https://codeclimate.com/github/JeffDeCola/my-go-examples/maintainability)
-[![codeclimate Issue Count](https://codeclimate.com/github/JeffDeCola/my-go-examples/badges/issue_count.svg)](https://codeclimate.com/github/JeffDeCola/my-go-examples/issues)
-[![MIT License](https://img.shields.io/:license-mit-blue.svg)](https://jeffdecola.mit-license.org)
-[![jeffdecola.com](https://img.shields.io/badge/website-jeffdecola.com-blue)](https://jeffdecola.com)
 
 _A place to keep my go examples._
 
@@ -59,10 +56,14 @@ Table of Contents
 * [MODULES AND PACKAGES](https://github.com/JeffDeCola/my-go-examples#modules-and-packages)
   * LOCAL PACKAGES
   * REMOTE PACKAGES
+* [STANDARD GO LIBRARY](https://github.com/JeffDeCola/my-go-examples#standard-go-library)
 
 Documentation and Reference
 
-* My [go cheat sheet](https://github.com/JeffDeCola/my-cheat-sheets/tree/master/software/development/languages/go-cheat-sheet)
+* my
+  [go standard library](https://pkg.go.dev/std)
+  checklist
+* [go](https://github.com/JeffDeCola/my-cheat-sheets/tree/master/software/development/languages/go-cheat-sheet)
 * [my-go-packages](https://github.com/JeffDeCola/my-go-packages)
 * [my-go-tools](https://github.com/JeffDeCola/my-go-tools)
 * This repos
@@ -263,7 +264,7 @@ Documentation and Reference
 
 * INTERACT GO RUNTIME
 
-  * [simple-go-runtime-interactions](https://github.com/JeffDeCola/my-go-examples/tree/master/go-runtime/interact-host-os/simple-external-commands)
+  * [simple-go-runtime-interactions](https://github.com/JeffDeCola/my-go-examples/tree/master/go-runtime/interact-go-runtime/simple-go-runtime-interactions)
 
     _A few go runtime interactions using the `runtime` package._
 
@@ -445,3 +446,57 @@ Documentation and Reference
   * [module-with-remote-package](https://github.com/JeffDeCola/my-go-examples/tree/master/modules-and-packages/remote-packages/module-with-remote-package)
 
     _A go module with a remote (public) package._
+
+## STANDARD GO LIBRARY
+
+* archive (tar, zip)
+* bufio
+* bytes
+* cmp
+* compress (bzip2, flate, gzip, lzw, zlib)
+* container (heap, list, ring)
+* context
+* crypto (aes, cipher, etc...)
+* database (sql, sql-driver)
+* debug (buildinfo, dwarf, etc.)
+* embed
+* encoding (ascii85, asn1, etc.)
+* **errors** -
+  [error-example](https://github.com/JeffDeCola/my-go-examples/tree/master/common-go/error-reporting/error-example)
+* expvar
+* flag
+* fmt
+* go (ast, build, build/context, etc.)
+* hash (adler32, crc32, crc64, fnv, maphash)
+* html (template)
+* image (color, color/palette, draw, gif, jpeg, png)
+* index (suffixarray)
+* io (fs,ioutil)
+* iter
+* log
+  * **slog** -
+    [jeffs-logger](https://github.com/JeffDeCola/my-go-examples/tree/master/common-go/logging/jeffs-logger)
+  * syslog
+* maps
+* math (big, bits, cmplx, rand, rand/v2)
+* mime (multipart, quotedprintable)
+* net (http, http/cgi, etc.)
+* os (exex, signal, user)
+* path (filepath)
+* reflect
+* regexp (syntax)
+* runtime (cgo, coverage, debug, metrics, pprof, race, trace)
+* slices
+* sort
+* strconv
+* strings
+* structs
+* sync (atomic)
+* syscall (js)
+* testing (fstest, iotest, quick, slogtest, synctest)
+* text (scanner, tabwriter, template, template/parse)
+* time (tzdata)
+* unicode (utf16, utf8)
+* unique
+* unsafe
+* weak
