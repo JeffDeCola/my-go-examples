@@ -1,4 +1,4 @@
-# JEFF BASIC GO TEMPLATE
+# JEFFS BASIC GO TEMPLATE
 
 _A simple go template with flags, logging & error handling._
 
