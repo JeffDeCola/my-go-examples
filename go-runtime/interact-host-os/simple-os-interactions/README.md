@@ -1,6 +1,11 @@
 # SIMPLE OS INTERACTIONS EXAMPLE
 
-_A few os interactions using the `syscall` package._
+[![jeffdecola.com](https://img.shields.io/badge/website-jeffdecola.com-blue)](https://jeffdecola.com)
+[![MIT License](https://img.shields.io/:license-mit-blue.svg)](https://jeffdecola.mit-license.org)
+
+_A few os interactions using the
+[syscall](https://pkg.go.dev/syscall)
+package._
 
 Table of Contents
 
@@ -9,9 +14,8 @@ Table of Contents
 
 Documentation and Reference
 
-* Refer to the
-  [syscall](https://pkg.go.dev/syscall)
-  package for more info
+* [syscall](https://pkg.go.dev/syscall)
+  standard package
 
 ## OVERVIEW
 

@@ -1,6 +1,11 @@
 # SIMPLE GO RUNTIME INTERACTIONS EXAMPLE
 
-_A few go runtime interactions using the `runtime` package._
+[![jeffdecola.com](https://img.shields.io/badge/website-jeffdecola.com-blue)](https://jeffdecola.com)
+[![MIT License](https://img.shields.io/:license-mit-blue.svg)](https://jeffdecola.mit-license.org)
+
+_A few go runtime interactions using the
+[runtime](https://pkg.go.dev/runtime)
+standard package._
 
 Table of Contents
 
@@ -9,9 +14,8 @@ Table of Contents
 
 Documentation and Reference
 
-* Refer to the
-  [runtime](https://pkg.go.dev/runtime)
-  package for more info
+* [runtime](https://pkg.go.dev/runtime)
+  standard package
 
 ## OVERVIEW
 

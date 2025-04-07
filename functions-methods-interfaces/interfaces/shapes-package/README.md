@@ -1,5 +1,8 @@
 # SHAPES PACKAGE EXAMPLE
 
+[![jeffdecola.com](https://img.shields.io/badge/website-jeffdecola.com-blue)](https://jeffdecola.com)
+[![MIT License](https://img.shields.io/:license-mit-blue.svg)](https://jeffdecola.mit-license.org)
+
 _Using an interface to calculate and manipulate simple 2D and 3D geometric shapes._
 
 Other Examples
@@ -18,7 +21,7 @@ Other Examples
   * [shapes-package](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/interfaces/shapes-package)
     **<- YOU ARE HERE**
 
-tl;dr,
+tl;dr
 
 ```go
 // SYNTAX
@@ -75,8 +78,8 @@ tl;dr,
 
 Table of Contents
 
-* [PREREQUISITES](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/interfaces/shapes-package#prerequisites)
 * [OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/interfaces/shapes-package#overview)
+* [PREREQUISITES](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/interfaces/shapes-package#prerequisites)
 * [EXAMPLE](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/interfaces/shapes-package#example)
 * [RUN](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/interfaces/shapes-package#run)
 * [TEST](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/interfaces/shapes-package#test)
@@ -84,8 +87,8 @@ Table of Contents
 
 Documentation and Reference
 
-* My shapes
-  [package](https://github.com/JeffDeCola/my-go-packages/tree/master/geometry/shapes)
+* my
+  [shapes package](https://github.com/JeffDeCola/my-go-packages/tree/master/geometry/shapes)
 
 ## OVERVIEW
 
@@ -168,4 +171,4 @@ go test -cover ./...
 
 ## AN ILLUSTRATION THAT MAY HELP
 
-![IMAGE - methods-interfaces-pointers-receivers.jpg - IMAGE](../../../docs/pics/functions-methods-interfaces/methods-interfaces-pointers-receivers.jpg)
+![IMAGE - methods-interfaces-pointers-receivers.jpg - IMAGE](../../../docs/pics/functions-methods-interfaces/methods-interfaces-pointers-receivers.svg)

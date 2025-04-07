@@ -1,5 +1,8 @@
 # SINGLE NODE BLOCKCHAIN WITH REST EXAMPLE
 
+[![jeffdecola.com](https://img.shields.io/badge/website-jeffdecola.com-blue)](https://jeffdecola.com)
+[![MIT License](https://img.shields.io/:license-mit-blue.svg)](https://jeffdecola.mit-license.org)
+
 _A simple single node sha256 blockchain with a REST JSON API
 (to view (GET) the blockchain and add (POST) a block)._
 
@@ -17,9 +20,8 @@ Documentation and Reference
 
 * Refer to my
   [simple-webserver-with-REST](https://github.com/JeffDeCola/my-go-examples/tree/master/api/simple-webserver-with-REST)
-  for the webserver engine
-* Refer to my
-  [cheat sheet on blockchains](https://github.com/JeffDeCola/my-cheat-sheets/tree/master/software/development/software-architectures/blockchain/blockchain-cheat-sheet)
+  for the webserver engine **- UPDATE THIS LINK**
+* [blockchains](https://github.com/JeffDeCola/my-cheat-sheets/tree/master/software/development/software-architectures/blockchain/blockchain-cheat-sheet)
 * I got a lot of inspiration from
   [here](https://github.com/nosequeldeebee/blockchain-tutorial)
 

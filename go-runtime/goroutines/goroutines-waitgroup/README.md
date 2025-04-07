@@ -1,5 +1,8 @@
 # GOROUTINES WAITGROUP
 
+[![jeffdecola.com](https://img.shields.io/badge/website-jeffdecola.com-blue)](https://jeffdecola.com)
+[![MIT License](https://img.shields.io/:license-mit-blue.svg)](https://jeffdecola.mit-license.org)
+
 _Concurrency using a waitgroup (waiting for a collection of goroutines to finish)._
 
 Other Examples
@@ -35,7 +38,7 @@ Then,
 
 This illustration may help,
 
-![IMAGE - goroutines-waitgroup.jpg - IMAGE](../../../docs/pics/goroutines/goroutines-waitgroup.jpg)
+![IMAGE - goroutines-waitgroup.svg - IMAGE](../../../docs/pics/goroutines/goroutines-waitgroup.svg)
 
 ## RUN
 

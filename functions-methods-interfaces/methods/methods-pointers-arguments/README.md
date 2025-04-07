@@ -1,5 +1,8 @@
 # METHODS POINTERS ARGUMENTS EXAMPLE
 
+[![jeffdecola.com](https://img.shields.io/badge/website-jeffdecola.com-blue)](https://jeffdecola.com)
+[![MIT License](https://img.shields.io/:license-mit-blue.svg)](https://jeffdecola.mit-license.org)
+
 _Using methods to calculate the area of a rectangle and circle
 by passing pointers._
 
@@ -19,7 +22,7 @@ Other Examples
   * [interfaces-pointers-receivers](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/interfaces/interfaces-pointers-receivers)
   * [shapes-package](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/interfaces/shapes-package)
 
-tl;dr,
+tl;dr
 
 ```go
 // SYNTAX
@@ -136,4 +139,4 @@ go test -cover ./...
 
 ## AN ILLUSTRATION THAT MAY HELP
 
-![IMAGE - functions-methods-interfaces-pointers-arguments.jpg - IMAGE](../../../docs/pics/functions-methods-interfaces/functions-methods-interfaces-pointers-arguments.jpg)
+![IMAGE - functions-methods-interfaces-pointers-arguments.jpg - IMAGE](../../../docs/pics/functions-methods-interfaces/functions-methods-interfaces-pointers-arguments.svg)

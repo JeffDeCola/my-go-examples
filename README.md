@@ -56,14 +56,12 @@ Table of Contents
 * [MODULES AND PACKAGES](https://github.com/JeffDeCola/my-go-examples#modules-and-packages)
   * LOCAL PACKAGES
   * REMOTE PACKAGES
-* [STANDARD GO LIBRARY](https://github.com/JeffDeCola/my-go-examples#standard-go-library)
+* [STANDARD GO PACKAGES](https://github.com/JeffDeCola/my-go-examples#standard-go-packages)
 
 Documentation and Reference
 
-* my
-  [go standard library](https://pkg.go.dev/std)
-  checklist
 * [go](https://github.com/JeffDeCola/my-cheat-sheets/tree/master/software/development/languages/go-cheat-sheet)
+* [go standard library](https://pkg.go.dev/std)
 * [my-go-packages](https://github.com/JeffDeCola/my-go-packages)
 * [my-go-tools](https://github.com/JeffDeCola/my-go-tools)
 * This repos
@@ -83,8 +81,10 @@ Documentation and Reference
   * [create-bitcoin-address-from-ecdsa-publickey](https://github.com/JeffDeCola/my-go-examples/tree/master/architectures/blockchain/create-bitcoin-address-from-ecdsa-publickey)
 
     _Create a bitcoin address from your ecdsa public key
-    using the `crypto/ecdsa` standard package._
-  
+    using the
+    [crypto/ecdsa](https://pkg.go.dev/crypto/ecdsa)
+    standard package._
+
   * [single-node-blockchain-with-REST](https://github.com/JeffDeCola/my-go-examples/tree/master/architectures/blockchain/single-node-blockchain-with-REST)
 
     _A simple single node sha256 blockchain with a REST JSON API
@@ -138,7 +138,7 @@ Documentation and Reference
 
   _Error Handling using the standard
   [errors](https://pkg.go.dev/errors)
-  library._
+  standard package._
 
 * FLAGS
 
@@ -155,8 +155,8 @@ Documentation and Reference
     _Logging using my
     [github.com/JeffDeCola/my-go-packages/golang/logger](https://github.com/JeffDeCola/my-go-packages/tree/master/golang/logger)
     which uses the standard structured logging
-    [slog](https://pkg.go.dev/log/slog)
-    library._
+    [log/slog](https://pkg.go.dev/log/slog)
+    standard package._
 
 * MY GENERIC GO TEMPLATE
 
@@ -252,7 +252,8 @@ Documentation and Reference
 
     _Concurrency across multiples cores.  You can play around with workers,
     threads, cpus/cores and nice to find the fastest performance.
-    It will find the total number of prime numbers within a range._
+    It will find the total number of prime numbers within a range.
+    Lightweight goroutines are amazing._
 
   * [goroutines-waitgroup](https://github.com/JeffDeCola/my-go-examples/tree/master/go-runtime/goroutines/goroutines-waitgroup)
 
@@ -266,17 +267,23 @@ Documentation and Reference
 
   * [simple-go-runtime-interactions](https://github.com/JeffDeCola/my-go-examples/tree/master/go-runtime/interact-go-runtime/simple-go-runtime-interactions)
 
-    _A few go runtime interactions using the `runtime` package._
+    _A few go runtime interactions using the
+    [runtime](https://pkg.go.dev/runtime)
+    standard package._
 
 * INTERACT HOST OS
 
   * [simple-external-commands](https://github.com/JeffDeCola/my-go-examples/tree/master/go-runtime/interact-host-os/simple-external-commands)
 
-    _Run a few os commands using the `exec` package._
+    _Run a few os commands using the
+    [os/exec](https://pkg.go.dev/os/exec)
+    standard package._
 
   * [simple-os-interactions](https://github.com/JeffDeCola/my-go-examples/tree/master/go-runtime/interact-host-os/simple-os-interactions)
 
-    _A few os interactions using the `syscall` package._
+    _A few os interactions using the
+    [syscall](https://pkg.go.dev/syscall)
+    package._
 
 ## INPUT/OUTPUT
 
@@ -447,7 +454,7 @@ Documentation and Reference
 
     _A go module with a remote (public) package._
 
-## STANDARD GO LIBRARY
+## STANDARD GO PACKAGES
 
 * archive (tar, zip)
 * bufio
@@ -456,15 +463,32 @@ Documentation and Reference
 * compress (bzip2, flate, gzip, lzw, zlib)
 * container (heap, list, ring)
 * context
-* crypto (aes, cipher, etc...)
+* crypto
+  * ecdsa -
+    [create-bitcoin-address-from-ecdsa-publickey](https://github.com/JeffDeCola/my-go-examples/tree/master/architectures/blockchain/create-bitcoin-address-from-ecdsa-publickey)
+  * elliptic -
+    [create-bitcoin-address-from-ecdsa-publickey](https://github.com/JeffDeCola/my-go-examples/tree/master/architectures/blockchain/create-bitcoin-address-from-ecdsa-publickey)
+  * rand -
+    [create-bitcoin-address-from-ecdsa-publickey](https://github.com/JeffDeCola/my-go-examples/tree/master/architectures/blockchain/create-bitcoin-address-from-ecdsa-publickey)
+  * sha256 -
+    [create-bitcoin-address-from-ecdsa-publickey](https://github.com/JeffDeCola/my-go-examples/tree/master/architectures/blockchain/create-bitcoin-address-from-ecdsa-publickey)
+  * x509 -
+    [create-bitcoin-address-from-ecdsa-publickey](https://github.com/JeffDeCola/my-go-examples/tree/master/architectures/blockchain/create-bitcoin-address-from-ecdsa-publickey)
+  * etc...
 * database (sql, sql-driver)
 * debug (buildinfo, dwarf, etc.)
 * embed
-* encoding (ascii85, asn1, etc.)
-* **errors** -
+* encoding
+  * hex -
+    [create-bitcoin-address-from-ecdsa-publickey](https://github.com/JeffDeCola/my-go-examples/tree/master/architectures/blockchain/create-bitcoin-address-from-ecdsa-publickey)
+  * pem -
+    [create-bitcoin-address-from-ecdsa-publickey](https://github.com/JeffDeCola/my-go-examples/tree/master/architectures/blockchain/create-bitcoin-address-from-ecdsa-publickey)
+  * etc...
+* errors -
   [error-example](https://github.com/JeffDeCola/my-go-examples/tree/master/common-go/error-reporting/error-example)
 * expvar
-* flag
+* flag -
+  [flags](https://github.com/JeffDeCola/my-go-examples/tree/master/common-go/flags/flags)
 * fmt
 * go (ast, build, build/context, etc.)
 * hash (adler32, crc32, crc64, fnv, maphash)
@@ -474,25 +498,36 @@ Documentation and Reference
 * io (fs,ioutil)
 * iter
 * log
-  * **slog** -
+  * slog -
     [jeffs-logger](https://github.com/JeffDeCola/my-go-examples/tree/master/common-go/logging/jeffs-logger)
   * syslog
 * maps
 * math (big, bits, cmplx, rand, rand/v2)
 * mime (multipart, quotedprintable)
 * net (http, http/cgi, etc.)
-* os (exex, signal, user)
+* os
+  * exec -
+    [simple-external-commands](https://github.com/JeffDeCola/my-go-examples/tree/master/go-runtime/interact-host-os/simple-external-commands)
+  * signal
+  * user
 * path (filepath)
-* reflect
+* reflect -
+  [create-bitcoin-address-from-ecdsa-publickey](https://github.com/JeffDeCola/my-go-examples/tree/master/architectures/blockchain/create-bitcoin-address-from-ecdsa-publickey)
 * regexp (syntax)
-* runtime (cgo, coverage, debug, metrics, pprof, race, trace)
+* runtime -
+  [simple-go-runtime-interactions](https://github.com/JeffDeCola/my-go-examples/tree/master/go-runtime/interact-go-runtime/simple-go-runtime-interactions)
+  * cgo
+  * coverage
+  * etc...
 * slices
 * sort
 * strconv
 * strings
 * structs
 * sync (atomic)
-* syscall (js)
+* syscall -
+  [simple-os-interactions](https://github.com/JeffDeCola/my-go-examples/tree/master/go-runtime/interact-host-os/simple-os-interactions)
+  * js
 * testing (fstest, iotest, quick, slogtest, synctest)
 * text (scanner, tabwriter, template, template/parse)
 * time (tzdata)

@@ -1,5 +1,8 @@
 # GOROUTINES WORKER POOLS
 
+[![jeffdecola.com](https://img.shields.io/badge/website-jeffdecola.com-blue)](https://jeffdecola.com)
+[![MIT License](https://img.shields.io/:license-mit-blue.svg)](https://jeffdecola.mit-license.org)
+
 _Concurrency using worker pools._
 
 Other Examples
@@ -42,7 +45,7 @@ Increasing the buffer size will only work until it fills up.
 
 This illustration may help,
 
-![IMAGE - goroutines-worker-pools.jpg - IMAGE](../../../docs/pics/goroutines/goroutines-worker-pools.jpg)
+![IMAGE - goroutines-worker-pools.svg - IMAGE](../../../docs/pics/goroutines/goroutines-worker-pools.svg)
 
 ## RUN
 

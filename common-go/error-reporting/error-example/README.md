@@ -5,7 +5,7 @@
 
 _Error Handling using the standard
 [errors](https://pkg.go.dev/errors)
-library._
+standard package._
 
 tl;dr
 
@@ -28,9 +28,8 @@ Table of Contents
 
 Documentation and Reference
 
-* standard
-  [errors](https://pkg.go.dev/errors)
-  library
+* [errors](https://pkg.go.dev/errors)
+  standard package
 
 ## OVERVIEW
 
