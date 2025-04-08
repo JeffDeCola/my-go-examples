@@ -432,22 +432,22 @@ Documentation and Reference
   * [blink-led-raspberry-pi-gpio-periph](https://github.com/JeffDeCola/my-go-examples/tree/master/iot/raspberry-pi/blink-led-raspberry-pi-gpio-periph)
 
     _GPIO OUTPUT -
-    Blink an LED
-    via a Raspberry Pi GPIO
-    using the `periph.io/...` packages._
+    Blink an LED via a Raspberry Pi GPIO using the
+    [periph.io/...](https://pkg.go.dev/periph.io/x/conn/v3)
+    packages._
 
   * [push-button-raspberry-pi-gpio-periph](https://github.com/JeffDeCola/my-go-examples/tree/master/iot/raspberry-pi/push-button-raspberry-pi-gpio-periph)
 
     _GPIO INPUT -
-    Push a button
-    via a Raspberry Pi GPIO
-    using the `periph.io/...` packages._
+    Push a button via a Raspberry Pi GPIO using the
+    [periph.io/...](https://pkg.go.dev/periph.io/x/conn/v3)
+    packages._
 
   * [toggle-led-with-button-raspberry-pi-gpio-periph](https://github.com/JeffDeCola/my-go-examples/tree/master/iot/raspberry-pi/toggle-led-with-button-raspberry-pi-gpio-periph)
 
-    _Toggle an LED with a button push
-    via a Raspberry Pi GPIO
-    using the `periph.io/...` packages._
+    _Toggle an LED with a button push via a Raspberry Pi GPIO using the
+    [periph.io/...](https://pkg.go.dev/periph.io/x/conn/v3)
+    packages._
 
 ## MODULES AND PACKAGES
 
@@ -464,12 +464,22 @@ Documentation and Reference
 
 ## STANDARD GO PACKAGES
 
-* archive (tar, zip)
+* archive
+  * tar
+  * zip
 * bufio
 * bytes
 * cmp
-* compress (bzip2, flate, gzip, lzw, zlib)
-* container (heap, list, ring)
+* compress
+  * bzip2
+  * flate
+  * gzip
+  * lzw
+  * zlib
+* container
+  * heap
+  * list
+  * ring
 * context
 * crypto
   * ecdsa -
@@ -483,8 +493,13 @@ Documentation and Reference
   * x509 -
     [create-bitcoin-address-from-ecdsa-publickey](https://github.com/JeffDeCola/my-go-examples/tree/master/architectures/blockchain/create-bitcoin-address-from-ecdsa-publickey)
   * etc...
-* database (sql, sql-driver)
-* debug (buildinfo, dwarf, etc.)
+* database
+  * sql
+  * sql-driver
+* debug
+  * buildinfo
+  * dwarf
+  * etc...
 * embed
 * encoding
   * hex -
@@ -498,11 +513,27 @@ Documentation and Reference
 * flag -
   [flags](https://github.com/JeffDeCola/my-go-examples/tree/master/common-go/flags/flags)
 * fmt
-* go (ast, build, build/context, etc.)
-* hash (adler32, crc32, crc64, fnv, maphash)
-* html (template)
-* image (color, color/palette, draw, gif, jpeg, png)
-* index (suffixarray)
+* go
+  * ast
+  * build
+  * etc...
+* hash
+  * adler32
+  * crc32
+  * crc64
+  * fnv
+  * maphash
+* html
+  * template
+* image
+  * color
+  * color/palette
+  * draw
+  * gif
+  * jpeg
+  * png
+* index
+  * suffixarray
 * io -
   [io-reader](https://github.com/JeffDeCola/my-go-examples/tree/master/input-output/io-reader/io-reader),
   [io-reader-simple](https://github.com/JeffDeCola/my-go-examples/tree/master/input-output/io-reader/io-reader-simple),
@@ -516,15 +547,26 @@ Documentation and Reference
     [jeffs-logger](https://github.com/JeffDeCola/my-go-examples/tree/master/common-go/logging/jeffs-logger)
   * syslog
 * maps
-* math (big, bits, cmplx, rand, rand/v2)
-* mime (multipart, quotedprintable)
-* net (http, http/cgi, etc.)
+* math
+  * big
+  * bits
+  * cmplx
+  * rand
+  * rand/v2
+* mime
+  * multipart
+  * quotedprintable
+* net
+  * http
+  * http/cgi
+  * etc.,,
 * os
   * exec -
     [simple-external-commands](https://github.com/JeffDeCola/my-go-examples/tree/master/go-runtime/interact-host-os/simple-external-commands)
   * signal
   * user
-* path (filepath)
+* path
+  * filepath
 * reflect -
   [create-bitcoin-address-from-ecdsa-publickey](https://github.com/JeffDeCola/my-go-examples/tree/master/architectures/blockchain/create-bitcoin-address-from-ecdsa-publickey)
 * regexp (syntax)
@@ -542,10 +584,22 @@ Documentation and Reference
 * syscall -
   [simple-os-interactions](https://github.com/JeffDeCola/my-go-examples/tree/master/go-runtime/interact-host-os/simple-os-interactions)
   * js
-* testing (fstest, iotest, quick, slogtest, synctest)
-* text (scanner, tabwriter, template, template/parse)
-* time (tzdata)
-* unicode (utf16, utf8)
+* testing
+  * fstest
+  * iotest
+  * quick
+  * slogtest
+  * synctest
+* text
+  * scanner
+  * tabwriter
+  * template
+  * template/parse
+* time
+  * tzdata
+* unicode
+  * utf1
+  * utf8
 * unique
 * unsafe
 * weak

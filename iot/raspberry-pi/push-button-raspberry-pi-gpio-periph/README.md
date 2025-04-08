@@ -1,9 +1,12 @@
 # PUSH BUTTON RASPBERRY PI GPIO PERIPH
 
+[![jeffdecola.com](https://img.shields.io/badge/website-jeffdecola.com-blue)](https://jeffdecola.com)
+[![MIT License](https://img.shields.io/:license-mit-blue.svg)](https://jeffdecola.mit-license.org)
+
 _GPIO INPUT -
-Push a button
-via a Raspberry Pi GPIO
-using the `periph.io/...` packages._
+Push a button via a Raspberry Pi GPIO using the
+[periph.io/...](https://pkg.go.dev/periph.io/x/conn/v3)
+packages._
 
 Table of Contents
 
@@ -98,4 +101,4 @@ go test -cover ./...
 
 How to connect the button and LED to the Raspberry Pi,
 
-![IMAGE - raspberry-pi-input-and-output-using-gpio-pins - IMAGE](https://github.com/JeffDeCola/my-cheat-sheets/blob/master/docs/pics/raspberry-pi-input-and-output-using-gpio-pins.jpg?raw=true)
+![IMAGE - raspberry-pi-input-and-output-using-gpio-pins - IMAGE](https://github.com/JeffDeCola/my-cheat-sheets/blob/master/docs/pics/other/raspberry-pi-input-and-output-using-gpio-pins.svg?raw=true)
