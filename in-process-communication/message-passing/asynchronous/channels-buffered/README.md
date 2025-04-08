@@ -1,5 +1,8 @@
 # CHANNELS BUFFERED EXAMPLE
 
+[![jeffdecola.com](https://img.shields.io/badge/website-jeffdecola.com-blue)](https://jeffdecola.com)
+[![MIT License](https://img.shields.io/:license-mit-blue.svg)](https://jeffdecola.mit-license.org)
+
 _Buffered channels are uni-directional, asynchronous with no blocking._
 
 **I - IN-PROCESS COMMUNICATION**
@@ -49,8 +52,9 @@ Table of Contents
 
 Documentation and Reference
 
-* Refer to
-  [my cheat sheets](https://github.com/JeffDeCola/my-cheat-sheets/tree/master/software/development/software-architectures/communication/in-process-and-inter-process-communications-ipc-overview-cheat-sheet)
+* [tbd]()
+  standard package
+* [my cheat sheets](https://github.com/JeffDeCola/my-cheat-sheets/tree/master/software/development/software-architectures/communication/in-process-and-inter-process-communications-ipc-overview-cheat-sheet)
   for a communications overview
 
 ## BUFFERED CHANNEL OVERVIEW
@@ -79,7 +83,7 @@ chBuffered <- data // NO BLOCKING - NO WAITING
 
 This illustration  may help,
 
-![IMAGE - channels-buffered.jpg - IMAGE](../../../../docs/pics/in-process-communication/channels-buffered.jpg)
+![IMAGE - channels-buffered - IMAGE](../../../../docs/pics/in-process-communication/channels-buffered.svg)
 
 ## RUN
 
@@ -132,4 +136,4 @@ Refer to
 [my cheat sheets](https://github.com/JeffDeCola/my-cheat-sheets/tree/master/software/development/software-architectures/communication/in-process-and-inter-process-communications-ipc-overview-cheat-sheet)
 for a more thorough communications overview.
 
-![IMAGE - in-process-and-inter-process-communication.jpg - IMAGE](https://github.com/JeffDeCola/my-cheat-sheets/blob/master/docs/pics/in-process-and-inter-process-communication.jpg)
+![IMAGE - communication-in-process-and-inter-process - IMAGE](https://github.com/JeffDeCola/my-cheat-sheets/blob/master/docs/pics/software/development/communication-in-process-and-inter-process.svg?raw=true)

@@ -1,7 +1,12 @@
 # IO.WRITER EXAMPLE
 
+[![jeffdecola.com](https://img.shields.io/badge/website-jeffdecola.com-blue)](https://jeffdecola.com)
+[![MIT License](https://img.shields.io/:license-mit-blue.svg)](https://jeffdecola.mit-license.org)
+
 _Write data (a stream of bytes) to a buffer, file, stdout and a pipe
-from a buffer using the standard `io` package._
+from a buffer using the
+[io](https://pkg.go.dev/io)
+standard package._
 
 Other Examples
 
@@ -22,9 +27,8 @@ Table of Contents
 
 Documentation and Reference
 
-* Refer to the
-  [io](https://pkg.go.dev/io)
-  package for more info
+* [io](https://pkg.go.dev/io)
+  standard package
 
 ## OVERVIEW
 
@@ -97,4 +101,4 @@ go test -cover ./...
 
 ## AN ILLUSTRATION THAT MAY HELP
 
-![IMAGE - buffered-io.jpg - IMAGE](../../../docs/pics/input-output/buffered-io.jpg)
+![IMAGE - buffered-io.jpg - IMAGE](../../../docs/pics/input-output/buffered-io.svg)
