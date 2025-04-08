@@ -292,12 +292,16 @@ Documentation and Reference
   * [io-reader](https://github.com/JeffDeCola/my-go-examples/tree/master/input-output/io-reader/io-reader)
 
     _Read data (a stream of bytes) from a string, buffer, file, stdin and
-    a pipe to a buffer using the standard `io` package._
+    a pipe to a buffer using the
+    [io](https://pkg.go.dev/io)
+    standard package._
 
   * [io-reader-simple](https://github.com/JeffDeCola/my-go-examples/tree/master/input-output/io-reader/io-reader-simple)
 
     _Read data (a stream of bytes) from a buffer to a buffer
-    using the standard `io` package._
+    using the
+    [io](https://pkg.go.dev/io)
+    standard package._
 
   * [read-file](https://github.com/JeffDeCola/my-go-examples/tree/master/input-output/io-reader/read-file)
 
@@ -313,12 +317,16 @@ Documentation and Reference
   * [io-writer](https://github.com/JeffDeCola/my-go-examples/tree/master/input-output/io-writer/io-writer)
 
     _Write data (a stream of bytes) to a buffer, file, stdout and a pipe
-    from a buffer using the standard `io` package._
+    from a buffer using the
+    [io](https://pkg.go.dev/io)
+    standard package._
 
   * [io-writer-simple](https://github.com/JeffDeCola/my-go-examples/tree/master/input-output/io-writer/io-writer-simple)
 
     _Write data (a stream of bytes) to a buffer
-    from a buffer using the standard `io` package._
+    from a buffer using the
+    [io](https://pkg.go.dev/io)
+    standard package._
 
 ## IN-PROCESS COMMUNICATION
 
@@ -495,7 +503,13 @@ Documentation and Reference
 * html (template)
 * image (color, color/palette, draw, gif, jpeg, png)
 * index (suffixarray)
-* io (fs,ioutil)
+* io -
+  [io-reader](https://github.com/JeffDeCola/my-go-examples/tree/master/input-output/io-reader/io-reader),
+  [io-reader-simple](https://github.com/JeffDeCola/my-go-examples/tree/master/input-output/io-reader/io-reader-simple),
+  [io-writer](https://github.com/JeffDeCola/my-go-examples/tree/master/input-output/io-writer/io-writer),
+  [io-writer-simple](https://github.com/JeffDeCola/my-go-examples/tree/master/input-output/io-writer/io-writer-simple)
+  * fs
+  * ioutil
 * iter
 * log
   * slog -

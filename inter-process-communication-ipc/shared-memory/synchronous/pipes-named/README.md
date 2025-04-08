@@ -1,5 +1,8 @@
 # PIPES NAMED EXAMPLE
 
+[![jeffdecola.com](https://img.shields.io/badge/website-jeffdecola.com-blue)](https://jeffdecola.com)
+[![MIT License](https://img.shields.io/:license-mit-blue.svg)](https://jeffdecola.mit-license.org)
+
 _Sending data over a named-pipe (FIFO) from one process to another process._
 
 **I - IN-PROCESS COMMUNICATION**
@@ -48,11 +51,7 @@ Table of Contents
 
 Documentation and Reference
 
-* Refer to the
-  [???](https://pkg.go.dev/????)
-  package for more info
-* Refer to
-  [my cheat sheets](https://github.com/JeffDeCola/my-cheat-sheets/tree/master/software/development/software-architectures/communication/in-process-and-inter-process-communications-ipc-overview-cheat-sheet)
+* [my cheat sheets](https://github.com/JeffDeCola/my-cheat-sheets/tree/master/software/development/software-architectures/communication/in-process-and-inter-process-communications-ipc-overview-cheat-sheet)
   for a communications overview
 
 ## NAMED PIPE (FIFO) OVERVIEW
@@ -94,4 +93,4 @@ Refer to
 [my cheat sheets](https://github.com/JeffDeCola/my-cheat-sheets/tree/master/software/development/software-architectures/communication/in-process-and-inter-process-communications-ipc-overview-cheat-sheet)
 for a more thorough communications overview.
 
-![IMAGE - in-process-and-inter-process-communication.jpg - IMAGE](https://github.com/JeffDeCola/my-cheat-sheets/blob/master/docs/pics/in-process-and-inter-process-communication.jpg)
+![IMAGE - communication-in-process-and-inter-process - IMAGE](https://github.com/JeffDeCola/my-cheat-sheets/blob/master/docs/pics/software/development/communication-in-process-and-inter-process.svg?raw=true)

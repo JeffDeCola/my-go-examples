@@ -1,5 +1,8 @@
 # PIPE UNNAMED SIMPLE EXAMPLE
 
+[![jeffdecola.com](https://img.shields.io/badge/website-jeffdecola.com-blue)](https://jeffdecola.com)
+[![MIT License](https://img.shields.io/:license-mit-blue.svg)](https://jeffdecola.mit-license.org)
+
 _A pipe provides a uni-directional communication channel.
 This is a very simple example of an unnamed pipe._
 
@@ -49,11 +52,9 @@ Table of Contents
 
 Documentation and Reference
 
-* Refer to the
-  [io.Pipe](https://pkg.go.dev/io#Pipe)
-  package for more info
-* Refer to
-  [my cheat sheets](https://github.com/JeffDeCola/my-cheat-sheets/tree/master/software/development/software-architectures/communication/in-process-and-inter-process-communications-ipc-overview-cheat-sheet)
+* [io.Pipe](https://pkg.go.dev/io#Pipe)
+  package
+* [my cheat sheets](https://github.com/JeffDeCola/my-cheat-sheets/tree/master/software/development/software-architectures/communication/in-process-and-inter-process-communications-ipc-overview-cheat-sheet)
   for a communications overview
 
 ## PIPES OVERVIEW
@@ -72,7 +73,7 @@ different processes whereas an unnamed pipe can be accessed from the same proces
 Pipes in go can be used to connect code expecting an io.Reader with
 code expecting an io.Writer.
 
-![IMAGE - pipes-unnamed-named.jpg - IMAGE](../../../../docs/pics/in-process-communication/pipes-unnamed-named.jpg)
+![IMAGE - pipes-unnamed-named - IMAGE](../../../../docs/pics/in-process-communication/pipes-unnamed-named.svg)
 
 ## CODE
 
@@ -111,4 +112,4 @@ Refer to
 [my cheat sheets](https://github.com/JeffDeCola/my-cheat-sheets/tree/master/software/development/software-architectures/communication/in-process-and-inter-process-communications-ipc-overview-cheat-sheet)
 for a more thorough communications overview.
 
-![IMAGE - in-process-and-inter-process-communication.jpg - IMAGE](https://github.com/JeffDeCola/my-cheat-sheets/blob/master/docs/pics/in-process-and-inter-process-communication.jpg)
+![IMAGE - communication-in-process-and-inter-process - IMAGE](https://github.com/JeffDeCola/my-cheat-sheets/blob/master/docs/pics/software/development/communication-in-process-and-inter-process.svg?raw=true)

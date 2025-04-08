@@ -1,5 +1,8 @@
 # READ USER INPUT EXAMPLE
 
+[![jeffdecola.com](https://img.shields.io/badge/website-jeffdecola.com-blue)](https://jeffdecola.com)
+[![MIT License](https://img.shields.io/:license-mit-blue.svg)](https://jeffdecola.mit-license.org)
+
 _Read user input (os.Stdin) to a buffer (using Read method)
 and string (using Fscan)._
 
