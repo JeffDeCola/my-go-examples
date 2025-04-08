@@ -51,7 +51,7 @@ This examples will,
 
 This illustration may help,
 
-![IMAGE - single-node-blockchain-with-REST - IMAGE](https://github.com/JeffDeCola/my-go-examples/blob/master/docs/pics/blockchain/single-node-blockchain-with-REST.jpg)
+![IMAGE - single-node-blockchain-with-REST - IMAGE](../../../docs/pics/architectures/single-node-blockchain-with-REST.svg)
 
 ## RUN
 

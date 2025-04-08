@@ -53,6 +53,8 @@ Table of Contents
 
 Documentation and Reference
 
+* [tbd](https://pkg.go.dev/std)
+  standard package
 * [my cheat sheets](https://github.com/JeffDeCola/my-cheat-sheets/tree/master/software/development/software-architectures/communication/in-process-and-inter-process-communications-ipc-overview-cheat-sheet)
   for a communications overview
 
