@@ -2,7 +2,7 @@
 
 _Logging using my
 [github.com/JeffDeCola/my-go-packages/golang/logger](https://github.com/JeffDeCola/my-go-packages/tree/master/golang/logger)
-which uses the standard structured logging
+which uses the structured logging
 [log/slog](https://pkg.go.dev/log/slog)
 standard package._
 
