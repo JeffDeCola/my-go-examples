@@ -8,7 +8,7 @@ import (
 	"sort"
 	"strconv"
 
-	log "github.com/sirupsen/logrus"
+	log "github.com/JeffDeCola/my-go-packages/golang/logger"
 )
 
 // BLOCK

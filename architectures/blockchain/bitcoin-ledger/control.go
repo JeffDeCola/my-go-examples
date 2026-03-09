@@ -5,9 +5,9 @@ package main
 import (
 	"encoding/json"
 	"fmt"
-	"os"
 
-	log "github.com/sirupsen/logrus"
+	log "github.com/JeffDeCola/my-go-packages/golang/logger"
+	logger "github.com/JeffDeCola/my-go-packages/golang/logger"
 )
 
 const (
@@ -61,22 +61,9 @@ func receivingTransaction(txRequestMessageSignedDataString string) {
 	log.Info("receivingTransaction()           " + s)
 }
 
-func init() {
-
-	// SET FORMAT
-	log.SetFormatter(&log.TextFormatter{})
-	// log.SetFormatter(&log.JSONFormatter{})
-
-	// SET OUTPUT (DEFAULT stderr)
-	log.SetOutput(os.Stdout)
-
-	// SET LOG LEVEL
-	log.SetLevel(log.TraceLevel)
-	// log.SetLevel(log.InfoLevel)
-
-}
-
 func main() {
+
+	log := logger.CreateLogger(logger.Trace, "jeffs_noTime", output)
 
 	// GENISIS BLOCKCHAIN
 	// LOAD BLOCK 0 WITH 0000 TRANSACTION
