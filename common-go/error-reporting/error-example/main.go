@@ -59,15 +59,17 @@ func main() {
 		log.Error("Got an Error", "error", err)
 	}
 
-	fmt.Println("Optional")
+	fmt.Println("UNWRAP ERROR")
 
 	// (Optional) Unwrap the error level by level
-	var chain error = err
+	var chain error
+	chain = err
 	for chain != nil {
 		log.Error("Caused by:", "chain", chain)
 		chain = errors.Unwrap(chain)
 	}
 
+	fmt.Println("GET ROOT")
 	// (Optional) Unwrap the error until you get root
 	chain = err
 	for {
