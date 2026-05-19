@@ -1,4 +1,4 @@
-# golang-generic.gitignore
+# .gitignore
 
 # CONCOURSE SECRETS
 .concourse-secrets.yml
@@ -22,6 +22,8 @@ sftp.json
 # TAR FILES
 *.tar.gz
 *.tar.gz.gpg
+
+# golang-generic.gitignore SPECIFIC BELOW ---------------------------------------------
 
 # TEST
 **/test/test_coverage.txt
