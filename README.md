@@ -11,7 +11,7 @@ Table of Contents
 
 * [ARCHITECTURES](https://github.com/JeffDeCola/my-go-examples#architectures)
   * BLOCKCHAIN
-  * SCRAPING
+  * WEB SCRAPING
 * [CGO](https://github.com/JeffDeCola/my-go-examples#cgo)
   * C CODE
 * [CLIENT/SERVER](https://github.com/JeffDeCola/my-go-examples#clientserver)
@@ -21,19 +21,20 @@ Table of Contents
 * [CLOUD SERVICE PROVIDERS](https://github.com/JeffDeCola/my-go-examples#cloud-service-providers)
   * GOOGLE CLOUD PLATFORM
   * MICROSOFT AZURE
-* [COMMON GO](https://github.com/JeffDeCola/my-go-examples#common-go)
-  * ERROR REPORTING
-  * FLAGS
-  * LOGGING
-  * MY GENERIC GO TEMPLATE
-  * TESTING
 * [CRYPTOGRAPHY](https://github.com/JeffDeCola/my-go-examples#cryptography)
   * ASYMMETRIC CRYPTOGRAPHY
   * HASHING
   * SYMMETRIC CRYPTOGRAPHY
+* [DATA STRUCTURES AND ALGORITHMS](https://github.com/JeffDeCola/my-go-examples#data-structures-and-algorithms)
+  * DATA STRUCTURES
+  * ALGORITHMS
 * [DATABASES](https://github.com/JeffDeCola/my-go-examples#databases)
   * NON-RELATIONAL
   * RELATIONAL
+* [ERROR HANDLING](https://github.com/JeffDeCola/my-go-examples#error-handling)
+  * BASIC
+  * WRAPPING
+  * SENTINELS
 * [FUNCTIONS, METHODS AND INTERFACES](https://github.com/JeffDeCola/my-go-examples#functions-methods-and-interfaces)
   * FUNCTIONS
   * METHODS
@@ -56,7 +57,16 @@ Table of Contents
 * [MODULES AND PACKAGES](https://github.com/JeffDeCola/my-go-examples#modules-and-packages)
   * LOCAL PACKAGES
   * REMOTE PACKAGES
-* [STANDARD GO PACKAGES](https://github.com/JeffDeCola/my-go-examples#standard-go-packages)
+* [MY GENERIC GO TEMPLATE](https://github.com/JeffDeCola/my-go-examples#my-generic-go-template)
+* [PROGRAM BASICS](https://github.com/JeffDeCola/my-go-examples#program-basics)
+  * FLAGS
+  * LOGGING
+* [STRUCTS AND TYPES](https://github.com/JeffDeCola/my-go-examples#structs-and-types)
+  * STRUCTS
+  * CONSTRUCTORS
+  * GENERICS
+* [TESTING](https://github.com/JeffDeCola/my-go-examples#testing)
+* [APPENDIX - STANDARD GO PACKAGES](https://github.com/JeffDeCola/my-go-examples#appendix---standard-go-packages)
 
 Documentation and Reference
 
@@ -130,44 +140,6 @@ Documentation and Reference
 
   * _Coming soon._
 
-## COMMON GO
-
-* ERROR REPORTING
-
-  * [error-example](https://github.com/JeffDeCola/my-go-examples/tree/master/common-go/error-reporting/error-example)
-
-  _Error Handling using the standard
-  [errors](https://pkg.go.dev/errors)
-  standard package._
-
-* FLAGS
-
-  * [flags](https://github.com/JeffDeCola/my-go-examples/tree/master/common-go/flags/flags)
-
-    _The
-    [flag](https://pkg.go.dev/flag)
-    standard package makes it easy to implement command-line flag parsing._
-
-* LOGGING
-
-  * [jeffs-logger](https://github.com/JeffDeCola/my-go-examples/tree/master/common-go/logging/jeffs-logger)
-
-    _Logging using my
-    [github.com/JeffDeCola/my-go-packages/golang/logger](https://github.com/JeffDeCola/my-go-packages/tree/master/golang/logger)
-    which uses the structured logging
-    [log/slog](https://pkg.go.dev/log/slog)
-    standard package._
-
-* MY GENERIC GO TEMPLATE
-
-  * [jeffs-basic-go-template](https://github.com/JeffDeCola/my-go-examples/tree/master/common-go/my-generic-go-template/jeffs-basic-go-template)
-
-    _A simple go template with flags, logging & error handling._
-
-* TESTING
-
-  * _Coming soon._
-
 ## CRYPTOGRAPHY
 
 * ASYMMETRIC CRYPTOGRAPHY
@@ -185,6 +157,22 @@ Documentation and Reference
 
   * _Coming soon._
 
+## DATA STRUCTURES AND ALGORITHMS
+
+* DATA STRUCTURES
+
+  * _Coming soon._
+
+* ALGORITHMS
+
+  * SEARCHING
+
+    * _Coming soon._
+
+  * SORTING
+
+    * _Coming soon._
+
 ## DATABASES
 
 * NON-RELATIONAL
@@ -192,6 +180,24 @@ Documentation and Reference
   * _Coming soon._
 
 * RELATIONAL
+
+  * _Coming soon._
+
+## ERROR HANDLING
+
+* BASIC
+
+  * [error-example](https://github.com/JeffDeCola/my-go-examples/tree/master/error-handling/basic/error-example)
+
+    _Error handling using the
+    [errors](https://pkg.go.dev/errors)
+    standard package._
+
+* WRAPPING
+
+  * _Coming soon._
+
+* SENTINELS
 
   * _Coming soon._
 
@@ -246,7 +252,7 @@ Documentation and Reference
 
 ## GO RUNTIME
 
-* GO ROUTINES
+* GOROUTINES
 
   * [goroutines-multi-core](https://github.com/JeffDeCola/my-go-examples/tree/master/go-runtime/goroutines/goroutines-multi-core)
 
@@ -462,7 +468,52 @@ Documentation and Reference
 
     _A go module with a remote (public) package._
 
-## STANDARD GO PACKAGES
+## MY GENERIC GO TEMPLATE
+
+* [jeffs-basic-go-template](https://github.com/JeffDeCola/my-go-examples/tree/master/my-generic-go-template/jeffs-basic-go-template)
+
+  _My generic go template with flags, logging & error handling.
+  A place to see how everything fits together._
+
+## PROGRAM BASICS
+
+* FLAGS
+
+  * [flags](https://github.com/JeffDeCola/my-go-examples/tree/master/program-basics/flags/flags)
+
+    _The
+    [flag](https://pkg.go.dev/flag)
+    standard package makes it easy to implement command-line flag parsing._
+
+* LOGGING
+
+  * [jeffs-logger](https://github.com/JeffDeCola/my-go-examples/tree/master/program-basics/logging/jeffs-logger)
+
+    _Logging using my
+    [github.com/JeffDeCola/my-go-packages/golang/logger](https://github.com/JeffDeCola/my-go-packages/tree/master/golang/logger)
+    which uses the structured logging
+    [log/slog](https://pkg.go.dev/log/slog)
+    standard package._
+
+## STRUCTS AND TYPES
+
+* STRUCTS
+
+  * _Coming soon._
+
+* CONSTRUCTORS
+
+  * _Coming soon._
+
+* GENERICS
+
+  * _Coming soon._
+
+## TESTING
+
+* _Coming soon._
+
+## APPENDIX - STANDARD GO PACKAGES
 
 * archive
   * tar
@@ -518,10 +569,10 @@ Documentation and Reference
     [create-bitcoin-address-from-ecdsa-publickey](https://github.com/JeffDeCola/my-go-examples/tree/master/architectures/blockchain/create-bitcoin-address-from-ecdsa-publickey)
   * etc...
 * errors -
-  [error-example](https://github.com/JeffDeCola/my-go-examples/tree/master/common-go/error-reporting/error-example)
+  [error-example](https://github.com/JeffDeCola/my-go-examples/tree/master/error-handling/basic/error-example)
 * expvar
 * flag -
-  [flags](https://github.com/JeffDeCola/my-go-examples/tree/master/common-go/flags/flags)
+  [flags](https://github.com/JeffDeCola/my-go-examples/tree/master/program-basics/flags/flags)
 * fmt
 * go
   * ast
@@ -554,7 +605,7 @@ Documentation and Reference
 * iter
 * log
   * slog -
-    [jeffs-logger](https://github.com/JeffDeCola/my-go-examples/tree/master/common-go/logging/jeffs-logger)
+    [jeffs-logger](https://github.com/JeffDeCola/my-go-examples/tree/master/program-basics/logging/jeffs-logger)
   * syslog
 * maps
 * math
