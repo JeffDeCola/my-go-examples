@@ -241,7 +241,7 @@ Documentation and Reference
     _Using an interface to calculate the area of a rectangle and circle
     by passing pointers._
 
-  * [interfaces-pointer-receivers](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/interfaces/interfaces-pointers-receivers)
+  * [interfaces-pointers-receivers](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/interfaces/interfaces-pointers-receivers)
 
     _Using an interface to calculate the area of a rectangle and circle
     by passing pointers and using pointer receivers._
@@ -515,10 +515,14 @@ Documentation and Reference
 
 ## APPENDIX - STANDARD GO PACKAGES
 
+_Current as of go 1.26.4._
+
 * archive
   * tar
   * zip
 * bufio
+* builtin
+  _(documentation-only - where len, make, panic, etc. live)_
 * bytes
 * cmp
 * compress
@@ -542,6 +546,7 @@ Documentation and Reference
     [create-bitcoin-address-from-ecdsa-publickey](https://github.com/JeffDeCola/my-go-examples/tree/master/architectures/blockchain/create-bitcoin-address-from-ecdsa-publickey)
   * elliptic -
     [create-bitcoin-address-from-ecdsa-publickey](https://github.com/JeffDeCola/my-go-examples/tree/master/architectures/blockchain/create-bitcoin-address-from-ecdsa-publickey)
+  * hpke
   * md5 -
     [md5-hash-file](https://github.com/JeffDeCola/my-go-tools/tree/master/cryptography-tools/md5-hash-file)
     tool
@@ -620,7 +625,7 @@ Documentation and Reference
 * net
   * http
   * http/cgi
-  * etc.,,
+  * etc...
 * os
   * exec -
     [simple-external-commands](https://github.com/JeffDeCola/my-go-examples/tree/master/go-runtime/interact-host-os/simple-external-commands)
@@ -628,6 +633,7 @@ Documentation and Reference
   * user
 * path
   * filepath
+* plugin
 * reflect -
   [create-bitcoin-address-from-ecdsa-publickey](https://github.com/JeffDeCola/my-go-examples/tree/master/architectures/blockchain/create-bitcoin-address-from-ecdsa-publickey)
 * regexp (syntax)
@@ -646,6 +652,7 @@ Documentation and Reference
   [simple-os-interactions](https://github.com/JeffDeCola/my-go-examples/tree/master/go-runtime/interact-host-os/simple-os-interactions)
   * js
 * testing
+  * cryptotest
   * fstest
   * iotest
   * quick
@@ -659,7 +666,7 @@ Documentation and Reference
 * time
   * tzdata
 * unicode
-  * utf1
+  * utf16
   * utf8
 * unique
 * unsafe
