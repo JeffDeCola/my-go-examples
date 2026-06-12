@@ -1,6 +1,7 @@
-# JEFFS BASIC GO TEMPLATE
+# JEFFS BASIC GO TEMPLATE EXAMPLE
 
-_A simple go template with flags, logging & error handling._
+_My generic go template with flags, logging & error handling.
+A place to see how everything fits together._
 
 Table of Contents
 

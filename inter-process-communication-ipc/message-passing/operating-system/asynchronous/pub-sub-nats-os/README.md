@@ -1,9 +1,9 @@
-# PUB-SUB NATS OS EXAMPLE
+# PUB SUB NATS OS EXAMPLE
 
 [![jeffdecola.com](https://img.shields.io/badge/website-jeffdecola.com-blue)](https://jeffdecola.com)
 [![MIT License](https://img.shields.io/:license-mit-blue.svg)](https://jeffdecola.mit-license.org)
 
-_tbd._
+_Coming soon._
 
 **I - IN-PROCESS COMMUNICATION**
 

@@ -1,12 +1,12 @@
-# GOROUTINES MULTI CORE
+# GOROUTINES MULTI CORE EXAMPLE
 
 [![jeffdecola.com](https://img.shields.io/badge/website-jeffdecola.com-blue)](https://jeffdecola.com)
 [![MIT License](https://img.shields.io/:license-mit-blue.svg)](https://jeffdecola.mit-license.org)
 
-_Concurrency across multi-cores. You can play around with workers,
+_Concurrency across multiples cores.  You can play around with workers,
 threads, cpus/cores and nice to find the fastest performance.
 It will find the total number of prime numbers within a range.
-**Lightweight goroutines are amazing**._
+Lightweight goroutines are amazing._
 
 Other Examples
 
