@@ -1,7 +1,7 @@
 module goroutines-multi-core
 
-go 1.23.0
+go 1.25.0
 
-require github.com/sirupsen/logrus v1.9.3
+require github.com/sirupsen/logrus v1.9.4
 
-require golang.org/x/sys v0.31.0 // indirect
+require golang.org/x/sys v0.46.0 // indirect

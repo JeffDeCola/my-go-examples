@@ -19,6 +19,7 @@ Table of Contents
   * HTTP
   * TCP/IP
 * [CLOUD SERVICE PROVIDERS](https://github.com/JeffDeCola/my-go-examples#cloud-service-providers)
+  * AMAZON WEB SERVICES
   * GOOGLE CLOUD PLATFORM
   * MICROSOFT AZURE
 * [CRYPTOGRAPHY](https://github.com/JeffDeCola/my-go-examples#cryptography)
@@ -57,7 +58,8 @@ Table of Contents
 * [MODULES AND PACKAGES](https://github.com/JeffDeCola/my-go-examples#modules-and-packages)
   * LOCAL PACKAGES
   * REMOTE PACKAGES
-* [MY GENERIC GO TEMPLATE](https://github.com/JeffDeCola/my-go-examples#my-generic-go-template)
+* [MY GENERIC GO TEMPLATES](https://github.com/JeffDeCola/my-go-examples#my-generic-go-templates)
+  * JEFFS BASIC TEMPLATE
 * [PROGRAM BASICS](https://github.com/JeffDeCola/my-go-examples#program-basics)
   * FLAGS
   * LOGGING
@@ -66,7 +68,14 @@ Table of Contents
   * CONSTRUCTORS
   * GENERICS
 * [TESTING](https://github.com/JeffDeCola/my-go-examples#testing)
-* [APPENDIX - STANDARD GO PACKAGES](https://github.com/JeffDeCola/my-go-examples#appendix---standard-go-packages)
+  * UNIT TESTS
+  * TABLE-DRIVEN TESTS
+  * BENCHMARKS
+  * FUZZING
+
+Appendix
+
+* [STANDARD GO PACKAGES](https://github.com/JeffDeCola/my-go-examples#standard-go-packages)
 
 Documentation and Reference
 
@@ -132,6 +141,10 @@ Documentation and Reference
 
 ## CLOUD SERVICE PROVIDERS
 
+* AMAZON WEB SERVICES
+
+  * _Coming soon._
+
 * GOOGLE CLOUD PLATFORM
 
   * _Coming soon._
@@ -187,7 +200,7 @@ Documentation and Reference
 
 * BASIC
 
-  * [error-example](https://github.com/JeffDeCola/my-go-examples/tree/master/error-handling/basic/error-example)
+  * [error-simple](https://github.com/JeffDeCola/my-go-examples/tree/master/error-handling/basic/error-simple)
 
     _Error handling using the
     [errors](https://pkg.go.dev/errors)
@@ -393,21 +406,21 @@ Documentation and Reference
 
       * [message-queues](https://github.com/JeffDeCola/my-go-examples/tree/master/inter-process-communication-ipc/message-passing/operating-system/asynchronous/message-queues)
 
-        _tbd._
+        _Coming soon._
 
       * [pub-sub-nats-os](https://github.com/JeffDeCola/my-go-examples/tree/master/inter-process-communication-ipc/message-passing/operating-system/asynchronous/pub-sub-nats-os)
 
-        _tbd._
+        _Coming soon._
 
       * [tcp](https://github.com/JeffDeCola/my-go-examples/tree/master/inter-process-communication-ipc/message-passing/operating-system/asynchronous/tcp)
 
-        _tbd._
+        _Coming soon._
 
     * SYNCHRONOUS
 
       * [grpc-os](https://github.com/JeffDeCola/my-go-examples/tree/master/inter-process-communication-ipc/message-passing/operating-system/synchronous/grpc-os)
 
-        _tbd._
+      _Start a grpc server in the go runtime environment using googles grpc package._
 
   * NETWORK
 
@@ -415,21 +428,21 @@ Documentation and Reference
 
       * [pub-sub-nats-network](https://github.com/JeffDeCola/my-go-examples/tree/master/inter-process-communication-ipc/message-passing/network/asynchronous/pub-sub-nats-network)
 
-        _tbd._
+        _Coming soon._
 
       * [tcp-ip](https://github.com/JeffDeCola/my-go-examples/tree/master/inter-process-communication-ipc/message-passing/network/asynchronous/tcp-ip)
 
-        _tbd._
+        _Coming soon._
 
     * SYNCHRONOUS
 
       * [grpc-network](https://github.com/JeffDeCola/my-go-examples/tree/master/inter-process-communication-ipc/message-passing/network/synchronous/grpc-network)
 
-        _tbd._
+        _Start a grpc server in the go runtime environment using googles grpc package._
 
       * [rest](https://github.com/JeffDeCola/my-go-examples/tree/master/inter-process-communication-ipc/message-passing/network/synchronous/rest)
 
-        _tbd._
+        _Coming soon._
 
 ## IoT
 
@@ -468,12 +481,14 @@ Documentation and Reference
 
     _A go module with a remote (public) package._
 
-## MY GENERIC GO TEMPLATE
+## MY GENERIC GO TEMPLATES
 
-* [jeffs-basic-go-template](https://github.com/JeffDeCola/my-go-examples/tree/master/my-generic-go-template/jeffs-basic-go-template)
+* JEFFS BASIC TEMPLATE
 
-  _My generic go template with flags, logging & error handling.
-  A place to see how everything fits together._
+  * [jeffs-basic-go-template](https://github.com/JeffDeCola/my-go-examples/tree/master/my-generic-go-templates/jeffs-basic-template/jeffs-basic-go-template)
+
+    _My generic go template with flags, logging & error handling.
+    A place to see how everything fits together._
 
 ## PROGRAM BASICS
 
@@ -503,7 +518,10 @@ Documentation and Reference
 
 * CONSTRUCTORS
 
-  * _Coming soon._
+  * [constructor-simple](https://github.com/JeffDeCola/my-go-examples/tree/master/structs-and-types/constructors/constructor-simple)
+
+    _Constructors are functions that build and return a new instance of a struct,
+    often with defaults._
 
 * GENERICS
 
@@ -511,9 +529,23 @@ Documentation and Reference
 
 ## TESTING
 
-* _Coming soon._
+* UNIT TESTS
 
-## APPENDIX - STANDARD GO PACKAGES
+  * _Coming soon._
+
+* TABLE-DRIVEN TESTS
+
+  * _Coming soon._
+
+* BENCHMARKS
+
+  * _Coming soon._
+
+* FUZZING
+
+  * _Coming soon._
+
+## STANDARD GO PACKAGES
 
 _Current as of go 1.26.4._
 
