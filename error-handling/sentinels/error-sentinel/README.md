@@ -10,37 +10,37 @@ standard package._
 
 tl;dr
 
-```text
+```go
 # BASIC - make an error, return it, handle it
-    func checkFilename(f string) error {...}      // returns nil or an error
+    func checkFilename(f string) error {...}        // returns nil or an error
 
-    err := checkFilename("")                      // caller gets the error
-    if err != nil {                               // ...and handles it ONCE
+    err := checkFilename("")                        // caller gets the error
+    if err != nil {                                 // ...and handles it ONCE
       // handle and return
     }
 
 # WRAPPING - add context with %w as it travels up
-    func loadConfig(f string) error {...}         // top - wraps, passes up
-    return fmt.Errorf("loadConfig: %w", err)      // wrap with %w
+    func loadConfig(f string) error {...}           // top - wraps, passes up
+    return fmt.Errorf("loadConfig: %w", err)        // wrap with %w
 
-    func readConfigFile(f string) error {...}     // middle - wraps, passes up
-    return fmt.Errorf("readConfigFile: %w", err)  // wrap with %w
+    func readConfigFile(f string) error {...}       // middle - wraps, passes up
+    return fmt.Errorf("readConfigFile: %w", err)    // wrap with %w
 
-    func checkFilename(f string) error {...}      // bottom - ORIGINATES
-    return errors.New("filename can not...")      //
+    func checkFilename(f string) error {...}        // bottom - ORIGINATES
+    return errors.New("filename can not...")        //
 
-    err := loadConfig("")                         // caller gets the whole chain
-    if err != nil {                               // ...handles it ONCE at the top
+    err := loadConfig("")                           // caller gets the whole chain
+    if err != nil {                                 // ...handles it ONCE at top
       // error: loadConfig: readConfigFile: filename can not...
     }
 
 # SENTINELS - a named error callers can check for by identity
-    var ErrNotFound = errors.New("not found")     // named, up top
+    var ErrNotFound = errors.New("not found")       // named, up top
 
-    return ErrNotFound                            // return it by identity
-    return fmt.Errorf("loadConfig: %w", ...)      // ...or wrapped
+    return ErrNotFound                              // return it by identity
+    return fmt.Errorf("loadConfig: %w", ...)        // ...or wrapped
 
-    if errors.Is(err, ErrNotFound) {              // caller branches on WHICH error
+    if errors.Is(err, ErrNotFound) {                // caller branches WHICH error
         // handle THIS error differently
     }
 ```
