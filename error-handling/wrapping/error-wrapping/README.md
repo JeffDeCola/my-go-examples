@@ -50,7 +50,7 @@ Examples
 * [error-simple](https://github.com/JeffDeCola/my-go-examples/tree/master/error-handling/basic/error-simple)
 * [error-wrapping](https://github.com/JeffDeCola/my-go-examples/tree/master/error-handling/wrapping/error-wrapping)
   **YOU ARE HERE**
-* [error-sentinels](https://github.com/JeffDeCola/my-go-examples/tree/master/error-handling/sentinels/error-sentinels)
+* [error-sentinel](https://github.com/JeffDeCola/my-go-examples/tree/master/error-handling/sentinels/error-sentinel)
 
 Table of Contents
 
