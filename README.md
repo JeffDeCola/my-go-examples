@@ -208,11 +208,21 @@ Documentation and Reference
 
 * WRAPPING
 
-  * _Coming soon._
+  * [error-wrapping](https://github.com/JeffDeCola/my-go-examples/tree/master/error-handling/wrapping/error-wrapping)
+
+    _Wrapping errors with %w to add context as they propagate up the call stack
+    using the
+    [errors](https://pkg.go.dev/errors)
+    standard package._
 
 * SENTINELS
 
-  * _Coming soon._
+  * [error-sentinels](https://github.com/JeffDeCola/my-go-examples/tree/master/error-handling/sentinels/error-sentinels)
+
+    _A sentinel is a named error that callers can check for by identity
+    using the
+    [errors](https://pkg.go.dev/errors)
+    standard package._
 
 ## FUNCTIONS, METHODS AND INTERFACES
 
@@ -611,7 +621,8 @@ _Current as of go 1.26.4._
     [create-bitcoin-address-from-ecdsa-publickey](https://github.com/JeffDeCola/my-go-examples/tree/master/architectures/blockchain/create-bitcoin-address-from-ecdsa-publickey)
   * etc...
 * errors -
-  [error-example](https://github.com/JeffDeCola/my-go-examples/tree/master/error-handling/basic/error-example)
+  [error-simple](https://github.com/JeffDeCola/my-go-examples/tree/master/error-handling/basic/error-simple),
+  [error-wrapper](https://github.com/JeffDeCola/my-go-examples/tree/master/error-handling/basic/error-wrapper)
 * expvar
 * flag -
   [flags](https://github.com/JeffDeCola/my-go-examples/tree/master/program-basics/flags/flags)

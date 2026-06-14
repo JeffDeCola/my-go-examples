@@ -1,9 +1,10 @@
-# ERROR SIMPLE EXAMPLE
+# ERROR WRAPPING EXAMPLE
 
 [![jeffdecola.com](https://img.shields.io/badge/website-jeffdecola.com-blue)](https://jeffdecola.com)
 [![MIT License](https://img.shields.io/:license-mit-blue.svg)](https://jeffdecola.mit-license.org)
 
-_Error handling using the
+_Wrapping errors with %w to add context as they propagate up the call stack
+using the
 [errors](https://pkg.go.dev/errors)
 standard package._
 
@@ -47,43 +48,47 @@ tl;dr
 Examples
 
 * [error-simple](https://github.com/JeffDeCola/my-go-examples/tree/master/error-handling/basic/error-simple)
-  **YOU ARE HERE**
 * [error-wrapping](https://github.com/JeffDeCola/my-go-examples/tree/master/error-handling/wrapping/error-wrapping)
+  **YOU ARE HERE**
 * [error-sentinels](https://github.com/JeffDeCola/my-go-examples/tree/master/error-handling/sentinels/error-sentinels)
 
 Table of Contents
 
-* [OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/error-handling/basic/error-simple#overview)
-* [RUN](https://github.com/JeffDeCola/my-go-examples/tree/master/error-handling/basic/error-simple#run)
+* [OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/error-handling/wrapping/error-wrapping#overview)
+* [RUN](https://github.com/JeffDeCola/my-go-examples/tree/master/error-handling/wrapping/error-wrapping#run)
 
 Documentation and Reference
 
 * [errors](https://pkg.go.dev/errors)
   standard package
-* [effective go - errors](https://go.dev/doc/effective_go#errors)
+* [working with errors in go 1.13](https://go.dev/blog/go1.13-errors)
 
 ## OVERVIEW
 
-The basic error pattern in go - a function returns an `error` as its
-last return value, `nil` when all is well. The caller checks it
-immediately and handles it before moving on.
+When an error happens deep in a call stack, each function it passes through
+wraps it with `%w` to add context about what that level was doing. The result
+is a chain - the trail of how you got there in front, the root cause at the end.
 
 ```go
-func checkFilename(filename string) error {...}   // returns nil or an error
-err := checkFilename("")                          // caller gets the error
-if err != nil {                                   // ...and handles it ONCE
-  // handle and return
-}
+func loadConfig(f string) error {...}      // top    - wraps, passes up
+func readConfigFile(f string) error {...}  // middle - wraps, passes up
+func checkFilename(f string) error {...}   // bottom - ORIGINATES the error
+
+return fmt.Errorf("loadConfig: %w", err)   // wrap with %w as it goes UP
+return errors.New("filename can not...")   // originate at the bottom
 ```
 
-There are three ways to make an error in go. This example covers the first;
-wrapping gets its own example later in this section.
+The deepest level originates the error with a bare description of the problem.
+Each level above wraps it, adding its own name as context. The caller at the
+top handles it once - and because the chain already names every level, it just
+prints the error.
 
-```go
-errors.New("filename can not be empty")              // static string  ← THIS EXAMPLE
-fmt.Errorf("filename too long, got %d chars", n)     // value in the message
-fmt.Errorf("opening config: %w", err)                // wrapping (see error-wrapping)
+```bash
+error: loadConfig: readConfigFile: filename can not be empty
 ```
+
+Read it like a trail - `loadConfig` was running, which called
+`readConfigFile`, and the root cause was an empty filename.
 
 ## RUN
 
@@ -99,6 +104,6 @@ The output should look like,
 PART 1 - GOOD - pass filename
     Everything is good
 PART 2 - BAD - pass no filename
-CheckFilename failed: filename can not be empty
+error: loadConfig: readConfigFile: filename can not be empty
 exit status 1
 ```

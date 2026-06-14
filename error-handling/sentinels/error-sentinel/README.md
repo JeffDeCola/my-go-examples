@@ -1,9 +1,10 @@
-# ERROR SIMPLE EXAMPLE
+# ERROR SENTINEL EXAMPLE
 
 [![jeffdecola.com](https://img.shields.io/badge/website-jeffdecola.com-blue)](https://jeffdecola.com)
 [![MIT License](https://img.shields.io/:license-mit-blue.svg)](https://jeffdecola.mit-license.org)
 
-_Error handling using the
+_A sentinel is a named error that callers can check for by identity
+using the
 [errors](https://pkg.go.dev/errors)
 standard package._
 
@@ -47,43 +48,33 @@ tl;dr
 Examples
 
 * [error-simple](https://github.com/JeffDeCola/my-go-examples/tree/master/error-handling/basic/error-simple)
-  **YOU ARE HERE**
 * [error-wrapping](https://github.com/JeffDeCola/my-go-examples/tree/master/error-handling/wrapping/error-wrapping)
 * [error-sentinels](https://github.com/JeffDeCola/my-go-examples/tree/master/error-handling/sentinels/error-sentinels)
+  **YOU ARE HERE**
 
 Table of Contents
 
-* [OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/error-handling/basic/error-simple#overview)
-* [RUN](https://github.com/JeffDeCola/my-go-examples/tree/master/error-handling/basic/error-simple#run)
+* [OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/error-handling/sentinels/error-sentinel#overview)
+* [RUN](https://github.com/JeffDeCola/my-go-examples/tree/master/error-handling/sentinels/error-sentinel#run)
 
 Documentation and Reference
 
 * [errors](https://pkg.go.dev/errors)
   standard package
-* [effective go - errors](https://go.dev/doc/effective_go#errors)
+* [working with errors in go 1.13](https://go.dev/blog/go1.13-errors)
 
 ## OVERVIEW
 
-The basic error pattern in go - a function returns an `error` as its
-last return value, `nil` when all is well. The caller checks it
-immediately and handles it before moving on.
+A sentinel is a named, package-level error because it has a name, a caller
+can check for that _specific_ error with `errors.Is` and respond to it
+differently from any other failure.
 
-```go
-func checkFilename(filename string) error {...}   // returns nil or an error
-err := checkFilename("")                          // caller gets the error
-if err != nil {                                   // ...and handles it ONCE
-  // handle and return
-}
-```
+`errors.Is` digs through `%w` wrapping, so a sentinel is still recognized even
+when it has been wrapped with context several layers up the call stack.
 
-There are three ways to make an error in go. This example covers the first;
-wrapping gets its own example later in this section.
-
-```go
-errors.New("filename can not be empty")              // static string  ← THIS EXAMPLE
-fmt.Errorf("filename too long, got %d chars", n)     // value in the message
-fmt.Errorf("opening config: %w", err)                // wrapping (see error-wrapping)
-```
+Note the `else if err != nil` branch in this small example `checkFilename`
+only fails one way, so it never fires, but it shows the full shape: recover
+from the error you know, bail on the ones you don't.
 
 ## RUN
 
@@ -96,9 +87,7 @@ go run main.go
 The output should look like,
 
 ```bash
-PART 1 - GOOD - pass filename
-    Everything is good
-PART 2 - BAD - pass no filename
-CheckFilename failed: filename can not be empty
-exit status 1
+no file - using default data.txt
+carrying on with: data.txt
+carrying on with: something.txt
 ```
