@@ -217,7 +217,7 @@ Documentation and Reference
 
 * SENTINELS
 
-  * [error-sentinels](https://github.com/JeffDeCola/my-go-examples/tree/master/error-handling/sentinels/error-sentinels)
+  * [error-sentinel](https://github.com/JeffDeCola/my-go-examples/tree/master/error-handling/sentinels/error-sentinel)
 
     _A sentinel is a named error that callers can check for by identity
     using the
@@ -524,7 +524,13 @@ Documentation and Reference
 
 * STRUCTS
 
-  * _Coming soon._
+  * [structs-basic](https://github.com/JeffDeCola/my-go-examples/tree/master/structs-and-types/structs/structs-basic)
+
+    _Structs are ???._
+
+  * [structs-embedding](https://github.com/JeffDeCola/my-go-examples/tree/master/structs-and-types/structs/structs-embedding)
+
+    _Structs are ???._
 
 * CONSTRUCTORS
 
@@ -622,7 +628,8 @@ _Current as of go 1.26.4._
   * etc...
 * errors -
   [error-simple](https://github.com/JeffDeCola/my-go-examples/tree/master/error-handling/basic/error-simple),
-  [error-wrapper](https://github.com/JeffDeCola/my-go-examples/tree/master/error-handling/basic/error-wrapper)
+  [error-wrapping](https://github.com/JeffDeCola/my-go-examples/tree/master/error-handling/wrapping/error-wrapping),
+    [error-sentinel](https://github.com/JeffDeCola/my-go-examples/tree/master/error-handling/sentinels/error-sentinel)
 * expvar
 * flag -
   [flags](https://github.com/JeffDeCola/my-go-examples/tree/master/program-basics/flags/flags)
