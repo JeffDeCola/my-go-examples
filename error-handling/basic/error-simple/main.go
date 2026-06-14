@@ -1,4 +1,7 @@
-// my-go-examples error-example
+// error-simple
+//
+// Error handling using the errors standard package.
+//
 
 package main
 
@@ -6,79 +9,33 @@ import (
 	"errors"
 	"fmt"
 	"os"
-
-	logger "github.com/JeffDeCola/my-go-packages/golang/logger"
 )
 
-// Error definitions
-var ErrFilenameEmpty = errors.New("filename can not be empty")
-
-// PROPAGATE ERROR
-func firstLevel(filename string) (err error) {
-
-	err = secondLevel(filename)
-	if err != nil {
-		return fmt.Errorf("firstLevel: %w", err)
-	}
-
-	return nil
-
-}
-
-// PROPAGATE ERROR
-func secondLevel(filename string) (err error) {
-
-	err = thirdLevel(filename)
-	if err != nil {
-		return fmt.Errorf("secondLevel: %w", err)
-	}
-
-	return nil
-
-}
-
-// ORIGINATE ERROR
-func thirdLevel(filename string) (err error) {
+func checkFilename(filename string) error {
 
 	if filename == "" {
-		return fmt.Errorf("thirdLevel: %w", ErrFilenameEmpty)
+		return errors.New("filename can not be empty")
 	}
-
 	return nil
-
 }
 
 func main() {
 
-	// Use my logger
-	log := logger.CreateLogger(logger.Debug, "jeffs_noTime", os.Stdout)
-
-	// Trigger and error by passing empty filename
-	err := firstLevel("")
+	// Good
+	fmt.Println("PART 1 - GOOD - pass filename")
+	err := checkFilename("data.txt")
 	if err != nil {
-		log.Error("Got an Error", "error", err)
+		fmt.Println("CheckFilename failed:", err)
+		os.Exit(1)
 	}
+	fmt.Println("    Everything is good")
 
-	fmt.Println("UNWRAP ERROR")
-
-	// (Optional) Unwrap the error level by level
-	var chain error
-	chain = err
-	for chain != nil {
-		log.Error("Caused by:", "chain", chain)
-		chain = errors.Unwrap(chain)
+	// Bad
+	fmt.Println("PART 2 - BAD - pass no filename")
+	err = checkFilename("")
+	if err != nil {
+		fmt.Println("CheckFilename failed:", err)
+		os.Exit(1)
 	}
-
-	fmt.Println("GET ROOT")
-	// (Optional) Unwrap the error until you get root
-	chain = err
-	for {
-		unwrapped := errors.Unwrap(chain)
-		if unwrapped == nil {
-			log.Error("Root Cause:", "root", chain)
-			break
-		}
-		chain = unwrapped
-	}
-
+	fmt.Println("    Everything is good")
 }

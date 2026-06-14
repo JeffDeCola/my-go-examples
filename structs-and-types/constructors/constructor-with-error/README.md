@@ -6,6 +6,12 @@
 _Expanding on constructor-simple to add a configuration struct
 and error handling._
 
+Examples
+
+* [constructor-simple](https://github.com/JeffDeCola/my-go-examples/tree/master/structs-and-types/constructors/constructor-simple)
+* [constructor-with-error](https://github.com/JeffDeCola/my-go-examples/tree/master/structs-and-types/constructors/constructor-with-error)
+  **YOU ARE HERE**
+
 Table of Contents
 
 * [OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/structs-and-types/constructors/constructor-with-error#overview)

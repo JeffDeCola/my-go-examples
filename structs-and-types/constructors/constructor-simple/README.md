@@ -6,6 +6,12 @@
 _Constructors are functions that build and return a new instance of a struct,
 often with defaults._
 
+Examples
+
+* [constructor-simple](https://github.com/JeffDeCola/my-go-examples/tree/master/structs-and-types/constructors/constructor-simple)
+  **YOU ARE HERE**
+* [constructor-with-error](https://github.com/JeffDeCola/my-go-examples/tree/master/structs-and-types/constructors/constructor-with-error)
+
 Table of Contents
 
 * [OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/structs-and-types/constructors/constructor-simple#overview)
