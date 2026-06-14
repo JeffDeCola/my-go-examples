@@ -10,37 +10,45 @@ standard package._
 tl;dr
 
 ```go
-# BASIC - make an error, return it, handle it
-    func checkFilename(f string) error {...}        // returns nil or an error
+// BASIC - make an error, return it, handle it
+    func checkFilename(f string) error {...}          // returns nil or an error
+        return errors.New("filename....")
 
-    err := checkFilename("")                        // caller gets the error
-    if err != nil {                                 // ...and handles it ONCE
-      // handle and return
+    err := checkFilename("")                          // caller gets the error
+    if err != nil {                                   // ...and handles it ONCE
+        fmt.Println("CheckFilename failed:", err)
+        os.Exit(1)
     }
 
-# WRAPPING - add context with %w as it travels up
-    func loadConfig(f string) error {...}           // top - wraps, passes up
-    return fmt.Errorf("loadConfig: %w", err)        // wrap with %w
+// WRAPPING - add context with %w as it travels up
+    func loadConfig(f string) error {...}             // top - wraps, passes up
+        return fmt.Errorf("loadConfig: %w", err)      // wrap with %w
 
-    func readConfigFile(f string) error {...}       // middle - wraps, passes up
-    return fmt.Errorf("readConfigFile: %w", err)    // wrap with %w
+    func readConfigFile(f string) error {...}         // middle - wraps, passes up
+        return fmt.Errorf("readConfigFile: %w", err)  // wrap with %w
 
-    func checkFilename(f string) error {...}        // bottom - ORIGINATES
-    return errors.New("filename can not...")        //
+    func checkFilename(f string) error {...}          // bottom - ORIGINATES
+        return errors.New("filename can not...")      //
 
-    err := loadConfig("")                           // caller gets the whole chain
-    if err != nil {                                 // ...handles it ONCE at top
-      // error: loadConfig: readConfigFile: filename can not...
+    err := loadConfig("")                             // caller gets the whole chain
+    if err != nil {                                   // ...handles it ONCE at top
+        fmt.Println("error:", err)
+        os.Exit(1)
     }
 
-# SENTINELS - a named error callers can check for by identity
-    var ErrNotFound = errors.New("not found")       // named, up top
+// SENTINELS - a named error callers can check for by identity
+    var ErrFileNotFound = errors.New("not found")     // named, up top
 
-    return ErrNotFound                              // return it by identity
-    return fmt.Errorf("loadConfig: %w", ...)        // ...or wrapped
+    return ErrFileNotFound                            // return it by identity
+    return fmt.Errorf("loadConfig: %w", ...)          // ...or wrapped
 
-    if errors.Is(err, ErrNotFound) {                // caller branches WHICH error
-        // handle THIS error differently
+    if errors.Is(err, ErrFileNotFound) {
+        fmt.Println("no file - using default")        // Try to recover
+        filename = "data.txt"
+        ...
+    } else if err != nil {                            // All other errors
+        fmt.Println("error:", err)
+        os.Exit(1)
     }
 ```
 
