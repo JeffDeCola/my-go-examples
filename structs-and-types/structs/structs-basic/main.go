@@ -1,3 +1,8 @@
+// structs-basic
+//
+// Declaring a struct, creating instances and accessing fields.
+//
+
 package main
 
 import "fmt"
