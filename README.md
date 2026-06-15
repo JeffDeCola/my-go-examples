@@ -526,11 +526,12 @@ Documentation and Reference
 
   * [structs-basic](https://github.com/JeffDeCola/my-go-examples/tree/master/structs-and-types/structs/structs-basic)
 
-    _Structs are ???._
+    _Declaring a struct, creating instances and accessing fields._
 
-  * [structs-embedding](https://github.com/JeffDeCola/my-go-examples/tree/master/structs-and-types/structs/structs-embedding)
+  * [structs-nesting-embedding](https://github.com/JeffDeCola/my-go-examples/tree/master/structs-and-types/structs/structs-nesting-embedding)
 
-    _Structs are ???._
+    _Nesting and embedding a struct inside another struct, and how field
+    access differs between them._
 
 * CONSTRUCTORS
 
@@ -546,7 +547,15 @@ Documentation and Reference
 
 * GENERICS
 
-  * _Coming soon._
+  * [generics-function](https://github.com/JeffDeCola/my-go-examples/tree/master/structs-and-types/generics/generics-function)
+
+    _A generic function uses a type parameter so a and b are the same type,
+    and so is the result - one function for many types instead of copy-pasting._
+
+  * [generics-type](https://github.com/JeffDeCola/my-go-examples/tree/master/structs-and-types/generics/generics-types)
+
+    _A generic type uses a type parameter so one definition serves every element
+    type, instead of writing one type per element._
 
 ## TESTING
 
