@@ -1,3 +1,5 @@
+// interfaces-pointers-receivers
+
 package main
 
 import (

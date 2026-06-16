@@ -1,3 +1,5 @@
+// shapes-package
+
 package main
 
 import (

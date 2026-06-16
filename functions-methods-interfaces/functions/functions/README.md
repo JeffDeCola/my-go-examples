@@ -5,75 +5,64 @@
 
 _Using functions to calculate the area of a rectangle and circle._
 
-Other Examples
+Examples
 
 * **FUNCTIONS**
   * [functions](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/functions/functions)
-    **<- YOU ARE HERE**
+    **YOU ARE HERE**
   * [functions-pointers-arguments](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/functions/functions-pointers-arguments)
 * **METHODS**
   * [methods](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/methods/methods)
-  * [methods-pointers-arguments](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/methods/methods-pointers-arguments)
   * [methods-pointers-receivers](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/methods/methods-pointers-receivers)
 * **INTERFACES**
   * [interfaces](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/interfaces/interfaces)
-  * [interfaces-pointers-arguments](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/interfaces/interfaces-pointers-arguments)
   * [interfaces-pointers-receivers](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/interfaces/interfaces-pointers-receivers)
-  * [shapes-package](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/interfaces/shapes-package)
 
 tl;dr
 
 ```go
-// SYNTAX
-    // (receiver) func (parameters) (return parameters)
+// SYNTAX:  func (receiver) name(parameters) returnValues
 
-// FUNCTIONS
+type rectangle struct{ width, height float64 }
+type circle    struct{ radius float64 }
 
-    // USING RETURNS
-        func areaRectangle(w float64, h float64) float64 {
-        recArea := areaRectangle(recWidth, recHeight)
-    // USING POINTERS IN PARAMETERS
-        func areaRectangle(w float64, h float64, a *float64) {
-        var recArea float64
-        areaRectangle(recWidth, recHeight, &recArea)
+// FUNCTIONS - standalone; the struct goes in, a value comes out.
+// Functions can't share a name, so they're areaRectangle/areaCircle.
+func areaRectangle(r rectangle) float64 { return r.width * r.height }
+func areaCircle(c circle) float64       { return math.Pi * c.radius * c.radius }
+recArea  := areaRectangle(rec)
+circArea := areaCircle(circ)
 
-// METHODS
+// FUNCTIONS-POINTERS-ARGUMENTS - pass a *pointer to mutate the caller's value
+func scale(r *rectangle, f float64) { r.width *= f; r.height *= f }
+scale(&rec, 2)
 
-    // USING RETURNS
-        func (r Rectangle) area() float64 {
-        rec := Rectangle{2.4, 34.4}
-        recArea := rec.area()
-    // USING POINTERS IN PARAMETERS
-        func (r Rectangle) area(a *float64) {
-        rec := Rectangle{2.4, 34.4}
-        var recArea float64
-        rec.area(&recArea)
-     // USING POINTERS IN RECEIVERS
-        func (r *Rectangle) size(f factor) {
-        rec := Rectangle{2.4, 34.4} // We want to change this
-        rec.size(2)
+// METHODS - bound to a receiver, so BOTH shapes can just be area()
+func (r rectangle) area() float64 { return r.width * r.height }
+func (c circle)    area() float64 { return math.Pi * c.radius * c.radius }
+recArea  := rec.area()
+circArea := circ.area()
 
-// INTERFACES
+// METHODS-POINTERS-RECEIVERS - pointer receiver mutates the receiver in place.
+// value receiver reads; pointer receiver mutates.
+func (r *rectangle) scale(f float64) { r.width *= f; r.height *= f }
+rec.scale(2)
 
-    // USING RETURNS
-        func (geometry).area() float64 // Abstract representation
-        rec := Rectangle{2.4, 34.4}
-        var gRec geometry
-        gRec = rec
-        recArea := gRec.area()
-    // USING POINTERS IN PARAMETERS
-        func (geometry).area()(*float64) // Abstract representation
-        rec := Rectangle{2.4, 34.4}
-        var gRec geometry
-        var recArea float64
-        gRec = rec
-        gRec.area(&recArea)
-    // USING POINTERS IN RECEIVERS
-        func (geometry).size()(*float64) // Abstract representation
-        rec := Rectangle{2.4, 34.4} // We want to change this
-        var gRec geometry
-        gRec = &rec // Note this
-        gRec.size(2)
+// INTERFACES - a func accepts the interface; any type with area() satisfies it.
+// This is polymorphism: one func, many types, the right area() chosen at runtime.
+type geometry interface { area() float64 }
+func getArea(g geometry) float64 { return g.area() }
+recArea  := getArea(rec)    // rectangle
+circArea := getArea(circ)   // circle - one func, dispatch by type
+
+// INTERFACES-POINTERS-RECEIVERS - scale has a *receiver, so only *rectangle is
+//                                 in the method set -> assign &rec, not rec
+type geometry interface {
+    area() float64
+    scale(float64)
+}
+var g geometry = &rec
+g.scale(2)
 ```
 
 Table of Contents
@@ -115,20 +104,5 @@ To run,
 go run main.go
 ```
 
-## TEST
+The out should look like
 
-To create _test files,
-
-```bash
-gotests -w -all main.go
-```
-
-To unit test the code,
-
-```bash
-go test -cover ./...
-```
-
-## AN ILLUSTRATION THAT MAY HELP
-
-![IMAGE - functions-methods-interfaces.jpg - IMAGE](../../../docs/pics/functions-methods-interfaces/functions-methods-interfaces.svg)
