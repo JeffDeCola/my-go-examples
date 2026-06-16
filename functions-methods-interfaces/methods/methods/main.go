@@ -1,3 +1,5 @@
+// methods
+
 package main
 
 import (

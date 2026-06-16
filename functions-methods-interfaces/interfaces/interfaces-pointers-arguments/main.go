@@ -1,3 +1,5 @@
+// interfaces-pointers-arguments
+
 package main
 
 import (

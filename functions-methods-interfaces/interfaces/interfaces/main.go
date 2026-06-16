@@ -1,3 +1,5 @@
+// interfaces
+
 package main
 
 import (
