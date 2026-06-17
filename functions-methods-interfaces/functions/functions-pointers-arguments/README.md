@@ -3,109 +3,67 @@
 [![jeffdecola.com](https://img.shields.io/badge/website-jeffdecola.com-blue)](https://jeffdecola.com)
 [![MIT License](https://img.shields.io/:license-mit-blue.svg)](https://jeffdecola.mit-license.org)
 
-_Using functions to calculate the area of a rectangle and circle
-by passing pointers._
-
-Other Examples
-
-* **FUNCTIONS**
-  * [functions](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/functions/functions)
-  * [functions-pointers-arguments](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/functions/functions-pointers-arguments)
-    **<- YOU ARE HERE**
-* **METHODS**
-  * [methods](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/methods/methods)
-  * [methods-pointers-arguments](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/methods/methods-pointers-arguments)
-  * [methods-pointers-receivers](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/methods/methods-pointers-receivers)
-* **INTERFACES**
-  * [interfaces](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/interfaces/interfaces)
-  * [interfaces-pointers-arguments](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/interfaces/interfaces-pointers-arguments)
-  * [interfaces-pointers-receivers](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/interfaces/interfaces-pointers-receivers)
-  * [shapes-package](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/interfaces/shapes-package)
+_Using functions to resize a rectangle and circle by passing pointers._
 
 tl;dr
 
 ```go
-// SYNTAX
-    // (receiver) func (arguments) (return arguments)
-
-// FUNCTIONS
-
-    // USING RETURNS
-        func areaRectangle(w float64, h float64) float64 {
-        recArea := areaRectangle(recWidth, recHeight)
-    // USING POINTERS IN ARGUMENTS
-        func areaRectangle(w float64, h float64, a *float64) {
-        var recArea float64
-        areaRectangle(recWidth, recHeight, &recArea)
-
-// METHODS
-
-    // USING RETURNS
-        func (r Rectangle) area() float64 {
-        rec := Rectangle{2.4, 34.4}
-        recArea := rec.area()
-    // USING POINTERS IN ARGUMENTS
-        func (r Rectangle) area(a *float64) {
-        rec := Rectangle{2.4, 34.4}
-        var recArea float64
-        rec.area(&recArea)
-     // USING POINTERS IN RECEIVERS
-        func (r *Rectangle) size(f factor) {
-        rec := Rectangle{2.4, 34.4} // We want to change this
-        rec.size(2)
-
-// INTERFACES
-
-    // USING RETURNS
-        func (geometry).area() float64 // Abstract representation
-        rec := Rectangle{2.4, 34.4}
-        var gRec geometry
-        gRec = rec
-        recArea := gRec.area()
-    // USING POINTERS IN ARGUMENTS
-        func (geometry).area()(*float64) // Abstract representation
-        rec := Rectangle{2.4, 34.4}
-        var gRec geometry
-        var recArea float64
-        gRec = rec
-        gRec.area(&recArea)
-    // USING POINTERS IN RECEIVERS
-        func (geometry).size()(*float64) // Abstract representation
-        rec := Rectangle{2.4, 34.4} // We want to change this
-        var gRec geometry
-        gRec = &rec // Note this
-        gRec.size(2)
+// replace
 ```
+
+Examples
+
+* **FUNCTIONS**
+  * [functions](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/functions/functions)
+  * [functions-pointers-arguments](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/functions/functions-pointers-arguments)
+    **YOU ARE HERE**
+* **METHODS**
+  * [methods](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/methods/methods)
+  * [methods-pointers-receivers](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/methods/methods-pointers-receivers)
+* **INTERFACES**
+  * [interfaces](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/interfaces/interfaces)
+  * [interfaces-pointers-receivers](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/interfaces/interfaces-pointers-receivers)
 
 Table of Contents
 
 * [OVERVIEW](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/functions/functions-pointers-arguments#overview)
 * [RUN](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/functions/functions-pointers-arguments#run)
-* [TEST](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/functions/functions-pointers-arguments#test)
-* [AN ILLUSTRATION THAT MAY HELP](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/functions/functions-pointers-arguments#an-illustration-that-may-help)
+
+Documentation and Reference
+
+* [go spec - function declarations](https://go.dev/ref/spec#Function_declarations)
+* [effective go - functions](https://go.dev/doc/effective_go#functions)
 
 ## OVERVIEW
 
-Define the rectangle,
+Given these structs,
 
 ```go
-var recWidth float64 = 2.4
-var recHeight float34 = 34.4
-```
-
-Calculate the area using a function,
-
-```go
-var recArea float64
-areaRectangle(recWidth, recHeight, &recArea)
-```
-
-The rectangle function,
-
-```go
-func areaRectangle(w float64, h float64, a *float64) {
-    *a = w * h
+type rectangle struct {
+    width  float64
+    height float64
 }
+
+type circle struct {
+    radius float64
+}
+```
+
+These functions take a pointer and change the struct in place.
+No value comes back.
+
+```go
+func scaleRectangle(r *rectangle, factor float64) {
+    r.width *= factor
+    r.height *= factor
+}
+```
+
+And they are called,
+
+```go
+scaleRectangle(&rec, 3)
+scaleCircle(&circ, 4)
 ```
 
 ## RUN
@@ -116,20 +74,11 @@ To run,
 go run main.go
 ```
 
-## TEST
-
-To create _test files,
+The output should look like,
 
 ```bash
-gotests -w -all main.go
+The area of the rectangle (10.00 x 5.00) is 50.00
+The area of the circle (radius 5.00) is 78.54
+The area of the rectangle (30.00 x 15.00) is 450.00
+The area of the circle (radius 20.00) is 1256.64
 ```
-
-To unit test the code,
-
-```bash
-go test -cover ./...
-```
-
-## AN ILLUSTRATION THAT MAY HELP
-
-![IMAGE - functions-methods-interfaces-pointers-arguments.jpg - IMAGE](../../../docs/pics/functions-methods-interfaces/functions-methods-interfaces-pointers-arguments.svg)

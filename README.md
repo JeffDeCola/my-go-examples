@@ -234,8 +234,7 @@ Documentation and Reference
 
   * [functions-pointers-arguments](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/functions/functions-pointers-arguments)
 
-    _Using functions to calculate the area of a rectangle and circle
-    by passing pointers._
+    _Using functions to resize a rectangle and circle by passing pointers._
 
 * METHODS
 
@@ -243,15 +242,9 @@ Documentation and Reference
 
     _Using methods to calculate the area of a rectangle and circle._
 
-  * [methods-pointers-arguments](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/methods/methods-pointers-arguments)
-
-    _Using methods to calculate the area of a rectangle and circle
-    by passing pointers._
-
   * [methods-pointers-receivers](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/methods/methods-pointers-receivers)
 
-    _Using methods to calculate the area of a rectangle and circle
-    by passing pointers and using pointer receivers._
+    _Using methods to resize a rectangle and circle using pointer receivers._
 
 * INTERFACES
 
@@ -259,19 +252,9 @@ Documentation and Reference
 
     _Using an interface to calculate the area of a rectangle and circle._
 
-  * [interfaces-pointers-arguments](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/interfaces/interfaces-pointers-arguments)
-
-    _Using an interface to calculate the area of a rectangle and circle
-    by passing pointers._
-
   * [interfaces-pointers-receivers](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/interfaces/interfaces-pointers-receivers)
 
-    _Using an interface to calculate the area of a rectangle and circle
-    by passing pointers and using pointer receivers._
-
-  * [shapes-package](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/interfaces/shapes-package)
-
-    _Using an interface to calculate and manipulate simple 2D and 3D geometric shapes._
+    _Using an interface to resize a rectangle and circle using pointer receivers._
 
 ## GO RUNTIME
 
