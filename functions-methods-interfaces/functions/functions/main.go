@@ -1,4 +1,7 @@
 // functions
+//
+// Using functions to calculate the area of a rectangle and circle.
+//
 
 package main
 
@@ -7,31 +10,41 @@ import (
 	"math"
 )
 
-func areaRectangle(w float64, h float64) float64 {
-	area := w * h
+type rectangle struct {
+	width  float64
+	height float64
+}
+
+type circle struct {
+	radius float64
+}
+
+func areaRectangle(r rectangle) float64 {
+	area := r.width * r.height
 	return area
 }
 
-// MATH USING FUNCTIONS
-func areaCircle(r float64) float64 {
-	area := math.Pi * math.Pow(r, 2)
+func areaCircle(c circle) float64 {
+	area := math.Pi * c.radius * c.radius
 	return area
 }
 
-// MAIN
 func main() {
 
-	// DEFINE
-	var recWidth float64 = 2.4
-	var recHeight float64 = 34.4
-	var circRadius float64 = 2.3
+	rec := rectangle{
+		width:  10,
+		height: 5,
+	}
 
-	// CALCULATE AREA OF SHAPES
-	recArea := areaRectangle(recWidth, recHeight)
-	circArea := areaCircle(circRadius)
+	circ := circle{
+		radius: 5,
+	}
 
-	// PRINT
-	fmt.Printf("Rectangle (%.2f x %.2f): Area=%.2f\n", recWidth, recHeight, recArea)
-	fmt.Printf("Circle (%.2f): Area=%.2f\n", circRadius, circArea)
+	// Pass by value - A complete copy is made
+	recArea := areaRectangle(rec)
+	fmt.Printf("The area of the rectangle (%.2f x %.2f) is %.2f\n", rec.width, rec.height, recArea)
+
+	circArea := areaCircle(circ)
+	fmt.Printf("The area of the circle (radius %.2f) is %.2f\n", circ.radius, circArea)
 
 }

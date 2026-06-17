@@ -1,4 +1,7 @@
 // functions-pointers-arguments
+//
+// Using functions to resize a rectangle and circle by passing pointers.
+//
 
 package main
 
@@ -7,30 +10,59 @@ import (
 	"math"
 )
 
-// MATH USING FUNCTIONS
-func areaRectangle(w float64, h float64, a *float64) {
-	*a = w * h
+type rectangle struct {
+	width  float64
+	height float64
 }
 
-func areaCircle(r float64, a *float64) {
-	*a = math.Pi * math.Pow(r, 2)
+type circle struct {
+	radius float64
+}
+
+func areaRectangle(r rectangle) float64 {
+	area := r.width * r.height
+	return area
+}
+
+func areaCircle(c circle) float64 {
+	area := math.Pi * c.radius * c.radius
+	return area
+}
+
+func scaleRectangle(r *rectangle, factor float64) {
+	r.width *= factor
+	r.height *= factor
+}
+
+func scaleCircle(c *circle, factor float64) {
+	c.radius *= factor
 }
 
 func main() {
 
-	// DEFINE
-	var recWidth float64 = 2.4
-	var recHeight float64 = 34.4
-	var circRadius float64 = 2.3
-	var recArea float64
-	var circArea float64
+	rec := rectangle{
+		width:  10,
+		height: 5,
+	}
 
-	// CALCULATE AREA OF SHAPES
-	areaRectangle(recWidth, recHeight, &recArea)
-	areaCircle(circRadius, &circArea)
+	circ := circle{
+		radius: 5,
+	}
 
-	// PRINT
-	fmt.Printf("Rectangle (%.2f x %.2f): Area=%.2f\n", recWidth, recHeight, recArea)
-	fmt.Printf("Circle (%.2f): Area=%.2f\n", circRadius, circArea)
+	// Pass by value - A complete copy is made
+	recArea := areaRectangle(rec)
+	fmt.Printf("The area of the rectangle (%.2f x %.2f) is %.2f\n", rec.width, rec.height, recArea)
+
+	circArea := areaCircle(circ)
+	fmt.Printf("The area of the circle (radius %.2f) is %.2f\n", circ.radius, circArea)
+
+	// Pass by pointers
+	scaleRectangle(&rec, 3)
+	recArea = areaRectangle(rec)
+	fmt.Printf("The area of the rectangle (%.2f x %.2f) is %.2f\n", rec.width, rec.height, recArea)
+
+	scaleCircle(&circ, 4)
+	circArea = areaCircle(circ)
+	fmt.Printf("The area of the circle (radius %.2f) is %.2f\n", circ.radius, circArea)
 
 }

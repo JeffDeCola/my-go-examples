@@ -1,3 +1,3 @@
-module area-shapes-functions-ptrs
+module functions-pointers-arguments
 
-go 1.20
+go 1.24
