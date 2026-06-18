@@ -16,27 +16,26 @@ tl;dr
 
 // FUNCTIONS - Pass by value -  A complete copy is made
     func areaRectangle(r rectangle) float64 { ... }
-    func areaCircle(c circle) float64       { ... }
+    func areaCircle(c circle) float64 { ... }
     recArea  := areaRectangle(rec)
     circArea := areaCircle(circ)
 
-// FUNCTIONS-POINTERS-ARGUMENTS - pass by pointer
-    func scaleRectangle(r *rectangle, f float64) { ... }
-    func scaleCircle(c *circle, f float64) { ... }
+// FUNCTIONS-POINTERS-ARGUMENTS - Pass by pointer
+    func scaleRectangle(r *rectangle, factor float64) { ... }
+    func scaleCircle(c *circle, factor float64) { ... }
     scaleRectangle(&rec, 3)
     scaleCircle(&circ, 4)
 
 ----------
 
-// METHODS - bound to a receiver, so BOTH shapes can just be area()
+// METHODS - Value receiver - Reads a copy - Both shapes can just be area()
     func (r rectangle) area() float64 { ... }
-    func (c circle)    area() float64 { ... }
+    func (c circle) area() float64 { ... }
     recArea  := rec.area()
     circArea := circ.area()
 
-// METHODS-POINTERS-RECEIVERS - pointer receiver mutates the receiver in place.
-// value receiver reads; pointer receiver mutates.
-    func (r *rectangle) scale(f float64) { ... }
+// METHODS-POINTERS-RECEIVERS - Pointer receiver mutates the original
+    func (r *rectangle) scale(factor float64) { ... }
     rec.scale(2)
 
 ----------
