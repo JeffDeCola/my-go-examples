@@ -1,4 +1,7 @@
 // methods-pointers-receivers
+//
+// Using methods to resize a rectangle and circle using pointer receivers.
+//
 
 package main
 
@@ -7,7 +10,6 @@ import (
 	"math"
 )
 
-// STRUCTS - SHAPE CHARACTERISTICS
 type rectangle struct {
 	width  float64
 	height float64
@@ -17,51 +19,50 @@ type circle struct {
 	radius float64
 }
 
-// MATH USING METHODS
-func (r rectangle) area(a *float64) {
-	*a = r.width * r.height
+func (r rectangle) area() float64 {
+	area := r.width * r.height
+	return area
 }
 
-func (c circle) area(a *float64) {
-	*a = math.Pi * math.Pow(c.radius, 2)
+func (c circle) area() float64 {
+	area := math.Pi * c.radius * c.radius
+	return area
 }
 
-func (r *rectangle) size(f float64) {
-	r.width = r.width * f
-	r.height = r.height * f
+func (r *rectangle) scale(factor float64) {
+	r.width *= factor
+	r.height *= factor
 }
 
-func (c *circle) size(f float64) {
-	c.radius = c.radius * f
+func (c *circle) scale(factor float64) {
+	c.radius *= factor
 }
 
 func main() {
 
-	// DEFINE
-	rec := rectangle{2.4, 34.4}
-	circ := circle{2.3}
-	var recArea float64
-	var circArea float64
+	rec := rectangle{
+		width:  10,
+		height: 5,
+	}
 
-	// CALCULATE AREA USING A STRUCT TYPE
-	rec.area(&recArea)
-	circ.area(&circArea)
+	circ := circle{
+		radius: 5,
+	}
 
-	// PRINT
-	fmt.Printf("Rectangle (%.2f x %.2f): Area=%.2f\n", rec.width, rec.height, recArea)
-	fmt.Printf("Circle (%.2f): Area=%.2f\n", circ.radius, circArea)
+	// Value receiver - reads a copy
+	recArea := rec.area()
+	fmt.Printf("The area of the rectangle (%.2f x %.2f) is %.2f\n", rec.width, rec.height, recArea)
 
-	// INCREASE SIZE BY A FACTOR OF 2 USING POINTER RECIEVER
-	fmt.Println("Increase size by a factor of 2")
-	rec.size(2)
-	circ.size(2)
+	circArea := circ.area()
+	fmt.Printf("The area of the circle (radius %.2f) is %.2f\n", circ.radius, circArea)
 
-	// CALCULATE AREA USING A STRUCT TYPE (INCREASED BY 2)
-	rec.area(&recArea)
-	circ.area(&circArea)
+	// Pointer receiver - mutates the original
+	rec.scale(3)
+	recArea = rec.area()
+	fmt.Printf("The area of the rectangle (%.2f x %.2f) is %.2f\n", rec.width, rec.height, recArea)
 
-	// PRINT
-	fmt.Printf("Rectangle (%.2f x %.2f): Area=%.2f\n", rec.width, rec.height, recArea)
-	fmt.Printf("Circle (%.2f): Area=%.2f\n", circ.radius, circArea)
+	circ.scale(4)
+	circArea = circ.area()
+	fmt.Printf("The area of the circle (radius %.2f) is %.2f\n", circ.radius, circArea)
 
 }
