@@ -11,11 +11,16 @@ tl;dr
 
 // A HIGH HIGH LEVEL VIEW
 
-    func jeff(in1, in2 int) (out1, out2 int) { ... }         // Normal - values in, values out (many of each)
-    func jeff(in inStruct) (out outStruct) { ... }           // Struct in/out - bundle many fields as one value
-    func jeff[T int | float64](in T) (out T) { ... }         // Generic - parametric polymorphism (one func, many types)
-    func (r thing) jeff() (out outStruct) { ... }            // Method - receiver; same jeff works across types
-    func doSomething(s shape) float64 { return s.jeff() }    // Interface - subtype polymorphism (any type with jeff())
+    func jeff(in1, in2 int) (out1, out2 int) { ... }         // Function  - Values in, values out (many of each)
+        a, b := jeff(1, 2)
+    func jeff(in inStruct) (out outStruct) { ... }           //           - Using Struct
+        out := jeff(in)
+    func jeff[T int | float64](in T) (out T) { ... }         //           - Using Generics - Parametric polymorphism
+        out := jeff(5)
+    func (i inStructOne) jeff() (out outStruct) { ... }      // Method    - Receiver; same jeff() works across many types
+        out := one.jeff()
+    func doSomething(s shape) float64 { return s.jeff() }    // Interface - Subtype polymorphism (any type with jeff())
+        result := doSomething(one)
 
 ----------
 
@@ -25,7 +30,7 @@ tl;dr
 
 ----------
 
-// FUNCTIONS - Pass by value -  A complete copy is made
+// FUNCTIONS - Pass by value - A complete copy is made
     func areaRectangle(r rectangle) float64 { ... }
     func areaCircle(c circle) float64 { ... }
     recArea  := areaRectangle(rec)
@@ -58,10 +63,12 @@ tl;dr
         area() float64
     }
     func getArea(s shape) float64 { return s.area() }
+    func (r rectangle) area() float64 { ... }
+    func (c circle) area() float64 { ... }
     recArea  := getArea(rec)
     circArea := getArea(circ)
 
-// INTERFACES-POINTERS-RECEIVERS - Polymorphism: Scale via interface
+// INTERFACES-POINTERS-RECEIVERS - Scale via interface
     type scaler interface {
         scale(float64)
     }
@@ -112,11 +119,16 @@ type circle struct {
 ```
 
 Functions are very simple; just input and output.
-We pass the rectangle by value so a complete copy is made.
+We pass the rectangle by **value** so a complete copy is made.
 
 ```go
 func areaRectangle(r rectangle) float64 {
     area := r.width * r.height
+    return area
+}
+
+func areaCircle(c circle) float64 {
+    area := math.Pi * c.radius * c.radius
     return area
 }
 ```

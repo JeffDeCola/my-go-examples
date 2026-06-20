@@ -71,12 +71,12 @@ func main() {
 	// Scale via the interface
 	var sr scaler = &rec
 	sr.scale(3)
-	recArea = getArea(&rec)
+	recArea = getArea(rec)
 	fmt.Printf("The area of the rectangle (%.2f x %.2f) is %.2f\n", rec.width, rec.height, recArea)
 
 	var sc scaler = &circ
 	sc.scale(4)
-	circArea = getArea(&circ)
+	circArea = getArea(circ)
 	fmt.Printf("The area of the circle (radius %.2f) is %.2f\n", circ.radius, circArea)
 
 }
