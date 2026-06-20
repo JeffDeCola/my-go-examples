@@ -1,6 +1,6 @@
 // interfaces
 //
-// tbd
+// Using an interface to calculate the area of a rectangle and circle.
 //
 
 package main
@@ -10,12 +10,10 @@ import (
 	"math"
 )
 
-// INTERFACE TYPES - TIES INTERFACE WITH METHODS
-type geometry interface {
+type shape interface {
 	area() float64
 }
 
-// STRUCTS - SHAPE CHARACTERISTICS
 type rectangle struct {
 	width  float64
 	height float64
@@ -25,48 +23,36 @@ type circle struct {
 	radius float64
 }
 
-// MATH USING METHODS
+func getArea(s shape) float64 {
+	area := s.area()
+	return area
+}
+
 func (r rectangle) area() float64 {
 	area := r.width * r.height
 	return area
 }
 
 func (c circle) area() float64 {
-	area := math.Pi * math.Pow(c.radius, 2)
-	return area
-}
-
-// FUNCTION USING AN INTERFACE - I FIND THIS CLEANER
-func getArea(g geometry) float64 {
-	// CALL THE METHOD - WILL CHOSE RIGHT ONE
-	area := g.area()
+	area := math.Pi * c.radius * c.radius
 	return area
 }
 
 func main() {
+	rec := rectangle{
+		width:  10,
+		height: 5,
+	}
 
-	// DEFINE
-	rec := rectangle{2.4, 34.4}
-	circ := circle{2.3}
+	circ := circle{
+		radius: 5,
+	}
 
-	// CALCULATE AREA USING AN INTERFACE TYPE
-	var gRec geometry
-	var gCirc geometry
-	gRec = rec
-	gCirc = circ
-	recArea := gRec.area()
-	circArea := gCirc.area()
+	// Polymorphism: One func, many types
+	recArea := getArea(rec)
+	fmt.Printf("The area of the rectangle (%.2f x %.2f) is %.2f\n", rec.width, rec.height, recArea)
 
-	// PRINT
-	fmt.Printf("Rectangle (%.2f x %.2f): Area=%.2f\n", rec.width, rec.height, recArea)
-	fmt.Printf("Circle (%.2f): Area=%.2f\n", circ.radius, circArea)
-
-	// I COULD WRAP THE INTERFACE IN A FUNCTION
-	recArea = getArea(rec)
-	circArea = getArea(circ)
-
-	// PRINT
-	fmt.Printf("Rectangle (%.2f x %.2f): Area=%.2f\n", rec.width, rec.height, recArea)
-	fmt.Printf("Circle (%.2f): Area=%.2f\n", circ.radius, circArea)
+	circArea := getArea(circ)
+	fmt.Printf("The area of the circle (radius %.2f) is %.2f\n", circ.radius, circArea)
 
 }
