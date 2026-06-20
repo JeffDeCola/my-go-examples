@@ -1,6 +1,6 @@
 // interfaces-pointers-receivers
 //
-// tbd
+// Using an interface to resize a rectangle and circle using pointer receivers.
 //
 
 package main
@@ -10,10 +10,12 @@ import (
 	"math"
 )
 
-// INTERFACE TYPES - TIES INTERFACE WITH METHODS
-type geometry interface {
-	area(*float64)
-	size(float64)
+type shape interface {
+	area() float64
+}
+
+type scaler interface {
+	scale(factor float64)
 }
 
 type rectangle struct {
@@ -25,59 +27,56 @@ type circle struct {
 	radius float64
 }
 
-// MATH USING METHODS
-func (r rectangle) area(a *float64) {
-	*a = r.width * r.height
+func getArea(s shape) float64 {
+	area := s.area()
+	return area
 }
 
-func (c circle) area(a *float64) {
-	*a = math.Pi * math.Pow(c.radius, 2)
+func (r rectangle) area() float64 {
+	area := r.width * r.height
+	return area
 }
 
-func (r *rectangle) size(f float64) {
-	r.width = r.width * f
-	r.height = r.height * f
+func (c circle) area() float64 {
+	area := math.Pi * c.radius * c.radius
+	return area
 }
 
-func (c *circle) size(f float64) {
-	c.radius = c.radius * f
+func (r *rectangle) scale(factor float64) {
+	r.width *= factor
+	r.height *= factor
+}
+
+func (c *circle) scale(factor float64) {
+	c.radius *= factor
 }
 
 func main() {
+	rec := rectangle{
+		width:  10,
+		height: 5,
+	}
 
-	// DEFINE
-	rec := rectangle{2.4, 34.4}
-	circ := circle{2.3}
+	circ := circle{
+		radius: 5,
+	}
 
-	// CALCULATE AREA USING AN INTERFACE TYPE
-	var gRec geometry
-	var gCirc geometry
-	var recArea float64
-	var circArea float64
+	// Polymorphism: one func, many types
+	recArea := getArea(rec)
+	fmt.Printf("The area of the rectangle (%.2f x %.2f) is %.2f\n", rec.width, rec.height, recArea)
 
-	// Note using the address
-	gRec = &rec
-	gCirc = &circ
+	circArea := getArea(circ)
+	fmt.Printf("The area of the circle (radius %.2f) is %.2f\n", circ.radius, circArea)
 
-	// CALCULATE AREA USING A STRUCT TYPE
-	gRec.area(&recArea)
-	gCirc.area(&circArea)
+	// Scale via the interface
+	var sr scaler = &rec
+	sr.scale(3)
+	recArea = getArea(&rec)
+	fmt.Printf("The area of the rectangle (%.2f x %.2f) is %.2f\n", rec.width, rec.height, recArea)
 
-	// PRINT
-	fmt.Printf("BEFORE: Rectangle (%.2f x %.2f): Area=%.2f\n", rec.width, rec.height, recArea)
-	fmt.Printf("BEFORE: Circle (%.2f): Area=%.2f\n", circ.radius, circArea)
-
-	// INCREASE SIZE BY A FACTOR OF 2 USING POINTER RECIEVER
-	fmt.Println("Increase size by a factor of 2")
-	gRec.size(2)
-	gCirc.size(2)
-
-	// CALCULATE AREA USING A STRUCT TYPE (INCREASED BY 2)
-	gRec.area(&recArea)
-	gCirc.area(&circArea)
-
-	// PRINT
-	fmt.Printf("AFTER:  Rectangle (%.2f x %.2f): Area=%.2f\n", rec.width, rec.height, recArea)
-	fmt.Printf("AFTER:: Circle (%.2f): Area=%.2f\n", circ.radius, circArea)
+	var sc scaler = &circ
+	sc.scale(4)
+	circArea = getArea(&circ)
+	fmt.Printf("The area of the circle (radius %.2f) is %.2f\n", circ.radius, circArea)
 
 }

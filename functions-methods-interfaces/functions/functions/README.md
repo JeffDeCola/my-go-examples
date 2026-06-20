@@ -8,6 +8,17 @@ _Using functions to calculate the area of a rectangle and circle._
 tl;dr
 
 ```go
+
+// A HIGH HIGH LEVEL VIEW
+
+    func jeff(in1, in2 int) (out1, out2 int) { ... }         // Normal - values in, values out (many of each)
+    func jeff(in inStruct) (out outStruct) { ... }           // Struct in/out - bundle many fields as one value
+    func jeff[T int | float64](in T) (out T) { ... }         // Generic - parametric polymorphism (one func, many types)
+    func (r thing) jeff() (out outStruct) { ... }            // Method - receiver; same jeff works across types
+    func doSomething(s shape) float64 { return s.jeff() }    // Interface - subtype polymorphism (any type with jeff())
+
+----------
+
 // SYNTAX:  func (receiver) name(parameters) returnValues
     type rectangle struct{ width, height float64 }
     type circle    struct{ radius float64 }
@@ -28,7 +39,7 @@ tl;dr
 
 ----------
 
-// METHODS - Value receiver - Reads a copy - Both shapes can just be area()
+// METHODS - Value receiver - reads a copy - both shapes can just be area()
     func (r rectangle) area() float64 { ... }
     func (c circle) area() float64 { ... }
     recArea  := rec.area()
@@ -36,25 +47,30 @@ tl;dr
 
 // METHODS-POINTERS-RECEIVERS - Pointer receiver mutates the original
     func (r *rectangle) scale(factor float64) { ... }
-    rec.scale(2)
+    func (c *circle) scale(factor float64) { ... }
+    rec.scale(3)
+    circ.scale(4)
 
 ----------
 
-// INTERFACES - a func accepts the interface; any type with area() satisfies it.
-// This is polymorphism: one func, many types, the right area() chosen at runtime.
-    type geometry interface { area() float64 }
-    func getArea(g geometry) float64 { ... }
-    recArea  := getArea(rec)    // rectangle
-    circArea := getArea(circ)   // circle - one func, dispatch by type
-
-// INTERFACES-POINTERS-RECEIVERS - scale has a *receiver, so only *rectangle is
-// in the method set -> assign &rec, not rec
-    type geometry interface {
+// INTERFACES - Polymorphism: One func, many types
+    type shape interface {
         area() float64
+    }
+    func getArea(s shape) float64 { return s.area() }
+    recArea  := getArea(rec)
+    circArea := getArea(circ)
+
+// INTERFACES-POINTERS-RECEIVERS - Polymorphism: Scale via interface
+    type scaler interface {
         scale(float64)
     }
-    var g geometry = &rec
-    g.scale(2)
+    func (r *rectangle) scale(factor float64) { ... }
+    func (c *circle) scale(factor float64) { ... }
+    var sr scaler = &rec
+    var sc scaler = &circ
+    sr.scale(3)
+    sc.scale(4)
 ```
 
 Examples
