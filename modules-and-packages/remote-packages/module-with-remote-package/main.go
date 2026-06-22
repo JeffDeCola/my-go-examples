@@ -1,26 +1,20 @@
 // module-with-remote-package
 //
-// A go module with a remote (public) package.
+// A go module with a remote package.
+//
 
 package main
 
 import (
 	"fmt"
 
-	"github.com/JeffDeCola/my-go-packages/geometry/circle"
+	"github.com/google/uuid"
 )
 
 func main() {
 
-	// Create a Circle type
-	c := circle.Circle{Radius: 5}
-
-	// Get the area
-	a := c.Area()
-	fmt.Println("Area =", a)
-
-	// Get the circumference
-	p := c.Circumference()
-	fmt.Println("Circumference =", p)
+	// Create a Universally Unique Identifier
+	id := uuid.New()
+	fmt.Println(id)
 
 }

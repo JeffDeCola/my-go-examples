@@ -1,5 +1,5 @@
 module module-with-remote-package
 
-go 1.24.0
+go 1.26.4
 
-require github.com/JeffDeCola/my-go-packages/geometry/circle v0.0.1
+require github.com/google/uuid v1.6.0

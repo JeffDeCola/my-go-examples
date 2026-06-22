@@ -1,2 +1,2 @@
-github.com/JeffDeCola/my-go-packages/geometry/circle v0.0.1 h1:XNuywLFqwSazyt9SgQjD27hKFcQgBSS3V/vmTYFty1Y=
-github.com/JeffDeCola/my-go-packages/geometry/circle v0.0.1/go.mod h1:80tz7n57Zdy0999Oj4I8Ru7+OAH9juFbZ48ySeLl01M=
+github.com/google/uuid v1.6.0 h1:NIvaJDMOsjHA8n1jAhLSgzrAzy1Hgr+hNrb57e+94F0=
+github.com/google/uuid v1.6.0/go.mod h1:TIyPZe4MgqvfeYDBFedMoGGpEw/LqOeaOT+nhxU+yHo=
