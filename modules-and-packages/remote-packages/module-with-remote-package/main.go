@@ -1,3 +1,7 @@
+// module-with-remote-package
+//
+// A go module with a remote (public) package.
+
 package main
 
 import (

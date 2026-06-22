@@ -1,3 +1,4 @@
+// Package mypackage provides a simple Add function.
 package mypackage
 
 // Add adds two integers and returns the result
