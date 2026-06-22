@@ -93,20 +93,15 @@ Documentation and Reference
 * BLOCKCHAIN
 
   * [bitcoin-ledger](https://github.com/JeffDeCola/my-go-examples/tree/master/architectures/blockchain/bitcoin-ledger)
-
-    _Demonstrates a bitcoin ledger in a blockchain using the
+    _- Demonstrates a bitcoin ledger in a blockchain using the
     unspent transaction output model._
-
   * [create-bitcoin-address-from-ecdsa-publickey](https://github.com/JeffDeCola/my-go-examples/tree/master/architectures/blockchain/create-bitcoin-address-from-ecdsa-publickey)
-
-    _Create a bitcoin address from your ecdsa public key
+    _- Create a bitcoin address from your ecdsa public key
     using the
     [crypto/ecdsa](https://pkg.go.dev/crypto/ecdsa)
     standard package._
-
   * [single-node-blockchain-with-REST](https://github.com/JeffDeCola/my-go-examples/tree/master/architectures/blockchain/single-node-blockchain-with-REST)
-
-    _A simple single node sha256 blockchain with a REST JSON API
+    _- A simple single node sha256 blockchain with a REST JSON API
     (to view (GET) the blockchain and add (POST) a block)._
 
 * WEB SCRAPING
@@ -118,99 +113,120 @@ Documentation and Reference
 * C CODE
 
   * [simple-c-code](https://github.com/JeffDeCola/my-go-examples/tree/master/cgo/c-code/simple-c-code)
-
-    _A very simple example to show you how to write a c function in go._
-
+    _- A very simple example to show you how to write a c function in go._
   * [simple-c-code-using-stdio](https://github.com/JeffDeCola/my-go-examples/tree/master/cgo/c-code/simple-c-code-using-stdio)
-
-    _A c function in go using stdio.h for printf._
+    _- A c function in go using stdio.h for printf._
 
 ## CLIENT/SERVER
 
 * gRPC
 
-  * _Coming soon._
+  * _- Coming soon._
 
 * HTTP
 
-  * _Coming soon._
+  * _- Coming soon._
 
 * TCP/IP
 
-  * _Coming soon._
+  * _- Coming soon._
 
 ## CLOUD SERVICE PROVIDERS
 
 * AMAZON WEB SERVICES
 
-  * _Coming soon._
+  * _- Coming soon._
 
 * GOOGLE CLOUD PLATFORM
 
-  * _Coming soon._
+  * _- Coming soon._
 
 * MICROSOFT AZURE
 
-  * _Coming soon._
+  * _- Coming soon._
 
 ## CRYPTOGRAPHY
 
 * ASYMMETRIC CRYPTOGRAPHY
   _(Great for digital signatures (verify sender) and receiving encrypted data)_
 
-  * _Coming soon._
+  * _- Coming soon._
 
 * HASHING
   _(Great for getting fingerprints)_
 
-  * _Coming soon._
+  * _- Coming soon._
 
 * SYMMETRIC CRYPTOGRAPHY
   _(Using the same key to encrypt and decrypt)_
 
-  * _Coming soon._
+  * _- Coming soon._
 
 ## DATA STRUCTURES AND ALGORITHMS
 
 * DATA STRUCTURES
 
-  * _Coming soon._
+  * BUILT-IN
+
+    * [arrays](https://github.com/JeffDeCola/my-go-examples/tree/master/data-structures-and-algorithms/data-structures/built-in/arrays)
+      _- A fixed-length collection of elements of the same type._
+    * [slices](https://github.com/JeffDeCola/my-go-examples/tree/master/data-structures-and-algorithms/data-structures/built-in/slices)
+      _- A flexible, dynamically-sized view into an array._
+    * [maps](https://github.com/JeffDeCola/my-go-examples/tree/master/data-structures-and-algorithms/data-structures/built-in/maps)
+      _- An unordered collection of key-value pairs (a hash table)._
+
+  * FROM SCRATCH
+
+    * [sets](https://github.com/JeffDeCola/my-go-examples/tree/master/data-structures-and-algorithms/data-structures/from-scratch/sets)
+      _- A collection of unique elements, built from a map._
+    * [stack](https://github.com/JeffDeCola/my-go-examples/tree/master/data-structures-and-algorithms/data-structures/from-scratch/stack)
+      _- A last-in, first-out (LIFO) collection._
+    * [queue](https://github.com/JeffDeCola/my-go-examples/tree/master/data-structures-and-algorithms/data-structures/from-scratch/queue)
+      _- A first-in, first-out (FIFO) collection._
+    * [linked-list](https://github.com/JeffDeCola/my-go-examples/tree/master/data-structures-and-algorithms/data-structures/from-scratch/linked-list)
+      _- A linear sequence of nodes, each pointing to the next._
+    * [binary-tree](https://github.com/JeffDeCola/my-go-examples/tree/master/data-structures-and-algorithms/data-structures/from-scratch/binary-tree)
+      _- A tree where each node has at most two children._
 
 * ALGORITHMS
 
   * SEARCHING
 
-    * _Coming soon._
+    * [linear-search](https://github.com/JeffDeCola/my-go-examples/tree/master/data-structures-and-algorithms/algorithms/searching/linear-search)
+      _- Find a value by scanning each element in turn (O(n))._
+    * [binary-search](https://github.com/JeffDeCola/my-go-examples/tree/master/data-structures-and-algorithms/algorithms/searching/binary-search)
+      _- Find a value in a sorted slice by repeatedly halving the range (O(log n))._
 
   * SORTING
 
-    * _Coming soon._
+    * [bubble-sort](https://github.com/JeffDeCola/my-go-examples/tree/master/data-structures-and-algorithms/algorithms/sorting/bubble-sort)
+      _- Sort by repeatedly swapping adjacent out-of-order pairs (O(n²))._
+    * [quick-sort](https://github.com/JeffDeCola/my-go-examples/tree/master/data-structures-and-algorithms/algorithms/sorting/quick-sort)
+      _- Sort by partitioning around a pivot and recursing (O(n log n) average)._
 
 ## DATABASES
 
 * NON-RELATIONAL
 
-  * _Coming soon._
+  * _- Coming soon._
 
 * RELATIONAL
 
-  * _Coming soon._
+  * _- Coming soon._
 
 ## ERROR HANDLING
 
 * BASIC
 
   * [error-simple](https://github.com/JeffDeCola/my-go-examples/tree/master/error-handling/basic/error-simple)
-
-    _Error handling using the
+    _- Error handling using the
     [errors](https://pkg.go.dev/errors)
     standard package._
 
 * WRAPPING
 
   * [error-wrapping](https://github.com/JeffDeCola/my-go-examples/tree/master/error-handling/wrapping/error-wrapping)
-
-    _Wrapping errors with %w to add context as they propagate up the call stack
+    _- Wrapping errors with %w to add context as they propagate up the call stack
     using the
     [errors](https://pkg.go.dev/errors)
     standard package._
@@ -218,8 +234,7 @@ Documentation and Reference
 * SENTINELS
 
   * [error-sentinel](https://github.com/JeffDeCola/my-go-examples/tree/master/error-handling/sentinels/error-sentinel)
-
-    _A sentinel is a named error that callers can check for by identity
+    _- A sentinel is a named error that callers can check for by identity
     using the
     [errors](https://pkg.go.dev/errors)
     standard package._
@@ -229,71 +244,54 @@ Documentation and Reference
 * FUNCTIONS
 
   * [functions](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/functions/functions)
-
-    _Using functions to calculate the area of a rectangle and circle._
-
+    _- Using functions to calculate the area of a rectangle and circle._
   * [functions-pointers-arguments](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/functions/functions-pointers-arguments)
-
-    _Using functions to resize a rectangle and circle by passing pointers._
+    _- Using functions to resize a rectangle and circle by passing pointers._
 
 * METHODS
 
   * [methods](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/methods/methods)
-
-    _Using methods to calculate the area of a rectangle and circle._
-
+    _- Using methods to calculate the area of a rectangle and circle._
   * [methods-pointers-receivers](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/methods/methods-pointers-receivers)
-
-    _Using methods to resize a rectangle and circle using pointer receivers._
+    _- Using methods to resize a rectangle and circle using pointer receivers._
 
 * INTERFACES
 
   * [interfaces](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/interfaces/interfaces)
-
-    _Using an interface to calculate the area of a rectangle and circle._
-
+    _- Using an interface to calculate the area of a rectangle and circle._
   * [interfaces-pointers-receivers](https://github.com/JeffDeCola/my-go-examples/tree/master/functions-methods-interfaces/interfaces/interfaces-pointers-receivers)
-
-    _Using an interface to resize a rectangle and circle using pointer receivers._
+    _- Using an interface to resize a rectangle and circle using pointer receivers._
 
 ## GO RUNTIME
 
 * GOROUTINES
 
   * [goroutines-multi-core](https://github.com/JeffDeCola/my-go-examples/tree/master/go-runtime/goroutines/goroutines-multi-core)
-
-    _Concurrency across multiples cores.  You can play around with workers,
+    _- Concurrency across multiples cores.  You can play around with workers,
     threads, cpus/cores and nice to find the fastest performance.
     It will find the total number of prime numbers within a range.
     Lightweight goroutines are amazing._
-
   * [goroutines-waitgroup](https://github.com/JeffDeCola/my-go-examples/tree/master/go-runtime/goroutines/goroutines-waitgroup)
-
-    _Concurrency using a waitgroup (waiting for a collection of goroutines to finish)._
-
+    _- Concurrency using a waitgroup (waiting for a collection of
+    goroutines to finish)._
   * [goroutines-worker-pools](https://github.com/JeffDeCola/my-go-examples/tree/master/go-runtime/goroutines/goroutines-worker-pools)
-
-    _Concurrency using worker pools._
+    _- Concurrency using worker pools._
 
 * INTERACT GO RUNTIME
 
   * [simple-go-runtime-interactions](https://github.com/JeffDeCola/my-go-examples/tree/master/go-runtime/interact-go-runtime/simple-go-runtime-interactions)
-
-    _A few go runtime interactions using the
+    _- A few go runtime interactions using the
     [runtime](https://pkg.go.dev/runtime)
     standard package._
 
 * INTERACT HOST OS
 
   * [simple-external-commands](https://github.com/JeffDeCola/my-go-examples/tree/master/go-runtime/interact-host-os/simple-external-commands)
-
-    _Run a few os commands using the
+    _- Run a few os commands using the
     [os/exec](https://pkg.go.dev/os/exec)
     standard package._
-
   * [simple-os-interactions](https://github.com/JeffDeCola/my-go-examples/tree/master/go-runtime/interact-host-os/simple-os-interactions)
-
-    _A few os interactions using the
+    _- A few os interactions using the
     [syscall](https://pkg.go.dev/syscall)
     package._
 
@@ -302,40 +300,30 @@ Documentation and Reference
 * IO READER
 
   * [io-reader](https://github.com/JeffDeCola/my-go-examples/tree/master/input-output/io-reader/io-reader)
-
-    _Read data (a stream of bytes) from a string, buffer, file, stdin and
+    _- Read data (a stream of bytes) from a string, buffer, file, stdin and
     a pipe to a buffer using the
     [io](https://pkg.go.dev/io)
     standard package._
-
   * [io-reader-simple](https://github.com/JeffDeCola/my-go-examples/tree/master/input-output/io-reader/io-reader-simple)
-
-    _Read data (a stream of bytes) from a buffer to a buffer
+    _- Read data (a stream of bytes) from a buffer to a buffer
     using the
     [io](https://pkg.go.dev/io)
     standard package._
-
   * [read-file](https://github.com/JeffDeCola/my-go-examples/tree/master/input-output/io-reader/read-file)
-
-    _Read a file (*os.File) to a buffer._
-
+    _- Read a file (*os.File) to a buffer._
   * [read-user-input](https://github.com/JeffDeCola/my-go-examples/tree/master/input-output/io-reader/read-user-input)
-
-    _Read user input (os.Stdin) to a buffer (using Read method)
+    _- Read user input (os.Stdin) to a buffer (using Read method)
     and string (using Fscan)._
 
 * IO WRITER
 
   * [io-writer](https://github.com/JeffDeCola/my-go-examples/tree/master/input-output/io-writer/io-writer)
-
-    _Write data (a stream of bytes) to a buffer, file, stdout and a pipe
+    _- Write data (a stream of bytes) to a buffer, file, stdout and a pipe
     from a buffer using the
     [io](https://pkg.go.dev/io)
     standard package._
-
   * [io-writer-simple](https://github.com/JeffDeCola/my-go-examples/tree/master/input-output/io-writer/io-writer-simple)
-
-    _Write data (a stream of bytes) to a buffer
+    _- Write data (a stream of bytes) to a buffer
     from a buffer using the
     [io](https://pkg.go.dev/io)
     standard package._
@@ -346,36 +334,29 @@ Documentation and Reference
 
   * ASYNCHRONOUS
 
-    * _Coming soon._
+    * _- Coming soon._
 
   * SYNCHRONOUS
 
     * [pipes-unnamed-simple](https://github.com/JeffDeCola/my-go-examples/tree/master/in-process-communication/shared-memory/synchronous/pipes-unnamed-simple)
-
-      _A pipe provides a uni-directional communication channel.
+      _- A pipe provides a uni-directional communication channel.
       This is a very simple example of an unnamed pipe._
-
     * [pipes-unnamed](https://github.com/JeffDeCola/my-go-examples/tree/master/in-process-communication/shared-memory/synchronous/pipes-unnamed)
-
-      _This is a more robust example of an unnamed pipe showing multiple reads._
-
+      _- This is a more robust example of an unnamed pipe showing multiple reads._
     * [pipes-unnamed-io](https://github.com/JeffDeCola/my-go-examples/tree/master/in-process-communication/shared-memory/synchronous/pipes-unnamed-io)
-
-      _This example of an unnamed pipe connects an io.Writer and io.Reader._
+      _- This example of an unnamed pipe connects an io.Writer and io.Reader._
 
 * MESSAGE PASSING
 
   * ASYNCHRONOUS
 
     * [channels-buffered](https://github.com/JeffDeCola/my-go-examples/tree/master/in-process-communication/message-passing/asynchronous/channels-buffered)
-
-      _Buffered channels are uni-directional, asynchronous with no blocking._
+      _- Buffered channels are uni-directional, asynchronous with no blocking._
 
   * SYNCHRONOUS
 
     * [channels-unbuffered](https://github.com/JeffDeCola/my-go-examples/tree/master/in-process-communication/message-passing/synchronous/channels-unbuffered)
-
-      _Unbuffered channels are uni-directional, synchronous with blocking._
+      _- Unbuffered channels are uni-directional, synchronous with blocking._
 
 ## INTER-PROCESS COMMUNICATION (IPC)
 
@@ -383,13 +364,12 @@ Documentation and Reference
 
   * ASYNCHRONOUS
 
-    * _Coming soon._
+    * _- Coming soon._
 
   * SYNCHRONOUS
 
     * [pipes-named](https://github.com/JeffDeCola/my-go-examples/tree/master/inter-process-communication-ipc/shared-memory/synchronous/pipes-named)
-
-      _Sending data over a named-pipe (FIFO) from one process to another process._
+      _- Sending data over a named-pipe (FIFO) from one process to another process._
 
 * MESSAGE PASSING
 
@@ -398,66 +378,51 @@ Documentation and Reference
     * ASYNCHRONOUS
 
       * [message-queues](https://github.com/JeffDeCola/my-go-examples/tree/master/inter-process-communication-ipc/message-passing/operating-system/asynchronous/message-queues)
-
-        _Coming soon._
-
+        _- Coming soon._
       * [pub-sub-nats-os](https://github.com/JeffDeCola/my-go-examples/tree/master/inter-process-communication-ipc/message-passing/operating-system/asynchronous/pub-sub-nats-os)
-
-        _Coming soon._
-
+        _- Coming soon._
       * [tcp](https://github.com/JeffDeCola/my-go-examples/tree/master/inter-process-communication-ipc/message-passing/operating-system/asynchronous/tcp)
-
-        _Coming soon._
+        _- Coming soon._
 
     * SYNCHRONOUS
 
       * [grpc-os](https://github.com/JeffDeCola/my-go-examples/tree/master/inter-process-communication-ipc/message-passing/operating-system/synchronous/grpc-os)
-
-      _Start a grpc server in the go runtime environment using googles grpc package._
+        _- Start a grpc server in the go runtime environment using googles
+        grpc package._
 
   * NETWORK
 
     * ASYNCHRONOUS
 
       * [pub-sub-nats-network](https://github.com/JeffDeCola/my-go-examples/tree/master/inter-process-communication-ipc/message-passing/network/asynchronous/pub-sub-nats-network)
-
-        _Coming soon._
-
+        _- Coming soon._
       * [tcp-ip](https://github.com/JeffDeCola/my-go-examples/tree/master/inter-process-communication-ipc/message-passing/network/asynchronous/tcp-ip)
-
-        _Coming soon._
+        _- Coming soon._
 
     * SYNCHRONOUS
 
       * [grpc-network](https://github.com/JeffDeCola/my-go-examples/tree/master/inter-process-communication-ipc/message-passing/network/synchronous/grpc-network)
-
-        _Start a grpc server in the go runtime environment using googles grpc package._
-
+        _- Start a grpc server in the go runtime environment using googles
+        grpc package._
       * [rest](https://github.com/JeffDeCola/my-go-examples/tree/master/inter-process-communication-ipc/message-passing/network/synchronous/rest)
-
-        _Coming soon._
+        _- Coming soon._
 
 ## IoT
 
 * RASPBERRY PI
 
   * [blink-led-raspberry-pi-gpio-periph](https://github.com/JeffDeCola/my-go-examples/tree/master/iot/raspberry-pi/blink-led-raspberry-pi-gpio-periph)
-
-    _GPIO OUTPUT -
+    _- GPIO OUTPUT -
     Blink an LED via a Raspberry Pi GPIO using the
     [periph.io/...](https://pkg.go.dev/periph.io/x/conn/v3)
     packages._
-
   * [push-button-raspberry-pi-gpio-periph](https://github.com/JeffDeCola/my-go-examples/tree/master/iot/raspberry-pi/push-button-raspberry-pi-gpio-periph)
-
-    _GPIO INPUT -
+    _- GPIO INPUT -
     Push a button via a Raspberry Pi GPIO using the
     [periph.io/...](https://pkg.go.dev/periph.io/x/conn/v3)
     packages._
-
   * [toggle-led-with-button-raspberry-pi-gpio-periph](https://github.com/JeffDeCola/my-go-examples/tree/master/iot/raspberry-pi/toggle-led-with-button-raspberry-pi-gpio-periph)
-
-    _Toggle an LED with a button push via a Raspberry Pi GPIO using the
+    _- Toggle an LED with a button push via a Raspberry Pi GPIO using the
     [periph.io/...](https://pkg.go.dev/periph.io/x/conn/v3)
     packages._
 
@@ -466,21 +431,19 @@ Documentation and Reference
 * LOCAL PACKAGES
 
   * [module-with-local-package](https://github.com/JeffDeCola/my-go-examples/tree/master/modules-and-packages/local-packages/module-with-local-package)
-
-    _A go module with a local package._
+    _- A go module with a local package._
 
 * REMOTE PACKAGES
-  * [module-with-remote-package](https://github.com/JeffDeCola/my-go-examples/tree/master/modules-and-packages/remote-packages/module-with-remote-package)
 
-    _A go module with a remote (public) package._
+  * [module-with-remote-package](https://github.com/JeffDeCola/my-go-examples/tree/master/modules-and-packages/remote-packages/module-with-remote-package)
+    _- A go module with a remote (public) package._
 
 ## MY GENERIC GO TEMPLATES
 
 * JEFFS BASIC TEMPLATE
 
   * [jeffs-basic-go-template](https://github.com/JeffDeCola/my-go-examples/tree/master/my-generic-go-templates/jeffs-basic-template/jeffs-basic-go-template)
-
-    _My generic go template with flags, logging & error handling.
+    _- My generic go template with flags, logging & error handling.
     A place to see how everything fits together._
 
 ## PROGRAM BASICS
@@ -488,16 +451,14 @@ Documentation and Reference
 * FLAGS
 
   * [flags](https://github.com/JeffDeCola/my-go-examples/tree/master/program-basics/flags/flags)
-
-    _The
+    _- The
     [flag](https://pkg.go.dev/flag)
     standard package makes it easy to implement command-line flag parsing._
 
 * LOGGING
 
   * [jeffs-logger](https://github.com/JeffDeCola/my-go-examples/tree/master/program-basics/logging/jeffs-logger)
-
-    _Logging using my
+    _- Logging using my
     [github.com/JeffDeCola/my-go-packages/golang/logger](https://github.com/JeffDeCola/my-go-packages/tree/master/golang/logger)
     which uses the structured logging
     [log/slog](https://pkg.go.dev/log/slog)
@@ -508,55 +469,46 @@ Documentation and Reference
 * STRUCTS
 
   * [structs-basic](https://github.com/JeffDeCola/my-go-examples/tree/master/structs-and-types/structs/structs-basic)
-
-    _Declaring a struct, creating instances and accessing fields._
-
+    _- Declaring a struct, creating instances and accessing fields._
   * [structs-nesting-embedding](https://github.com/JeffDeCola/my-go-examples/tree/master/structs-and-types/structs/structs-nesting-embedding)
-
-    _Nesting and embedding a struct inside another struct, and how field
+    _- Nesting and embedding a struct inside another struct, and how field
     access differs between them._
 
 * CONSTRUCTORS
 
   * [constructor-simple](https://github.com/JeffDeCola/my-go-examples/tree/master/structs-and-types/constructors/constructor-simple)
-
-    _Constructors are functions that build and return a new instance of a struct,
+    _- Constructors are functions that build and return a new instance of a struct,
     often with defaults._
-
   * [constructor-with-error](https://github.com/JeffDeCola/my-go-examples/tree/master/structs-and-types/constructors/constructor-with-error)
-
-    _Expanding on constructor-simple to add a configuration struct
+    _- Expanding on constructor-simple to add a configuration struct
     and error handling._
 
 * GENERICS
 
   * [generics-function](https://github.com/JeffDeCola/my-go-examples/tree/master/structs-and-types/generics/generics-function)
-
-    _A generic function uses a type parameter so a and b are the same type,
+    _- A generic function uses a type parameter so a and b are the same type,
     and so is the result - one function for many types instead of copy-pasting._
-
   * [generics-type](https://github.com/JeffDeCola/my-go-examples/tree/master/structs-and-types/generics/generics-types)
-
-    _A generic type uses a type parameter so one definition serves every element
+    _- A generic type uses a type parameter so one definition serves every element
     type, instead of writing one type per element._
 
 ## TESTING
 
 * UNIT TESTS
 
-  * _Coming soon._
+  * _- Coming soon._
 
 * TABLE-DRIVEN TESTS
 
-  * _Coming soon._
+  * _- Coming soon._
 
 * BENCHMARKS
 
-  * _Coming soon._
+  * _- Coming soon._
 
 * FUZZING
 
-  * _Coming soon._
+  * _- Coming soon._
 
 ## STANDARD GO PACKAGES
 
