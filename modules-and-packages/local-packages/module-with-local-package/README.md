@@ -30,7 +30,6 @@ Table of Contents
 Documentation and Reference
 
 * [go modules reference](https://go.dev/ref/mod)
-* [how to write go code](https://go.dev/doc/code)
 * [effective go - package names](https://go.dev/doc/effective_go#package-names)
 * [go spec - packages](https://go.dev/ref/spec#Packages)
 * [tutorial - multi-module workspaces (go.work)](https://go.dev/doc/tutorial/workspaces)

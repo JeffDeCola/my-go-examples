@@ -31,7 +31,6 @@ Documentation and Reference
 
 * [github.com/google/uuid](https://pkg.go.dev/github.com/google/uuid)
 * [go modules reference](https://go.dev/ref/mod)
-* [how to write go code](https://go.dev/doc/code)
 
 ## OVERVIEW
 
