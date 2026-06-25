@@ -3,7 +3,7 @@
 [![jeffdecola.com](https://img.shields.io/badge/website-jeffdecola.com-blue)](https://jeffdecola.com)
 [![MIT License](https://img.shields.io/:license-mit-blue.svg)](https://jeffdecola.mit-license.org)
 
-_A collection of unique elements, built from a map._
+_- A collection of unique elements built from a map._
 
 tl;dr
 
@@ -36,7 +36,19 @@ Documentation and Reference
 
 ## OVERVIEW
 
-tbd
+A set is a collection of **unique** things.
+Adding a duplicate has no effect.
+For example, a guest list. Add the same name twice, there's still one guest.
+Go has no set type. So this example is about building one from a
+primitive you already have, a map.
+
+For a set, where going to,
+
+* Add an element (GUEST)
+* Check if element (GUEST) already is on list
+* Delete an element (GUEST)
+
+The structure looks like,
 
 ## RUN
 
