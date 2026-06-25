@@ -3,7 +3,7 @@
 [![jeffdecola.com](https://img.shields.io/badge/website-jeffdecola.com-blue)](https://jeffdecola.com)
 [![MIT License](https://img.shields.io/:license-mit-blue.svg)](https://jeffdecola.mit-license.org)
 
-_A tree where each node has at most two children._
+_- A tree built from a struct with pointers to left/right children._
 
 tl;dr
 

@@ -3,7 +3,7 @@
 [![jeffdecola.com](https://img.shields.io/badge/website-jeffdecola.com-blue)](https://jeffdecola.com)
 [![MIT License](https://img.shields.io/:license-mit-blue.svg)](https://jeffdecola.mit-license.org)
 
-_A linear sequence of nodes, each pointing to the next._
+_- A linked-list built from a struct with a pointer to the next node._
 
 tl;dr
 

@@ -171,22 +171,22 @@ Documentation and Reference
     * [arrays](https://github.com/JeffDeCola/my-go-examples/tree/master/data-structures-and-algorithms/data-structures/built-in/arrays)
       _- A fixed-length collection of elements of the same type._
     * [slices](https://github.com/JeffDeCola/my-go-examples/tree/master/data-structures-and-algorithms/data-structures/built-in/slices)
-      _- A flexible, dynamically-sized view into an array._
+      _- A flexible dynamically-sized array._
     * [maps](https://github.com/JeffDeCola/my-go-examples/tree/master/data-structures-and-algorithms/data-structures/built-in/maps)
       _- An unordered collection of key-value pairs (a hash table)._
 
   * FROM SCRATCH
 
     * [sets](https://github.com/JeffDeCola/my-go-examples/tree/master/data-structures-and-algorithms/data-structures/from-scratch/sets)
-      _- A collection of unique elements, built from a map._
+      _- A collection of unique elements built from a map._
     * [stack](https://github.com/JeffDeCola/my-go-examples/tree/master/data-structures-and-algorithms/data-structures/from-scratch/stack)
-      _- A last-in, first-out (LIFO) collection._
+      _- A LIFO (last-in first-out) built from a slice._
     * [queue](https://github.com/JeffDeCola/my-go-examples/tree/master/data-structures-and-algorithms/data-structures/from-scratch/queue)
-      _- A first-in, first-out (FIFO) collection._
+      _- A FIFO (first-in first-out) built from a slice._
     * [linked-list](https://github.com/JeffDeCola/my-go-examples/tree/master/data-structures-and-algorithms/data-structures/from-scratch/linked-list)
-      _- A linear sequence of nodes, each pointing to the next._
+      _- A linked-list built from a struct with a pointer to the next node._
     * [binary-tree](https://github.com/JeffDeCola/my-go-examples/tree/master/data-structures-and-algorithms/data-structures/from-scratch/binary-tree)
-      _- A tree where each node has at most two children._
+      _- A tree built from a struct with pointers to left/right children._
 
 * ALGORITHMS
 

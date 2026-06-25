@@ -9,10 +9,19 @@ import "fmt"
 
 func main() {
 
-	//make and array of five
-	var a [5]int
+	// DECLARE
+	var a [2]float32
+	fmt.Println("Declare:              ", a)
 
-	a[1] = 44
+	// ASSIGN
+	a[0] = 1.1
+	a[1] = 2.0
+	fmt.Println("Assign:               ", a)
 
-	fmt.Println("The array is", a)
+	// DECLARE & INITIALIZE
+	var b = [2]float32{1.1, 2.0}
+	fmt.Println("Declare & Initialize: ", b)
+	c := [2]float32{4.4, 5.0}
+	fmt.Println("Declare & Initialize: ", c)
+
 }
