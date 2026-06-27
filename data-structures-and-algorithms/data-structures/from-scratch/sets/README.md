@@ -5,12 +5,6 @@
 
 _- A collection of unique elements built from a map._
 
-tl;dr
-
-```go
-tbd
-```
-
 Examples
 
 * **BUILT-IN**
@@ -32,23 +26,51 @@ Table of Contents
 
 Documentation and Reference
 
-* MAKE THIS
+* [the go programming language specification - struct types](https://go.dev/ref/spec#Struct_types)
+* [the empty struct - dave cheney](https://dave.cheney.net/2014/03/25/the-empty-struct)
 
 ## OVERVIEW
 
 A set is a collection of **unique** things.
 Adding a duplicate has no effect.
-For example, a guest list. Add the same name twice, there's still one guest.
+For example, a guest list RSVP. Add the same name twice, there's still one guest.
+
 Go has no set type. So this example is about building one from a
 primitive you already have, a map.
 
-For a set, where going to,
+Sets are,
 
-* Add an element (GUEST)
-* Check if element (GUEST) already is on list
-* Delete an element (GUEST)
+* A collection of unique elements
+* Built from a map — the keys ARE the set
+* Membership-tested, not ordered (range order is random)
+* Adding a duplicate has no effect (keys are unique)
+* The value is unused — store `struct{}{}`, which takes zero bytes
+
+For a set, we want to be able to
+
+* ADD an element (Guest RSVPs)
+* CHECK if element (Guest already is on list)
+* DELETE an element (Guest Cancels)
 
 The structure looks like,
+
+```go
+rsvp := make(map[string]struct{})
+
+// ADD (RSVP)
+// name[key] = struct{}{}  (value stores nothing) Will not take up memory
+rsvp["Jeff"] = struct{}{}
+rsvp["Larry"] = struct{}{}
+rsvp["Sam"] = struct{}{}
+rsvp["Jeff"] = struct{}{} // duplicate
+
+// READ - normal map use
+_, ok := rsvp["Larry"] // is Amy on the list?
+_, ok = rsvp["Bob"] // bob never RSVP'd
+
+// DELETE - normal map use
+delete(rsvp, "Sam") // delete(name, key)
+```
 
 ## RUN
 
@@ -61,5 +83,9 @@ go run main.go
 The output should look like,
 
 ```bash
-tbd
+Make map:              map[]
+RSVP (Jeff twice):     map[Jeff:{} Larry:{} Sam:{}] - len 3
+Is Larry coming:       true
+Is Bob coming:         false
+DELETE Sam:            map[Jeff:{} Larry:{}] - len 2
 ```

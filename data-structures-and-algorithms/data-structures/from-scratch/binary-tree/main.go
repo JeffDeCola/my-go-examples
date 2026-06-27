@@ -1,6 +1,6 @@
 // BINARY TREE EXAMPLE
 //
-// A tree where each node has at most two children.
+// A tree built from a struct with pointers to left/right children.
 //
 
 package main

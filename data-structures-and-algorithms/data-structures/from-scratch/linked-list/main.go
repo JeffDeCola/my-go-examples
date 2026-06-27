@@ -1,6 +1,6 @@
 // LINKED LIST EXAMPLE
 //
-// A linear sequence of nodes, each pointing to the next.
+// A linked-list built from a struct with a pointer to the next node.
 //
 
 package main
